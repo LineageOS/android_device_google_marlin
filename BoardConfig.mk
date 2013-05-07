@@ -10,7 +10,7 @@ endif
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
--include vendor/qcom/proprietary/common/apq8084/BoardConfigVendor.mk
+-include $(QCPATH)/common/apq8084/BoardConfigVendor.mk
 
 #TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
 # to get rid of compilation error.
