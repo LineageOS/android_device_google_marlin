@@ -87,7 +87,7 @@ TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_QCOM_BSP := true
 
-TARGET_ADDITIONAL_BOOTCLASSPATH := qcmediaplayer:security-bridge:oem-services
+TARGET_ADDITIONAL_BOOTCLASSPATH := qcmediaplayer:oem-services
 
 # Add QC Video Enhancements flag
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
