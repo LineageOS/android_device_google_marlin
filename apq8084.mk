@@ -26,8 +26,3 @@ PRODUCT_COPY_FILES += \
 
 #fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
-
-#OEM Services library
-PRODUCT_PACKAGES += oem-services
-PRODUCT_PACKAGES += libsubsystem_control
-PRODUCT_PACKAGES += libSubSystemShutdown
