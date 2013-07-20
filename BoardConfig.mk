@@ -55,7 +55,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 maxcpus=2 msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 maxcpus=1 msm_rtb.filter=0x3F ehci-hcd.park=3 earlyprintk video=vfb:640x400,bpp=32,memsize=3072000
 BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
@@ -85,7 +85,7 @@ TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-TARGET_USES_QCOM_BSP := true
+TARGET_USES_QCOM_BSP := false
 
 TARGET_ADDITIONAL_BOOTCLASSPATH := qcmediaplayer:oem-services
 
