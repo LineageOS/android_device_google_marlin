@@ -79,3 +79,12 @@ persist.fuse_sdcard=true
 
 #system prop for Bluetooth SOC type
 qcom.bluetooth.soc=rome
+
+#system prop for RmNet Data
+persist.rmnet.data.enable=false
+persist.data.df.dl_mode=5
+persist.data.df.ul_mode=5
+persist.data.df.agg.dl_pkt=1
+persist.data.df.agg.dl_size=1500
+persist.data.df.mux_count=16
+persist.data.df.dev_name=rmnet_usb0
