@@ -10,7 +10,6 @@ PRODUCT_COPY_FILES += \
 # audio UCM files
 PRODUCT_COPY_FILES += device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko:system/etc/snd_soc_msm/snd_soc_msm_Taiko \
                       device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko_CDP:system/etc/snd_soc_msm/snd_soc_msm_Taiko_CDP \
-                      device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko_Fluid:system/etc/snd_soc_msm/snd_soc_msm_Taiko_Fluid \
                       device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko_liquid:system/etc/snd_soc_msm/snd_soc_msm_Taiko_liquid \
 
 
