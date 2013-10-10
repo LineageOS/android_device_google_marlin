@@ -10,6 +10,8 @@ $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_NAME := apq8084
 PRODUCT_DEVICE := apq8084
 
+PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio
+
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/apq8084/audio_policy.conf:system/etc/audio_policy.conf \
