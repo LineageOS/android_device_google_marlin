@@ -70,6 +70,12 @@ for fwfile in $fwfiles; do
 
 done
 
+# symlinks created for qca6714 firmware
+ln -s /firmware/image/athwlan.bin /system/etc/firmware/athwlan.bin
+ln -s /firmware/image/fakeboar.bin /system/etc/firmware/fakeBoardData_AR6004.bin
+ln -s /firmware/image/otp.bin /system/etc/firmware/otp.bin
+ln -s /firmware/image/utf.bin /system/etc/firmware/utf.bin
+
 case $linksNeeded in
    1)
       cd /firmware/image

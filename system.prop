@@ -62,8 +62,8 @@ persist.timed.enable=true
 #
 # system prop for opengles version
 #
-# 131072 is decimal for 0x20000 to report version 2
-ro.opengles.version=131072
+# 196608 is decimal for 0x30000 to report version 3
+ro.opengles.version=196608
 
 # System property for cabl
 ro.qualcomm.cabl=1
@@ -79,3 +79,12 @@ persist.fuse_sdcard=true
 
 #system prop for Bluetooth SOC type
 qcom.bluetooth.soc=rome
+
+#system prop for RmNet Data
+persist.rmnet.data.enable=false
+persist.data.df.dl_mode=5
+persist.data.df.ul_mode=5
+persist.data.df.agg.dl_pkt=1
+persist.data.df.agg.dl_size=1500
+persist.data.df.mux_count=16
+persist.data.df.dev_name=rmnet_usb0
