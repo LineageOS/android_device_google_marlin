@@ -20,42 +20,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFiSpeaker FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionVerb
-	Name "HiFiFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionVerb
 	Name "HiFiHDMI"
 
 	EnableSequence
@@ -511,42 +475,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFi2Speaker FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 1
-	PlaybackPCM 1
-
-EndSection
-
-SectionVerb
-	Name "HiFi2FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 1
-	PlaybackPCM 1
-
-EndSection
-
-SectionVerb
 	Name "HiFi2HDMI"
 
 	EnableSequence
@@ -970,42 +898,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFi3Speaker FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 14
-	PlaybackPCM 14
-
-EndSection
-
-SectionVerb
-	Name "HiFi3FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 14
-	PlaybackPCM 14
-
-EndSection
-
-SectionVerb
 	Name "HiFi3HDMI"
 
 	EnableSequence
@@ -1401,40 +1293,6 @@ SectionVerb
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 4
-
-EndSection
-
-SectionVerb
-	Name "HiFi Low PowerSpeaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 4
-
-EndSection
-
-SectionVerb
-	Name "HiFi Low PowerFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -2116,8 +1974,8 @@ SectionVerb
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -2135,8 +1993,8 @@ SectionVerb
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -2154,8 +2012,8 @@ SectionVerb
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -2266,8 +2124,8 @@ SectionVerb
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -2306,8 +2164,8 @@ SectionVerb
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 }
@@ -2439,23 +2297,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "Voice Call IPFM Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-		'SLIM_0_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 3
-	CapturePCM 3
-
-EndSection
-
-SectionVerb
 	Name "Voice Call IPUSB PROXY Rx"
 
 	EnableSequence
@@ -2523,137 +2364,6 @@ SectionVerb
 
 EndSection
 }
-SectionUseCase."FM Digital Radio" {
-Comment "FM Radio use case"
-SectionVerb
-	Name "FM Digital Radio"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:1
-		'SLIMBUS_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:0
-		'SLIMBUS_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionVerb
-	Name "FM Digital RadioPROXY Rx"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:1
-		'PCM_RX_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:0
-		'PCM_RX_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionVerb
-	Name "FM Digital RadioPROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionVerb
-	Name "FM Digital RadioUSB PROXY Rx"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:1
-		'PCM_RX_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:0
-		'PCM_RX_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionVerb
-	Name "FM Digital RadioUSB PROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-}
-SectionUseCase."FM REC" {
-Comment "FM Recording use case"
-SectionVerb
-	Name "FM REC"
-
-	EnableSequence
-		'MultiMedia1 Mixer INTERNAL_FM_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia1 Mixer INTERNAL_FM_TX':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 0
-	CapturePCM 0
-
-EndSection
-}
-SectionUseCase."FM A2DP REC" {
-Comment "FM A2DP playback use case"
-SectionVerb
-	Name "FM A2DP REC"
-
-	EnableSequence
-		'MultiMedia2 Mixer INTERNAL_FM_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia2 Mixer INTERNAL_FM_TX':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 1
-	CapturePCM 1
-
-EndSection
-}
 SectionUseCase."Incall REC" {
 Comment "Voice Recording use case"
 SectionVerb
@@ -2684,40 +2394,6 @@ SectionVerb
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 9
-
-EndSection
-
-SectionVerb
-	Name "HiFi TunnelSpeaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 9
-
-EndSection
-
-SectionVerb
-	Name "HiFi TunnelFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -3149,40 +2825,6 @@ SectionVerb
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 16
-
-EndSection
-
-SectionVerb
-	Name "HiFi Tunnel2Speaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 16
-
-EndSection
-
-SectionVerb
-	Name "HiFi Tunnel2FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -3772,40 +3414,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFi LowlatencySpeaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 15
-
-EndSection
-
-SectionVerb
-	Name "HiFi LowlatencyFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 15
-
-EndSection
-
-SectionVerb
 	Name "HiFi LowlatencyHDMI"
 
 	EnableSequence
@@ -4363,6 +3971,7 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX2
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 		'RX1 Digital Volume':1:67
@@ -4376,6 +3985,7 @@ SectionDevice
 		'RX2 MIX1 INP1':0:ZERO
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 		'RX1 Digital Volume':1:0
@@ -4421,6 +4031,7 @@ SectionDevice
 		'RX2 MIX2 INP1':0:IIR1
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 		'RX1 Digital Volume':1:67
@@ -4455,6 +4066,7 @@ SectionDevice
 		'IIR1 INP1 Volume':1:0
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 		'RX1 Digital Volume':1:0
@@ -4479,6 +4091,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'DAC1 Switch':1:1
 		'HPHL DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 		'RX1 Digital Volume':1:67
@@ -4496,6 +4109,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:ZERO
 		'DAC1 Switch':1:0
 		'HPHL DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 		'RX1 Digital Volume':1:0
@@ -4701,42 +4315,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID	26:1
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Speaker FM Tx"
-	Comment "Speaker FM Tx combo device"
-
-	EnableSequence
-		'SLIM RX1 MUX':0:AIF1_PB
-		'SLIM RX2 MUX':0:AIF1_PB
-		'SLIM_0_RX Channels':0:Two
-		'RX3 MIX1 INP1':0:RX1
-		'RX5 MIX1 INP1':0:RX2
-		'RX4 DSM MUX':0:DSM_INV
-		'RX6 DSM MUX':0:DSM_INV
-                'LINEOUT1 Volume':1:66
-                'LINEOUT2 Volume':1:66
-                'LINEOUT3 Volume':1:66
-                'LINEOUT4 Volume':1:66
-	EndSequence
-
-	DisableSequence
-		'SLIM RX1 MUX':0:ZERO
-		'SLIM RX2 MUX':0:ZERO
-		'RX3 MIX1 INP1':0:ZERO
-		'RX5 MIX1 INP1':0:ZERO
-		'RX4 DSM MUX':0:CIC_OUT
-		'RX6 DSM MUX':0:CIC_OUT
-                'LINEOUT1 Volume':1:0
-                'LINEOUT2 Volume':1:0
-                'LINEOUT3 Volume':1:0
-                'LINEOUT4 Volume':1:0
-	EndSequence
-
-	ACDBID	15:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -5190,6 +4768,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'RX1 Digital Volume':1:67
 	EndSequence
@@ -5200,6 +4779,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:ZERO
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'RX1 Digital Volume':1:0
 	EndSequence
@@ -5250,6 +4830,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'RX1 Digital Volume':1:67
 	EndSequence
@@ -5260,6 +4841,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:ZERO
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'RX1 Digital Volume':1:0
 	EndSequence
@@ -5410,21 +4992,6 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "FM Tx"
-	Comment "FM Tx device"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	ACDBID	0:1
-	EffectsMixerCTL "SRS TruMedia FM"
-
-EndSection
-
-SectionDevice
 	Name "PROXY Rx"
 	Comment "PROXY Rx device"
 
@@ -5550,6 +5117,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:RX2
 		'RX4 DSM MUX':0:DSM_INV
 		'RX6 DSM MUX':0:DSM_INV
+		'COMP2 Switch':1:1
 		'LINEOUT1 Volume':1:66
 		'LINEOUT2 Volume':1:66
 		'LINEOUT3 Volume':1:66
@@ -5563,6 +5131,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
 		'RX6 DSM MUX':0:CIC_OUT
+		'COMP2 Switch':1:0
 		'LINEOUT1 Volume':1:0
 		'LINEOUT2 Volume':1:0
 		'LINEOUT3 Volume':1:0
@@ -5587,6 +5156,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
 		'HPHR DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 	EndSequence
@@ -5599,6 +5169,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
 		'HPHR DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 	EndSequence
@@ -5670,6 +5241,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:RX2
 		'RX4 DSM MUX':0:DSM_INV
 		'RX6 DSM MUX':0:DSM_INV
+		'COMP2 Switch':1:1
 		'LINEOUT1 Volume':1:66
 		'LINEOUT2 Volume':1:66
 		'LINEOUT3 Volume':1:66
@@ -5679,6 +5251,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
 		'HPHR DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 	EndSequence
@@ -5690,6 +5263,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
 		'RX6 DSM MUX':0:CIC_OUT
+		'COMP2 Switch':1:0
 		'LINEOUT1 Volume':1:0
 		'LINEOUT2 Volume':1:0
 		'LINEOUT3 Volume':1:0
@@ -5699,6 +5273,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
 		'HPHR DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 	EndSequence
@@ -5890,6 +5465,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
 		'HPHR DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 	EndSequence
@@ -5902,6 +5478,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
 		'HPHR DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 	EndSequence
@@ -5923,6 +5500,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:RX2
 		'RX4 DSM MUX':0:DSM_INV
 		'RX6 DSM MUX':0:DSM_INV
+		'COMP2 Switch':1:1
 		'LINEOUT1 Volume':1:66
 		'LINEOUT2 Volume':1:66
 		'LINEOUT3 Volume':1:66
@@ -5932,6 +5510,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:DSM_HPHL_RX1
 		'HPHL DAC Switch':1:1
 		'HPHR DAC Switch':1:1
+		'COMP1 Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
 	EndSequence
@@ -5943,6 +5522,7 @@ SectionDevice
 		'RX5 MIX1 INP1':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
 		'RX6 DSM MUX':0:CIC_OUT
+		'COMP2 Switch':1:0
 		'LINEOUT1 Volume':1:0
 		'LINEOUT2 Volume':1:0
 		'LINEOUT3 Volume':1:0
@@ -5952,6 +5532,7 @@ SectionDevice
 		'CLASS_H_DSM MUX':0:ZERO
 		'HPHL DAC Switch':1:0
 		'HPHR DAC Switch':1:0
+		'COMP1 Switch':1:0
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 	EndSequence
@@ -6119,44 +5700,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play MusicSpeaker FM Tx"
-	Comment "Modifier for music playback"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionModifier
-	Name "Play MusicFM Tx"
-	Comment "Modifier for music playback on FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionModifier
 	Name "Play MusicHDMI"
 	Comment "Modifier for music playback on HDMI"
 
@@ -6301,44 +5844,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play Music2Speaker FM Tx"
-	Comment "Modifier for music playback"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 1
-	PlaybackPCM 1
-
-EndSection
-
-SectionModifier
-	Name "Play Music2FM Tx"
-	Comment "Modifier for music playback on FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia2':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 1
-	PlaybackPCM 1
-
-EndSection
-
-SectionModifier
 	Name "Play Music2HDMI"
 	Comment "Modifier for music playback on HDMI"
 
@@ -6449,66 +5954,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play FM"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:1
-		'SLIMBUS_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:0
-		'SLIMBUS_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionModifier
-	Name "Play FMPROXY Rx"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:1
-		'PCM_RX_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:0
-		'PCM_RX_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionModifier
-	Name "Play FMUSB PROXY Rx"
-
-	EnableSequence
-		'Internal FM RX Volume':1:0
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:1
-		'PCM_RX_DL_HL Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'AFE_PCM_RX Port Mixer INTERNAL_FM_TX':1:0
-		'PCM_RX_DL_HL Switch':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 5
-	CapturePCM 6
-
-EndSection
-
-SectionModifier
 	Name "Capture Voice"
 
 	EnableSequence
@@ -6526,23 +5971,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Capture FM"
-
-	EnableSequence
-		'MultiMedia1 Mixer INTERNAL_FM_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia1 Mixer INTERNAL_FM_TX':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 0
-	CapturePCM 0
-
-EndSection
-
-SectionModifier
 	Name "Play LPA"
 
 	EnableSequence
@@ -6551,40 +5979,6 @@ SectionModifier
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 4
-
-EndSection
-
-SectionModifier
-	Name "Play LPASpeaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia3':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 4
-
-EndSection
-
-SectionModifier
-	Name "Play LPAFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia3':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -6758,8 +6152,8 @@ SectionModifier
 	EndSequence
 
 	# ALSA PCMs
-	CapturePCM 19
-	PlaybackPCM 19
+	CapturePCM 20
+	PlaybackPCM 20
 
 EndSection
 
@@ -6847,23 +6241,6 @@ SectionModifier
 	# ALSA PCMs
 	PlaybackPCM 2
 	CapturePCM 2
-
-EndSection
-
-SectionModifier
-        Name "Capture A2DP FM"
-
-        EnableSequence
-                'MultiMedia2 Mixer INTERNAL_FM_TX':1:1
-        EndSequence
-
-        DisableSequence
-                'MultiMedia2 Mixer INTERNAL_FM_TX':1:0
-        EndSequence
-
-        # ALSA PCMs
-	PlaybackPCM 1
-	CapturePCM 1
 
 EndSection
 
@@ -7037,40 +6414,6 @@ SectionModifier
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 9
-
-EndSection
-
-SectionModifier
-	Name "Play TunnelSpeaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 9
-
-EndSection
-
-SectionModifier
-	Name "Play TunnelFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia4':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -7669,8 +7012,8 @@ SectionModifier
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -7709,8 +7052,8 @@ SectionModifier
 	EndSequence
 
 	# ALSA PCMs
-	PlaybackPCM 19
-	CapturePCM 19
+	PlaybackPCM 20
+	CapturePCM 20
 
 EndSection
 
@@ -7829,36 +7172,6 @@ EndSection
 
 SectionModifier
 	Name "Play LPAUSB PROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionModifier
-	Name "Play FMPROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
-SectionModifier
-	Name "Play FMUSB PROXY Tx"
 
 	EnableSequence
 	EndSequence
@@ -8565,42 +7878,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play Music3Speaker FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 14
-	PlaybackPCM 14
-
-EndSection
-
-SectionModifier
-	Name "Play Music3FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 14
-	PlaybackPCM 14
-
-EndSection
-
-SectionModifier
 	Name "Play Music3HDMI"
 
 	EnableSequence
@@ -8956,40 +8233,6 @@ SectionModifier
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 16
-
-EndSection
-
-SectionModifier
-	Name "Play Tunnel2Speaker FM Tx"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:1
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia7':1:0
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 16
-
-EndSection
-
-SectionModifier
-	Name "Play Tunnel2FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia7':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -9617,44 +8860,6 @@ SectionModifier
 
 	DisableSequence
 		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 15
-	PlaybackPCM 15
-
-EndSection
-
-SectionModifier
-	Name "Play Lowlatency MusicSpeaker FM Tx"
-	Comment "Modifier for Lowlatency music playback"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 15
-	PlaybackPCM 15
-
-EndSection
-
-SectionModifier
-	Name "Play Lowlatency MusicFM Tx"
-	Comment "Modifier for Lowlatency music playback on FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia5':1:0
 	EndSequence
 
 	# ALSA PCMs
