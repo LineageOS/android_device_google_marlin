@@ -5,6 +5,12 @@ ifeq ($(TARGET_USES_QCOM_BSP), true)
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 endif #TARGET_USES_QCOM_BSP
 
+# media_profiles and media_codecs xmls for 8084
+ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
+PRODUCT_COPY_FILES += device/qcom/apq8084/media/media_profiles_8084.xml:system/etc/media_profiles.xml \
+                      device/qcom/apq8084/media/media_codecs_8084.xml:system/etc/media_codecs.xml
+endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
+
 $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := apq8084
