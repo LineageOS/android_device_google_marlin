@@ -15,11 +15,7 @@ PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Perf
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/apq8084/audio_policy.conf:system/etc/audio_policy.conf \
-
-# audio UCM files
-PRODUCT_COPY_FILES += device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko:system/etc/snd_soc_msm/snd_soc_msm_Taiko \
-                      device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko_CDP:system/etc/snd_soc_msm/snd_soc_msm_Taiko_CDP \
-                      device/qcom/apq8084/snd_soc_msm/snd_soc_msm_Taiko_liquid:system/etc/snd_soc_msm/snd_soc_msm_Taiko_liquid \
+    device/qcom/apq8084/mixer_paths.xml:system/etc/mixer_paths.xml
 
 
 # Feature definition files for apq8084
