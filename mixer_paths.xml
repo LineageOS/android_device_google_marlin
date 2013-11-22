@@ -128,8 +128,7 @@
     <!-- usb headset end -->
 
     <!-- Incall Recording -->
-    <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="0" />
-    <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="0" />
+    <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="0" />
 
     <!-- Voice -->
     <ctl name="STUB_RX Mixer Voice Stub" value="0" />
@@ -357,16 +356,16 @@
     </path>
 
    <path name="incall-rec-uplink">
-       <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
+       <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="1" />
    </path>
 
    <path name="incall-rec-downlink">
-       <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="1" />
+       <path name="incall-rec-uplink" />
    </path>
 
    <path name="incall-rec-uplink-and-downlink">
+       <ctl name="Incall Rec Mode" value="1" />
        <path name="incall-rec-uplink" />
-       <path name="incall-rec-downlink" />
    </path>
 
     <path name="volte-call">
