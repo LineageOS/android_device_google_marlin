@@ -46,3 +46,9 @@ PRODUCT_PACKAGES += \
 
 #fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
+
+#ANT+ stack
+PRODUCT_PACKAGES += \
+AntHalService \
+libantradio \
+antradio_app
