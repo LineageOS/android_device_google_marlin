@@ -92,7 +92,8 @@ persist.data.df.dl_mode=5
 persist.data.df.ul_mode=5
 persist.data.df.agg.dl_pkt=1
 persist.data.df.agg.dl_size=1500
-persist.data.df.mux_count=16
+persist.data.df.mux_count=8
+persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
 #property to enable user to access Google WFD settings
