@@ -150,6 +150,7 @@
     <ctl name="Voice Stub Tx Mixer STUB_TX_HL" value="0" />
     <!-- Voice BTSCO -->
     <ctl name="SLIM_1 SampleRate" value="8000" />
+    <ctl name="AUX PCM SampleRate" value="8000" />
     <ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="0" />
     <ctl name="SLIMBUS_1_RX Mixer Voice Stub" value="0" />
     <ctl name="Voice Stub Tx Mixer SLIM_1_TX" value="0" />
@@ -235,6 +236,12 @@
     <ctl name="AIF1_CAP Mixer SLIM TX10" value="0" />
     <!-- ssr qmic end-->
 
+    <!-- BT SCO WB samplerate -->
+    <path name="bt-sco-wb-samplerate">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+    </path>
+
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="deep-buffer-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia1" value="1" />
@@ -251,6 +258,12 @@
 
     <path name="deep-buffer-playback bt-sco">
         <ctl name="AUX_PCM_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <path name="deep-buffer-playback bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="deep-buffer-playback bt-sco" />
     </path>
 
     <path name="deep-buffer-playback afe-proxy">
@@ -276,6 +289,12 @@
 
     <path name="low-latency-playback bt-sco">
         <ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="1" />
+    </path>
+
+    <path name="low-latency-playback bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="low-latency-playback bt-sco" />
     </path>
 
     <path name="low-latency-playback speaker-and-hdmi">
@@ -411,6 +430,7 @@
 
     <path name="compress-voip-call bt-sco-wb">
         <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
         <path name="compress-voip-call bt-sco" />
     </path>
 
