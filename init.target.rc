@@ -1,4 +1,4 @@
-# Copyright (c) 2013, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -145,7 +145,7 @@ on property:persist.qca1530=detect
 
 # QCA1530 SoC Detection
 # Setting property require root priviledge
-service gnss-detect /system/vendor/bin/gnss.qca1530.detect.sh
+service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
    class late_start
    user root
    group root
@@ -153,7 +153,7 @@ service gnss-detect /system/vendor/bin/gnss.qca1530.detect.sh
    disabled
 
 # QCA1530 SoC Service Daemon
-service gnss-svcd /system/vendor/bin/gnss.qca1530.start.sh
+service gnss-svcd /system/vendor/bin/gnss.qca1530.sh start
    class late_start
    user gps
    group gps system qcom_diag diag log inet net_raw
