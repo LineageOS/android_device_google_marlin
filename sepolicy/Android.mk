@@ -14,4 +14,6 @@ BOARD_SEPOLICY_UNION := \
        adbd.te \
        qmuxd.te \
        netmgrd.te \
-       smd_test.te
+       smd_test.te \
+       qmi_ping.te \
+       qmi_test_service.te
