@@ -28,3 +28,6 @@
 #Context for the netmgrd and qmuxd daemons
 /system/bin/netmgrd        u:object_r:netmgrd_exec:s0
 /system/bin/qmuxd          u:object_r:qmuxd_exec:s0
+/dev/kgsl-3d0        u:object_r:gpu_device:s0
+
+/dev/smd.*  	 	u:object_r:smd_device:s0

@@ -1,0 +1,1 @@
+/system/bin/kernel-tests/smd.* u:object_r:smd_test_exec:s0
