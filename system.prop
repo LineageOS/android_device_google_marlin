@@ -119,3 +119,6 @@ av.offload.enable=true
 
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
+
+# system prop for NFC DT
+ro.nfc.port=I2C
