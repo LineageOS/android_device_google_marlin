@@ -342,6 +342,12 @@
         <ctl name="AUX_PCM_RX Audio Mixer MultiMedia4" value="1" />
     </path>
 
+    <path name="compress-offload-playback bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="compress-offload-playback bt-sco" />
+    </path>
+
     <path name="compress-offload-playback speaker-and-hdmi">
         <path name="compress-offload-playback hdmi" />
         <path name="compress-offload-playback" />
@@ -372,12 +378,24 @@
         <ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="1" />
     </path>
 
+    <path name="audio-record bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="audio-record bt-sco" />
+    </path>
+
     <path name="audio-record-compress">
         <ctl name="MultiMedia8 Mixer SLIM_0_TX" value="1" />
     </path>
 
     <path name="audio-record-compress bt-sco">
         <ctl name="MultiMedia8 Mixer AUX_PCM_UL_TX" value="1" />
+    </path>
+
+    <path name="audio-record-compress bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="audio-record-compress bt-sco" />
     </path>
 
     <path name="audio-record-compress usb-headset-mic">
