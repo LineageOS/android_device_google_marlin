@@ -246,6 +246,9 @@
     <ctl name="MADONOFF Switch" value="0" />
     <ctl name="MAD Input" value="DMIC3" />
     <!-- listen end-->
+    <!-- afe-proxy -->
+    <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="0" />
+    <!-- afe-proxy end-->
 
     <!-- BT SCO WB samplerate -->
     <path name="bt-sco-wb-samplerate">
@@ -328,6 +331,10 @@
 
     <path name="multi-channel-playback hdmi">
         <ctl name="HDMI Mixer MultiMedia2" value="1" />
+    </path>
+
+    <path name="multi-channel-playback afe-proxy">
+        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="1" />
     </path>
 
     <path name="compress-offload-playback">
