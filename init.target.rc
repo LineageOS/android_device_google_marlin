@@ -172,6 +172,7 @@ on property:persist.qca1530=yes
 on property:persist.qca1530=no
    stop gnss-svcd
    stop gnss-detect
+   write /sys/kernel/qca1530/chip_state 0
 
 # When QCA1530 presence detection is required
 on property:persist.qca1530=detect
