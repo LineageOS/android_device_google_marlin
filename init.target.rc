@@ -199,7 +199,7 @@ service gnss-detect /system/vendor/bin/gnss.qca1530.detect.sh
 # QCA1530 SoC Service Daemon
 service gnss-svcd /system/vendor/bin/gnss.qca1530.start.sh
    class late_start
-   user gps
+   user root
    group gps system qcom_diag diag log inet net_raw
    disabled
 
