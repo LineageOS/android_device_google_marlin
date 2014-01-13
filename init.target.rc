@@ -140,6 +140,7 @@ on property:init.svc.bootanim=stopped
 
 on boot
     insmod /system/lib/modules/adsprpc.ko
+    insmod /system/lib/modules/mhi.ko
 
 service mdm_helper /system/bin/mdm_helper
     class core
