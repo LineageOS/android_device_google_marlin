@@ -122,3 +122,6 @@ use.voice.path.for.pcm.voip=true
 
 # system prop for NFC DT
 ro.nfc.port=I2C
+
+#enable dsp gapless mode by default
+audio.offload.gapless.enabled=true
