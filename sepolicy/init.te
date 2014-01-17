@@ -1,0 +1,1 @@
+allow init firmware_file:filesystem { relabelfrom relabelto mount};

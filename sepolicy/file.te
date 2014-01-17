@@ -1,0 +1,4 @@
+# Default type for anything under /firmware.
+type firmware_file, file_type;
+# Allow files to be created in their appropriate filesystems.
+allow firmware_file self:filesystem associate;

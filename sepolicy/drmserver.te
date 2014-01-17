@@ -1,0 +1,2 @@
+#Address denial logs for drm server accessing firmware file
+allow drmserver firmware_file:file { read getattr open };
