@@ -471,6 +471,7 @@
     <path name="voice-call usb-headphones">
         <ctl name="SLIM_1 SampleRate" value="48000" />
         <ctl name="SLIM_1_TX Channels" value="Two" />
+        <ctl name="SLIM_3_RX Channels" value="Two" />
         <ctl name="Voice Stub Tx Mixer AFE_PCM_TX" value="1" />
         <ctl name="SLIMBUS_1_RX Mixer Voice Stub" value="1" />
         <ctl name="Voice Stub Tx Mixer SLIM_1_TX" value="1" />
