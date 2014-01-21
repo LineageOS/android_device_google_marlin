@@ -85,6 +85,14 @@ service thermal-engine /system/bin/thermal-engine
    user root
    group root
 
+service security-check1 /sbin/security_boot_check system
+    class core
+    oneshot
+
+service security-check2 /sbin/security_boot_check recovery
+    class core
+    oneshot
+
 service time_daemon /system/bin/time_daemon
    class late_start
    user root
@@ -173,3 +181,9 @@ service gsiff_daemon /system/bin/gsiff_daemon
     class late_start
     user gps
     group gps net_raw misc
+
+service nqs /system/bin/nqs
+    class late_start
+    socket nqs_qsb_comm stream 660 system system
+    user system
+    group drmrpc
