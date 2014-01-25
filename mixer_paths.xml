@@ -667,7 +667,7 @@
         <ctl name="IIR1 INP1 MUX" value="DEC5" />
     </path>
 
-    <path name="dmic1">
+    <path name="dmic3">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
         <ctl name="SLIM TX7 MUX" value="DEC10" />
@@ -724,11 +724,11 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="dmic1" />
+        <path name="dmic3" />
     </path>
 
     <path name="speaker-mic-liquid">
-        <path name="dmic1" />
+        <path name="dmic3" />
         <ctl name="DEC9 Volume" value="111" />
     </path>
 
@@ -745,7 +745,7 @@
     </path>
 
     <path name="handset-mic">
-        <path name="dmic1" />
+        <path name="dmic3" />
     </path>
 
     <path name="handset-mic-cdp">
@@ -991,9 +991,9 @@
     <path name="speaker-dmic-endfire">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC7" />
+        <ctl name="SLIM TX8 MUX" value="DEC7" />
         <ctl name="DEC7 MUX" value="DMIC1" />
-        <ctl name="SLIM TX8 MUX" value="DEC10" />
+        <ctl name="SLIM TX7 MUX" value="DEC10" />
         <ctl name="DEC10 MUX" value="DMIC3" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
@@ -1158,7 +1158,7 @@
     </path>
 
     <path name="voice-tty-vco-handset-mic">
-        <path name="dmic1" />
+        <path name="dmic3" />
     </path>
 
     <path name="listen-handset-mic">
