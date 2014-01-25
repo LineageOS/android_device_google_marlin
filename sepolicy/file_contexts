@@ -31,3 +31,4 @@
 /dev/kgsl-3d0        u:object_r:gpu_device:s0
 
 /dev/smd.*  	 	u:object_r:smd_device:s0
+/system/bin/irsc_util		u:object_r:irsc_util_exec:s0
