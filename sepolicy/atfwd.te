@@ -1,0 +1,24 @@
+type atfwd, domain;
+type atfwd_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(atfwd)
+
+#============= atfwd ==============
+#Set CTL property
+allow atfwd ctl_default_prop:property_service set;
+
+#Allow logging
+allow atfwd diag_device:chr_file { read write open };
+
+# Talks to init via the property socket.
+unix_socket_connect(atfwd, property, init);
+
+# Creates/Talks to qmuxd via the qmux_radio socket.
+unix_socket_connect(atfwd, qmux_radio, qmuxd);
+allow atfwd qmux_radio_socket:sock_file create;
+allow atfwd qmux_radio_socket:dir { write search add_name };
+
+#Allow IPC binding with ServiceManager & System apps
+allow atfwd servicemanager:binder call;
+allow atfwd system_app:binder call;
