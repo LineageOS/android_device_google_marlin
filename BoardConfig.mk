@@ -7,6 +7,9 @@ ifeq ($(TARGET_ARCH),)
 TARGET_ARCH := arm
 endif
 
+# Enables Adreno RS driver
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
