@@ -22,6 +22,7 @@ PRODUCT_BOOT_JARS += qcmediaplayer:WfdCommon:oem-services:qcom.fmradio:org.codea
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/apq8084/audio_policy.conf:system/etc/audio_policy.conf \
+    device/qcom/apq8084/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/qcom/apq8084/mixer_paths.xml:system/etc/mixer_paths.xml
 
 
@@ -30,6 +31,10 @@ PRODUCT_COPY_FILES += \
     device/qcom/apq8084/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/qcom/apq8084/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     device/qcom/apq8084/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
+
+PRODUCT_PACKAGES += \
+    libqcomvisualizer \
+    libqcomvoiceprocessing
 
 # Feature definition files for apq8084
 PRODUCT_COPY_FILES += \
