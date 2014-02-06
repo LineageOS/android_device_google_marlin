@@ -1,0 +1,4 @@
+#Make adbd daemon permissive for userdebug or eng builds
+userdebug_or_eng(`
+       permissive adbd;
+')

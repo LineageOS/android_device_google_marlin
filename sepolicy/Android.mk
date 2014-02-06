@@ -9,4 +9,5 @@ BOARD_SEPOLICY_UNION := \
        ueventd.te \
        file.te \
        init.te \
-       drmserver.te
+       drmserver.te \
+       adbd.te
