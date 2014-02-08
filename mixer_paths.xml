@@ -77,6 +77,7 @@
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia5" value="0" />
+    <ctl name="MultiMedia6 Mixer SLIM_0_TX" value="0" />
     <ctl name="IIR1 INP1 MUX" value="ZERO" />
     <ctl name="SLIM TX10 MUX" value="ZERO" />
     <ctl name="SLIM TX9 MUX" value="ZERO" />
@@ -209,6 +210,12 @@
     <ctl name="Voip_Tx Mixer AFE_PCM_TX_Voip" value="0" />
     <!-- VoIP end-->
 
+    <!-- Audio BTSCO -->
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia1" value="0" />
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia4" value="0" />
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="0" />
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia6" value="0" />
+    <ctl name="MultiMedia1 Mixer AUX_PCM_TX" value="0" />
     <!-- anc headset -->
     <!-- speaker anc combo -->
     <ctl name="RX4 DSM MUX" value="CIC_OUT" />
@@ -579,6 +586,18 @@
     <path name="incall-rec-uplink-and-downlink-compress usb-headset-mic">
         <path name="incall-rec-uplink-and-downlink-compress" />
     </path>
+
+    <path name="hfp-sco">
+        <ctl name="SLIMBUS_0_RX Port Mixer AUX_PCM_TX" value="1" />
+        <ctl name="AUX_PCM_RX  Audio Mixer MultiMedia6" value="1" />
+        <ctl name="MultiMedia6 Mixer SLIM_0_TX" value="1" />
+        <ctl name="SLIMBUS_DL_HL Switch" value="1" />
+   </path>
+
+   <path name="hfp-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <path name="hfp-sco" />
+   </path>
 
     <path name="volte-call">
         <ctl name="STUB_RX Mixer VoLTE Stub" value="1" />
