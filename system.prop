@@ -33,7 +33,7 @@ persist.qca1530=detect
 
 #ro.hdmi.enable=true
 #persist.speaker.prot.enable=false
-
+qcom.hw.aac.encoder=true
 #
 # system props for the cne module
 #
