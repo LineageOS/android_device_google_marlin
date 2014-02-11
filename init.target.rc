@@ -163,46 +163,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
-# When QCA1530 SoC presence detected
-on property:persist.qca1530=yes
-   #gpio133 on APQ8084 CDP
-   chown gps system /sys/class/gpio/gpio133/value
-   chmod 0644 /sys/class/gpio/gpio133/value
-
-   #gpio128 on APQ8084 LIQUID
-   chown gps system /sys/class/gpio/gpio128/value
-   chmod 0644 /sys/class/gpio/gpio128/value
-
-   stop gnss-detect
-   start gnss-svcd
-
-# When QCA1530 is known not to present
-on property:persist.qca1530=no
-   stop gnss-svcd
-   stop gnss-detect
-   write /sys/kernel/qca1530/chip_state 0
-
-# When QCA1530 presence detection is required
-on property:persist.qca1530=detect
-   #gpio133 on APQ8084 CDP
-   chown gps system /sys/class/gpio/gpio133/value
-   chmod 0644 /sys/class/gpio/gpio133/value
-
-   #gpio128 on APQ8084 LIQUID
-   chown gps system /sys/class/gpio/gpio128/value
-   chmod 0644 /sys/class/gpio/gpio128/value
-
-   stop gnss-svcd
-   start gnss-detect
-
-# QCA1530 SoC Detection
-# Setting property require root priviledge
-service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
+# QCA1530 SoC late_start group trigger
+service gnss-init /system/vendor/bin/gnss.qca1530.sh init
    class late_start
-   user root
-   group root
    oneshot
-   disabled
 
 # QCA1530 SoC Service Daemon
 service gnss-svcd /system/vendor/bin/gnss.qca1530.sh start
