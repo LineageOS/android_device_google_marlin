@@ -28,9 +28,6 @@ dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 
-# System prop for standalone GNSS service
-persist.qca1530=detect
-
 #ro.hdmi.enable=true
 #persist.speaker.prot.enable=false
 qcom.hw.aac.encoder=true

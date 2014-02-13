@@ -164,6 +164,11 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
+# QCA1530 SoC core detect
+service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
+   class core
+   oneshot
+
 # QCA1530 SoC late_start group trigger
 service gnss-init /system/vendor/bin/gnss.qca1530.sh init
    class late_start
