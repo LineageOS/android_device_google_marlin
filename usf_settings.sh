@@ -39,6 +39,7 @@ prox_dir=$dir0/proximity
 pairing_dir=$dir0/pairing
 ucm_dir=$dir0/ucm
 mixer_dir=/persist/usf/mixer
+epos_dir=/persist/usf/epos
 
 trigger_file=$dir0/form_factor.cfg
 
@@ -83,6 +84,9 @@ if [ ! -e $trigger_file ]; then
 
    ln -s $mixer_dir/mixer_paths_"$type".xml $mixer_dir/mixer_paths.xml
 
+   ln -s $epos_dir/product_calib_"$type".dat $epos_dir/product_calib.dat
+   ln -s $epos_dir/unit_calib_"$type".dat $epos_dir/unit_calib.dat
+
    # The USF based calculators have system permissions
    chown system $dir0/*
    chown system $dir0/*/*
@@ -90,3 +94,6 @@ if [ ! -e $trigger_file ]; then
 fi
 
 chown system /dev/usf1
+
+# Set enabled properties for daemon
+setprop ro.qc.sdk.us.digitalpen 1
