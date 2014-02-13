@@ -196,3 +196,8 @@ service nqs /system/bin/nqs
     socket nqs_qsb_comm stream 660 system system
     user system
     group drmrpc
+
+service adsprpcd /system/bin/adsprpcd
+   class main
+   user media
+   group media
