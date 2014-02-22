@@ -17,7 +17,7 @@ $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_NAME := apq8084
 PRODUCT_DEVICE := apq8084
 
-PRODUCT_BOOT_JARS += qcmediaplayer:WfdCommon:oem-services:qcom.fmradio:org.codeaurora.Performance:security-bridge:DigitalPenServiceImpl
+PRODUCT_BOOT_JARS += qcmediaplayer:WfdCommon:oem-services:qcom.fmradio:org.codeaurora.Performance:security-bridge
 
 # Audio configuration file
 PRODUCT_COPY_FILES += \
