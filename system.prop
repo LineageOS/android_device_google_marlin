@@ -132,3 +132,7 @@ ro.nfc.port=I2C
 
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
+
+#initialize QCA1530 detection
+sys.qca1530=detect
+
