@@ -2,9 +2,12 @@ type netmgrd, domain;
 type netmgrd_exec, exec_type, file_type;
 net_domain(netmgrd)
 init_daemon_domain(netmgrd)
+
+userdebug_or_eng(`
 domain_auto_trans(shell, netmgrd_exec, netmgrd)
 domain_auto_trans(su, netmgrd_exec, netmgrd)
-domain_auto_trans(init, netmgrd_exec, netmgrd)
+domain_auto_trans(adbd, netmgrd_exec, netmgrd)
+')
 
 #Allow files to be written during the operation of netmgrd
 file_type_auto_trans(netmgrd, system_data_file, data_test_data_file)
@@ -37,6 +40,9 @@ allow netmgrd qmuxd:unix_stream_socket { connectto };
 
 #Allow writing of ipv6 network properties
 allow netmgrd proc_net:file { write };
+
+#Allow address configuration
+allow netmgrd system_prop:property_service { set };
 
 #Allow execution of commands in shell
 allow netmgrd system_file:file { execute_no_trans };
