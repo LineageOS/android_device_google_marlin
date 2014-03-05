@@ -23,7 +23,9 @@ PRODUCT_BOOT_JARS += qcmediaplayer:WfdCommon:oem-services:qcom.fmradio:org.codea
 PRODUCT_COPY_FILES += \
     device/qcom/apq8084/audio_policy.conf:system/etc/audio_policy.conf \
     device/qcom/apq8084/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    device/qcom/apq8084/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/qcom/apq8084/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/qcom/apq8084/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
+    device/qcom/apq8084/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml
 
 
 # wlan driver
