@@ -32,3 +32,5 @@
 
 /dev/smd.*  	 	u:object_r:smd_device:s0
 /system/bin/irsc_util		u:object_r:irsc_util_exec:s0
+# Persist filesystem
+/persist(/.*)?                    u:object_r:persist_file:s0
