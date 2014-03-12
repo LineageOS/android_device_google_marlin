@@ -18,4 +18,5 @@ BOARD_SEPOLICY_UNION := \
        smd_test.te \
        qmi_ping.te \
        qmi_test_service.te \
-       irsc_util.te
+       irsc_util.te \
+       netd.te
