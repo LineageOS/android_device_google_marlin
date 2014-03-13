@@ -172,6 +172,28 @@
     <ctl name="SLIMBUS_3_RX Port Mixer AFE_PCM_RX" value="0" />
     <!-- Voice USB headset end-->
 
+    <!-- Voice2 -->
+    <ctl name="STUB_RX Mixer Voice2 Stub" value="0" />
+    <ctl name="Voice2 Stub Tx Mixer STUB_TX_HL" value="0" />
+    <ctl name="Voice2 Stub Tx Mixer STUB_1_TX_HL" value="0" />
+    <!-- Voice2 HDMI -->
+    <ctl name="Voice2 Stub Tx Mixer SLIM_3_TX" value="0" />
+    <ctl name="HDMI_RX_Voice Mixer Voice2 Stub" value="0" />
+    <ctl name="Voice2 Stub Tx Mixer STUB_TX_HL" value="0" />
+    <!-- Voice2 BTSCO -->
+    <ctl name="Voice2 Stub Tx Mixer AUX_PCM_UL_TX" value="0" />
+    <ctl name="SLIMBUS_1_RX Mixer Voice2 Stub" value="0" />
+    <ctl name="Voice2 Stub Tx Mixer SLIM_1_TX" value="0" />
+    <ctl name="AUX_PCM_RX_Voice Mixer Voice2 Stub" value="0" />
+    <ctl name="SLIMBUS_3_RX_Voice Mixer Voice2 Stub" value="0" />
+    <!-- Voice2 USB headset -->
+    <ctl name="Voice2 Stub Tx Mixer AFE_PCM_TX" value="0" />
+    <ctl name="SLIMBUS_1_RX Mixer Voice2 Stub" value="0" />
+    <ctl name="Voice2 Stub Tx Mixer SLIM_1_TX" value="0" />
+    <ctl name="AFE_PCM_RX_Voice Mixer Voice2 Stub" value="0" />
+    <ctl name="SLIMBUS_3_RX_Voice Mixer Voice2 Stub" value="0" />
+    <!-- Voice2 end-->
+
     <!-- VoLTE -->
     <ctl name="STUB_RX Mixer VoLTE Stub" value="0" />
     <ctl name="VoLTE Stub Tx Mixer STUB_TX_HL" value="0" />
@@ -500,6 +522,52 @@
         <ctl name="SLIMBUS_3_RX Port Mixer AFE_PCM_RX" value="1" />
     </path>
 
+    <path name="voice2-call">
+        <ctl name="STUB_RX Mixer Voice2 Stub" value="1" />
+        <ctl name="Voice2 Stub Tx Mixer STUB_TX_HL" value="1" />
+        <ctl name="Voice2 Stub Tx Mixer STUB_1_TX_HL" value="1" />
+    </path>
+
+    <path name="voice2-call hdmi">
+        <ctl name="Voice2 Stub Tx Mixer SLIM_3_TX" value="1" />
+        <ctl name="HDMI_RX_Voice Mixer Voice2 Stub" value="1" />
+        <ctl name="HDMI_RX Port Mixer SLIM_3_TX" value="1" />
+        <ctl name="Voice2 Stub Tx Mixer STUB_TX_HL" value="1" />
+    </path>
+
+    <path name="voice2-call bt-sco">
+        <ctl name="SLIM_1_TX Channels" value="One" />
+        <ctl name="Voice2 Stub Tx Mixer AUX_PCM_UL_TX" value="1" />
+        <ctl name="SLIMBUS_1_RX Mixer Voice2 Stub" value="1" />
+        <ctl name="Voice2 Stub Tx Mixer SLIM_1_TX" value="1" />
+        <ctl name="AUX_PCM_RX_Voice Mixer Voice2 Stub" value="1" />
+        <ctl name="SLIMBUS_1_RX Port Mixer AUX_PCM_UL_TX" value="1" />
+        <ctl name="AUX_PCM_RX Port Mixer SLIM_1_TX" value="1" />
+        <ctl name="SLIM_3_RX Channels" value="One" />
+        <ctl name="SLIMBUS_3_RX_Voice Mixer Voice2 Stub" value="1" />
+        <ctl name="SLIMBUS_3_RX Port Mixer AUX_PCM_RX" value="1" />
+    </path>
+
+    <path name="voice2-call bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <ctl name="SLIM_1 SampleRate" value="16000" />
+        <path name="voice2-call bt-sco" />
+    </path>
+
+    <path name="voice2-call usb-headphones">
+        <ctl name="SLIM_1 SampleRate" value="48000" />
+        <ctl name="SLIM_1_TX Channels" value="Two" />
+        <ctl name="SLIM_3_RX Channels" value="Two" />
+        <ctl name="Voice2 Stub Tx Mixer AFE_PCM_TX" value="1" />
+        <ctl name="SLIMBUS_1_RX Mixer Voice2 Stub" value="1" />
+        <ctl name="Voice2 Stub Tx Mixer SLIM_1_TX" value="1" />
+        <ctl name="AFE_PCM_RX_Voice Mixer Voice2 Stub" value="1" />
+        <ctl name="SLIMBUS_1_RX Port Mixer AFE_PCM_TX" value="1" />
+        <ctl name="AFE_PCM_RX Port Mixer SLIM_1_TX" value="1" />
+        <ctl name="SLIMBUS_3_RX_Voice Mixer Voice2 Stub" value="1" />
+        <ctl name="SLIMBUS_3_RX Port Mixer AFE_PCM_RX" value="1" />
+    </path>
+
    <path name="incall-rec-uplink">
        <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="1" />
    </path>
@@ -645,6 +713,7 @@
     <path name="volte-call usb-headphones">
         <ctl name="SLIM_1 SampleRate" value="48000" />
         <ctl name="SLIM_1_TX Channels" value="Two" />
+        <ctl name="SLIM_3_RX Channels" value="Two" />
         <ctl name="VoLTE Stub Tx Mixer AFE_PCM_TX" value="1" />
         <ctl name="SLIMBUS_1_RX Mixer VoLTE Stub" value="1" />
         <ctl name="VoLTE Stub Tx Mixer SLIM_1_TX" value="1" />
