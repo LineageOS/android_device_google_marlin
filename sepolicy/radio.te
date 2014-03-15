@@ -1,0 +1,3 @@
+# Talks to qmuxd via the qmux_radio socket.
+unix_socket_connect(radio, qmux_radio, qmuxd);
+allow radio qmux_radio_socket:dir search;

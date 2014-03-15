@@ -15,6 +15,7 @@ BOARD_SEPOLICY_UNION := \
        qmuxd.te \
        netmgrd.te \
        atfwd.te \
+       radio.te \
        smd_test.te \
        qmi_ping.te \
        qmi_test_service.te \
