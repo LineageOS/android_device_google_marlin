@@ -137,6 +137,12 @@
     <ctl name="MultiMedia1 Mixer AFE_PCM_TX" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia5" value="0" />
     <!-- usb headset end -->
+    <!-- fm -->
+    <ctl name="SLIMBUS_0_RX Port Mixer QUAT_MI2S_TX" value="0" />
+    <ctl name="SLIMBUS_DL_HL Switch" value="0" />
+    <ctl name="MultiMedia1 Mixer QUAT_MI2S_TX" value="0" />
+    <ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="0" />
+    <!-- fm end -->
 
     <!-- Incall Recording -->
     <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="0" />
@@ -494,6 +500,10 @@
         <path name="audio-record bt-sco" />
     </path>
 
+    <path name="audio-record capture-fm">
+        <ctl name="MultiMedia1 Mixer QUAT_MI2S_TX" value="1" />
+    </path>
+
     <path name="audio-record-compress">
         <ctl name="MultiMedia8 Mixer SLIM_0_TX" value="1" />
     </path>
@@ -510,6 +520,10 @@
 
     <path name="audio-record-compress usb-headset-mic">
         <ctl name="MultiMedia8 Mixer AFE_PCM_TX" value="1" />
+    </path>
+
+    <path name="fm-virtual-record capture-fm">
+        <ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="1" />
     </path>
 
     <path name="voice-call">
@@ -624,9 +638,15 @@
         <ctl name="SLIMBUS_3_RX Port Mixer SLIM_0_RX" value="1" />
     </path>
 
+    <path name="play-fm">
+        <ctl name="Internal FM RX Volume" value="1" />
+        <ctl name="SLIMBUS_0_RX Port Mixer QUAT_MI2S_TX" value="1" />
+        <ctl name="SLIMBUS_DL_HL Switch" value="1" />
+    </path>
+
     <path name="incall-rec-uplink">
-       <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="1" />
-   </path>
+        <ctl name="MultiMedia1 Mixer SLIM_6_TX" value="1" />
+    </path>
 
     <path name="incall-rec-uplink bt-sco">
         <path name="incall-rec-uplink" />
@@ -1205,6 +1225,9 @@
     </path>
 
     <path name="usb-headset-mic">
+    </path>
+
+    <path name="capture-fm">
     </path>
 
     <path name="aanc-handset-mic">
