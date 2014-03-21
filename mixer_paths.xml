@@ -317,6 +317,12 @@
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
     <!-- ADSP testfwk end-->
 
+    <!-- BT SCO samplerate -->
+    <path name="bt-sco-samplerate">
+        <ctl name="AUX PCM SampleRate" value="8000" />
+        <ctl name="SLIM_1 SampleRate" value="8000" />
+    </path>
+
     <!-- BT SCO WB samplerate -->
     <path name="bt-sco-wb-samplerate">
         <ctl name="AUX PCM SampleRate" value="16000" />
