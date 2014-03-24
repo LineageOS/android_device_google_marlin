@@ -80,6 +80,14 @@
         <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb" />
         <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" />
         <MediaCodec name="AACDecoder" type="audio/mp4a-latm" />
+        <MediaCodec name="FLACDecoder" type="audio/flac" />
+        <!--
+            Use Google's RAW decoder to support ACodec path for FLAC clips as
+            FLACDecoder is non-OMX component based. A component can be used to
+            support several mimetypes, so existing raw decoder usecases will not
+            be affected by this.
+        -->
+        <MediaCodec name="OMX.google.raw.decoder" type="audio/flac" />
         <MediaCodec name="OMX.google.g711.alaw.decoder" type="audio/g711-alaw" />
         <MediaCodec name="OMX.google.g711.mlaw.decoder" type="audio/g711-mlaw" />
         <MediaCodec name="OMX.qcom.audio.decoder.Qcelp13" type="audio/qcelp" >
