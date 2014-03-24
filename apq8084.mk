@@ -12,6 +12,7 @@ PRODUCT_COPY_FILES += device/qcom/apq8084/media/media_profiles_8084.xml:system/e
                       device/qcom/apq8084/media/media_codecs_8084.xml:system/etc/media_codecs.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := apq8084
