@@ -65,6 +65,10 @@ AntHalService \
 libantradio \
 antradio_app
 
+# Camera configuration
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=1
+
 ifeq ($(BOARD_HAVE_QCA_NFC),true)
 # NFC packages
 PRODUCT_PACKAGES += \
