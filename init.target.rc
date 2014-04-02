@@ -233,3 +233,10 @@ service adsprpcd /system/bin/adsprpcd
    class main
    user media
    group media
+
+#Start picture quality tuning service
+service vqttoolservice /system/bin/vqttoolservice
+    class late_start
+    socket vqtss stream 0660 system system
+    user system
+    group system
