@@ -1213,13 +1213,13 @@
         <ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
         <ctl name="SLIM_0_TX Channels" value="Three" />
         <ctl name="SLIM_0_RX AANC MUX" value="SLIMBUS_0_TX" />
-        <ctl name="SLIM TX7 MUX" value="DEC7" />
+        <ctl name="SLIM TX9 MUX" value="DEC7" />
         <ctl name="DEC7 MUX" value="DMIC1" />
-        <ctl name="SLIM TX8 MUX" value="DEC9" />
-        <ctl name="DEC9 MUX" value="DMIC4" />
-        <ctl name="SLIM TX9 MUX" value="DEC6" />
-        <ctl name="DEC6 MUX" value="DMIC6" />
-        <ctl name="IIR1 INP1 MUX" value="DEC7" />
+        <ctl name="SLIM TX8 MUX" value="DEC8" />
+        <ctl name="DEC8 MUX" value="DMIC2" />
+        <ctl name="SLIM TX7 MUX" value="DEC10" />
+        <ctl name="DEC10 MUX" value="DMIC3" />
+        <ctl name="IIR1 INP1 MUX" value="DEC10" />
     </path>
 
     <!-- Dual MIC devices -->
