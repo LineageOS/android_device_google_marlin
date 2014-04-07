@@ -292,7 +292,7 @@
     <ctl name="IIR1 Enable Band3" value="0" />
     <ctl name="IIR1 Enable Band4" value="0" />
     <ctl name="IIR1 Enable Band5" value="0" />
-    <ctl name="IIR1 INP1 Volume" value="62" />
+    <ctl name="IIR1 INP1 Volume" value="54" />
     <!-- IIR/voice anc end -->
     <!-- anc handset -->
     <ctl name="ANC Slot" value="0" />
@@ -926,14 +926,14 @@
 
     <path name="sidetone-headphones">
         <path name="sidetone-iir" />
-        <ctl name="IIR1 INP1 Volume" value="77" />
+        <ctl name="IIR1 INP1 Volume" value="54" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
         <ctl name="RX2 MIX2 INP1" value="IIR1" />
     </path>
 
     <path name="sidetone-handset">
         <path name="sidetone-iir" />
-        <ctl name="IIR1 INP1 Volume" value="62" />
+        <ctl name="IIR1 INP1 Volume" value="54" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
     </path>
 
@@ -1135,7 +1135,7 @@
         <ctl name="IIR1 Enable Band3" value="1" />
         <ctl name="IIR1 Enable Band4" value="1" />
         <ctl name="IIR1 Enable Band5" value="1" />
-        <ctl name="IIR1 INP1 Volume" value="62" />
+        <ctl name="IIR1 INP1 Volume" value="54" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
         <ctl name="RX2 MIX2 INP1" value="IIR1" />
         <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
