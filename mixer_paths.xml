@@ -639,7 +639,7 @@
     </path>
 
     <path name="play-fm">
-        <ctl name="Internal FM RX Volume" value="1" />
+        <ctl name="Quat MI2S FM RX Volume" value="1" />
         <ctl name="SLIMBUS_0_RX Port Mixer QUAT_MI2S_TX" value="1" />
         <ctl name="SLIMBUS_DL_HL Switch" value="1" />
     </path>
