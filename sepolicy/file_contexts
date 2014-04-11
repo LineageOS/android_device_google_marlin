@@ -96,3 +96,15 @@
 
 # Sensor persist files
 /persist/sensors(/.*)?                 u:object_r:sensors_persist_file:s0
+
+#Contexts for thermal-engine
+/system/bin/thermal-engine                               u:object_r:thermal-engine_exec:s0
+/dev/msm_thermal_query                                   u:object_r:thermal_device:s0
+/sys/devices/platform/battery_current_limit              u:object_r:sysfs_thermal:s0
+/sys/devices/.*bcl.*(/.*)?                               u:object_r:sysfs_thermal:s0
+/sys/module/msm_thermal(/.*)?                            u:object_r:sysfs_thermal:s0
+/sys/class/thermal(/.*)?                                 u:object_r:sysfs_thermal:s0
+/sys/devices/virtual/thermal(/.*)?                       u:object_r:sysfs_thermal:s0
+/dev/socket/thermal-send-client                          u:object_r:thermal_socket:s0
+/dev/socket/thermal-recv-client                          u:object_r:thermal_socket:s0
+/dev/socket/thermal-recv-passive-client                  u:object_r:thermal_socket:s0

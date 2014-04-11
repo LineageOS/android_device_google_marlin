@@ -33,4 +33,5 @@ BOARD_SEPOLICY_UNION := \
        audiod.te \
        sensors.te \
        sensors_test.te \
-       system_app.te
+       system_app.te \
+       thermal-engine.te

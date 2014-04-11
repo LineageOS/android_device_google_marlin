@@ -33,3 +33,7 @@ type sensors_system_file, file_type;
 type sensors_socket, file_type;
 type sensors_data_file, file_type, data_file_type;
 type sensors_persist_file, file_type;
+
+#type for thermal-engine
+type sysfs_thermal, sysfs_type, fs_type;
+type thermal_socket, file_type;
