@@ -169,6 +169,10 @@ service mdm_helper /system/bin/mdm_helper
     onrestart setprop ro.service.mdm_helper_restarted "true"
     disabled
 
+service mdm_helper_proxy /system/bin/mdm_helper_proxy
+    class core
+    disabled
+
 service mdm_launcher /system/bin/sh /init.mdm.sh
     class main
     oneshot
@@ -177,6 +181,24 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+
+# Stop mdm_helper_proxy in case of shutdown
+on property:sys.shutdown.requested=*
+    stop mdm_helper_proxy
+
+# Stop mdm_helper_proxy on APQ target
+on property:ro.radio.noril=yes
+    stop mdm_helper_proxy
+
+on property:persist.airplane.mode.pwr.svg=enabled
+    setprop ro.mdm_helper_proxy_req false
+
+on property:init.svc.ril-daemon=running
+    setprop ro.mdm_helper_proxy_req true
+
+# Start mdm_helper_proxy
+on property:ro.mdm_helper_proxy_req=true
+    start mdm_helper_proxy
 
 # QCA1530 SoC core detect
 service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
