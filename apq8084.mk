@@ -28,6 +28,9 @@ PRODUCT_COPY_FILES += \
     device/qcom/apq8084/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
     device/qcom/apq8084/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml
 
+# Listen configuration file
+PRODUCT_COPY_FILES += \
+    device/qcom/apq8084/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
 # wlan driver
 PRODUCT_COPY_FILES += \
