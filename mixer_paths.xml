@@ -158,7 +158,7 @@
     <ctl name="HDMI_RX Port Mixer SLIM_3_TX" value="0" />
     <ctl name="Voice Stub Tx Mixer STUB_TX_HL" value="0" />
     <!-- Voice BTSCO -->
-    <ctl name="SLIM_1 SampleRate" value="48000" />
+    <ctl name="SLIM_1 SampleRate" value="8000" />
     <ctl name="AUX PCM SampleRate" value="8000" />
     <ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="0" />
     <ctl name="SLIMBUS_1_RX Mixer Voice Stub" value="0" />
@@ -340,18 +340,6 @@
     <!-- ADSP testfwk -->
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
     <!-- ADSP testfwk end-->
-
-    <!-- BT SCO samplerate -->
-    <path name="bt-sco-samplerate">
-        <ctl name="AUX PCM SampleRate" value="8000" />
-        <ctl name="SLIM_1 SampleRate" value="8000" />
-    </path>
-
-    <!-- BT SCO WB samplerate -->
-    <path name="bt-sco-wb-samplerate">
-        <ctl name="AUX PCM SampleRate" value="16000" />
-        <ctl name="SLIM_1 SampleRate" value="16000" />
-    </path>
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="deep-buffer-playback">
@@ -1072,12 +1060,12 @@
     </path>
 
     <path name="voice-headphones">
-        <path name="sidetone-headphones" />
         <path name="headphones" />
     </path>
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
+        <path name="sidetone-headphones" />
         <ctl name="ADC2 Volume" value="13" />
     </path>
 
