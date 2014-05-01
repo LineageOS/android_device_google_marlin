@@ -150,6 +150,15 @@ on property:init.svc.bootanim=stopped
 on boot
     insmod /system/lib/modules/adsprpc.ko
     insmod /system/lib/modules/mhi.ko
+# access permission for secure touch
+    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
+    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
+    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
+    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
+    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
+    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
+    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
+    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
 
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
