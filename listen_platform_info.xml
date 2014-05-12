@@ -35,5 +35,8 @@
     <ctrl name="max_ape_sessions" value="8" />
     <ctrl name="max_ape_keywords" value="10" />
     <ctrl name="max_ape_kw_user_pairs" value="10" />
+    <ctrl name="dump_lab_data" value="false" /> <!-- value: "true" "false" -->
+    <!-- If value is true, it requires write permissions to /data folder to -->
+    <!-- dump lab data to file under /data/LHAL foloder. Do "chmod 777 /data/"  -->
 </listen_platform_info>
 
