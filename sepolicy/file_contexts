@@ -108,3 +108,6 @@
 /dev/socket/thermal-send-client                          u:object_r:thermal_socket:s0
 /dev/socket/thermal-recv-client                          u:object_r:thermal_socket:s0
 /dev/socket/thermal-recv-passive-client                  u:object_r:thermal_socket:s0
+
+#Add context for adsp device
+/dev/adsprpc-smd u:object_r:qdsp_device:s0

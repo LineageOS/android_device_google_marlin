@@ -17,3 +17,6 @@ type subsys_esoc0_device, dev_type;
 
 #Define thermal-engine devices
 type thermal_device, dev_type;
+
+#Add qdsp_device type
+type qdsp_device, dev_type;

@@ -4,3 +4,6 @@ allow appdomain gpu_device:chr_file rw_file_perms;
 
 # allow application to access cnd domain and socket
 unix_socket_connect(appdomain, cnd, cnd)
+
+#Allow all apps to open and send ioctl to qdsp device
+allow appdomain qdsp_device:chr_file { ioctl open };
