@@ -383,6 +383,9 @@
     <!-- ADSP testfwk -->
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
     <!-- ADSP testfwk end-->
+    <!-- VI feedback-->
+    <ctl name="VIONOFF Switch" value="0" />
+    <!-- VI feedback end-->
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="deep-buffer-playback">
@@ -1303,6 +1306,7 @@
     </path>
 
     <path name="vi-feedback">
+        <ctl name="VIONOFF Switch" value="1" />
     </path>
 
     <path name="handset">
