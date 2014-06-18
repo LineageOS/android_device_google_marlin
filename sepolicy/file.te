@@ -1,7 +1,5 @@
 # Default type for anything under /firmware.
-type firmware_file, file_type;
-# Allow files to be created in their appropriate filesystems.
-allow firmware_file self:filesystem associate;
+type firmware_file, fs_type;
 
 #Define the qmux socket type
 type qmux_audio_socket, file_type;
@@ -14,8 +12,8 @@ type cnd_socket, file_type;
 type cnd_data_file, file_type;
 
 #Define the timeout for platform specific transports
-type sysfs_hsic_modem_wait, sysfs_type, file_type;
-type sysfs_smd_open_timeout, sysfs_type, file_type;
+type sysfs_hsic_modem_wait, sysfs_type, fs_type;
+type sysfs_smd_open_timeout, sysfs_type, fs_type;
 
 #Define the files written during the operation of netmgrd and qmuxd
 type data_test_data_file, file_type, data_file_type;
@@ -23,7 +21,7 @@ type sysrq_trigger_proc, fs_type, mlstrustedobject;
 # Persist file types
 type persist_file, file_type;
 
-type diag_data_file, file_type;
+type diag_data_file, file_type, data_file_type;
 
 #file type for restricting proc read by audiod
 type proc_audiod, fs_type;

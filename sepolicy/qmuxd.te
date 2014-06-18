@@ -4,9 +4,9 @@ net_domain(qmuxd)
 init_daemon_domain(qmuxd)
 
 userdebug_or_eng(`
-domain_auto_trans(shell, qmuxd_exec, qmuxd)
-domain_auto_trans(su, qmuxd_exec, qmuxd)
-domain_auto_trans(adbd, qmuxd_exec, qmuxd)
+  domain_auto_trans(shell, qmuxd_exec, qmuxd)
+  domain_auto_trans(su, qmuxd_exec, qmuxd)
+  domain_auto_trans(adbd, qmuxd_exec, qmuxd)
 ')
 
 #Allow qmuxd to operate on various qmux device sockets

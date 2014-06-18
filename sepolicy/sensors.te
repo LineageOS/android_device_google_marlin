@@ -10,9 +10,9 @@ type_transition sensors socket_device:{ dir sock_file } sensors_socket;
 type_transition sensors system_data_file:{ dir file } sensors_data_file;
 
 userdebug_or_eng(`
-domain_auto_trans(shell, sensors_exec, sensors)
-domain_auto_trans(su, sensors_exec, sensors)
-domain_auto_trans(adbd, sensors_exec, sensors)
+  domain_auto_trans(shell, sensors_exec, sensors)
+  domain_auto_trans(su, sensors_exec, sensors)
+  domain_auto_trans(adbd, sensors_exec, sensors)
 ')
 
 #============= sensors ==============

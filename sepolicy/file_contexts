@@ -58,23 +58,7 @@
 /data/connectivity(/.*)? u:object_r:cnd_data_file:s0
 
 #context for audio devices
-/dev/msm_aac                    u:object_r:audio_device:s0
-/dev/msm_acdb                   u:object_r:audio_device:s0
-/dev/msm_aac_in                 u:object_r:audio_device:s0
-/dev/msm_amrnb                  u:object_r:audio_device:s0
-/dev/msm_amrnb_in               u:object_r:audio_device:s0
-/dev/msm_amrwb                  u:object_r:audio_device:s0
-/dev/msm_amrwb_in               u:object_r:audio_device:s0
-/dev/msm_amrwbplus              u:object_r:audio_device:s0
-/dev/msm_evrc                   u:object_r:audio_device:s0
-/dev/msm_evrc_in                u:object_r:audio_device:s0
-/dev/msm_mp3                    u:object_r:audio_device:s0
-/dev/msm_multi_aac              u:object_r:audio_device:s0
-/dev/msm_qcelp                  u:object_r:audio_device:s0
-/dev/msm_qcelp_in               u:object_r:audio_device:s0
-/dev/msm_rtac                   u:object_r:audio_device:s0
-/dev/msm_wma                    u:object_r:audio_device:s0
-/dev/msm_wmapro                 u:object_r:audio_device:s0
+/dev/msm_.*                     u:object_r:audio_device:s0
 /system/bin/audiod              u:object_r:audiod_exec:s0
 
 # Context for sensor objects

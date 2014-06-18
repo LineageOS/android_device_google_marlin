@@ -1,7 +1,3 @@
-# Grant GPU access to all processes started by Zygote
-# They need that to render the standard UI
-allow appdomain gpu_device:chr_file rw_file_perms;
-
 # allow application to access cnd domain and socket
 unix_socket_connect(appdomain, cnd, cnd)
 

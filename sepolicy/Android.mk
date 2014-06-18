@@ -10,7 +10,6 @@ BOARD_SEPOLICY_UNION := \
        vold.te \
        ueventd.te \
        file.te \
-       init.te \
        drmserver.te \
        adbd.te \
        app.te \
