@@ -17,6 +17,7 @@ BOARD_SEPOLICY_UNION := \
        system_server.te \
        wpa_supplicant.te \
        mediaserver.te \
+       msm_irqbalanced.te \
        qmuxd.te \
        netmgrd.te \
        atfwd.te \
