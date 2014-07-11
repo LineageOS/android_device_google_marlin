@@ -24,5 +24,4 @@ allow thermal-engine diag_device:chr_file {read write open ioctl};
 #This is required for qmi access
 allow thermal-engine qmux_radio_socket:dir {read write search add_name remove_name};
 allow thermal-engine qmux_radio_socket:sock_file {create read write setattr unlink};
-allow thermal-engine qmi_ping:socket {create bind read write ioctl setopt};
 allow thermal-engine qmuxd:unix_stream_socket {connectto};
