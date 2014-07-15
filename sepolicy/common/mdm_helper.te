@@ -1,0 +1,57 @@
+#Policy for mdm_helper
+#mdm_helper - mdm_helper domain
+type mdm_helper, domain;
+type mdm_helper_exec, exec_type, file_type;
+init_daemon_domain(mdm_helper);
+
+#block_suspend capability is needed by kickstart(ks)
+allow mdm_helper self:capability2 block_suspend;
+
+#Needed to power on the peripheral
+allow mdm_helper ssr_device:chr_file { open read };
+
+#Needed to access the esoc device to control the mdm
+allow mdm_helper esoc_device:chr_file { read write ioctl open  };
+allow mdm_helper esoc_device:dir { open search };
+
+#Needed to detect presence of hsic bridge and to xfer images
+allow mdm_helper ksbridgehsic_device:chr_file  { read write open getattr ioctl};
+
+#Needed to detect efs sync and for kickstart to run the efs sync server
+allow mdm_helper efsbridgehsic_device:chr_file { read write open getattr ioctl};
+
+#Needed for communication with the HSIC driver
+allow mdm_helper sysfs_hsic:dir { open read search };
+allow mdm_helper sysfs_hsic:file { read write open };
+
+#Needed by libmdmdetect to figure out the system configuration
+allow mdm_helper sysfs_esoc:dir { open search read };
+allow mdm_helper sysfs_esoc:lnk_file { read };
+
+#Needed by libmdmdetect to get system information regarding subsystems and to check their states
+allow mdm_helper sysfs_ssr:dir { open search read };
+allow mdm_helper sysfs_ssr:lnk_file { read open };
+
+#Needed in order to run kickstart
+allow mdm_helper shell:fd { use };
+allow mdm_helper shell_exec:file { read open execute execute_no_trans };
+allow mdm_helper system_file:file { execute_no_trans };
+allow mdm_helper mdm_helper_exec:file {execute_no_trans };
+
+#Needed to inform the hsic driver that mdm has booted up
+allow mdm_helper sysfs:file { open read write getattr };
+
+#Needed by ks in order to access the efs sync partitions.
+allow mdm_helper efs_boot_dev:blk_file { open read getattr write};
+allow mdm_helper block_device:dir { getattr search write };
+
+#Ks needs to aquire the wake lock
+allow mdm_helper sysfs_wake_lock:file {open append};
+
+#Needed in order to access the firmware partition
+allow mdm_helper firmware_file:dir { search };
+allow mdm_helper firmware_file:file { open read getattr };
+
+#Needed in order to collect ramdumps
+allow mdm_helper tombstone_data_file:file { create read write open getattr };
+allow mdm_helper tombstone_data_file:dir { create search open read write getattr add_name };
