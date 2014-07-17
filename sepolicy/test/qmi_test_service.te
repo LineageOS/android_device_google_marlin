@@ -20,4 +20,7 @@ userdebug_or_eng(`
   allow qmi_test_service qmi_test_service:capability {dac_override dac_read_search setgid setuid fsetid};
   #QCCI calls qmuxd API.  The API will internally require this
   qmux_socket(qmi_test_service);
+  #enable accessing the system health monitor to check the system health,
+  #if a request times out
+  allow qmi_test_service system_health_monitor_device:chr_file rw_file_perms;
 ')
