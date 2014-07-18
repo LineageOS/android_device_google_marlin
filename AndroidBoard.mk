@@ -19,7 +19,7 @@ endif
 # Compile Linux Kernel
 #----------------------------------------------------------------------
 ifeq ($(KERNEL_DEFCONFIG),)
-    KERNEL_DEFCONFIG := apq8084_defconfig
+    KERNEL_DEFCONFIG := msm_defconfig
 endif
 
 include kernel/AndroidKernel.mk
@@ -53,13 +53,13 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
 include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := synaptics_rmi4_i2c.kl
-LOCAL_MODULE_TAGS  := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := synaptics_rmi4_i2c.kl
+#LOCAL_MODULE_TAGS  := optional eng
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
+#include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.qcom
@@ -69,81 +69,81 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := init.qcom.modem_links.sh
-LOCAL_MODULE_TAGS  := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := init.qcom.modem_links.sh
+#LOCAL_MODULE_TAGS  := optional eng
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#include $(BUILD_PREBUILT)
 
-ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
-include $(CLEAR_VARS)
-LOCAL_MODULE       := wpa_supplicant_overlay.conf
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
-include $(BUILD_PREBUILT)
+#ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := wpa_supplicant_overlay.conf
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := p2p_supplicant_overlay.conf
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := p2p_supplicant_overlay.conf
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := hostapd_default.conf
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
-LOCAL_SRC_FILES    := hostapd.conf
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := hostapd_default.conf
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
+#LOCAL_SRC_FILES    := hostapd.conf
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := hostapd.accept
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
-LOCAL_SRC_FILES    := hostapd.accept
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := hostapd.accept
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
+#LOCAL_SRC_FILES    := hostapd.accept
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := hostapd.deny
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
-LOCAL_SRC_FILES    := hostapd.deny
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := hostapd.deny
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
+#LOCAL_SRC_FILES    := hostapd.deny
+#include $(BUILD_PREBUILT)
 
 #Create symbolic links
-$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
-        ln -sf  /system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-        $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin; \
-        ln -sf /system/etc/wifi/WCNSS_qcom_cfg.ini \
-        $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini)
-
-endif
+#$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
+#        ln -sf  /system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+#        $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin; \
+#        ln -sf /system/etc/wifi/WCNSS_qcom_cfg.ini \
+#        $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini)
+#
+#endif
 
 #----------------------------------------------------------------------
 # ultrasound support
 #----------------------------------------------------------------------
-include $(CLEAR_VARS)
-LOCAL_MODULE       := usf_post_boot.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := usf_post_boot.sh
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := usf_settings.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE       := usf_settings.sh
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
+#include $(BUILD_PREBUILT)
 
 #----------------------------------------------------------------------
 # Radio image
@@ -158,13 +158,13 @@ endif
 #----------------------------------------------------------------------
 # extra images
 #----------------------------------------------------------------------
-ifeq (, $(wildcard vendor/qcom/build/tasks/generate_extra_images.mk))
+#ifeq (, $(wildcard vendor/qcom/build/tasks/generate_extra_images.mk))
 include device/qcom/common/generate_extra_images.mk
-endif
+#endif
 
 #----------------------------------------------------------------------
 # pick up additional files for Tiny Android builds
 #----------------------------------------------------------------------
-ifeq ($(BUILD_TINY_ANDROID), true)
-include device/qcom/common/rootdir/Android.mk
-endif
+#ifeq ($(BUILD_TINY_ANDROID), true)
+#include device/qcom/common/rootdir/Android.mk
+#endif

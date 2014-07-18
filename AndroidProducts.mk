@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/apq8084.mk
+	$(LOCAL_DIR)/thulium.mk
