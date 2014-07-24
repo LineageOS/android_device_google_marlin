@@ -1,0 +1,37 @@
+# Policy for sensor daemon
+type sensors, domain;
+type sensors_exec, exec_type, file_type;
+
+init_daemon_domain(sensors)
+
+type_transition sensors apk_data_file:sock_file sensors_socket;
+type_transition sensors persist_file:{ dir file } sensors_persist_file;
+type_transition sensors socket_device:{ dir sock_file } sensors_socket;
+type_transition sensors system_data_file:{ dir file } sensors_data_file;
+
+userdebug_or_eng(`
+domain_auto_trans(shell, sensors_exec, sensors)
+domain_auto_trans(su, sensors_exec, sensors)
+domain_auto_trans(adbd, sensors_exec, sensors)
+')
+
+#============= sensors ==============
+allow sensors apk_data_file:dir { write add_name remove_name };
+allow sensors cgroup:dir { create add_name };
+allow sensors diag_device:chr_file { read write ioctl open };
+allow sensors persist_file:dir { search getattr };
+allow sensors self:capability { setuid chown setgid dac_override };
+allow sensors self:capability2 block_suspend;
+allow sensors self:socket { read bind create write ioctl };
+allow sensors sensors_data_file:dir { write getattr setattr read create open add_name };
+allow sensors sensors_data_file:file { write getattr setattr read create open append };
+allow sensors sensors_device:chr_file { read ioctl open };
+allow sensors sensors_persist_file:dir search;
+allow sensors sensors_persist_file:file { read open };
+allow sensors sensors_socket:sock_file { write create getattr setattr unlink };
+allow sensors sensors_system_file:dir { read search open };
+allow sensors sensors_system_file:file { read getattr open };
+allow sensors smd_device:chr_file { read open append };
+allow sensors smem_log_device:chr_file { read write ioctl open };
+allow sensors socket_device:dir { write add_name };
+allow sensors sysfs_wake_lock:file { open append };

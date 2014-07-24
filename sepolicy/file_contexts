@@ -50,8 +50,49 @@
 /persist(/.*)?                    u:object_r:persist_file:s0
 
 /dev/subsys_esoc0  u:object_r:subsys_esoc0_device:s0
+
 #Context for cnd
 /dev/socket/cnd     u:object_r:cnd_socket:s0
 /system/bin/cnd     u:object_r:cnd_exec:s0
 /dev/socket/nims    u:object_r:cnd_socket:s0
 /data/connectivity(/.*)? u:object_r:cnd_data_file:s0
+
+#context for audio devices
+/dev/msm_aac                    u:object_r:audio_device:s0
+/dev/msm_acdb                   u:object_r:audio_device:s0
+/dev/msm_aac_in                 u:object_r:audio_device:s0
+/dev/msm_amrnb                  u:object_r:audio_device:s0
+/dev/msm_amrnb_in               u:object_r:audio_device:s0
+/dev/msm_amrwb                  u:object_r:audio_device:s0
+/dev/msm_amrwb_in               u:object_r:audio_device:s0
+/dev/msm_amrwbplus              u:object_r:audio_device:s0
+/dev/msm_evrc                   u:object_r:audio_device:s0
+/dev/msm_evrc_in                u:object_r:audio_device:s0
+/dev/msm_mp3                    u:object_r:audio_device:s0
+/dev/msm_multi_aac              u:object_r:audio_device:s0
+/dev/msm_qcelp                  u:object_r:audio_device:s0
+/dev/msm_qcelp_in               u:object_r:audio_device:s0
+/dev/msm_rtac                   u:object_r:audio_device:s0
+/dev/msm_wma                    u:object_r:audio_device:s0
+/dev/msm_wmapro                 u:object_r:audio_device:s0
+/system/bin/audiod              u:object_r:audiod_exec:s0
+
+# Context for sensor objects
+# Sensor devices
+/dev/sensors                           u:object_r:sensors_device:s0
+/dev/msm_dsps                          u:object_r:sensors_device:s0
+
+# Sensor socket
+/dev/socket/sensor_ctl_socket          u:object_r:sensors_socket:s0
+
+# Sensor system files
+/system/bin/sensors.qcom               u:object_r:sensors_exec:s0
+/system/bin/sns.*                      u:object_r:sensors_test_exec:s0
+/system/etc/sensors(/.*)?              u:object_r:sensors_system_file:s0
+/system/etc/sensor_def_qcomdev.conf    u:object_r:sensors_system_file:s0
+
+# Sensor data files
+/data/misc/sensors(/.*)?               u:object_r:sensors_data_file:s0
+
+# Sensor persist files
+/persist/sensors(/.*)?                 u:object_r:sensors_persist_file:s0

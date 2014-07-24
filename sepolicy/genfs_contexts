@@ -1,0 +1,1 @@
+genfscon proc /asound/card0/state u:object_r:proc_audiod:s0

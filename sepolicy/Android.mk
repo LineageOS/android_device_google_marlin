@@ -4,6 +4,7 @@ BOARD_SEPOLICY_DIRS := \
        device/qcom/sepolicy/test
 
 BOARD_SEPOLICY_UNION := \
+       genfs_contexts \
        file_contexts \
        device.te \
        vold.te \
@@ -28,4 +29,8 @@ BOARD_SEPOLICY_UNION := \
        netd.te \
        rild.te \
        diag.te \
-       diag_test.te
+       diag_test.te \
+       audiod.te \
+       sensors.te \
+       sensors_test.te \
+       system_app.te

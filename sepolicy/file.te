@@ -24,3 +24,12 @@ type sysrq_trigger_proc, fs_type, mlstrustedobject;
 type persist_file, file_type;
 
 type diag_data_file, file_type;
+
+#file type for restricting proc read by audiod
+type proc_audiod, fs_type;
+
+# Sensor file types
+type sensors_system_file, file_type;
+type sensors_socket, file_type;
+type sensors_data_file, file_type, data_file_type;
+type sensors_persist_file, file_type;
