@@ -1,0 +1,42 @@
+type netmgrd, domain;
+type netmgrd_exec, exec_type, file_type;
+net_domain(netmgrd)
+init_daemon_domain(netmgrd)
+domain_auto_trans(shell, netmgrd_exec, netmgrd)
+domain_auto_trans(su, netmgrd_exec, netmgrd)
+domain_auto_trans(init, netmgrd_exec, netmgrd)
+
+#Allow files to be written during the operation of netmgrd
+file_type_auto_trans(netmgrd, system_data_file, data_test_data_file)
+
+#Allow netmgrd operations
+allow netmgrd netmgrd:capability { dac_override net_raw net_admin sys_module fsetid setgid setuid };
+
+#Allow access to kernel modules
+allow netmgrd kernel:system { module_request };
+
+#Allow logging
+allow netmgrd diag_device:chr_file { rw_file_perms };
+allow netmgrd smem_log_device:chr_file { rw_file_perms };
+
+#Allow operations on different types of sockets
+allow netmgrd netmgrd:rawip_socket { create getopt setopt write };
+allow netmgrd netmgrd:netlink_xfrm_socket { create bind };
+allow netmgrd netmgrd:netlink_socket { write read create bind };
+allow netmgrd netmgrd:socket { create ioctl };
+allow netmgrd netmgrd:netlink_route_socket { setopt getattr write nlmsg_write };
+allow netmgrd init:unix_stream_socket { connectto };
+allow netmgrd property_socket:sock_file { write };
+
+#Allow operations on qmux device sockets
+allow netmgrd qmux_radio_socket:sock_file { create setattr getattr write unlink };
+allow netmgrd qmux_radio_socket:dir { write add_name remove_name search };
+
+#Allow communication with qmuxd
+allow netmgrd qmuxd:unix_stream_socket { connectto };
+
+#Allow writing of ipv6 network properties
+allow netmgrd proc_net:file { write };
+
+#Allow execution of commands in shell
+allow netmgrd system_file:file { execute_no_trans };

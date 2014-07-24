@@ -10,4 +10,6 @@ BOARD_SEPOLICY_UNION := \
        file.te \
        init.te \
        drmserver.te \
-       adbd.te
+       adbd.te \
+       qmuxd.te \
+       netmgrd.te

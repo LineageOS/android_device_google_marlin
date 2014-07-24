@@ -1,0 +1,31 @@
+type qmuxd, domain;
+type qmuxd_exec, exec_type, file_type;
+net_domain(qmuxd)
+init_daemon_domain(qmuxd)
+domain_auto_trans(shell, qmuxd_exec, qmuxd)
+domain_auto_trans(su, qmuxd_exec, qmuxd)
+domain_auto_trans(init, qmuxd_exec, qmuxd)
+
+#Allow qmuxd to operate on various qmux device sockets
+allow qmuxd qmux_radio_socket:dir { write add_name remove_name search };
+allow qmuxd qmux_radio_socket:sock_file { create setattr getattr write unlink };
+allow qmuxd qmux_audio_socket:dir { write add_name remove_name search };
+allow qmuxd qmux_audio_socket:sock_file { create setattr getattr write unlink };
+allow qmuxd qmux_gps_socket:dir { write add_name remove_name search };
+allow qmuxd qmux_gps_socket:sock_file { create setattr getattr write unlink };
+allow qmuxd qmux_bluetooth_socket:dir { write add_name remove_name search };
+allow qmuxd qmux_bluetooth_socket:sock_file { create setattr getattr write unlink };
+
+#Allow logging
+allow qmuxd diag_device:chr_file { rw_file_perms };
+
+#Allow operation in platform specific transports
+#allow qmuxd smd_device:chr_file { rw_file_perms };
+allow qmuxd hsic_device:chr_file { rw_file_perms };
+
+#Allow qmuxd to operate in platform specific transports
+allow qmuxd sysfs_smd_open_timeout:file { append write };
+allow qmuxd sysfs_wake_lock:file { append open };
+
+#Allow qmuxd to write in hsic specific transport
+allow qmuxd sysfs:file { write };
