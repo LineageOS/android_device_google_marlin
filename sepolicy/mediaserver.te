@@ -1,0 +1,2 @@
+# allow mediaserver to communicate with cnd
+unix_socket_connect(mediaserver, cnd, cnd)

@@ -1,0 +1,6 @@
+# allow system_server to communicate with cnd process over cnd_socket
+unix_socket_connect(system_server, cnd, cnd)
+# allow  system/framework applications to update the cnd configuration files
+allow system_server cnd_data_file:dir { read open write getattr add_name };
+allow system_server cnd_data_file:file { create write getattr setattr read lock open };
+

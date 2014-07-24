@@ -1,0 +1,67 @@
+#permissive cnd;
+type cnd, domain;
+type cnd_exec, exec_type, file_type;
+file_type_auto_trans(cnd, socket_device, cnd_socket);
+
+# cnd is started by init, type transit from init domain to cnd domain
+init_daemon_domain(cnd)
+# associate netdomain as an attribute of cnd domain
+net_domain(cnd)
+
+# allow cnd the following capability
+allow cnd self:capability { setuid setgid dac_override net_raw chown
+ fsetid net_admin sys_module };
+allow cnd self:capability2 block_suspend;
+
+# socket used to communicate with kernel via the netlink syscall
+allow cnd self:netlink_tcpdiag_socket { bind create write read
+ nlmsg_read };
+allow cnd self:netlink_route_socket { read bind create write
+ nlmsg_read };
+
+# allow cnd to set system property
+allow cnd system_prop:property_service set;
+allow cnd property_socket:sock_file write;
+allow cnd init:unix_stream_socket connectto;
+
+# allow cnd to communicate with wlan driver
+allow cnd kernel:system module_request;
+
+# allow cnd to access cnd_data_file
+allow cnd cnd_data_file:file create_file_perms;
+allow cnd cnd_data_file:sock_file { unlink create setattr };
+allow cnd cnd_data_file:dir { open read write add_name remove_name search };
+
+# allow cnd to access qmux_radio_socket
+allow cnd qmux_radio_socket:dir { write add_name };
+allow cnd qmux_radio_socket:sock_file { create write setattr};
+allow cnd qmuxd:unix_stream_socket connectto;
+
+# cnd access diag_device /dev/diag for logging
+allow cnd diag_device:chr_file { read write open ioctl };
+
+# allow cnd to access wpa_socket
+allow cnd wpa:unix_dgram_socket sendto;
+allow cnd wpa_socket:dir { write remove_name search add_name search };
+allow cnd wpa_socket:sock_file { write create unlink setattr };
+allow cnd wifi_data_file:dir search;
+# allow cnd to obtain wakelock
+allow cnd sysfs_wake_lock:file { open append };
+
+# allow cnd to communicate with all application
+allow cnd appdomain:dir search;
+allow cnd appdomain:fd use;
+allow cnd appdomain:file { read open };
+allow cnd appdomain:tcp_socket rw_socket_perms;
+
+# allow cnd to communicate with system_server
+allow cnd system_server:dir search;
+allow cnd system_server:file { read open };
+allow cnd system_server:tcp_socket { write getattr shutdown getopt read bind };
+
+# allow cnd to communicate with mediaserver
+allow cnd mediaserver:dir search;
+allow cnd mediaserver:fd use;
+allow cnd mediaserver:tcp_socket { read write bind getattr shutdown getopt };
+allow cnd mediaserver:file { open read };
+

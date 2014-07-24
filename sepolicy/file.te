@@ -9,6 +9,10 @@ type qmux_bluetooth_socket, file_type;
 type qmux_gps_socket, file_type;
 type qmux_radio_socket, file_type;
 
+# Define cnd socket and data file type
+type cnd_socket, file_type;
+type cnd_data_file, file_type;
+
 #Define the timeout for platform specific transports
 type sysfs_hsic_modem_wait, sysfs_type, file_type;
 type sysfs_smd_open_timeout, sysfs_type, file_type;

@@ -50,3 +50,8 @@
 /persist(/.*)?                    u:object_r:persist_file:s0
 
 /dev/subsys_esoc0  u:object_r:subsys_esoc0_device:s0
+#Context for cnd
+/dev/socket/cnd     u:object_r:cnd_socket:s0
+/system/bin/cnd     u:object_r:cnd_exec:s0
+/dev/socket/nims    u:object_r:cnd_socket:s0
+/data/connectivity(/.*)? u:object_r:cnd_data_file:s0

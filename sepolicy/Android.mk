@@ -12,6 +12,11 @@ BOARD_SEPOLICY_UNION := \
        init.te \
        drmserver.te \
        adbd.te \
+       app.te \
+       cnd.te \
+       system_server.te \
+       wpa_supplicant.te \
+       mediaserver.te \
        qmuxd.te \
        netmgrd.te \
        atfwd.te \
