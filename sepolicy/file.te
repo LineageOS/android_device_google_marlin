@@ -2,3 +2,9 @@
 type firmware_file, file_type;
 # Allow files to be created in their appropriate filesystems.
 allow firmware_file self:filesystem associate;
+
+#Define the qmux socket type
+type qmux_audio_socket, file_type;
+type qmux_bluetooth_socket, file_type;
+type qmux_gps_socket, file_type;
+type qmux_radio_socket, file_type;
