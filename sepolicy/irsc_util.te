@@ -4,7 +4,6 @@ init_daemon_domain(irsc_util)
 
 userdebug_or_eng(`
   domain_auto_trans(shell, irsc_util_exec, irsc_util)
-  domain_auto_trans(su, irsc_util_exec, irsc_util)
   domain_auto_trans(adbd, irsc_util_exec, irsc_util)
 ')
 

@@ -4,7 +4,6 @@ type qmi_test_service_exec, exec_type, file_type;
 userdebug_or_eng(`
   type qmi_test_service, domain;
   domain_auto_trans(shell, qmi_test_service_exec, qmi_test_service)
-  domain_auto_trans(su, qmi_test_service_exec, qmi_test_service)
   domain_auto_trans(adbd, qmi_test_service_exec, qmi_test_service)
   #test is launched from pseudo terminal so output goes there
   allow qmi_test_service devpts:chr_file {read write getattr ioctl};
