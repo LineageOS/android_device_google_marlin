@@ -1,0 +1,12 @@
+
+allow rild qmux_radio_socket:dir { write remove_name search add_name };
+allow rild qmux_radio_socket:sock_file { write create unlink setattr };
+allow rild qmuxd:unix_stream_socket connectto;
+
+allow rild subsys_esoc0_device:chr_file { open read };
+
+allow rild servicemanager:binder call;
+allow rild mediaserver:binder { transfer call };
+
+allow rild diag_device:chr_file { open read write };
+allow rild rild_socket:chr_file { open read write };

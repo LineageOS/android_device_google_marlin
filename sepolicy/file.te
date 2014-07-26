@@ -18,3 +18,5 @@ type data_test_data_file, file_type, data_file_type;
 type sysrq_trigger_proc, fs_type, mlstrustedobject;
 # Persist file types
 type persist_file, file_type;
+
+type diag_data_file, file_type;

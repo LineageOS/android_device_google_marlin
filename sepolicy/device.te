@@ -12,3 +12,5 @@ type mhi_device, dev_type;
 
 #device type for smd device nodes, ie /dev/smd*
 type smd_device, dev_type;
+
+type subsys_esoc0_device, dev_type;

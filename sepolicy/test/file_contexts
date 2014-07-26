@@ -1,3 +1,5 @@
 /system/bin/kernel-tests/smd.* u:object_r:smd_test_exec:s0
 /system/bin/qmi-framework-tests/qmi_ping.*      u:object_r:qmi_ping_exec:s0
 /system/bin/qmi-framework-tests/qmi_test.*      u:object_r:qmi_test_service_exec:s0
+
+/system/bin/diag_dci_client      u:object_r:diagdciclient_exec:s0

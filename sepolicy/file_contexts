@@ -8,6 +8,17 @@
 
 #Context for the logging
 /dev/diag     u:object_r:diag_device:s0
+/system/bin/test_diag            u:object_r:diag_exec:s0
+/system/bin/PktRspTest           u:object_r:diag_exec:s0
+/system/bin/diag_callback_client u:object_r:diag_exec:s0
+/system/bin/diag_dci_sample      u:object_r:diag_exec:s0
+/system/bin/diag_klog            u:object_r:diag_exec:s0
+/system/bin/diag_mdlog           u:object_r:diag_exec:s0
+/system/bin/diag_socket_log      u:object_r:diag_exec:s0
+/system/bin/diag_uart_log        u:object_r:diag_exec:s0
+/system/bin/diag_qshrink4_daemon u:object_r:diag_exec:s0
+/data/diag_log(/.*)?             u:object_r:diag_data_file:s0
+
 /dev/smem_log u:object_r:smem_log_device:s0
 
 #Context for the hsic devices
@@ -37,3 +48,5 @@
 /system/bin/irsc_util		u:object_r:irsc_util_exec:s0
 # Persist filesystem
 /persist(/.*)?                    u:object_r:persist_file:s0
+
+/dev/subsys_esoc0  u:object_r:subsys_esoc0_device:s0
