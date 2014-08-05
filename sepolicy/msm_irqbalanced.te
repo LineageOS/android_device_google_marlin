@@ -1,0 +1,7 @@
+type msm_irqbalanced, domain;
+type msm_irqbalanced_exec, exec_type, file_type;
+init_daemon_domain(msm_irqbalanced)
+allow msm_irqbalanced cgroup:dir { create add_name };
+allow msm_irqbalanced proc:file write;
+allow msm_irqbalanced sysfs_devices_system_cpu:file write;
+allow msm_irqbalanced self:capability { setuid setgid dac_override };
