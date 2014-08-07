@@ -4,7 +4,6 @@ type qmi_ping_exec, exec_type, file_type;
 userdebug_or_eng(`
   type qmi_ping, domain;
   domain_auto_trans(shell, qmi_ping_exec, qmi_ping)
-  domain_auto_trans(su, qmi_ping_exec, qmi_ping)
   domain_auto_trans(adbd, qmi_ping_exec, qmi_ping)
   #test launched from pseudo terminal, so output goes there
   allow qmi_ping devpts:chr_file {read write ioctl getattr};

@@ -4,9 +4,8 @@ net_domain(netmgrd)
 init_daemon_domain(netmgrd)
 
 userdebug_or_eng(`
-domain_auto_trans(shell, netmgrd_exec, netmgrd)
-domain_auto_trans(su, netmgrd_exec, netmgrd)
-domain_auto_trans(adbd, netmgrd_exec, netmgrd)
+  domain_auto_trans(shell, netmgrd_exec, netmgrd)
+  domain_auto_trans(adbd, netmgrd_exec, netmgrd)
 ')
 
 #Allow files to be written during the operation of netmgrd
