@@ -1,7 +1,9 @@
 # Board specific SELinux policy variable definitions
 BOARD_SEPOLICY_DIRS := \
        device/qcom/sepolicy \
-       device/qcom/sepolicy/test
+       device/qcom/sepolicy/common \
+       device/qcom/sepolicy/test \
+       device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM)
 
 BOARD_SEPOLICY_UNION := \
        genfs_contexts \
@@ -34,4 +36,5 @@ BOARD_SEPOLICY_UNION := \
        sensors.te \
        sensors_test.te \
        system_app.te \
-       thermal-engine.te
+       thermal-engine.te \
+       global_macros.te
