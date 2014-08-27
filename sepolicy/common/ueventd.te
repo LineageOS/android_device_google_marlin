@@ -1,3 +1,11 @@
 #Allow firmware_file access to load Non-HLOS images
 allow ueventd firmware_file:dir search;
 allow ueventd firmware_file:file { read getattr open };
+
+#Allow persist_file access to wcnss bin
+allow ueventd persist_file:dir search;
+allow ueventd persist_file:file { read getattr open };
+
+#for wifi to access wifi_data_file
+allow ueventd wifi_data_file:dir search;
+allow ueventd wifi_data_file:file { read getattr open };
