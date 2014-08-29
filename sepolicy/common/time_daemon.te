@@ -1,0 +1,18 @@
+# Policies for time daemon
+type time_daemon, domain;
+type time_daemon_exec, exec_type, file_type;
+type time_data_file, file_type, data_file_type;
+
+# Make transition to its own time_daemon domain from init
+init_daemon_domain(time_daemon)
+
+# Add rules for access permissions
+#============= IOCTL operations ==============
+allow time_daemon rtc_device:chr_file { open read ioctl };
+allow time_daemon alarm_device:chr_file { open read write ioctl };
+
+#============= File read/write ==============
+allow time_daemon time_data_file:file { write create open read};
+allow time_daemon time_data_file:dir { write add_name search};
+allow time_daemon self:socket { write read create ioctl};
+allow time_daemon self:capability { setuid setgid };
