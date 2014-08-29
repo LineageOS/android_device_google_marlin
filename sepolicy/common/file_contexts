@@ -25,6 +25,10 @@
 /dev/media([0-9])+                              u:object_r:camera_device:s0
 /dev/jpeg[0-9]*                                 u:object_r:camera_device:s0
 /dev/v4l-subdev.*                               u:object_r:camera_device:s0
+/dev/block/bootdevice/by-name/modemst1          u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/modemst2          u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/fsg               u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 ###################################
 # Dev socket nodes
 #
@@ -65,6 +69,7 @@
 /system/bin/mm-qcamera-daemon                   u:object_r:mm-qcamerad_exec:s0
 /system/rfs.*                                   u:object_r:rfs_system_file:s0
 /system/bin/time_daemon                         u:object_r:time_daemon_exec:s0
+/system/bin/rmt_storage                         u:object_r:rmt_storage_exec:s0
 
 ###################################
 # sysfs files

@@ -34,3 +34,6 @@ type rtc_device, dev_type;
 
 #Added for fm_radio device
 type  fm_radio_device, dev_type;
+
+#Add for storage pertitions for EFS partitions
+type modem_efs_partition_device, dev_type;

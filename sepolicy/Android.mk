@@ -44,7 +44,8 @@ BOARD_SEPOLICY_UNION := \
        mm-qcamerad.te \
        domain.te \
        init_shell.te \
-       time_daemon.te
+       time_daemon.te \
+       rmt_storage.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
