@@ -54,6 +54,7 @@ BOARD_SEPOLICY_UNION := \
        init_shell.te \
        time_daemon.te \
        rmt_storage.te \
+       rfs_access.te \
        hvdcp.te \
        qseecomd.te \
        mcStarter.te \

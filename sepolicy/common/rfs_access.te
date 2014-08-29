@@ -1,0 +1,40 @@
+# rfs_access - rfs_access daemon
+type rfs_access, domain;
+type rfs_access_exec, exec_type, file_type;
+init_daemon_domain(rfs_access)
+
+#The files created by rfs_access process in the /data folder will have type rfs_data_file
+type_transition rfs_access system_data_file:{ dir file } rfs_data_file;
+
+#To read the uio char device
+allow rfs_access uio_device:chr_file { read write open };
+
+#For QMI sockets
+allow rfs_access self:socket { create_socket_perms };
+
+#For Wakelocks
+allow rfs_access self:capability2 block_suspend;
+allow rfs_access sysfs_wake_lock:file { open write append };
+
+#To create the /data/rfs
+allow rfs_access system_data_file:dir { write add_name };
+
+#For system folder entries
+allow rfs_access rfs_system_file:dir search;
+allow rfs_access rfs_system_file:lnk_file read;
+
+#For data folder entries
+allow rfs_access rfs_data_file:dir { write search create add_name };
+allow rfs_access rfs_data_file:file { open read write create append getattr };
+
+#For ramdump entries in /data/tombstones.
+allow rfs_access tombstone_data_file:dir { write search create add_name };
+allow rfs_access tombstone_data_file:file { open read write create append getattr };
+
+#For firmware entries in /firmware to read NHLOS.bin files ( only perms to read and get attributes).
+allow rfs_access firmware_file:dir { search };
+allow rfs_access firmware_file:file { open read getattr };
+
+#Prevent other domains from accessing RFS data files.
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:dir { write search create add_name };
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:file { open read write create append getattr };
