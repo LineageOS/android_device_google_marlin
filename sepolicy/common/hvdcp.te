@@ -1,0 +1,16 @@
+# HVDVP quickcharge
+type hvdcp, domain;
+type hvdcp_exec, exec_type, file_type;
+
+# Make transition to its own HVDCP domain from init
+init_daemon_domain(hvdcp)
+
+# Add rules for access permissions
+allow hvdcp hvdcp_device:chr_file rw_file_perms;
+allow hvdcp sysfs_battery_supply:file rw_file_perms;
+allow hvdcp sysfs_battery_supply:dir { search };
+allow hvdcp sysfs_usb_supply:file rw_file_perms;
+allow hvdcp sysfs_usb_supply:dir { search };
+allow hvdcp self:capability { setgid setuid };
+allow hvdcp cgroup:dir { create add_name };
+allow hvdcp self:netlink_kobject_uevent_socket create_socket_perms;
