@@ -37,4 +37,7 @@ BOARD_SEPOLICY_UNION := \
        sensors_test.te \
        system_app.te \
        thermal-engine.te \
-       global_macros.te
+       global_macros.te \
+       system_app.te \
+       bluetooth.te \
+       init_shell.te

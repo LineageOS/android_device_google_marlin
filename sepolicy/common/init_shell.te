@@ -1,0 +1,14 @@
+#for accessing fmradio device node
+allow  init_shell  fm_radio_device:chr_file { open read ioctl };
+# for insmod of iris ko  , this is needed .
+allow init_shell self:capability sys_module;
+
+
+#for  property starting with hw
+allow init_shell  system_prop:property_service set ;
+
+#for access to set BT property
+allow init_shell  bluetooth_prop:property_service set;
+
+#most of the default properties are set by init_shell
+allow init_shell  default_prop:property_service set;

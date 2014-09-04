@@ -1,0 +1,3 @@
+# fm_radio app needes  open read write on fm_radio_device
+allow system_app fm_radio_device:chr_file { read open ioctl};
+allow system_app ctl_default_prop:property_service set;
