@@ -35,3 +35,27 @@ type sensors_persist_file, file_type;
 #type for thermal-engine
 type sysfs_thermal, sysfs_type, fs_type;
 type thermal_socket, file_type;
+#type for uart
+type sysfs_msmuart_file, sysfs_type, fs_type;
+
+# Storage RFS file types
+type rfs_data_file, file_type;
+type rfs_system_file, file_type;
+
+#mm-pp-daemon file type for sysfs access
+type sysfs_leds, fs_type, sysfs_type;
+
+#Define the files written during the operation of mm-pp-daemon
+type data_ad_calib_cfg, file_type, data_file_type;
+
+#SurfaceFlinger file type for sysfs access
+type sysfs_graphics, sysfs_type, fs_type;
+
+# USB/battery power supply type for hvdcp/quickcharge
+type sysfs_usb_supply, sysfs_type, fs_type;
+type sysfs_battery_supply, sysfs_type, fs_type;
+
+#Define the files written during the operation of mpdecision
+type sysfs_mpdecision, fs_type, sysfs_type;
+type sysfs_rqstats, fs_type, sysfs_type;
+type sysfs_cpu_online, fs_type, sysfs_type;

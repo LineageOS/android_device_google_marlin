@@ -42,17 +42,17 @@
 #Context for the netmgrd and qmuxd daemons
 /system/bin/netmgrd        u:object_r:netmgrd_exec:s0
 /system/bin/qmuxd          u:object_r:qmuxd_exec:s0
-/dev/kgsl-3d0        u:object_r:gpu_device:s0
+/dev/kgsl-3d0              u:object_r:gpu_device:s0
 
 #Context for ATFWD daemon
 /system/bin/ATFWD-daemon   u:object_r:atfwd_exec:s0
 
-/dev/smd.*  	 	u:object_r:smd_device:s0
-/system/bin/irsc_util		u:object_r:irsc_util_exec:s0
+/dev/smd.*  	 	   u:object_r:smd_device:s0
+/system/bin/irsc_util	   u:object_r:irsc_util_exec:s0
 # Persist filesystem
-/persist(/.*)?                    u:object_r:persist_file:s0
+/persist(/.*)?             u:object_r:persist_file:s0
 
-/dev/subsys_esoc0  u:object_r:subsys_esoc0_device:s0
+/dev/subsys_esoc0          u:object_r:subsys_esoc0_device:s0
 
 #Context for cnd
 /dev/socket/cnd     u:object_r:cnd_socket:s0
@@ -98,3 +98,59 @@
 
 #Add context for adsp device
 /dev/adsprpc-smd u:object_r:qdsp_device:s0
+
+# Contexts for UART
+/dev/ttyHSL0                  u:object_r:console_device:s0
+/dev/ttyHS[0-9]*              u:object_r:serial_device:s0
+
+# UART DebugFS
+/sys/module/msm_serial_hs/parameters/debug_mask u:object_r:sysfs_msmuart_file:s0
+
+# System files
+#/system/bin/rmt_storage       u:object_r:rmt_storage_exec:s0
+#/system/bin/rfs_access        u:object_r:rfs_access_exec:s0
+
+# Storage RFS files
+/system/rfs.*                 u:object_r:rfs_system_file:s0
+/data/rfs.*                   u:object_r:rfs_data_file:s0
+
+# Contexts for mm-pp-daemon
+#/system/bin/mm-pp-daemon u:object_r:mm-pp-daemon_exec:s0
+
+#Contexts for SurfaceFlinger sysfs nodes all other in this folder get
+#default context (i.e.,sysfs) .
+/sys/devices/virtual/graphics/fb0/idle_time u:object_r:sysfs_graphics:s0
+/sys/class/graphics/fb0/mdp/caps u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb1/vendor_name u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb1/product_description u:object_r:sysfs_graphics:s0
+
+# These are for quick charge related entries
+#/system/bin/hvdcp                                               u:object_r:hvdcp_exec:s0
+/dev/usb_ext_chg                                                u:object_r:hvdcp_device:s0
+
+# USB power supply related entries other entries like /sys/devices/f9axxx
+# are device specific will go to respective folder
+/sys/devices/msm_otg/power_supply/usb(/.*)?                     u:object_r:sysfs_usb_supply:s0
+/sys/devices/f9200000.*/power_supply/usb(/.*)?                  u:object_r:sysfs_usb_supply:s0
+/sys/devices/msm_dwc3/power_supply/usb(/.*)?                    u:object_r:sysfs_usb_supply:s0
+/sys/devices/qpnp-charger.*/power_supply/battery(/.*)?          u:object_r:sysfs_battery_supply:s0
+
+#Context for mpdecision
+/sys/module/msm_thermal/core_control/cpus_offlined              u:object_r:sysfs_mpdecision:s0
+/dev/cpu_dma_latency                                            u:object_r:device_latency:s0
+#/system/bin/mpdecision                                          u:object_r:mpdecision_exec:s0
+/sys/devices/system/cpu/cpu0/rq-stats/*                         u:object_r:sysfs_rqstats:s0
+
+#QSEECOM related contexts
+#/system/bin/qseecomd         u:object_r:qseecomd_exec:s0
+/dev/msm-rng                 u:object_r:qrng_device:s0
+#/system/bin/qrngd            u:object_r:qrngd_exec:s0
+
+# Files and devices
+#/system/bin/time_daemon       u:object_r:time_daemon_exec:s0
+/dev/rtc0                     u:object_r:rtc_device:s0
+#/data/time/*                  u:object_r:time_data_file:s0
+
+#Added for fm_radio  device
+/dev/radio0                   u:object_r:fm_radio_device:s0
+
