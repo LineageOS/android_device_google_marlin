@@ -49,7 +49,8 @@ BOARD_SEPOLICY_UNION := \
        hvdcp.te \
        qseecomd.te \
        mcStarter.te \
-       keystore.te
+       keystore.te \
+       ims_rmt.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
