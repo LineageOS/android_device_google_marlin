@@ -45,3 +45,8 @@ allow netmgrd system_prop:property_service { set };
 
 #Allow execution of commands in shell
 allow netmgrd system_file:file { execute_no_trans };
+
+allow netmgrd self:socket read;
+
+#Allow communication with netd
+allow netmgrd netd_socket:sock_file write;
