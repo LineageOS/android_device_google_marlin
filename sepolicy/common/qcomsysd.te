@@ -1,0 +1,21 @@
+#Policy file for qcom-system-daemon
+#qcomsysd = qcom-system-daemon domain
+type qcomsysd, domain;
+type qcomsysd_exec, exec_type, file_type;
+init_daemon_domain(qcomsysd);
+
+#Needed for logging
+allow qcomsysd smem_log_device:chr_file { open read write ioctl };
+
+#Needed for handling diag commands
+allow qcomsysd diag_device:chr_file { open read write ioctl };
+
+#Needed to read/write cookies to the misc partition
+allow qcomsysd misc_partition:blk_file { open read getattr write };
+
+#Needed to access the bootselect partition
+allow qcomsysd bootselect_device:blk_file { open read getattr write };
+
+#Needed to get image info from socinfo
+allow qcomsysd sysfs_socinfo:dir  { open search read };
+allow qcomsysd sysfs_socinfo:file { open read write };

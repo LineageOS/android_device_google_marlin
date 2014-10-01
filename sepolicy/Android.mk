@@ -62,7 +62,8 @@ BOARD_SEPOLICY_UNION := \
        bootanim.te \
        zygote.te \
        mdm_helper.te \
-       peripheral_manager.te
+       peripheral_manager.te \
+       qcomsysd.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
