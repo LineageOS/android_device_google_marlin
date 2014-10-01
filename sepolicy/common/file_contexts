@@ -154,3 +154,5 @@
 #Added for fm_radio  device
 /dev/radio0                   u:object_r:fm_radio_device:s0
 
+# Added for nfc driver
+/dev/nfc-nci                  u:object_r:nfc_device:s0
