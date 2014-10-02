@@ -40,4 +40,5 @@ BOARD_SEPOLICY_UNION := \
        global_macros.te \
        system_app.te \
        bluetooth.te \
-       init_shell.te
+       init_shell.te \
+       mpdecision.te

@@ -138,7 +138,7 @@
 #Context for mpdecision
 /sys/module/msm_thermal/core_control/cpus_offlined              u:object_r:sysfs_mpdecision:s0
 /dev/cpu_dma_latency                                            u:object_r:device_latency:s0
-#/system/bin/mpdecision                                          u:object_r:mpdecision_exec:s0
+/system/bin/mpdecision                                          u:object_r:mpdecision_exec:s0
 /sys/devices/system/cpu/cpu0/rq-stats/*                         u:object_r:sysfs_rqstats:s0
 
 #QSEECOM related contexts
