@@ -1,2 +1,5 @@
 # allow mediaserver to communicate with cnd
 unix_socket_connect(mediaserver, cnd, cnd)
+
+allow mediaserver camera_device:chr_file rw_file_perms;
+unix_socket_send(mediaserver, camera, mm-qcamerad)

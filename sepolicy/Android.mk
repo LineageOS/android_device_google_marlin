@@ -41,4 +41,5 @@ BOARD_SEPOLICY_UNION := \
        system_app.te \
        bluetooth.te \
        init_shell.te \
-       mpdecision.te
+       mpdecision.te \
+       mm-qcamerad.te

@@ -59,3 +59,6 @@ type sysfs_battery_supply, sysfs_type, fs_type;
 type sysfs_mpdecision, fs_type, sysfs_type;
 type sysfs_rqstats, fs_type, sysfs_type;
 type sysfs_cpu_online, fs_type, sysfs_type;
+
+#mm-qcamera-daemon socket
+type camera_socket, file_type;
