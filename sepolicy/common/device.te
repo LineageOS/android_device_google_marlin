@@ -26,9 +26,6 @@ type hvdcp_device, dev_type;
 #Define mpdecision device
 type device_latency, dev_type;
 
-#Define qrngd device
-type qrng_device, dev_type;
-
 #Define rct device type for time daemon
 type rtc_device, dev_type;
 
@@ -37,3 +34,7 @@ type  fm_radio_device, dev_type;
 
 #Add for storage pertitions for EFS partitions
 type modem_efs_partition_device, dev_type;
+
+#Define device for partition links
+type ssd_device, dev_type;
+type rpmb_device, dev_type;

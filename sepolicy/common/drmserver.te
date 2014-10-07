@@ -1,2 +1,5 @@
 #Address denial logs for drm server accessing firmware file
 allow drmserver firmware_file:file { read getattr open };
+
+#Address denial logs for drm server accessing qseecom driver
+allow drmserver qseecom_device:chr_file { read write ioctl open };
