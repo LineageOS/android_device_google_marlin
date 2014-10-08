@@ -7,10 +7,10 @@ userdebug_or_eng(`
   domain_auto_trans(shell, sensors_test_exec, sensors_test)
   domain_auto_trans(adbd, sensors_test_exec, sensors_test)
 
-  allow sensors_test devpts:chr_file { open read write ioctl getattr };
+  allow sensors_test devpts:chr_file rw_file_perms;
   allow sensors_test sensors:unix_stream_socket connectto;
-  allow sensors_test sensors_device:chr_file { getattr read };
-  allow sensors_test sensors_socket:sock_file { read write };
-  allow sensors_test smd_device:chr_file { read write open };
-  allow sensors_test socket_device:dir read;
+  allow sensors_test sensors_device:chr_file rw_file_perms;
+  allow sensors_test sensors_socket:sock_file rw_file_perms;
+  allow sensors_test smd_device:chr_file rw_file_perms;
+  allow sensors_test socket_device:dir r_dir_perms;
 ')
