@@ -1,0 +1,14 @@
+# rmt_storage - rmt_storage daemon
+type rmt_storage, domain;
+type rmt_storage_exec, exec_type, file_type;
+init_daemon_domain(rmt_storage)
+
+allow rmt_storage modem_efs_partition_device:blk_file { read write open };
+allow rmt_storage block_device:dir search;
+allow rmt_storage cgroup:dir { create add_name };
+allow rmt_storage smem_log_device:chr_file { read write ioctl open };
+allow rmt_storage self:capability { setuid setgid sys_admin dac_override };
+allow rmt_storage self:capability2 block_suspend;
+allow rmt_storage self:socket { create_socket_perms };
+allow rmt_storage sysfs_wake_lock:file { open write append };
+allow rmt_storage uio_device:chr_file { read write open };
