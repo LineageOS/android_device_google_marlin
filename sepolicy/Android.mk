@@ -46,7 +46,10 @@ BOARD_SEPOLICY_UNION := \
        init_shell.te \
        time_daemon.te \
        rmt_storage.te \
-       hvdcp.te
+       hvdcp.te \
+       qseecomd.te \
+       mcStarter.te \
+       keystore.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

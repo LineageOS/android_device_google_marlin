@@ -7,7 +7,6 @@
 /dev/hsicctl.*                                  u:object_r:hsic_device:s0
 /dev/kgsl-3d0                                   u:object_r:gpu_device:s0
 /dev/mhi_pipe_.*                                u:object_r:mhi_device:s0
-/dev/msm-rng                                    u:object_r:qrng_device:s0
 /dev/msm_.*                                     u:object_r:audio_device:s0
 /dev/msm_dsps                                   u:object_r:sensors_device:s0
 /dev/msm_thermal_query                          u:object_r:thermal_device:s0
@@ -29,6 +28,8 @@
 /dev/block/bootdevice/by-name/modemst2          u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/fsg               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
+/dev/block/bootdevice/by-name/rpmb              u:object_r:rpmb_device:s0
 ###################################
 # Dev socket nodes
 #
@@ -71,6 +72,7 @@
 /system/bin/time_daemon                         u:object_r:time_daemon_exec:s0
 /system/bin/rmt_storage                         u:object_r:rmt_storage_exec:s0
 /system/bin/hvdcp                               u:object_r:hvdcp_exec:s0
+/system/bin/qseecomd                            u:object_r:qseecomd_exec:s0
 
 ###################################
 # sysfs files

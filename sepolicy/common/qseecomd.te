@@ -1,0 +1,7 @@
+type qseecomd, domain;
+type qseecomd_exec, exec_type, file_type;
+init_daemon_domain(qseecomd)
+allow qseecomd ssd_device:blk_file { read write getattr open ioctl };
+allow qseecomd rpmb_device:blk_file { read write getattr open ioctl };
+allow qseecomd block_device:dir search;
+allow qseecomd qseecom_device:chr_file { read write ioctl };
