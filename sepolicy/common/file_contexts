@@ -63,8 +63,6 @@
 /system/bin/test_diag                           u:object_r:diag_exec:s0
 /system/bin/thermal-engine                      u:object_r:thermal-engine_exec:s0
 /system/bin/mm-qcamera-daemon                   u:object_r:mm-qcamerad_exec:s0
-/system/etc/sensor_def_qcomdev.conf             u:object_r:sensors_system_file:s0
-/system/etc/sensors(/.*)?                       u:object_r:sensors_system_file:s0
 /system/rfs.*                                   u:object_r:rfs_system_file:s0
 
 ###################################
@@ -100,6 +98,7 @@
 /data/misc/sensors(/.*)?                                            u:object_r:sensors_data_file:s0
 /data/rfs.*                                                         u:object_r:rfs_data_file:s0
 /data/camera(/.*)?                                                  u:object_r:camera_socket:s0
+/data/system/sensors(/.*)?                                          u:object_r:sensors_data_file:s0
 
 ###################################
 # persist files

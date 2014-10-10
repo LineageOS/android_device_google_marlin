@@ -5,6 +5,8 @@ unix_socket_connect(system_server, cnd, cnd)
 allow system_server cnd_data_file:dir { read open write getattr add_name };
 allow system_server cnd_data_file:file { create write getattr setattr read lock open };
 
-# allow system_server to communicate with sensors daemon over sensors_socket
-allow system_server sensors:unix_stream_socket connectto;
-allow system_server sensors_socket:sock_file write;
+# Access to sensors socket
+unix_socket_connect(system_server, sensors, sensors)
+unix_socket_send(system_server, sensors, sensors)
+allow system_server sensors:unix_stream_socket sendto;
+allow system_server sensors_socket:sock_file r_file_perms;
