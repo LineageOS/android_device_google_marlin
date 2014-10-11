@@ -76,6 +76,9 @@
 /system/bin/rmt_storage                         u:object_r:rmt_storage_exec:s0
 /system/bin/hvdcp                               u:object_r:hvdcp_exec:s0
 /system/bin/qseecomd                            u:object_r:qseecomd_exec:s0
+/system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
+/system/bin/wpa_cli                             u:object_r:wpa_exec:s0
+/system/bin/cnss-daemon                         u:object_r:wpa_exec:s0
 
 ###################################
 # sysfs files
