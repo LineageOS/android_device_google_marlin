@@ -1,1 +1,2 @@
-allow init firmware_file:filesystem { relabelfrom relabelto mount};
+# Adding allow rule for search on /fuse
+allow init fuse:dir search;
