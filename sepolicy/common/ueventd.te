@@ -9,3 +9,8 @@ allow ueventd persist_file:file { read getattr open };
 #for wifi to access wifi_data_file
 allow ueventd wifi_data_file:dir search;
 allow ueventd wifi_data_file:file { read getattr open };
+
+#For powersupply and thermal status
+allow ueventd sysfs_battery_supply:file w_file_perms;
+allow ueventd sysfs_thermal:file w_file_perms;
+allow ueventd sysfs_usb_supply:file w_file_perms;
