@@ -9,6 +9,7 @@ BOARD_SEPOLICY_DIRS := \
 BOARD_SEPOLICY_UNION := \
        genfs_contexts \
        file_contexts \
+       service_contexts \
        device.te \
        vold.te \
        ueventd.te \
@@ -34,6 +35,7 @@ BOARD_SEPOLICY_UNION := \
        diag.te \
        diag_test.te \
        audiod.te \
+       service.te \
        system_app.te \
        thermal-engine.te \
        global_macros.te \
