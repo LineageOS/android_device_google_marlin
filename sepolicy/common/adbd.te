@@ -2,3 +2,4 @@
 userdebug_or_eng(`
        permissive adbd;
 ')
+allow adbd tombstone_data_file:dir getattr;

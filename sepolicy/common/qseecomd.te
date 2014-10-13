@@ -4,4 +4,6 @@ init_daemon_domain(qseecomd)
 allow qseecomd ssd_device:blk_file { read write getattr open ioctl };
 allow qseecomd rpmb_device:blk_file { read write getattr open ioctl };
 allow qseecomd block_device:dir search;
-allow qseecomd qseecom_device:chr_file { read write ioctl };
+allow qseecomd qseecom_device:chr_file { read write ioctl open };
+allow qseecomd self:capability { setgid setuid dac_override };
+allow qseecomd firmware_file:dir search;

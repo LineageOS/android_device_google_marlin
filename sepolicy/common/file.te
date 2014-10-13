@@ -2,10 +2,7 @@
 type firmware_file, fs_type, contextmount_type;
 
 #Define the qmux socket type
-type qmux_audio_socket, file_type;
-type qmux_bluetooth_socket, file_type;
-type qmux_gps_socket, file_type;
-type qmux_radio_socket, file_type;
+type qmuxd_socket, file_type;
 
 # Define cnd socket and data file type
 type cnd_socket, file_type;

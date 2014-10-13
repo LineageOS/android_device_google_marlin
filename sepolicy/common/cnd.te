@@ -8,6 +8,8 @@ init_daemon_domain(cnd)
 # associate netdomain as an attribute of cnd domain
 net_domain(cnd)
 
+allow cnd smem_log_device:chr_file rw_file_perms;
+
 # allow cnd the following capability
 allow cnd self:capability { setuid setgid dac_override net_raw chown
  fsetid net_admin sys_module };
@@ -15,7 +17,7 @@ allow cnd self:capability2 block_suspend;
 
 # socket used to communicate with kernel via the netlink syscall
 allow cnd self:netlink_tcpdiag_socket { bind create write read
- nlmsg_read };
+ nlmsg_read getopt};
 allow cnd self:netlink_route_socket { read bind create write
  nlmsg_read };
 
@@ -33,9 +35,7 @@ allow cnd cnd_data_file:sock_file { unlink create setattr };
 allow cnd cnd_data_file:dir { open read write add_name remove_name search };
 
 # allow cnd to access qmux_radio_socket
-allow cnd qmux_radio_socket:dir { write add_name };
-allow cnd qmux_radio_socket:sock_file { create write setattr};
-allow cnd qmuxd:unix_stream_socket connectto;
+qmux_socket(cnd)
 
 # cnd access diag_device /dev/diag for logging
 allow cnd diag_device:chr_file { read write open ioctl };

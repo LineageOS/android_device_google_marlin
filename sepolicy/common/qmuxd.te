@@ -9,14 +9,16 @@ userdebug_or_eng(`
 ')
 
 #Allow qmuxd to operate on various qmux device sockets
-allow qmuxd qmux_radio_socket:dir { write add_name remove_name search };
-allow qmuxd qmux_radio_socket:sock_file { create setattr getattr write unlink };
-allow qmuxd qmux_audio_socket:dir { write add_name remove_name search };
-allow qmuxd qmux_audio_socket:sock_file { create setattr getattr write unlink };
-allow qmuxd qmux_gps_socket:dir { write add_name remove_name search };
-allow qmuxd qmux_gps_socket:sock_file { create setattr getattr write unlink };
-allow qmuxd qmux_bluetooth_socket:dir { write add_name remove_name search };
-allow qmuxd qmux_bluetooth_socket:sock_file { create setattr getattr write unlink };
+#allow qmuxd qmux_radio_socket:dir { write add_name remove_name search };
+#allow qmuxd qmux_radio_socket:sock_file { create setattr getattr write unlink };
+#allow qmuxd qmux_audio_socket:dir { write add_name remove_name search };
+#allow qmuxd qmux_audio_socket:sock_file { create setattr getattr write unlink };
+#allow qmuxd qmux_gps_socket:dir { write add_name remove_name search };
+#allow qmuxd qmux_gps_socket:sock_file { create setattr getattr write unlink };
+#allow qmuxd qmux_bluetooth_socket:dir { write add_name remove_name search };
+#allow qmuxd qmux_bluetooth_socket:sock_file { create setattr getattr write unlink };
+
+qmux_socket(qmuxd);
 
 #Allow logging
 allow qmuxd diag_device:chr_file { rw_file_perms };

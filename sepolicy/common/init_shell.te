@@ -12,3 +12,5 @@ allow init_shell  bluetooth_prop:property_service set;
 
 #most of the default properties are set by init_shell
 allow init_shell  default_prop:property_service set;
+
+allow init_shell shell_exec:file execute_no_trans;

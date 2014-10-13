@@ -5,6 +5,7 @@ type time_data_file, file_type, data_file_type;
 
 # Make transition to its own time_daemon domain from init
 init_daemon_domain(time_daemon)
+allow time_daemon smem_log_device:chr_file { read write };
 
 # Add rules for access permissions
 #============= IOCTL operations ==============

@@ -19,3 +19,15 @@ allow mm-qcamerad { gpu_device video_device camera_device sensors_device }:chr_f
 allow mm-qcamerad { surfaceflinger mediaserver }:fd use;
 # Need to investigate this
 allow mm-qcamerad self:tcp_socket create_socket_perms;
+
+allow mm-qcamerad camera_data_file:dir { write remove_name search add_name };
+allow mm-qcamerad camera_data_file:sock_file { create unlink };
+allow mm-qcamerad node:tcp_socket node_bind;
+allow mm-qcamerad self:tcp_socket listen;
+
+#/data/fdAlbum
+allow mm-qcamerad system_data_file:dir w_dir_perms;
+allow mm-qcamerad system_data_file:file create_file_perms;
+
+#Remove GL fine reference
+allow mm-qcamerad shell_data_file:dir search;
