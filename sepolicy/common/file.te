@@ -72,3 +72,6 @@ type sysfs_hsic_host_rdy, sysfs_type, file_type;
 
 # Files accessed by qcom-system-daemon
 type sysfs_socinfo, fs_type, sysfs_type;
+
+#Define the sysfs files for usb_uicc_daemon
+type sysfs_usb_uicc, sysfs_type, fs_type;

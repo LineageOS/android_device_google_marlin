@@ -9,8 +9,8 @@ BOARD_SEPOLICY_DIRS := \
 BOARD_SEPOLICY_UNION := \
        genfs_contexts \
        file_contexts \
-       property_contexts \
        service_contexts \
+       property_contexts \
        te_macros \
        ims_datad.te \
        ims_qmid.te \
@@ -18,6 +18,7 @@ BOARD_SEPOLICY_UNION := \
        vold.te \
        ueventd.te \
        file.te \
+       property.te \
        drmserver.te \
        adbd.te \
        app.te \
@@ -66,7 +67,8 @@ BOARD_SEPOLICY_UNION := \
        mdm_helper.te \
        peripheral_manager.te \
        qcomsysd.te \
-       servicemanager.te
+       servicemanager.te \
+       usb_uicc_daemon.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

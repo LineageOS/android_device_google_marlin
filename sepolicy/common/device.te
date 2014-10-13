@@ -57,3 +57,6 @@ type misc_partition, dev_type;
 
 #Bootselect partition
 type bootselect_device, dev_type;
+
+#define usb_uicc_device for usb_uicc daemon
+type usb_uicc_device, dev_type;
