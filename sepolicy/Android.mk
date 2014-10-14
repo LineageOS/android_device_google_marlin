@@ -19,6 +19,7 @@ BOARD_SEPOLICY_UNION := \
        ueventd.te \
        file.te \
        property.te \
+       untrusted_app.te \
        drmserver.te \
        adbd.te \
        app.te \
@@ -74,7 +75,8 @@ BOARD_SEPOLICY_UNION := \
        usb_uicc_daemon.te \
        adsprpcd.te \
        qlogd.te \
-       ipacm.te
+       ipacm.te \
+       dpmd.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

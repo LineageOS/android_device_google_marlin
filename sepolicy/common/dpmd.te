@@ -1,0 +1,44 @@
+#dpmd as domain
+type dpmd, domain;
+type dpmd_exec, exec_type, file_type;
+
+#file_type_auto_trans(dpmd, socket_device, dpmd_socket);
+init_daemon_domain(dpmd)
+type_transition dpmd system_data_file:{ file } dpmd_data_file;
+
+allow dpmd dpmd_exec:file execute_no_trans;
+
+#allow dpmd to access diag service
+userdebug_or_eng(`
+  allow dpmd diag_device:chr_file { read write ioctl open };
+')
+allow dpmd dpmd_data_file:file { read lock getattr open setattr execute };
+
+#allow dpmd to access qmux radio socket
+qmux_socket(dpmd);
+
+#self capability
+allow dpmd self:capability net_raw;
+allow dpmd self:capability { chown fsetid dac_override };
+allow dpmd self:netlink_route_socket { create read write bind create nlmsg_read };
+allow dpmd sysfs_wake_lock:file { open append };
+allow dpmd self:capability net_admin;
+allow dpmd self:rawip_socket { getopt create setopt };
+allow dpmd self:socket rw_socket_perms;
+allow dpmd self:netlink_socket rw_socket_perms;
+
+#socket
+allow dpmd self:udp_socket { ioctl create getopt };
+allow dpmd smem_log_device:chr_file { read write ioctl open };
+allow dpmd init:unix_stream_socket connectto;
+
+#llow dpmd to set system property
+allow dpmd property_socket:sock_file write;
+allow dpmd self:capability2 block_suspend;
+allow dpmd system_prop:property_service set;
+
+allow dpmd shell_exec:file { read execute open execute_no_trans };
+allow dpmd system_file:file execute_no_trans;
+
+#kernel
+allow dpmd kernel:system module_request;
