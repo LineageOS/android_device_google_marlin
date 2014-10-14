@@ -5,3 +5,10 @@ allow mediaserver camera_device:chr_file rw_file_perms;
 unix_socket_send(mediaserver, camera, mm-qcamerad)
 
 allow mediaserver qseecom_device:chr_file { read write ioctl open };
+
+allow mediaserver self:socket create_socket_perms;
+
+binder_call(mediaserver, rild)
+
+qmux_socket(mediaserver)
+allow mediaserver camera_data_file:sock_file write;

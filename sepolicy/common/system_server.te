@@ -10,3 +10,4 @@ unix_socket_connect(system_server, sensors, sensors)
 unix_socket_send(system_server, sensors, sensors)
 allow system_server sensors:unix_stream_socket sendto;
 allow system_server sensors_socket:sock_file r_file_perms;
+qmux_socket(system_server);

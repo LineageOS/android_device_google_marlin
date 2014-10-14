@@ -12,14 +12,12 @@ userdebug_or_eng(`
   #to enable qmuxd interface apis to access diag
   allow qmi_test_service diag_device:chr_file {read write open ioctl};
   #enable accessing the path where qmuxds named sockets are present
-  allow qmi_test_service qmux_radio_socket:dir {read write search add_name};
   #to interface with qmuxd through unix sockets
-  allow qmi_test_service qmux_radio_socket:sock_file {create read write setattr};
   #to access ipc router socket
   allow qmi_test_service qmi_test_service:socket {create bind ioctl read write setopt};
   #enable running test as root user => privileged process
   #enable privileged processes to bypass permission checks
   allow qmi_test_service qmi_test_service:capability {dac_override dac_read_search setgid setuid fsetid};
   #QCCI calls qmuxd API.  The API will internally require this
-  allow qmi_test_service qmuxd:unix_stream_socket {connectto};
+  qmux_socket(qmi_test_service);
 ')

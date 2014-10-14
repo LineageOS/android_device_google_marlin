@@ -10,6 +10,7 @@ BOARD_SEPOLICY_UNION := \
        genfs_contexts \
        file_contexts \
        service_contexts \
+       te_macros \
        device.te \
        vold.te \
        ueventd.te \
@@ -52,7 +53,12 @@ BOARD_SEPOLICY_UNION := \
        qseecomd.te \
        mcStarter.te \
        keystore.te \
-       ims_rmt.te
+       ims_rmt.te \
+       healthd.te \
+       surfaceflinger.te \
+       wpa.te \
+       bootanim.te \
+       zygote.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

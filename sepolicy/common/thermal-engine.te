@@ -19,9 +19,6 @@ allow thermal-engine thermal_socket:sock_file { create setattr open read write }
 allow thermal-engine sysfs_thermal:dir { read search open };
 allow thermal-engine sysfs_thermal:file { read write getattr open };
 allow thermal-engine sysfs_thermal:lnk_file read;
-#This is required to access diag device
-allow thermal-engine diag_device:chr_file {read write open ioctl};
 #This is required for qmi access
-allow thermal-engine qmux_radio_socket:dir {read write search add_name remove_name};
-allow thermal-engine qmux_radio_socket:sock_file {create read write setattr unlink};
-allow thermal-engine qmuxd:unix_stream_socket {connectto};
+qmux_socket(thermal-engine);
+allow thermal-engine sysfs_mpdecision:file { read open };

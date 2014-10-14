@@ -1,3 +1,5 @@
 #Policies for IPv6 tethering
 allow netd netd:capability { setgid setuid };
 allow netd netd:packet_socket { create bind setopt read ioctl };
+
+dontaudit netd self:capability sys_module;
