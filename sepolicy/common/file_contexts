@@ -59,6 +59,8 @@
 /dev/socket/ims_qmid                            u:object_r:ims_socket:s0
 /dev/socket/ims_datad                           u:object_r:ims_socket:s0
 /dev/socket/ims_rtpd                            u:object_r:ims_socket:s0
+/dev/socket/perfd(/.*)?                         u:object_r:mpctl_socket:s0
+/dev/socket/qlogd                               u:object_r:qlogd_socket:s0
 
 ###################################
 # System files
@@ -101,6 +103,7 @@
 /system/bin/pm-service                          u:object_r:per_mgr_exec:s0
 /system/bin/usb_uicc_client                     u:object_r:usb_uicc_daemon_exec:s0
 /system/bin/qcom-system-daemon                  u:object_r:qcomsysd_exec:s0
+/system/xbin/qlogd                              u:object_r:qlogd_exec:s0
 
 ###################################
 # sysfs files

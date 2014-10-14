@@ -70,7 +70,8 @@ BOARD_SEPOLICY_UNION := \
        qcomsysd.te \
        servicemanager.te \
        usb_uicc_daemon.te \
-       adsprpcd.te
+       adsprpcd.te \
+       qlogd.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
