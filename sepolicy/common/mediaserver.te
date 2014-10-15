@@ -15,3 +15,8 @@ allow mediaserver camera_data_file:sock_file write;
 
 allow mediaserver sysfs_esoc:dir r_dir_perms;
 allow mediaserver sysfs_esoc:lnk_file read;
+
+# access to perflock
+allow mediaserver mpctl_socket:dir r_dir_perms;
+unix_socket_send(mediaserver, mpctl, mpdecision)
+unix_socket_connect(mediaserver, mpctl, mpdecision)
