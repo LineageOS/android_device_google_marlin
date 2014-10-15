@@ -89,9 +89,9 @@
 /sys/devices/platform/battery_current_limit                         u:object_r:sysfs_thermal:s0
 /sys/devices/qpnp-charger.*/power_supply/battery(/.*)?              u:object_r:sysfs_battery_supply:s0
 /sys/devices/system/cpu/cpu0/rq-stats/*                             u:object_r:sysfs_rqstats:s0
-/sys/devices/virtual/graphics/fb0/idle_time                         u:object_r:sysfs_graphics:s0
-/sys/devices/virtual/graphics/fb1/product_description               u:object_r:sysfs_graphics:s0
-/sys/devices/virtual/graphics/fb1/vendor_name                       u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb([0-2])+/idle_time                  u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb([0-2])+/product_description        u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb([0-2])+/vendor_name                u:object_r:sysfs_graphics:s0
 /sys/devices/virtual/hsicctl/hsicctl1[0-9]/modem_wait               u:object_r:sysfs_hsic_modem_wait:s0
 /sys/devices/virtual/hsicctl/hsicctl[0-9]/modem_wait                u:object_r:sysfs_hsic_modem_wait:s0
 /sys/devices/virtual/smdpkt/smdcntl1[0-9]/open_timeout              u:object_r:sysfs_smd_open_timeout:s0
@@ -101,6 +101,9 @@
 /sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
 /sys/module/msm_thermal/core_control/cpus_offlined                  u:object_r:sysfs_mpdecision:s0
 /sys/devices/f9a55000.*/power_supply/usb(/.*)?                      u:object_r:sysfs_usb_supply:s0
+/sys/devices/virtual/graphics/fb([0-2])+/hpd                        u:object_r:sysfs_graphics:s0
+/sys/class/graphics/fb([0-2])+/mdp/caps                             u:object_r:sysfs_graphics:s0
+/sys/class/graphics/fb([0-2])+/ad                                   u:object_r:sysfs_graphics:s0
 
 ###################################
 # data files
