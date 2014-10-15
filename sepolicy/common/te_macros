@@ -5,9 +5,7 @@
 # Also allow the client domain to remove
 # its own socket.
 define(`qmux_socket', `
-type $1_qmuxd_socket, file_type;
-file_type_auto_trans($1, qmuxd_socket, $1_qmuxd_socket)
-allow $1 qmuxd_socket:dir remove_name;
+allow $1 qmuxd_socket:dir create_dir_perms;
 unix_socket_connect($1, qmuxd, qmuxd)
-allow qmuxd $1_qmuxd_socket:sock_file { getattr unlink };
+allow $1 qmuxd_socket:sock_file { read getattr write setattr create unlink };
 ')

@@ -28,8 +28,10 @@ allow qmuxd smd_device:chr_file { rw_file_perms };
 allow qmuxd hsic_device:chr_file { rw_file_perms };
 
 #Allow qmuxd to operate in platform specific transports
-allow qmuxd sysfs_smd_open_timeout:file { append write };
+allow qmuxd sysfs_smd_open_timeout:file w_file_perms;
 allow qmuxd sysfs_wake_lock:file { append open };
 
 #Allow qmuxd to write in hsic specific transport
-allow qmuxd sysfs:file { write };
+allow qmuxd sysfs:file w_file_perms;
+
+allow qmuxd self:capability { setuid setgid setpcap dac_override };

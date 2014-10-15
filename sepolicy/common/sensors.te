@@ -5,6 +5,8 @@ type sensors_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(sensors)
 
+type_transition sensors system_data_file:{ dir file } sensors_data_file;
+
 # Change own perms to (nobody,nobody)
 allow sensors self:capability { setuid setgid };
 # Chown /data/misc/sensors/debug/ to nobody
@@ -21,6 +23,7 @@ allow sensors socket_device:dir rw_dir_perms;
 
 # Create directories and files under /data/misc/sensors
 # and /data/system/sensors. Allow generic r/w file access.
+allow sensors system_data_file:dir create_dir_perms;
 allow sensors sensors_data_file:dir create_dir_perms;
 allow sensors sensors_data_file:file create_file_perms;
 
@@ -29,7 +32,7 @@ allow sensors sensors_device:chr_file rw_file_perms;
 
 # Access to /persist/sensors
 allow sensors persist_file:dir r_dir_perms;
-allow sensors sensors_persist_file:dir rw_dir_perms;
+allow sensors sensors_persist_file:dir create_dir_perms;
 allow sensors sensors_persist_file:file create_file_perms;
 
 # Wake lock access
