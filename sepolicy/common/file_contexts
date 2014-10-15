@@ -30,6 +30,7 @@
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
 /dev/block/mmcblk0rpmb                          u:object_r:rpmb_device:s0
+
 ###################################
 # Dev socket nodes
 #
@@ -116,6 +117,7 @@
 /data/camera(/.*)?                                                  u:object_r:camera_socket:s0
 /data/system/sensors(/.*)?                                          u:object_r:sensors_data_file:s0
 /data/time/*                                                        u:object_r:time_data_file:s0
+/data/nfc(/.*)?                                                     u:object_r:nfc_data_file:s0
 
 ###################################
 # persist files
