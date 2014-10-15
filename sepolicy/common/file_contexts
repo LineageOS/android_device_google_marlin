@@ -53,6 +53,7 @@
 /system/bin/ATFWD-daemon                        u:object_r:atfwd_exec:s0
 /system/bin/PktRspTest                          u:object_r:diag_exec:s0
 /system/bin/audiod                              u:object_r:audiod_exec:s0
+/system/bin/charger_monitor                     u:object_r:charger_monitor_exec:s0
 /system/bin/cnd                                 u:object_r:cnd_exec:s0
 /system/bin/diag_callback_client                u:object_r:diag_exec:s0
 /system/bin/diag_dci_sample                     u:object_r:diag_exec:s0
