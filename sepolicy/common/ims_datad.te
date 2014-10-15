@@ -1,0 +1,6 @@
+type imsdatadaemon, domain;
+type imsdatadaemon_exec, exec_type, file_type;
+init_daemon_domain(imsdatadaemon)
+
+allow radio ims_socket:sock_file rw_file_perms;
+allow imsdatadaemon ims_socket:sock_file rw_file_perms;

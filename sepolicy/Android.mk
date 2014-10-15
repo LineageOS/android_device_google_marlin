@@ -11,6 +11,8 @@ BOARD_SEPOLICY_UNION := \
        file_contexts \
        service_contexts \
        te_macros \
+       ims_datad.te \
+       ims_qmid.te \
        device.te \
        vold.te \
        ueventd.te \
