@@ -1,15 +1,16 @@
-
 #allow rild qmux_radio_socket:dir { write remove_name search add_name };
 #allow rild qmux_radio_socket:sock_file { write create unlink setattr };
 #allow rild qmuxd:unix_stream_socket connectto;
 qmux_socket(rild);
+binder_use(rild)
 
 allow rild ssr_device:chr_file { open read };
 allow rild sysfs_esoc:dir { search read open};
 allow rild sysfs_esoc:lnk_file { read };
 allow rild sysfs_esoc:file { write };
+allow rild sysfs_ssr:dir { open search read };
+allow rild sysfs_ssr:lnk_file { read open };
 
-allow rild servicemanager:binder call;
 allow rild mediaserver:binder { transfer call };
 
 #allow rild diag_device:chr_file { open read write };

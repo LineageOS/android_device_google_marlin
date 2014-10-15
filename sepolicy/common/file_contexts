@@ -141,3 +141,7 @@
 /sys/devices/msm_hsic_host/host_ready                               u:object_r:sysfs_hsic_host_rdy:s0
 /sys/bus/esoc(/.*)?                                                 u:object_r:sysfs_esoc:s0
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
+
+###################################
+#peripheral manager files
+/system/bin/pm-service                                              u:object_r:per_mgr_exec:s0
