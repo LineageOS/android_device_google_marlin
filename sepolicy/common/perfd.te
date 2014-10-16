@@ -1,0 +1,31 @@
+type perfd, domain;
+type perfd_exec, exec_type, file_type;
+
+init_daemon_domain(perfd)
+
+allow perfd self:capability { chown dac_override fsetid };
+allow perfd sysfs_devices_system_cpu:file rw_file_perms;
+allow perfd sysfs_cpu_online:file rw_file_perms;
+allow perfd cpuctl_device:file rw_file_perms;
+allow perfd self:netlink_kobject_uevent_socket { create read setopt bind };
+allow perfd self:socket create_socket_perms;
+
+#mpctl socket
+allow perfd mpctl_socket:dir rw_dir_perms;
+allow perfd mpctl_socket:sock_file { create_file_perms unlink };
+
+allow perfd sysfs:file write;
+
+#default_values file
+allow perfd mpctl_data_file:dir rw_dir_perms;
+allow perfd mpctl_data_file:file { create_file_perms unlink };
+
+#allow poll of system_server status
+allow perfd system_server:dir search;
+allow perfd system_server:file { open read };
+
+allow perfd proc:file write;
+
+#KTM
+allow perfd sysfs_thermal:dir search;
+allow perfd sysfs_thermal:file { open write };
