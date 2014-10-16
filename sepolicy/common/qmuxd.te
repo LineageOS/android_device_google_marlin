@@ -35,3 +35,6 @@ allow qmuxd sysfs_wake_lock:file { append open };
 allow qmuxd sysfs:file w_file_perms;
 
 allow qmuxd self:capability { setuid setgid setpcap dac_override };
+
+#Allow qmuxd to have the CAP_BLOCK_SUSPEND capability
+allow qmuxd qmuxd:capability2 { block_suspend };
