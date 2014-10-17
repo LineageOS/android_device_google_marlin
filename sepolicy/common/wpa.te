@@ -1,1 +1,2 @@
 allow wpa persist_file:dir search;
+qmux_socket(wpa);
