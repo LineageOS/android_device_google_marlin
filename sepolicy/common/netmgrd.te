@@ -28,7 +28,7 @@ allow netmgrd netmgrd:netlink_socket { write read create bind };
 allow netmgrd netmgrd:socket { create ioctl };
 allow netmgrd netmgrd:netlink_route_socket { setopt getattr write nlmsg_write };
 allow netmgrd init:unix_stream_socket { connectto };
-allow netmgrd property_socket:sock_file { write };
+allow netmgrd property_socket:sock_file write;
 
 qmux_socket(netmgrd);
 
@@ -43,12 +43,13 @@ allow netmgrd net_radio_prop:property_service { set };
 
 #Allow execution of commands in shell
 allow netmgrd system_file:file { execute_no_trans };
-allow netmgrd shell_exec:file { execute read open };
 
 allow netmgrd self:socket read;
+allow netmgrd sysfs_esoc:dir r_dir_perms;
 
 #Allow communication with netd
 allow netmgrd netd_socket:sock_file write;
 
 #Allow nemtgrd to use esoc api's to determine target
-allow netmgrd sysfs_esoc:dir { search };
+allow netmgrd shell_exec:file { execute r_file_perms execute_no_trans };
+allow netmgrd sysfs_esoc:lnk_file read;
