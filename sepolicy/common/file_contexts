@@ -68,6 +68,10 @@
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
 /dev/socket/dpmd                                u:object_r:dpmd_socket:s0
 /dev/socket/pps                                 u:object_r:pps_socket:s0
+/dev/socket/rild2                               u:object_r:rild_socket:s0
+/dev/socket/rild2-debug                         u:object_r:rild_debug_socket:s0
+/dev/socket/rild3                               u:object_r:rild_socket:s0
+/dev/socket/rild3-debug                         u:object_r:rild_debug_socket:s0
 
 ###################################
 # System files
