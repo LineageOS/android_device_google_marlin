@@ -13,8 +13,6 @@ type mhi_device, dev_type;
 #device type for smd device nodes, ie /dev/smd*
 type smd_device, dev_type;
 
-type subsys_esoc0_device, dev_type;
-
 #Define thermal-engine devices
 type thermal_device, dev_type;
 
@@ -38,3 +36,18 @@ type modem_efs_partition_device, dev_type;
 #Define device for partition links
 type ssd_device, dev_type;
 type rpmb_device, dev_type;
+
+#ESOC device
+type esoc_device, dev_type;
+
+#SSR device
+type ssr_device, dev_type;
+
+#Kickstart bridge devices
+type ksbridgehsic_device, dev_type;
+
+#EFS sync bridge devices
+type efsbridgehsic_device, dev_type;
+
+#EFS sync block devices
+type efs_boot_dev, dev_type;

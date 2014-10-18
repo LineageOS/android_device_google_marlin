@@ -17,7 +17,6 @@
 /dev/sensors                                    u:object_r:sensors_device:s0
 /dev/smd.*                                      u:object_r:smd_device:s0
 /dev/smem_log                                   u:object_r:smem_log_device:s0
-/dev/subsys_esoc0                               u:object_r:subsys_esoc0_device:s0
 /dev/ttyHSL0                                    u:object_r:console_device:s0
 /dev/ttyHS[0-9]*                                u:object_r:serial_device:s0
 /dev/usb_ext_chg                                u:object_r:hvdcp_device:s0
@@ -124,3 +123,21 @@
 #
 /persist(/.*)?                                                      u:object_r:persist_file:s0
 /persist/sensors(/.*)?                                              u:object_r:sensors_persist_file:s0
+
+####################################
+## mdm-helper files
+/system/bin/mdm_helper                                              u:object_r:mdm_helper_exec:s0
+/system/bin/mdm_helper_proxy                                        u:object_r:mdm_helper_exec:s0
+/system/bin/ks                                                      u:object_r:mdm_helper_exec:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs1                           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs2                           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs3                           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefsc                           u:object_r:efs_boot_dev:s0
+/dev/subsys_.*                                                      u:object_r:ssr_device:s0
+/dev/esoc.*                                                         u:object_r:esoc_device:s0
+/dev/ks_hsic_bridge                                                 u:object_r:ksbridgehsic_device:s0
+/dev/efs_hsic_bridge                                                u:object_r:efsbridgehsic_device:s0
+/sys/bus/platform/drivers/xhci_msm_hsic(/.*)?                       u:object_r:sysfs_hsic:s0
+/sys/devices/msm_hsic_host/host_ready                               u:object_r:sysfs_hsic_host_rdy:s0
+/sys/bus/esoc(/.*)?                                                 u:object_r:sysfs_esoc:s0
+/sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0

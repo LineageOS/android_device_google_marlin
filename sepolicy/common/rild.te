@@ -4,7 +4,10 @@
 #allow rild qmuxd:unix_stream_socket connectto;
 qmux_socket(rild);
 
-allow rild subsys_esoc0_device:chr_file { open read };
+allow rild ssr_device:chr_file { open read };
+allow rild sysfs_esoc:dir { search read open};
+allow rild sysfs_esoc:lnk_file { read };
+allow rild sysfs_esoc:file { write };
 
 allow rild servicemanager:binder call;
 allow rild mediaserver:binder { transfer call };
