@@ -9,6 +9,7 @@ BOARD_SEPOLICY_DIRS := \
 BOARD_SEPOLICY_UNION := \
        genfs_contexts \
        file_contexts \
+       property_contexts \
        service_contexts \
        te_macros \
        ims_datad.te \

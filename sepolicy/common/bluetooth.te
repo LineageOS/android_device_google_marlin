@@ -1,2 +1,18 @@
 #BT needes  read and write on smd device node
 allow bluetooth smd_device:chr_file rw_file_perms;
+
+allow bluetooth bluetooth_prop:property_service set;
+allow bluetooth serial_device:chr_file rw_file_perms;
+allow bluetooth sysfs:file rw_file_perms;
+
+#BT Snoop logging
+allow bluetooth self:tcp_socket { create setopt bind accept listen };
+allow bluetooth port:tcp_socket name_bind;
+allow bluetooth node:tcp_socket node_bind;
+
+allow bluetooth uhid_device:chr_file rw_file_perms;
+allow bluetooth input_device:chr_file { open read write ioctl };
+
+allow bluetooth persist_file:dir search;
+allow bluetooth persist_file:file rw_file_perms;
+allow bluetooth wpa:unix_stream_socket connectto;
