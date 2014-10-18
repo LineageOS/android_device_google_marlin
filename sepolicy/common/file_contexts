@@ -145,3 +145,10 @@
 ###################################
 #peripheral manager files
 /system/bin/pm-service                                              u:object_r:per_mgr_exec:s0
+
+####################################
+#qcom-system-daemon files
+/system/bin/qcom-system-daemon                                      u:object_r:qcomsysd_exec:s0
+/dev/block/platform/msm_sdcc.1/by-name/misc                         u:object_r:misc_partition:s0
+/dev/block/platform/msm_sdcc.1/by-name/bootselect                   u:object_r:bootselect_device:s0
+/sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
