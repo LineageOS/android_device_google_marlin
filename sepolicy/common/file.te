@@ -71,6 +71,7 @@ type ims_socket, file_type;
 #File types required by mdm-helper
 type sysfs_esoc, sysfs_type, fs_type;
 type sysfs_ssr,  sysfs_type, fs_type;
+type sysfs_ssr_toggle,  sysfs_type, file_type;
 type sysfs_hsic, sysfs_type, fs_type;
 type sysfs_hsic_host_rdy, sysfs_type, file_type;
 
