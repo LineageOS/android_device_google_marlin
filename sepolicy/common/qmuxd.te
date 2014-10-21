@@ -38,3 +38,7 @@ allow qmuxd self:capability { setuid setgid setpcap dac_override };
 
 #Allow qmuxd to have the CAP_BLOCK_SUSPEND capability
 allow qmuxd qmuxd:capability2 { block_suspend };
+
+allow qmuxd sysfs_esoc:dir r_dir_perms;
+allow qmuxd sysfs_hsic_modem_wait:file w_file_perms;
+allow qmuxd sysfs_esoc:lnk_file read;
