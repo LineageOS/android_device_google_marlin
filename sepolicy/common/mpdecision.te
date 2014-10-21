@@ -13,3 +13,7 @@ allow mpdecision kernel:process setsched;
 allow mpdecision self:netlink_kobject_uevent_socket read;
 allow mpdecision self:socket create_socket_perms;
 allow mpdecision device_latency:chr_file w_file_perms;
+
+allow mpdecision sysfs_rqstats:dir search;
+allow mpdecision socket_device:dir w_file_perms;
+allow mpdecision sysfs_thermal:dir search;
