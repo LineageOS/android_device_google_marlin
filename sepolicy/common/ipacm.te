@@ -1,0 +1,31 @@
+# General definitions
+type ipacm, domain;
+type ipacm-diag, domain;
+type ipacm_exec, exec_type, file_type;
+type ipacm-diag_exec, exec_type, file_type;
+init_daemon_domain(ipacm)
+init_daemon_domain(ipacm-diag)
+
+userdebug_or_eng(`
+  # Allow using the logging file between ipacm and ipacm-diag
+  allow ipacm ipacm-diag:unix_dgram_socket sendto;
+  allow ipacm ipacm_socket:sock_file write;
+')
+
+# Allow capabilities to perform network operations and interactions with network interfaces
+allow ipacm kernel:system module_request;
+allow ipacm ipacm:capability net_admin;
+
+# Allow operations with /dev/ipa, /dev/wwan_ioctl and /dev/ipaNatTable
+allow ipacm ipa_dev:chr_file rw_file_perms;
+
+# Allow querying the network stack via IOCTLs
+allow ipacm ipacm:udp_socket { create ioctl };
+
+# Allow receiving NETLINK messages
+allow ipacm ipacm:netlink_route_socket { create getopt setopt bind read };
+allow ipacm ipacm:netlink_socket { create setopt bind getattr read write };
+
+# Allow creating and modifying the PID file
+allow ipacm ipacm_data_file:file create_file_perms;
+allow ipacm ipacm_data_file:dir w_dir_perms;

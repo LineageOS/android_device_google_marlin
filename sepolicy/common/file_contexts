@@ -42,6 +42,9 @@
 /dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
 /dev/block/platform/msm_sdcc.1/by-name/misc                         u:object_r:misc_partition:s0
 /dev/block/platform/msm_sdcc.1/by-name/bootselect                   u:object_r:bootselect_device:s0
+/dev/ipa                                        u:object_r:ipa_dev:s0
+/dev/wwan_ioctl                                 u:object_r:ipa_dev:s0
+/dev/ipaNatTable                                u:object_r:ipa_dev:s0
 
 ###################################
 # Dev socket nodes
@@ -61,6 +64,7 @@
 /dev/socket/ims_rtpd                            u:object_r:ims_socket:s0
 /dev/socket/perfd(/.*)?                         u:object_r:mpctl_socket:s0
 /dev/socket/qlogd                               u:object_r:qlogd_socket:s0
+/dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
 
 ###################################
 # System files
@@ -105,6 +109,8 @@
 /system/bin/usb_uicc_client                     u:object_r:usb_uicc_daemon_exec:s0
 /system/bin/qcom-system-daemon                  u:object_r:qcomsysd_exec:s0
 /system/xbin/qlogd                              u:object_r:qlogd_exec:s0
+/system/bin/ipacm                               u:object_r:ipacm_exec:s0
+/system/bin/ipacm-diag                          u:object_r:ipacm-diag_exec:s0
 
 ###################################
 # sysfs files
@@ -155,6 +161,7 @@
 /data/system/perfd(/.*)?                                            u:object_r:mpctl_data_file:s0
 /data/misc/perfd(/.*)?                                              u:object_r:mpctl_socket:s0
 /data/misc/display(/.*)?                                            u:object_r:display_config:s0
+/data/misc/ipa(/.*)?                                                u:object_r:ipacm_data_file:s0
 
 ###################################
 # persist files

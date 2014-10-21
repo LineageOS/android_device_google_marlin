@@ -64,3 +64,6 @@ type bootselect_device, dev_type;
 
 #define usb_uicc_device for usb_uicc daemon
 type usb_uicc_device, dev_type;
+
+# Define IPA devices
+type ipa_dev, dev_type;
