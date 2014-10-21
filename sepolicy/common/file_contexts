@@ -124,7 +124,19 @@
 /system/bin/ipacm                               u:object_r:ipacm_exec:s0
 /system/bin/ipacm-diag                          u:object_r:ipacm-diag_exec:s0
 /system/bin/dpmd                                u:object_r:dpmd_exec:s0
-/system/bin/ssr_setup                                               u:object_r:ssr_setup_exec:s0
+/system/bin/ssr_setup                           u:object_r:ssr_setup_exec:s0
+/system/bin/loc_launcher                        u:object_r:location_exec:s0
+/system/bin/quipc_main                          u:object_r:location_exec:s0
+/system/bin/ipepb                               u:object_r:location_exec:s0
+/system/bin/quipc_igsn                          u:object_r:location_exec:s0
+/system/bin/lowi-server                         u:object_r:location_exec:s0
+/system/bin/location-mq                         u:object_r:location_exec:s0
+/system/bin/xtwifi-inet-agent                   u:object_r:location_exec:s0
+/system/bin/xtwifi-client                       u:object_r:location_exec:s0
+/system/bin/gsiff_daemon                        u:object_r:location_exec:s0
+/system/bin/garden_app                          u:object_r:location_exec:s0
+/system/bin/gpsone_daemon                       u:object_r:location_exec:s0
+/system/vendor/bin/slim_ap_daemon               u:object_r:location_exec:s0
 
 
 ###################################
@@ -184,6 +196,7 @@
 /data/misc/ipa(/.*)?                                                u:object_r:ipacm_data_file:s0
 /data/dpm(/.*)?                                                     u:object_r:dpmd_data_file:s0
 /data/data/app_ms(/.*)?                                             u:object_r:data_drm_file:s0
+/data/misc/location(/.*)?                                           u:object_r:location_data_file:s0
 
 ###################################
 # persist files

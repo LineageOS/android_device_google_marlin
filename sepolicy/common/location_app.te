@@ -1,0 +1,17 @@
+type location_app, domain;
+app_domain(location_app)
+binder_use(location_app)
+
+qmux_socket(location_app)
+
+#Permissions for JDWP
+userdebug_or_eng(`
+allow location_app adbd:unix_stream_socket connectto;
+allow location_app su:unix_stream_socket connectto;
+')
+
+allow location_app location_app_data_file:dir create_dir_perms;
+allow location_app location_app_data_file:file create_file_perms ;
+allow location_app location_data_file:dir rw_dir_perms;
+allow location_app location_data_file:sock_file create_file_perms;
+allow location_app self:socket create_socket_perms;

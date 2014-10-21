@@ -77,7 +77,12 @@ BOARD_SEPOLICY_UNION := \
        ipacm.te \
        dpmd.te \
        ssr_setup.te \
-       sectest.te
+       sectest.te \
+       location.te \
+       location_app.te \
+       seapp_contexts \
+       logd.te \
+       installd.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
