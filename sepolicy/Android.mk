@@ -86,7 +86,8 @@ BOARD_SEPOLICY_UNION := \
        installd.te \
        wcnss_service.te \
        mmi.te \
-       dhcp.te
+       dhcp.te \
+       wfd_app.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
