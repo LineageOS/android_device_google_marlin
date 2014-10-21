@@ -58,6 +58,7 @@ BOARD_SEPOLICY_UNION := \
        keystore.te \
        ims_rmt.te \
        healthd.te \
+       charger_monitor.te \
        surfaceflinger.te \
        wpa.te \
        bootanim.te \
