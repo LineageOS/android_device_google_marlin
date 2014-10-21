@@ -12,7 +12,7 @@ userdebug_or_eng(`
 file_type_auto_trans(netmgrd, system_data_file, data_test_data_file)
 
 #Allow netmgrd operations
-allow netmgrd netmgrd:capability { dac_override net_raw net_admin sys_module fsetid setgid setuid };
+allow netmgrd netmgrd:capability { dac_override net_raw net_admin sys_module fsetid setgid setuid setpcap };
 
 #Allow access to kernel modules
 allow netmgrd kernel:system { module_request };
@@ -38,10 +38,17 @@ allow netmgrd proc_net:file { write };
 #Allow address configuration
 allow netmgrd system_prop:property_service { set };
 
+#Allow setting of DNS and GW Android properties
+allow netmgrd net_radio_prop:property_service { set };
+
 #Allow execution of commands in shell
 allow netmgrd system_file:file { execute_no_trans };
+allow netmgrd shell_exec:file { execute read open };
 
 allow netmgrd self:socket read;
 
 #Allow communication with netd
 allow netmgrd netd_socket:sock_file write;
+
+#Allow nemtgrd to use esoc api's to determine target
+allow netmgrd sysfs_esoc:dir { search };
