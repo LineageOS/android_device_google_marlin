@@ -22,3 +22,4 @@ allow thermal-engine sysfs_thermal:lnk_file read;
 #This is required for qmi access
 qmux_socket(thermal-engine);
 allow thermal-engine sysfs_mpdecision:file rw_file_perms;
+r_dir_file(thermal-engine, sysfs_ssr);

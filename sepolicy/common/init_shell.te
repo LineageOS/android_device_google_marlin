@@ -17,3 +17,5 @@ allow init_shell shell_exec:file execute_no_trans;
 
 #Needed in order to set properties while going in/out of debug mode.
 allow init_shell ctl_default_prop:property_service set;
+
+allow init_shell efs_boot_dev:blk_file r_file_perms;

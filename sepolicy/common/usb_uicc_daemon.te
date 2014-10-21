@@ -11,3 +11,4 @@ allow usb_uicc_daemon usb_uicc_device:chr_file rw_file_perms;
 allow usb_uicc_daemon uicc_prop:property_service set;
 allow usb_uicc_daemon sysfs_usb_uicc:file rw_file_perms;
 allow usb_uicc_daemon sysfs_usb_uicc:dir rw_dir_perms;
+allow usb_uicc_daemon init:unix_stream_socket connectto;

@@ -42,3 +42,6 @@ allow qmuxd qmuxd:capability2 { block_suspend };
 allow qmuxd sysfs_esoc:dir r_dir_perms;
 allow qmuxd sysfs_hsic_modem_wait:file w_file_perms;
 allow qmuxd sysfs_esoc:lnk_file read;
+
+r_dir_file(qmuxd, sysfs_ssr);
+allow qmuxd mhi_device:chr_file rw_file_perms;

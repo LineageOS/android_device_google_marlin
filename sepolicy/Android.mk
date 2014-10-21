@@ -52,7 +52,7 @@ BOARD_SEPOLICY_UNION := \
        mpdecision.te \
        mm-qcamerad.te \
        domain.te \
-       init_shell.te \
+       init.te \
        time_daemon.te \
        rmt_storage.te \
        rfs_access.te \
