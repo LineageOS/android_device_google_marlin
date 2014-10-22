@@ -17,4 +17,12 @@ userdebug_or_eng(`
   allow diag self:tcp_socket { create connect setopt};
   allow diag sysfs_wake_lock:file { write open append };
   allow diag kernel:system syslog_mod;
+  # allow drmdiagapp access to drm related paths
+  allow diag persist_file:dir r_dir_perms;
+  r_dir_file(diag, persist_data_file)
+  # Write to drm related pieces of persist partition
+  allow diag persist_drm_file:dir create_dir_perms;
+  allow diag persist_drm_file:file create_file_perms;
+  # allow access to qseecom for drmdiagapp
+  allow sectest tee_device:chr_file rw_file_perms;
 ')
