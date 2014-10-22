@@ -62,6 +62,7 @@ BOARD_SEPOLICY_UNION := \
        healthd.te \
        charger_monitor.te \
        surfaceflinger.te \
+       mm-pp-daemon.te \
        wpa.te \
        bootanim.te \
        zygote.te \

@@ -1,0 +1,42 @@
+type mm-pp-daemon, domain;
+type mm-pp-daemon_exec, exec_type, file_type;
+
+init_daemon_domain(mm-pp-daemon)
+
+#============= mm-pp-daemon ==============
+#Need to use fb ioctls to communicate with kernel
+allow mm-pp-daemon graphics_device:chr_file rw_file_perms;
+allow mm-pp-daemon graphics_device:dir search;
+
+# Allow reading calibration data from persist
+allow mm-pp-daemon persist_file:file r_file_perms;
+allow mm-pp-daemon persist_file:dir search;
+
+# Allow pp daemon to save settings to /data
+allow mm-pp-daemon display_config:file rw_file_perms;
+
+#Calibration can only be done on userdebug or eng builds
+userdebug_or_eng(`
+    # Display calibration service opens /dev/diag in order to communicate with the
+    # target device
+    allow mm-pp-daemon diag_device:chr_file rw_file_perms;
+
+    # QDCM needs to trigger screen refreshes in some cases to reach the
+    # convergent state
+    binder_use(mm-pp-daemon)
+    binder_call(mm-pp-daemon, system_server)
+    binder_call(mm-pp-daemon, surfaceflinger)
+
+    # This allows pp-daemon to use shell commands to blank
+    # the display - it uses input keyevent to do this
+    allow mm-pp-daemon shell_exec:file rx_file_perms;
+    allow mm-pp-daemon system_file:file execute_no_trans;
+    allow mm-pp-daemon zygote_exec:file rx_file_perms;
+
+    # Allow writing to persist
+    allow mm-pp-daemon persist_file:file rw_file_perms;
+
+    # Allow mm-pp-daemon to change the brightness of the target during display
+    # calibration
+    allow mm-pp-daemon sysfs:file rw_file_perms;
+')
