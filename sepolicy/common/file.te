@@ -80,3 +80,7 @@ type qlogd_socket, file_type;
 
 #Define the files written during the operation of mm-pp-daemon
 type display_config, file_type, data_file_type;
+
+# IPA file types
+type ipacm_socket, file_type;
+type ipacm_data_file, file_type;
