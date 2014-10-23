@@ -12,3 +12,5 @@ allow rmt_storage self:capability2 block_suspend;
 allow rmt_storage self:socket { create_socket_perms };
 allow rmt_storage sysfs_wake_lock:file { open write append };
 allow rmt_storage uio_device:chr_file { read write open };
+allow rmt_storage mmc_block_device:blk_file read;
+allow rmt_storage self:capability { net_raw setpcap };

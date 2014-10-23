@@ -45,6 +45,7 @@
 /dev/ipa                                        u:object_r:ipa_dev:s0
 /dev/wwan_ioctl                                 u:object_r:ipa_dev:s0
 /dev/ipaNatTable                                u:object_r:ipa_dev:s0
+/dev/block/mmcblk0                              u:object_r:mmc_block_device:s0
 
 ###################################
 # Dev socket nodes

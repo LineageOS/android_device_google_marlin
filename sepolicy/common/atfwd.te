@@ -11,3 +11,4 @@ qmux_socket(atfwd);
 binder_use(atfwd);
 binder_call(atfwd, system_app);
 binder_call(atfwd, servicemanager);
+r_dir_file(atfwd, sysfs_ssr);
