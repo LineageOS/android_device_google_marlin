@@ -2,3 +2,8 @@
 allow system_app fm_radio_device:chr_file { read open ioctl};
 allow system_app ctl_default_prop:property_service set;
 allow system_app atfwd_service:service_manager add;
+
+# access to perflock
+allow system_app mpctl_socket:dir r_dir_perms;
+unix_socket_send(system_app, mpctl, mpdecision)
+unix_socket_connect(system_app, mpctl, mpdecision)
