@@ -29,6 +29,17 @@
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
 /dev/block/mmcblk0rpmb                          u:object_r:rpmb_device:s0
+/dev/ccid_bridge                                u:object_r:usb_uicc_device:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs1       u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs2       u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefs3       u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/mdm1m9kefsc       u:object_r:efs_boot_dev:s0
+/dev/subsys_.*                                  u:object_r:ssr_device:s0
+/dev/esoc.*                                     u:object_r:esoc_device:s0
+/dev/ks_hsic_bridge                             u:object_r:ksbridgehsic_device:s0
+/dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
+/dev/block/platform/msm_sdcc.1/by-name/misc                         u:object_r:misc_partition:s0
+/dev/block/platform/msm_sdcc.1/by-name/bootselect                   u:object_r:bootselect_device:s0
 
 ###################################
 # Dev socket nodes
@@ -80,6 +91,12 @@
 /system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
 /system/bin/wpa_cli                             u:object_r:wpa_exec:s0
 /system/bin/cnss-daemon                         u:object_r:wpa_exec:s0
+/system/bin/mdm_helper                          u:object_r:mdm_helper_exec:s0
+/system/bin/mdm_helper_proxy                    u:object_r:mdm_helper_exec:s0
+/system/bin/ks                                  u:object_r:mdm_helper_exec:s0
+/system/bin/pm-service                          u:object_r:per_mgr_exec:s0
+/system/bin/usb_uicc_client                     u:object_r:usb_uicc_daemon_exec:s0
+/system/bin/qcom-system-daemon                  u:object_r:qcomsysd_exec:s0
 
 ###################################
 # sysfs files
@@ -108,6 +125,12 @@
 /sys/devices/virtual/graphics/fb([0-2])+/hpd                        u:object_r:sysfs_graphics:s0
 /sys/class/graphics/fb([0-2])+/mdp/caps                             u:object_r:sysfs_graphics:s0
 /sys/class/graphics/fb([0-2])+/ad                                   u:object_r:sysfs_graphics:s0
+/sys/bus/platform/drivers/xhci_msm_hsic(/.*)?                       u:object_r:sysfs_hsic:s0
+/sys/devices/msm_hsic_host/host_ready                               u:object_r:sysfs_hsic_host_rdy:s0
+/sys/bus/esoc(/.*)?                                                 u:object_r:sysfs_esoc:s0
+/sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
+/sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
+/sys/module/ccid_bridge(/.*)?                                       u:object_r:sysfs_usb_uicc:s0
 
 ###################################
 # data files
@@ -129,32 +152,3 @@
 #
 /persist(/.*)?                                                      u:object_r:persist_file:s0
 /persist/sensors(/.*)?                                              u:object_r:sensors_persist_file:s0
-
-####################################
-## mdm-helper files
-/system/bin/mdm_helper                                              u:object_r:mdm_helper_exec:s0
-/system/bin/mdm_helper_proxy                                        u:object_r:mdm_helper_exec:s0
-/system/bin/ks                                                      u:object_r:mdm_helper_exec:s0
-/dev/block/bootdevice/by-name/mdm1m9kefs1                           u:object_r:efs_boot_dev:s0
-/dev/block/bootdevice/by-name/mdm1m9kefs2                           u:object_r:efs_boot_dev:s0
-/dev/block/bootdevice/by-name/mdm1m9kefs3                           u:object_r:efs_boot_dev:s0
-/dev/block/bootdevice/by-name/mdm1m9kefsc                           u:object_r:efs_boot_dev:s0
-/dev/subsys_.*                                                      u:object_r:ssr_device:s0
-/dev/esoc.*                                                         u:object_r:esoc_device:s0
-/dev/ks_hsic_bridge                                                 u:object_r:ksbridgehsic_device:s0
-/dev/efs_hsic_bridge                                                u:object_r:efsbridgehsic_device:s0
-/sys/bus/platform/drivers/xhci_msm_hsic(/.*)?                       u:object_r:sysfs_hsic:s0
-/sys/devices/msm_hsic_host/host_ready                               u:object_r:sysfs_hsic_host_rdy:s0
-/sys/bus/esoc(/.*)?                                                 u:object_r:sysfs_esoc:s0
-/sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
-
-###################################
-#peripheral manager files
-/system/bin/pm-service                                              u:object_r:per_mgr_exec:s0
-
-####################################
-#qcom-system-daemon files
-/system/bin/qcom-system-daemon                                      u:object_r:qcomsysd_exec:s0
-/dev/block/platform/msm_sdcc.1/by-name/misc                         u:object_r:misc_partition:s0
-/dev/block/platform/msm_sdcc.1/by-name/bootselect                   u:object_r:bootselect_device:s0
-/sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
