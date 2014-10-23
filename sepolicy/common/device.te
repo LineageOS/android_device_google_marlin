@@ -16,6 +16,10 @@ type smd_device, dev_type;
 #Define thermal-engine devices
 type thermal_device, dev_type;
 
+#Define vm_bms devices
+type vm_bms_device, dev_type;
+type battery_data_device, dev_type;
+
 #Add qdsp_device type
 type qdsp_device, dev_type;
 #Define hvdcp/quickcharge device
