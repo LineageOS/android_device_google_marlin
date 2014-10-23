@@ -1,0 +1,4 @@
+allow dpmd untrusted_app:fd use;
+allow dpmd untrusted_app:tcp_socket { read write };
+allow untrusted_app dpmd:unix_stream_socket connectto;
+allow untrusted_app dpmd_socket:sock_file write;

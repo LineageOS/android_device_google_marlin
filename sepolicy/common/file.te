@@ -8,6 +8,10 @@ type qmuxd_socket, file_type;
 type cnd_socket, file_type;
 type cnd_data_file, file_type;
 
+# Define dpmd data file type
+type dpmd_socket, file_type;
+type dpmd_data_file, data_file_type;
+
 #Define the timeout for platform specific transports
 type sysfs_hsic_modem_wait, sysfs_type, fs_type;
 type sysfs_smd_open_timeout, sysfs_type, fs_type;
