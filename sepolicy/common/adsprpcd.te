@@ -1,0 +1,9 @@
+# adsprpcd daemon
+type adsprpcd, domain;
+type adsprpcd_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(adsprpcd)
+
+#============= adsprpcd ==============
+allow adsprpcd qdsp_device:chr_file { read ioctl open };
