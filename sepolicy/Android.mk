@@ -50,6 +50,7 @@ BOARD_SEPOLICY_UNION := \
        bluetooth.te \
        init_shell.te \
        mpdecision.te \
+       perfd.te \
        mm-qcamerad.te \
        domain.te \
        init.te \
