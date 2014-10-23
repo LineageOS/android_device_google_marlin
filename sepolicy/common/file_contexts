@@ -113,6 +113,7 @@
 /system/bin/ipacm                               u:object_r:ipacm_exec:s0
 /system/bin/ipacm-diag                          u:object_r:ipacm-diag_exec:s0
 /system/bin/dpmd                                u:object_r:dpmd_exec:s0
+/system/bin/ssr_setup                                               u:object_r:ssr_setup_exec:s0
 
 ###################################
 # sysfs files
@@ -145,8 +146,13 @@
 /sys/devices/msm_hsic_host/host_ready                               u:object_r:sysfs_hsic_host_rdy:s0
 /sys/bus/esoc(/.*)?                                                 u:object_r:sysfs_esoc:s0
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
-/sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
 /sys/module/ccid_bridge(/.*)?                                       u:object_r:sysfs_usb_uicc:s0
+/sys/bus/msm_subsys/devices/subsys0/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/bus/msm_subsys/devices/subsys1/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/bus/msm_subsys/devices/subsys2/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/bus/msm_subsys/devices/subsys3/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/bus/msm_subsys/devices/subsys4/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
 
 ###################################
 # data files
