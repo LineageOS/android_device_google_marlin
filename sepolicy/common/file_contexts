@@ -179,3 +179,8 @@
 #
 /persist(/.*)?                                                      u:object_r:persist_file:s0
 /persist/sensors(/.*)?                                              u:object_r:sensors_persist_file:s0
+
+###################################
+# oem files
+#
+/oem(/.*)?       u:object_r:system_file:s0
