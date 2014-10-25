@@ -67,6 +67,7 @@
 /dev/socket/qlogd                               u:object_r:qlogd_socket:s0
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
 /dev/socket/dpmd                                u:object_r:dpmd_socket:s0
+/dev/socket/pps                                 u:object_r:pps_socket:s0
 
 ###################################
 # System files

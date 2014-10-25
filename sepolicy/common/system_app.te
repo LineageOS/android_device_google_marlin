@@ -10,3 +10,6 @@ unix_socket_connect(system_app, mpctl, mpdecision)
 allow system_app dpmservice:service_manager add;
 unix_socket_send(system_app, mpctl, perfd)
 unix_socket_connect(system_app, mpctl, perfd)
+
+# access to mm-pp-daemon
+unix_socket_connect(system_app, pps, mm-pp-daemon)
