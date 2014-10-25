@@ -12,8 +12,6 @@ BOARD_SEPOLICY_UNION := \
        service_contexts \
        property_contexts \
        te_macros \
-       ims_datad.te \
-       ims_qmid.te \
        device.te \
        vold.te \
        ueventd.te \
@@ -61,7 +59,7 @@ BOARD_SEPOLICY_UNION := \
        qseecomd.te \
        mcStarter.te \
        keystore.te \
-       ims_rmt.te \
+       ims.te \
        healthd.te \
        charger_monitor.te \
        surfaceflinger.te \

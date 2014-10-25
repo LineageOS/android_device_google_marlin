@@ -1,0 +1,10 @@
+#integrated sensor process
+type ims, domain;
+type ims_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(ims)
+
+allow radio ims_socket:sock_file { open read write };
+allow ims ims_socket:sock_file { open read write };
+
