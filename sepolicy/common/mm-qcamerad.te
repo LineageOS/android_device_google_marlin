@@ -25,6 +25,10 @@ allow mm-qcamerad camera_data_file:sock_file { create unlink };
 allow mm-qcamerad node:tcp_socket node_bind;
 allow mm-qcamerad self:tcp_socket listen;
 
+userdebug_or_eng(`
+  allow mm-qcamerad camera_data_file:file create_file_perms;
+')
+
 #/data/fdAlbum
 allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file create_file_perms;
