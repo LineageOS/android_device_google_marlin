@@ -13,3 +13,4 @@ unix_socket_connect(system_app, mpctl, perfd)
 
 # access to mm-pp-daemon
 unix_socket_connect(system_app, pps, mm-pp-daemon)
+allow system_app cne_service:service_manager add;
