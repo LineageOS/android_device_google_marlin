@@ -35,6 +35,7 @@ allow system_server location_data_file:dir rw_dir_perms;
 allow system_server location_data_file:fifo_file create_file_perms;
 allow system_server location_socket:sock_file rw_file_perms;
 allow system_server location_app_data_file:dir r_dir_perms;
+allow system_server location_data_file:sock_file rw_file_perms;
 
 #For wifistatemachine
 allow system_server kernel:key search;
