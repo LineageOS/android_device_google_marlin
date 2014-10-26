@@ -48,6 +48,8 @@
 /dev/wwan_ioctl                                 u:object_r:ipa_dev:s0
 /dev/ipaNatTable                                u:object_r:ipa_dev:s0
 /dev/block/mmcblk0                              u:object_r:mmc_block_device:s0
+/dev/rmnet_ctrl.*                               u:object_r:rmnet_device:s0
+/dev/dpl_ctrl                                   u:object_r:rmnet_device:s0
 
 ###################################
 # Dev socket nodes
@@ -142,7 +144,7 @@
 /system/bin/garden_app                          u:object_r:location_exec:s0
 /system/bin/gpsone_daemon                       u:object_r:location_exec:s0
 /system/vendor/bin/slim_ap_daemon               u:object_r:location_exec:s0
-
+/system/vendor/bin/qti                          u:object_r:qti_exec:s0
 
 ###################################
 # sysfs files
