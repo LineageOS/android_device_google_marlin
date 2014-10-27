@@ -23,3 +23,16 @@
 /system/bin/Wifilogger_app                      u:object_r:wpa_exec:s0
 /system/bin/hs20-osu-client                     u:object_r:wpa_exec:s0
 /system/bin/ndc                                 u:object_r:wpa_exec:s0
+/system/bin/playreadygtest(.*)                  u:object_r:sectest_exec:s0
+/system/bin/oem(.*)test                         u:object_r:sectest_exec:s0
+/system/bin/widevine(.*)                        u:object_r:sectest_exec:s0
+/system/bin/qseecom_sample_client               u:object_r:sectest_exec:s0
+/system/bin/isdbtmmtest                         u:object_r:sectest_exec:s0
+/system/bin/secure_ui_sample_client             u:object_r:sectest_exec:s0
+/system/bin/qseecom_security_test               u:object_r:sectest_exec:s0
+/system/bin/qfipsverify                         u:object_r:sectest_exec:s0
+/system/bin/qseecom_assurance_test              u:object_r:sectest_exec:s0
+/system/bin/drm_generic_prov_test               u:object_r:sectest_exec:s0
+/system/bin/ParserApp                           u:object_r:sectest_exec:s0
+/system/bin/StoreKeybox                         u:object_r:sectest_exec:s0
+/system/bin/InstallKeybox                       u:object_r:sectest_exec:s0

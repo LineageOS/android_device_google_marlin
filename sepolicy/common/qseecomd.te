@@ -1,9 +1,32 @@
-type qseecomd, domain;
-type qseecomd_exec, exec_type, file_type;
-init_daemon_domain(qseecomd)
-allow qseecomd ssd_device:blk_file { read write getattr open ioctl };
-allow qseecomd rpmb_device:blk_file { read write getattr open ioctl };
-allow qseecomd block_device:dir search;
-allow qseecomd qseecom_device:chr_file { read write ioctl open };
-allow qseecomd self:capability { setgid setuid dac_override };
-allow qseecomd firmware_file:dir search;
+# tee starts as root, and drops privileges
+allow tee self:capability { setuid setgid dac_override };
+
+# Need to directly minipulate certain block devices
+# for anti-rollback protection
+allow tee block_device:dir r_dir_perms;
+allow tee self:capability sys_rawio;
+allow tee rpmb_device:blk_file rw_file_perms;
+
+# Allow qseecom complete access to /data/data/app_ms
+allow tee data_drm_file:dir create_dir_perms;
+allow tee data_drm_file:file create_file_perms;
+allow tee system_data_file:dir r_dir_perms;
+
+allow tee persist_file:dir r_dir_perms;
+r_dir_file(tee, persist_data_file)
+# Write to drm related pieces of persist partition
+allow tee persist_drm_file:dir create_dir_perms;
+allow tee persist_drm_file:file create_file_perms;
+
+# Provide tee access to ssd partition for HW FDE
+allow tee ssd_device:blk_file rw_file_perms;
+
+# allow tee to operate tee device
+allow tee tee_device:chr_file rw_file_perms;
+
+# allow tee to load firmware images
+allow tee firmware_file:dir r_dir_perms;
+allow tee firmware_file:file r_file_perms;
+
+# allow qseecom access to time domain
+allow tee time_daemon:unix_stream_socket connectto;
