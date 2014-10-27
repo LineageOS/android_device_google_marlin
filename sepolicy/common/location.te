@@ -1,0 +1,23 @@
+# location - Location daemon
+type location, domain;
+type location_exec, exec_type, file_type;
+
+init_daemon_domain(location)
+net_domain(location)
+
+# Socket is created by the daemon, not by init, and under /data/gps,
+# not under /dev/socket.
+type_transition location location_data_file:sock_file location_socket;
+
+qmux_socket(location)
+
+allow location location_data_file:dir rw_dir_perms;
+allow location location_data_file:fifo_file create_file_perms;
+allow location location_data_file:file create_file_perms;
+allow location location_exec:file execute_no_trans;
+allow location location_socket:sock_file create_file_perms;
+allow location self:capability { setuid setgid };
+allow location self:socket create_socket_perms;
+allow location sensors:unix_stream_socket connectto;
+allow location sensors_device:chr_file r_file_perms;
+allow location sensors_socket:sock_file w_file_perms;

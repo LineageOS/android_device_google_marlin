@@ -1,0 +1,2 @@
+allow logd location_app:dir r_dir_perms;
+allow logd location_app:file r_file_perms;

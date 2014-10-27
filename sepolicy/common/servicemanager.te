@@ -1,3 +1,6 @@
 allow servicemanager rild:dir search;
 allow servicemanager rild:file r_file_perms;
 allow servicemanager rild:process getattr;
+allow servicemanager location_app:dir r_dir_perms;
+allow servicemanager location_app:file r_file_perms;
+allow servicemanager location_app:process getattr;

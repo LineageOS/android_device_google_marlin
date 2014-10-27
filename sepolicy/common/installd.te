@@ -1,0 +1,2 @@
+allow installd location_app_data_file:dir { relabelto create_dir_perms };
+allow installd location_app_data_file:lnk_file create_file_perms;

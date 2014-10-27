@@ -6,3 +6,5 @@ userdebug_or_eng(`
   allow surfaceflinger mm-pp-daemon:dir search;
   allow surfaceflinger mm-pp-daemon:file r_file_perms;
 ')
+
+binder_call(surfaceflinger, location)
