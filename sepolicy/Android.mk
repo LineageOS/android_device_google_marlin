@@ -77,6 +77,8 @@ BOARD_SEPOLICY_UNION := \
        ipacm.te \
        dpmd.te \
        ssr_setup.te \
+       subsystem_ramdump.te \
+       ssr_diag.te \
        sectest.te \
        location.te \
        location_app.te \

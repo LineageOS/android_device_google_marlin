@@ -45,6 +45,9 @@ type esoc_device, dev_type;
 #SSR device
 type ssr_device, dev_type;
 
+#Ramdump device
+type ramdump_device, dev_type;
+
 #Kickstart bridge devices
 type ksbridgehsic_device, dev_type;
 
