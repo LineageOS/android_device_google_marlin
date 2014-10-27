@@ -1,3 +1,4 @@
 AtCmdFwd                                       u:object_r:atfwd_service:s0
 vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service:s0
 dpmservice                                     u:object_r:dpmservice:s0
+listen.service                                 u:object_r:mediaserver_service:s0
