@@ -14,7 +14,7 @@ allow mm-pp-daemon persist_file:dir search;
 
 # Allow pp daemon to save settings to /data
 allow mm-pp-daemon display_config:file rw_file_perms;
-
+allow mm-pp-daemon system_prop:property_service set;
 #Calibration can only be done on userdebug or eng builds
 userdebug_or_eng(`
     # Display calibration service opens /dev/diag in order to communicate with the
