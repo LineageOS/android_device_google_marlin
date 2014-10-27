@@ -44,7 +44,7 @@ allow netmgrd net_radio_prop:property_service { set };
 #Allow execution of commands in shell
 allow netmgrd system_file:file { execute_no_trans };
 
-allow netmgrd self:socket read;
+allow netmgrd self:socket create_socket_perms;
 allow netmgrd sysfs_esoc:dir r_dir_perms;
 
 #Allow communication with netd

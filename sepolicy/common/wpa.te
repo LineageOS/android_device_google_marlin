@@ -1,2 +1,6 @@
 allow wpa persist_file:dir search;
 qmux_socket(wpa);
+
+allow wpa self:socket create_socket_perms;
+allow wpa smem_log_device:chr_file rw_file_perms;
+allow wpa proc_net:file write;
