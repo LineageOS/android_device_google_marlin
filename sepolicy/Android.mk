@@ -28,6 +28,7 @@ BOARD_SEPOLICY_UNION := \
        msm_irqbalanced.te \
        qmuxd.te \
        netmgrd.te \
+       port-bridge.te \
        atfwd.te \
        radio.te \
        smd_test.te \

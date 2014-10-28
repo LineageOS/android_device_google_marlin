@@ -70,3 +70,6 @@ type usb_uicc_device, dev_type;
 type ipa_dev, dev_type;
 
 type mmc_block_device, dev_type;
+
+#Define Gadget serial device
+type gadget_serial_device, dev_type;
