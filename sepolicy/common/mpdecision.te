@@ -10,7 +10,7 @@ allow mpdecision sysfs_cpu_online:file rw_file_perms;
 #Allow mpdecision set cpu affinity
 allow mpdecision kernel:process setsched;
 #Allow writes to /dev/cpu_dma_latency
-allow mpdecision self:netlink_kobject_uevent_socket read;
+allow mpdecision self:netlink_kobject_uevent_socket { create read setopt bind };
 allow mpdecision self:socket create_socket_perms;
 allow mpdecision device_latency:chr_file w_file_perms;
 
@@ -20,6 +20,7 @@ allow mpdecision sysfs_thermal:dir search;
 
 #policies for mpctl
 #mpctl socket
+allow mpdecision self:capability { net_admin chown dac_override fsetid };
 allow mpdecision mpctl_socket:dir rw_dir_perms;
 allow mpdecision mpctl_socket:sock_file { create_file_perms unlink };
 
