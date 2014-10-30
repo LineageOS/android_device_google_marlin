@@ -4,3 +4,6 @@ qmux_socket(wpa);
 allow wpa self:socket create_socket_perms;
 allow wpa smem_log_device:chr_file rw_file_perms;
 allow wpa proc_net:file write;
+
+# allow wpa_supplicant to send back wifi information to cnd
+allow wpa cnd:unix_dgram_socket sendto;

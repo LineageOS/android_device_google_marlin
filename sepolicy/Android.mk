@@ -23,7 +23,6 @@ BOARD_SEPOLICY_UNION := \
        app.te \
        cnd.te \
        system_server.te \
-       wpa_supplicant.te \
        mediaserver.te \
        msm_irqbalanced.te \
        qmuxd.te \
