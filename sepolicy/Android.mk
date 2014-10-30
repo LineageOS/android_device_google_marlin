@@ -86,7 +86,8 @@ BOARD_SEPOLICY_UNION := \
        location_app.te \
        seapp_contexts \
        logd.te \
-       installd.te
+       installd.te \
+       wcnss_service.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
