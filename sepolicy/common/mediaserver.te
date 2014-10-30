@@ -12,6 +12,10 @@ binder_call(mediaserver, rild)
 
 qmux_socket(mediaserver)
 allow mediaserver camera_data_file:sock_file write;
+userdebug_or_eng(`
+  allow mediaserver camera_data_file:dir rw_dir_perms;
+  allow mediaserver camera_data_file:file create_file_perms;
+')
 
 allow mediaserver sysfs_esoc:dir r_dir_perms;
 allow mediaserver sysfs_esoc:lnk_file read;
