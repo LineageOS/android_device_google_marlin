@@ -10,6 +10,7 @@ net_domain(location)
 type_transition location location_data_file:sock_file location_socket;
 
 qmux_socket(location)
+binder_use(location)
 
 allow location location_data_file:dir rw_dir_perms;
 allow location location_data_file:fifo_file create_file_perms;
