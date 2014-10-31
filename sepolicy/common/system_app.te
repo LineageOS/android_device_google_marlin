@@ -18,7 +18,11 @@ allow system_app cne_service:service_manager add;
 
 userdebug_or_eng(`
   allow system_app debugfs:file r_file_perms;
+  allow system_app su:unix_dgram_socket sendto;
 ')
 allow system_app cnd_data_file:dir w_dir_perms;
 allow system_app cnd_data_file:file create_file_perms;
 allow system_app bluetooth:unix_stream_socket ioctl;
+
+# access to tee domain
+allow system_app tee:unix_dgram_socket sendto;
