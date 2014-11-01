@@ -5,6 +5,7 @@ allow mediaserver camera_device:chr_file rw_file_perms;
 unix_socket_send(mediaserver, camera, mm-qcamerad)
 
 allow mediaserver tee_device:chr_file rw_file_perms;
+allow mediaserver qdsp_device:chr_file r_file_perms;
 
 allow mediaserver self:socket create_socket_perms;
 
