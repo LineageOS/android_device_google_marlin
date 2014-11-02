@@ -37,6 +37,7 @@
 /dev/block/bootdevice/by-name/mdm1m9kefs3       u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/mdm1m9kefsc       u:object_r:efs_boot_dev:s0
 /dev/subsys_.*                                  u:object_r:ssr_device:s0
+/dev/ramdump_.*                                 u:object_r:ramdump_device:s0
 /dev/esoc.*                                     u:object_r:esoc_device:s0
 /dev/ks_hsic_bridge                             u:object_r:ksbridgehsic_device:s0
 /dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
@@ -125,6 +126,8 @@
 /system/bin/ipacm-diag                          u:object_r:ipacm-diag_exec:s0
 /system/bin/dpmd                                u:object_r:dpmd_exec:s0
 /system/bin/ssr_setup                           u:object_r:ssr_setup_exec:s0
+/system/bin/subsystem_ramdump                   u:object_r:subsystem_ramdump_exec:s0
+/system/bin/ssr_diag                            u:object_r:ssr_diag_exec:s0
 /system/bin/loc_launcher                        u:object_r:location_exec:s0
 /system/bin/quipc_main                          u:object_r:location_exec:s0
 /system/bin/ipepb                               u:object_r:location_exec:s0
