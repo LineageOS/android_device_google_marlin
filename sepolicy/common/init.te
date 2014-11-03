@@ -1,8 +1,4 @@
 # Adding allow rule for search on /fuse
 allow init fuse:dir search;
-
-#allow dpmd to read, write on data file
-allow init dpmd_data_file:dir { read open setattr };
-
 allow init self:capability sys_module;
 allow init fuse:dir mounton;
