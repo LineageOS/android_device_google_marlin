@@ -119,8 +119,8 @@
 /system/bin/qseecomd                            u:object_r:tee_exec:s0
 /system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
 /system/bin/adsprpcd                            u:object_r:adsprpcd_exec:s0
-/system/bin/wpa_cli                             u:object_r:wpa_exec:s0
-/system/bin/cnss-daemon                         u:object_r:wpa_exec:s0
+/system/bin/wpa_cli                             u:object_r:wcnss_service_exec:s0
+/system/bin/cnss-daemon                         u:object_r:wcnss_service_exec:s0
 /system/bin/mdm_helper                          u:object_r:mdm_helper_exec:s0
 /system/bin/mdm_helper_proxy                    u:object_r:mdm_helper_exec:s0
 /system/bin/ks                                  u:object_r:mdm_helper_exec:s0
