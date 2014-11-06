@@ -70,7 +70,6 @@ BOARD_SEPOLICY_UNION := \
        mdm_helper.te \
        peripheral_manager.te \
        qcomsysd.te \
-       servicemanager.te \
        usb_uicc_daemon.te \
        adsprpcd.te \
        qlogd.te \
