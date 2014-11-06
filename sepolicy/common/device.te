@@ -11,6 +11,9 @@ type mhi_device, dev_type;
 #device type for smd device nodes, ie /dev/smd*
 type smd_device, dev_type;
 
+#device type for rmnet device nodes, ie /dev/rmnet_ctrl*
+type rmnet_device, dev_type;
+
 #Define thermal-engine devices
 type thermal_device, dev_type;
 

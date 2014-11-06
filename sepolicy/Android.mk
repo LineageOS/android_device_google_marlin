@@ -57,6 +57,7 @@ BOARD_SEPOLICY_UNION := \
        rmt_storage.te \
        rfs_access.te \
        hvdcp.te \
+       qti.te \
        qseecomd.te \
        mcStarter.te \
        keystore.te \
