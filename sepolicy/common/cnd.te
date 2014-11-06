@@ -20,6 +20,7 @@ allow cnd self:netlink_tcpdiag_socket { bind create write read
  nlmsg_read getopt};
 allow cnd self:netlink_route_socket { read bind create write
  nlmsg_read };
+allow cnd self:netlink_socket { create setopt getopt bind getattr write read };
 
 # allow cnd to set system property
 allow cnd system_prop:property_service set;
