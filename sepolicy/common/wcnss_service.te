@@ -1,0 +1,14 @@
+type wcnss_service, domain;
+type wcnss_service_exec, exec_type, file_type;
+
+init_daemon_domain(wcnss_service)
+
+unix_socket_connect(wcnss_service, property, init)
+allow wcnss_service wcnss_device:chr_file rw_file_perms;
+
+qmux_socket(wcnss_service);
+
+allow wcnss_service wifi_data_file:dir w_dir_perms;
+allow wcnss_service wifi_data_file:file create_file_perms;
+
+allow wcnss_service system_prop:property_service set;
