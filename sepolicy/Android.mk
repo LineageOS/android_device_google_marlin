@@ -44,7 +44,6 @@ BOARD_SEPOLICY_UNION := \
        system_app.te \
        thermal-engine.te \
        vm_bms.te \
-       global_macros.te \
        system_app.te \
        bluetooth.te \
        init_shell.te \
