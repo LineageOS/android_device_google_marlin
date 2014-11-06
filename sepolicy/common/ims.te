@@ -7,4 +7,6 @@ init_daemon_domain(ims)
 
 allow radio ims_socket:sock_file { open read write };
 allow ims ims_socket:sock_file { open read write };
-
+allow ims property_socket:sock_file write;
+allow ims servicemanager:binder call;
+binder_use(ims)
