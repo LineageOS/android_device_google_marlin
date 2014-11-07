@@ -23,12 +23,14 @@ allow netmgrd smem_log_device:chr_file { rw_file_perms };
 
 #Allow operations on different types of sockets
 allow netmgrd netmgrd:rawip_socket { create getopt setopt write };
-allow netmgrd netmgrd:netlink_xfrm_socket { create bind };
+allow netmgrd netmgrd:netlink_xfrm_socket { create_socket_perms nlmsg_write nlmsg_read };
 allow netmgrd netmgrd:netlink_socket { write read create bind };
 allow netmgrd netmgrd:socket { create ioctl };
 allow netmgrd netmgrd:netlink_route_socket { setopt getattr write nlmsg_write };
 allow netmgrd init:unix_stream_socket { connectto };
 allow netmgrd property_socket:sock_file write;
+
+unix_socket_connect(netmgrd, cnd, cnd);
 
 qmux_socket(netmgrd);
 
@@ -49,6 +51,9 @@ allow netmgrd sysfs_esoc:dir r_dir_perms;
 
 #Allow communication with netd
 allow netmgrd netd_socket:sock_file write;
+allow netmgrd net_data_file:file r_file_perms;
+allow netmgrd wpa_exec:file rx_file_perms;
+allow netmgrd net_data_file:dir r_dir_perms;
 
 #Allow nemtgrd to use esoc api's to determine target
 allow netmgrd shell_exec:file { execute r_file_perms execute_no_trans };
