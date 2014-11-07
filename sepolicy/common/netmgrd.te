@@ -56,4 +56,6 @@ allow netmgrd sysfs_esoc:lnk_file read;
 
 r_dir_file(netmgrd, sysfs_ssr);
 
-allow netmgrd wcnss_service_exec:file rx_file_perms;
+allow netmgrd { wcnss_service_exec wpa_exec }:file rx_file_perms;
+
+allow netmgrd sysfs:file write;
