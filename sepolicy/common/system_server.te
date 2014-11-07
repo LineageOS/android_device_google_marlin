@@ -40,3 +40,4 @@ allow system_server location_data_file:sock_file rw_file_perms;
 #For wifistatemachine
 allow system_server kernel:key search;
 allow system_server wbc_service:service_manager add;
+allow system_server digitalpen_service:service_manager add;
