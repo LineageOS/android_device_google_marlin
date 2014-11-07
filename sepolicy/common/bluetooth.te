@@ -15,7 +15,6 @@ allow bluetooth input_device:chr_file { open read write ioctl };
 
 allow bluetooth persist_file:dir search;
 allow bluetooth persist_file:file rw_file_perms;
-allow bluetooth wpa:unix_stream_socket connectto;
 
 #For ANT tty communication and to set wc_transport prop
 allow system_server bluetooth_prop:property_service set;
