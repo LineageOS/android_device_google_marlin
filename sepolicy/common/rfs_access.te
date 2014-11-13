@@ -38,3 +38,6 @@ allow rfs_access firmware_file:file { open read getattr };
 #Prevent other domains from accessing RFS data files.
 neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:dir { write search create add_name };
 neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:file { open read write create append getattr };
+
+allow rfs_access self:capability { setuid setpcap net_raw };
+allow rfs_access smem_log_device:chr_file rw_file_perms;
