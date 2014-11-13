@@ -5,3 +5,4 @@ cneservice                                     u:object_r:cne_service:s0
 vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service:s0
 wbc_service                                    u:object_r:wbc_service:s0
 dun                                            u:object_r:dun_service:s0
+DigitalPen                                     u:object_r:digitalpen_service:s0
