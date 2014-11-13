@@ -19,7 +19,7 @@ userdebug_or_eng(`
 
 allow mediaserver sysfs_esoc:dir r_dir_perms;
 allow mediaserver sysfs_esoc:lnk_file read;
-
+allow mediaserver system_app_data_file:file rw_file_perms;
 # access to perflock
 allow mediaserver mpctl_socket:dir r_dir_perms;
 unix_socket_send(mediaserver, mpctl, mpdecision)
