@@ -1,0 +1,5 @@
+###################################
+# Dev nodes
+#
+/dev/msm_camera(/.*)?                           u:object_r:camera_device:s0
+/dev/msm_rotator                                u:object_r:graphics_device:s0
