@@ -1,0 +1,31 @@
+#integrated process
+type mmi, domain;
+type mmi_exec, exec_type, file_type;
+
+#started by init
+init_daemon_domain(mmi)
+
+#self capability
+allow mmi self:capability { sys_nice dac_override };
+allow mmi self:capability2 block_suspend;
+
+#For various devices
+allow mmi graphics_device:chr_file rw_file_perms;
+allow mmi input_device:chr_file r_file_perms;
+allow mmi input_device:dir r_file_perms;
+allow mmi nfc_device:chr_file rw_file_perms;
+allow mmi shell_exec:file rx_file_perms;
+allow mmi sysfs_wake_lock:file rw_file_perms;
+
+#FTM_AP folder permissions
+allow mmi mmi_data_file:dir rw_dir_perms;
+allow mmi mmi_data_file:file rw_file_perms;
+
+#socket
+unix_socket_connect(mmi, property, init)
+
+#allow mmi set system prop
+allow mmi powerctl_prop:property_service set;
+
+#allow mmi operation on MISC partition
+allow mmi misc_partition:blk_file w_file_perms;
