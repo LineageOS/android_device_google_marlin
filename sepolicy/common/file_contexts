@@ -52,6 +52,8 @@
 /dev/dpl_ctrl                                   u:object_r:rmnet_device:s0
 /dev/wcnss_ctrl                                 u:object_r:wcnss_device:s0
 /dev/wcnss_wlan                                 u:object_r:wcnss_device:s0
+/dev/hbtp_input                                 u:object_r:hbtp_device:s0
+/dev/jdi-bu21150                                u:object_r:bu21150_device:s0
 
 ###################################
 # Dev socket nodes
@@ -152,6 +154,7 @@
 /system/vendor/bin/slim_ap_daemon               u:object_r:location_exec:s0
 /system/vendor/bin/qti                          u:object_r:qti_exec:s0
 /system/bin/wcnss_service                       u:object_r:wcnss_service_exec:s0
+/system/vendor/bin/hbtp_daemon                  u:object_r:hbtp_exec:s0
 
 ###################################
 # sysfs files
