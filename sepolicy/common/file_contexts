@@ -42,8 +42,8 @@
 /dev/esoc.*                                     u:object_r:esoc_device:s0
 /dev/ks_hsic_bridge                             u:object_r:ksbridgehsic_device:s0
 /dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
-/dev/block/platform/msm_sdcc.1/by-name/misc                         u:object_r:misc_partition:s0
-/dev/block/platform/msm_sdcc.1/by-name/bootselect                   u:object_r:bootselect_device:s0
+/dev/block/bootdevice/by-name/misc              u:object_r:misc_partition:s0
+/dev/block/bootdevice/by-name/bootselect        u:object_r:bootselect_device:s0
 /dev/ipa                                        u:object_r:ipa_dev:s0
 /dev/wwan_ioctl                                 u:object_r:ipa_dev:s0
 /dev/ipaNatTable                                u:object_r:ipa_dev:s0

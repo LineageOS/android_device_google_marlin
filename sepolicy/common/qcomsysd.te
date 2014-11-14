@@ -11,6 +11,7 @@ allow qcomsysd smem_log_device:chr_file { open read write ioctl };
 allow qcomsysd diag_device:chr_file { open read write ioctl };
 
 #Needed to read/write cookies to the misc partition
+allow qcomsysd block_device:dir { search };
 allow qcomsysd misc_partition:blk_file { open read getattr write };
 
 #Needed to access the bootselect partition
