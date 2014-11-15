@@ -18,3 +18,4 @@ allow qti self:udp_socket { create ioctl };
 allow qti kernel:system module_request;
 allow qti shell_exec:file rx_file_perms;
 allow qti smd_device:chr_file rw_file_perms;
+allow qti system_file:file execute_no_trans;
