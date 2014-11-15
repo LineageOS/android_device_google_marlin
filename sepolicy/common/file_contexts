@@ -208,7 +208,7 @@
 /data/misc/display(/.*)?                                            u:object_r:display_config:s0
 /data/misc/ipa(/.*)?                                                u:object_r:ipacm_data_file:s0
 /data/dpm(/.*)?                                                     u:object_r:dpmd_data_file:s0
-/data/data/app_ms(/.*)?                                             u:object_r:data_drm_file:s0
+/data/misc/qsee(/.*)?                                               u:object_r:data_qsee_file:s0
 /data/misc/location(/.*)?                                           u:object_r:location_data_file:s0
 /data/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
 
