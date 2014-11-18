@@ -57,3 +57,6 @@
 /system/bin/test-fake-ap                        u:object_r:location_exec:s0
 /system/bin/loc_api_app                         u:object_r:location_exec:s0
 /system/bin/test_loc_api_client                 u:object_r:location_exec:s0
+
+#Context for mediaserver
+/data/display-tests/media(/.*)?                 u:object_r:display_test_media_file:s0
