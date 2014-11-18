@@ -5,3 +5,6 @@ allow radio ims_socket:sock_file write;
 #Need permission to execute com.qualcomm.qti.telephony/app_dex/xx
 allow radio radio_data_file:file execute;
 allow radio shell_data_file:dir search;
+
+#Need permission to execute dpmd talk to radio layer
+unix_socket_connect(radio, dpmd, dpmd)
