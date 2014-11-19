@@ -1,1 +1,2 @@
 genfscon proc /asound/card0/state u:object_r:proc_audiod:s0
+genfscon proc /proc/sys/vm/dirty_ratio  u:object_r:proc_dirty_ratio:s0
