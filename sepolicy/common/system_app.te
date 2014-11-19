@@ -26,3 +26,6 @@ allow system_app bluetooth:unix_stream_socket ioctl;
 
 # access to tee domain
 allow system_app tee:unix_dgram_socket sendto;
+
+# access to time_daemon
+allow system_app time_daemon:unix_stream_socket connectto;
