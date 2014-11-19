@@ -20,3 +20,5 @@ allow qcomsysd bootselect_device:blk_file { open read getattr write };
 #Needed to get image info from socinfo
 allow qcomsysd sysfs_socinfo:dir  { open search read };
 allow qcomsysd sysfs_socinfo:file { open read write };
+
+allow qcomsysd self:capability { dac_override };
