@@ -6,3 +6,4 @@ vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service:s0
 wbc_service                                    u:object_r:wbc_service:s0
 dun                                            u:object_r:dun_service:s0
 DigitalPen                                     u:object_r:digitalpen_service:s0
+qti.ims.connectionmanagerservice               u:object_r:imscm_service:s0

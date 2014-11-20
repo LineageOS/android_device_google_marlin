@@ -13,3 +13,4 @@ binder_use(ims)
 unix_socket_connect(ims, property, init)
 allow ims self:socket { read bind create write ioctl };
 allow ims system_prop:property_service set;
+allow ims imscm_service:service_manager add;
