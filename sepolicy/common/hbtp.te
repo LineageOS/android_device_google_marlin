@@ -1,0 +1,10 @@
+# Policies for hbtp (host based touch processing)
+type hbtp, domain;
+type hbtp_exec, exec_type, file_type;
+
+init_daemon_domain(hbtp)
+
+# Allow access for /dev/hbtp_input and /dev/jdi-bu21150
+allow hbtp hbtp_device:chr_file rw_file_perms;
+allow hbtp bu21150_device:chr_file rw_file_perms;
+

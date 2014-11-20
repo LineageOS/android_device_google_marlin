@@ -78,3 +78,7 @@ type mmc_block_device, dev_type;
 
 #Define Gadget serial device
 type gadget_serial_device, dev_type;
+
+#Added for hbtp
+type bu21150_device, dev_type;
+type hbtp_device, dev_type;
