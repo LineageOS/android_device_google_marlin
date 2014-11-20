@@ -42,3 +42,6 @@ allow system_server digitalpen_service:service_manager add;
 
 #For ssr
 allow system_server ssr_device:chr_file { read open };
+
+allow system_server fuse:dir search;
+allow system_server persist_file:dir search;
