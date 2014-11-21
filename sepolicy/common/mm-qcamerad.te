@@ -35,3 +35,6 @@ allow mm-qcamerad system_data_file:file create_file_perms;
 
 #Remove GL fine reference
 allow mm-qcamerad shell_data_file:dir search;
+
+# IMS use camera daemon to make VT call
+allow mm-qcamerad port:tcp_socket name_bind;
