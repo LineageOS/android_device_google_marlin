@@ -1,2 +1,0 @@
-allow ims self:capability net_raw;
-allow ims self:socket { read bind create write ioctl };
