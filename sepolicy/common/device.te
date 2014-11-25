@@ -76,6 +76,9 @@ type wcnss_device, dev_type;
 
 type mmc_block_device, dev_type;
 
+# Define QDSS devices
+type qdss_device, dev_type;
+
 #Define Gadget serial device
 type gadget_serial_device, dev_type;
 

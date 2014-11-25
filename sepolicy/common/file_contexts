@@ -55,6 +55,10 @@
 /dev/hbtp_input                                 u:object_r:hbtp_device:s0
 /dev/jdi-bu21150                                u:object_r:bu21150_device:s0
 /dev/voice_svc                                  u:object_r:voice_device:s0
+/dev/coresight-stm                              u:object_r:qdss_device:s0
+/dev/coresight-tmc-etf                          u:object_r:qdss_device:s0
+/dev/coresight-tmc-etr                          u:object_r:qdss_device:s0
+/dev/coresight-tmc-etr-stream                   u:object_r:qdss_device:s0
 
 ###################################
 # Dev socket nodes
@@ -217,6 +221,7 @@
 /data/misc/location(/.*)?                                           u:object_r:location_data_file:s0
 /data/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
 /data/misc/hbtp(/.*)?                                               u:object_r:hbtp_log_file:s0
+/data/misc/qlogd(/.*)?                                              u:object_r:qlogd_data_file:s0
 
 ###################################
 # persist files
