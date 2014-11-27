@@ -1,0 +1,5 @@
+#Access to media files for testing
+userdebug_or_eng(`
+  allow mediaserver display_test_media_file:dir r_dir_perms;
+  allow mediaserver display_test_media_file:file r_file_perms;
+')
