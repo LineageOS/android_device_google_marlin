@@ -107,3 +107,7 @@ type mmi_data_file, file_type, data_file_type;
 
 #needed by vold
 type  proc_dirty_ratio, fs_type;
+
+# hbtp config file
+type hbtp_cfg_file, file_type;
+type hbtp_log_file, file_type;

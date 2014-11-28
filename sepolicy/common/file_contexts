@@ -215,6 +215,7 @@
 /data/misc/qsee(/.*)?                                               u:object_r:data_qsee_file:s0
 /data/misc/location(/.*)?                                           u:object_r:location_data_file:s0
 /data/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
+/data/misc/hbtp(/.*)?                                               u:object_r:hbtp_log_file:s0
 
 ###################################
 # persist files
@@ -229,3 +230,8 @@
 # oem files
 #
 /oem(/.*)?       u:object_r:system_file:s0
+
+###################################
+# etc files
+#
+/etc/firmware/hbtp/*                                                u:object_r:hbtp_cfg_file:s0

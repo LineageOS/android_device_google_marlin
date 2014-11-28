@@ -8,3 +8,12 @@ init_daemon_domain(hbtp)
 allow hbtp hbtp_device:chr_file rw_file_perms;
 allow hbtp bu21150_device:chr_file rw_file_perms;
 
+allow hbtp hbtp_cfg_file:dir rw_dir_perms;
+allow hbtp hbtp_cfg_file:file create_file_perms;
+
+allow hbtp hbtp_log_file:dir rw_dir_perms;
+allow hbtp hbtp_log_file:file create_file_perms;
+
+allow hbtp self:netlink_kobject_uevent_socket { create read setopt bind };
+
+binder_use(hbtp);
