@@ -45,3 +45,8 @@ allow system_server ssr_device:chr_file { read open };
 
 allow system_server fuse:dir search;
 allow system_server persist_file:dir search;
+
+#For ANT tty communication and to set wc_transport prop
+allow system_server bluetooth_prop:property_service set;
+allow system_server serial_device:chr_file rw_file_perms;
+allow system_server smd_device:chr_file rw_file_perms;
