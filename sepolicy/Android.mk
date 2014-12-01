@@ -60,6 +60,7 @@ BOARD_SEPOLICY_UNION := \
        mcStarter.te \
        keystore.te \
        ims.te \
+       imscm.te \
        healthd.te \
        charger_monitor.te \
        surfaceflinger.te \
