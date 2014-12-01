@@ -7,3 +7,6 @@ allow wpa proc_net:file write;
 
 # allow wpa_supplicant to send back wifi information to cnd
 allow wpa cnd:unix_dgram_socket sendto;
+
+# permission for wpa socket which IMS use to communicate
+allow wpa ims:unix_dgram_socket sendto;
