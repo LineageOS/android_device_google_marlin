@@ -161,6 +161,9 @@
 /system/vendor/bin/qti                          u:object_r:qti_exec:s0
 /system/bin/wcnss_service                       u:object_r:wcnss_service_exec:s0
 /system/vendor/bin/hbtp_daemon                  u:object_r:hbtp_exec:s0
+/system/bin/sapd                                u:object_r:sapd_exec:s0
+/system/bin/btsnoop                             u:object_r:btsnoop_exec:s0
+/system/bin/dun-server                          u:object_r:dun-server_exec:s0
 
 ###################################
 # sysfs files

@@ -1,3 +1,16 @@
+#Adding all bt related service to bt domains
+type sapd, bluetoothdomain;
+type sapd_exec, exec_type, file_type;
+domain_auto_trans(init, sapd_exec, bluetooth)
+
+type dun-server,  bluetoothdomain;
+type dun-server_exec, exec_type, file_type;
+domain_auto_trans(init, dun-server_exec, bluetooth)
+
+type btsnoop,  bluetoothdomain;
+type btsnoop_exec, exec_type, file_type;
+domain_auto_trans(init, btsnoop_exec, bluetooth)
+
 #BT needes  read and write on smd device node
 allow bluetooth smd_device:chr_file rw_file_perms;
 
@@ -15,3 +28,14 @@ allow bluetooth input_device:chr_file { open read write ioctl };
 
 allow bluetooth persist_file:dir search;
 allow bluetooth persist_file:file rw_file_perms;
+
+#dun-server requires interaction with net_domain socket
+net_domain(bluetooth);
+
+#dun-server requires binding with system_app and servicemanager
+binder_use(bluetooth);
+binder_call(bluetooth, system_app);
+binder_call(bluetooth, servicemanager);
+
+#sapd requires interaction with qmux sockets
+qmux_socket(bluetooth);
