@@ -2,10 +2,7 @@ allow surfaceflinger sysfs_graphics:file rw_file_perms;
 allow surfaceflinger shell_data_file:dir search;
 
 # Allows pp-daemon to refresh the screen in calibration mode
-userdebug_or_eng(`
-  allow surfaceflinger mm-pp-daemon:dir search;
-  allow surfaceflinger mm-pp-daemon:file r_file_perms;
-')
+r_dir_file(surfaceflinger, mm-pp-daemon)
 
 binder_call(surfaceflinger, location)
 binder_call(surfaceflinger, tee)
