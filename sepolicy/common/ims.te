@@ -52,3 +52,6 @@ allow ims wifi_data_file:dir r_dir_perms;
 
 # permissions for communication with CNE in LBO use case
 unix_socket_connect(ims, cnd, cnd)
+
+#Communication with voice_svc device for audio on APP
+allow ims voice_device:chr_file rw_file_perms;
