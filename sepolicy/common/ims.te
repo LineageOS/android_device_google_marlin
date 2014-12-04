@@ -42,3 +42,13 @@ allow ims imscm_service:service_manager add;
 
 # Set property to start imsdata_daemon and ims_rtp_daemon
 allow ims qcom_ims_prop:property_service set;
+
+# permissions needed for IMS to connect and interact with WPA supplicant
+allow ims wpa:unix_dgram_socket sendto;
+allow ims wpa_exec:file rx_file_perms;
+allow ims wpa_socket:dir w_dir_perms;
+allow ims wpa_socket:sock_file { write create unlink setattr };
+allow ims wifi_data_file:dir r_dir_perms;
+
+# permissions for communication with CNE in LBO use case
+unix_socket_connect(ims, cnd, cnd)
