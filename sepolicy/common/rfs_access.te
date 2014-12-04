@@ -5,39 +5,44 @@ init_daemon_domain(rfs_access)
 
 #The files created by rfs_access process in the /data folder will have type rfs_data_file
 type_transition rfs_access system_data_file:{ dir file } rfs_data_file;
+type_transition rfs_access system_data_file:dir rfs_shared_hlos_file "hlos_rfs";
 
 #To read the uio char device
-allow rfs_access uio_device:chr_file { read write open };
+allow rfs_access uio_device:chr_file rw_file_perms;
 
-#For QMI sockets
-allow rfs_access self:socket { create_socket_perms };
+#For QMI sockets and IPCR Sockets
+allow rfs_access self:socket create_socket_perms;
+allow rfs_access smem_log_device:chr_file rw_file_perms;
 
 #For Wakelocks
 allow rfs_access self:capability2 block_suspend;
-allow rfs_access sysfs_wake_lock:file { open write append };
+allow rfs_access sysfs_wake_lock:file w_file_perms;
 
-#To create the /data/rfs
-allow rfs_access system_data_file:dir { write add_name };
+#To create the folders in /data
+allow rfs_access system_data_file:dir create_dir_perms;
 
 #For system folder entries
-allow rfs_access rfs_system_file:dir search;
-allow rfs_access rfs_system_file:lnk_file read;
+allow rfs_access rfs_system_file:dir r_dir_perms;
+allow rfs_access rfs_system_file:lnk_file r_file_perms;
 
 #For data folder entries
-allow rfs_access rfs_data_file:dir { write search create add_name };
-allow rfs_access rfs_data_file:file { open read write create append getattr };
+allow rfs_access rfs_data_file:dir create_dir_perms;
+allow rfs_access rfs_data_file:file create_file_perms;
+
+allow rfs_access rfs_shared_hlos_file:dir create_dir_perms;
+allow rfs_access rfs_shared_hlos_file:file create_file_perms;
 
 #For ramdump entries in /data/tombstones.
-allow rfs_access tombstone_data_file:dir { write search create add_name };
-allow rfs_access tombstone_data_file:file { open read write create append getattr };
+allow rfs_access tombstone_data_file:dir create_dir_perms;
+allow rfs_access tombstone_data_file:file create_file_perms;
 
 #For firmware entries in /firmware to read NHLOS.bin files ( only perms to read and get attributes).
-allow rfs_access firmware_file:dir { search };
-allow rfs_access firmware_file:file { open read getattr };
+allow rfs_access firmware_file:dir r_dir_perms;
+allow rfs_access firmware_file:file r_file_perms;
+
+#For dropping permisions from root and wakelock
+allow rfs_access self:capability { setuid setgid setpcap net_raw };
 
 #Prevent other domains from accessing RFS data files.
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:dir { write search create add_name };
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:file { open read write create append getattr };
-
-allow rfs_access self:capability { setuid setpcap net_raw };
-allow rfs_access smem_log_device:chr_file rw_file_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:dir create_dir_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:file create_file_perms;

@@ -48,6 +48,7 @@ type sysfs_msmuart_file, sysfs_type, fs_type;
 # Storage RFS file types
 type rfs_data_file, file_type;
 type rfs_system_file, file_type;
+type rfs_shared_hlos_file, file_type;
 
 #mm-pp-daemon file type for sysfs access
 type sysfs_leds, fs_type, sysfs_type;
