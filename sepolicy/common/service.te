@@ -7,3 +7,4 @@ type dun_service,               service_manager_type;
 type digitalpen_service,        service_manager_type;
 type imscm_service,             service_manager_type;
 type color_service,             service_manager_type;
+type wfdservice_service,        service_manager_type;

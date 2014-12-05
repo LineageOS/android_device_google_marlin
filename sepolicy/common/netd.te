@@ -9,3 +9,6 @@ dontaudit netd self:capability sys_module;
 #needed for ipt_TCPMSS and ip6t_TCPMSS
 allow netd kernel:system module_request;
 unix_socket_connect(netd, cnd, cnd)
+
+allow netd wfdservice:fd use;
+allow netd wfdservice:tcp_socket rw_socket_perms;

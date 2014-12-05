@@ -1,0 +1,69 @@
+type wfdservice, domain;
+type wfdservice_exec, exec_type, file_type;
+
+#Allow for transition from init domain to wfdservice
+init_daemon_domain(wfdservice)
+
+#Inherit base socket permissions from netd domain
+net_domain(wfdservice)
+
+#Allow wfdservice to use Binder IPC
+binder_use(wfdservice)
+
+#Allow for interaction with Display HAL
+binder_call(wfdservice, surfaceflinger)
+binder_call(surfaceflinger, wfdservice)
+
+#Allow apps to interact with wfdservice
+binder_call(wfdservice, platform_app)
+binder_call(platform_app, wfdservice)
+binder_call(wfdservice, system_app)
+binder_call(system_app, wfdservice)
+
+#Allow access to Audio Flinger APIs
+binder_call(wfdservice, mediaserver)
+
+#Allow access to Permission Controller in System Server
+binder_call(wfdservice, system_server)
+
+# Mark wfdservice as a Binder service domain
+binder_service(wfdservice)
+
+#Allow wfdservice to be registered with service manager
+allow wfdservice wfdservice_service:service_manager add;
+
+#Allow access to PCM sound card
+allow wfdservice audio_device:chr_file rw_file_perms;
+allow wfdservice audio_device:dir r_dir_perms;
+
+#Allow access to /dev/graphics/fb* for screen capture
+allow wfdservice graphics_device:chr_file rw_file_perms;
+
+#Allow communication with init over property server
+unix_socket_connect(wfdservice, property, init);
+
+#Allow access to /dev/video/* devices for encoding/decoding
+allow wfdservice video_device:chr_file rw_file_perms;
+allow wfdservice video_device:dir r_dir_perms;
+
+#Allow access to tee device for HDCP sessions
+allow wfdservice tee_device:chr_file rw_file_perms;
+
+#Allow access to uhid driver for HID event injection
+allow wfdservice uhid_device:chr_file rw_file_perms;
+
+#Allow PROT_EXEC for 3rd party library loaded by wfdservice
+allow wfdservice self:process execmem;
+
+#Allow access to read mmosal_logmask file in /data partition
+userdebug_or_eng(`
+  allow wfdservice system_data_file:file r_file_perms;
+')
+
+#Allow access to firmware files for HDCP session
+allow wfdservice firmware_file:file r_file_perms;
+allow wfdservice firmware_file:dir r_dir_perms;
+
+#Allow access to /data/media for dumping
+allow wfdservice media_rw_data_file:dir create_dir_perms;
+allow wfdservice media_rw_data_file:file create_file_perms;

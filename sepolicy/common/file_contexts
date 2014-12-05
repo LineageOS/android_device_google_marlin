@@ -170,6 +170,7 @@
 /system/bin/sapd                                u:object_r:sapd_exec:s0
 /system/bin/btsnoop                             u:object_r:btsnoop_exec:s0
 /system/bin/dun-server                          u:object_r:dun-server_exec:s0
+/system/bin/wfdservice                          u:object_r:wfdservice_exec:s0
 
 ###################################
 # sysfs files
