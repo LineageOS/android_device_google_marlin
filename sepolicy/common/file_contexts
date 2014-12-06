@@ -119,6 +119,7 @@
 /system/bin/time_daemon                         u:object_r:time_daemon_exec:s0
 /system/bin/rmt_storage                         u:object_r:rmt_storage_exec:s0
 /system/bin/rfs_access                          u:object_r:rfs_access_exec:s0
+/system/bin/tftp_server                         u:object_r:rfs_access_exec:s0
 /system/bin/hvdcp                               u:object_r:hvdcp_exec:s0
 /system/bin/qseecomd                            u:object_r:tee_exec:s0
 /system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
@@ -201,6 +202,7 @@
 /data/diag_log(/.*)?                                                u:object_r:diag_data_file:s0
 /data/misc/sensors(/.*)?                                            u:object_r:sensors_data_file:s0
 /data/rfs.*                                                         u:object_r:rfs_data_file:s0
+/data/hlos_rfs(/.*)?                                                u:object_r:rfs_shared_hlos_file:s0
 /data/camera(/.*)?                                                  u:object_r:camera_socket:s0
 /data/system/sensors(/.*)?                                          u:object_r:sensors_data_file:s0
 /data/time/*                                                        u:object_r:time_data_file:s0
