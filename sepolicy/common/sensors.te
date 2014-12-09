@@ -35,6 +35,9 @@ allow sensors persist_file:dir r_dir_perms;
 allow sensors sensors_persist_file:dir create_dir_perms;
 allow sensors sensors_persist_file:file create_file_perms;
 
+# Access to execmem
+allow sensors self:process execmem;
+
 # Wake lock access
 wakelock_use(sensors)
 
