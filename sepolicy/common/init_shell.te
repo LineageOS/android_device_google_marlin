@@ -24,3 +24,6 @@ allow init_shell efs_boot_dev:blk_file r_file_perms;
 allow init_shell ctl_default_prop:property_service set;
 
 allow init_shell ctl_rildaemon_prop:property_service set;
+
+#for access to UICC property
+allow init_shell uicc_prop:property_service set;
