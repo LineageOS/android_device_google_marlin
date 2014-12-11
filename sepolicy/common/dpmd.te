@@ -35,4 +35,4 @@ allow dpmd kernel:system module_request;
 
 #appdomain
 allow dpmd appdomain:fd use;
-allow dpmd appdomain:tcp_socket { read write getopt };
+allow dpmd appdomain:tcp_socket { read write getopt getattr };
