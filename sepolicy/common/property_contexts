@@ -1,2 +1,2 @@
 wc_transport.              u:object_r:bluetooth_prop:s0
-usb_uicc.                  u:object_r:uicc_prop:s0
+sys.usb_uicc.              u:object_r:uicc_prop:s0
