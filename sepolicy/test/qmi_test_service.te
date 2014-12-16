@@ -5,6 +5,8 @@ userdebug_or_eng(`
   type qmi_test_service, domain;
   domain_auto_trans(shell, qmi_test_service_exec, qmi_test_service)
   domain_auto_trans(adbd, qmi_test_service_exec, qmi_test_service)
+  #enable access to loader in 64 bit system
+  allow qmi_test_service shell:fd use;
   #test is launched from pseudo terminal so output goes there
   allow qmi_test_service devpts:chr_file {read write getattr ioctl};
   #to access smem log
