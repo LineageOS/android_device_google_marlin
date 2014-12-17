@@ -6,6 +6,8 @@ PRODUCT_DEVICE := thulium
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Thulium for arm64
 
+PRODUCT_BOOT_JARS += tcmiface
+
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
 
