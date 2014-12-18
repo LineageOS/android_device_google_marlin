@@ -30,3 +30,5 @@ allow per_mgr sysfs_esoc:lnk_file { read };
 allow per_mgr sysfs_ssr:dir { open search read };
 allow per_mgr sysfs_ssr:lnk_file { read open };
 
+#Needed by pm-proxy to talk to peripheral manager
+binder_call(per_mgr, per_mgr);
