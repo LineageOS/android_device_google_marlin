@@ -47,3 +47,6 @@ userdebug_or_eng(`
   allow tee shell_data_file:file rw_file_perms;
   allow tee shell_data_file:dir search;
 ')
+
+# allow qseecom access to set system property
+allow tee system_prop:property_service set;
