@@ -66,3 +66,5 @@ allow cnd mediaserver:fd use;
 allow cnd mediaserver:tcp_socket { read write bind getattr shutdown getopt };
 allow cnd mediaserver:file { open read };
 
+# allow cnd to access ipa_dev
+allow cnd ipa_dev:chr_file r_file_perms;
