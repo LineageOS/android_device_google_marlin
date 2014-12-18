@@ -29,3 +29,6 @@ allow system_app bluetooth:unix_stream_socket ioctl;
 
 # access to tee domain
 allow system_app tee:unix_dgram_socket sendto;
+
+# access to color service SDK
+allow system_app color_service:service_manager add;
