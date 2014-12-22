@@ -32,3 +32,8 @@ allow system_app tee:unix_dgram_socket sendto;
 
 # access to color service SDK
 allow system_app color_service:service_manager add;
+
+# access to firmware file
+userdebug_or_eng(`
+  r_dir_file(system_app, firmware_file);
+')
