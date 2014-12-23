@@ -88,7 +88,8 @@ BOARD_SEPOLICY_UNION := \
        mmi.te \
        dhcp.te \
        wfd_app.te \
-       mediaserver_test.te
+       mediaserver_test.te \
+       energyawareness.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

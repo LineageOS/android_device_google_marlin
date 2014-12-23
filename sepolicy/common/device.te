@@ -78,3 +78,6 @@ type mmc_block_device, dev_type;
 
 #Define Gadget serial device
 type gadget_serial_device, dev_type;
+
+#energy-awareness device
+type pta_device, dev_type;
