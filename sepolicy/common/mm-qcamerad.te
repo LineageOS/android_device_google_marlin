@@ -2,8 +2,11 @@ type mm-qcamerad, domain;
 type mm-qcamerad_exec, exec_type, file_type;
 init_daemon_domain(mm-qcamerad)
 
+#added to support EZTune for camera
 userdebug_or_eng(`
   allow mm-qcamerad debugfs:dir search;
+  allow mm-qcamerad camera_data_file:file create_file_perms;
+  allow mm-qcamerad self:tcp_socket { accept listen };
 ')
 
 #Communicate with user land process through domain socket
@@ -23,11 +26,6 @@ allow mm-qcamerad self:tcp_socket create_socket_perms;
 allow mm-qcamerad camera_data_file:dir { write remove_name search add_name };
 allow mm-qcamerad camera_data_file:sock_file { create unlink };
 allow mm-qcamerad node:tcp_socket node_bind;
-allow mm-qcamerad self:tcp_socket listen;
-
-userdebug_or_eng(`
-  allow mm-qcamerad camera_data_file:file create_file_perms;
-')
 
 #/data/fdAlbum
 allow mm-qcamerad system_data_file:dir w_dir_perms;
