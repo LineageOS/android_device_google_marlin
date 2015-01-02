@@ -25,8 +25,8 @@ allow qlogd qlogd_socket:sock_file { create read write setattr };
 allow qlogd shell_exec:file { execute read open execute_no_trans };
 
 # need to create and write files in fuse partition
-allow qlogd fuse:dir { search read write add_name create open };
-allow qlogd fuse:file { create read write append open getattr };
+allow qlogd fuse:dir create_dir_perms;
+allow qlogd fuse:file create_file_perms;
 
 #need to capture kmsg
 allow qlogd kernel:system syslog_mod;
