@@ -99,7 +99,7 @@
 /system/bin/diag_callback_client                u:object_r:diag_exec:s0
 /system/bin/diag_dci_sample                     u:object_r:diag_exec:s0
 /system/bin/diag_klog                           u:object_r:diag_exec:s0
-/system/bin/diag_mdlog                          u:object_r:diag_exec:s0
+/system/bin/diag_mdlog                          u:object_r:qlogd_exec:s0
 /system/bin/diag_qshrink4_daemon                u:object_r:diag_exec:s0
 /system/bin/diag_socket_log                     u:object_r:diag_exec:s0
 /system/bin/diag_uart_log                       u:object_r:diag_exec:s0
