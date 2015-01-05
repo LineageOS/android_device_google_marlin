@@ -50,3 +50,5 @@ allow mm-pp-daemon sysfs:file rw_file_perms;
 # Allow socket calls in pp-daemon
 unix_socket_connect(mm-pp-daemon, property, init)
 unix_socket_connect(mm-pp-daemon, pps, init)
+allow mm-pp-daemon init:unix_stream_socket listen;
+allow mm-pp-daemon init:unix_stream_socket accept;
