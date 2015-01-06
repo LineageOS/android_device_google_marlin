@@ -68,3 +68,6 @@ allow cnd mediaserver:file { open read };
 
 # allow cnd to access ipa_dev
 allow cnd ipa_dev:chr_file r_file_perms;
+
+# allow cnd to perform socket operation on itself
+allow cnd self:socket create_socket_perms;
