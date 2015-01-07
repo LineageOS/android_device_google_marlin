@@ -105,3 +105,6 @@ type ipacm_data_file, file_type;
 
 #Define the files written during the operation of mmi
 type mmi_data_file, file_type, data_file_type;
+
+#bluetooth firmware file types
+type bt_firmware_file, fs_type, contextmount_type;
