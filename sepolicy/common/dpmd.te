@@ -36,3 +36,6 @@ allow dpmd kernel:system module_request;
 #appdomain
 allow dpmd appdomain:fd use;
 allow dpmd appdomain:tcp_socket { read write getopt getattr };
+
+#permission to unlink dpmwrapper socket
+allow dpmd socket_device:dir remove_name;
