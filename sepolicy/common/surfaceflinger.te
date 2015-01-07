@@ -6,3 +6,8 @@ r_dir_file(surfaceflinger, mm-pp-daemon)
 
 binder_call(surfaceflinger, location)
 binder_call(surfaceflinger, tee)
+
+# access to perflock
+allow surfaceflinger mpctl_socket:dir r_dir_perms;
+unix_socket_send(surfaceflinger, mpctl, perfd)
+unix_socket_connect(surfaceflinger, mpctl, perfd)
