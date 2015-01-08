@@ -10,7 +10,7 @@ init_daemon_domain(thermal-engine)
 allow thermal-engine thermal_device:chr_file rw_file_perms;
 #This is required to access smem log device
 allow thermal-engine smem_log_device:chr_file rw_file_perms;
-allow thermal-engine self:capability { dac_read_search dac_override fsetid };
+allow thermal-engine self:capability { dac_read_search dac_override fsetid sys_boot };
 allow thermal-engine self:socket create_socket_perms;
 #This is required to access thermal sockets
 allow thermal-engine thermal_socket:dir w_dir_perms;
