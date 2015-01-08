@@ -29,6 +29,7 @@
 
 on early-init
     mkdir /firmware 0771 system system
+    mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
 
 on fs
@@ -47,6 +48,9 @@ on fs
 
     #wait /dev/block/bootdevice/by-name/modem
     #mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
+
+    wait /dev/block/bootdevice/by-name/bluetooth
+    mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
