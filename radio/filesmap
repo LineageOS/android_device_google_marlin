@@ -28,6 +28,7 @@
 # filename              partition
 
 NON-HLOS.bin            /dev/block/bootdevice/by-name/modem
+BTFM.bin                /dev/block/bootdevice/by-name/bluetooth
 
 sbl1.mbn                /dev/block/bootdevice/by-name/sbl1
 tz.mbn                  /dev/block/bootdevice/by-name/tz
