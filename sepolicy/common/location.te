@@ -18,7 +18,7 @@ allow location location_data_file:fifo_file create_file_perms;
 allow location location_data_file:file create_file_perms;
 allow location location_exec:file execute_no_trans;
 allow location location_socket:sock_file create_file_perms;
-allow location self:capability { setuid setgid };
+allow location self:capability { setuid setgid net_admin };
 allow location self:socket create_socket_perms;
 allow location sensors:unix_stream_socket connectto;
 allow location sensors_device:chr_file r_file_perms;
