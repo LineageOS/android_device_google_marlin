@@ -24,6 +24,7 @@ allow rfs_access system_data_file:dir create_dir_perms;
 #For system folder entries
 allow rfs_access rfs_system_file:dir r_dir_perms;
 allow rfs_access rfs_system_file:lnk_file r_file_perms;
+allow rfs_access rfs_system_file:file r_file_perms;
 
 #For data folder entries
 allow rfs_access rfs_data_file:dir create_dir_perms;
