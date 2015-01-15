@@ -22,6 +22,15 @@ PRODUCT_COPY_FILES += \
     device/qcom/thulium/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
     device/qcom/thulium/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml
 
+# WLAN driver configuration files
+PRODUCT_COPY_FILES += \
+    device/qcom/thulium/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
+    device/qcom/thulium/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+
+PRODUCT_PACKAGES += \
+    wpa_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf
+
 # Listen configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/thulium/listen_platform_info.xml:system/etc/listen_platform_info.xml
