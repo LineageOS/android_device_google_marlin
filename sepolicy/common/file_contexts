@@ -32,6 +32,7 @@
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
 /dev/block/mmcblk0rpmb                          u:object_r:rpmb_device:s0
+/dev/sg.*                                       u:object_r:sg_device:s0
 /dev/ccid_bridge                                u:object_r:usb_uicc_device:s0
 /dev/block/bootdevice/by-name/mdm1m9kefs1       u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/mdm1m9kefs2       u:object_r:efs_boot_dev:s0
