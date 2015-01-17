@@ -7,18 +7,20 @@ init_daemon_domain(thermal-engine)
 
 #============= thermal-engine ==============
 #This is to access thermal query device
-allow thermal-engine thermal_device:chr_file { read write ioctl open };
+allow thermal-engine thermal_device:chr_file rw_file_perms;
 #This is required to access smem log device
-allow thermal-engine smem_log_device:chr_file { read write ioctl open };
+allow thermal-engine smem_log_device:chr_file rw_file_perms;
 allow thermal-engine self:capability { dac_read_search dac_override fsetid };
-allow thermal-engine self:socket { create ioctl read };
+allow thermal-engine self:socket create_socket_perms;
 #This is required to access thermal sockets
-allow thermal-engine thermal_socket:dir { write add_name };
+allow thermal-engine thermal_socket:dir w_dir_perms;
 allow thermal-engine thermal_socket:sock_file { create setattr open read write };
+allow thermal-engine socket_device:dir w_dir_perms;
 #This is required for thermal sysfs access
-allow thermal-engine sysfs_thermal:dir { read search open };
-allow thermal-engine sysfs_thermal:file { read write getattr open };
+allow thermal-engine sysfs_thermal:dir r_dir_perms;
+allow thermal-engine sysfs_thermal:file rw_file_perms;
 allow thermal-engine sysfs_thermal:lnk_file read;
+allow thermal-engine sysfs:file write;
 #This is required for qmi access
 qmux_socket(thermal-engine);
 allow thermal-engine sysfs_mpdecision:file rw_file_perms;
