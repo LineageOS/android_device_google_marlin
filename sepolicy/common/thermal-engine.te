@@ -25,3 +25,5 @@ allow thermal-engine sysfs:file write;
 qmux_socket(thermal-engine);
 allow thermal-engine sysfs_mpdecision:file rw_file_perms;
 r_dir_file(thermal-engine, sysfs_ssr);
+#This is required for wake alarm access
+allow thermal-engine self:capability2 wake_alarm;
