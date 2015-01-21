@@ -7,3 +7,9 @@ unix_socket_connect(appdomain, dpmwrapper, dpmd)
 unix_socket_connect(appdomain, qlogd, qlogd)
 #Allow all apps to open and send ioctl to qdsp device
 allow appdomain qdsp_device:chr_file r_file_perms;
+
+# test apps needs to communicate with imscm
+# using binder call
+userdebug_or_eng(`
+  binder_call(appdomain, imscm)
+')
