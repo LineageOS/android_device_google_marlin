@@ -30,3 +30,9 @@ unix_socket_connect(mediaserver, mpctl, mpdecision)
 allow mediaserver mpctl_socket:dir r_dir_perms;
 unix_socket_send(mediaserver, mpctl, perfd)
 unix_socket_connect(mediaserver, mpctl, perfd)
+
+# for thermal sock files
+unix_socket_connect(mediaserver, thermal, thermal-engine)
+
+#allow mediaserver to communicate with timedaemon
+allow mediaserver time_daemon:unix_stream_socket connectto;

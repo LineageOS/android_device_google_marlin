@@ -76,8 +76,21 @@ type wcnss_device, dev_type;
 
 type mmc_block_device, dev_type;
 
+# Define QDSS devices
+type qdss_device, dev_type;
+
 #Define Gadget serial device
 type gadget_serial_device, dev_type;
 
 #energy-awareness device
 type pta_device, dev_type;
+
+#Added for hbtp
+type bu21150_device, dev_type;
+type hbtp_device, dev_type;
+
+#added for voice device
+type voice_device, dev_type;
+
+#Define system health monitor devices
+type system_health_monitor_device, dev_type;

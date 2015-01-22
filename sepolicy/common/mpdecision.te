@@ -15,12 +15,11 @@ allow mpdecision self:socket create_socket_perms;
 allow mpdecision device_latency:chr_file w_file_perms;
 
 allow mpdecision sysfs_rqstats:dir search;
-allow mpdecision socket_device:dir w_file_perms;
 allow mpdecision sysfs_thermal:dir search;
 
 #policies for mpctl
 #mpctl socket
-allow mpdecision self:capability { net_admin chown dac_override fsetid };
+allow mpdecision self:capability { net_admin chown dac_override fsetid sys_nice };
 allow mpdecision mpctl_socket:dir rw_dir_perms;
 allow mpdecision mpctl_socket:sock_file { create_file_perms unlink };
 

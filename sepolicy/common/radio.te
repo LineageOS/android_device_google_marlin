@@ -8,3 +8,6 @@ allow radio shell_data_file:dir search;
 
 #Need permission to execute dpmd talk to radio layer
 unix_socket_connect(radio, dpmd, dpmd)
+
+# IMS needs permission to use unix domain socket
+allow radio ims:unix_stream_socket connectto;
