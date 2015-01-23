@@ -13,5 +13,5 @@ allow ueventd wifi_data_file:file { read getattr open };
 allow ueventd sysfs_battery_supply:file w_file_perms;
 allow ueventd sysfs_thermal:file w_file_perms;
 allow ueventd sysfs_usb_supply:file w_file_perms;
-
+allow ueventd mba_debug_dev:blk_file r_file_perms;
 allow ueventd sysfs_socinfo:file w_file_perms;

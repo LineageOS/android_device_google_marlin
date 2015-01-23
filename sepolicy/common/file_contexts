@@ -37,6 +37,7 @@
 /dev/block/bootdevice/by-name/mdm1m9kefs2       u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/mdm1m9kefs3       u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/mdm1m9kefsc       u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/msadp             u:object_r:mba_debug_dev:s0
 /dev/subsys_.*                                  u:object_r:ssr_device:s0
 /dev/ramdump_.*                                 u:object_r:ramdump_device:s0
 /dev/esoc.*                                     u:object_r:esoc_device:s0
