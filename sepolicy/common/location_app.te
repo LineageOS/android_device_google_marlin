@@ -15,3 +15,4 @@ allow location_app location_app_data_file:file create_file_perms ;
 allow location_app location_data_file:dir rw_dir_perms;
 allow location_app location_data_file:sock_file create_file_perms;
 allow location_app self:socket create_socket_perms;
+allow location_app system_app_data_file:dir r_dir_perms;
