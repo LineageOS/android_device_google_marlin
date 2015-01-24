@@ -72,3 +72,5 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Enable Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
+
+BOARD_QTI_CAMERA_32BIT_ONLY := true
