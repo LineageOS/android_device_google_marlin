@@ -15,8 +15,7 @@ allow rfs_access self:socket create_socket_perms;
 allow rfs_access smem_log_device:chr_file rw_file_perms;
 
 #For Wakelocks
-allow rfs_access self:capability2 block_suspend;
-allow rfs_access sysfs_wake_lock:file w_file_perms;
+wakelock_use(rfs_access)
 
 #To create the folders in /data
 allow rfs_access system_data_file:dir create_dir_perms;
