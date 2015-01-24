@@ -34,6 +34,9 @@ type diag_data_file, file_type, data_file_type;
 #file type for restricting proc read by audiod
 type proc_audiod, fs_type;
 
+#file type for irqbalance socket
+type msm_irqbalance_socket, file_type;
+
 # Sensor file types
 type sensors_socket, file_type;
 type sensors_data_file, file_type, data_file_type;

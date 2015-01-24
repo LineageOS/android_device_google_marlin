@@ -29,3 +29,9 @@ allow perfd proc:file write;
 #KTM
 allow perfd sysfs_thermal:dir search;
 allow perfd sysfs_thermal:file { open write };
+
+#IRQbalancer access
+unix_socket_connect(perfd, msm_irqbalance, msm_irqbalanced);
+
+#Thermal lib access
+unix_socket_connect(perfd, thermal, thermal-engine);
