@@ -37,3 +37,6 @@ allow system_app color_service:service_manager add;
 userdebug_or_eng(`
   r_dir_file(system_app, firmware_file);
 ')
+
+# access to time_daemon
+allow system_app time_daemon:unix_stream_socket connectto;

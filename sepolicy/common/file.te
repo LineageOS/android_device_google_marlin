@@ -98,7 +98,7 @@ type sysfs_socinfo, fs_type, sysfs_type;
 type sysfs_usb_uicc, sysfs_type, fs_type;
 
 type qlogd_socket, file_type;
-
+type qlogd_data_file, file_type;
 #Define the files written during the operation of mm-pp-daemon
 type display_config, file_type, data_file_type;
 
@@ -111,3 +111,10 @@ type mmi_data_file, file_type, data_file_type;
 
 #bluetooth firmware file types
 type bt_firmware_file, fs_type, contextmount_type;
+
+#needed by vold
+type  proc_dirty_ratio, fs_type;
+
+# hbtp config file
+type hbtp_cfg_file, file_type;
+type hbtp_log_file, file_type;
