@@ -11,3 +11,7 @@ binder_call(surfaceflinger, tee)
 allow surfaceflinger mpctl_socket:dir r_dir_perms;
 unix_socket_send(surfaceflinger, mpctl, perfd)
 unix_socket_connect(surfaceflinger, mpctl, perfd)
+
+# access to /data/misc/display for dumping input frames
+allow surfaceflinger display_misc_file:dir create_dir_perms;
+allow surfaceflinger display_misc_file:file create_file_perms;
