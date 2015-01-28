@@ -63,3 +63,7 @@ PRODUCT_PACKAGES += \
     AntHalService \
     libantradio \
     antradio_app
+
+# Sensor HAL conf file
+PRODUCT_COPY_FILES += \
+    device/qcom/thulium/sensors/hals.conf:system/etc/sensors/hals.conf
