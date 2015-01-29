@@ -60,6 +60,9 @@ type efsbridgehsic_device, dev_type;
 #EFS sync block devices
 type efs_boot_dev, dev_type;
 
+#MBA debug image partition
+type mba_debug_dev, dev_type;
+
 #Misc partition
 type misc_partition, dev_type;
 
