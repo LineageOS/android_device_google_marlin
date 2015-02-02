@@ -35,6 +35,7 @@ on early-init
 
 on fs
     mount_all fstab.qcom
+    swapon_all fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
