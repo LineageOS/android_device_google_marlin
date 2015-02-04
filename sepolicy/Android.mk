@@ -94,7 +94,8 @@ BOARD_SEPOLICY_UNION := \
        hbtp.te \
        kernel.te \
        vold.te \
-       wfdservice.te
+       wfdservice.te \
+       usf.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

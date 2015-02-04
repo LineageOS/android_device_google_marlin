@@ -1,3 +1,6 @@
 # property for uicc_daemon
 type uicc_prop, property_type;
 type qcom_ims_prop, property_type;
+
+# properties for usf daemons
+type usf_prop, property_type;

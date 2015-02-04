@@ -98,3 +98,6 @@ type voice_device, dev_type;
 
 #Define system health monitor devices
 type system_health_monitor_device, dev_type;
+
+#Define usf device
+type usf_device, dev_type;

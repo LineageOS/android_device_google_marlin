@@ -8,6 +8,7 @@
 /dev/kgsl-3d0                                   u:object_r:gpu_device:s0
 /dev/mhi_pipe_.*                                u:object_r:mhi_device:s0
 /dev/msm_.*                                     u:object_r:audio_device:s0
+/dev/usf1                                       u:object_r:usf_device:s0
 /dev/msm_dsps                                   u:object_r:sensors_device:s0
 /dev/msm_thermal_query                          u:object_r:thermal_device:s0
 /dev/nfc-nci                                    u:object_r:nfc_device:s0
@@ -173,6 +174,15 @@
 /system/bin/btsnoop                             u:object_r:btsnoop_exec:s0
 /system/bin/dun-server                          u:object_r:dun-server_exec:s0
 /system/bin/wfdservice                          u:object_r:wfdservice_exec:s0
+/system/bin/usf_epos                            u:object_r:usf_exec:s0
+/system/bin/usf_gesture                         u:object_r:usf_exec:s0
+/system/bin/usf_hovering                        u:object_r:usf_exec:s0
+/system/bin/usf_p2p                             u:object_r:usf_exec:s0
+/system/bin/usf_proximity                       u:object_r:usf_exec:s0
+/system/bin/usf_sync_gesture                    u:object_r:usf_exec:s0
+/system/bin/usf_sw_calib                        u:object_r:usf_exec:s0
+/system/bin/usf_pairing                         u:object_r:usf_exec:s0
+/system/bin/usf_tester                          u:object_r:usf_exec:s0
 
 ###################################
 # sysfs files
@@ -238,6 +248,7 @@
 /data/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
 /data/misc/hbtp(/.*)?                                               u:object_r:hbtp_log_file:s0
 /data/misc/qlogd(/.*)?                                              u:object_r:qlogd_data_file:s0
+/data/usf(/.*)?                                                     u:object_r:usf_data_file:s0
 
 ###################################
 # persist files
@@ -248,6 +259,7 @@
 /persist/data(/.*)?                                                 u:object_r:persist_drm_file:s0
 /persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
 /persist/data/sfs(/.*)?                                             u:object_r:persist_drm_file:s0
+/persist/usf(/.*)?                                                  u:object_r:persist_usf_file:s0
 
 ###################################
 # oem files
