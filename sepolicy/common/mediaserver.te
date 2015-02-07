@@ -59,3 +59,9 @@ binder_call(mediaserver, wfdservice)
 
 #allow mediaserver to access adsprpcd
 r_dir_file(mediaserver, adsprpcd_file);
+
+#Allow mediaserver to connect to unix sockets for staproxy service
+allow mediaserver system_app:unix_stream_socket { connectto read write setopt };
+
+#Allow mediaserver to access service manager STAProxyService
+allow mediaserver STAProxyService:service_manager find;
