@@ -122,3 +122,6 @@ type hbtp_log_file, file_type;
 #Define the files written during the operation of usf
 type usf_data_file, file_type, data_file_type;
 type persist_usf_file, file_type;
+
+# dts notifier files
+type dts_data_file, file_type, data_file_type;
