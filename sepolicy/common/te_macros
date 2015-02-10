@@ -9,3 +9,13 @@ allow $1 qmuxd_socket:dir create_dir_perms;
 unix_socket_connect($1, qmuxd, qmuxd)
 allow $1 qmuxd_socket:sock_file { read getattr write setattr create unlink };
 ')
+
+#####################################
+# diag_rw(clientdomain)
+# Allow domains to read and write
+# /dev/diag nodes.
+# Note any app domian and untrusted_app
+# are to be restricted from using this.
+define(`diag_rw', `
+allow $1  diag_device:chr_file rw_file_perms;
+')
