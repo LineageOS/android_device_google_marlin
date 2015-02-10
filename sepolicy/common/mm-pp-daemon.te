@@ -24,17 +24,15 @@ allow mm-pp-daemon sensors:unix_stream_socket connectto;
 
 allow mm-pp-daemon system_prop:property_service set;
 
+# Allow diag to access tempfs
+allow mm-pp-daemon diag_device:chr_file rw_file_perms;
+
+# Allow mm-pp-daemon to call binder for screen refresh
+binder_use(mm-pp-daemon)
+binder_call(mm-pp-daemon, system_server)
+binder_call(mm-pp-daemon, surfaceflinger)
+
 userdebug_or_eng(`
-    # Display calibration service opens /dev/diag in order to communicate with the
-    # target device
-    allow mm-pp-daemon diag_device:chr_file rw_file_perms;
-
-    # QDCM needs to trigger screen refreshes in some cases to reach the
-    # convergent state
-    binder_use(mm-pp-daemon)
-    binder_call(mm-pp-daemon, system_server)
-    binder_call(mm-pp-daemon, surfaceflinger)
-
     # This allows pp-daemon to use shell commands to blank
     # the display - it uses input keyevent to do this
     allow mm-pp-daemon shell_exec:file rx_file_perms;
