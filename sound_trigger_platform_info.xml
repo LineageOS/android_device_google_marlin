@@ -37,5 +37,18 @@
     <ctrl name="max_ape_users" value="10" />
     <ctrl name="enable_failure_detection" value="false" />
     <ctrl name="enable_transition" value="false" />
+
+    <!-- vendor_uuid for a soundmodel. More than one vendor_uuid tags can be -->
+    <!-- listed in sequence, the below vendor uuid is reserved for Qualcomm  -->
+    <!-- module. ISV must use their own unique vendor uuid. app_type,        -->
+    <!-- module_id, param_id must match to the calibration database          -->
+    <!-- If ISV vendor_uuid is present, execution_type will be forced to APE -->
+    <vendor_uuid value="68ab2d40-e860-11e3-95ef-0002a5d5c51b" app_type="2" library="libsmwrapper.so">
+        <param_type name="load_sound_model" module_id="0x00012C0D" param_id="0x00012C14"/>
+        <param_type name="unload_sound_model" module_id="0x00012C0D" param_id="0x00012C15"/>
+        <param_type name="confidence_levels" module_id="0x00012C0D" param_id="0x00012C07"/>
+        <param_type name="operation_mode" module_id="0x00012C0D" param_id="0x00012C02"/>
+    </vendor_uuid>
+
 </sound_trigger_platform_info>
 
