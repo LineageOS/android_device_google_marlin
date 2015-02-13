@@ -90,6 +90,10 @@ ro.bluetooth.a4wp=true
 #system prop for wipower support
 ro.bluetooth.wipower=true
 
+#Set this true as ROME which is programmed
+#as embedded wipower mode by deafult
+ro.bluetooth.emb_wp_mode=true
+
 #
 #snapdragon value add features
 #
