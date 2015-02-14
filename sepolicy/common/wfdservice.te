@@ -19,8 +19,6 @@ binder_call(wfdservice, platform_app)
 binder_call(platform_app, wfdservice)
 binder_call(wfdservice, system_app)
 binder_call(system_app, wfdservice)
-binder_call(wfdservice, wfd_app)
-binder_call(wfd_app, wfdservice)
 
 #Allow access to Audio Flinger APIs
 binder_call(wfdservice, mediaserver)
