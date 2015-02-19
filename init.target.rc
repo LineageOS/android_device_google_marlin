@@ -65,6 +65,12 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
+#Start up peripheral manager
+service per_mgr system/bin/pm-service
+    class core
+    user system
+    group system net_raw
+
 ## import cne init file
 #on post-fs
 #    export LD_PRELOAD /vendor/lib/libNimsWrap.so
