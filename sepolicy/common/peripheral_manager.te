@@ -16,6 +16,10 @@ allow per_mgr per_mgr_service:service_manager add;
 binder_call(per_mgr, rild);
 binder_call(rild, per_mgr);
 
+#Rules for system server
+binder_call(per_mgr, system_server);
+binder_call(system_server, per_mgr);
+
 #Needed by ipc_router
 allow per_mgr self:capability { net_raw };
 
