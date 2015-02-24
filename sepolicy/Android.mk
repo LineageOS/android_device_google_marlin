@@ -43,7 +43,6 @@ BOARD_SEPOLICY_UNION := \
        system_app.te \
        thermal-engine.te \
        vm_bms.te \
-       system_app.te \
        bluetooth.te \
        init_shell.te \
        mpdecision.te \
@@ -95,7 +94,9 @@ BOARD_SEPOLICY_UNION := \
        vold.te \
        wfdservice.te \
        usf.te \
-       dtsconfigurator.te
+       platform_app.te \
+       dtsconfigurator.te \
+       dtseagleservice.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

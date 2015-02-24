@@ -52,3 +52,6 @@ allow system_app usf_data_file:dir rw_dir_perms;
 allow system_app usf_data_file:file create_file_perms;
 allow system_app usf_data_file:lnk_file create_file_perms;
 allow system_app usf_prop:property_service set;
+
+# allow system_app to interact with dtseagleservice
+binder_call(system_app, dtseagleservice)
