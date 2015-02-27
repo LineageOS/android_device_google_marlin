@@ -19,11 +19,8 @@ DEVICE_PROVISIONED=1
 # Start in cdma mode
 ro.telephony.default_network=5
 
-debug.sf.hw=0
-debug.egl.hw=0
-#debug.composition.type=c2d
-persist.hwc.mdpcomp.enable=true
-debug.mdpcomp.logs=0
+debug.sf.hw=1
+debug.egl.hw=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
