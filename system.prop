@@ -46,9 +46,10 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
-#3183219 is decimal sum of supported codecs in AAL
+#3314291: Decimal sum after adding FLAC parser flag 131072
+#37491 is decimal sum of supported codecs in AAL
 #codecs: DivX DivXHD AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
-mm.enable.qcom_parser=3183219
+mm.enable.qcom_parser=3314291
 persist.mm.enable.prefetch=true
 
 #
@@ -121,14 +122,22 @@ persist.debug.wfd.enable=1
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
 
-# enable tunnel encoding for amrwb
-tunnel.audio.encode = true
+#disable tunnel encoding
+tunnel.audio.encode=false
+#enable gapless by default
+audio.offload.gapless.enabled=true
 
 #Buffer size in kbytes for compress offload playback
 audio.offload.buffer.size.kb=32
 
 #Enable offload audio video playback by default
 av.offload.enable=true
+
+#Enable 16 bit PCM offload by default
+audio.offload.pcm.16bit.enable=true
+
+#Enable 24 bit PCM offload by default
+audio.offload.pcm.24bit.enable=true
 
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
@@ -154,3 +163,15 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
+
+#enable voice path for PCM VoIP by default
+use.voice.path.for.pcm.voip=true
+
+#Disable property for Dolby ds2
+audio.dolby.ds2.enabled=false
+
+#Disable property for hard bypass
+audio.dolby.ds2.hardbypass=false
+
+audio.offload.passthrough=false
+audio.offload.multiple.enabled=true
