@@ -1,3 +1,10 @@
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+
+# copy customized media_profiles and media_codecs xmls for thulium
+ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
+PRODUCT_COPY_FILES += device/qcom/thulium/media_profiles.xml:system/etc/media_profiles.xml \
+                      device/qcom/thulium/media_codecs.xml:system/etc/media_codecs.xml
+endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 $(call inherit-product, device/qcom/common/common64.mk)
 
