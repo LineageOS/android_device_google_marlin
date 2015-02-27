@@ -22,14 +22,24 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += libGLES_android
 
 # Audio configuration file
+ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
-    device/qcom/thulium/audio_policy.conf:system/etc/audio_policy.conf \
+    device/qcom/common/media/audio_policy.conf:system/etc/audio_policy.conf
+else
+PRODUCT_COPY_FILES += \
+    device/qcom/thulium/audio_policy.conf:system/etc/audio_policy.conf
+endif
+
+PRODUCT_COPY_FILES += \
+    device/qcom/thulium/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     device/qcom/thulium/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/qcom/thulium/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/qcom/thulium/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
+    device/qcom/thulium/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     device/qcom/thulium/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
     device/qcom/thulium/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/qcom/thulium/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
+    device/qcom/thulium/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
+    device/qcom/thulium/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
