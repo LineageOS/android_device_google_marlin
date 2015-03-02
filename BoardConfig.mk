@@ -20,7 +20,11 @@ TARGET_2ND_CPU_VARIANT := cortex-a9
 
 TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
+
+BOARD_USES_GENERIC_AUDIO := true
+USE_CAMERA_STUB := true
 -include $(QCPATH)/common/thulium/BoardConfigVendor.mk
+
 MINIMAL_FONT_FOOTPRINT := true
 
 # Some framework code requires this to enable BT
@@ -64,8 +68,6 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := true
 TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
