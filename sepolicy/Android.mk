@@ -97,6 +97,7 @@ BOARD_SEPOLICY_UNION := \
        vold.te \
        wfdservice.te \
        usf.te \
+       seempd.te \
        platform_app.te \
        dtsconfigurator.te \
        dtseagleservice.te \
