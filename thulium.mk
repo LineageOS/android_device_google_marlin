@@ -20,7 +20,9 @@ PRODUCT_COPY_FILES += \
     device/qcom/thulium/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/qcom/thulium/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/qcom/thulium/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
-    device/qcom/thulium/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml
+    device/qcom/thulium/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
+    device/qcom/thulium/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
+    device/qcom/thulium/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
