@@ -181,10 +181,10 @@
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia5" value="0" />
     <!-- usb headset end -->
     <!-- fm -->
-    <ctl name="SLIMBUS_0_RX Port Mixer QUAT_MI2S_TX" value="0" />
+    <ctl name="SLIMBUS_0_RX Port Mixer TERT_MI2S_TX" value="0" />
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
-    <ctl name="MultiMedia1 Mixer QUAT_MI2S_TX" value="0" />
-    <ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="0" />
+    <ctl name="MultiMedia1 Mixer TERT_MI2S_TX" value="0" />
+    <ctl name="MultiMedia2 Mixer TERT_MI2S_TX" value="0" />
     <!-- fm end -->
 
     <!-- Incall Recording -->
@@ -827,7 +827,7 @@
     </path>
 
     <path name="audio-record capture-fm">
-        <ctl name="MultiMedia1 Mixer QUAT_MI2S_TX" value="1" />
+        <ctl name="MultiMedia1 Mixer TERT_MI2S_TX" value="1" />
     </path>
 
     <path name="audio-record-compress">
@@ -849,7 +849,7 @@
     </path>
 
     <path name="fm-virtual-record capture-fm">
-        <ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="1" />
+        <ctl name="MultiMedia2 Mixer TERT_MI2S_TX" value="1" />
     </path>
 
     <path name="voice-call">
@@ -965,8 +965,8 @@
     </path>
 
     <path name="play-fm">
-        <ctl name="Quat MI2S FM RX Volume" value="1" />
-        <ctl name="SLIMBUS_0_RX Port Mixer QUAT_MI2S_TX" value="1" />
+        <ctl name="Tert MI2S LOOPBACK Volume" value="1" />
+        <ctl name="SLIMBUS_0_RX Port Mixer TERT_MI2S_TX" value="1" />
         <ctl name="SLIMBUS_DL_HL Switch" value="1" />
     </path>
 
