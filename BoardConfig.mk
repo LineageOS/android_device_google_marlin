@@ -25,7 +25,7 @@ MINIMAL_FONT_FOOTPRINT := true
 
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/generic/common/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
