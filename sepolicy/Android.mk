@@ -97,7 +97,8 @@ BOARD_SEPOLICY_UNION := \
        platform_app.te \
        dtsconfigurator.te \
        dtseagleservice.te \
-       net.te
+       net.te \
+       dnsmasq.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
