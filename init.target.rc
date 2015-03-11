@@ -61,6 +61,9 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
 
+on property:init.svc.bootanim=running
+    write /sys/class/leds/wled/brightness 4095
+
 on boot
     start rmt_storage
     start rfs_access
