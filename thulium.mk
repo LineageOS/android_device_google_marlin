@@ -37,3 +37,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/qcom/thulium/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
+#ANT+ stack
+PRODUCT_PACKAGES += \
+    AntHalService \
+    libantradio \
+    antradio_app
