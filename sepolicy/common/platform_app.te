@@ -1,0 +1,2 @@
+#Allow platform apps to interact with dtseagleservice
+binder_call(platform_app, dtseagleservice)
