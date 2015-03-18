@@ -324,3 +324,18 @@ service time_daemon /system/bin/time_daemon
 #    socket vqtss stream 0660 system system
 #    user system
 #    group system
+
+service dts_configurator /system/bin/dts_configurator
+    class late_start
+    user system
+    group system media audio
+    oneshot
+
+service dtseagleservice /system/bin/dts_eagle_service
+    class late_start
+    user system
+    group audio media
+    disabled
+
+on property:init.svc.dts_configurator=stopped
+    start dtseagleservice
