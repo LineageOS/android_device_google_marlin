@@ -50,6 +50,7 @@ BOARD_SEPOLICY_UNION := \
        mm-qcamerad.te \
        domain.te \
        init.te \
+       shell.te \
        time_daemon.te \
        rmt_storage.te \
        rfs_access.te \
