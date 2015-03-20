@@ -39,3 +39,6 @@ allow dpmd appdomain:tcp_socket { read write getopt getattr };
 
 #permission to unlink dpmwrapper socket
 allow dpmd socket_device:dir remove_name;
+
+# allow dpmd to communicate with system_server
+allow dpmd system_server:tcp_socket { write getattr shutdown getopt read bind setopt };
