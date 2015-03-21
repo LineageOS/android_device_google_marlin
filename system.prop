@@ -141,6 +141,9 @@ audio.offload.pcm.16bit.enable=true
 #Enable 24 bit PCM offload by default
 audio.offload.pcm.24bit.enable=true
 
+#Enable audio track offload by default
+audio.offload.track.enabled=true
+
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 
