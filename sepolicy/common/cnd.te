@@ -58,7 +58,7 @@ allow cnd appdomain:tcp_socket rw_socket_perms;
 # allow cnd to communicate with system_server
 allow cnd system_server:dir search;
 allow cnd system_server:file { read open };
-allow cnd system_server:tcp_socket { write getattr shutdown getopt read bind };
+allow cnd system_server:tcp_socket { write getattr shutdown getopt read bind setopt };
 
 # allow cnd to communicate with mediaserver
 allow cnd mediaserver:dir search;
