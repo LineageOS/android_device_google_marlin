@@ -3,8 +3,8 @@
 # Product-specific compile-time definitions
 #
 
-TARGET_BOARD_PLATFORM := thulium
-TARGET_BOOTLOADER_BOARD_NAME := thulium
+TARGET_BOARD_PLATFORM := msm8996
+TARGET_BOOTLOADER_BOARD_NAME := msm8996
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -23,7 +23,7 @@ TARGET_NO_KERNEL := false
 
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
--include $(QCPATH)/common/thulium/BoardConfigVendor.mk
+-include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
 
 MINIMAL_FONT_FOOTPRINT := true
 
