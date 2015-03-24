@@ -6,6 +6,9 @@ type ipacm-diag_exec, exec_type, file_type;
 init_daemon_domain(ipacm)
 init_daemon_domain(ipacm-diag)
 
+# associate netdomain to use for accessing internet sockets
+net_domain(ipacm)
+
 userdebug_or_eng(`
   # Allow using the logging file between ipacm and ipacm-diag
   allow ipacm ipacm-diag:unix_dgram_socket sendto;
