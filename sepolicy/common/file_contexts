@@ -66,6 +66,8 @@
 /dev/coresight-tmc-etr                          u:object_r:qdss_device:s0
 /dev/coresight-tmc-etr-stream                   u:object_r:qdss_device:s0
 /dev/system_health_monitor                      u:object_r:system_health_monitor_device:s0
+/dev/qce                                        u:object_r:qce_device:s0
+/dev/msm-rng                                    u:object_r:rng_device:s0
 
 ###################################
 # Dev socket nodes

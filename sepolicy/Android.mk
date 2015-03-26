@@ -96,6 +96,7 @@ BOARD_SEPOLICY_UNION := \
        energyawareness.te \
        hbtp.te \
        kernel.te \
+       qfips.te \
        vold.te \
        wfdservice.te \
        usf.te \
