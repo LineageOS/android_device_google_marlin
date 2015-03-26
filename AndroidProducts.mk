@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/thulium.mk
+	$(LOCAL_DIR)/msm8996.mk
