@@ -93,3 +93,6 @@ endif
 
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
+
+TARGET_LDPRELOAD := libNimsWrap.so
+
