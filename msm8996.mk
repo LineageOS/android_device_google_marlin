@@ -25,6 +25,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
+ifneq ($(TARGET_USES_AOSP),true)
+TARGET_USES_QCOM_BSP := true
+endif
+
 # Audio configuration file
 ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
