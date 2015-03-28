@@ -183,3 +183,6 @@ audio.offload.multiple.enabled=true
 
 # enable navigation bar
 qemu.hw.mainkeys=0
+
+#property to enable VDS WFD solution
+persist.hwc.enable_vds=1
