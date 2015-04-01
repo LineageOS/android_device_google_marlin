@@ -50,3 +50,4 @@ unix_socket_connect(mm-pp-daemon, property, init)
 unix_socket_connect(mm-pp-daemon, pps, init)
 
 allow mm-pp-daemon init:unix_stream_socket { listen accept };
+allow mm-pp-daemon system_server:unix_stream_socket { read write };
