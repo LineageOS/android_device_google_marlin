@@ -1,0 +1,2 @@
+allow shell persist_file:dir r_dir_perms;
+allow shell persist_file:file r_file_perms;
