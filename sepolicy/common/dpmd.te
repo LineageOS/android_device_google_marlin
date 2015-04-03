@@ -31,19 +31,16 @@ allow dpmd system_file:file execute_no_trans;
 #kernel
 allow dpmd kernel:system module_request;
 
-#appdomain
-allow dpmd appdomain:fd use;
-allow dpmd appdomain:tcp_socket { read write getopt getattr };
-
 #permission to unlink dpmwrapper socket
 allow dpmd socket_device:dir remove_name;
-
-# allow dpmd to communicate with system_server
-allow dpmd system_server:tcp_socket { write getattr shutdown getopt read bind setopt };
 
 #allow dpmd to create socket
 allow dpmd self:socket create_socket_perms;
 allow dpmd self:netlink_socket create_socket_perms;
 
-#allow dpmd to access /proc/<pid>/net
-allow dpmd domain:dir r_dir_perms;
+#allow dpmd get appname and use inet socket.
+dpmd_socket_perm(appdomain)
+dpmd_socket_perm(system_server)
+dpmd_socket_perm(mediaserver)
+dpmd_socket_perm(mtp)
+dpmd_socket_perm(wfdservice)
