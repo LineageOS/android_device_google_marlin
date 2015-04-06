@@ -80,10 +80,6 @@ service per_mgr system/bin/pm-service
     user system
     group system net_raw
 
-## import cne init file
-#on post-fs
-#    export LD_PRELOAD /vendor/lib/libNimsWrap.so
-#
 ## Allow usb charging to be disabled peristently
 #on property:persist.usb.chgdisabled=1
 #    write /sys/class/power_supply/battery/charging_enabled 0
