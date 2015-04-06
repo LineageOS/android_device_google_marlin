@@ -186,3 +186,6 @@ qemu.hw.mainkeys=0
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
+
+#Enable stm events
+ro.dbg.coresight.config=stm_events
