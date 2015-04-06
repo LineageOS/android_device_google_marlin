@@ -1,4 +1,5 @@
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+BOARD_HAVE_QCOM_FM := true
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
