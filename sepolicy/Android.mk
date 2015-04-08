@@ -99,7 +99,8 @@ BOARD_SEPOLICY_UNION := \
        dtsconfigurator.te \
        dtseagleservice.te \
        net.te \
-       dnsmasq.te
+       dnsmasq.te \
+       recovery.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
