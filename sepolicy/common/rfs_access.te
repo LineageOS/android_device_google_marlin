@@ -44,5 +44,5 @@ allow rfs_access firmware_file:file r_file_perms;
 allow rfs_access self:capability { setuid setgid setpcap net_raw };
 
 #Prevent other domains from accessing RFS data files.
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:dir create_dir_perms;
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -init_shell } rfs_data_file:file create_file_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_data_file:dir create_dir_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_data_file:file create_file_perms;
