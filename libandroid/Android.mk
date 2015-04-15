@@ -1,4 +1,5 @@
 ifeq ($(TARGET_BUILD_PDK),true)
+ifeq ($(TARGET_BOARD_PLATFORM),msm8996)
 #----------------------------------------------------------------------
 # Fixup libandroid dependency
 #----------------------------------------------------------------------
@@ -15,4 +16,5 @@ include $(BUILD_PREBUILT)
 
 $(LOCAL_PATH)/../../../../out/target/product/msm8996/obj/PACKAGING/pdk_fusion_intermediates/system/lib/libandroid.so : $(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/pdk_fusion.stamp
 $(LOCAL_PATH)/../../../../out/target/product/msm8996/obj/PACKAGING/pdk_fusion_intermediates/system/lib64/libandroid.so : $(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/pdk_fusion.stamp
+endif
 endif
