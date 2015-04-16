@@ -1,4 +1,7 @@
 #============= system_server ==============
+allow system_server self:capability
+    sys_module;
+
 # allow system_server to communicate with cnd process over cnd_socket
 unix_socket_connect(system_server, cnd, cnd)
 # allow  system/framework applications to update the cnd configuration files
