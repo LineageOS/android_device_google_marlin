@@ -15,6 +15,9 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := MSM8996 for arm64
 
 PRODUCT_BOOT_JARS += tcmiface
+ifneq ($(strip $(QCPATH)),)
+PRODUCT_BOOT_JARS += WfdCommon
+endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
