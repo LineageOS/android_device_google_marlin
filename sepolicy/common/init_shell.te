@@ -37,6 +37,9 @@ allow qti_init_shell ctl_rildaemon_prop:property_service set;
 #for access to UICC property
 allow qti_init_shell uicc_prop:property_service set;
 
+#for hci_comm_init
+allow qti_init_shell serial_device:chr_file rw_file_perms;
+
 #allow property changes
 unix_socket_connect(qti_init_shell, property, init)
 
