@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+# Copyright (c) 2015, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -40,8 +40,10 @@ prox_dir=$dir0/proximity
 pairing_dir=$dir0/pairing
 sw_calib_dir=$dir0/sw_calib
 ucm_dir=$dir0/ucm
-mixer_dir=/persist/usf/mixer
+mixer_dir=$dir0/mixer
 epos_dir=/persist/usf/epos
+p_dir=/persist/usf/pen_pairing
+sc_dir=/persist/usf/sw_calib
 
 trigger_file=$dir0/form_factor.cfg
 
@@ -65,7 +67,10 @@ if [ ! -e $trigger_file ]; then
        ;;
    esac
 
-   cp -r $clean_copy_dir $dir0
+   cp -r $clean_copy_dir/* $dir0
+
+   # The USF based calculators have system permissions
+   chown -R system $dir0
 
    ln -s $dir0/form_factor_"$type".cfg $dir0/form_factor.cfg
    ln -s $t_dir/cfg_"$type" $t_dir/cfg
@@ -87,22 +92,21 @@ if [ ! -e $trigger_file ]; then
    ln -s $prox_dir/cfg/usf_proximity_"$type".cfg $prox_dir/usf_proximity.cfg
    ln -s $pairing_dir/cfg/usf_pairing_"$type".cfg $pairing_dir/usf_pairing.cfg
    ln -s $sw_calib_dir/cfg/usf_sw_calib_"$type".cfg $sw_calib_dir/usf_sw_calib.cfg
+   ln -s $sw_calib_dir/cfg/usf_sw_calib_tester_"$type".cfg $sw_calib_dir/usf_sw_calib_tester.cfg
 
    ln -s $e_dir/cfg/service_settings_"$type".xml $e_dir/service_settings.xml
 
    ln -s $mixer_dir/mixer_paths_"$type".xml $mixer_dir/mixer_paths.xml
 
-   ln -s $epos_dir/product_calib_"$type".dat $epos_dir/product_calib.dat
-   ln -s $epos_dir/unit_calib_"$type".dat $epos_dir/unit_calib.dat
+   ln -s $epos_dir/ref1/product_calib_"$type"_ref1.dat $epos_dir/product_calib_ref1.dat
+   ln -s $epos_dir/ref2/product_calib_"$type"_ref2.dat $epos_dir/product_calib_ref2.dat
+   ln -s $epos_dir/ref3/product_calib_"$type"_ref3.dat $epos_dir/product_calib_ref3.dat
+   ln -s $epos_dir/ref1/unit_calib_"$type"_ref1.dat $epos_dir/unit_calib_ref1.dat
+   ln -s $epos_dir/ref2/unit_calib_"$type"_ref2.dat $epos_dir/unit_calib_ref2.dat
+   ln -s $epos_dir/ref3/unit_calib_"$type"_ref3.dat $epos_dir/unit_calib_ref3.dat
 
-   # The USF based calculators have system permissions
-   chown system $dir0
-   chown system $dir0/*
-   chown system $dir0/*/*
-   chown system $dir0/*/*/*
+   ln -s $sc_dir/sw_calib_"$type".dat $sc_dir/sw_calib.dat
 fi
 
-chown system /dev/usf1
-
 # Set enabled properties for daemon
-setprop ro.qc.sdk.us.digitalpen 1
+setprop ro.qc.sdk.us.proximity 1
