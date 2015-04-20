@@ -11,6 +11,10 @@ type btsnoop,  bluetoothdomain;
 type btsnoop_exec, exec_type, file_type;
 domain_auto_trans(init, btsnoop_exec, bluetooth)
 
+type wcnss_filter, bluetoothdomain;
+type wcnss_filter_exec, exec_type, file_type;
+domain_auto_trans(init, wcnss_filter_exec, bluetooth)
+
 #BT needes  read and write on smd device node
 allow bluetooth smd_device:chr_file rw_file_perms;
 
