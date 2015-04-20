@@ -183,6 +183,7 @@
 /system/bin/btsnoop                             u:object_r:btsnoop_exec:s0
 /system/bin/dun-server                          u:object_r:dun-server_exec:s0
 /system/bin/wfdservice                          u:object_r:wfdservice_exec:s0
+/system/bin/wcnss_filter                        u:object_r:wcnss_filter_exec:s0
 /system/bin/usf_epos                            u:object_r:usf_exec:s0
 /system/bin/usf_gesture                         u:object_r:usf_exec:s0
 /system/bin/usf_hovering                        u:object_r:usf_exec:s0
