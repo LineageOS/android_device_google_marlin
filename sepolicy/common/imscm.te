@@ -20,8 +20,10 @@ allow imscm self:capability net_raw;
 
 # imscm needs to communicate with test app
 # using binder call
+binder_call(imscm, system_app)
+binder_call(imscm, platform_app)
 userdebug_or_eng(`
-  binder_call(imscm, appdomain)
+  binder_call(imscm, untrusted_app)
 ')
 
 # imscm needs read/write access to devpts
