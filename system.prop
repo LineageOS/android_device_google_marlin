@@ -190,3 +190,5 @@ persist.hwc.enable_vds=1
 
 #Enable stm events
 ro.dbg.coresight.config=stm_events
+#property to enable fingerprint
+persist.qfp=false
