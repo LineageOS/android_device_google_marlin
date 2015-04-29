@@ -71,3 +71,9 @@ allow wfdservice media_rw_data_file:file create_file_perms;
 #allow access to sysfs to know HDMI repeater state
 allow wfdservice sysfs_graphics:file rw_file_perms;
 allow wfdservice self:netlink_kobject_uevent_socket create_socket_perms;
+
+# Allow it to use perflock
+allow wfdservice mpctl_socket:dir r_dir_perms;
+allow wfdservice dpmservice:service_manager add;
+unix_socket_send(wfdservice, mpctl, perfd)
+unix_socket_connect(wfdservice, mpctl, perfd)
