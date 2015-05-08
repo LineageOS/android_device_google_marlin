@@ -227,6 +227,12 @@
     <ctl name="SLIM_0_TX Channels" value="One" />
     <ctl name="SLIM RX0 MUX" value="AIF1_PB" />
     <ctl name="EAR PA Gain" value="G_6_DB" />
+    <ctl name="SpkrLeft COMP Switch" value="0" />
+    <ctl name="SpkrRight COMP Switch" value="0" />
+    <ctl name="SpkrLeft BOOST Switch" value="0" />
+    <ctl name="SpkrRight BOOST Switch" value="0" />
+    <ctl name="SpkrLeft SWR DAC_Port Switch" value="0" />
+    <ctl name="SpkrRight SWR DAC_Port Switch" value="0" />
     <ctl name="SLIM RX1 MUX" value="ZERO" />
     <ctl name="AIF1_CAP Mixer SLIM TX7" value="0" />
     <ctl name="AIF1_CAP Mixer SLIM TX8" value="0"/>
@@ -1300,12 +1306,18 @@
 
     <path name="speaker">
         <ctl name="SLIM RX0 MUX" value="AIF1_PB" />
-        <ctl name="SLIM RX5 MUX" value="AIF2_PB" />
-        <ctl name="AIF3_CAP Mixer SLIM TX3" value="1"/>
-        <ctl name="SLIM TX3 MUX" value="RX_MIX_TX3" />
+	<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
+	<ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
-        <ctl name="RX INT7_1 MIX1 INP1" value="RX5" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
         <ctl name="COMP7 Switch" value="1" />
+        <ctl name="COMP8 Switch" value="1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-liquid">
@@ -1402,18 +1414,10 @@
 
     <path name="headphones">
         <ctl name="SLIM RX0 MUX" value="AIF1_PB" />
-        <ctl name="SLIM RX5 MUX" value="AIF2_PB" />
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-        <ctl name="SLIM RX6 MUX" value="AIF2_PB" />
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX0" />
-        <ctl name="RX INT1_1 MIX1 INP1" value="RX5" />
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
-        <ctl name="RX INT2_1 MIX1 INP1" value="RX6" />
-        <ctl name="AIF3_CAP Mixer SLIM TX3" value="1" />
-        <ctl name="AIF3_CAP Mixer SLIM TX5" value="1" />
-        <ctl name="SLIM TX3 MUX" value="RX_MIX_TX3" />
-        <ctl name="SLIM TX5 MUX" value="RX_MIX_TX5" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="COMP1 Switch" value="1" />

@@ -15,6 +15,9 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := MSM8996 for arm64
 
 PRODUCT_BOOT_JARS += tcmiface
+ifneq ($(strip $(QCPATH)),)
+PRODUCT_BOOT_JARS += WfdCommon
+endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
@@ -43,6 +46,7 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8996/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     device/qcom/msm8996/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/qcom/msm8996/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/qcom/msm8996/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
     device/qcom/msm8996/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
     device/qcom/msm8996/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     device/qcom/msm8996/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
