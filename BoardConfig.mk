@@ -96,3 +96,6 @@ USE_SENSOR_MULTI_HAL := true
 
 TARGET_LDPRELOAD := libNimsWrap.so
 
+# Added to indicate that protobuf-c is supported in this build
+PROTOBUF_SUPPORTED := true
+
