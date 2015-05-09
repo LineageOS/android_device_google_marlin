@@ -76,6 +76,11 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
+service qfp-daemon /system/bin/qfp-daemon
+    class late_start
+    user system
+    group system drmrpc
+
 #Start up peripheral manager
 service per_mgr system/bin/pm-service
     class core
