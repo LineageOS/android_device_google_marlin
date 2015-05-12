@@ -108,3 +108,6 @@ PROTOBUF_SUPPORTED := true
 #Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+
+# Enable HW accelerated full disk encryption
+TARGET_HW_DISK_ENCRYPTION := true
