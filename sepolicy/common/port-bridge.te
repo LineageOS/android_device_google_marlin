@@ -7,14 +7,21 @@ userdebug_or_eng(`
   domain_auto_trans(adbd, port-bridge_exec, netmgrd)
 ')
 
-#Allow operations on different types of sockets
+# Allow operations on different types of sockets
 allow port-bridge port-bridge:netlink_kobject_uevent_socket { create bind read };
 
-#Allow process capabilities
-allow port-bridge port-bridge:capability { dac_override };
+# Allow process capabilities
+allow port-bridge port-bridge:capability dac_override;
 
-#Allow operations on mhi transport
-allow port-bridge mhi_device:chr_file rw_file_perms;
+allow port-bridge {
+    # Allow operations on mhi transport
+    mhi_device
+    # Allow operations on gadget serial device
+    gadget_serial_device
+    # Allow operations on ATCoP g-link transport
+    at_device
+}:chr_file rw_file_perms;
 
-#Allow operations on gadget serial device
-allow port-bridge gadget_serial_device:chr_file { rw_file_perms };
+# Allow write permissions for log file
+allow port-bridge port_bridge_data_file:file create_file_perms;
+allow port-bridge port_bridge_data_file:dir w_dir_perms;

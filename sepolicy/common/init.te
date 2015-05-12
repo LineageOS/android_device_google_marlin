@@ -1,4 +1,3 @@
 # Adding allow rule for search on /fuse
-allow init fuse:dir search;
+allow init fuse:dir { search mounton };
 allow init self:capability sys_module;
-allow init fuse:dir mounton;

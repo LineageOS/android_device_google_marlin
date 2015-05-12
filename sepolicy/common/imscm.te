@@ -12,16 +12,14 @@ binder_use(imscm)
 #Add connectionmanager service
 allow imscm imscm_service:service_manager add;
 
-#allow imscm ims_socket:sock_file write;
-#allow imscm ims:unix_stream_socket connectto;
 unix_socket_connect(imscm, ims, ims)
 allow imscm self:capability net_raw;
-#allow imscm untrusted_app:binder call;
 
 # imscm needs to communicate with test app
 # using binder call
 binder_call(imscm, system_app)
 binder_call(imscm, platform_app)
+
 userdebug_or_eng(`
   binder_call(imscm, untrusted_app)
 ')

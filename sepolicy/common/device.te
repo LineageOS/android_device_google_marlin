@@ -105,3 +105,6 @@ type usf_device, dev_type;
 
 #Define seemplog device
 type seemplog_device, dev_type;
+
+#define AT device
+type at_device, dev_type;

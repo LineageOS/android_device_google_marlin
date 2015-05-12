@@ -9,23 +9,25 @@ init_daemon_domain(ipacm-diag)
 # associate netdomain to use for accessing internet sockets
 net_domain(ipacm)
 
-# Allow using the logging file between ipacm and ipacm-diag
-unix_socket_send(ipacm, ipacm, ipacm-diag)
+userdebug_or_eng(`
+  # Allow using the logging file between ipacm and ipacm-diag
+  unix_socket_send(ipacm, ipacm, ipacm-diag)
+')
 
 # Allow capabilities to perform network operations and interactions with network interfaces
-allow ipacm kernel:system module_request;
 allow ipacm ipacm:capability net_admin;
 
 # Allow operations with /dev/ipa, /dev/wwan_ioctl and /dev/ipaNatTable
 allow ipacm ipa_dev:chr_file rw_file_perms;
 
-# Allow querying the network stack via IOCTLs
-allow ipacm ipacm:udp_socket { create ioctl };
-
 # Allow receiving NETLINK messages
-allow ipacm ipacm:netlink_route_socket { create getopt setopt bind read };
-allow ipacm ipacm:netlink_socket { create setopt bind getattr read write };
+allow ipacm ipacm:{
+    netlink_route_socket
+    netlink_socket
+    # Allow querying the network stack via IOCTLs
+    udp_socket
+} create_socket_perms;
 
 # Allow creating and modifying the PID file
-allow ipacm ipacm_data_file:file create_file_perms;
 allow ipacm ipacm_data_file:dir w_dir_perms;
+allow ipacm ipacm_data_file:file create_file_perms;

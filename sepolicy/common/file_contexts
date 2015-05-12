@@ -27,24 +27,15 @@
 /dev/v4l-subdev.*                               u:object_r:camera_device:s0
 /dev/vm_bms                                     u:object_r:vm_bms_device:s0
 /dev/battery_data                               u:object_r:battery_data_device:s0
-/dev/block/mmcblk0p13                           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p14                           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p10                           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p11                           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p12                           u:object_r:ssd_device:s0
-/dev/block/mmcblk21                             u:object_r:rpmb_device:s0
 /dev/ccid_bridge                                u:object_r:usb_uicc_device:s0
 /dev/subsys_.*                                  u:object_r:ssr_device:s0
 /dev/ramdump_.*                                 u:object_r:ramdump_device:s0
 /dev/esoc.*                                     u:object_r:esoc_device:s0
 /dev/ks_hsic_bridge                             u:object_r:ksbridgehsic_device:s0
 /dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
-/dev/block/mmcblk0p31                           u:object_r:misc_partition:s0
-#/dev/block/mmcblk0p13                           u:object_r:bootselect_device:s0
 /dev/ipa                                        u:object_r:ipa_dev:s0
 /dev/wwan_ioctl                                 u:object_r:ipa_dev:s0
 /dev/ipaNatTable                                u:object_r:ipa_dev:s0
-/dev/block/mmcblk0                              u:object_r:mmc_block_device:s0
 /dev/rmnet_ctrl.*                               u:object_r:rmnet_device:s0
 /dev/dpl_ctrl                                   u:object_r:rmnet_device:s0
 /dev/wcnss_ctrl                                 u:object_r:wcnss_device:s0
@@ -61,6 +52,19 @@
 /dev/system_health_monitor                      u:object_r:system_health_monitor_device:s0
 /dev/qce                                        u:object_r:qce_device:s0
 /dev/msm-rng                                    u:object_r:rng_device:s0
+/dev/at_.*                                      u:object_r:at_device:s0
+
+###################################
+# Dev block nodes
+#
+/dev/block/bootdevice/by-name/modemst1          u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/modemst2          u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/fsg               u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
+/dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
+/dev/block/bootdevice/by-name/misc              u:object_r:misc_partition:s0
+#/dev/block/mmcblk0p13                           u:object_r:bootselect_device:s0
+/dev/block/zram0                                u:object_r:swap_block_device:s0
 
 ###################################
 # Dev socket nodes
@@ -82,6 +86,7 @@
 /dev/socket/perfd(/.*)?                         u:object_r:mpctl_socket:s0
 /dev/socket/qlogd                               u:object_r:qlogd_socket:s0
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
+/dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/dpmd                                u:object_r:dpmd_socket:s0
 /dev/socket/dpmwrapper                          u:object_r:dpmwrapper_socket:s0
 /dev/socket/pps                                 u:object_r:pps_socket:s0
@@ -258,6 +263,8 @@
 /data/usf(/.*)?                                                     u:object_r:usf_data_file:s0
 /data/misc/dts(/.*)?                                                u:object_r:dts_data_file:s0
 /data/misc/seemp(/.*)?                                              u:object_r:seemp_file:s0
+/data/misc/radio(/.*)?                                              u:object_r:radio_data_file:s0
+/data/misc/port_bridge(/.*)?                                        u:object_r:port_bridge_data_file:s0
 
 ###################################
 # persist files
@@ -270,6 +277,7 @@
 /persist/data/sfs(/.*)?                                             u:object_r:persist_drm_file:s0
 /persist/usf(/.*)?                                                  u:object_r:persist_usf_file:s0
 /persist/display(/.*)?                                              u:object_r:persist_display_file:s0
+/persist/rfs.*                                                      u:object_r:rfs_data_file:s0
 
 ###################################
 # etc files

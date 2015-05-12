@@ -61,8 +61,7 @@ userdebug_or_eng(`
 ')
 
 #Allow access to firmware files for HDCP session
-allow wfdservice firmware_file:file r_file_perms;
-allow wfdservice firmware_file:dir r_dir_perms;
+r_dir_file(wfdservice, firmware_file)
 
 #Allow access to /data/media for dumping
 allow wfdservice media_rw_data_file:dir create_dir_perms;

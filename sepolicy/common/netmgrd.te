@@ -12,14 +12,19 @@ userdebug_or_eng(`
 file_type_auto_trans(netmgrd, system_data_file, data_test_data_file)
 
 #Allow netmgrd operations
-allow netmgrd netmgrd:capability { dac_override net_raw net_admin sys_module fsetid setgid setuid setpcap };
-
-#Allow access to kernel modules
-allow netmgrd kernel:system { module_request };
+allow netmgrd netmgrd:capability {
+    dac_override
+    net_raw
+    net_admin
+    sys_module
+    fsetid
+    setgid
+    setuid
+    setpcap
+};
 
 #Allow logging
-allow netmgrd diag_device:chr_file { rw_file_perms };
-allow netmgrd smem_log_device:chr_file { rw_file_perms };
+allow netmgrd smem_log_device:chr_file rw_file_perms;
 
 #Allow operations on different types of sockets
 allow netmgrd netmgrd:rawip_socket { create getopt setopt write };
@@ -27,40 +32,38 @@ allow netmgrd netmgrd:netlink_xfrm_socket { create_socket_perms nlmsg_write nlms
 allow netmgrd netmgrd:netlink_socket { write read create bind };
 allow netmgrd netmgrd:socket { create ioctl };
 allow netmgrd netmgrd:netlink_route_socket { setopt getattr write nlmsg_write };
-allow netmgrd init:unix_stream_socket { connectto };
-allow netmgrd property_socket:sock_file write;
+unix_socket_connect(netmgrd, property, init)
 
 unix_socket_connect(netmgrd, cnd, cnd);
 
 qmux_socket(netmgrd);
 
 #Allow writing of ipv6 network properties
-allow netmgrd proc_net:file { write };
+allow netmgrd { proc_net sysfs }:file w_file_perms;
 
 #Allow address configuration
-allow netmgrd system_prop:property_service { set };
-
 #Allow setting of DNS and GW Android properties
-allow netmgrd net_radio_prop:property_service { set };
+allow netmgrd { system_prop net_radio_prop }:property_service set;
 
 #Allow execution of commands in shell
-allow netmgrd system_file:file { execute_no_trans };
+allow netmgrd system_file:file x_file_perms;
 
 allow netmgrd self:socket create_socket_perms;
 allow netmgrd sysfs_esoc:dir r_dir_perms;
 
 #Allow communication with netd
-allow netmgrd netd_socket:sock_file write;
-allow netmgrd net_data_file:file r_file_perms;
-allow netmgrd wpa_exec:file rx_file_perms;
-allow netmgrd net_data_file:dir r_dir_perms;
+allow netmgrd netd_socket:sock_file w_file_perms;
+r_dir_file(netmgrd, net_data_file)
 
 #Allow nemtgrd to use esoc api's to determine target
-allow netmgrd shell_exec:file { execute r_file_perms execute_no_trans };
-allow netmgrd sysfs_esoc:lnk_file read;
+allow netmgrd sysfs_esoc:lnk_file r_file_perms;
 
 r_dir_file(netmgrd, sysfs_ssr);
 
-allow netmgrd { wcnss_service_exec wpa_exec }:file rx_file_perms;
+allow netmgrd sysfs:file w_file_perms;
 
-allow netmgrd sysfs:file write;
+#Allow netmgrd to create netmgrd socket
+allow netmgrd netmgrd_socket:dir create_dir_perms;
+allow netmgrd netmgrd_socket:sock_file create_file_perms;
+
+allow netmgrd { wcnss_service_exec wpa_exec shell_exec }:file rx_file_perms;

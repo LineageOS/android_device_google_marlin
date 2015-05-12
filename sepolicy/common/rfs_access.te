@@ -7,12 +7,19 @@ init_daemon_domain(rfs_access)
 type_transition rfs_access system_data_file:{ dir file } rfs_data_file;
 type_transition rfs_access system_data_file:dir rfs_shared_hlos_file "hlos_rfs";
 
-#To read the uio char device
-allow rfs_access uio_device:chr_file rw_file_perms;
+#The files created by rfs_access process in the /persist folder will have type rfs_data_file
+type_transition rfs_access persist_file:{ dir file } rfs_data_file;
+type_transition rfs_access persist_file:dir rfs_shared_hlos_file "hlos_rfs";
+
+allow rfs_access {
+    #To read the uio char device
+    uio_device
+    #To read the smem log char device
+    smem_log_device
+}:chr_file rw_file_perms;
 
 #For QMI sockets and IPCR Sockets
 allow rfs_access self:socket create_socket_perms;
-allow rfs_access smem_log_device:chr_file rw_file_perms;
 
 #For Wakelocks
 wakelock_use(rfs_access)
@@ -21,9 +28,8 @@ wakelock_use(rfs_access)
 allow rfs_access system_data_file:dir create_dir_perms;
 
 #For system folder entries
-allow rfs_access rfs_system_file:dir r_dir_perms;
+r_dir_file(rfs_access, rfs_system_file)
 allow rfs_access rfs_system_file:lnk_file r_file_perms;
-allow rfs_access rfs_system_file:file r_file_perms;
 
 #For data folder entries
 allow rfs_access rfs_data_file:dir create_dir_perms;
@@ -37,11 +43,15 @@ allow rfs_access tombstone_data_file:dir create_dir_perms;
 allow rfs_access tombstone_data_file:file create_file_perms;
 
 #For firmware entries in /firmware to read NHLOS.bin files ( only perms to read and get attributes).
-allow rfs_access firmware_file:dir r_dir_perms;
-allow rfs_access firmware_file:file r_file_perms;
+r_dir_file(rfs_access, firmware_file)
 
 #For dropping permisions from root and wakelock
-allow rfs_access self:capability { setuid setgid setpcap net_raw };
+allow rfs_access self:capability {
+    setuid
+    setgid
+    setpcap
+    net_raw
+};
 
 #Prevent other domains from accessing RFS data files.
 neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_data_file:dir create_dir_perms;

@@ -21,27 +21,28 @@ userdebug_or_eng(`
 qmux_socket(qmuxd);
 
 #Allow logging
-allow qmuxd diag_device:chr_file { rw_file_perms };
-
-#Allow operation in platform specific transports
-allow qmuxd smd_device:chr_file { rw_file_perms };
-allow qmuxd hsic_device:chr_file { rw_file_perms };
+allow qmuxd {
+    #Allow operation in platform specific transports
+    smd_device
+    hsic_device
+    mhi_device
+}:chr_file rw_file_perms;
 
 #Allow qmuxd to operate in platform specific transports
-allow qmuxd sysfs_smd_open_timeout:file w_file_perms;
-allow qmuxd sysfs_wake_lock:file { append open };
-
-#Allow qmuxd to write in hsic specific transport
-allow qmuxd sysfs:file w_file_perms;
+allow qmuxd {
+    sysfs_smd_open_timeout
+    #Allow qmuxd to write in hsic specific transport
+    sysfs
+    sysfs_hsic_modem_wait
+}:file w_file_perms;
 
 allow qmuxd self:capability { setuid setgid setpcap dac_override };
 
 #Allow qmuxd to have the CAP_BLOCK_SUSPEND capability
-allow qmuxd qmuxd:capability2 { block_suspend };
+wakelock_use(qmuxd)
 
-allow qmuxd sysfs_esoc:dir r_dir_perms;
-allow qmuxd sysfs_hsic_modem_wait:file w_file_perms;
-allow qmuxd sysfs_esoc:lnk_file read;
+r_dir_file(qmuxd, sysfs_esoc)
 
 r_dir_file(qmuxd, sysfs_ssr);
+
 allow qmuxd mhi_device:chr_file rw_file_perms;

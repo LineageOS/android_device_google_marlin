@@ -1,20 +1,28 @@
 # fm_radio app needes  open read write on fm_radio_device
-allow system_app fm_radio_device:chr_file { read open ioctl};
-allow system_app ctl_default_prop:property_service set;
-allow system_app atfwd_service:service_manager add;
-allow system_app dun_service:service_manager add;
+allow system_app fm_radio_device:chr_file r_file_perms;
+allow system_app {
+    ctl_default_prop
+    usf_prop
+}:property_service set;
+
+allow system_app {
+    atfwd_service
+    dun_service
+    dpmservice
+    cne_service
+    # access to color service SDK
+    color_service
+}:service_manager add;
 
 # access to perflock
 allow system_app mpctl_socket:dir r_dir_perms;
 unix_socket_send(system_app, mpctl, mpdecision)
 unix_socket_connect(system_app, mpctl, mpdecision)
-allow system_app dpmservice:service_manager add;
 unix_socket_send(system_app, mpctl, perfd)
 unix_socket_connect(system_app, mpctl, perfd)
 
 # access to mm-pp-daemon
 unix_socket_connect(system_app, pps, mm-pp-daemon)
-allow system_app cne_service:service_manager add;
 
 userdebug_or_eng(`
   allow system_app debugfs:file r_file_perms;
@@ -25,6 +33,7 @@ userdebug_or_eng(`
   # access to firmware file
   r_dir_file(system_app, firmware_file);
 ')
+
 allow system_app cnd_data_file:dir w_dir_perms;
 allow system_app cnd_data_file:file create_file_perms;
 allow system_app bluetooth:unix_stream_socket ioctl;
@@ -32,12 +41,8 @@ allow system_app bluetooth:unix_stream_socket ioctl;
 # access to tee domain
 allow system_app tee:unix_dgram_socket sendto;
 
-# access to color service SDK
-allow system_app color_service:service_manager add;
-
 # system app to access DTS data files
-allow system_app dts_data_file:dir r_dir_perms;
-allow system_app dts_data_file:file r_file_perms;
+r_dir_file(system_app, dts_data_file)
 
 # access to time_daemon
 allow system_app time_daemon:unix_stream_socket connectto;
@@ -46,9 +51,7 @@ allow system_app time_daemon:unix_stream_socket connectto;
 allow system_app usf:unix_stream_socket connectto;
 allow system_app usf_data_file:sock_file write;
 allow system_app usf_data_file:dir rw_dir_perms;
-allow system_app usf_data_file:file create_file_perms;
-allow system_app usf_data_file:lnk_file create_file_perms;
-allow system_app usf_prop:property_service set;
+allow system_app usf_data_file:{ file lnk_file } create_file_perms;
 
 # allow system_app to interact with dtseagleservice
 binder_call(system_app, dtseagleservice)

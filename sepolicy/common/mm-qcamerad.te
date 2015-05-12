@@ -4,9 +4,13 @@ init_daemon_domain(mm-qcamerad)
 
 #added to support EZTune for camera
 userdebug_or_eng(`
-  allow mm-qcamerad debugfs:dir search;
+  allow mm-qcamerad debugfs:dir r_dir_perms;
   allow mm-qcamerad camera_data_file:file create_file_perms;
-  allow mm-qcamerad self:tcp_socket { accept listen };
+  allow mm-qcamerad self:tcp_socket create_stream_socket_perms;
+  allow mm-qcamerad node:tcp_socket node_bind;
+
+  # IMS use camera daemon to make VT call
+  allow mm-qcamerad port:tcp_socket name_bind;
 ')
 
 #Communicate with user land process through domain socket
@@ -15,32 +19,20 @@ allow mm-qcamerad camera_socket:dir w_dir_perms;
 unix_socket_connect(mm-qcamerad, sensors, sensors)
 
 #Allow connections between sensor manager and mm-qcamerad
-allow mm-qcamerad system_server:unix_stream_socket { read write };
+allow mm-qcamerad system_server:unix_stream_socket rw_socket_perms;
 binder_call(mm-qcamerad, system_server);
 binder_use(mm-qcamerad);
 
 allow mm-qcamerad self:process execmem;
+
 # Interact with other media devices
-allow mm-qcamerad camera_device:dir search;
+allow mm-qcamerad camera_device:dir r_dir_perms;
 allow mm-qcamerad { gpu_device video_device camera_device sensors_device }:chr_file rw_file_perms;
 
 allow mm-qcamerad { surfaceflinger mediaserver }:fd use;
-# Need to investigate this
-allow mm-qcamerad self:tcp_socket create_socket_perms;
 
-allow mm-qcamerad camera_data_file:dir { write remove_name search add_name };
+allow mm-qcamerad camera_data_file:dir w_dir_perms;
 allow mm-qcamerad camera_data_file:sock_file { create unlink };
-allow mm-qcamerad node:tcp_socket node_bind;
-
-#/data/fdAlbum
-allow mm-qcamerad system_data_file:dir w_dir_perms;
-allow mm-qcamerad system_data_file:file create_file_perms;
-
-#Remove GL fine reference
-allow mm-qcamerad shell_data_file:dir search;
-
-# IMS use camera daemon to make VT call
-allow mm-qcamerad port:tcp_socket name_bind;
 
 #Allows camera to call ADSP QDSP6 functionality
 allow mm-qcamerad qdsp_device:chr_file r_file_perms;

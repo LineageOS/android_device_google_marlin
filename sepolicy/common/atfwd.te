@@ -13,7 +13,7 @@ binder_call(atfwd, system_app);
 binder_call(atfwd, servicemanager);
 r_dir_file(atfwd, sysfs_ssr);
 
-allow atfwd self:udp_socket create;
+allow atfwd self:{ udp_socket socket } create_socket_perms;
 unix_socket_connect(atfwd, property, init);
 
 allow atfwd radio_prop:property_service set;

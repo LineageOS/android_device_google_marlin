@@ -3,10 +3,9 @@ type mm-pp-daemon_exec, exec_type, file_type;
 
 init_daemon_domain(mm-pp-daemon)
 
-#============= mm-pp-daemon ==============
 #Need to use fb ioctls to communicate with kernel
 allow mm-pp-daemon graphics_device:chr_file rw_file_perms;
-allow mm-pp-daemon graphics_device:dir search;
+allow mm-pp-daemon graphics_device:dir r_dir_perms;
 
 # Allow reading/writing to '/persist/display/*'
 # The color config file is dynamically created
@@ -27,26 +26,22 @@ allow mm-pp-daemon sensors:unix_stream_socket connectto;
 
 allow mm-pp-daemon system_prop:property_service set;
 
-# Allow diag to access tempfs
-allow mm-pp-daemon diag_device:chr_file rw_file_perms;
-
 # Allow mm-pp-daemon to call binder for screen refresh
 binder_use(mm-pp-daemon)
 binder_call(mm-pp-daemon, system_server)
 binder_call(mm-pp-daemon, surfaceflinger)
 
 userdebug_or_eng(`
-    # This allows pp-daemon to use shell commands to blank
-    # the display - it uses input keyevent to do this
-    allow mm-pp-daemon shell_exec:file rx_file_perms;
-    allow mm-pp-daemon system_file:file execute_no_trans;
-    allow mm-pp-daemon zygote_exec:file rx_file_perms;
-    allow mm-pp-daemon self:process ptrace;
+  # This allows pp-daemon to use shell commands to blank
+  # the display - it uses input keyevent to do this
+  allow mm-pp-daemon { shell_exec zygote_exec }:file rx_file_perms;
+  allow mm-pp-daemon system_file:file x_file_perms;
+  allow mm-pp-daemon self:process ptrace;
 ')
 
 # Allow mm-pp-daemon to change the brightness of the target during display
 # calibration
-allow mm-pp-daemon sysfs:file rw_file_perms;
+allow mm-pp-daemon sysfs:file w_file_perms;
 
 # Allow socket calls in pp-daemon
 unix_socket_connect(mm-pp-daemon, property, init)

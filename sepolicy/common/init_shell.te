@@ -5,44 +5,83 @@ type qti_init_shell, domain;
 domain_auto_trans(init, shell_exec, qti_init_shell)
 
 # Run helpers from / or /system without changing domain.
-allow qti_init_shell rootfs:file execute_no_trans;
-allow qti_init_shell system_file:file execute_no_trans;
+allow qti_init_shell { system_file rootfs }:file execute_no_trans;
 
-#for accessing fmradio device node
-allow  qti_init_shell  fm_radio_device:chr_file { open read ioctl };
-# for insmod of iris ko  , this is needed .
-allow qti_init_shell self:capability sys_module;
+# For accessing fmradio device node
+# For accessing qdss_device device node
+allow qti_init_shell { fm_radio_device qdss_device }:chr_file r_file_perms;
 
-#for  property starting with hw
-allow qti_init_shell  system_prop:property_service set ;
+# for insmod of iris ko, this is needed.
+allow qti_init_shell self:capability { sys_module net_admin };
 
-#for access to set BT property
-allow qti_init_shell  bluetooth_prop:property_service set;
-
-#most of the default properties are set by qti_init_shell
-#allow qti_init_shell  default_prop:property_service set;
-
-#allow qti_init_shell shell_exec:file execute_no_trans;
-
-#Needed in order to set properties while going in/out of debug mode.
-#allow qti_init_shell ctl_default_prop:property_service set;
+# For  property starting with hw
+# freq_prop - for setting frequency from postboot script
+# perfd_prop - for setting ctl.perfd property from postboot script
+# bluetooth_prop - for setting bt related properties from postboot script
+# uicc_prop - for access to UICC property
+# ctl_qmuxd_prop/ctl_netmgrd_prop - Needed in order to set properties on qmuxd and netmgrd processes
+allow qti_init_shell {
+    system_prop
+    freq_prop
+    perfd_prop
+    bluetooth_prop
+    config_prop
+    sensors_prop
+    msm_irqbalance_prop
+    ipacm_prop
+    ipacm-diag_prop
+    qti_prop
+    ctl_rildaemon_prop
+    uicc_prop
+    ctl_qmuxd_prop
+    ctl_netmgrd_prop
+    # Needed for starting console in userdebug mode
+    userdebug_or_eng(`ctl_console_prop')
+}:property_service set;
 
 allow qti_init_shell efs_boot_dev:blk_file r_file_perms;
 
-#perfd
-#allow qti_init_shell ctl_default_prop:property_service set;
-
-allow qti_init_shell ctl_rildaemon_prop:property_service set;
-
-#for access to UICC property
-allow qti_init_shell uicc_prop:property_service set;
-
-#for hci_comm_init
+# For hci_comm_init
 allow qti_init_shell serial_device:chr_file rw_file_perms;
 
-#allow property changes
+# Allow property changes
 unix_socket_connect(qti_init_shell, property, init)
 
-allow qti_init_shell self:capability
-    net_admin;
+allow qti_init_shell {
+    sysfs
+    sysfs_devices_system_cpu
+    sysfs_thermal
+}:file write;
 
+r_dir_file(qti_init_shell, sysfs_thermal)
+allow qti_init_shell sysfs_socinfo:file write;
+
+# Check if /dev/sensors or /dev/msm_dsps present
+allow qti_init_shell sensors_data_file:dir r_dir_perms;
+allow qti_init_shell sensors_device:chr_file r_file_perms;
+
+# To start sensors for DSPS enabled platforms
+r_dir_file(qti_init_shell, persist_file)
+r_dir_file(qti_init_shell, sensors_persist_file)
+allow qti_init_shell sensors_persist_file:file setattr;
+
+# To start of selected USF based calculators
+r_dir_file(qti_init_shell, usf_data_file)
+allow qti_init_shell usf_data_file:file w_file_perms;
+r_dir_file(qti_init_shell, persist_usf_file)
+allow qti_init_shell usf_data_file:dir setattr;
+allow qti_init_shell usf_data_file:file setattr;
+allow qti_init_shell usf_data_file:lnk_file setattr;
+
+
+# To check if /system/bin/msm_irqbalance is persent in the device
+allow qti_init_shell msm_irqbalanced_exec:file getattr;
+
+# To write to /data/system/perfd
+allow qti_init_shell mpctl_data_file:dir w_dir_perms;
+allow qti_init_shell mpctl_data_file:file { write getattr unlink };
+
+allow qti_init_shell { proc proc_net }:file write;
+
+allow qti_init_shell radio_data_file:dir create_dir_perms;
+allow qti_init_shell radio_data_file:file create_file_perms;

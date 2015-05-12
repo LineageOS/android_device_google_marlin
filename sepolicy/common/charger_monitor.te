@@ -7,10 +7,11 @@ init_daemon_domain(charger_monitor)
 
 #charger monitor will use uevent, visit sysfs and use the wake lock
 allow charger_monitor self:netlink_kobject_uevent_socket { read create setopt bind };
-allow charger_monitor sysfs:file rw_file_perms;
-allow charger_monitor sysfs_wake_lock:file rw_file_perms;
+allow charger_monitor{
+    sysfs_wake_lock
+    sysfs_battery_supply
+}:file rw_file_perms;
 
-allow charger_monitor sysfs_battery_supply:dir search;
-allow charger_monitor sysfs_battery_supply:file rw_file_perms;
-allow charger_monitor sysfs_usb_supply:dir search;
-allow charger_monitor sysfs_usb_supply:file r_file_perms;
+allow charger_monitor sysfs:file w_file_perms;
+allow charger_monitor sysfs_battery_supply:dir r_dir_perms;
+r_dir_file(charger_monitor, sysfs_usb_supply)

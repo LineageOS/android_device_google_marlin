@@ -1,8 +1,8 @@
-#Allow platform apps to interact with dtseagleservice
+# Allow platform apps to interact with dtseagleservice
 binder_call(platform_app, dtseagleservice)
 
-#Allow platform apps to interact with fido daemon
+# Allow platform apps to interact with fido daemon
 binder_call(platform_app, fidodaemon)
 
-#Allow platform apps to interact with imscm daemon
+# Allow platform apps to interact with imscm daemon
 binder_call(platform_app, imscm)

@@ -12,14 +12,16 @@ allow mediaserver self:socket create_socket_perms;
 binder_call(mediaserver, rild)
 
 qmux_socket(mediaserver)
-allow mediaserver camera_data_file:sock_file write;
+allow mediaserver camera_data_file:sock_file w_file_perms;
+
 userdebug_or_eng(`
   allow mediaserver camera_data_file:dir rw_dir_perms;
   allow mediaserver camera_data_file:file create_file_perms;
+  # Access to audio
+  allow mediaserver debugfs:file rw_file_perms;
 ')
 
-allow mediaserver sysfs_esoc:dir r_dir_perms;
-allow mediaserver sysfs_esoc:lnk_file read;
+r_dir_file(mediaserver, sysfs_esoc)
 allow mediaserver system_app_data_file:file rw_file_perms;
 
 # allow mediaserver to write DTS files
@@ -46,7 +48,8 @@ allow mediaserver time_daemon:unix_stream_socket connectto;
 allow mediaserver audio_data_file:sock_file { create setattr unlink };
 allow mediaserver audio_data_file:dir remove_name;
 
-#access to audio
-userdebug_or_eng('
-allow mediaserver debugfs:file rw_file_perms;
-')
+#Allow mediaserver to set camera  properties
+allow mediaserver camera_prop:property_service set;
+
+#allow mediaserver to access wfdservice
+binder_call(mediaserver, wfdservice)

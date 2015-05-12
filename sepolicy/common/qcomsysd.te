@@ -5,20 +5,19 @@ type qcomsysd_exec, exec_type, file_type;
 init_daemon_domain(qcomsysd);
 
 #Needed for logging
-allow qcomsysd smem_log_device:chr_file { open read write ioctl };
-
-#Needed for handling diag commands
-allow qcomsysd diag_device:chr_file { open read write ioctl };
+allow qcomsysd smem_log_device:chr_file rw_file_perms;
 
 #Needed to read/write cookies to the misc partition
-allow qcomsysd block_device:dir { search };
-allow qcomsysd misc_partition:blk_file { open read getattr write };
-
-#Needed to access the bootselect partition
-allow qcomsysd bootselect_device:blk_file { open read getattr write };
+allow qcomsysd block_device:dir r_dir_perms;
+allow qcomsysd {
+    misc_partition
+    #Needed to access the bootselect partition
+    bootselect_device
+}:blk_file rw_file_perms;
 
 #Needed to get image info from socinfo
-allow qcomsysd sysfs_socinfo:dir  { open search read };
-allow qcomsysd sysfs_socinfo:file { open read write };
+r_dir_file(qcomsysd, sysfs_socinfo)
+allow qcomsysd sysfs_socinfo:file w_file_perms;
 
-allow qcomsysd self:capability { dac_override };
+allow qcomsysd self:capability { dac_override sys_boot };
+use_per_mgr(qcomsysd);

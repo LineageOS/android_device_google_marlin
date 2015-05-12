@@ -1,27 +1,24 @@
-#allow rild qmux_radio_socket:dir { write remove_name search add_name };
-#allow rild qmux_radio_socket:sock_file { write create unlink setattr };
-#allow rild qmuxd:unix_stream_socket connectto;
 qmux_socket(rild);
 binder_use(rild)
 
-allow rild ssr_device:chr_file { open read };
-allow rild sysfs_esoc:dir { search read open};
-allow rild sysfs_esoc:lnk_file { read };
-allow rild sysfs_esoc:file { write };
-allow rild sysfs_ssr:dir { open search read };
-allow rild sysfs_ssr:lnk_file { read open };
+allow rild ssr_device:chr_file r_file_perms;
 
-allow rild mediaserver:binder { transfer call };
+r_dir_file(rild, sysfs_ssr)
+r_dir_file(rild, sysfs_esoc)
 
-#allow rild diag_device:chr_file { open read write };
-allow rild rild_socket:chr_file { open read write };
+allow rild sysfs_esoc:file w_file_perms;
+
+binder_call(rild, mediaserver)
+
+#Rule for RILD to talk to peripheral manager
+use_per_mgr(rild);
+
+allow rild rild_socket:chr_file r_file_perms;
+unix_socket_connect(rild, rild, time_daemon)
 allow rild system_health_monitor_device:chr_file r_file_perms;
 
-allow rild sysfs_ssr:dir r_dir_perms;
-allow rild sysfs_ssr:lnk_file read;
 allow rild system_data_file:dir w_dir_perms;
 allow rild system_data_file:file create_file_perms;
-allow rild time_daemon:unix_stream_socket connectto;
 
 dontaudit rild domain:dir r_dir_perms;
 r_dir_file(rild, netmgrd)

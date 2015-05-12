@@ -5,8 +5,6 @@ allow wpa self:socket create_socket_perms;
 allow wpa smem_log_device:chr_file rw_file_perms;
 allow wpa proc_net:file write;
 
-# allow wpa_supplicant to send back wifi information to cnd
-allow wpa cnd:unix_dgram_socket sendto;
-
-# permission for wpa socket which IMS use to communicate
-allow wpa ims:unix_dgram_socket sendto;
+# Permission for wpa socket which IMS use to communicate
+# Allow wpa_supplicant to send back wifi information to cnd
+allow wpa { cnd ims }:unix_dgram_socket sendto;

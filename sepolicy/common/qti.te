@@ -3,19 +3,28 @@ type qti_exec, exec_type, file_type;
 init_daemon_domain(qti)
 net_domain(qti)
 
-allow qti rmnet_device:chr_file rw_file_perms;
-allow qti smem_log_device:chr_file rw_file_perms;
-userdebug_or_eng(`
-  allow qti kmsg_device:chr_file w_file_perms;
-')
-allow qti mhi_device:chr_file rw_file_perms;
+allow qti {
+    rmnet_device
+    smem_log_device
+    mhi_device
+    smd_device
+    userdebug_or_eng(`kmsg_device')
+}:chr_file rw_file_perms;
+
 qmux_socket(qti)
-allow qti rmnet_device:chr_file rw_file_perms;
-allow qti self:capability { net_admin net_raw fsetid sys_module dac_override };
-allow qti self:netlink_socket { write bind create read };
-allow qti self:socket { write read create ioctl };
-allow qti self:udp_socket { create ioctl };
-allow qti kernel:system module_request;
-allow qti shell_exec:file rx_file_perms;
-allow qti smd_device:chr_file rw_file_perms;
-allow qti system_file:file execute_no_trans;
+
+allow qti self:capability {
+    net_admin
+    net_raw
+    fsetid
+    sys_module
+    dac_override
+};
+
+allow qti self:{
+    netlink_socket
+    socket
+    udp_socket
+} create_socket_perms;
+
+allow qti { shell_exec system_file }:file rx_file_perms;

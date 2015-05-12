@@ -5,8 +5,7 @@ type energyawareness_exec, exec_type, file_type;
 init_daemon_domain(energyawareness)
 
 #allow access to pta and uio interface
-allow energyawareness pta_device:chr_file rw_file_perms;
-allow energyawareness uio_device:chr_file rw_file_perms;
+allow energyawareness { pta_device uio_device }:chr_file rw_file_perms;
 
 allow energyawareness self:netlink_kobject_uevent_socket create_socket_perms;
 

@@ -3,32 +3,38 @@ type mpdecision_exec, exec_type, file_type;
 
 init_daemon_domain(mpdecision)
 
-allow mpdecision sysfs_mpdecision:file rw_file_perms;
-allow mpdecision sysfs_devices_system_cpu:file rw_file_perms;
-allow mpdecision sysfs_rqstats:file w_file_perms;
-allow mpdecision sysfs_cpu_online:file rw_file_perms;
+allow mpdecision {
+    sysfs_mpdecision
+    sysfs_devices_system_cpu
+    sysfs_cpu_online
+}:file rw_file_perms;
+
 #Allow mpdecision set cpu affinity
 allow mpdecision kernel:process setsched;
+
 #Allow writes to /dev/cpu_dma_latency
-allow mpdecision self:netlink_kobject_uevent_socket { create read setopt bind };
-allow mpdecision self:socket create_socket_perms;
+allow mpdecision self: {
+    netlink_kobject_uevent_socket
+    socket
+} create_socket_perms;
+
 allow mpdecision device_latency:chr_file w_file_perms;
 
-allow mpdecision sysfs_rqstats:dir search;
-allow mpdecision sysfs_thermal:dir search;
+r_dir_file(mpdecision, sysfs_rqstats)
+allow mpdecision sysfs_rqstats:file w_file_perms;
+r_dir_file(mpdecision, sysfs_thermal)
 
 #policies for mpctl
 #mpctl socket
 allow mpdecision self:capability { net_admin chown dac_override fsetid sys_nice };
 allow mpdecision mpctl_socket:dir rw_dir_perms;
-allow mpdecision mpctl_socket:sock_file { create_file_perms unlink };
+allow mpdecision mpctl_socket:sock_file create_file_perms;
 
-allow mpdecision sysfs:file write;
+allow mpdecision sysfs:file w_file_perms;
 
 #default_values file
 allow mpdecision mpctl_data_file:dir rw_dir_perms;
-allow mpdecision mpctl_data_file:file { create_file_perms unlink };
+allow mpdecision mpctl_data_file:file create_file_perms;
 
 #allow poll of system_server status
-allow mpdecision system_server:dir search;
-allow mpdecision system_server:file { open read };
+r_dir_file(mpdecision, system_server)

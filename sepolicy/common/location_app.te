@@ -6,8 +6,7 @@ qmux_socket(location_app)
 
 #Permissions for JDWP
 userdebug_or_eng(`
-allow location_app adbd:unix_stream_socket connectto;
-allow location_app su:unix_stream_socket connectto;
+  allow location_app { adbd su }:unix_stream_socket connectto;
 ')
 
 allow location_app location_app_data_file:dir create_dir_perms;

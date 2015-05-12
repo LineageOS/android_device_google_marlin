@@ -3,11 +3,11 @@ type sapd, bluetoothdomain;
 type sapd_exec, exec_type, file_type;
 domain_auto_trans(init, sapd_exec, bluetooth)
 
-type dun-server,  bluetoothdomain;
+type dun-server, bluetoothdomain;
 type dun-server_exec, exec_type, file_type;
 domain_auto_trans(init, dun-server_exec, bluetooth)
 
-type btsnoop,  bluetoothdomain;
+type btsnoop, bluetoothdomain;
 type btsnoop_exec, exec_type, file_type;
 domain_auto_trans(init, btsnoop_exec, bluetooth)
 
@@ -15,30 +15,27 @@ type wcnss_filter, bluetoothdomain;
 type wcnss_filter_exec, exec_type, file_type;
 domain_auto_trans(init, wcnss_filter_exec, bluetooth)
 
-#BT needes  read and write on smd device node
-allow bluetooth smd_device:chr_file rw_file_perms;
-
 allow bluetooth bluetooth_prop:property_service set;
-allow bluetooth serial_device:chr_file rw_file_perms;
-allow bluetooth sysfs:file rw_file_perms;
+allow bluetooth sysfs:file w_file_perms;
 
-#BT Snoop logging
-allow bluetooth self:tcp_socket { create setopt bind accept listen };
-allow bluetooth port:tcp_socket name_bind;
-allow bluetooth node:tcp_socket node_bind;
+#Access to /data/media
+allow bluetooth media_rw_data_file:dir create_dir_perms;
+allow bluetooth media_rw_data_file:file create_file_perms;
 
-allow bluetooth uhid_device:chr_file rw_file_perms;
-allow bluetooth input_device:chr_file { open read write ioctl };
+allow bluetooth {
+    uhid_device
+    input_device
+    serial_device
+    #BT needes read and write on smd device node
+    smd_device
+}:chr_file rw_file_perms;
 
-allow bluetooth persist_file:dir search;
-allow bluetooth persist_file:file rw_file_perms;
+#Access to persist_file
+r_dir_file(bluetooth, persist_file)
+allow bluetooth persist_file:file w_file_perms;
 
 #For bluetooth firmware
-allow bluetooth bt_firmware_file:dir r_dir_perms;
-allow bluetooth bt_firmware_file:file r_file_perms;
-
-#dun-server requires interaction with net_domain socket
-net_domain(bluetooth);
+r_dir_file(bluetooth, bt_firmware_file)
 
 #dun-server requires binding with system_app and servicemanager
 binder_use(bluetooth);

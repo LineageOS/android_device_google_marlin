@@ -12,21 +12,23 @@ qmux_socket(ims)
 # To make VT call
 binder_use(ims)
 
-# Bring up IMSPDM
-allow ims kernel:system module_request;
-
-allow ims self:socket create_socket_perms;
 allow ims self:capability { net_admin net_raw };
 
 # Use generic netlink socket
-allow ims self:netlink_socket create_socket_perms;
+allow ims self:{
+    netlink_socket
+    socket
+} create_socket_perms;
 
 # To run NDC command
-allow ims shell_exec:file rx_file_perms;
-allow ims system_file:file rx_file_perms;
-
-# IMS route installation
-allow ims wcnss_service_exec:file rx_file_perms;
+allow ims {
+    shell_exec
+    system_file
+    # IMS route installation
+    wcnss_service_exec
+    # for WPA supplicant
+    wpa_exec
+}:file rx_file_perms;
 
 # Talk to netd via netd_socket
 unix_socket_connect(ims, netd, netd)
@@ -44,10 +46,9 @@ allow ims imscm_service:service_manager add;
 allow ims qcom_ims_prop:property_service set;
 
 # permissions needed for IMS to connect and interact with WPA supplicant
-allow ims wpa:unix_dgram_socket sendto;
-allow ims wpa_exec:file rx_file_perms;
+unix_socket_send(ims, wpa, wpa)
 allow ims wpa_socket:dir w_dir_perms;
-allow ims wpa_socket:sock_file { write create unlink setattr };
+allow ims wpa_socket:sock_file { create unlink setattr };
 allow ims wifi_data_file:dir r_dir_perms;
 
 # permissions for communication with CNE in LBO use case
@@ -55,3 +56,9 @@ unix_socket_connect(ims, cnd, cnd)
 
 #Communication with voice_svc device for audio on APP
 allow ims voice_device:chr_file rw_file_perms;
+
+#Allow access to netmgrd socket
+netmgr_socket(ims);
+
+# Inherit and use open files from radio.
+allow ims radio:fd use;

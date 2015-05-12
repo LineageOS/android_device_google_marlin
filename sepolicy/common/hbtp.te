@@ -5,8 +5,7 @@ type hbtp_exec, exec_type, file_type;
 init_daemon_domain(hbtp)
 
 # Allow access for /dev/hbtp_input and /dev/jdi-bu21150
-allow hbtp hbtp_device:chr_file rw_file_perms;
-allow hbtp bu21150_device:chr_file rw_file_perms;
+allow hbtp { hbtp_device bu21150_device }:chr_file rw_file_perms;
 
 allow hbtp hbtp_cfg_file:dir rw_dir_perms;
 allow hbtp hbtp_cfg_file:file create_file_perms;

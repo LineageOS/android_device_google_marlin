@@ -1,9 +1,6 @@
 allow vold tee_device:chr_file rw_file_perms;
-allow vold kernel:system module_request;
-allow vold self:capability2 block_suspend;
-allow vold fscklogs:file { write create open getattr };
-allow vold proc_sysrq:file rw_file_perms;
 allow vold self:capability sys_boot;
-allow vold cache_file:dir { write add_name };
-allow vold cache_file:file { write create open };
-allow vold proc_dirty_ratio:file rw_file_perms;
+allow vold cache_file:dir w_dir_perms;
+allow vold { fscklogs cache_file }:file create_file_perms;
+allow vold { proc_sysrq proc_dirty_ratio }:file rw_file_perms;
+wakelock_use(vold)

@@ -11,8 +11,6 @@ userdebug_or_eng(`
   allow qmi_test_service devpts:chr_file {read write getattr ioctl};
   #to access smem log
   allow qmi_test_service smem_log_device:chr_file {read write open ioctl};
-  #to enable qmuxd interface apis to access diag
-  allow qmi_test_service diag_device:chr_file {read write open ioctl};
   #enable accessing the path where qmuxds named sockets are present
   #to interface with qmuxd through unix sockets
   #to access ipc router socket

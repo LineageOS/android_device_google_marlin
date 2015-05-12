@@ -4,25 +4,33 @@ userdebug_or_eng(`
   domain_auto_trans(shell, diag_exec, diag)
   domain_auto_trans(adbd, diag_exec, diag)
   file_type_auto_trans(diag, system_data_file, diag_data_file);
-  allow diag diag_device:chr_file {ioctl read write open getattr};
-  allow diag devpts:chr_file {ioctl read write open getattr};
-  allow diag shell:fd {use};
-  allow diag su:fd {use};
-  allow diag cgroup:dir { create add_name };
-  allow diag console_device:chr_file { read write };
+  allow diag {
+      diag_device
+      devpts
+      console_device
+      # allow access to qseecom for drmdiagapp
+      tee_device
+  }:chr_file rw_file_perms;
+  allow diag {
+      shell
+      su
+  }:fd use;
+
+  allow diag {
+      cgroup
+      sdcard_internal
+      persist_drm_file
+  }:dir create_dir_perms;
+
   allow diag port:tcp_socket name_connect;
-  allow diag sdcard_internal:dir { create add_name write search };
   allow diag self:capability { setuid net_raw sys_admin setgid dac_override };
-  allow diag self:capability2 { syslog block_suspend };
+  allow diag self:capability2 syslog;
   allow diag self:tcp_socket { create connect setopt};
-  allow diag sysfs_wake_lock:file { write open append };
+  wakelock_use(diag)
   allow diag kernel:system syslog_mod;
   # allow drmdiagapp access to drm related paths
   allow diag persist_file:dir r_dir_perms;
   r_dir_file(diag, persist_data_file)
   # Write to drm related pieces of persist partition
-  allow diag persist_drm_file:dir create_dir_perms;
   allow diag persist_drm_file:file create_file_perms;
-  # allow access to qseecom for drmdiagapp
-  allow sectest tee_device:chr_file rw_file_perms;
 ')

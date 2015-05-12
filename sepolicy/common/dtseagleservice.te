@@ -18,5 +18,5 @@ binder_service(dtseagleservice)
 allow dtseagleservice dtseagleservice_service:service_manager add;
 
 #Allow access to audio drivers
-allow dtseagleservice audio_device:chr_file rw_file_perms;
 allow dtseagleservice audio_device:dir r_dir_perms;
+allow dtseagleservice audio_device:chr_file rw_file_perms;

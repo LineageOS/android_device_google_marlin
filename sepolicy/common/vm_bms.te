@@ -6,18 +6,17 @@ type vm_bms_exec, exec_type, file_type;
 init_daemon_domain(vm_bms)
 
 #allow vm_bms to visit chr_file
-allow vm_bms tmpfs:chr_file { read write getattr };
-allow vm_bms vm_bms_device:chr_file { open read write ioctl };
-allow vm_bms battery_data_device:chr_file { open read write ioctl };
+allow vm_bms {
+    tmpfs
+    vm_bms_device
+    battery_data_device
+}:chr_file rw_file_perms;
 
 #allow vm_bms to drop down to system service
 allow vm_bms self:capability { setpcap setgid setuid };
 
-#allow vm_bms to block the system suspend
-allow vm_bms self:capability2 block_suspend;
-
-#allow vm_bms to get the wake lock
-allow vm_bms sysfs_wake_lock:file rw_file_perms;
+#allow vm_bms to block the system suspend and get wake lock
+wakelock_use(vm_bms)
 
 #allow vm_bms to visit sysfs
-allow vm_bms sysfs:file rw_file_perms;
+allow vm_bms sysfs:file w_file_perms;
