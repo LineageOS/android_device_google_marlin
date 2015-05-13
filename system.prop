@@ -127,8 +127,6 @@ persist.sys.wfd.virtual=0
 
 #disable tunnel encoding
 tunnel.audio.encode=false
-#enable gapless by default
-audio.offload.gapless.enabled=true
 
 #Buffer size in kbytes for compress offload playback
 audio.offload.buffer.size.kb=32
@@ -169,9 +167,6 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
-
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
 
 #Disable property for Dolby ds2
 audio.dolby.ds2.enabled=false
