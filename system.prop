@@ -48,10 +48,10 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
-#3314291: Decimal sum after adding FLAC parser flag 131072
+#185971 is decimal sum of supported parsers in AAL
 #37491 is decimal sum of supported codecs in AAL
-#codecs: DivX DivXHD AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
-mm.enable.qcom_parser=3314291
+#codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS FLAC OGG MKV
+mm.enable.qcom_parser=185971
 persist.mm.enable.prefetch=true
 
 #
