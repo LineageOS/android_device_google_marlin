@@ -66,6 +66,7 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
+    mkdir /data/usf 0700 system system
 
 on property:init.svc.bootanim=running
     write /sys/class/leds/wled/brightness 4095
