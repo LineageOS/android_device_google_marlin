@@ -55,6 +55,7 @@ cnd_nims_socket_perm(appdomain)
 cnd_nims_socket_perm(system_server)
 cnd_nims_socket_perm(mediaserver)
 cnd_nims_socket_perm(mtp)
+cnd_nims_socket_perm(drmserver)
 
 # allow cnd to perform socket operation on itself
 allow cnd self:socket create_socket_perms;
