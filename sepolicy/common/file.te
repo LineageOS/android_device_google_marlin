@@ -164,3 +164,6 @@ type adsprpcd_file, file_type, mlstrustedobject;
 
 # audio pp notifier files
 type audio_pp_data_file, file_type, data_file_type;
+
+# subsystem_ramdump files
+type ssr_ramdump_data_file, file_type, data_file_type;

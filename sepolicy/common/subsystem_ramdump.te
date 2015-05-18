@@ -5,4 +5,7 @@ init_daemon_domain(subsystem_ramdump);
 userdebug_or_eng(`
   allow subsystem_ramdump ramdump_device:chr_file r_file_perms;
   allow subsystem_ramdump sysfs:file w_file_perms;
+  allow subsystem_ramdump device:dir r_dir_perms;
+  allow subsystem_ramdump ssr_ramdump_data_file:file create_file_perms;
+  allow subsystem_ramdump ssr_ramdump_data_file:dir rw_dir_perms;
 ')

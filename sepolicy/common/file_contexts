@@ -296,6 +296,7 @@
 /data/misc/port_bridge(/.*)?                                        u:object_r:port_bridge_data_file:s0
 /data/misc/fm(/.*)?                                                 u:object_r:fm_data_file:s0
 /data/misc/audio_pp(/.*)?                                           u:object_r:audio_pp_data_file:s0
+/data/ramdump(/.*)?                                                 u:object_r:ssr_ramdump_data_file:s0
 
 ###################################
 # persist files
