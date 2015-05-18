@@ -15,8 +15,6 @@ qmux_socket(dpmd);
 
 #self capability
 allow dpmd sysfs_wake_lock:file rw_file_perms;
-allow dpmd self:socket rw_socket_perms;
-allow dpmd self:netlink_socket rw_socket_perms;
 allow dpmd self:capability { setuid setgid dac_override net_raw chown fsetid net_admin sys_module };
 
 #socket, self
@@ -39,3 +37,13 @@ allow dpmd appdomain:tcp_socket { read write getopt getattr };
 
 #permission to unlink dpmwrapper socket
 allow dpmd socket_device:dir remove_name;
+
+# allow dpmd to communicate with system_server
+allow dpmd system_server:tcp_socket { write getattr shutdown getopt read bind setopt };
+
+#allow dpmd to create socket
+allow dpmd self:socket create_socket_perms;
+allow dpmd self:netlink_socket create_socket_perms;
+
+#allow dpmd to access /proc/<pid>/net
+allow dpmd domain:dir r_dir_perms;

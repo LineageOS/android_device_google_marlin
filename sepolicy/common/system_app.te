@@ -22,6 +22,8 @@ userdebug_or_eng(`
   allow system_app persist_file:dir r_dir_perms;
   allow system_app sensors_persist_file:dir r_dir_perms;
   allow system_app sensors_persist_file:file rw_file_perms;
+  # access to firmware file
+  r_dir_file(system_app, firmware_file);
 ')
 allow system_app cnd_data_file:dir w_dir_perms;
 allow system_app cnd_data_file:file create_file_perms;
@@ -37,11 +39,6 @@ allow system_app color_service:service_manager add;
 allow system_app dts_data_file:dir r_dir_perms;
 allow system_app dts_data_file:file r_file_perms;
 
-# access to firmware file
-userdebug_or_eng(`
-  r_dir_file(system_app, firmware_file);
-')
-
 # access to time_daemon
 allow system_app time_daemon:unix_stream_socket connectto;
 
@@ -55,3 +52,13 @@ allow system_app usf_prop:property_service set;
 
 # allow system_app to interact with dtseagleservice
 binder_call(system_app, dtseagleservice)
+
+# allow system_app to interact with fido daemon
+binder_call(system_app, fidodaemon)
+
+# allow system_app to interact with imscm daemon
+binder_call(system_app, imscm)
+
+# access to seemp folder
+allow system_app seemp_file:dir r_dir_perms;
+allow system_app seemp_file:{ file fifo_file } rw_file_perms;

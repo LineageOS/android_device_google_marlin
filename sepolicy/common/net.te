@@ -1,0 +1,5 @@
+# allow netdomain access to cnd
+unix_socket_connect(netdomain, cnd, cnd)
+
+# allow netdomain access to dpmd
+unix_socket_connect(netdomain, dpmwrapper, dpmd)

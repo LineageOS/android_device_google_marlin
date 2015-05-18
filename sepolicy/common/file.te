@@ -28,6 +28,7 @@ type persist_file, file_type;
 type persist_data_file, file_type;
 type persist_drm_file, file_type;
 type data_qsee_file, file_type;
+type seemp_file, file_type;
 
 type diag_data_file, file_type, data_file_type;
 
@@ -102,6 +103,9 @@ type qlogd_data_file, file_type;
 #Defines the files (configs, dumps, etc) used by display processes
 type display_misc_file, file_type, data_file_type;
 
+#Define the files for the operation of QDCM
+type persist_display_file, file_type;
+
 # IPA file types
 type ipacm_socket, file_type;
 type ipacm_data_file, file_type;
@@ -125,3 +129,6 @@ type persist_usf_file, file_type;
 
 # dts notifier files
 type dts_data_file, file_type, data_file_type;
+
+#seemp socket
+type seempdw_socket, file_type;

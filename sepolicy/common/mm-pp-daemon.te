@@ -8,10 +8,13 @@ init_daemon_domain(mm-pp-daemon)
 allow mm-pp-daemon graphics_device:chr_file rw_file_perms;
 allow mm-pp-daemon graphics_device:dir search;
 
-# Allow reading/writing to persist
+# Allow reading/writing to '/persist/display/*'
 # The color config file is dynamically created
-allow mm-pp-daemon persist_file:dir rw_dir_perms;
-allow mm-pp-daemon persist_file:file create_file_perms;
+allow mm-pp-daemon persist_display_file:dir rw_dir_perms;
+allow mm-pp-daemon persist_display_file:file create_file_perms;
+
+# Allow for directory search only to '/persist'
+allow mm-pp-daemon persist_file:dir search;
 
 # Allow reading/writing data config files
 allow mm-pp-daemon display_misc_file:dir create_dir_perms;
@@ -50,3 +53,4 @@ unix_socket_connect(mm-pp-daemon, property, init)
 unix_socket_connect(mm-pp-daemon, pps, init)
 
 allow mm-pp-daemon init:unix_stream_socket { listen accept };
+allow mm-pp-daemon system_server:unix_stream_socket { read write };

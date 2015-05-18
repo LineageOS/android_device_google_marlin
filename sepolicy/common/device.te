@@ -101,3 +101,6 @@ type system_health_monitor_device, dev_type;
 
 #Define usf device
 type usf_device, dev_type;
+
+#Define seemplog device
+type seemplog_device, dev_type;

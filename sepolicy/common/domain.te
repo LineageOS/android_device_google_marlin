@@ -1,7 +1,9 @@
-userdebug_or_eng(`
-  allow domain diag_device:chr_file rw_file_perms;
-')
+allow  { domain -untrusted_app } diag_device:chr_file rw_file_perms;
 
 r_dir_file(domain, sysfs_socinfo);
 r_dir_file(domain, sysfs_esoc);
 r_dir_file(domain, sysfs_ssr);
+
+#all apps and services allowed access to seempdw_socket
+#TODO: Investigate if needs to be restricted to apps only domains
+unix_socket_send(domain, seempdw, seempd)

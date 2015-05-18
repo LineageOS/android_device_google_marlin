@@ -6,11 +6,11 @@ type ipacm-diag_exec, exec_type, file_type;
 init_daemon_domain(ipacm)
 init_daemon_domain(ipacm-diag)
 
-userdebug_or_eng(`
-  # Allow using the logging file between ipacm and ipacm-diag
-  allow ipacm ipacm-diag:unix_dgram_socket sendto;
-  allow ipacm ipacm_socket:sock_file write;
-')
+# associate netdomain to use for accessing internet sockets
+net_domain(ipacm)
+
+# Allow using the logging file between ipacm and ipacm-diag
+unix_socket_send(ipacm, ipacm, ipacm-diag)
 
 # Allow capabilities to perform network operations and interactions with network interfaces
 allow ipacm kernel:system module_request;

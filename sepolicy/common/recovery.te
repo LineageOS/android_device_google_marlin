@@ -1,0 +1,11 @@
+recovery_only(`
+    # Read files on /sdcard
+    allow recovery sdcard_type:dir r_dir_perms;
+    allow recovery sdcard_type:file r_file_perms;
+    allow recovery vfat:dir r_dir_perms;
+    allow recovery vfat:file r_file_perms;
+    allow recovery system_data_file:file r_file_perms;
+    allow recovery system_data_file:dir r_dir_perms;
+    allow recovery rfs_system_file:{file lnk_file } { create_file_perms relabelfrom relabelto };
+    allow recovery rfs_system_file:dir { create_dir_perms relabelfrom relabelto };
+')
