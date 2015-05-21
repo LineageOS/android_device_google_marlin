@@ -29,9 +29,6 @@ type hvdcp_device, dev_type;
 #Define mpdecision device
 type device_latency, dev_type;
 
-#Define rct device type for time daemon
-type rtc_device, dev_type;
-
 #Added for fm_radio device
 type  fm_radio_device, dev_type;
 
