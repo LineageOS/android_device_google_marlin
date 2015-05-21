@@ -154,9 +154,6 @@ ro.nfc.port=I2C
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
-#initialize QCA1530 detection
-sys.qca1530=detect
-
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
