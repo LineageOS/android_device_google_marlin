@@ -41,3 +41,6 @@ allow mm-qcamerad shell_data_file:dir search;
 
 # IMS use camera daemon to make VT call
 allow mm-qcamerad port:tcp_socket name_bind;
+
+#Allows camera to call ADSP QDSP6 functionality
+allow mm-qcamerad qdsp_device:chr_file r_file_perms;
