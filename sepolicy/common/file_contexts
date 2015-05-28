@@ -28,6 +28,8 @@
 /dev/v4l-subdev.*                               u:object_r:camera_device:s0
 /dev/vm_bms                                     u:object_r:vm_bms_device:s0
 /dev/battery_data                               u:object_r:battery_data_device:s0
+/dev/block/mmcblk1                              u:object_r:sd_device:s0
+/dev/block/mmcblk1p1                            u:object_r:sd_device:s0
 /dev/ccid_bridge                                u:object_r:usb_uicc_device:s0
 /dev/subsys_.*                                  u:object_r:ssr_device:s0
 /dev/ramdump_.*                                 u:object_r:ramdump_device:s0
@@ -312,3 +314,6 @@
 /dsp(/.*)?                                                          u:object_r:adsprpcd_file:s0
 
 ###################################
+# cache files
+#
+/cache/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0

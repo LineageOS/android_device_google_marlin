@@ -17,3 +17,6 @@ type msm_irqbalance_prop, property_type;
 type camera_prop, property_type;
 type sf_lcd_density_prop, property_type;
 type mpdecision_prop, property_type;
+
+type fm_prop, property_type;
+type chgdiabled_prop, property_type;
