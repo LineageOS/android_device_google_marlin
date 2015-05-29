@@ -7,6 +7,9 @@ PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_pr
                       device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
+# Override heap growth limit due to high display density on device
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/qcom/common/common64.mk)
 
