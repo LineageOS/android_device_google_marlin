@@ -138,6 +138,13 @@ service perfd /system/bin/perfd
    user root
    disabled
 
+service seempd /system/bin/seempd
+   class core
+   user system
+   group system
+   socket seempdw dgram 0666 system system
+   oneshot
+
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
 #   disabled
