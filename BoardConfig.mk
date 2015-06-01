@@ -48,7 +48,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-TARGET_USES_QCOM_BSP := false
+ifneq ($(TARGET_USES_AOSP),true)
+TARGET_USES_QCOM_BSP := true
+endif
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0x75b0000 cma=16M@0-0xffffffff cnsscore.pcie_link_down_panic=1 androidboot.selinux=permissive
 
@@ -71,7 +73,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 TARGET_NO_RPC := true
 
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Enable Peripheral Manager
@@ -100,3 +102,6 @@ TARGET_LDPRELOAD := libNimsWrap.so
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 TARGET_KERNEL_APPEND_DTB := true
+# Added to indicate that protobuf-c is supported in this build
+PROTOBUF_SUPPORTED := true
+

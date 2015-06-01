@@ -3,7 +3,7 @@
 #
 
 #rild.libpath=/system/lib/libreference-ril.so
-rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 #rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -21,6 +21,7 @@ ro.telephony.default_network=5
 
 debug.sf.hw=1
 debug.egl.hw=1
+debug.gralloc.enable_fb_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
@@ -48,10 +49,10 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
-#3314291: Decimal sum after adding FLAC parser flag 131072
+#185971 is decimal sum of supported parsers in AAL
 #37491 is decimal sum of supported codecs in AAL
-#codecs: DivX DivXHD AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
-mm.enable.qcom_parser=3314291
+#codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS FLAC OGG MKV
+mm.enable.qcom_parser=185971
 persist.mm.enable.prefetch=true
 
 #
@@ -74,7 +75,7 @@ ro.opengles.version=196608
 bt.max.hfpclient.connections=1
 
 # System property for cabl
-ro.qualcomm.cabl=1
+ro.qualcomm.cabl=2
 
 #
 # System props for telephony
@@ -127,8 +128,6 @@ persist.sys.wfd.virtual=0
 
 #disable tunnel encoding
 tunnel.audio.encode=false
-#enable gapless by default
-audio.offload.gapless.enabled=true
 
 #Buffer size in kbytes for compress offload playback
 audio.offload.buffer.size.kb=32
@@ -154,9 +153,6 @@ ro.nfc.port=I2C
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
-#initialize QCA1530 detection
-sys.qca1530=detect
-
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
@@ -169,9 +165,6 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
-
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
 
 #Disable property for Dolby ds2
 audio.dolby.ds2.enabled=false
@@ -190,3 +183,5 @@ persist.hwc.enable_vds=1
 
 #Enable stm events
 ro.dbg.coresight.config=stm_events
+#property to enable fingerprint
+persist.qfp=false

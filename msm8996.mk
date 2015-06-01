@@ -7,6 +7,10 @@ PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_pr
                       device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
+# Override heap growth limit due to high display density on device
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/qcom/common/common64.mk)
 
 PRODUCT_NAME := msm8996
@@ -29,10 +33,6 @@ PRODUCT_CHARACTERISTICS := nosdcard
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
-ifneq ($(TARGET_USES_AOSP),true)
-TARGET_USES_QCOM_BSP := true
-endif
-
 # Audio configuration file
 ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
@@ -51,6 +51,7 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8996/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     device/qcom/msm8996/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
     device/qcom/msm8996/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
+    device/qcom/msm8996/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     device/qcom/msm8996/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     device/qcom/msm8996/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
