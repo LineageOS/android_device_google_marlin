@@ -24,7 +24,7 @@ allow location sensors:unix_stream_socket connectto;
 allow location sensors_device:chr_file r_file_perms;
 allow location sensors_socket:sock_file w_file_perms;
 allow location self:netlink_socket create_socket_perms;
-allow location system_server:unix_stream_socket { read write };
+allow location system_server:unix_stream_socket { read write connectto };
 allow location rfs_shared_hlos_file:dir r_dir_perms;
 allow location rfs_shared_hlos_file:file r_file_perms;
 
