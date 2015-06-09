@@ -30,3 +30,14 @@ allow cnd $1:file r_file_perms;
 allow cnd $1:fd use;
 allow cnd $1:tcp_socket rw_socket_perms;
 ')
+
+#####################################
+# dpmd_socket_perm(clientdomain)
+# allow dpmd to read /proc/pid/cmdline to get appname
+# allow dpmd to use inet socket created by app.
+define(`dpmd_socket_perm', `
+allow dpmd $1:dir r_dir_perms;
+allow dpmd $1:file r_file_perms;
+allow dpmd $1:fd use;
+allow dpmd $1:tcp_socket rw_socket_perms;
+')
