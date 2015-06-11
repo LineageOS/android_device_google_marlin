@@ -160,11 +160,11 @@ service adsprpcd /system/bin/adsprpcd
    user media
    group media
 
-#service audiod /system/bin/audiod
-#   class late_start
-#   user system
-#   group system
-#
+service audiod /system/bin/audiod
+   class late_start
+   user system
+   group system
+
 
 service usf_tester /system/bin/usf_tester
     user system
