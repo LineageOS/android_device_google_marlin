@@ -59,6 +59,8 @@
 /dev/coresight-tmc-etr                          u:object_r:qdss_device:s0
 /dev/coresight-tmc-etr-stream                   u:object_r:qdss_device:s0
 /dev/system_health_monitor                      u:object_r:system_health_monitor_device:s0
+/dev/qce                                        u:object_r:qce_device:s0
+/dev/msm-rng                                    u:object_r:rng_device:s0
 
 ###################################
 # Dev socket nodes
@@ -67,6 +69,7 @@
 /dev/socket/qmux_bluetooth(/.*)?                u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?                    u:object_r:qmuxd_socket:s0
+/dev/socket/qmux_nfc(/.*)?                      u:object_r:qmuxd_socket:s0
 /dev/socket/sensor_ctl_socket                   u:object_r:sensors_socket:s0
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
 /dev/socket/nims                                u:object_r:cnd_socket:s0

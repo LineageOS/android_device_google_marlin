@@ -90,6 +90,10 @@ type pta_device, dev_type;
 type bu21150_device, dev_type;
 type hbtp_device, dev_type;
 
+#Define qfintverify device
+type qce_device, dev_type;
+type rng_device, dev_type;
+
 #added for voice device
 type voice_device, dev_type;
 

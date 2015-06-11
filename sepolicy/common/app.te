@@ -5,6 +5,7 @@ unix_socket_connect(appdomain, cnd, cnd)
 unix_socket_connect(appdomain, dpmwrapper, dpmd)
 
 unix_socket_connect(appdomain, qlogd, qlogd)
+unix_socket_send(appdomain, seempdw, seempd)
 #Allow all apps to open and send ioctl to qdsp device
 allow appdomain qdsp_device:chr_file r_file_perms;
 

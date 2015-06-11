@@ -96,6 +96,7 @@ BOARD_SEPOLICY_UNION := \
        energyawareness.te \
        hbtp.te \
        kernel.te \
+       qfips.te \
        vold.te \
        wfdservice.te \
        usf.te \
@@ -105,7 +106,8 @@ BOARD_SEPOLICY_UNION := \
        dtseagleservice.te \
        net.te \
        dnsmasq.te \
-       recovery.te
+       recovery.te \
+       nfc.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
