@@ -80,7 +80,8 @@ TARGET_PER_MGR_ENABLED := true
 
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
-# Enable dex pre-opt to speed up initial boot	78
+
+# Enable dex pre-opt to speed up initial boot
 ifneq ($(TARGET_USES_AOSP),true)
   ifeq ($(HOST_OS),linux)
     ifeq ($(WITH_DEXPREOPT),)
@@ -101,3 +102,6 @@ TARGET_LDPRELOAD := libNimsWrap.so
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
 
+#Add NON-HLOS files for ota upgrade
+ADD_RADIO_FILES := true
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
