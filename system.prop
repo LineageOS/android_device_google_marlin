@@ -55,6 +55,12 @@ mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=1048575
 persist.mm.enable.prefetch=true
 
+# Additional i/p buffer in case of encoder DCVS
+vidc.enc.dcvs.extra-buff-count=2
+
+# Set default power mode to low power for encoder
+vidc.debug.perf.mode=2
+
 #
 # system props for the data modules
 #
