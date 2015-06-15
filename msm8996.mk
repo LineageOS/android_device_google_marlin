@@ -72,7 +72,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AntHalService \
     libantradio \
-    antradio_app
+    antradio_app \
+    libvolumelistener
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
