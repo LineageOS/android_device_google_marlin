@@ -10,3 +10,7 @@ unix_socket_connect(netd, cnd, cnd)
 
 allow netd wfdservice:fd use;
 allow netd wfdservice:tcp_socket rw_socket_perms;
+
+# allow to read /data/misc/ipa/tether_stats file
+allow netd ipacm_data_file:dir r_dir_perms;
+allow netd ipacm_data_file:file r_file_perms;
