@@ -115,3 +115,8 @@ allow system_app qseeproxy:unix_dgram_socket sendto;
 # DOLBY_START
 set_prop(system_app, dolby_prop)
 # DOLBY_END
+allow system_app persist_file:dir rw_dir_perms;
+allow system_app persist_misc_file:dir rw_dir_perms;
+allow system_app persist_misc_file:file create_file_perms;
+allow system_app persist_misc_file:file rw_file_perms;
+
