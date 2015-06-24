@@ -134,7 +134,7 @@ persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 
 #property to enable sde downscale feature for virtual/external display
-sdm.debug.sde_downscale_external=1
+#sdm.debug.sde_downscale_external=1
 sdm.debug.sde_downscale_virtual=1
 
 #disable tunnel encoding
