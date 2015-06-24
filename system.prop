@@ -55,6 +55,12 @@ mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=1048575
 persist.mm.enable.prefetch=true
 
+# Additional i/p buffer in case of encoder DCVS
+vidc.enc.dcvs.extra-buff-count=2
+
+# Set default power mode to low power for encoder
+vidc.debug.perf.mode=2
+
 #
 # system props for the data modules
 #
@@ -127,6 +133,10 @@ persist.debug.wfd.enable=1
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
 
+#property to enable sde downscale feature for virtual/external display
+sdm.debug.sde_downscale_external=1
+sdm.debug.sde_downscale_virtual=1
+
 #disable tunnel encoding
 tunnel.audio.encode=false
 
@@ -153,6 +163,10 @@ ro.nfc.port=I2C
 
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
+
+#property for vendor specific library
+ro.vendor.gt_library=libqti-gt.so
+sys.games.gt.prof=1
 
 #hwui properties
 ro.hwui.texture_cache_size=72
