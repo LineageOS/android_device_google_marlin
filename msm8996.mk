@@ -1,3 +1,4 @@
+DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
 
