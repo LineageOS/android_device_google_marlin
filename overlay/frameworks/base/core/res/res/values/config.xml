@@ -27,19 +27,21 @@
     OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
     IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 -->
-
 <resources>
    <!-- Whether cpu boost is enabled for application's 1st launch. -->
-   <!--
-   <bool name="config_enableCpuBoostForAppLaunch">true</bool>
-   <integer name="launchboost_timeout_param">4000</integer>
-   <integer-array name="launchboost_schedboost_param">
-      <item>0x1E01</item>
-      <item>0x4978</item>
-      <item>0x02FE</item>
-      <item>0x04FE</item>
-   </integer-array>
-
+    <bool name="config_enableCpuBoostForAppLaunch">true</bool>
+    <integer name="launchboost_timeout_param">2000</integer>
+    <integer-array name="launchboost_param_value">
+        <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
+        <item>0x1</item>        <!-- SCHEDBOOST resource value-->
+        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ BIG Core resource opcode-->
+        <item>2100</item>     <!-- CPUBOOST MIN_FREQ resource value-->
+        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTEL Core resource opcode-->
+        <item>1500</item>     <!-- CPUBOOST MIN_FREQ resource value-->
+        <item>0x41800000</item> <!-- CPUBW_MIN_FREQ resource opcode-->
+        <item>140</item>       <!-- CPUBW_MIN_FREQ resource value-->
+    </integer-array>
+<!--
    <bool name="config_enableCpuBoostForOverScrollerFling">true</bool>
    <integer name="flingboost_timeout_param">2000</integer>
    <integer-array name="flingboost_opcodes_param">
