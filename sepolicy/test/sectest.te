@@ -14,9 +14,4 @@ userdebug_or_eng(`
   # respective directories
   allow sectest data_qsee_file:dir create_dir_perms;
   allow sectest data_qsee_file:file create_file_perms;
-  allow sectest system_data_file:dir r_dir_perms;
-
-  # Allow secure apps to access /data for older targets
-  allow sectest system_data_file:dir create_dir_perms;
-  allow sectest system_data_file:file create_file_perms;
 ')
