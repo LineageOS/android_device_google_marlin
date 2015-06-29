@@ -68,6 +68,7 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/usf 0700 system system
+    mkdir /data/misc/tloc/ 0700 system drmrpc
 
 on property:init.svc.bootanim=running
     write /sys/class/leds/wled/brightness 4095
@@ -295,6 +296,11 @@ service ppd /system/bin/mm-pp-dpps
     group system graphics
     socket pps stream 0660 system system
     disabled
+
+service tlocd /system/bin/tloc_daemon
+    class late_start
+    user system
+    group drmrpc
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
