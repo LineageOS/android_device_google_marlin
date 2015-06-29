@@ -61,9 +61,13 @@ cnd_nims_socket_perm(system_server)
 cnd_nims_socket_perm(mediaserver)
 cnd_nims_socket_perm(mtp)
 cnd_nims_socket_perm(wfdservice)
+cnd_nims_socket_perm(drmserver)
 
 # allow cnd to access ipa_dev
-allow cnd ipa_dev:chr_file r_file_perms;
+allow cnd ipa_dev:chr_file rw_file_perms;
 
 # allow access to nims
 allow cnd socket_device:dir remove_name;
+
+allow cnd ipacm_data_file:dir r_dir_perms;
+allow cnd ipacm_data_file:file r_file_perms;
