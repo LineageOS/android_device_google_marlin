@@ -183,7 +183,7 @@ audio.dolby.ds2.enabled=false
 audio.dolby.ds2.hardbypass=false
 
 audio.offload.passthrough=false
-audio.offload.multiple.enabled=true
+audio.offload.multiple.enabled=false
 
 # enable navigation bar
 qemu.hw.mainkeys=0
