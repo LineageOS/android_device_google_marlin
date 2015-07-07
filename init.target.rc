@@ -34,6 +34,8 @@ on early-init
     mkdir /dsp 0771 media media
 
 on fs
+    wait /dev/block/platform/soc/624000.ufshc/sda3
+    symlink /dev/block/platform/soc/624000.ufshc /dev/block/bootdevice
     mount_all fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
