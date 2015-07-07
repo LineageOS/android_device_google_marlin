@@ -159,6 +159,9 @@ ro.nfc.port=I2C
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
+#enable pbe effects
+audio.safx.pbe.enabled=true
+
 #property for vendor specific library
 ro.vendor.gt_library=libqti-gt.so
 sys.games.gt.prof=1
