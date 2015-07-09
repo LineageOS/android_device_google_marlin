@@ -145,19 +145,19 @@
     <ctl name="SLIM TX2 MUX" value="ZERO" />
     <ctl name="SLIM TX1 MUX" value="ZERO" />
     <ctl name="SLIM TX0 MUX" value="ZERO" />
-    <ctl name="ADC MUX13" value="DMIC" />
-    <ctl name="ADC MUX12" value="DMIC" />
-    <ctl name="ADC MUX11" value="DMIC" />
-    <ctl name="ADC MUX10" value="DMIC" />
-    <ctl name="ADC MUX8" value="DMIC" />
-    <ctl name="ADC MUX7" value="DMIC" />
-    <ctl name="ADC MUX6" value="DMIC" />
-    <ctl name="ADC MUX5" value="DMIC" />
-    <ctl name="ADC MUX4" value="DMIC" />
-    <ctl name="ADC MUX3" value="DMIC" />
-    <ctl name="ADC MUX2" value="DMIC" />
-    <ctl name="ADC MUX1" value="DMIC" />
-    <ctl name="ADC MUX0" value="DMIC" />
+    <ctl name="ADC MUX13" value="AMIC" />
+    <ctl name="ADC MUX12" value="AMIC" />
+    <ctl name="ADC MUX11" value="AMIC" />
+    <ctl name="ADC MUX10" value="AMIC" />
+    <ctl name="ADC MUX8" value="AMIC" />
+    <ctl name="ADC MUX7" value="AMIC" />
+    <ctl name="ADC MUX6" value="AMIC" />
+    <ctl name="ADC MUX5" value="AMIC" />
+    <ctl name="ADC MUX4" value="AMIC" />
+    <ctl name="ADC MUX3" value="AMIC" />
+    <ctl name="ADC MUX2" value="AMIC" />
+    <ctl name="ADC MUX1" value="AMIC" />
+    <ctl name="ADC MUX0" value="AMIC" />
     <ctl name="DMIC MUX0" value="ZERO" />
     <ctl name="DMIC MUX1" value="ZERO" />
     <ctl name="DMIC MUX2" value="ZERO" />
