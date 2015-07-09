@@ -34,5 +34,8 @@
     <native_configs>
         <feature name="NATIVE_AUDIO_44.1" codec_support="1"/>
     </native_configs>
+    <tz_names>
+        <device name="SND_DEVICE_OUT_SPEAKER" spkr_1_tz_name="wsatz.12" spkr_2_tz_name="wsatz.11"/>
+    </tz_names>
 </audio_platform_info>
 
