@@ -19,3 +19,8 @@ allow rild system_health_monitor_device:chr_file r_file_perms;
 
 dontaudit rild domain:dir r_dir_perms;
 r_dir_file(rild, netmgrd)
+
+#Allow access to netmgrd socket
+netmgr_socket(rild);
+
+allow rild mediaserver_service:service_manager find;

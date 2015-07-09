@@ -26,6 +26,7 @@ allow qmuxd {
     smd_device
     hsic_device
     mhi_device
+    smem_log_device
 }:chr_file rw_file_perms;
 
 #Allow qmuxd to operate in platform specific transports

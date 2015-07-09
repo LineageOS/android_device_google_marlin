@@ -284,3 +284,10 @@
 # etc files
 #
 /etc/firmware/hbtp/*                                                u:object_r:hbtp_cfg_file:s0
+
+###################################
+# adsp files
+#
+/dsp(/.*)?                                                          u:object_r:adsprpcd_file:s0
+
+###################################
