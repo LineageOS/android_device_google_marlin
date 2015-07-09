@@ -17,7 +17,7 @@ allow hvdcp {
     sysfs_usb_supply
 }:file rw_file_perms;
 
-allow hvdcp self:capability { setgid setuid };
+allow hvdcp self:capability { setgid setuid dac_override };
 allow hvdcp cgroup:dir { create add_name };
 allow hvdcp self:netlink_kobject_uevent_socket create_socket_perms;
 wakelock_use(hvdcp)
