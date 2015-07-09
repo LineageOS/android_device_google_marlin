@@ -38,4 +38,16 @@
       <item>0x02FE</item>
       <item>0x04FE</item>
    </integer-array>
+
+   <bool name="config_enableCpuBoostForOverScrollerFling">true</bool>
+   <integer name="flingboost_timeout_param">2000</integer>
+   <integer-array name="flingboost_opcodes_param">
+      <item>0x4978</item>
+   </integer-array>
+
+   <bool name="config_enableCpuBoostForScroller">true</bool>
+   <integer name="scrollboost_timeout_param">2000</integer>
+   <integer-array name="scrollboost_opcodes_param">
+      <item>0x4978</item>
+   </integer-array>
 </resources>
