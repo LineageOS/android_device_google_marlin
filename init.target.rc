@@ -73,6 +73,7 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/usf 0700 system system
+    mkdir /data/misc/tloc/ 0700 system drmrpc
 
 on property:init.svc.bootanim=running
     write /sys/class/leds/wled/brightness 4095
@@ -136,6 +137,11 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
+
+service perfd /system/bin/perfd
+   class main
+   user root
+   disabled
 
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
@@ -248,6 +254,14 @@ service imsdatadaemon /system/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet net_raw log qcom_diag net_admin
     disabled
+
+service pd_mapper /system/vendor/bin/pd-mapper
+     class core
+     disabled
+
+on property:persist.sys.pd_enable=1
+     start pd_mapper
+
 #
 ## QCA1530 SoC late_start group trigger
 #service gnss-init /system/vendor/bin/gnss.qca1530.sh init
@@ -296,8 +310,19 @@ service ppd /system/bin/mm-pp-dpps
     socket pps stream 0660 system system
     disabled
 
+service tlocd /system/bin/tloc_daemon
+    class late_start
+    user system
+    group drmrpc
+
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
 on property:init.svc.surfaceflinger=running
     start ppd
+
+service energy-awareness /system/bin/energy-awareness
+    class main
+    user root
+    group system
+    oneshot

@@ -100,6 +100,9 @@ ifneq ($(TARGET_USES_AOSP),true)
   endif
 endif
 
+#Enable PD locater/notifier
+TARGET_PD_SERVICE_ENABLED := true
+
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
 
@@ -130,3 +133,6 @@ PROTOBUF_SUPPORTED := false
 #Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+
+# Enable HW accelerated full disk encryption
+TARGET_HW_DISK_ENCRYPTION := true

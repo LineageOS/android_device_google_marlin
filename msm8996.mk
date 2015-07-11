@@ -7,6 +7,8 @@ PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_pr
                       device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
+PRODUCT_COPY_FILES += device/qcom/msm8996/whitelistedapps.xml:system/etc/whitelistedapps.xml
+
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
@@ -18,7 +20,9 @@ PRODUCT_DEVICE := msm8996
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := MSM8996 for arm64
 
+PRODUCT_BOOT_JARS += qcmediaplayer
 #PRODUCT_BOOT_JARS += tcmiface
+
 ifneq ($(strip $(QCPATH)),)
 #PRODUCT_BOOT_JARS += WfdCommon
 endif
@@ -72,7 +76,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AntHalService \
     libantradio \
-    antradio_app
+    antradio_app \
+    libvolumelistener
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
