@@ -64,3 +64,6 @@ dpmd_socket_perm(mediaserver)
 dpmd_socket_perm(mtp)
 dpmd_socket_perm(wfdservice)
 dpmd_socket_perm(drmserver)
+
+#explicitly allow udp socket permissions for appdomain
+allow dpmd appdomain:udp_socket rw_socket_perms;

@@ -21,6 +21,11 @@ allow bluetooth sysfs:file w_file_perms;
 #Access to /data/media
 allow bluetooth media_rw_data_file:dir create_dir_perms;
 allow bluetooth media_rw_data_file:file create_file_perms;
+#allow proc_sysrq access for crash dump
+userdebug_or_eng(`
+ allow bluetooth proc_sysrq:file w_file_perms;
+ allow bluetooth debugfs:file r_file_perms;
+')
 
 allow bluetooth {
     uhid_device
