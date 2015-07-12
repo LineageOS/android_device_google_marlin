@@ -21,6 +21,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a9
 TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 
+TARGET_USES_OVERLAY := true
+
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
