@@ -136,3 +136,5 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 
 # Enable HW accelerated full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
+
+TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
