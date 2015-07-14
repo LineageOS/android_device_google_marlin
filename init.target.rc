@@ -332,3 +332,8 @@ service energy-awareness /system/bin/energy-awareness
     user root
     group system
     oneshot
+
+service hvdcp_opti /system/bin/hvdcp_opti
+    class main
+    user root
+    group root
