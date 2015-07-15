@@ -47,3 +47,7 @@ r_dir_file(qmuxd, sysfs_esoc)
 r_dir_file(qmuxd, sysfs_ssr);
 
 allow qmuxd mhi_device:chr_file rw_file_perms;
+
+#Allow qmuxd to access to IPC router
+allow qmuxd smem_log_device:chr_file rw_file_perms;
+allow qmuxd qmuxd:socket create_socket_perms;

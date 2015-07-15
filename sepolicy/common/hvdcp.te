@@ -20,3 +20,4 @@ allow hvdcp {
 allow hvdcp self:capability { setgid setuid };
 allow hvdcp cgroup:dir { create add_name };
 allow hvdcp self:netlink_kobject_uevent_socket create_socket_perms;
+wakelock_use(hvdcp)

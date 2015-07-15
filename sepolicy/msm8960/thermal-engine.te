@@ -1,2 +1,2 @@
-allow thermal-engine self:netlink_kobject_uevent_socket create;
+allow thermal-engine self:netlink_kobject_uevent_socket { create read setopt bind };
 allow thermal-engine socket_device:dir w_dir_perms;

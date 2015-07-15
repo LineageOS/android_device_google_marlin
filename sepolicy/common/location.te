@@ -34,3 +34,6 @@ r_dir_file(location, rfs_shared_hlos_file)
 
 dontaudit location domain:dir r_dir_perms;
 r_dir_file(location, netmgrd)
+
+#Allow access to netmgrd socket
+netmgr_socket(location);

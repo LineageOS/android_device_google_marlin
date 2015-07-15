@@ -8,4 +8,5 @@ recovery_only(`
     allow recovery system_data_file:dir r_dir_perms;
     allow recovery rfs_system_file:{file lnk_file } { create_file_perms relabelfrom relabelto };
     allow recovery rfs_system_file:dir { create_dir_perms relabelfrom relabelto };
+    allow recovery cache_file:dir mounton;
 ')

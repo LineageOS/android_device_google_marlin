@@ -11,6 +11,8 @@ userdebug_or_eng(`
 
   # IMS use camera daemon to make VT call
   allow mm-qcamerad port:tcp_socket name_bind;
+  allow mm-qcamerad self:tcp_socket { accept listen };
+  allow mm-qcamerad camera_data_file:file create_file_perms;
 ')
 
 #Communicate with user land process through domain socket
@@ -35,4 +37,4 @@ allow mm-qcamerad camera_data_file:dir w_dir_perms;
 allow mm-qcamerad camera_data_file:sock_file { create unlink };
 
 #Allows camera to call ADSP QDSP6 functionality
-allow mm-qcamerad qdsp_device:chr_file r_file_perms;
+allow mm-qcamerad qdsp_device:chr_file rw_file_perms;

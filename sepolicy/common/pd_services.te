@@ -25,8 +25,17 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-allow shell persist_file:dir r_dir_perms;
-allow shell persist_file:file r_file_perms;
+type pd_mapper, domain;
 
-# allow read access for shell
-r_dir_file(shell, RIDL_data_file)
+type pd_mapper_exec, exec_type, file_type;
+init_daemon_domain(pd_mapper);
+
+#Needed to read the json files from /firmware
+allow pd_mapper firmware_file:dir r_dir_perms;
+allow pd_mapper firmware_file:file r_file_perms;
+
+#Needed to use qmi
+allow pd_mapper self:socket create_socket_perms;
+allow pd_mapper self:capability { setpcap setuid setgid net_bind_service };
+allow pd_mapper smem_log_device:chr_file rw_file_perms;
+qmux_socket(pd_mapper);

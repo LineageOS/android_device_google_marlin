@@ -8,6 +8,7 @@ init_daemon_domain(sensors)
 type_transition sensors system_data_file:{ dir file } sensors_data_file;
 
 allow sensors self:capability {
+    # Change own perms to (nobody,nobody)
     setuid
     setgid
     # Chown /data/misc/sensors/debug/ to nobody
@@ -58,3 +59,9 @@ allow sensors device_latency:chr_file w_file_perms;
 userdebug_or_eng(`
   domain_auto_trans(shell, sensors_exec, sensors)
 ')
+
+binder_use(sensors)
+binder_call(sensors, servicemanager)
+binder_call(sensors, per_mgr)
+
+allow sensors sysfs:file w_file_perms;

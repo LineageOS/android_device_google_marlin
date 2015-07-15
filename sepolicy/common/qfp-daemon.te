@@ -25,8 +25,31 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-allow shell persist_file:dir r_dir_perms;
-allow shell persist_file:file r_file_perms;
+#qfp daemon for ultrasonic fingerprint sensor
+type qfp-daemon, domain;
+type qfp-daemon_exec, exec_type, file_type;
 
-# allow read access for shell
-r_dir_file(shell, RIDL_data_file)
+net_domain(qfp-daemon)
+init_daemon_domain(qfp-daemon)
+
+binder_call(qfp-daemon, servicemanager)
+binder_call(qfp-daemon, system_app)
+binder_use(qfp-daemon)
+
+allow qfp-daemon qfp-daemon_data_file:dir { rw_dir_perms setattr };
+allow qfp-daemon qfp-daemon_data_file:file create_file_perms;
+
+# Access to tee_device
+allow qfp-daemon tee_device:chr_file rw_file_perms;
+
+# Add IQfpService service
+allow qfp-daemon iqfp_service:service_manager add;
+
+# Read system property
+allow qfp-daemon property_socket:sock_file write;
+
+# RW to device driver
+allow qfp-daemon ontario_device:chr_file rw_file_perms;
+
+# R dir perms for firmware dir
+r_dir_file(qfp-daemon, firmware_file)

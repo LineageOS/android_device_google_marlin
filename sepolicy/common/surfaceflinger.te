@@ -8,6 +8,8 @@ allow surfaceflinger persist_display_file:file create_file_perms;
 # Allow only directory search to '/persist'
 allow surfaceflinger persist_file:dir search;
 
+allow surfaceflinger sysfs:file write;
+
 # Allows pp-daemon to refresh the screen in calibration mode
 r_dir_file(surfaceflinger, mm-pp-daemon)
 
@@ -22,3 +24,6 @@ unix_socket_connect(surfaceflinger, mpctl, perfd)
 # access to /data/misc/display for dumping input frames
 allow surfaceflinger display_misc_file:dir create_dir_perms;
 allow surfaceflinger display_misc_file:file create_file_perms;
+
+# Allows access to dpps daemon in calibration mode
+unix_socket_connect(surfaceflinger, pps, mm-pp-daemon)

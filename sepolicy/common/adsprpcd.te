@@ -7,5 +7,5 @@ init_daemon_domain(adsprpcd)
 
 allow adsprpcd qdsp_device:chr_file r_file_perms;
 
-#for reading files on /dsp
+# For reading dir/files on /dsp
 r_dir_file(adsprpcd, adsprpcd_file)

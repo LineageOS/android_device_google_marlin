@@ -25,8 +25,13 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-allow shell persist_file:dir r_dir_perms;
-allow shell persist_file:file r_file_perms;
+# tbase loader
+type tbaseLoader, domain;
+type tbaseLoader_exec, exec_type, file_type;
+init_daemon_domain(tbaseLoader)
 
-# allow read access for shell
-r_dir_file(shell, RIDL_data_file)
+# Allow tbaseLoader to use qseecom services for loading the app
+allow tbaseLoader tee_device:chr_file rw_file_perms;
+
+# Allow tbaseLoader to access the firmware files
+r_dir_file(tbaseLoader, firmware_file)

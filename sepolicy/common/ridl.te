@@ -25,8 +25,46 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-allow shell persist_file:dir r_dir_perms;
-allow shell persist_file:file r_file_perms;
+# RIDL
+type RIDL, domain;
+type RIDL_exec, exec_type, file_type;
 
-# allow read access for shell
-r_dir_file(shell, RIDL_data_file)
+type_transition RIDL RIDL_data_file:sock_file RIDL_socket;
+allow RIDL RIDL_socket:sock_file create_file_perms;
+allow RIDL RIDL_socket:dir create_dir_perms;
+
+# make transition from init to its domain
+init_daemon_domain(RIDL)
+
+# allow socket connections to us
+net_domain(RIDL)
+
+allow RIDL RIDL_data_file:dir create_dir_perms;
+allow RIDL RIDL_data_file:file create_file_perms;
+allow RIDL RIDL_data_file:lnk_file { create read unlink };
+allow RIDL debugfs:file read;
+
+# ver_info.txt
+r_dir_file(RIDL, firmware_file)
+
+# sdcard0/1
+allow RIDL fuse:dir create_dir_perms;
+allow RIDL fuse:file create_file_perms;
+
+# dmesg
+allow RIDL kernel:system syslog_read;
+
+# QMUX
+qmux_socket(RIDL)
+
+# ramdumps
+allow RIDL ramdump_device:chr_file rw_file_perms;
+
+# logcat
+unix_socket_connect(RIDL, logdr, logd)
+
+binder_use(RIDL)
+allow RIDL shell_exec:file { rx_file_perms };
+allow RIDL sysfs:file write;
+allow RIDL system_file:file x_file_perms;
+binder_call(RIDL, system_server)

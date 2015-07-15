@@ -85,3 +85,7 @@ allow system_server graphics_device:dir r_dir_perms;
 
 #Allow access to netmgrd socket
 netmgr_socket(system_server);
+
+# So init can manage our process
+allow system_server RIDL:fd use;
+allow system_server RIDL:fifo_file write;

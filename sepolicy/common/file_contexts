@@ -15,6 +15,7 @@
 /dev/qseecom                                    u:object_r:tee_device:s0
 /dev/seemplog                                   u:object_r:seemplog_device:s0
 /dev/radio0                                     u:object_r:fm_radio_device:s0
+/dev/rtc0                                       u:object_r:rtc_device:s0
 /dev/sensors                                    u:object_r:sensors_device:s0
 /dev/smd.*                                      u:object_r:smd_device:s0
 /dev/smem_log                                   u:object_r:smem_log_device:s0
@@ -45,6 +46,7 @@
 /dev/hbtp_input                                 u:object_r:hbtp_device:s0
 /dev/jdi-bu21150                                u:object_r:bu21150_device:s0
 /dev/voice_svc                                  u:object_r:voice_device:s0
+/dev/avtimer                                    u:object_r:avtimer_device:s0
 /dev/coresight-stm                              u:object_r:qdss_device:s0
 /dev/coresight-tmc-etf                          u:object_r:qdss_device:s0
 /dev/coresight-tmc-etr                          u:object_r:qdss_device:s0
@@ -53,6 +55,7 @@
 /dev/qce                                        u:object_r:qce_device:s0
 /dev/msm-rng                                    u:object_r:rng_device:s0
 /dev/at_.*                                      u:object_r:at_device:s0
+/dev/ontario                                    u:object_r:ontario_device:s0
 
 ###################################
 # Dev block nodes
@@ -74,6 +77,7 @@
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_nfc(/.*)?                      u:object_r:qmuxd_socket:s0
+/dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/sensor_ctl_socket                   u:object_r:sensors_socket:s0
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
 /dev/socket/nims                                u:object_r:cnd_socket:s0
@@ -86,7 +90,6 @@
 /dev/socket/perfd(/.*)?                         u:object_r:mpctl_socket:s0
 /dev/socket/qlogd                               u:object_r:qlogd_socket:s0
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
-/dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/dpmd                                u:object_r:dpmd_socket:s0
 /dev/socket/dpmwrapper                          u:object_r:dpmwrapper_socket:s0
 /dev/socket/pps                                 u:object_r:pps_socket:s0
@@ -96,6 +99,7 @@
 /dev/socket/rild3-debug                         u:object_r:rild_debug_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:msm_irqbalance_socket:s0
 /dev/socket/seempdw                             u:object_r:seempdw_socket:s0
+/dev/socket/RIDL(/.*)?                          u:object_r:RIDL_socket:s0
 
 ###################################
 # System files
@@ -104,6 +108,8 @@
 /system/bin/PktRspTest                          u:object_r:diag_exec:s0
 /system/bin/audiod                              u:object_r:audiod_exec:s0
 /system/bin/charger_monitor                     u:object_r:charger_monitor_exec:s0
+/system/bin/hvdcp_auth                          u:object_r:charger_monitor_exec:s0
+/system/bin/hvdcp_opti                          u:object_r:charger_monitor_exec:s0
 /system/bin/cnd                                 u:object_r:cnd_exec:s0
 /system/bin/diag_callback_client                u:object_r:diag_exec:s0
 /system/bin/diag_dci_sample                     u:object_r:diag_exec:s0
@@ -112,9 +118,11 @@
 /system/bin/diag_qshrink4_daemon                u:object_r:diag_exec:s0
 /system/bin/diag_socket_log                     u:object_r:diag_exec:s0
 /system/bin/diag_uart_log                       u:object_r:diag_exec:s0
+/system/bin/diag_buffering_test                 u:object_r:diag_exec:s0
 /system/bin/drmdiagapp                          u:object_r:diag_exec:s0
 /system/bin/irsc_util                           u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-daemon                        u:object_r:mm-pp-daemon_exec:s0
+/system/bin/mm-pp-dpps                          u:object_r:mm-pp-daemon_exec:s0
 /system/bin/mmi                                 u:object_r:mmi_exec:s0
 /system/bin/mpdecision                          u:object_r:mpdecision_exec:s0
 /system/bin/perfd                               u:object_r:perfd_exec:s0
@@ -132,6 +140,7 @@
 /system/bin/thermal-engine                      u:object_r:thermal-engine_exec:s0
 /system/bin/vm_bms                              u:object_r:vm_bms_exec:s0
 /system/bin/mm-qcamera-daemon                   u:object_r:mm-qcamerad_exec:s0
+/system/bin/qfp-daemon                          u:object_r:qfp-daemon_exec:s0
 /system/rfs.*                                   u:object_r:rfs_system_file:s0
 /system/bin/time_daemon                         u:object_r:time_daemon_exec:s0
 /system/bin/rmt_storage                         u:object_r:rmt_storage_exec:s0
@@ -148,6 +157,8 @@
 /system/bin/ks                                  u:object_r:mdm_helper_exec:s0
 /system/bin/pm-service                          u:object_r:per_mgr_exec:s0
 /system/bin/pm-proxy                            u:object_r:per_mgr_exec:s0
+/system/vendor/bin/pd-mapper                    u:object_r:pd_mapper_exec:s0
+/system/vendor/bin/pd-api-test                  u:object_r:pd_mapper_exec:s0
 /system/bin/usb_uicc_client                     u:object_r:usb_uicc_daemon_exec:s0
 /system/bin/qcom-system-daemon                  u:object_r:qcomsysd_exec:s0
 /system/xbin/qlogd                              u:object_r:qlogd_exec:s0
@@ -169,8 +180,8 @@
 /system/bin/garden_app                          u:object_r:location_exec:s0
 /system/bin/gpsone_daemon                       u:object_r:location_exec:s0
 /system/vendor/bin/slim_ap_daemon               u:object_r:location_exec:s0
-/system/vendor/bin/fidodaemon                   u:object_r:fidodaemon_exec:s0
 /system/bin/energy-awareness                    u:object_r:energyawareness_exec:s0
+/system/vendor/bin/fidodaemon                   u:object_r:fidodaemon_exec:s0
 /system/bin/dts_configurator                    u:object_r:dtsconfigurator_exec:s0
 /system/bin/dts_eagle_service                   u:object_r:dtseagleservice_exec:s0
 /system/vendor/bin/qti                          u:object_r:qti_exec:s0
@@ -191,6 +202,8 @@
 /system/bin/usf_sw_calib                        u:object_r:usf_exec:s0
 /system/bin/usf_pairing                         u:object_r:usf_exec:s0
 /system/bin/usf_tester                          u:object_r:usf_exec:s0
+/system/vendor/bin/RIDLClient.exe               u:object_r:RIDL_exec:s0
+/system/bin/tbaseLoader                         u:object_r:tbaseLoader_exec:s0
 /system/bin/mcStarter                           u:object_r:mcStarter_exec:s0
 
 ###################################
@@ -246,6 +259,7 @@
 /data/rfs.*                                                         u:object_r:rfs_data_file:s0
 /data/hlos_rfs(/.*)?                                                u:object_r:rfs_shared_hlos_file:s0
 /data/camera(/.*)?                                                  u:object_r:camera_socket:s0
+/data/misc/stargate(/.*)?                                           u:object_r:qfp-daemon_data_file:s0
 /data/system/sensors(/.*)?                                          u:object_r:sensors_data_file:s0
 /data/time(/.*)?                                                    u:object_r:time_data_file:s0
 /data/nfc(/.*)?                                                     u:object_r:nfc_data_file:s0
@@ -264,6 +278,7 @@
 /data/usf(/.*)?                                                     u:object_r:usf_data_file:s0
 /data/misc/dts(/.*)?                                                u:object_r:dts_data_file:s0
 /data/misc/seemp(/.*)?                                              u:object_r:seemp_file:s0
+/data/misc/SelfHost(/.*)?                                           u:object_r:RIDL_data_file:s0
 /data/misc/radio(/.*)?                                              u:object_r:radio_data_file:s0
 /data/misc/port_bridge(/.*)?                                        u:object_r:port_bridge_data_file:s0
 
@@ -277,6 +292,7 @@
 /persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
 /persist/data/sfs(/.*)?                                             u:object_r:persist_drm_file:s0
 /persist/usf(/.*)?                                                  u:object_r:persist_usf_file:s0
+/persist/hlos_rfs(/.*)?                                             u:object_r:rfs_shared_hlos_file:s0
 /persist/display(/.*)?                                              u:object_r:persist_display_file:s0
 /persist/rfs.*                                                      u:object_r:rfs_data_file:s0
 

@@ -1,3 +1,4 @@
+android.apps.IQfpService                       u:object_r:iqfp_service:s0
 AtCmdFwd                                       u:object_r:atfwd_service:s0
 dpmservice                                     u:object_r:dpmservice:s0
 listen.service                                 u:object_r:mediaserver_service:s0
@@ -11,3 +12,4 @@ com.qti.snapdragon.sdk.display.IColorService   u:object_r:color_service:s0
 wfdservice                                     u:object_r:wfdservice_service:s0
 DigitalPen                                     u:object_r:usf_service:s0
 dts_eagle_service                              u:object_r:dtseagleservice_service:s0
+wfd.native.mm.service                          u:object_r:wfdservice_service:s0

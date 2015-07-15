@@ -41,6 +41,9 @@ unix_socket_connect(mediaserver, mpctl, perfd)
 # for thermal sock files
 unix_socket_connect(mediaserver, thermal, thermal-engine)
 
+#This is required for thermal sysfs access
+r_dir_file(mediaserver, sysfs_thermal);
+
 #allow mediaserver to communicate with timedaemon
 allow mediaserver time_daemon:unix_stream_socket connectto;
 

@@ -65,3 +65,17 @@ binder_call(system_app, imscm)
 # access to seemp folder
 allow system_app seemp_file:dir r_dir_perms;
 allow system_app seemp_file:{ file fifo_file } rw_file_perms;
+
+#allow access to qfp-daemon
+binder_call(system_app, qfp-daemon)
+
+# allow system_app to interact with fido daemon
+binder_call(system_app, fidodaemon)
+
+#allow access to RIDL
+allow system_app RIDL_data_file:dir rw_dir_perms;
+allow system_app RIDL_data_file:file create_file_perms;
+allow system_app RIDL_data_file:lnk_file r_file_perms;
+allow system_app RIDL_socket:dir r_dir_perms;
+unix_socket_connect(system_app, RIDL, RIDL)
+allow system_app RIDL_socket:sock_file r_file_perms;

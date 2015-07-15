@@ -4,11 +4,11 @@ type firmware_file, fs_type, contextmount_type;
 #Define the qmux socket type
 type qmuxd_socket, file_type;
 
-#Define the pps socket type
-type pps_socket, file_type;
-
 #Define the netmgrd socket type
 type netmgrd_socket, file_type;
+
+#Define the pps socket type
+type pps_socket, file_type;
 
 # Define cnd socket and data file type
 type cnd_socket, file_type;
@@ -133,11 +133,18 @@ type hbtp_log_file, file_type;
 type usf_data_file, file_type, data_file_type;
 type persist_usf_file, file_type;
 
+#qfp-daemon
+type qfp-daemon_data_file, file_type, data_file_type;
+
 # dts notifier files
 type dts_data_file, file_type, data_file_type;
 
 #seemp socket
 type seempdw_socket, file_type;
+
+# RIDL data files
+type RIDL_data_file, file_type, data_file_type;
+type RIDL_socket, file_type;
 
 # used for /dsp files
 type adsprpcd_file, file_type;

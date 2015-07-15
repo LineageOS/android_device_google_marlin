@@ -76,3 +76,7 @@ allow wfdservice mpctl_socket:dir r_dir_perms;
 allow wfdservice dpmservice:service_manager add;
 unix_socket_send(wfdservice, mpctl, perfd)
 unix_socket_connect(wfdservice, mpctl, perfd)
+
+# Allow access to input_device for touch input detection
+allow wfdservice input_device:dir r_dir_perms;
+allow wfdservice input_device:chr_file r_file_perms;

@@ -1,2 +1,3 @@
-allow installd location_app_data_file:dir { relabelto create_dir_perms };
-allow installd location_app_data_file:lnk_file create_file_perms;
+allow installd location_app_data_file:dir { create_dir_perms relabelfrom relabelto };
+allow installd location_app_data_file:lnk_file { create_file_perms relabelfrom relabelto };
+allow installd location_app_data_file :{ file sock_file fifo_file } { getattr unlink rename relabelfrom relabelto setattr };

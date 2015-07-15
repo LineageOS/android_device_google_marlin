@@ -57,6 +57,9 @@ unix_socket_connect(dpmd, cnd, cnd);
 allow dpmd self:socket create_socket_perms;
 allow dpmd self:netlink_socket create_socket_perms;
 
+#allow dpmd to write to /proc/net/sys
+allow dpmd proc_net:file write;
+
 #allow dpmd get appname and use inet socket.
 dpmd_socket_perm(appdomain)
 dpmd_socket_perm(system_server)
