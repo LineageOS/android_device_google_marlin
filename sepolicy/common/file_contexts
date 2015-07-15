@@ -63,7 +63,7 @@
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
 /dev/block/bootdevice/by-name/misc              u:object_r:misc_partition:s0
-#/dev/block/mmcblk0p13                           u:object_r:bootselect_device:s0
+#/dev/block/mmcblk0p13                          u:object_r:bootselect_device:s0
 /dev/block/zram0                                u:object_r:swap_block_device:s0
 
 ###################################
