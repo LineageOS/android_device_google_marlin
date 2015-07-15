@@ -95,8 +95,10 @@
 /dev/socket/pps                                 u:object_r:pps_socket:s0
 /dev/socket/rild2                               u:object_r:rild_socket:s0
 /dev/socket/rild2-debug                         u:object_r:rild_debug_socket:s0
+/dev/socket/rild-debug2                         u:object_r:rild_debug_socket:s0
 /dev/socket/rild3                               u:object_r:rild_socket:s0
 /dev/socket/rild3-debug                         u:object_r:rild_debug_socket:s0
+/dev/socket/rild-debug3                         u:object_r:rild_debug_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:msm_irqbalance_socket:s0
 /dev/socket/seempdw                             u:object_r:seempdw_socket:s0
 /dev/socket/RIDL(/.*)?                          u:object_r:RIDL_socket:s0
