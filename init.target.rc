@@ -154,7 +154,6 @@ service seempd /system/bin/seempd
    user system
    group system
    socket seempdw dgram 0666 system system
-   oneshot
 
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
