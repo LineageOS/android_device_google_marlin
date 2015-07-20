@@ -122,19 +122,8 @@ Only the three quirks included above are recognized at this point:
             <Limit name="size" min="96x64" max="4096x2160" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="1944000" />
+            <Limit name="blocks-per-second" min="1" max="972000" />
             <Limit name="bitrate" range="1-100000000" />
-            <Limit name="vt-version" value="1.0" />
-            <Limit name="vt-low-latency" value="1" />
-            <Limit name="vt-max-instances" value="16" />
-            <Limit name="vt-max-temporal-layer-count" value="3" />
-            <Limit name="vt-max-ref-frames" value="4" />
-            <Limit name="vt-max-ltr-frames" value="3" />
-            <Limit name="vt-max-level" value="52" />
-            <Limit name="vt-slice-control-modes-bitmask" value="3" />
-            <Limit name="vt-max-macroblock-processing-rate" value="1944000" />
-            <Limit name="vt-down-scale-factor" value="8" />
-            <Limit name="vt-min-scale-factor" value="1" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -188,12 +177,8 @@ Only the three quirks included above are recognized at this point:
             <Limit name="size" min="64x64" max="4096x2160" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="1944000" />
+            <Limit name="blocks-per-second" min="1" max="972000" />
             <Limit name="bitrate" range="1-100000000" />
-            <Limit name="vt-low-latency" value="1" />
-            <Limit name="vt-max-macroblock-processing-rate" value="1944000" />
-            <Limit name="vt-max-level" value="52" />
-            <Limit name="vt-max-instances" value="16" />
             <Feature name="adaptive-playback" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.avc.secure" type="video/avc" >
