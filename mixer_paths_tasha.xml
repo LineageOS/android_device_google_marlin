@@ -1771,15 +1771,13 @@
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="14" />
-        <ctl name="HPHR Volume" value="14" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
         <ctl name="ANC Slot" value="0" />
         <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
         <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
-        <ctl name="RX1 Digital Volume" value="60" />
-        <ctl name="RX2 Digital Volume" value="60" />
         <ctl name="ADC MUX10" value="AMIC" />
         <ctl name="AMIC MUX10" value="ADC3" />
         <ctl name="ADC MUX12" value="AMIC" />
@@ -1842,8 +1840,8 @@
         <ctl name="IIR0 INP0 Volume" value="54" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="14" />
-        <ctl name="HPHR Volume" value="14" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
         <ctl name="ANC Slot" value="0" />
