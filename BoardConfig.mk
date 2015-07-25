@@ -113,3 +113,6 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 
 # Enable HW accelerated full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
+
+#Add support for firmare upgrade on 8996
+HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
