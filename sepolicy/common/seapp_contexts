@@ -2,3 +2,6 @@
 user=gps domain=location_app type=location_app_data_file
 user=system seinfo=platform name=com.qualcomm.services.location domain=location_app type=location_app_data_file
 user=system seinfo=platform name=com.qualcomm.location.XT domain=location_app type=location_app_data_file
+
+#Add new domain for dpmservice
+user=system seinfo=platform name=com.qti.dpmserviceapp domain=dpmservice_app type=dpmd_app_data_file

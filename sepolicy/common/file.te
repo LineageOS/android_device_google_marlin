@@ -18,6 +18,7 @@ type cnd_data_file, file_type;
 type dpmd_socket, file_type;
 type dpmwrapper_socket, file_type;
 type dpmd_data_file, file_type, data_file_type;
+type dpmd_app_data_file, file_type, data_file_type;
 
 #Define the timeout for platform specific transports
 type sysfs_hsic_modem_wait, sysfs_type, fs_type;
