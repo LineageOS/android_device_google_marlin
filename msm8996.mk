@@ -31,9 +31,6 @@ ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
 
-# default is nosdcard, S/W button enabled in resource
-PRODUCT_CHARACTERISTICS := nosdcard
-
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
