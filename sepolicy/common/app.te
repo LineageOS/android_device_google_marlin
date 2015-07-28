@@ -14,9 +14,3 @@ allow appdomain qdsp_device:chr_file r_file_perms;
 allow appdomain mpctl_socket:dir r_dir_perms;
 unix_socket_send(appdomain, mpctl, perfd)
 unix_socket_connect(appdomain, mpctl, perfd)
-
-# test apps needs to communicate with imscm
-# using binder call
-userdebug_or_eng(`
-  binder_call(appdomain, imscm)
-')
