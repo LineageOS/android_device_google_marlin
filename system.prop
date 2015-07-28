@@ -204,3 +204,5 @@ persist.qfp=false
 
 #default pd_enable value
 persist.sys.pd_enable=0
+#Disable rotator split feature
+sdm.debug.disable_rotator_split=1
