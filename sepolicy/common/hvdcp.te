@@ -15,6 +15,7 @@ allow hvdcp {
 allow hvdcp {
     sysfs_battery_supply
     sysfs_usb_supply
+    sysfs
 }:file rw_file_perms;
 
 allow hvdcp self:capability { setgid setuid dac_override };
