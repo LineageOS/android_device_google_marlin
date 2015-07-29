@@ -281,6 +281,7 @@
 /data/misc/SelfHost(/.*)?                                           u:object_r:RIDL_data_file:s0
 /data/misc/radio(/.*)?                                              u:object_r:radio_data_file:s0
 /data/misc/port_bridge(/.*)?                                        u:object_r:port_bridge_data_file:s0
+/data/misc/fm(/.*)?                                                 u:object_r:fm_data_file:s0
 
 ###################################
 # persist files

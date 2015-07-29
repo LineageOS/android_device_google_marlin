@@ -10,6 +10,10 @@ allow qti_init_shell { system_file rootfs }:file execute_no_trans;
 # For accessing fmradio device node
 # For accessing qdss_device device node
 allow qti_init_shell { fm_radio_device qdss_device }:chr_file r_file_perms;
+#give permission to read/write fm dir for calibration file
+allow qti_init_shell fm_data_file: dir rw_dir_perms;
+# create/open, read/write permission for fm calibration file.
+allow qti_init_shell fm_data_file: file create_file_perms;
 
 # for insmod of iris ko, this is needed.
 allow qti_init_shell self:capability { sys_module net_admin };

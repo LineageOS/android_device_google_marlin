@@ -1,5 +1,7 @@
 # fm_radio app needes  open read write on fm_radio_device
 allow system_app fm_radio_device:chr_file r_file_perms;
+r_dir_file(system_app, fm_data_file);
+
 allow system_app {
     ctl_default_prop
     usf_prop
