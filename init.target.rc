@@ -150,11 +150,11 @@ service perfd /system/bin/perfd
    user root
    disabled
 
-service seempd /system/bin/seempd
-   class core
-   user system
-   group system
-   socket seempdw dgram 0666 system system
+#service seempd /system/bin/seempd
+#   class late_start
+#   user system
+#   group system
+#   socket seempdw dgram 0666 system system
 
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
