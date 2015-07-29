@@ -13,3 +13,4 @@ wfdservice                                     u:object_r:wfdservice_service:s0
 DigitalPen                                     u:object_r:usf_service:s0
 dts_eagle_service                              u:object_r:dtseagleservice_service:s0
 wfd.native.mm.service                          u:object_r:wfdservice_service:s0
+extphone                                       u:object_r:radio_service:s0
