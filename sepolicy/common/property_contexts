@@ -18,3 +18,4 @@ ctl.sensors                u:object_r:sensors_prop:s0
 ctl.msm_irqbalance         u:object_r:msm_irqbalance_prop:s0
 camera.                    u:object_r:camera_prop:s0
 persist.camera.            u:object_r:camera_prop:s0
+sf.lcd_density             u:object_r:sf_lcd_density_prop:s0
