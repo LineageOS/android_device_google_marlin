@@ -52,3 +52,13 @@
 /dev/block/platform/soc/7464900.sdhci/by-name/rpm                               u:object_r:rpmb_device:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/userdata                          u:object_r:userdata_block_device:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/msadp                             u:object_r:mba_debug_dev:s0
+
+###################################
+# System files
+#
+/system/bin/qvop-daemon u:object_r:qvop_exec:s0
+
+###################################
+# data files
+#
+/data/misc/qvop(/.*)?      u:object_r:qvop_data_file:s0
