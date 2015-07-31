@@ -123,8 +123,8 @@
 /system/bin/diag_buffering_test                 u:object_r:diag_exec:s0
 /system/bin/drmdiagapp                          u:object_r:diag_exec:s0
 /system/bin/irsc_util                           u:object_r:irsc_util_exec:s0
-/system/bin/mm-pp-daemon                        u:object_r:mm-pp-daemon_exec:s0
-/system/bin/mm-pp-dpps                          u:object_r:mm-pp-daemon_exec:s0
+/system/vendor/bin/mm-pp-daemon                 u:object_r:mm-pp-daemon_exec:s0
+/system/vendor/bin/mm-pp-dpps                   u:object_r:mm-pp-daemon_exec:s0
 /system/bin/mmi                                 u:object_r:mmi_exec:s0
 /system/bin/mpdecision                          u:object_r:mpdecision_exec:s0
 /system/bin/perfd                               u:object_r:perfd_exec:s0
