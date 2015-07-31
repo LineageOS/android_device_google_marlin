@@ -103,3 +103,7 @@ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml
+
+# MSM IRQ Balancer configuration file
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
