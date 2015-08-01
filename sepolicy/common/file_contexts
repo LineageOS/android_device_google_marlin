@@ -56,6 +56,7 @@
 /dev/msm-rng                                    u:object_r:rng_device:s0
 /dev/at_.*                                      u:object_r:at_device:s0
 /dev/ontario                                    u:object_r:ontario_device:s0
+/dev/sg.*                                       u:object_r:sg_device:s0
 
 ###################################
 # Dev block nodes
