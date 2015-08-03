@@ -38,3 +38,6 @@ allow mm-qcamerad camera_data_file:sock_file { create unlink };
 
 #Allows camera to call ADSP QDSP6 functionality
 allow mm-qcamerad qdsp_device:chr_file rw_file_perms;
+
+#Allows sensor service(running in camera daemon) to invoke service manager API
+allow mm-qcamerad sensorservice_service:service_manager find;
