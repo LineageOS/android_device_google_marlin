@@ -29,7 +29,7 @@ ifneq ($(strip $(QCPATH)),)
 endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
-#PRODUCT_BOOT_JARS += qcom.fmradio
+PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
 
 #Android EGL implementation
