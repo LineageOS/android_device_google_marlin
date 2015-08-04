@@ -30,6 +30,7 @@
 
 <resources>
    <!-- Whether cpu boost is enabled for application's 1st launch. -->
+   <!--
    <bool name="config_enableCpuBoostForAppLaunch">true</bool>
    <integer name="launchboost_timeout_param">4000</integer>
    <integer-array name="launchboost_schedboost_param">
@@ -50,4 +51,5 @@
    <integer-array name="scrollboost_opcodes_param">
       <item>0x4978</item>
    </integer-array>
+   -->
 </resources>
