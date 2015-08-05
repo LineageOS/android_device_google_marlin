@@ -77,6 +77,8 @@
     <ctl name="SLIMBUS_4_RX Audio Mixer MultiMedia2" value="0" />
     <ctl name="MultiMedia5 Mixer SLIM_0_TX" value="0" />
     <ctl name="MultiMedia5 Mixer AFE_PCM_TX" value="0" />
+    <ctl name="MultiMedia5 Mixer TERT_MI2S_TX" value="0" />
+    <ctl name="MultiMedia5 Mixer AUX_PCM_UL_TX" value="0" />
     <ctl name="MultiMedia4 Mixer MI2S_TX" value="0" />
     <ctl name="MultiMedia1 Mixer MI2S_TX" value="0" />
     <ctl name="MultiMedia7 Mixer MI2S_TX" value="0" />
@@ -133,6 +135,10 @@
     <ctl name="IIR1 INP1 MUX" value="ZERO" />
     <ctl name="IIR1 INP2 MUX" value="ZERO" />
     <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="ZERO" />
+    <ctl name="SLIM0_RX_VI_FB_RCH_MUX" value="ZERO" />
+    <ctl name="VI_FEED_TX Channels" value="Two" />
+    <ctl name="AIF4_VI Mixer SPKR_VI_1" value="0" />
+    <ctl name="AIF4_VI Mixer SPKR_VI_2" value="0" />
     <ctl name="SLIM TX13 MUX" value="ZERO" />
     <ctl name="SLIM TX10 MUX" value="ZERO" />
     <ctl name="SLIM TX9 MUX" value="ZERO" />
@@ -263,6 +269,8 @@
     <ctl name="SpkrRight COMP Switch" value="0" />
     <ctl name="SpkrLeft BOOST Switch" value="0" />
     <ctl name="SpkrRight BOOST Switch" value="0" />
+    <ctl name="SpkrLeft VISENSE Switch" value="0" />
+    <ctl name="SpkrRight VISENSE Switch" value="0" />
     <ctl name="SpkrLeft SWR DAC_Port Switch" value="0" />
     <ctl name="SpkrRight SWR DAC_Port Switch" value="0" />
     <ctl name="SLIM RX1 MUX" value="ZERO" />
@@ -455,7 +463,7 @@
     <!-- anc headset end-->
     <!-- aanc handset mic -->
     <ctl name="AIF1_CAP Mixer SLIM TX9" value="0" />
-    <ctl name="SLIM_0_RX AANC MUX" value="ZERO" />
+    <ctl name="AANC_SLIM_0_RX MUX" value="ZERO" />
     <!-- aanc handset mic end -->
     <!-- ssr qmic -->
     <ctl name="AIF1_CAP Mixer SLIM TX10" value="0" />
@@ -1022,6 +1030,27 @@
         <ctl name="MultiMedia8 Mixer AFE_PCM_TX" value="1" />
     </path>
 
+    <path name="low-latency-record">
+      <ctl name="MultiMedia5 Mixer SLIM_0_TX" value="1" />
+    </path>
+
+    <path name="low-latency-record bt-sco">
+      <ctl name="MultiMedia5 Mixer AUX_PCM_UL_TX" value="1" />
+    </path>
+
+    <path name="low-latency-record bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <path name="low-latency-record bt-sco" />
+    </path>
+
+    <path name="low-latency-record usb-headset-mic">
+        <ctl name="MultiMedia5 Mixer AFE_PCM_TX" value="1" />
+    </path>
+
+    <path name="low-latency-record capture-fm">
+      <ctl name="MultiMedia5 Mixer TERT_MI2S_TX" value="1" />
+    </path>
+
     <path name="fm-virtual-record capture-fm">
         <ctl name="MultiMedia2 Mixer TERT_MI2S_TX" value="1" />
     </path>
@@ -1522,18 +1551,21 @@
         <ctl name="SpkrRight COMP Switch" value="1" />
         <ctl name="SpkrLeft BOOST Switch" value="1" />
         <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
         <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-fluid">
-        <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
+        <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM_0_RX Channels" value="One" />
-        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
-        <ctl name="COMP8 Switch" value="1" />
-        <ctl name="SpkrRight COMP Switch" value="1" />
-        <ctl name="SpkrRight BOOST Switch" value="1" />
-        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
+        <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="COMP7 Switch" value="1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-mono">
@@ -1543,10 +1575,12 @@
         <ctl name="COMP7 Switch" value="1" />
         <ctl name="SpkrLeft COMP Switch" value="1" />
         <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-liquid">
+        <path name="speaker" />
     </path>
 
    <path name="sidetone-iir">
@@ -1571,7 +1605,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="dmic3" />
+        <path name="dmic1" />
     </path>
 
     <path name="speaker-mic-liquid">
@@ -1585,15 +1619,24 @@
     </path>
 
     <path name="speaker-protected">
-        <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
-        <ctl name="SLIM_0_RX Channels" value="One" />
-        <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
-        <ctl name="COMP7 Switch" value="1" />
-        <ctl name="RX7 Digital Volume" value="85" />
+        <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
+        <ctl name="AIF4_VI Mixer SPKR_VI_2" value="1" />
+	<ctl name="SLIM_4_TX Format" value="PACKED_16B" />
+        <path name="speaker" />
+        <ctl name="VI_FEED_TX Channels" value="Two" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
+        <ctl name="SLIM0_RX_VI_FB_RCH_MUX"  value="SLIM4_TX" />
+    </path>
+
+    <path name="voice-speaker-protected">
+        <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
+	<ctl name="SLIM_4_TX Format" value="PACKED_16B" />
+        <path name="speaker-mono" />
+        <ctl name="VI_FEED_TX Channels" value="One" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="vi-feedback">
-        <ctl name="VIONOFF Switch" value="1" />
     </path>
 
     <path name="handset">
@@ -1630,8 +1673,8 @@
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX0 Digital Volume" value="81" />
         <ctl name="ANC Slot" value="6" />
-        <ctl name="ADC MUX6" value="DMIC" />
-        <ctl name="DMIC MUX6" value="DMIC3" />
+        <ctl name="ADC MUX10" value="DMIC" />
+        <ctl name="DMIC MUX10" value="DMIC3" />
         <ctl name="ANC0 FB MUX" value="ANC_IN_EAR" />
         <ctl name="ANC EAR Enable Switch" value="1" />
     </path>
@@ -1714,12 +1757,26 @@
         <ctl name="SpkrRight COMP Switch" value="1" />
         <ctl name="SpkrLeft BOOST Switch" value="1" />
         <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
         <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-and-headphones-liquid">
         <path name="headphones" />
+        <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
+        <ctl name="COMP7 Switch" value="1" />
+        <ctl name="COMP8 Switch" value="1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="usb-headphones">
@@ -1737,15 +1794,13 @@
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="14" />
-        <ctl name="HPHR Volume" value="14" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
         <ctl name="ANC Slot" value="0" />
         <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
         <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
-        <ctl name="RX1 Digital Volume" value="60" />
-        <ctl name="RX2 Digital Volume" value="60" />
         <ctl name="ADC MUX10" value="AMIC" />
         <ctl name="AMIC MUX10" value="ADC3" />
         <ctl name="ADC MUX12" value="AMIC" />
@@ -1759,7 +1814,17 @@
     <path name="speaker-and-anc-headphones">
         <path name="anc-headphones" />
         <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
         <ctl name="COMP7 Switch" value="1" />
+        <ctl name="COMP8 Switch" value="1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="anc-fb-headphones">
@@ -1770,7 +1835,17 @@
     <path name="speaker-and-anc-fb-headphones">
         <path name="anc-fb-headphones" />
         <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
         <ctl name="COMP7 Switch" value="1" />
+        <ctl name="COMP8 Switch" value="1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="voice-anc-headphones">
@@ -1788,8 +1863,8 @@
         <ctl name="IIR0 INP0 Volume" value="54" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="14" />
-        <ctl name="HPHR Volume" value="14" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
         <ctl name="ANC Slot" value="0" />
@@ -1889,17 +1964,17 @@
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
         <ctl name="SLIM_0_TX Channels" value="Three" />
-        <ctl name="SLIM_0_RX AANC MUX" value="SLIMBUS_0_TX" />
-        <ctl name="SLIM TX9 MUX" value="DEC7" />
-        <ctl name="ADC MUX7" value="DMIC" />
-        <ctl name="DMIC MUX7" value="DMIC0" />
+        <ctl name="AANC_SLIM_0_RX MUX" value="SLIMBUS_0_TX" />
+        <ctl name="SLIM TX6 MUX" value="DEC6" />
+        <ctl name="ADC MUX6" value="DMIC" />
+        <ctl name="DMIC MUX6" value="DMIC0" />
         <ctl name="SLIM TX8 MUX" value="DEC8" />
         <ctl name="ADC MUX8" value="DMIC" />
         <ctl name="DMIC MUX8" value="DMIC3" />
-        <ctl name="SLIM TX6 MUX" value="DEC6" />
-        <ctl name="ADC MUX6" value="DMIC" />
-        <ctl name="DMIC MUX6" value="DMIC2" />
-        <ctl name="IIR0 INP0 MUX" value="DEC7" />
+        <ctl name="SLIM TX9 MUX" value="DEC7" />
+        <ctl name="ADC MUX7" value="DMIC" />
+        <ctl name="DMIC MUX7" value="DMIC2" />
+        <ctl name="IIR0 INP0 MUX" value="DEC6" />
     </path>
 
     <!-- Dual MIC devices -->

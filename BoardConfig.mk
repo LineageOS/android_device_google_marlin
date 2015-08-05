@@ -10,7 +10,7 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT := kryo
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
@@ -22,6 +22,9 @@ TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
 BOOTLOADER_PLATFORM := msm8996 # use msm8996 LK configuration
+
+TARGET_USES_OVERLAY := true
+
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
@@ -86,20 +89,6 @@ TARGET_HW_DISK_ENCRYPTION := false
 #Enable SW based full disk encryption
 TARGET_SWV8_DISK_ENCRYPTION := true
 
-# Enable dex pre-opt to speed up initial boot
-ifneq ($(TARGET_USES_AOSP),true)
-  ifeq ($(HOST_OS),linux)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_PIC := true
-      ifneq ($(TARGET_BUILD_VARIANT),user)
-        # Retain classes.dex in APK's for non-user builds
-        DEX_PREOPT_DEFAULT := nostripping
-      endif
-    endif
-  endif
-endif
-
 #Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
 
@@ -110,6 +99,7 @@ TARGET_BOOTIMG_SIGNED := true
 ifeq ($(HOST_OS),linux)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_PIC := true
       ifneq ($(TARGET_BUILD_VARIANT),user)
         # Retain classes.dex in APK's for non-user builds
         DEX_PREOPT_DEFAULT := nostripping
@@ -132,7 +122,8 @@ PROTOBUF_SUPPORTED := false
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 
-# Enable HW accelerated full disk encryption
-TARGET_HW_DISK_ENCRYPTION := false
-
 TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
+
+#Add support for firmare upgrade on 8996
+HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
+

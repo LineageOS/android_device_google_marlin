@@ -129,8 +129,13 @@ persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 
 #property to enable sde downscale feature for virtual/external display
-#sdm.debug.sde_downscale_external=1
 sdm.debug.sde_downscale_virtual=1
+
+#property to enable sde downscale feature for external display
+#sdm.debug.sde_downscale_external=1
+
+#property to specify the number of frames to skip before setting hint
+#sdm.perf_hint_window=50
 
 #disable tunnel encoding
 tunnel.audio.encode=false
@@ -159,8 +164,12 @@ ro.nfc.port=I2C
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
+#enable pbe effects
+audio.safx.pbe.enabled=true
+
 #property for vendor specific library
 ro.vendor.gt_library=libqti-gt.so
+ro.vendor.at_library=libqti-at.so
 sys.games.gt.prof=1
 
 #hwui properties
@@ -195,3 +204,8 @@ persist.hwc.enable_vds=1
 ro.dbg.coresight.config=stm_events
 #property to enable fingerprint
 persist.qfp=false
+
+#default pd_enable value
+persist.sys.pd_enable=0
+#Disable rotator split feature
+sdm.debug.disable_rotator_split=1
