@@ -31,4 +31,14 @@ userdebug_or_eng(`
   unix_socket_send(hostapd, wpa, su)
 ')
 
+binder_call(hostapd, cnd)
+unix_socket_connect(hostapd, cnd, cnd)
+unix_socket_send(hostapd, cnd, cnd)
+allow hostapd cnd:{
+          fifo_file
+          netlink_route_socket
+          netlink_tcpdiag_socket
+          unix_stream_socket} { read write };
+allow hostapd cnd:fifo_file r_file_perms;
+allow hostapd smem_log_device:chr_file rw_file_perms;
 allow hostapd fstman:unix_dgram_socket sendto;
