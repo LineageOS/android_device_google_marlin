@@ -77,3 +77,7 @@ allow cnd ipacm_data_file:file r_file_perms;
 
 # explicitly allow udp socket permissions for appdomain
 allow cnd appdomain:udp_socket rw_socket_perms;
+
+#allow cnd daemon to invoke hostapd_cli
+allow cnd shell_exec:file rx_file_perms;
+domain_auto_trans(cnd, hostapd_exec, hostapd)
