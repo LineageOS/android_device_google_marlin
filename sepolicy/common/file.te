@@ -148,6 +148,9 @@ type dts_data_file, file_type, data_file_type;
 #seemp socket
 type seempdw_socket, file_type;
 
+#qsee_svc_app file types
+type qsee_svc_app_data_file, file_type, data_file_type;
+
 # RIDL data files
 type RIDL_data_file, file_type, data_file_type;
 type RIDL_socket, file_type;

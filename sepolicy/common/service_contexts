@@ -6,6 +6,7 @@ cneservice                                     u:object_r:cne_service:s0
 gbahttpauth                                    u:object_r:gba_auth_service:s0
 vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service:s0
 com.qualcomm.qti.auth.fidocryptodaemon         u:object_r:fidodaemon_service:s0
+com.qualcomm.qti.qseeproxy                     u:object_r:qseeproxy_service:s0
 wbc_service                                    u:object_r:wbc_service:s0
 STAProxyService                                u:object_r:STAProxyService:s0
 dun                                            u:object_r:dun_service:s0
