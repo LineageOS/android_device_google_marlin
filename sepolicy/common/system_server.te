@@ -30,6 +30,9 @@ allow system_server {
 #For ANT tty communication and to set wc_transport prop
 allow system_server { bluetooth_prop usf_prop }:property_service set;
 
+# required for ANT App to connectto wcnss_filter sockets
+allow system_server bluetooth:unix_stream_socket connectto;
+
 # allow  system/framework applications to update the dpmd configuration files
 unix_socket_connect(system_server, dpmd, dpmd);
 allow system_server { dpmd_socket socket_device }:sock_file w_file_perms;
