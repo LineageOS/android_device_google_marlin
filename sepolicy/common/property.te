@@ -15,3 +15,4 @@ type ipacm-diag_prop, property_type;
 type sensors_prop, property_type;
 type msm_irqbalance_prop, property_type;
 type camera_prop, property_type;
+type sf_lcd_density_prop, property_type;

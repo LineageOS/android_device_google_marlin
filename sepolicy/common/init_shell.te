@@ -4,6 +4,14 @@
 type qti_init_shell, domain;
 domain_auto_trans(init, shell_exec, qti_init_shell)
 
+# For executing init shell scripts (init.qcom.early_boot.sh)
+allow qti_init_shell rootfs:file entrypoint;
+
+# For getting idle_time value
+# this is needed for dynamic_fps and bw_mode_bitmap
+allow qti_init_shell sysfs_graphics:file {rw_file_perms setattr};
+allow qti_init_shell sysfs:file setattr;
+
 # Run helpers from / or /system without changing domain.
 allow qti_init_shell { system_file rootfs }:file execute_no_trans;
 
@@ -16,7 +24,16 @@ allow qti_init_shell fm_data_file: dir rw_dir_perms;
 allow qti_init_shell fm_data_file: file create_file_perms;
 
 # for insmod of iris ko, this is needed.
-allow qti_init_shell self:capability { sys_module net_admin };
+#dac_read/override is needed for scripts to do chown/mkdir which is
+#needed by most of the services
+# fowner and fsetid are needed for chmod display nodes.
+allow qti_init_shell self:capability {
+    sys_module
+    net_admin
+    chown
+    fowner
+    fsetid
+};
 
 # For  property starting with hw
 # freq_prop - for setting frequency from postboot script
@@ -39,6 +56,7 @@ allow qti_init_shell {
     uicc_prop
     ctl_qmuxd_prop
     ctl_netmgrd_prop
+    sf_lcd_density_prop
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop')
 }:property_service set;
