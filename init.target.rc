@@ -112,6 +112,7 @@ service per_mgr system/bin/pm-service
     class core
     user system
     group system net_raw
+    ioprio rt 4
 
 service per_proxy /system/bin/pm-proxy
     class core
