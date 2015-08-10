@@ -80,3 +80,7 @@ unix_socket_connect(wfdservice, mpctl, perfd)
 # Allow access to input_device for touch input detection
 allow wfdservice input_device:dir r_dir_perms;
 allow wfdservice input_device:chr_file r_file_perms;
+
+# Allow access to mediaserver, surfaceflinger and permissionmanager
+# for interaction of wfdservice
+allow wfdservice {mediaserver_service permission_service surfaceflinger_service wfdservice_service}: service_manager find;
