@@ -65,3 +65,6 @@ binder_call(sensors, servicemanager)
 binder_call(sensors, per_mgr)
 
 allow sensors sysfs:file w_file_perms;
+
+#Rules for sensors to talk to peripheral manager
+use_per_mgr(sensors);
