@@ -32,6 +32,7 @@ endif
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio
 endif #BOARD_HAVE_QCOM_FM
+PRODUCT_BOOT_JARS += qcmediaplayer
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
