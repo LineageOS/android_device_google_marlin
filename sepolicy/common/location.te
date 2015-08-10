@@ -18,7 +18,7 @@ allow location location_data_file:{ file fifo_file } create_file_perms;
 allow location location_data_file:sock_file write;
 allow location location_exec:file x_file_perms;
 allow location location_socket:sock_file create_file_perms;
-allow location self:capability { setuid setgid net_admin };
+allow location self:capability { setuid setgid net_admin net_raw };
 allow location self:{
     socket
     netlink_socket
@@ -26,10 +26,14 @@ allow location self:{
 
 unix_socket_connect(location, sensors, sensors)
 allow location sensors_device:chr_file r_file_perms;
-allow location sensors_socket:sock_file r_file_perms;
+allow location sensors_socket:sock_file rw_file_perms;
 allow location shell_exec:file rx_file_perms;
 
-allow location system_server:unix_stream_socket { read write };
+allow location system_server:unix_stream_socket { read write connectto};
+
+# For interfacing with the device sensorservice
+allow location sensorservice_service:service_manager find;
+
 r_dir_file(location, rfs_shared_hlos_file)
 
 dontaudit location domain:dir r_dir_perms;
