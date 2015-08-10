@@ -81,3 +81,5 @@ allow system_app RIDL_data_file:lnk_file r_file_perms;
 allow system_app RIDL_socket:dir r_dir_perms;
 unix_socket_connect(system_app, RIDL, RIDL)
 allow system_app RIDL_socket:sock_file r_file_perms;
+# allow gba auth service to add itself as system service
+allow system_app gba_auth_service:service_manager add;
