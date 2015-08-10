@@ -1,3 +1,10 @@
 # Adding allow rule for search on /fuse
 allow init fuse:dir { search mounton };
 allow init self:capability sys_module;
+allow init {
+    adsprpcd_file
+    cache_file
+    persist_file
+    storage_file
+}:dir mounton;
+allow init kmsg_device:chr_file write;

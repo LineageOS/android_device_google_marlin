@@ -13,7 +13,7 @@ allow qti_init_shell sysfs_graphics:file {rw_file_perms setattr};
 allow qti_init_shell sysfs:file setattr;
 
 # Run helpers from / or /system without changing domain.
-allow qti_init_shell { system_file rootfs }:file execute_no_trans;
+allow qti_init_shell { system_file rootfs shell_exec }:file execute_no_trans;
 
 # For accessing fmradio device node
 # For accessing qdss_device device node
@@ -33,6 +33,8 @@ allow qti_init_shell self:capability {
     chown
     fowner
     fsetid
+    dac_override
+    dac_read_search
 };
 
 # For  property starting with hw
@@ -73,7 +75,8 @@ allow qti_init_shell {
     sysfs
     sysfs_devices_system_cpu
     sysfs_thermal
-}:file write;
+    sysfs_lowmemorykiller
+}:file w_file_perms;
 
 r_dir_file(qti_init_shell, sysfs_thermal)
 allow qti_init_shell sysfs_socinfo:file write;
@@ -107,3 +110,6 @@ allow qti_init_shell { proc proc_net }:file write;
 
 allow qti_init_shell radio_data_file:dir create_dir_perms;
 allow qti_init_shell radio_data_file:file create_file_perms;
+
+allow qti_init_shell usf_data_file:dir w_dir_perms;
+allow qti_init_shell usf_data_file:{ file lnk_file } create_file_perms;

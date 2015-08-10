@@ -40,6 +40,7 @@
 /dev/block/platform/soc/624000.ufshc/by-name/misc                               u:object_r:misc_partition:s0
 /dev/block/platform/soc/624000.ufshc/by-name/rpm                                u:object_r:rpmb_device:s0
 /dev/block/platform/soc/624000.ufshc/by-name/userdata                           u:object_r:userdata_block_device:s0
+/dev/block/platform/soc/624000.ufshc/by-name/msadp                              u:object_r:mba_debug_dev:s0
 
 # eMMC devices
 /dev/block/platform/soc/7464900.sdhci/by-name/fsc                               u:object_r:modem_efs_partition_device:s0
@@ -50,3 +51,4 @@
 /dev/block/platform/soc/7464900.sdhci/by-name/misc                              u:object_r:misc_partition:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/rpm                               u:object_r:rpmb_device:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/userdata                          u:object_r:userdata_block_device:s0
+/dev/block/platform/soc/7464900.sdhci/by-name/msadp                             u:object_r:mba_debug_dev:s0
