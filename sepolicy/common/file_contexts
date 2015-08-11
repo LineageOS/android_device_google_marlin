@@ -211,6 +211,7 @@
 /system/vendor/bin/RIDLClient.exe               u:object_r:RIDL_exec:s0
 /system/bin/tbaseLoader                         u:object_r:tbaseLoader_exec:s0
 /system/bin/mcStarter                           u:object_r:mcStarter_exec:s0
+/system/bin/fstman                              u:object_r:fstman_exec:s0
 
 ###################################
 # sysfs files
