@@ -17,3 +17,4 @@ allow atfwd self:{ udp_socket socket } create_socket_perms;
 unix_socket_connect(atfwd, property, init);
 
 allow atfwd radio_prop:property_service set;
+allow atfwd atfwd_service:service_manager find;
