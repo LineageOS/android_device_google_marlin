@@ -97,6 +97,12 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
+#fingerprint service
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system
+
 service qfp-daemon /system/bin/qfp-daemon
     class late_start
     user system
