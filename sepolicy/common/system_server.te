@@ -86,6 +86,9 @@ allow system_server usf_data_file:lnk_file create_file_perms;
 # For WFD
 allow system_server graphics_device:dir r_dir_perms;
 
+# Allow Izat service
+allow system_server izat_service:service_manager add;
+
 #Allow access to netmgrd socket
 netmgr_socket(system_server);
 
