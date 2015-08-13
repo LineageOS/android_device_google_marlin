@@ -9,4 +9,6 @@ recovery_only(`
     allow recovery rfs_system_file:{file lnk_file } { create_file_perms relabelfrom relabelto };
     allow recovery rfs_system_file:dir { create_dir_perms relabelfrom relabelto };
     allow recovery cache_file:dir mounton;
+    allow recovery qce_device:chr_file rw_file_perms;
+    allow recovery tee_device:chr_file rw_file_perms;
 ')
