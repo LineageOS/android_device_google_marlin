@@ -65,6 +65,7 @@ allow qti_init_shell {
     ctl_qmuxd_prop
     ctl_netmgrd_prop
     sf_lcd_density_prop
+    mdm_helper_prop
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop')
 }:property_service set;

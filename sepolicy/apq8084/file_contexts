@@ -28,15 +28,16 @@
 ###################################
 # Primary storage device nodes
 #
-/dev/block/platform/msm_sdcc\.1/by-name/fsg                   u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/fsc                   u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/modemst1              u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/modemst2              u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/ssd                   u:object_r:ssd_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/misc                  u:object_r:misc_partition:s0
-/dev/block/platform/msm_sdcc\.1/by-name/userdata              u:object_r:userdata_block_device:s0
-/dev/block/mmcblk0                                            u:object_r:mmc_block_device:s0
-/dev/block/mmcblk0rpmb                                        u:object_r:rpmb_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/modem                           u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/ssd                             u:object_r:ssd_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/misc                            u:object_r:misc_partition:s0
+/dev/block/platform/msm_sdcc\.1/by-name/userdata                        u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0                                                      u:object_r:mmc_block_device:s0
+/dev/block/mmcblk0rpmb                                                  u:object_r:rpmb_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/mdm1m9kefs1                     u:object_r:efs_boot_dev:s0
+/dev/block/platform/msm_sdcc\.1/by-name/mdm1m9kefs2                     u:object_r:efs_boot_dev:s0
+/dev/block/platform/msm_sdcc\.1/by-name/mdm1m9kefs3                     u:object_r:efs_boot_dev:s0
+/dev/block/platform/msm_sdcc\.1/by-name/mdm1m9kefsc                     u:object_r:efs_boot_dev:s0
 
 # qca data file for apq8084 target
-/data/misc/location/qca1530(/.*)?                             u:object_r:qca1530_data_file:s0
+/data/misc/location/qca1530(/.*)?                                       u:object_r:qca1530_data_file:s0
