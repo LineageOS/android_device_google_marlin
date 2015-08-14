@@ -33,6 +33,7 @@ r_dir_file(per_mgr, sysfs_esoc)
 # Needed by libmdmdetect to get subsystem info and to check their states
 r_dir_file(per_mgr, sysfs_ssr)
 
+r_dir_file(per_mgr, firmware_file)
 # Needed by pm-proxy to talk to peripheral manager
 binder_call(per_mgr, per_mgr);
 binder_call(per_mgr, sensors);
