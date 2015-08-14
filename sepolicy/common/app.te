@@ -14,3 +14,5 @@ allow appdomain qdsp_device:chr_file r_file_perms;
 allow appdomain mpctl_socket:dir r_dir_perms;
 unix_socket_send(appdomain, mpctl, perfd)
 unix_socket_connect(appdomain, mpctl, perfd)
+unix_socket_send(appdomain, mpctl, mpdecision)
+unix_socket_connect(appdomain, mpctl, mpdecision)
