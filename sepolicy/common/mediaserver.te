@@ -56,3 +56,6 @@ allow mediaserver camera_prop:property_service set;
 
 #allow mediaserver to access wfdservice
 binder_call(mediaserver, wfdservice)
+
+#allow mediaserver to access adsprpcd
+r_dir_file(mediaserver, adsprpcd_file);
