@@ -8,3 +8,6 @@ allow init {
     storage_file
 }:dir mounton;
 allow init kmsg_device:chr_file write;
+
+#For sdcard
+allow init tmpfs:lnk_file create_file_perms;
