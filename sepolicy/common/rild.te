@@ -25,3 +25,6 @@ r_dir_file(rild, netmgrd)
 netmgr_socket(rild);
 
 allow rild mediaserver_service:service_manager find;
+
+# Rule for RILD to talk to peripheral manager
+use_per_mgr(rild);

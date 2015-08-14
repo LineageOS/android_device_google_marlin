@@ -92,3 +92,6 @@ netmgr_socket(system_server);
 # So init can manage our process
 allow system_server RIDL:fd use;
 allow system_server RIDL:fifo_file write;
+
+#Rules for system server to talk to peripheral manager
+use_per_mgr(system_server);
