@@ -23,6 +23,7 @@ allow mpdecision device_latency:chr_file w_file_perms;
 r_dir_file(mpdecision, sysfs_rqstats)
 allow mpdecision sysfs_rqstats:file w_file_perms;
 r_dir_file(mpdecision, sysfs_thermal)
+allow mpdecision sysfs_thermal:file write;
 
 #policies for mpctl
 #mpctl socket
@@ -38,3 +39,7 @@ allow mpdecision mpctl_data_file:file create_file_perms;
 
 #allow poll of system_server status
 r_dir_file(mpdecision, system_server)
+
+#mpdecision set properties
+unix_socket_connect(mpdecision, property, init)
+allow mpdecision mpdecision_prop:property_service set;

@@ -20,3 +20,5 @@ camera.                    u:object_r:camera_prop:s0
 persist.camera.            u:object_r:camera_prop:s0
 sf.lcd_density             u:object_r:sf_lcd_density_prop:s0
 qualcomm.bt.hci_transport  u:object_r:bluetooth_prop:s0
+ctl.mpdecision             u:object_r:mpdecision_prop:s0
+qualcomm.perf.cores_online u:object_r:mpdecision_prop:s0
