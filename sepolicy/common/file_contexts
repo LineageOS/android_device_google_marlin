@@ -130,7 +130,7 @@
 /system/bin/mm-pp-dpps                          u:object_r:mm-pp-daemon_exec:s0
 /system/bin/mmi                                 u:object_r:mmi_exec:s0
 /system/bin/mpdecision                          u:object_r:mpdecision_exec:s0
-/system/bin/perfd                               u:object_r:perfd_exec:s0
+/system/vendor/bin/perfd                        u:object_r:perfd_exec:s0
 /system/bin/msm_irqbalance                      u:object_r:msm_irqbalanced_exec:s0
 /system/bin/imsdatadaemon                       u:object_r:ims_exec:s0
 /system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
