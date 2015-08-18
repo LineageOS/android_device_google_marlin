@@ -22,10 +22,11 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := MSM8996 for arm64
 
 PRODUCT_BOOT_JARS += tcmiface
-PRODUCT_BOOT_JARS += com.qti.dpmframework
 
 ifneq ($(strip $(QCPATH)),)
 #PRODUCT_BOOT_JARS += WfdCommon
+PRODUCT_BOOT_JARS += com.qti.dpmframework
+PRODUCT_BOOT_JARS += dpmapi
 endif
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
