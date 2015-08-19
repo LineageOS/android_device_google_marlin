@@ -206,3 +206,6 @@ persist.qfp=false
 persist.sys.pd_enable=0
 #Disable rotator split feature
 sdm.debug.disable_rotator_split=1
+
+#Increase cached app limit
+ro.sys.fw.bg_apps_limit=60
