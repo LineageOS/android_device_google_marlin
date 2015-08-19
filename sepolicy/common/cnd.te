@@ -34,6 +34,9 @@ allow cnd self:{
     socket
 } create_socket_perms;
 
+# allow cnd to read tcp diagnostics through netlink
+allow cnd self:netlink_tcpdiag_socket nlmsg_read;
+
 # allow cnd to set system property
 allow cnd system_prop:property_service set;
 unix_socket_connect(cnd, property, init)
