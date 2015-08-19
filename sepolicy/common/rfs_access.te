@@ -3,12 +3,12 @@ type rfs_access, domain;
 type rfs_access_exec, exec_type, file_type;
 init_daemon_domain(rfs_access)
 
-#The files created by rfs_access process in the /data folder will have type rfs_data_file
-type_transition rfs_access system_data_file:{ dir file } rfs_data_file;
+#The files created by rfs_access process in the /data folder will have type rfs_file
+type_transition rfs_access system_data_file:{ dir file } rfs_file;
 type_transition rfs_access system_data_file:dir rfs_shared_hlos_file "hlos_rfs";
 
-#The files created by rfs_access process in the /persist folder will have type rfs_data_file
-type_transition rfs_access persist_file:{ dir file } rfs_data_file;
+#The files created by rfs_access process in the /persist folder will have type rfs_file
+type_transition rfs_access persist_file:{ dir file } rfs_file;
 type_transition rfs_access persist_file:dir rfs_shared_hlos_file "hlos_rfs";
 
 allow rfs_access {
@@ -27,13 +27,16 @@ wakelock_use(rfs_access)
 #To create the folders in /data
 allow rfs_access system_data_file:dir create_dir_perms;
 
+#To create the folders in /persist
+allow rfs_access persist_file:dir create_dir_perms;
+
 #For system folder entries
 r_dir_file(rfs_access, rfs_system_file)
 allow rfs_access rfs_system_file:lnk_file r_file_perms;
 
 #For data folder entries
-allow rfs_access rfs_data_file:dir create_dir_perms;
-allow rfs_access rfs_data_file:file create_file_perms;
+allow rfs_access rfs_file:dir create_dir_perms;
+allow rfs_access rfs_file:file create_file_perms;
 
 allow rfs_access rfs_shared_hlos_file:dir create_dir_perms;
 allow rfs_access rfs_shared_hlos_file:file create_file_perms;
@@ -54,5 +57,5 @@ allow rfs_access self:capability {
 };
 
 #Prevent other domains from accessing RFS data files.
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_data_file:dir create_dir_perms;
-neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_data_file:file create_file_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_file:dir create_dir_perms;
+neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_file:file create_file_perms;

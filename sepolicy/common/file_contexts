@@ -260,7 +260,7 @@
 /data/data_test(/.*)?                                               u:object_r:data_test_data_file:s0
 /data/diag_log(/.*)?                                                u:object_r:diag_data_file:s0
 /data/misc/sensors(/.*)?                                            u:object_r:sensors_data_file:s0
-/data/rfs.*                                                         u:object_r:rfs_data_file:s0
+/data/rfs.*                                                         u:object_r:rfs_file:s0
 /data/hlos_rfs(/.*)?                                                u:object_r:rfs_shared_hlos_file:s0
 /data/camera(/.*)?                                                  u:object_r:camera_socket:s0
 /data/misc/stargate(/.*)?                                           u:object_r:qfp-daemon_data_file:s0
@@ -299,7 +299,7 @@
 /persist/usf(/.*)?                                                  u:object_r:persist_usf_file:s0
 /persist/hlos_rfs(/.*)?                                             u:object_r:rfs_shared_hlos_file:s0
 /persist/display(/.*)?                                              u:object_r:persist_display_file:s0
-/persist/rfs.*                                                      u:object_r:rfs_data_file:s0
+/persist/rfs.*                                                      u:object_r:rfs_file:s0
 
 ###################################
 # etc files
