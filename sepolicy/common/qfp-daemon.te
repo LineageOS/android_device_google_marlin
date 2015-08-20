@@ -49,7 +49,7 @@ allow qfp-daemon iqfp_service:service_manager add;
 allow qfp-daemon property_socket:sock_file write;
 
 # RW to device driver
-allow qfp-daemon ontario_device:chr_file rw_file_perms;
+allow qfp-daemon qbt1000_device:chr_file rw_file_perms;
 
 # R dir perms for firmware dir
 r_dir_file(qfp-daemon, firmware_file)

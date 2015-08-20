@@ -54,8 +54,8 @@
 /dev/system_health_monitor                      u:object_r:system_health_monitor_device:s0
 /dev/qce                                        u:object_r:qce_device:s0
 /dev/msm-rng                                    u:object_r:rng_device:s0
+/dev/qbt1000                                    u:object_r:qbt1000_device:s0
 /dev/at_.*                                      u:object_r:at_device:s0
-/dev/ontario                                    u:object_r:ontario_device:s0
 /dev/sg.*                                       u:object_r:sg_device:s0
 
 ###################################
