@@ -4,5 +4,6 @@ type audiod_exec, exec_type, file_type;
 init_daemon_domain(audiod)
 allow audiod proc_audiod:file r_file_perms;
 allow audiod audio_device:chr_file rw_file_perms;
+allow audiod mediaserver_service:service_manager find;
 binder_use(audiod)
 binder_call(audiod, mediaserver)
