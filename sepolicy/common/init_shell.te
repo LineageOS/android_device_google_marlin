@@ -122,3 +122,6 @@ allow qti_init_shell graphics_device:lnk_file create_file_perms;
 
 # To create sensor dir inside /data/misc/
 allow qti_init_shell system_data_file:dir create_dir_perms;
+
+#insmod of ko from scripts need kernel key search
+allow qti_init_shell kernel:key search;
