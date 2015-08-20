@@ -1728,6 +1728,7 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
+        <ctl name="RX HPH Mode" value="CLS_H_LP" />
     </path>
 
     <path name="voice-headset-mic">
@@ -1839,6 +1840,7 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
+        <ctl name="RX HPH Mode" value="CLS_H_LP" />
         <ctl name="IIR0 Enable Band1" value="1" />
         <ctl name="IIR0 Enable Band2" value="1" />
         <ctl name="IIR0 Enable Band3" value="1" />
@@ -1873,6 +1875,7 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
+        <ctl name="RX HPH Mode" value="CLS_H_LP" />
         <ctl name="IIR0 Enable Band1" value="1" />
         <ctl name="IIR0 Enable Band2" value="1" />
         <ctl name="IIR0 Enable Band3" value="1" />
