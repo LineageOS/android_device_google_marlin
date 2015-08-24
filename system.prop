@@ -125,9 +125,6 @@ persist.debug.wfd.enable=1
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
 
-#property to enable sde downscale feature for virtual/external display
-sdm.debug.sde_downscale_virtual=1
-
 #property to enable sde downscale feature for external display
 #sdm.debug.sde_downscale_external=1
 
