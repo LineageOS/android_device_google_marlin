@@ -110,5 +110,8 @@ use_per_mgr(system_server);
 #allow binder calls
 binder_call(system_server, seempd)
 
+# Allow system server access to qfp daemon
+binder_call(system_server, qfp-daemon);
+
 #for seemp
 unix_socket_send(system_server, seempdw, seempd)

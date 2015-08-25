@@ -53,3 +53,11 @@ allow qfp-daemon qbt1000_device:chr_file rw_file_perms;
 
 # R dir perms for firmware dir
 r_dir_file(qfp-daemon, firmware_file)
+
+# Allow qfp daemon access to system server
+binder_call(qfp-daemon, system_server);
+
+# Allow read to sensor device and read/write to sensor socket
+allow qfp-daemon sensors_device:chr_file r_file_perms;
+allow qfp-daemon sensors_socket:sock_file rw_file_perms;
+allow qfp-daemon sensors:unix_stream_socket connectto;
