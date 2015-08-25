@@ -8,3 +8,6 @@ binder_call(platform_app, fidodaemon)
 binder_call(platform_app, imscm)
 
 allow platform_app color_service:service_manager find;
+
+# Allow NFC service to be found
+allow platform_app nfc_service:service_manager find;
