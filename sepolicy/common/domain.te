@@ -5,3 +5,6 @@ r_dir_file(domain, sysfs_esoc);
 r_dir_file(domain, sysfs_ssr);
 
 dontaudit domain kernel:system module_request;
+
+# Allow all domains read access to sysfs_thermal
+r_dir_file(domain, sysfs_thermal);
