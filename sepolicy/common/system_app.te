@@ -4,6 +4,7 @@ r_dir_file(system_app, fm_data_file);
 
 allow system_app {
     ctl_default_prop
+    fm_prop
     usf_prop
 }:property_service set;
 
