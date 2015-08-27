@@ -138,7 +138,7 @@ tunnel.audio.encode=false
 audio.offload.buffer.size.kb=32
 
 #Enable offload audio video playback by default
-av.offload.enable=true
+audio.offload.video=true
 
 #Enable 16 bit PCM offload by default
 audio.offload.pcm.16bit.enable=true
@@ -148,6 +148,9 @@ audio.offload.pcm.24bit.enable=true
 
 #Enable audio track offload by default
 audio.offload.track.enabled=true
+
+#Enable music through deep buffer
+audio.deep_buffer.media=true
 
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
