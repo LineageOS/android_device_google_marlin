@@ -14,3 +14,16 @@ r_dir_file(seempd, firmware_file)
 
 #allow access to packages.list
 allow seempd system_data_file:file r_file_perms;
+
+#allow binder calls
+binder_use(seempd)
+binder_call(seempd, system_server)
+binder_call(seempd, appdomain)
+
+#allow read access to proc files for app_domain
+dontaudit seempd domain:dir r_dir_perms;
+r_dir_file(seempd, appdomain)
+
+#for seemp
+allow seempd seemp_service:service_manager add;
+allow seempd self:binder call;

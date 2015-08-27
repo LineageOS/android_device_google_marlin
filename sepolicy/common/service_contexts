@@ -17,3 +17,5 @@ dts_eagle_service                              u:object_r:dtseagleservice_servic
 wfd.native.mm.service                          u:object_r:wfdservice_service:s0
 extphone                                       u:object_r:radio_service:s0
 com.qualcomm.location.izat.IzatService         u:object_r:izat_service:s0
+qti.security.seemp                             u:object_r:seemp_service:s0
+seempservice                                   u:object_r:seemp_service:s0

@@ -98,3 +98,9 @@ allow system_server RIDL:fifo_file write;
 
 #Rules for system server to talk to peripheral manager
 use_per_mgr(system_server);
+
+#allow binder calls
+binder_call(system_server, seempd)
+
+#for seemp
+unix_socket_send(system_server, seempdw, seempd)
