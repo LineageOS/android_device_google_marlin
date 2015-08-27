@@ -32,6 +32,10 @@ allow system_server { bluetooth_prop usf_prop }:property_service set;
 
 # required for ANT App to connectto wcnss_filter sockets
 allow system_server bluetooth:unix_stream_socket connectto;
+# access to iop
+allow system_server iop_data_file:dir r_dir_perms;
+unix_socket_send(system_server, iop, dumpstate)
+unix_socket_connect(system_server, iop, dumpstate)
 
 # allow  system/framework applications to update the dpmd configuration files
 unix_socket_connect(system_server, dpmd, dpmd);

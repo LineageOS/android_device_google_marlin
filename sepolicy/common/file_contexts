@@ -133,6 +133,7 @@
 /system/bin/mmi                                 u:object_r:mmi_exec:s0
 /system/bin/mpdecision                          u:object_r:mpdecision_exec:s0
 /system/vendor/bin/perfd                        u:object_r:perfd_exec:s0
+/system/bin/iop                                 u:object_r:dumpstate_exec:s0
 /system/bin/msm_irqbalance                      u:object_r:msm_irqbalanced_exec:s0
 /system/bin/imsdatadaemon                       u:object_r:ims_exec:s0
 /system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
@@ -271,6 +272,8 @@
 /data/nfc(/.*)?                                                     u:object_r:nfc_data_file:s0
 /data/system/perfd(/.*)?                                            u:object_r:mpctl_data_file:s0
 /data/misc/perfd(/.*)?                                              u:object_r:mpctl_socket:s0
+/data/misc/iop(/.*)?                                                u:object_r:iop_data_file:s0
+/data/misc/iop/iop                                                  u:object_r:iop_socket:s0
 /data/misc/display(/.*)?                                            u:object_r:display_misc_file:s0
 /data/misc/ipa(/.*)?                                                u:object_r:ipacm_data_file:s0
 /data/dpm(/.*)?                                                     u:object_r:dpmd_data_file:s0
