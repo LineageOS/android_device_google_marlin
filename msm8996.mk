@@ -1,6 +1,7 @@
 DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8996/overlay
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
+TARGET_USES_NQ_NFC := false
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
@@ -106,3 +107,35 @@ PRODUCT_COPY_FILES += \
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
+
+ifeq ($(TARGET_USES_NQ_NFC),true)
+PRODUCT_PACKAGES += \
+    nfc.msm8996 \
+    NfcNci \
+    libnfc-nci \
+    libnfc_nci_jni \
+    nfc_nci.nqx.default \
+    Tag \
+    com.android.nfc_extras \
+    libQPayJNI \
+    libSPIDriverInterface \
+    com.android.qcom.qpay \
+    com.android.qcom.qpay.xml \
+    SmartcardService \
+    org.simalliance.openmobileapi \
+    org.simalliance.openmobileapi.xml \
+    com.vzw.nfc \
+    com.vzw.nfc.xml \
+    libassd
+
+PRODUCT_COPY_FILES += \
+    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
+
+# SmartcardService, SIM1,SIM2,eSE1 not including eSE2,SD1 as default
+ADDITIONAL_BUILD_PROPERTIES += persist.nfc.smartcard.config=SIM1,SIM2,eSE1
+
+endif # TARGET_USES_NQ_NFC
