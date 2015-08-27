@@ -12,3 +12,6 @@ allow netd wfdservice:tcp_socket rw_socket_perms;
 # allow to read /data/misc/ipa/tether_stats file
 allow netd ipacm_data_file:dir r_dir_perms;
 allow netd ipacm_data_file:file r_file_perms;
+
+# needed for netd to start FST Manager via system property
+allow netd netd_prop:property_service set;

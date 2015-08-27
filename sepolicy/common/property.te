@@ -21,3 +21,6 @@ type mpdecision_prop, property_type;
 
 type fm_prop, property_type;
 type chgdiabled_prop, property_type;
+
+#properites for netd
+type netd_prop, property_type;
