@@ -41,3 +41,6 @@ allow mm-qcamerad qdsp_device:chr_file rw_file_perms;
 
 #Allows sensor service(running in camera daemon) to invoke service manager API
 allow mm-qcamerad sensorservice_service:service_manager find;
+
+#allow mm-qcamerad to access /dsp
+r_dir_file(mm-qcamerad, adsprpcd_file);
