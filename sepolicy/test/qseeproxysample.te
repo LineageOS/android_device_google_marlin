@@ -25,9 +25,33 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-user=_app seinfo=platform name=com.qualcomm.location.qvtester domain=location_app type=location_app_data_file
-user=_app seinfo=platform name=com.qualcomm.qct.dlt domain=location_app type=location_app_data_file
+type qseeproxysample, domain;
+type qseeproxysample_exec, exec_type, file_type;
+init_daemon_domain(qseeproxysample)
+userdebug_or_eng(`
+  #Allow test daemons to use Binder IPC
+  binder_use(qseeproxysample)
 
-#Add new domain for QSEE sample services
-user=system seinfo=platform name=com.qualcomm.qti.auth.securesampleauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
-user=system seinfo=platform name=com.qualcomm.qti.auth.secureextauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
+  #Allow services to interact with test daemon
+  binder_call(qseeproxysample, qsee_svc_app)
+  binder_call(qsee_svc_app, qseeproxysample)
+
+  # Mark test daemon as a Binder service domain
+  binder_service(qseeproxysample)
+
+  #Allow test daemon to be registered with service manager
+  allow qseeproxysample qseeproxysample_service:service_manager add;
+
+  #Allow test daemon to use system_server via binder to check caller identity
+  binder_call(qseeproxysample, system_server)
+
+  # Allow communication with init over property server
+  unix_socket_connect(qseeproxysample, property, init);
+
+  # Allow access to tee device
+  allow qseeproxysample tee_device:chr_file rw_file_perms;
+
+  # Allow access to firmware
+  allow qseeproxysample firmware_file:dir r_dir_perms;
+  allow qseeproxysample firmware_file:file r_file_perms;
+')

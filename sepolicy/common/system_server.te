@@ -93,6 +93,10 @@ allow system_server graphics_device:dir r_dir_perms;
 # Allow Izat service
 allow system_server izat_service:service_manager add;
 
+# For QSEE Svc Apps
+allow system_server qsee_svc_app_data_file:file rw_file_perms;
+allow system_server qsee_svc_app_data_file:dir r_dir_perms;
+
 #Allow access to netmgrd socket
 netmgr_socket(system_server);
 

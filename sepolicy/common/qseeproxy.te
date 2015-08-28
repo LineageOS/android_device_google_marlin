@@ -25,9 +25,37 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-user=_app seinfo=platform name=com.qualcomm.location.qvtester domain=location_app type=location_app_data_file
-user=_app seinfo=platform name=com.qualcomm.qct.dlt domain=location_app type=location_app_data_file
+type qseeproxy, domain;
+type qseeproxy_exec, exec_type, file_type;
 
-#Add new domain for QSEE sample services
-user=system seinfo=platform name=com.qualcomm.qti.auth.securesampleauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
-user=system seinfo=platform name=com.qualcomm.qti.auth.secureextauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
+#Allow for transition from init domain to qseeproxy
+init_daemon_domain(qseeproxy)
+
+#Allow qseeproxy to use Binder IPC
+binder_use(qseeproxy)
+
+#Allow apps to interact with qseeproxy
+binder_call(qseeproxy, qsee_svc_app)
+
+#Mark qseeproxy as a Binder service domain
+binder_service(qseeproxy)
+
+#Allow qseeproxy to be registered with service manager
+allow qseeproxy qseeproxy_service:service_manager add;
+
+#Allow qseeproxy to use system_server via binder to check caller identity
+binder_call(qseeproxy, system_server)
+
+#Allow communication with init over property server
+unix_socket_connect(qseeproxy, property, init);
+
+#Allow access to tee device
+allow qseeproxy tee_device:chr_file rw_file_perms;
+
+#Allow access to firmware
+allow qseeproxy firmware_file:dir r_dir_perms;
+allow qseeproxy firmware_file:file r_file_perms;
+
+#Allow access to session files
+allow qseeproxy data_qsee_file:dir create_dir_perms;
+allow qseeproxy data_qsee_file:file create_file_perms ;

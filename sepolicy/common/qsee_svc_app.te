@@ -25,9 +25,13 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-user=_app seinfo=platform name=com.qualcomm.location.qvtester domain=location_app type=location_app_data_file
-user=_app seinfo=platform name=com.qualcomm.qct.dlt domain=location_app type=location_app_data_file
+type qsee_svc_app, domain;
+app_domain(qsee_svc_app)
+binder_use(qsee_svc_app)
 
-#Add new domain for QSEE sample services
-user=system seinfo=platform name=com.qualcomm.qti.auth.securesampleauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
-user=system seinfo=platform name=com.qualcomm.qti.auth.secureextauthservice domain=qsee_svc_app type=qsee_svc_app_data_file
+# allow qsee_svc_app to interact with proxy daemon
+binder_call(qsee_svc_app, qseeproxy)
+
+# file permission
+allow qsee_svc_app qsee_svc_app_data_file:dir create_dir_perms;
+allow qsee_svc_app qsee_svc_app_data_file:file create_file_perms;

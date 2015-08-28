@@ -5,3 +5,7 @@ user=system seinfo=platform name=com.qualcomm.location.XT domain=location_app ty
 
 #Add new domain for dpmservice
 user=system seinfo=platform name=com.qti.dpmserviceapp domain=dpmservice_app type=dpmd_app_data_file
+
+#Add new domain for QSEE services
+user=system seinfo=platform name=com.qualcomm.qti.auth.fidocryptoservice domain=qsee_svc_app type=qsee_svc_app_data_file
+user=system seinfo=platform name=com.qualcomm.qti.auth.fidosuiservice domain=qsee_svc_app type=qsee_svc_app_data_file
