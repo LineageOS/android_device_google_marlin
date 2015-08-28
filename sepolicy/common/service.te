@@ -16,3 +16,4 @@ type dtseagleservice_service,   service_manager_type;
 type gba_auth_service,          service_manager_type;
 type izat_service,              system_api_service, service_manager_type;
 type seemp_service,             service_manager_type;
+type qtitetherservices_service, service_manager_type;

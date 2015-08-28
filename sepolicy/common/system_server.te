@@ -25,7 +25,10 @@ allow system_server {
     # Allow system_server to add digital pen system service
     usf_service
     dpmservice
+    qtitetherservices_service
 }:service_manager add;
+
+allow system_server qtitetherservices_service:service_manager{add find};
 
 #For ANT tty communication and to set wc_transport prop
 allow system_server { bluetooth_prop usf_prop }:property_service set;
