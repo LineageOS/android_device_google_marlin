@@ -63,7 +63,20 @@ userdebug_or_eng(`
   dontaudit qti-testscripts domain:drmservice *;
   dontaudit qti-testscripts unlabeled:filesystem *;
   #super_user - end
+
+  #Added below rule in same file to keep all debug policies
+  #under one common file.
+
   # All domains can read proc enrty of qti-testscripts
   r_dir_file(domain, qti-testscripts)
   r_dir_file(qti-testscripts, domain)
+
+  allow adbd qti-testscripts:process dyntransition;
+  allow domain qti-testscripts:unix_stream_socket connectto;
+  allow domain qti-testscripts:fd use;
+  allow domain qti-testscripts:unix_stream_socket { getattr getopt read write shutdown };
+  binder_call({ domain -init }, qti-testscripts)
+  allow domain qti-testscripts:fifo_file { write getattr };
+  allow domain qti-testscripts:process sigchld;
+
 ')
