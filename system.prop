@@ -161,6 +161,9 @@ audio.offload.gapless.enabled=true
 #enable pbe effects
 audio.safx.pbe.enabled=true
 
+#parser input buffer size(256kb) in byte stream mode
+audio.parser.ip.buffer.size=262144
+
 #property for vendor specific library
 ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
