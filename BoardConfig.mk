@@ -128,3 +128,5 @@ TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 
+# Enable MDTP (Mobile Device Theft Protection)
+TARGET_USE_MDTP := true
