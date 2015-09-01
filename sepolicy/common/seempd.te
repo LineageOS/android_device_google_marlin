@@ -1,4 +1,4 @@
-type seempd, domain;
+type seempd, domain, mlstrustedsubject;
 type seempd_exec, exec_type, file_type;
 
 init_daemon_domain(seempd)

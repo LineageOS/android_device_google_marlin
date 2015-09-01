@@ -11,12 +11,12 @@ type netmgrd_socket, file_type;
 type pps_socket, file_type;
 
 # Define cnd socket and data file type
-type cnd_socket, file_type;
+type cnd_socket, file_type, mlstrustedobject;
 type cnd_data_file, file_type;
 
 # Define dpmd data file type
 type dpmd_socket, file_type;
-type dpmwrapper_socket, file_type;
+type dpmwrapper_socket, file_type, mlstrustedobject;
 type dpmd_data_file, file_type, data_file_type;
 type dpmd_app_data_file, file_type, data_file_type;
 
@@ -48,7 +48,7 @@ type sensors_data_file, file_type, data_file_type;
 type sensors_persist_file, file_type;
 
 #type for thermal-engine
-type sysfs_thermal, sysfs_type, fs_type;
+type sysfs_thermal, sysfs_type, fs_type, mlstrustedobject;
 type thermal_socket, file_type;
 #type for uart
 type sysfs_msmuart_file, sysfs_type, fs_type;
@@ -75,7 +75,7 @@ type sysfs_battery_supply, sysfs_type, fs_type;
 type sysfs_mpdecision, fs_type, sysfs_type;
 type sysfs_rqstats, fs_type, sysfs_type;
 type sysfs_cpu_online, fs_type, sysfs_type;
-type mpctl_socket, file_type;
+type mpctl_socket, file_type, mlstrustedobject;
 type mpctl_data_file, file_type, data_file_type;
 
 #define the files writter during the operatio of iop
@@ -106,7 +106,7 @@ type sysfs_socinfo, fs_type, sysfs_type;
 #Define the sysfs files for usb_uicc_daemon
 type sysfs_usb_uicc, sysfs_type, fs_type;
 
-type qlogd_socket, file_type;
+type qlogd_socket, file_type, mlstrustedobject;
 type qlogd_data_file, file_type;
 #Defines the files (configs, dumps, etc) used by display processes
 type display_misc_file, file_type, data_file_type;
@@ -160,4 +160,4 @@ type RIDL_data_file, file_type, data_file_type;
 type RIDL_socket, file_type;
 
 # used for /dsp files
-type adsprpcd_file, file_type;
+type adsprpcd_file, file_type, mlstrustedobject;
