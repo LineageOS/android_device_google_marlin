@@ -27,9 +27,10 @@ allow mm-pp-daemon sensors:unix_stream_socket connectto;
 allow mm-pp-daemon system_prop:property_service set;
 
 # Allow service manager to find surface flinger service,
-# sensorservice service and permission_service
+# sensorservice service, permission_service, and power service (for
+# acquire wakelock)
 allow mm-pp-daemon { surfaceflinger_service sensorservice_service
-    permission_service }:service_manager find;
+    permission_service power_service }:service_manager find;
 
 # Allow mm-pp-daemon to call binder for screen refresh
 binder_use(mm-pp-daemon)
