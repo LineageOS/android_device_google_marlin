@@ -27,3 +27,4 @@ ctl.mpdecision             u:object_r:mpdecision_prop:s0
 qualcomm.perf.cores_online u:object_r:mpdecision_prop:s0
 netd.fstman.               u:object_r:netd_prop:s0
 location.                  u:object_r:location_prop:s0
+qemu.hw.mainkeys           u:object_r:qemu_hw_mainkeys_prop:s0

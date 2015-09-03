@@ -68,6 +68,7 @@ allow qti_init_shell {
     mdm_helper_prop
     fm_prop
     usf_prop
+    qemu_hw_mainkeys_prop
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop')
 }:property_service set;
