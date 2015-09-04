@@ -161,3 +161,6 @@ type RIDL_socket, file_type;
 
 # used for /dsp files
 type adsprpcd_file, file_type, mlstrustedobject;
+
+# audio pp notifier files
+type audio_pp_data_file, file_type, data_file_type;
