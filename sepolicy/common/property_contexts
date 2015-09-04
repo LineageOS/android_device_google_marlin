@@ -25,3 +25,4 @@ ctl.mdm_helper             u:object_r:mdm_helper_prop:s0
 ctl.mpdecision             u:object_r:mpdecision_prop:s0
 qualcomm.perf.cores_online u:object_r:mpdecision_prop:s0
 netd.fstman.               u:object_r:netd_prop:s0
+location.                  u:object_r:location_prop:s0

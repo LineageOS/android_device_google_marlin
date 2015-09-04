@@ -58,6 +58,7 @@ allow system_server location_data_file:dir rw_dir_perms;
 allow system_server { dpmd_app_data_file location_app_data_file } :file rw_file_perms;
 allow system_server { dpmd_app_data_file location_app_data_file } :dir r_dir_perms;
 allow system_server location_socket:sock_file create_file_perms;
+allow system_server location_prop:property_service set;
 
 #For wifistatemachine
 allow system_server kernel:key search;
