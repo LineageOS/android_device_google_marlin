@@ -38,4 +38,8 @@ allow wcnss_service fuse:dir create_dir_perms;
 allow wcnss_service fuse:file create_file_perms;
 allow wcnss_service vfat:dir create_dir_perms;
 allow wcnss_service vfat:file create_file_perms;
+
+# This is needed for ptt_socket app to write logs file collected to sdcard
+r_dir_file(wcnss_service, storage_file)
+r_dir_file(wcnss_service, mnt_user_file)
 ')
