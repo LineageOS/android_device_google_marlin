@@ -1,5 +1,5 @@
 #permissive cnd;
-type cnd, domain;
+type cnd, domain, mlstrustedsubject;
 type cnd_exec, exec_type, file_type;
 file_type_auto_trans(cnd, socket_device, cnd_socket);
 

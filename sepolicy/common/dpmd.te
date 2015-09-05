@@ -1,5 +1,5 @@
 #dpmd as domain
-type dpmd, domain;
+type dpmd, domain, mlstrustedsubject;
 type dpmd_exec, exec_type, file_type;
 file_type_auto_trans(dpmd, socket_device, dpmwrapper_socket);
 init_daemon_domain(dpmd)

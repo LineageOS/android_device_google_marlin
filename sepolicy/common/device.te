@@ -22,7 +22,7 @@ type vm_bms_device, dev_type;
 type battery_data_device, dev_type;
 
 #Add qdsp_device type
-type qdsp_device, dev_type;
+type qdsp_device, dev_type, mlstrustedobject;
 #Define hvdcp/quickcharge device
 type hvdcp_device, dev_type;
 
