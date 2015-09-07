@@ -27,3 +27,6 @@ type netd_prop, property_type;
 
 # property for location
 type location_prop, property_type;
+
+#properites for init.qcom.sh script
+type qemu_hw_mainkeys_prop, property_type;
