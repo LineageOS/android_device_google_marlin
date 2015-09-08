@@ -48,6 +48,7 @@ allow qti_init_shell self:capability {
 # bluetooth_prop - for setting bt related properties from postboot script
 # uicc_prop - for access to UICC property
 # ctl_qmuxd_prop/ctl_netmgrd_prop - Needed in order to set properties on qmuxd and netmgrd processes
+# rmnet_mux_prop - Needed to set persist.rmnet.mux property
 allow qti_init_shell {
     system_prop
     freq_prop
@@ -71,6 +72,7 @@ allow qti_init_shell {
     qemu_hw_mainkeys_prop
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop')
+    rmnet_mux_prop
 }:property_service set;
 
 allow qti_init_shell efs_boot_dev:blk_file r_file_perms;
