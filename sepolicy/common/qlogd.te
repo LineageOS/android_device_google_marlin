@@ -43,10 +43,12 @@ allow qlogd fuse:file create_file_perms;
 # need to capture kmsg
 allow qlogd kernel:system syslog_mod;
 
-# need for qdss log
+# need for qdss log and odl from UI
 userdebug_or_eng(`
   allow qlogd { debugfs qdss_device }:file r_file_perms;
   allow qlogd sysfs:file w_file_perms;
+  r_dir_file(qlogd, storage_file)
+  r_dir_file(qlogd, mnt_user_file)
 ')
 
 # need for capture adb logs
