@@ -33,7 +33,6 @@ allow dumpstate app_data_file:dir r_dir_perms;
 allow dumpstate app_data_file:file r_file_perms ;
 r_dir_file( dumpstate, appdomain );
 r_dir_file( dumpstate, apk_data_file );
-r_dir_file( dumpstate, system_server );
 
 #Create a socket for receiving info from IOP
 type_transition dumpstate iop_data_file:sock_file iop_socket "iop";
