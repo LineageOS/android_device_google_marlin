@@ -29,7 +29,7 @@
 
 # common
 /dev/block/mmcblk0rpmb                                                          u:object_r:rpmb_device:s0
-/dev/block/mmcblk0                                                              u:object_r:mmc_block_device:s0
+/dev/block/mmcblk0                                                              u:object_r:root_block_device:s0
 
 # UFS devices
 /dev/block/platform/soc/624000.ufshc/by-name/fsc                                u:object_r:modem_efs_partition_device:s0
