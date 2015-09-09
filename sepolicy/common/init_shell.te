@@ -20,16 +20,17 @@ allow qti_init_shell smd_device:chr_file rw_file_perms;
 allow qti_init_shell { system_file rootfs shell_exec }:file execute_no_trans;
 
 # For accessing fmradio device node
-# For accessing qdss_device device node
-allow qti_init_shell { fm_radio_device qdss_device }:chr_file r_file_perms;
+allow qti_init_shell fm_radio_device:chr_file r_file_perms;
+
 #give permission to read/write fm dir for calibration file
 allow qti_init_shell fm_data_file: dir rw_dir_perms;
+
 # create/open, read/write permission for fm calibration file.
 allow qti_init_shell fm_data_file: file create_file_perms;
 
 # for insmod of iris ko, this is needed.
-#dac_read/override is needed for scripts to do chown/mkdir which is
-#needed by most of the services
+# dac_read/override is needed for scripts to do chown/mkdir which is
+# needed by most of the services
 # fowner and fsetid are needed for chmod display nodes.
 allow qti_init_shell self:capability {
     sys_module
@@ -71,14 +72,14 @@ allow qti_init_shell {
     usf_prop
     qemu_hw_mainkeys_prop
     # Needed for starting console in userdebug mode
-    userdebug_or_eng(`ctl_console_prop')
+    userdebug_or_eng(`ctl_console_prop coresight_prop')
     rmnet_mux_prop
 }:property_service set;
 
 allow qti_init_shell efs_boot_dev:blk_file r_file_perms;
 
 # For hci_comm_init
-allow qti_init_shell serial_device:chr_file rw_file_perms;
+allow qti_init_shell { serial_device userdebug_or_eng(`qdss_device') }:chr_file rw_file_perms;
 
 # Allow property changes
 unix_socket_connect(qti_init_shell, property, init)
@@ -106,6 +107,7 @@ allow qti_init_shell sensors_persist_file:file setattr;
 r_dir_file(qti_init_shell, usf_data_file)
 allow qti_init_shell usf_data_file:file w_file_perms;
 r_dir_file(qti_init_shell, persist_usf_file)
+allow qti_init_shell persist_usf_file:dir w_dir_perms;
 allow qti_init_shell usf_data_file:dir create_dir_perms;
 allow qti_init_shell usf_data_file:{ file lnk_file } create_file_perms;
 

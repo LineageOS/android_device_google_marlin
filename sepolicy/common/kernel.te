@@ -4,3 +4,6 @@ userdebug_or_eng(`
   allow kernel self:capability { dac_read_search dac_override };
   allow kernel self:socket create_socket_perms;
 ')
+
+# Access firmware_file
+r_dir_file(kernel, firmware_file)
