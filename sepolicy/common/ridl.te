@@ -77,8 +77,19 @@ allow RIDL cache_file:file create_file_perms;
 allow RIDL powerctl_prop:property_service set;
 unix_socket_connect(RIDL, property, init)
 
-# Access to ANR/segfaults
 userdebug_or_eng(`
+	# Access to ANR/segfaults
 	allow RIDL tombstone_data_file:dir rw_dir_perms;
 	allow RIDL tombstone_data_file:file { unlink rw_file_perms };
+
+	# tcpdump
+	allow RIDL self:packet_socket create_socket_perms;
+	allow RIDL self:capability net_raw;
 ')
+
+# drop root caps
+allow RIDL self:capability { setuid setgid };
+
+# access to /proc/kmsg
+allow RIDL self:capability2 syslog;
+allow RIDL kernel:system syslog_mod;
