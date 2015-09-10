@@ -97,3 +97,4 @@ allow mmi surfaceflinger_service:service_manager find;
 
 #Allow mmi to use IPC
 binder_use(mmi)
+binder_call(mmi,surfaceflinger)
