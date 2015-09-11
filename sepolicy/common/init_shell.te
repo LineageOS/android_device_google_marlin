@@ -133,3 +133,6 @@ allow qti_init_shell kernel:key search;
 
 # To change owner of /sys/devices/virtual/hsicctl/hsicctl0/modem_wait to radio
 allow qti_init_shell sysfs_hsic_modem_wait:file { r_file_perms setattr };
+
+# core-ctl
+allow qti_init_shell cgroup:dir add_name;
