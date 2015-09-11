@@ -25,5 +25,5 @@ dontaudit seempd domain:dir r_dir_perms;
 r_dir_file(seempd, appdomain)
 
 #for seemp
-allow seempd seemp_service:service_manager add;
+allow seempd seemp_service:service_manager { find add };
 allow seempd self:binder call;

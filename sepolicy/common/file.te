@@ -150,7 +150,7 @@ type qfp-daemon_data_file, file_type, data_file_type;
 type dts_data_file, file_type, data_file_type;
 
 #seemp socket
-type seempdw_socket, file_type;
+type seempdw_socket, file_type, mlstrustedobject;
 
 #qsee_svc_app file types
 type qsee_svc_app_data_file, file_type, data_file_type;
