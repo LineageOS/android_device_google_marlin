@@ -49,3 +49,6 @@ binder_call(bluetooth, servicemanager);
 
 #sapd requires interaction with qmux sockets
 qmux_socket(bluetooth);
+
+# for finding wbc_service
+allow bluetooth wbc_service:service_manager find;
