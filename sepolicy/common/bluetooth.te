@@ -46,6 +46,7 @@ r_dir_file(bluetooth, bt_firmware_file)
 binder_use(bluetooth);
 binder_call(bluetooth, system_app);
 binder_call(bluetooth, servicemanager);
+allow bluetooth dun_service:service_manager find;
 
 #sapd requires interaction with qmux sockets
 qmux_socket(bluetooth);
