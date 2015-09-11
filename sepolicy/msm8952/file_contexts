@@ -37,5 +37,5 @@
 /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata              u:object_r:userdata_block_device:s0
 /dev/block/platform/soc.0/7824900.sdhci/by-name/dip                   u:object_r:dip_device:s0
 /dev/block/platform/soc.0/7824900.sdhci/by-name/mdtp                  u:object_r:mdtp_device:s0
-/dev/block/mmcblk0                                                    u:object_r:mmc_block_device:s0
+/dev/block/mmcblk0                                                    u:object_r:root_block_device:s0
 /dev/block/mmcblk0rpmb                                                u:object_r:rpmb_device:s0
