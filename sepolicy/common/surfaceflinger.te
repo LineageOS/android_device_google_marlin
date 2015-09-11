@@ -29,3 +29,5 @@ allow surfaceflinger display_misc_file:file create_file_perms;
 
 # Allows access to dpps daemon in calibration mode
 unix_socket_connect(surfaceflinger, pps, mm-pp-daemon)
+
+r_dir_file(surfaceflinger, firmware_file)
