@@ -51,6 +51,10 @@ allow mediaserver time_daemon:unix_stream_socket connectto;
 allow mediaserver audio_data_file:sock_file { create setattr unlink };
 allow mediaserver audio_data_file:dir remove_name;
 
+# Allow mediaserver to create audio pp files
+allow mediaserver audio_pp_data_file:dir rw_dir_perms;
+allow mediaserver audio_pp_data_file:file create_file_perms;
+
 #Allow mediaserver to set camera  properties
 allow mediaserver camera_prop:property_service set;
 
