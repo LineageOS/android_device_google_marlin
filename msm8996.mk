@@ -6,7 +6,8 @@ TARGET_USES_NQ_NFC := false
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml
+                      device/qcom/msm8996/media_codecs.xml:system/etc/media_codecs.xml \
+                      device/qcom/msm8996/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 PRODUCT_COPY_FILES += device/qcom/msm8996/whitelistedapps.xml:system/etc/whitelistedapps.xml
