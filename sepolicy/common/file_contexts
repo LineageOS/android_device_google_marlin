@@ -107,7 +107,6 @@
 /dev/socket/rild-debug3                         u:object_r:rild_debug_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:msm_irqbalance_socket:s0
 /dev/socket/seempdw                             u:object_r:seempdw_socket:s0
-/dev/socket/RIDL(/.*)?                          u:object_r:RIDL_socket:s0
 
 ###################################
 # System files
@@ -297,6 +296,7 @@
 /data/misc/fm(/.*)?                                                 u:object_r:fm_data_file:s0
 /data/misc/audio_pp(/.*)?                                           u:object_r:audio_pp_data_file:s0
 /data/ramdump(/.*)?                                                 u:object_r:ssr_ramdump_data_file:s0
+/data/misc/SelfHost/socket(/.*)?                                    u:object_r:RIDL_socket:s0
 
 ###################################
 # persist files
