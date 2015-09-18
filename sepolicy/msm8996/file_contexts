@@ -44,6 +44,10 @@
 /dev/block/platform/soc/624000.ufshc/by-name/msadp                              u:object_r:mba_debug_dev:s0
 /dev/block/platform/soc/624000.ufshc/by-name/dip                                u:object_r:dip_device:s0
 /dev/block/platform/soc/624000.ufshc/by-name/mdtp                               u:object_r:mdtp_device:s0
+/dev/block/platform/soc/624000.ufshc/by-name/boot                               u:object_r:boot_block_device:s0
+/dev/block/platform/soc/624000.ufshc/by-name/recovery                           u:object_r:recovery_block_device:s0
+/dev/block/platform/soc/624000.ufshc/by-name/cache                              u:object_r:cache_block_device:s0
+/dev/block/platform/soc/624000.ufshc/by-name/frp                                u:object_r:frp_block_device:s0
 
 
 # eMMC devices
@@ -59,6 +63,10 @@
 /dev/block/platform/soc/7464900.sdhci/by-name/msadp                             u:object_r:mba_debug_dev:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/dip                               u:object_r:dip_device:s0
 /dev/block/platform/soc/7464900.sdhci/by-name/mdtp                              u:object_r:mdtp_device:s0
+/dev/block/platform/soc/7464900.sdhci/by-name/boot                              u:object_r:boot_block_device:s0
+/dev/block/platform/soc/7464900.sdhci/by-name/recovery                          u:object_r:recovery_block_device:s0
+/dev/block/platform/soc/7464900.sdhci/by-name/cache                             u:object_r:cache_block_device:s0
+/dev/block/platform/soc/7464900.sdhci/by-name/frp                               u:object_r:frp_block_device:s0
 
 ###################################
 # System files
