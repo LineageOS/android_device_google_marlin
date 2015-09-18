@@ -71,6 +71,10 @@ allow tee system_prop:property_service set;
 allow tee qfp-daemon_data_file:dir create_dir_perms;
 allow tee qfp-daemon_data_file:file create_file_perms;
 
+#allow access to fingerprintd data file
+allow tee fingerprintd_data_file:dir create_dir_perms;
+allow tee fingerprintd_data_file:file create_file_perms;
+
 # Provide access to block devices for MDTP
 allow tee mdtp_device:blk_file rw_file_perms;
 allow tee dip_device:blk_file rw_file_perms;

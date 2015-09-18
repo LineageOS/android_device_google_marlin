@@ -73,6 +73,8 @@ allow system_app seemp_file:{ file fifo_file } rw_file_perms;
 binder_call(system_app, seempd)
 
 #allow access to qfp-daemon
+allow system_app qfp-daemon_data_file:dir create_dir_perms;
+allow system_app qfp-daemon_data_file:file create_file_perms;
 binder_call(system_app, qfp-daemon)
 
 # allow system_app to interact with fido daemon
