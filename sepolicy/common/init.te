@@ -11,3 +11,8 @@ allow init kmsg_device:chr_file write;
 
 #For sdcard
 allow init tmpfs:lnk_file create_file_perms;
+
+#Certain domains needs LD_PRELOAD passed from init
+#allow it for most domain. Do not honor LD_PRELOAD
+#for lmkd
+allow init { domain -lmkd }:process noatsecure;
