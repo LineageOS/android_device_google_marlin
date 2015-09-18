@@ -66,6 +66,7 @@ allow qti_init_shell {
     uicc_prop
     ctl_qmuxd_prop
     ctl_netmgrd_prop
+    ctl_port-bridge_prop
     sf_lcd_density_prop
     mdm_helper_prop
     fm_prop

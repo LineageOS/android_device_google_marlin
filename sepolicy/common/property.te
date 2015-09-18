@@ -3,6 +3,7 @@ type uicc_prop, property_type;
 type qcom_ims_prop, property_type;
 type ctl_qmuxd_prop, property_type;
 type ctl_netmgrd_prop, property_type;
+type ctl_port-bridge_prop, property_type;
 
 # properties for usf daemons
 type usf_prop, property_type;
