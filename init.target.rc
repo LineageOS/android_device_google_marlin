@@ -356,7 +356,7 @@ service ppd /system/bin/mm-pp-dpps
 service tlocd /system/bin/tloc_daemon
     class late_start
     user system
-    group drmrpc
+    group drmrpc gps net_raw
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
