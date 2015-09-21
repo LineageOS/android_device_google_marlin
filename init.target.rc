@@ -109,7 +109,7 @@ service fingerprintd /system/bin/fingerprintd
 service qfp-daemon /system/bin/qfp-daemon
     class late_start
     user system
-    group system drmrpc
+    group system drmrpc diag
 
 service qvop-daemon /system/bin/qvop-daemon
     class late_start
