@@ -86,3 +86,6 @@ allow wfdservice input_device:chr_file r_file_perms;
 # Allow access to mediaserver, surfaceflinger and permissionmanager
 # for interaction of wfdservice
 allow wfdservice {mediaserver_service permission_service surfaceflinger_service wfdservice_service}: service_manager find;
+
+#Allow setting of net_admin capability so that libnl API's can be used
+allow wfdservice self:capability net_admin;
