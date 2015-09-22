@@ -76,6 +76,8 @@ allow qti_init_shell {
     fm_prop
     usf_prop
     qemu_hw_mainkeys_prop
+    alarm_boot_prop
+    boot_animation_prop
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop coresight_prop')
     rmnet_mux_prop
