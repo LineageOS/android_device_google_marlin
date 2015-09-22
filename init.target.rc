@@ -256,10 +256,9 @@ service usf_hovering /system/bin/usf_hovering
     oneshot
 
 service usf_proximity /system/bin/usf_proximity
+    class late_start
     user system
     group system inet audio
-    disabled
-    oneshot
 
 service usf_pairing /system/bin/usf_pairing
     user system
