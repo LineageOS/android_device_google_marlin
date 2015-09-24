@@ -133,7 +133,7 @@ persist.sys.wfd.virtual=0
 #sdm.debug.downscale_external=1
 
 #property to specify the number of frames to skip before setting hint
-#sdm.perf_hint_window=50
+sdm.perf_hint_window=50
 
 #disable tunnel encoding
 tunnel.audio.encode=false
