@@ -93,6 +93,11 @@
     <ctl name="PRI_MI2S_RX Port Mixer QUAT_MI2S_TX" value="0" />
     <!-- Voice2 end-->
 
+    <!-- RT Proxy Cal -->
+    <ctl name="RT_PROXY_1_RX SetCalMode" value="CAL_MODE_NONE" />
+    <ctl name="RT_PROXY_1_TX SetCalMode" value="CAL_MODE_NONE" />
+    <!-- RT Proxy Cal end -->
+
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="deep-buffer-playback">
         <ctl name="AUX_PCM_RX Audio Mixer MultiMedia1" value="1" />
