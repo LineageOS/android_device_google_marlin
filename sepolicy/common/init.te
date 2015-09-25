@@ -9,6 +9,9 @@ allow init {
 }:dir mounton;
 allow init kmsg_device:chr_file write;
 
+#For insmod to search module key for signature verification
+allow init kernel:key search;
+
 #For sdcard
 allow init tmpfs:lnk_file create_file_perms;
 
