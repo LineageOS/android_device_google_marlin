@@ -75,6 +75,7 @@ on post-fs-data
     mkdir /data/usf 0700 system system
     mkdir /data/misc/tloc/ 0700 system drmrpc
     mkdir /data/misc/qvop 0660 system system
+    mkdir /data/misc/audio_pp 0771 media audio
 
 on property:init.svc.bootanim=running
     write /sys/class/leds/wled/brightness 4095
