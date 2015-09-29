@@ -55,9 +55,12 @@ allow wfdservice uhid_device:chr_file rw_file_perms;
 #Allow PROT_EXEC for 3rd party library loaded by wfdservice
 allow wfdservice self:process execmem;
 
-#Allow access to read mmosal_logmask file in /data partition
 userdebug_or_eng(`
+#Allow access to read mmosal_logmask file in /data partition
   allow wfdservice system_data_file:file r_file_perms;
+#Allow access to dump encoder/decoder dumps in /data/misc/media
+  allow wfdservice media_data_file:dir w_dir_perms;
+  allow wfdservice media_data_file:file create_file_perms;
 ')
 
 #Allow access to firmware files for HDCP session
