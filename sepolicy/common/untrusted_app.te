@@ -13,3 +13,8 @@ userdebug_or_eng(`
 
 # for finding wbc_service
 allow untrusted_app wbc_service:service_manager find;
+
+# using binder call
+userdebug_or_eng(`
+  binder_call(untrusted_app, hbtp);
+')

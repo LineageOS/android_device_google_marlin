@@ -35,3 +35,5 @@ type rmnet_mux_prop, property_type;
 type qemu_hw_mainkeys_prop, property_type;
 
 type coresight_prop, property_type;
+
+type ctl_hbtp_prop, property_type;

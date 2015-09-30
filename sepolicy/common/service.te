@@ -12,6 +12,7 @@ type STAProxyService,             service_manager_type;
 type dun_service,                 service_manager_type;
 type imscm_service,               system_api_service, service_manager_type;
 type color_service,               service_manager_type;
+type improve_touch_service,       service_manager_type;
 type wfdservice_service,          service_manager_type;
 type usf_service,                 service_manager_type;
 type dtseagleservice_service,     service_manager_type;

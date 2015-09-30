@@ -76,6 +76,7 @@ allow qti_init_shell {
     # Needed for starting console in userdebug mode
     userdebug_or_eng(`ctl_console_prop coresight_prop')
     rmnet_mux_prop
+    ctl_hbtp_prop
 }:property_service set;
 
 allow qti_init_shell efs_boot_dev:blk_file r_file_perms;

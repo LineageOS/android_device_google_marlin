@@ -18,3 +18,6 @@ allow platform_app nfc_service:service_manager find;
 
 #Allow platform apps to interact with seemp health daemon
 binder_call(platform_app, seemp_health_daemon)
+
+# Allow improveTouch service to be found
+binder_call(platform_app, hbtp);

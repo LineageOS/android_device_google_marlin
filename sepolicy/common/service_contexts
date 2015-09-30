@@ -12,6 +12,8 @@ STAProxyService                                u:object_r:STAProxyService:s0
 dun                                            u:object_r:dun_service:s0
 qti.ims.connectionmanagerservice               u:object_r:imscm_service:s0
 com.qti.snapdragon.sdk.display.IColorService   u:object_r:color_service:s0
+improveTouch.TouchService                      u:object_r:improve_touch_service:s0
+improveTouch.TouchManagerService               u:object_r:improve_touch_service:s0
 wfdservice                                     u:object_r:wfdservice_service:s0
 DigitalPen                                     u:object_r:usf_service:s0
 dts_eagle_service                              u:object_r:dtseagleservice_service:s0

@@ -33,3 +33,4 @@ location.                  u:object_r:location_prop:s0
 persist.rmnet.mux          u:object_r:rmnet_mux_prop:s0
 qemu.hw.mainkeys           u:object_r:qemu_hw_mainkeys_prop:s0
 dbg.coresight.cfg_file     u:object_r:coresight_prop:s0
+ctl.hbtp                   u:object_r:ctl_hbtp_prop:s0
