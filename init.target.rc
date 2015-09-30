@@ -375,3 +375,8 @@ service hvdcp_opti /system/bin/hvdcp_opti
     class main
     user root
     group root
+
+service mdtp_service /system/vendor/bin/mdtp_service
+   class late_start
+   user system
+   group system
