@@ -3,6 +3,9 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := false
 
+#QTIC flag
+-include $(QCPATH)/common/config/qtic-config.mk
+
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += device/qcom/msm8996/media_profiles.xml:system/etc/media_profiles.xml \
