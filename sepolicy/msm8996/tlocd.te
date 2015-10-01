@@ -25,8 +25,24 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Data type for QVOP
-type qvop_data_file, file_type, data_file_type;
+type tlocd, domain;
+type tlocd_exec, exec_type, file_type;
 
-#TLOC Files
-type tlocd_data_file, file_type, data_file_type;
+init_daemon_domain(tlocd)
+
+# Allow interracting with tlocd directory
+allow tlocd tlocd_data_file:dir create_dir_perms;
+allow tlocd tlocd_data_file:file create_file_perms;
+
+# Allow interracting with qseecom
+allow tlocd tee_device:chr_file rw_file_perms;
+
+# Allow interracting with trust-zone
+r_dir_file(tlocd, firmware_file)
+
+# Allow interracting with nqs fifos
+allow tlocd tlocd_data_file:fifo_file create_file_perms;
+
+#Allow access MODEM
+allow tlocd self:socket create_socket_perms;
+qmux_socket(tlocd);
