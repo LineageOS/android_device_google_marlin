@@ -68,6 +68,7 @@ allow qti_init_shell {
     ctl_netmgrd_prop
     ctl_port-bridge_prop
     sf_lcd_density_prop
+    opengles_prop
     mdm_helper_prop
     fm_prop
     usf_prop
