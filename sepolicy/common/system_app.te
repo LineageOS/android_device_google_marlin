@@ -100,5 +100,8 @@ allow system_app self:netlink_kobject_uevent_socket { read bind setopt create };
 #allow access to ipa
 allow system_app ipa_dev:chr_file rw_file_perms;
 
+# allow system_app to interact with mdtp daemon
+binder_call(system_app, mdtpdaemon)
+
 # allow access to system_app for audio pp files
 r_dir_file(system_app, audio_pp_data_file);
