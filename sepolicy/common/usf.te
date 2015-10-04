@@ -19,7 +19,7 @@ allow usf audio_device:dir r_dir_perms;
 
 # Data files and persist storage
 allow usf usf_data_file:dir rw_dir_perms;
-allow usf usf_data_file:{ file sock_file } create_file_perms;
+allow usf usf_data_file:{ file sock_file fifo_file } create_file_perms;
 allow usf usf_data_file:lnk_file r_file_perms;
 r_dir_file(usf, persist_file)
 r_dir_file(usf, persist_usf_file)

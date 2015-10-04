@@ -72,8 +72,10 @@
 # System files
 #
 /system/bin/qvop-daemon u:object_r:qvop_exec:s0
+/system/bin/tloc_daemon u:object_r:tlocd_exec:s0
 
 ###################################
 # data files
 #
 /data/misc/qvop(/.*)?      u:object_r:qvop_data_file:s0
+/data/misc/tloc(/.*)?      u:object_r:tlocd_data_file:s0
