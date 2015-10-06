@@ -3,6 +3,7 @@
 #
 /dev/msm_camera(/.*)?                           u:object_r:camera_device:s0
 /dev/msm_rotator                                u:object_r:graphics_device:s0
+/dev/mdp_arb                                    u:object_r:graphics_device:s0
 /dev/mdm                                        u:object_r:mdm_device:s0
 /dev/block/bootdevice/by-name/m9kefs1           u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/m9kefs2           u:object_r:efs_boot_dev:s0
