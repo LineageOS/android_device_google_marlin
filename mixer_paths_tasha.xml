@@ -258,7 +258,7 @@
     <ctl name="SLIM_5_RX Channels" value="One" />
     <ctl name="SLIM_0_TX Channels" value="One" />
     <ctl name="SLIM_1_TX Channels" value="One" />
-    <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
+    <ctl name="SLIM RX0 MUX" value="ZERO" />
     <ctl name="SLIM RX3 MUX" value="ZERO" />
     <ctl name="SLIM RX4 MUX" value="ZERO" />
     <ctl name="EAR PA Gain" value="G_6_DB" />
