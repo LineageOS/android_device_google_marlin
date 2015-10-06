@@ -125,7 +125,6 @@ allow qti_init_shell { proc proc_net }:file write;
 allow qti_init_shell radio_data_file:dir create_dir_perms;
 allow qti_init_shell radio_data_file:file create_file_perms;
 
-allow qti_init_shell firmware_file:dir r_dir_perms;
 allow qti_init_shell graphics_device:dir create_dir_perms;
 allow qti_init_shell graphics_device:lnk_file create_file_perms;
 
@@ -140,3 +139,6 @@ allow qti_init_shell sysfs_hsic_modem_wait:file { r_file_perms setattr };
 
 # core-ctl
 allow qti_init_shell cgroup:dir add_name;
+
+# To allow copy for mbn files
+r_dir_file(qti_init_shell, firmware_file)
