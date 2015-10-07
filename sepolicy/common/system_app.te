@@ -64,6 +64,9 @@ binder_call(system_app, dtseagleservice)
 # allow system_app to interact with fido daemon
 binder_call(system_app, fidodaemon)
 
+# allow system_app to interact with secota daemon
+binder_call(system_app, secotad)
+
 # allow system_app to interact with imscm daemon
 binder_call(system_app, imscm)
 

@@ -190,6 +190,7 @@
 /system/vendor/bin/slim_daemon                  u:object_r:location_exec:s0
 /system/bin/energy-awareness                    u:object_r:energyawareness_exec:s0
 /system/vendor/bin/fidodaemon                   u:object_r:fidodaemon_exec:s0
+/system/bin/secotad                             u:object_r:secotad_exec:s0
 /system/vendor/bin/qseeproxydaemon              u:object_r:qseeproxy_exec:s0
 /system/bin/dts_configurator                    u:object_r:dtsconfigurator_exec:s0
 /system/bin/dts_eagle_service                   u:object_r:dtseagleservice_exec:s0

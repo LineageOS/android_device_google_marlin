@@ -4,6 +4,7 @@ type per_mgr_service,           service_manager_type;
 type dpmservice,                service_manager_type;
 type cne_service,               service_manager_type;
 type fidodaemon_service,        service_manager_type;
+type secotad_service,           service_manager_type;
 type qseeproxy_service,         service_manager_type;
 type wbc_service,               service_manager_type;
 type STAProxyService,           service_manager_type;
