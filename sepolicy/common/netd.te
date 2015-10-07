@@ -10,7 +10,7 @@ allow netd wfdservice:fd use;
 allow netd wfdservice:tcp_socket rw_socket_perms;
 
 binder_use(netd);
-binder_call(netd, system_app);
+binder_call(netd, qtitetherservice_app);
 
 # allow to read /data/misc/ipa/tether_stats file
 allow netd ipacm_data_file:dir r_dir_perms;
