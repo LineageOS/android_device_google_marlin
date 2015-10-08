@@ -507,15 +507,14 @@
     </path>
 
     <path name="echo-reference speaker-vbat-mono">
-        <ctl name="VOC_EXT_EC MUX" value="SLIM_1_TX" />
         <ctl name="AIF3_CAP Mixer SLIM TX1" value="1" />
         <ctl name="SLIM TX1 MUX" value="RX_MIX_TX1" />
         <ctl name="RX MIX TX1 MUX" value="RX_MIX_VBAT7" />
         <ctl name="SLIM_1_TX Channels" value="One" />
+        <ctl name="VOC_EXT_EC MUX" value="SLIM_1_TX" />
    </path>
 
    <path name="echo-reference speaker-vbat">
-        <ctl name="AUDIO_REF_EC_UL1 MUX" value="SLIM_1_TX" />
         <ctl name="AIF3_CAP Mixer SLIM TX1" value="1" />
         <ctl name="AIF3_CAP Mixer SLIM TX2" value="1" />
         <ctl name="SLIM TX1 MUX" value="RX_MIX_TX1" />
@@ -523,6 +522,7 @@
         <ctl name="RX MIX TX1 MUX" value="RX_MIX_VBAT7" />
         <ctl name="RX MIX TX2 MUX" value="RX_MIX_VBAT8" />
         <ctl name="SLIM_1_TX Channels" value="Two" />
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="SLIM_1_TX" />
     </path>
 
     <path name="echo-reference">
