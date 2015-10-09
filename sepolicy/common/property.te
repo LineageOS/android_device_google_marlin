@@ -10,6 +10,7 @@ type usf_prop, property_type;
 
 type freq_prop, property_type;
 type perfd_prop, property_type;
+type vm_bms_prop, property_type; #To start vm_bms
 type qti_prop, property_type;
 type ipacm_prop, property_type;
 type ipacm-diag_prop, property_type;

@@ -25,6 +25,9 @@ allow qti_init_shell fm_radio_device:chr_file r_file_perms;
 #give permission to read/write fm dir for calibration file
 allow qti_init_shell fm_data_file: dir rw_dir_perms;
 
+#allow shell to access /dev/vm_bms
+allow qti_init_shell vm_bms_device:chr_file getattr;
+
 # create/open, read/write permission for fm calibration file.
 allow qti_init_shell fm_data_file: file create_file_perms;
 
@@ -77,6 +80,8 @@ allow qti_init_shell {
     userdebug_or_eng(`ctl_console_prop coresight_prop')
     rmnet_mux_prop
     ctl_hbtp_prop
+    #Needed for starting vm_bms executable post-boot
+    vm_bms_prop
 }:property_service set;
 
 allow qti_init_shell efs_boot_dev:blk_file r_file_perms;
