@@ -117,6 +117,7 @@ binder_call(system_server, seempd)
 
 # Allow system server access to qfp daemon
 binder_call(system_server, qfp-daemon);
+allow system_server iqfp_service:service_manager find;
 
 #for seemp
 unix_socket_send(system_server, seempdw, seempd)
