@@ -216,6 +216,7 @@
 /system/bin/tbaseLoader                         u:object_r:tbaseLoader_exec:s0
 /system/bin/mcStarter                           u:object_r:mcStarter_exec:s0
 /system/bin/fstman                              u:object_r:fstman_exec:s0
+/system/vendor/bin/mdtp_service                 u:object_r:mdtpdaemon_exec:s0
 
 ###################################
 # sysfs files
