@@ -81,3 +81,7 @@ allow cnd appdomain:udp_socket rw_socket_perms;
 #allow cnd daemon to invoke hostapd_cli
 allow cnd shell_exec:file rx_file_perms;
 domain_auto_trans(cnd, hostapd_exec, hostapd)
+
+# only allow getopt for appdomain
+allow appdomain zygote:unix_dgram_socket getopt;
+dontaudit { domain -appdomain } zygote:unix_dgram_socket getopt;
