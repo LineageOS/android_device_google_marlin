@@ -62,3 +62,7 @@ binder_call(qfp-daemon, system_server);
 allow qfp-daemon sensors_device:chr_file r_file_perms;
 allow qfp-daemon sensors_socket:sock_file rw_file_perms;
 allow qfp-daemon sensors:unix_stream_socket connectto;
+
+# Allow listing input devices and sending input events
+allow qfp-daemon input_device:chr_file rw_file_perms;
+allow qfp-daemon input_device:dir r_dir_perms;
