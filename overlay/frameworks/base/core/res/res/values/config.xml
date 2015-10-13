@@ -48,6 +48,9 @@
         <item>0x33</item>       <!-- CPUBW_MIN_FREQ resource value-->
    </integer-array>
 
+   <!-- Operating volatage for bluetooth controller. 0 by default-->
+   <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
+
    <bool name="config_enableCpuBoostForScroller">true</bool>
    <integer name="scrollboost_timeout_param">2000</integer>
    <integer-array name="scrollboost_param_value">
