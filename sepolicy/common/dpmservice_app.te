@@ -32,7 +32,7 @@ app_domain(dpmservice_app)
 allow dpmservice_app dpmd_app_data_file:dir create_dir_perms;
 allow dpmservice_app dpmd_socket:sock_file write;
 allow dpmservice_app dpmd_app_data_file:file create_file_perms;
-allow dpmservice_app dpmservice:service_manager add;
+allow dpmservice_app dpmservice:service_manager  { add find };
 
 allow dpmservice_app dpmd_data_file:dir rw_dir_perms;
 allow dpmservice_app dpmd_data_file:file create_file_perms;
