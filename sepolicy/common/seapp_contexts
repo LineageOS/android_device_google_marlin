@@ -9,6 +9,7 @@ user=system seinfo=platform name=com.qti.dpmserviceapp domain=dpmservice_app typ
 #Add new domain for QSEE services
 user=system seinfo=platform name=com.qualcomm.qti.auth.fidocryptoservice domain=qsee_svc_app type=qsee_svc_app_data_file
 user=system seinfo=platform name=com.qualcomm.qti.auth.fidosuiservice domain=qsee_svc_app type=qsee_svc_app_data_file
+user=system seinfo=platform name=org.simalliance.openmobileapi.service.SmartcardService domain=qsee_svc_app type=qsee_svc_app_data_file
 
 #Add new domain for MDTP services
 user=system seinfo=platform name=com.qualcomm.qti.securemsm.mdtp.MdtpService domain=mdtpservice_app type=mdtp_svc_app_data_file
