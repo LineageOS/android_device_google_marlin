@@ -13,4 +13,7 @@ recovery_only(`
     allow recovery cache_file:dir mounton;
     allow recovery qce_device:chr_file rw_file_perms;
     allow recovery tee_device:chr_file rw_file_perms;
+    allow recovery sg_device:chr_file rw_file_perms;
+    allow recovery self:capability sys_rawio;
+    allow recovery sg_device:chr_file ioctl;
 ')
