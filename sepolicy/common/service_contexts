@@ -23,3 +23,4 @@ qti.security.seemp                             u:object_r:seemp_service:s0
 seempservice                                   u:object_r:seemp_service:s0
 mdtp                                           u:object_r:mdtpdaemon_service:s0
 qtitetherservice                               u:object_r:qtitetherservices_service:s0
+com.qualcomm.qti.seemp.health                  u:object_r:seemp_health_daemon_service:s0

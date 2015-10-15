@@ -83,6 +83,9 @@ binder_call(system_app, qfp-daemon)
 # allow system_app to interact with fido daemon
 binder_call(system_app, fidodaemon)
 
+# allow system_app to interact with seemp health daemon
+binder_call(system_app, seemp_health_daemon)
+
 #allow access to RIDL
 allow system_app RIDL_data_file:dir rw_dir_perms;
 allow system_app RIDL_data_file:file create_file_perms;
