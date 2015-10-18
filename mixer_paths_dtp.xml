@@ -1733,6 +1733,10 @@
         <ctl name="COMP2 Switch" value="1" />
     </path>
 
+    <path name="line">
+        <path name="headphones" />
+    </path>
+
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 Volume" value="12" />
@@ -1767,6 +1771,10 @@
         <path name="headphones" />
     </path>
 
+    <path name="voice-line">
+        <path name="voice-headphones" />
+    </path>
+
     <path name="voice-headset-mic">
         <path name="headset-mic" />
         <ctl name="ADC2 Volume" value="12" />
@@ -1782,6 +1790,10 @@
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
     </path>
 
+    <path name="speaker-and-line">
+        <path name="speaker-and-headphones" />
+    </path>
+
     <path name="speaker-and-headphones-liquid">
         <path name="headphones" />
         <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
@@ -1790,6 +1802,10 @@
         <ctl name="SpkrLeft BOOST Switch" value="1" />
         <ctl name="SpkrLeft VISENSE Switch" value="1" />
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+    </path>
+
+    <path name="speaker-and-line-liquid">
+        <path name="speaker-and-headphones-liquid" />
     </path>
 
     <path name="usb-headphones">
