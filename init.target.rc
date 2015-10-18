@@ -344,6 +344,11 @@ service dtseagleservice /system/bin/dts_eagle_service
     group audio media
     disabled
 
+service seccamd /system/vendor/bin/seccamd
+    class late_start
+    user root
+    group drmrpc system
+
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice
 
