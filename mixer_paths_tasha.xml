@@ -1733,7 +1733,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="dmic1" />
+        <path name="dmic3" />
     </path>
 
     <path name="speaker-mic-liquid">
