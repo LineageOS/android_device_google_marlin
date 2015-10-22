@@ -222,3 +222,6 @@ sdm.debug.disable_rotator_split=1
 
 #Increase cached app limit
 ro.sys.fw.bg_apps_limit=60
+
+#Camera fullscreen doesn't show navigation bar
+Camera.no_navigation_bar=true
