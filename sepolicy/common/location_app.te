@@ -6,6 +6,7 @@ qmux_socket(location_app)
 
 #Permissions for JDWP
 userdebug_or_eng(`
+  net_domain(location_app)
   allow location_app { adbd su }:unix_stream_socket connectto;
   allow location_app surfaceflinger_service:service_manager find;
 ')
