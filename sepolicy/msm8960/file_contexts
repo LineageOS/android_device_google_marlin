@@ -9,6 +9,7 @@
 /dev/block/bootdevice/by-name/m9kefs2           u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/m9kefs3           u:object_r:efs_boot_dev:s0
 /dev/block/bootdevice/by-name/m9kefsc           u:object_r:efs_boot_dev:s0
+/dev/gss                                        u:object_r:gss_device:s0
 
 ###################################
 # System files
@@ -16,6 +17,7 @@
 /system/bin/thermald                            u:object_r:thermal-engine_exec:s0
 /system/bin/qcks                                u:object_r:mdm_helper_exec:s0
 /system/bin/efks                                u:object_r:mdm_helper_exec:s0
+/system/bin/DR_AP_Service                       u:object_r:location_exec:s0
 
 ###################################
 # Data files
