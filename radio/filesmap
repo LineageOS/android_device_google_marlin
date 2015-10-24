@@ -29,13 +29,17 @@
 
 NON-HLOS.bin            /dev/block/bootdevice/by-name/modem
 BTFM.bin                /dev/block/bootdevice/by-name/bluetooth
-
 sbl1.mbn                /dev/block/bootdevice/by-name/sbl1
 tz.mbn                  /dev/block/bootdevice/by-name/tz
 rpm.mbn                 /dev/block/bootdevice/by-name/rpm
 emmc_appsboot.mbn       /dev/block/bootdevice/by-name/aboot
 hyp.mbn                 /dev/block/bootdevice/by-name/hyp
 pmic.mbn                /dev/block/bootdevice/by-name/pmic
+cmnlib.mbn              /dev/block/bootdevice/by-name/cmnlib
+cmnlib64.mbn            /dev/block/bootdevice/by-name/cmnlib64
+keymaster.mbn           /dev/block/bootdevice/by-name/keymaster
+xbl.elf                 /dev/block/bootdevice/by-name/xbl
+lksecapp.mbn            /dev/block/bootdevice/by-name/lksecapp
 
 # filename + .bak       backup partition
 
@@ -45,6 +49,11 @@ rpm.mbn.bak             /dev/block/bootdevice/by-name/rpmbak
 emmc_appsboot.mbn.bak   /dev/block/bootdevice/by-name/abootbak
 hyp.mbn.bak             /dev/block/bootdevice/by-name/hypbak
 pmic.mbn.bak            /dev/block/bootdevice/by-name/pmicbak
+cmnlib.mbn.bak          /dev/block/bootdevice/by-name/cmnlibbak
+cmnlib64.mbn.bak        /dev/block/bootdevice/by-name/cmnlib64bak
+keymaster.mbn.bak       /dev/block/bootdevice/by-name/keymasterbak
+xbl.elf.bak             /dev/block/bootdevice/by-name/xblbak
+lksecapp.mbn.bak        /dev/block/bootdevice/by-name/lksecappbak
 
 # For multiple file firmware images that differ from *.mbn and *.bin
 # you can specify filename.* to direct all files to the same location.
