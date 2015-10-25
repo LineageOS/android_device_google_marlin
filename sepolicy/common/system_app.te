@@ -16,7 +16,6 @@ allow system_app {
     # access to color service SDK
     color_service
     STAProxyService
-    qtitetherservices_service
 }:service_manager add;
 
 # access to perflock
@@ -96,15 +95,10 @@ allow system_app RIDL_socket:sock_file r_file_perms;
 
 # allow gba auth service to add itself as system service
 allow system_app gba_auth_service:service_manager add;
-#allow access to netd
-allow system_app netd_socket:sock_file write;
-allow system_app wcnss_service_exec:file rx_file_perms;
 
 # allow access to system_app for wbc_service
 allow system_app wbc_service:service_manager add;
 allow system_app self:netlink_kobject_uevent_socket { read bind setopt create };
-#allow access to ipa
-allow system_app ipa_dev:chr_file rw_file_perms;
 
 # allow system_app to interact with mdtp daemon
 binder_call(system_app, mdtpdaemon)

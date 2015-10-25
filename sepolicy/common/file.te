@@ -170,3 +170,6 @@ type mdtp_svc_app_data_file, file_type, data_file_type;
 
 # subsystem_ramdump files
 type ssr_ramdump_data_file, file_type, data_file_type;
+
+# qtitetherservice files
+type qtitetherservice_app_data_file, file_type, data_file_type;
