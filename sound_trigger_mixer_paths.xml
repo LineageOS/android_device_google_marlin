@@ -44,37 +44,37 @@
     <ctl name="TX13 INP MUX" value="CDC_DEC_5" />
 
     <path name="listen-voice-wakeup-1">
-        <ctl name="LSM1 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM1 MUX" value="SLIMBUS_5_TX" />
     </path>
 
     <path name="listen-voice-wakeup-2">
-        <ctl name="LSM2 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM2 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-3">
-        <ctl name="LSM3 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM3 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-4">
-        <ctl name="LSM4 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM4 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-5">
-        <ctl name="LSM5 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM5 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-6">
-        <ctl name="LSM6 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM6 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-7">
-        <ctl name="LSM7 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM7 MUX" value="SLIMBUS_5_TX" />
     </path>
     <path name="listen-voice-wakeup-8">
-        <ctl name="LSM8 MUX" value="SLIMBUS_5_TX" />
         <ctl name="SLIMBUS_5_TX LSM Function" value="AUDIO" />
+        <ctl name="LSM8 MUX" value="SLIMBUS_5_TX" />
     </path>
 
     <path name="listen-cpe-handset-mic">
