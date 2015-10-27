@@ -156,4 +156,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=1
+
 PRODUCT_AAPT_CONFIG += xlarge large
