@@ -1945,6 +1945,15 @@
 	<ctl name="COMP1 Switch" value="0" />
 	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
+        <ctl name="ANC Slot" value="0" />
+        <ctl name="ADC MUX10" value="AMIC" />
+        <ctl name="AMIC MUX10" value="ADC3" />
+        <ctl name="ADC MUX12" value="AMIC" />
+        <ctl name="AMIC MUX12" value="ADC4" />
+        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
+        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
+        <ctl name="ADC3 Volume" value="8" />
+        <ctl name="ADC4 Volume" value="8" />
         <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM_0_RX Channels" value="Two" />
@@ -1952,21 +1961,12 @@
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="20" />
-        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
-        <ctl name="ANC Slot" value="0" />
-        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
-        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
-        <ctl name="ADC MUX10" value="AMIC" />
-        <ctl name="AMIC MUX10" value="ADC3" />
-        <ctl name="ADC MUX12" value="AMIC" />
-        <ctl name="AMIC MUX12" value="ADC4" />
         <ctl name="ANC HPHL Enable Switch" value="1" />
         <ctl name="ANC HPHR Enable Switch" value="1" />
-        <ctl name="ADC3 Volume" value="8" />
-        <ctl name="ADC4 Volume" value="8" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
     </path>
 
     <path name="speaker-and-anc-headphones">
@@ -2006,6 +2006,15 @@
 	<ctl name="COMP1 Switch" value="0" />
 	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
+        <ctl name="ANC Slot" value="0" />
+        <ctl name="ADC MUX10" value="AMIC" />
+        <ctl name="AMIC MUX10" value="ADC3" />
+        <ctl name="ADC MUX12" value="AMIC" />
+        <ctl name="AMIC MUX12" value="ADC4" />
+        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
+        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
+        <ctl name="ADC3 Volume" value="8" />
+        <ctl name="ADC4 Volume" value="8" />
         <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM_0_RX Channels" value="Two" />
@@ -2020,27 +2029,27 @@
         <ctl name="IIR0 INP0 Volume" value="54" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="20" />
-        <ctl name="HPHR Volume" value="20" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
-        <ctl name="ANC Slot" value="0" />
-        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
-        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
-        <ctl name="ADC MUX10" value="AMIC" />
-        <ctl name="AMIC MUX10" value="ADC3" />
-        <ctl name="ADC MUX12" value="AMIC" />
-        <ctl name="AMIC MUX12" value="ADC4" />
         <ctl name="ANC HPHL Enable Switch" value="1" />
         <ctl name="ANC HPHR Enable Switch" value="1" />
-        <ctl name="ADC3 Volume" value="8" />
-        <ctl name="ADC4 Volume" value="8" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
     </path>
 
     <path name="voice-anc-fb-headphones">
 	<ctl name="COMP1 Switch" value="0" />
 	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
+        <ctl name="ANC Slot" value="1" />
+        <ctl name="ADC MUX10" value="AMIC" />
+        <ctl name="AMIC MUX10" value="ADC3" />
+        <ctl name="ADC MUX12" value="AMIC" />
+        <ctl name="AMIC MUX12" value="ADC4" />
+        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
+        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
+        <ctl name="ADC3 Volume" value="8" />
+        <ctl name="ADC4 Volume" value="8" />
         <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
         <ctl name="SLIM_0_RX Channels" value="Two" />
@@ -2055,21 +2064,12 @@
         <ctl name="IIR0 INP0 Volume" value="62" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="HPHL Volume" value="14" />
-        <ctl name="HPHR Volume" value="14" />
         <ctl name="RX1 Digital Volume" value="81" />
         <ctl name="RX2 Digital Volume" value="81" />
-        <ctl name="ANC Slot" value="1" />
-        <ctl name="ANC0 FB MUX" value="ANC_IN_HPHL" />
-        <ctl name="ANC1 FB MUX" value="ANC_IN_HPHR" />
-        <ctl name="ADC MUX10" value="AMIC" />
-        <ctl name="AMIC MUX10" value="ADC3" />
-        <ctl name="ADC MUX12" value="AMIC" />
-        <ctl name="AMIC MUX12" value="ADC4" />
         <ctl name="ANC HPHL Enable Switch" value="1" />
         <ctl name="ANC HPHR Enable Switch" value="1" />
-        <ctl name="ADC3 Volume" value="8" />
-        <ctl name="ADC4 Volume" value="8" />
+        <ctl name="HPHL Volume" value="14" />
+        <ctl name="HPHR Volume" value="14" />
     </path>
 
     <path name="speaker-and-anc-headphones-liquid">
