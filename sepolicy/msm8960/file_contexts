@@ -25,6 +25,7 @@
 /system/bin/qcks                                u:object_r:mdm_helper_exec:s0
 /system/bin/efks                                u:object_r:mdm_helper_exec:s0
 /system/bin/DR_AP_Service                       u:object_r:location_exec:s0
+/system/bin/boot                                u:object_r:bootanim_exec:s0
 
 ###################################
 # Data files
