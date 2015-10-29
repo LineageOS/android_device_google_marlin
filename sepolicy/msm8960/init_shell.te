@@ -25,9 +25,8 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
-allow thermal-engine self:netlink_kobject_uevent_socket { create read setopt bind };
-allow thermal-engine socket_device:dir w_dir_perms;
-
-#connect to mpdecision
-unix_socket_connect(thermal-engine, mpdecision, mpdecision)
-allow thermal-engine self:capability net_admin;
+#For property starting with hw
+#ctl_thermal-engine_prop - for access the thermal-engine
+allow qti_init_shell {
+   ctl_thermal-engine_prop
+}:property_service set;
