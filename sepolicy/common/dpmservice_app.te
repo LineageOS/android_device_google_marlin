@@ -42,3 +42,9 @@ allow dpmservice_app system_api_service:service_manager find;
 #allow dpmservice to search mediaserver and radio service.
 allow dpmservice_app mediaserver_service:service_manager find;
 allow dpmservice_app radio_service:service_manager find;
+
+#don't audit /proc/<pid>/stat denials
+dontaudit dpmservice_app domain:dir r_dir_perms;
+
+#allow dpmservice to get running time for apps
+r_dir_file(dpmservice_app, appdomain)
