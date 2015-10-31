@@ -4,3 +4,4 @@ allow vold cache_file:dir w_dir_perms;
 allow vold { fscklogs cache_file }:file create_file_perms;
 allow vold { proc_sysrq proc_dirty_ratio }:file rw_file_perms;
 wakelock_use(vold)
+allow vold swap_block_device:blk_file r_file_perms;
