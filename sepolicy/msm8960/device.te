@@ -1,2 +1,5 @@
 #mdm helper device
 type mdm_device, dev_type;
+
+#device type for gss device nodes, ie /dev/gss
+type gss_device, dev_type;
