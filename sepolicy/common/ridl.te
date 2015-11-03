@@ -77,6 +77,13 @@ allow RIDL cache_file:file create_file_perms;
 allow RIDL powerctl_prop:property_service set;
 unix_socket_connect(RIDL, property, init)
 
+# ANR
+allow RIDL anr_data_file:dir r_dir_perms;
+allow RIDL anr_data_file:file r_file_perms;
+
+# detect /data/anr directory is created
+allow RIDL system_data_file:dir read;
+
 userdebug_or_eng(`
 	# Access to ANR/segfaults
 	allow RIDL tombstone_data_file:dir rw_dir_perms;
