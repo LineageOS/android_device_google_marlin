@@ -29,7 +29,6 @@
 type RIDL, domain;
 type RIDL_exec, exec_type, file_type;
 
-type_transition RIDL RIDL_data_file:sock_file RIDL_socket;
 allow RIDL RIDL_socket:sock_file create_file_perms;
 allow RIDL RIDL_socket:dir create_dir_perms;
 
@@ -81,6 +80,8 @@ userdebug_or_eng(`
 	# Access to ANR/segfaults
 	allow RIDL tombstone_data_file:dir rw_dir_perms;
 	allow RIDL tombstone_data_file:file { unlink rw_file_perms };
+	allow RIDL anr_data_file:dir rw_dir_perms;
+	allow RIDL anr_data_file:file { unlink rw_file_perms };
 
 	# tcpdump
 	allow RIDL self:packet_socket create_socket_perms;
