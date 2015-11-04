@@ -53,3 +53,6 @@ qmux_socket(bluetooth);
 
 # for finding wbc_service
 allow bluetooth wbc_service:service_manager find;
+
+# for fastmmi test bluetooth
+allow bluetooth mmi:unix_stream_socket connectto;

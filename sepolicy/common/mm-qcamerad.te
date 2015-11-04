@@ -55,3 +55,6 @@ allow mm-qcamerad graphics_device:dir r_dir_perms;
 #Allow access to /dev/graphics/fb* for screen capture
 allow mm-qcamerad graphics_device:chr_file rw_file_perms;
 unix_socket_connect(mm-qcamerad, property, init)
+
+#Allow camera work normally in FFBM
+binder_call(mm-qcamerad, mmi)；
