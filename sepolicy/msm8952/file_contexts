@@ -40,6 +40,7 @@
 /dev/block/platform/soc.0/7824900.sdhci/by-name/mdtp                  u:object_r:mdtp_device:s0
 /dev/block/mmcblk0                                                    u:object_r:root_block_device:s0
 /dev/block/mmcblk0rpmb                                                u:object_r:rpmb_device:s0
+/dev/block/platform/soc.0/7824900.sdhci/by-name/config                u:object_r:frp_block_device:s0
 
 #Using soc instead of soc.0 to make it compatable with 3.18 kernel
 
