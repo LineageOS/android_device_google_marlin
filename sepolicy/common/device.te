@@ -8,6 +8,9 @@ type hsic_device, dev_type;
 #Define the mhi device
 type mhi_device, dev_type;
 
+#Define the bhi device
+type bhi_device, dev_type;
+
 #device type for smd device nodes, ie /dev/smd*
 type smd_device, dev_type;
 
