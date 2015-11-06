@@ -70,3 +70,4 @@ allow mediaserver system_app:unix_stream_socket { connectto read write setopt };
 #Allow mediaserver to access service manager STAProxyService
 #Allow mediaserver to access service manager wfdservice
 allow mediaserver { STAProxyService wfdservice_service }:service_manager find;
+allow mediaserver surfaceflinger:unix_stream_socket rw_socket_perms;
