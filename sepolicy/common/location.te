@@ -13,7 +13,7 @@ qmux_socket(location)
 binder_use(location)
 binder_call(location, system_server)
 
-allow location location_data_file:dir rw_dir_perms;
+allow location location_data_file:dir create_dir_perms;
 allow location location_data_file:{ file fifo_file } create_file_perms;
 allow location location_data_file:sock_file write;
 allow location location_exec:file x_file_perms;
