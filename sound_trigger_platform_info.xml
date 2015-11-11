@@ -41,7 +41,8 @@
     <vendor_uuid value="68ab2d40-e860-11e3-95ef-0002a5d5c51b" app_type="2" library="libsmwrapper.so">
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
         <!-- transfer_mode: "FTRT" or "RT" -->
-        <capture_keyword format="PCM_packet" transfer_mode="RT" />
+        <!--  kw_duration is in milli seconds. It is valid only for FTRT transfer mode -->
+        <capture_keyword format="PCM_packet" transfer_mode="RT" kw_duration="2000" />
         <param_type name="load_sound_model" module_id="0x00012C0D" param_id="0x00012C14"/>
         <param_type name="unload_sound_model" module_id="0x00012C0D" param_id="0x00012C15"/>
         <param_type name="confidence_levels" module_id="0x00012C0D" param_id="0x00012C07"/>
@@ -50,6 +51,7 @@
         <ctrl name="max_cpe_users" value="3" />
         <ctrl name="max_ape_phrases" value="10" />
         <ctrl name="max_ape_users" value="10" />
+        <ctrl name="client_capture_read_delay" value="2000" /> <!-- in milli seconds -->
     </vendor_uuid>
 
 </sound_trigger_platform_info>
