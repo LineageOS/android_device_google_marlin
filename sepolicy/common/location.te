@@ -49,3 +49,6 @@ allow location persist_file:dir r_dir_perms;
 
 #Allow access to netmgrd socket
 netmgr_socket(location);
+
+#Allow access to properties
+set_prop(location, location_prop);
