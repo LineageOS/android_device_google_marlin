@@ -48,3 +48,7 @@ r_dir_file(mdm_helper, firmware_file)
 #Needed in order to collect ramdumps
 allow mdm_helper tombstone_data_file:dir create_dir_perms;
 allow mdm_helper tombstone_data_file:file create_file_perms;
+
+#Needed to allow boot over PCIe
+allow mdm_helper bhi_device:chr_file rw_file_perms;
+allow mdm_helper mhi_device:chr_file rw_file_perms;
