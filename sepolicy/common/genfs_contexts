@@ -1,2 +1,3 @@
 genfscon proc /asound/card0/state u:object_r:proc_audiod:s0
 genfscon proc /proc/sys/vm/dirty_ratio  u:object_r:proc_dirty_ratio:s0
+genfscon sys /sys/bootkpi/marker_entry u:object_r:sys_bootkpi:s0
