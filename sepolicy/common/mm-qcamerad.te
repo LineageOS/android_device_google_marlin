@@ -13,6 +13,10 @@ userdebug_or_eng(`
   allow mm-qcamerad port:tcp_socket name_bind;
   allow mm-qcamerad self:tcp_socket { accept listen };
   allow mm-qcamerad camera_data_file:file create_file_perms;
+
+  # mm-qcamerad needs to set persist.camera. property
+  allow mm-qcamerad camera_prop:property_service set;
+
 ')
 
 #Communicate with user land process through domain socket
