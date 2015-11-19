@@ -49,6 +49,7 @@
 
 static int display_hint_sent;
 
+#ifdef EXTRA_POWERHAL_HINTS
 static int process_cam_preview_hint(void *metadata)
 {
     char governor[80];
@@ -110,6 +111,7 @@ static int process_cam_preview_hint(void *metadata)
     }
     return HINT_NONE;
 }
+#endif
 
 static int process_video_encode_hint(void *metadata)
 {
@@ -183,9 +185,11 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
 {
     int ret_val = HINT_NONE;
     switch(hint) {
+#ifdef EXTRA_POWERHAL_HINTS
         case POWER_HINT_CAM_PREVIEW:
             ret_val = process_cam_preview_hint(data);
             break;
+#endif
         case POWER_HINT_VIDEO_ENCODE:
             ret_val = process_video_encode_hint(data);
             break;
