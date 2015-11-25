@@ -173,3 +173,6 @@ type ssr_ramdump_data_file, file_type, data_file_type;
 
 # qtitetherservice files
 type qtitetherservice_app_data_file, file_type, data_file_type;
+
+# Boot KPI Marker files
+type sys_bootkpi, sysfs_type, file_type;

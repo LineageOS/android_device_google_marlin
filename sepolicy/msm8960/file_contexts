@@ -29,3 +29,4 @@
 # Data files
 #
 /data/qcks(/.*)?                                u:object_r:efs_data_file:s0
+/sys/bootkpi/marker_entry                       u:object_r:sys_bootkpi:s0
