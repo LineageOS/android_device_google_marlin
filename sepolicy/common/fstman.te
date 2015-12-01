@@ -35,6 +35,8 @@ allow fstman self:capability { net_admin net_raw };
 allow fstman self:netlink_route_socket nlmsg_write;
 allow fstman sysfs:file write;
 r_dir_file(fstman, wifi_data_file)
+allow fstman wifi_data_file:dir rw_dir_perms;
+allow fstman wifi_data_file:file create_file_perms;
 allow fstman { wpa hostapd }:unix_dgram_socket sendto;
 allow fstman wpa_socket:dir rw_dir_perms;
 allow fstman wpa_socket:sock_file create_file_perms;
