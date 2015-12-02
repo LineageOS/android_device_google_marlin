@@ -59,3 +59,9 @@ allow qseeproxy firmware_file:file r_file_perms;
 #Allow access to session files
 allow qseeproxy data_qsee_file:dir create_dir_perms;
 allow qseeproxy data_qsee_file:file create_file_perms ;
+
+#Allow access to system_app domain
+allow qseeproxy system_app:unix_dgram_socket sendto;
+
+#Allow access to sysfs files
+allow qseeproxy sysfs:file w_file_perms;
