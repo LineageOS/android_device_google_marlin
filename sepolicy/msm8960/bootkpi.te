@@ -33,4 +33,6 @@ userdebug_or_eng(`
   allow surfaceflinger sys_bootkpi:file rw_file_perms;
   allow untrusted_app sys_bootkpi:file rw_file_perms;
   allow location sys_bootkpi:file rw_file_perms;
+  allow system_app sys_bootkpi:file rw_file_perms;
+  allow vold sys_bootkpi:file rw_file_perms;
 ')
