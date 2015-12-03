@@ -1,3 +1,20 @@
+# This file was modified by Dolby Laboratories, Inc. The portions of the
+# code that are surrounded by "DOLBY..." are copyrighted and
+# licensed separately, as follows:
+#
+#  (C) 2015 Dolby Laboratories, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 # allow mediaserver to communicate with cnd
 unix_socket_connect(mediaserver, cnd, cnd)
 
@@ -71,3 +88,6 @@ allow mediaserver system_app:unix_stream_socket { connectto read write setopt };
 #Allow mediaserver to access service manager wfdservice
 allow mediaserver { STAProxyService wfdservice_service }:service_manager find;
 allow mediaserver surfaceflinger:unix_stream_socket rw_socket_perms;
+# DOLBY_START
+set_prop(mediaserver, dolby_prop)
+# DOLBY_END
