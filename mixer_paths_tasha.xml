@@ -54,7 +54,7 @@
     <ctl name="COMP2 Switch" value="1" />
     <ctl name="COMP7 Switch" value="1" />
     <ctl name="COMP8 Switch" value="1" />
-    <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
+    <ctl name="RX HPH Mode" value="CLS_H_LP" />
     <ctl name="SLIMBUS_3_RX Port Mixer MI2S_TX" value="0" />
     <ctl name="HDMI_RX Port Mixer MI2S_TX" value="0" />
     <ctl name="SLIMBUS_0_RX Port Mixer SLIM_0_TX" value="0" />
@@ -1903,7 +1903,6 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
-        <ctl name="RX HPH Mode" value="CLS_H_LP" />
     </path>
 
     <path name="voice-line">
@@ -2036,7 +2035,6 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
-        <ctl name="RX HPH Mode" value="CLS_H_LP" />
         <ctl name="IIR0 Enable Band1" value="1" />
         <ctl name="IIR0 Enable Band2" value="1" />
         <ctl name="IIR0 Enable Band3" value="1" />
@@ -2071,7 +2069,6 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT2_1 MIX1 INP0" value="RX1" />
-        <ctl name="RX HPH Mode" value="CLS_H_LP" />
         <ctl name="IIR0 Enable Band1" value="1" />
         <ctl name="IIR0 Enable Band2" value="1" />
         <ctl name="IIR0 Enable Band3" value="1" />
