@@ -35,3 +35,7 @@ binder_call(qsee_svc_app, qseeproxy)
 # file permission
 allow qsee_svc_app qsee_svc_app_data_file:dir create_dir_perms;
 allow qsee_svc_app qsee_svc_app_data_file:file create_file_perms;
+
+# allow service manager find
+allow qsee_svc_app { app_api_service system_api_service
+ fidodaemon_service qseeproxy_service }:service_manager find;
