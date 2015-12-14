@@ -36,8 +36,8 @@
         <feature name="NATIVE_AUDIO_44.1" codec_support="1"/>
     </native_configs>
     <config_params>
-        <param key="spkr_1_tz_name" value="wsatz.12"/>
-        <param key="spkr_2_tz_name" value="wsatz.11"/>
+        <param key="spkr_1_tz_name" value="wsatz.11"/>
+        <param key="spkr_2_tz_name" value="wsatz.12"/>
         <!-- In the below value string, first parameter indicates size -->
         <!-- followed by perf lock options                             -->
         <param key="perf_lock_opts" value="5, 0x101, 0x704, 0x20F, 0x30F, 0x1E01"/>
