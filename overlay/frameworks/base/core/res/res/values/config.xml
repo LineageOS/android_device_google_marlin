@@ -61,4 +61,11 @@
         <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
         <item>0x1</item>        <!-- SCHEDBOOST resource value-->
    </integer-array>
+   <bool name="config_enableKeypressOptimization">true</bool>
+   <integer-array name="keypress_param_value">
+        <item>0x41818000</item> <!-- CPUBW_MAX_FREQ resource opcode-->
+        <item>0x76</item>       <!-- CPUBW_MAX_FREQ resource value-->
+        <item>0x4181C000</item> <!-- CPUBW_POLLING_INTERVAL resource opcode -->
+        <item>0x14</item>       <!-- CPUBW_POLLING_INTERVAL resource value -->
+   </integer-array>
 </resources>
