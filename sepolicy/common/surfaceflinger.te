@@ -31,3 +31,6 @@ allow surfaceflinger display_misc_file:file create_file_perms;
 unix_socket_connect(surfaceflinger, pps, mm-pp-daemon)
 
 r_dir_file(surfaceflinger, firmware_file)
+
+#Allow access to fastmmi
+binder_call(surfaceflinger, mmi)

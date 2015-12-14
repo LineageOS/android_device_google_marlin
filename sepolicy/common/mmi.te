@@ -52,6 +52,7 @@ allow mmi audio_device:chr_file rw_file_perms;
 
 #FM case
 allow mmi fm_radio_device:chr_file r_file_perms;
+allow mmi fm_data_file:file r_file_perms;
 allow mmi fm_prop:property_service set;
 
 #bluetooth case
@@ -62,7 +63,8 @@ allow mmi smd_device:chr_file rw_file_perms;
 
 #GPS case
 allow mmi location_data_file:fifo_file create_file_perms;
-allow mmi location_data_file:dir w_dir_perms;
+allow mmi location_data_file:dir create_dir_perms;
+allow mmi location_data_file:file create_file_perms;
 allow mmi mmi_socket:sock_file create_file_perms;
 type_transition mmi socket_device:sock_file mmi_socket;
 allow mmi location_exec:file rx_file_perms;
@@ -98,3 +100,16 @@ allow mmi surfaceflinger_service:service_manager find;
 #Allow mmi to use IPC
 binder_use(mmi)
 binder_call(mmi,surfaceflinger)
+
+#sensor cases
+unix_socket_connect(mmi, sensors, sensors);
+allow mmi sensors_device:chr_file r_file_perms;
+
+#logcat
+domain_auto_trans(mmi, logcat_exec, logd);
+
+#mmi test
+unix_socket_connect(mmi, cnd, cnd);
+unix_socket_connect(mmi, dpmwrapper, dpmd);
+unix_socket_connect(mmi, netmgrd, netmgrd);
+net_domain(mmi);
