@@ -118,25 +118,29 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
-ifeq ($(TARGET_USES_NQ_NFC),true)
+ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
 PRODUCT_PACKAGES += \
-    nfc.msm8996 \
-    NfcNci \
-    libnfc-nci \
-    libnfc_nci_jni \
+    NQNfcNci \
+    libnqnfc-nci \
+    libnqnfc_nci_jni \
     nfc_nci.nqx.default \
+    libp61-jcop-kit \
+    com.nxp.nfc.nq \
+    com.nxp.nfc.nq.xml \
+    libpn547_fw.so \
+    libpn548ad_fw.so \
+    libnfc-brcm.conf \
+    libnfc-nxp.conf \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
     Tag \
     com.android.nfc_extras \
     libQPayJNI \
-    libSPIDriverInterface \
-    com.android.qcom.qpay \
-    com.android.qcom.qpay.xml \
+    com.android.qti.qpay \
+    com.android.qti.qpay.xml \
     SmartcardService \
     org.simalliance.openmobileapi \
-    org.simalliance.openmobileapi.xml \
-    com.vzw.nfc \
-    com.vzw.nfc.xml \
-    libassd
+    org.simalliance.openmobileapi.xml
 
 PRODUCT_COPY_FILES += \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
@@ -147,7 +151,6 @@ PRODUCT_COPY_FILES += \
 
 # SmartcardService, SIM1,SIM2,eSE1 not including eSE2,SD1 as default
 ADDITIONAL_BUILD_PROPERTIES += persist.nfc.smartcard.config=SIM1,SIM2,eSE1
-
 endif # TARGET_USES_NQ_NFC
 
 # Reduce client buffer size for fast audio output tracks
