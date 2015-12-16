@@ -9,6 +9,7 @@
 /dev/mhi_pipe_.*                                u:object_r:mhi_device:s0
 /dev/bhi                                        u:object_r:bhi_device:s0
 /dev/msm_.*                                     u:object_r:audio_device:s0
+/dev/i2c-6                                      u:object_r:audio_device:s0
 /dev/usf1                                       u:object_r:usf_device:s0
 /dev/msm_dsps                                   u:object_r:sensors_device:s0
 /dev/msm_thermal_query                          u:object_r:thermal_device:s0
