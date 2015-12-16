@@ -15,7 +15,7 @@
 #
 # THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
 # WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRIN:qGEMENT
 # ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
 # BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
 # CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
@@ -25,8 +25,5 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#This is need for the nativehmi bootanimation
-ctl.thermal-engine             u:object_r:ctl_thermal-engine_prop:s0
-persist.nativehmi.exit         u:object_r:ctl_bootanim_prop:s0
-nativehmi.appname              u:object_r:ctl_bootanim_prop:s0
-sys.mediaserver.ready          u:object_r:audio_prop:s0
+#nativeHMI need this
+allow system_app ctl_bootanim_prop:property_service set;
