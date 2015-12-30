@@ -3,7 +3,7 @@ type perfd_exec, exec_type, file_type;
 
 init_daemon_domain(perfd)
 
-allow perfd self:capability { net_admin chown dac_override fsetid };
+allow perfd self:capability { net_admin chown dac_override fsetid kill };
 allow perfd {
     sysfs_devices_system_cpu
     sysfs_cpu_online
@@ -36,3 +36,14 @@ unix_socket_connect(perfd, thermal, thermal-engine);
 
 # Access device nodes inside /dev/cpuctl
 allow perfd cpuctl_device:chr_file rw_file_perms;
+
+# Allow perfd to send signull
+allow perfd {
+    system_server
+    system_app
+    wfdservice
+    mediaserver
+    thermal-engine
+    surfaceflinger
+    appdomain
+}:process signull;
