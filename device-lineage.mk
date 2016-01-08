@@ -8,6 +8,10 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
+# Tethering
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # Update engine
 PRODUCT_PACKAGES += \
     brillo_update_payload
