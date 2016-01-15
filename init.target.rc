@@ -30,6 +30,7 @@
 on early-init
     mkdir /firmware 0771 system system
     mkdir /firmware/radio 0771 system system
+    mkdir /firmware/adsp 0771 system system	#HTC_AUD
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
@@ -60,6 +61,11 @@ on fs
 
     wait /dev/block/bootdevice/by-name/radio
     mount vfat /dev/block/bootdevice/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
+#HTC_AUD_START
+    wait /dev/block/bootdevice/by-name/adsp
+    mount vfat /dev/block/bootdevice/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+#HTC_AUD_END
 
     wait /dev/block/bootdevice/by-name/bluetooth
     mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
