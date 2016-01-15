@@ -64,7 +64,13 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8996/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/qcom/msm8996/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     device/qcom/msm8996/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/qcom/msm8996/audio_platform_info.xml:system/etc/audio_platform_info.xml
+    device/qcom/msm8996/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/qcom/msm8996/AudioBTIDnew.csv:system/etc/AudioBTIDnew.csv \
+    device/qcom/msm8996/Tfa98xx.cnt:system/etc/Tfa98xx.cnt \
+    device/qcom/msm8996/Tfa98xx2.cnt:system/etc/Tfa98xx2.cnt \
+    device/qcom/msm8996/Tfa98xx2_n1b.cnt:system/etc/Tfa98xx2_n1b.cnt \
+    device/qcom/msm8996/Tfa98xx_n1b.cnt:system/etc/Tfa98xx_n1b.cnt \
+    device/qcom/msm8996/htc_sound_mfg.txt:system/etc/htc_sound_mfg.txt
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
