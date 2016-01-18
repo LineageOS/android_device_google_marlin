@@ -15,6 +15,18 @@ $(BUILT_TARGET_FILES_PACKAGE): $(INSTALLED_BOOTLOADER_MODULE)
 droidcore: $(INSTALLED_BOOTLOADER_MODULE)
 endif
 
+# Clone TARGET_EMMC_BOOTLOADER to aboot.img
+.PHONY: gensecimage_target
+
+ifneq ($(TARGET_EMMC_BOOTLOADER),)
+$(PRODUCT_OUT)/aboot.img: $(TARGET_EMMC_BOOTLOADER) gensecimage_target | $(ACP)
+	$(transform-prebuilt-to-target)
+
+.PHONY: aboot
+aboot: $(PRODUCT_OUT)/aboot.img
+ALL_DEFAULT_INSTALLED_MODULES += aboot
+endif
+
 #----------------------------------------------------------------------
 # Compile Linux Kernel
 #----------------------------------------------------------------------
