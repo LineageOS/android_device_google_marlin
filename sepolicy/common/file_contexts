@@ -334,3 +334,17 @@
 # cache files
 #
 /cache/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
+
+###########################
+# SSD AUD
+#
+/dev/htc_nsd_misc                               u:object_r:audiod_device:s0
+/dev/htc_hsicctl                                u:object_r:audiod_device:s0
+/dev/htc-acoustic                               u:object_r:audiod_device:s0
+/dev/rt5501                                     u:object_r:audiod_device:s0
+/dev/tfa9887                                    u:object_r:audiod_device:s0
+/dev/tfa9887l                                   u:object_r:audiod_device:s0
+/dev/tfa9895                                    u:object_r:audiod_device:s0
+/dev/tfa9895l                                   u:object_r:audiod_device:s0
+/dev/msm_acdb                                   u:object_r:audiod_device:s0
+/dev/tfa9888                                    u:object_r:audiod_device:s0

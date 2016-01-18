@@ -1,3 +1,39 @@
+#HTC_AUD_START
+
+# allow mediaserver to write DTS files
+allow mediaserver dts_data_file:dir rw_dir_perms;
+allow mediaserver dts_data_file:file create_file_perms;
+
+# Allow mediaserver to create socket files for audio arbitration
+allow mediaserver audio_data_file:sock_file { create setattr unlink };
+allow mediaserver audio_data_file:dir remove_name;
+
+allow mediaserver audiod_data_file:dir { write setattr search add_name create read open remove_name};
+allow mediaserver audiod_data_file:file create_file_perms;
+allow mediaserver audiod_data_file:sock_file write;
+allow mediaserver effect_data_file:dir rw_dir_perms;
+allow mediaserver effect_data_file:file create_file_perms;
+allow mediaserver mediaserver:netlink_kobject_uevent_socket { create setopt bind getopt };
+allow mediaserver radio:dir search;
+allow mediaserver radio:file { read open getattr };
+allow mediaserver htc_audio_prop:property_service set;
+allow mediaserver system_server:dir search;
+allow mediaserver system_server:unix_stream_socket { read write };
+allow mediaserver shell_data_file:dir search;
+allow mediaserver untrusted_app:file { open read getattr };
+allow mediaserver debugfs:file { read getattr };
+allow mediaserver socket_device:sock_file { create write read setattr };
+allow mediaserver platform_app:file { open read getattr };
+allow mediaserver platform_app:dir search;
+allow mediaserver audiod_device:chr_file { read write open ioctl };
+allow mediaserver diag_device:chr_file { read write open ioctl };
+allow mediaserver bootanim:binder { transfer call };
+allow mediaserver zygote:binder { call };
+allow mediaserver time_daemon:unix_stream_socket connectto;
+allow mediaserver system_file:file execmod;
+
+#HTC_AUD_END
+
 # allow mediaserver to communicate with cnd
 unix_socket_connect(mediaserver, cnd, cnd)
 

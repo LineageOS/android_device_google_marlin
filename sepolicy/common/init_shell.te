@@ -28,6 +28,9 @@ allow qti_init_shell fm_data_file: dir rw_dir_perms;
 #allow shell to access /dev/vm_bms
 allow qti_init_shell vm_bms_device:chr_file getattr;
 
+#HTC_AUD
+allow qti_init_shell usf_device:chr_file { getattr };
+
 # create/open, read/write permission for fm calibration file.
 allow qti_init_shell fm_data_file: file create_file_perms;
 

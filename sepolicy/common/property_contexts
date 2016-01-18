@@ -42,3 +42,8 @@ debug.sf.nobootanimation   u:object_r:boot_animation_prop:s0
 # DOLBY_START
 dolby.                     u:object_r:dolby_prop:s0
 # DOLBY_END
+
+#HTC_AUD
+# property for htc audio
+htc.audio.            u:object_r:htc_audio_prop:s0
+persist.htc.audio.    u:object_r:htc_audio_prop:s0

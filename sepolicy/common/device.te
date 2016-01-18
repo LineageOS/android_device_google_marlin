@@ -11,6 +11,11 @@ type mhi_device, dev_type;
 #Define the bhi device
 type bhi_device, dev_type;
 
+#HTC_AUD_START
+# Define for all htc audio device
+type audiod_device, dev_type;
+#HTC_AUD_END
+
 #device type for smd device nodes, ie /dev/smd*
 type smd_device, dev_type;
 
