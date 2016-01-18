@@ -165,6 +165,9 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
         $(TARGET_OUT_ETC)/firmware/msadp )
 endif
 
+# HTC prebuilt subsys images to $(OUT)
+include device/qcom/msm8996/prebuilt-subsys-images.mk
+
 #----------------------------------------------------------------------
 # ultrasound support
 #----------------------------------------------------------------------
