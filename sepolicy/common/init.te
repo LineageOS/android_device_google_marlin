@@ -19,3 +19,6 @@ allow init tmpfs:lnk_file create_file_perms;
 #allow it for most domain. Do not honor LD_PRELOAD
 #for lmkd
 allow init { domain -lmkd }:process noatsecure;
+
+# For htc reboot block to open/write misc partition
+allow init misc_partition:blk_file { open write };
