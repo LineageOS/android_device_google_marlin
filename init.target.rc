@@ -98,6 +98,10 @@ on boot
     write /proc/sys/kernel/sched_boost 1
     write /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input0/update_fw 1
 
+    # I2C tool
+    chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
+    chmod 664 /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start

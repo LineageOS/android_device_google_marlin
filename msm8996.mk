@@ -116,6 +116,8 @@ PRODUCT_COPY_FILES += \
 
 # HTC_SENSOR_HUB
 PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/i2ctest:system/bin/i2ctest \
+    device/qcom/msm8996/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so \
     device/qcom/msm8996/sensor_hub/sensor_hub_htc_xb.img:system/etc/firmware/sensor_hub_htc_xb.img
 PRODUCT_PACKAGES += \
     downloadsensorhub
