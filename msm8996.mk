@@ -172,3 +172,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
 PRODUCT_AAPT_CONFIG += xlarge large
+
+### HTC touch ###
+PRODUCT_COPY_FILES += \
+    device/htc/prebuilts/msm8996/tp_SYN3708.img:system/etc/firmware/synaptics.img
