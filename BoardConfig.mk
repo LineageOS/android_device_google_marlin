@@ -146,6 +146,9 @@ endif
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
+# HTC_SENSOR_HUB
+LIBHTC_SENSORHUB_PROJECT := g_project
+
 TARGET_LDPRELOAD := libNimsWrap.so
 
 TARGET_COMPILE_WITH_MSM_KERNEL := true

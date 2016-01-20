@@ -114,6 +114,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.relative_humidity.xml:system/etc/permissions/android.hardware.sensor.relative_humidity.xml \
     frameworks/native/data/etc/android.hardware.sensor.hifi_sensors.xml:system/etc/permissions/android.hardware.sensor.hifi_sensors.xml
 
+# HTC_SENSOR_HUB
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8996/sensor_hub/sensor_hub_htc_xb.img:system/etc/firmware/sensor_hub_htc_xb.img
+PRODUCT_PACKAGES += \
+    downloadsensorhub
+
 PRODUCT_SUPPORTS_VERITY := true
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 
