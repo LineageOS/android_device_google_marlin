@@ -1,0 +1,49 @@
+type perfd, domain, mlstrustedsubject;
+type perfd_exec, exec_type, file_type;
+
+init_daemon_domain(perfd)
+
+allow perfd self:capability { net_admin chown dac_override fsetid kill };
+allow perfd {
+    sysfs_devices_system_cpu
+    sysfs_cpu_online
+    proc
+    sysfs
+}:file rw_file_perms;
+
+allow perfd self:{ netlink_kobject_uevent_socket socket} create_socket_perms;
+
+# mpctl socket
+allow perfd mpctl_socket:dir rw_dir_perms;
+allow perfd mpctl_socket:sock_file create_file_perms;
+
+# default_values file
+allow perfd mpctl_data_file:dir rw_dir_perms;
+allow perfd mpctl_data_file:file create_file_perms;
+
+# Allow poll of system_server status
+r_dir_file(perfd, system_server)
+
+# Allow access to thermal sysfs entry
+r_dir_file(perfd, sysfs_thermal)
+allow perfd sysfs_thermal:file write;
+
+# IRQbalancer access
+unix_socket_connect(perfd, msm_irqbalance, msm_irqbalanced);
+
+# Thermal lib access
+unix_socket_connect(perfd, thermal, thermal-engine);
+
+# Access device nodes inside /dev/cpuctl
+allow perfd cpuctl_device:chr_file rw_file_perms;
+
+# Allow perfd to send signull
+allow perfd {
+    system_server
+    system_app
+    wfdservice
+    mediaserver
+    thermal-engine
+    surfaceflinger
+    appdomain
+}:process signull;

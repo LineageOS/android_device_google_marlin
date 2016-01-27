@@ -1,0 +1,112 @@
+#HTC_AUD_START
+
+# allow mediaserver to write DTS files
+allow mediaserver dts_data_file:dir rw_dir_perms;
+allow mediaserver dts_data_file:file create_file_perms;
+
+# Allow mediaserver to create socket files for audio arbitration
+allow mediaserver audio_data_file:sock_file { create setattr unlink };
+allow mediaserver audio_data_file:dir remove_name;
+
+allow mediaserver audiod_data_file:dir { write setattr search add_name create read open remove_name};
+allow mediaserver audiod_data_file:file create_file_perms;
+allow mediaserver audiod_data_file:sock_file write;
+allow mediaserver effect_data_file:dir rw_dir_perms;
+allow mediaserver effect_data_file:file create_file_perms;
+allow mediaserver mediaserver:netlink_kobject_uevent_socket { create setopt bind getopt };
+allow mediaserver radio:dir search;
+allow mediaserver radio:file { read open getattr };
+allow mediaserver htc_audio_prop:property_service set;
+allow mediaserver system_server:dir search;
+allow mediaserver system_server:unix_stream_socket { read write };
+allow mediaserver shell_data_file:dir search;
+allow mediaserver untrusted_app:file { open read getattr };
+allow mediaserver debugfs:file { read getattr };
+allow mediaserver socket_device:sock_file { create write read setattr };
+allow mediaserver platform_app:file { open read getattr };
+allow mediaserver platform_app:dir search;
+allow mediaserver audiod_device:chr_file { read write open ioctl };
+allow mediaserver diag_device:chr_file { read write open ioctl };
+allow mediaserver bootanim:binder { transfer call };
+allow mediaserver zygote:binder { call };
+allow mediaserver time_daemon:unix_stream_socket connectto;
+allow mediaserver system_file:file execmod;
+
+#HTC_AUD_END
+
+# allow mediaserver to communicate with cnd
+unix_socket_connect(mediaserver, cnd, cnd)
+
+allow mediaserver camera_device:chr_file rw_file_perms;
+unix_socket_send(mediaserver, camera, mm-qcamerad)
+
+allow mediaserver tee_device:chr_file rw_file_perms;
+allow mediaserver qdsp_device:chr_file r_file_perms;
+
+allow mediaserver self:socket create_socket_perms;
+
+binder_call(mediaserver, rild)
+
+qmux_socket(mediaserver)
+allow mediaserver camera_data_file:sock_file w_file_perms;
+
+userdebug_or_eng(`
+  allow mediaserver camera_data_file:dir rw_dir_perms;
+  allow mediaserver camera_data_file:file create_file_perms;
+  # Access to audio
+  allow mediaserver debugfs:file rw_file_perms;
+')
+
+r_dir_file(mediaserver, sysfs_esoc)
+allow mediaserver system_app_data_file:file rw_file_perms;
+
+# allow mediaserver to write DTS files
+allow mediaserver dts_data_file:dir rw_dir_perms;
+allow mediaserver dts_data_file:file create_file_perms;
+
+# access to perflock
+allow mediaserver mpctl_socket:dir r_dir_perms;
+unix_socket_send(mediaserver, mpctl, mpdecision)
+unix_socket_connect(mediaserver, mpctl, mpdecision)
+
+# access to perflock
+allow mediaserver mpctl_socket:dir r_dir_perms;
+unix_socket_send(mediaserver, mpctl, perfd)
+unix_socket_connect(mediaserver, mpctl, perfd)
+
+# for thermal sock files
+unix_socket_connect(mediaserver, thermal, thermal-engine)
+
+#This is required for thermal sysfs access
+r_dir_file(mediaserver, sysfs_thermal);
+
+#allow mediaserver to communicate with timedaemon
+allow mediaserver time_daemon:unix_stream_socket connectto;
+
+# Allow mediaserver to create socket files for audio arbitration
+allow mediaserver audio_data_file:sock_file { create setattr unlink };
+allow mediaserver audio_data_file:dir remove_name;
+
+# Allow mediaserver to create audio pp files
+allow mediaserver audio_pp_data_file:dir rw_dir_perms;
+allow mediaserver audio_pp_data_file:file create_file_perms;
+
+#Allow mediaserver to set camera  properties
+allow mediaserver camera_prop:property_service set;
+
+#allow mediaserver to access wfdservice
+binder_call(mediaserver, wfdservice)
+
+#allow mediaserver to access adsprpcd
+r_dir_file(mediaserver, adsprpcd_file);
+
+#Allow mediaserver to connect to unix sockets for staproxy service
+allow mediaserver system_app:unix_stream_socket { connectto read write setopt };
+
+#Allow mediaserver to access service manager STAProxyService
+#Allow mediaserver to access service manager wfdservice
+allow mediaserver { STAProxyService wfdservice_service }:service_manager find;
+allow mediaserver surfaceflinger:unix_stream_socket rw_socket_perms;
+# DOLBY_START
+set_prop(mediaserver, dolby_prop)
+# DOLBY_END

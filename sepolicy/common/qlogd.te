@@ -1,0 +1,63 @@
+# qlogd
+type qlogd, domain;
+type qlogd_exec, exec_type, file_type;
+
+# make transition from init to its domain
+init_daemon_domain(qlogd)
+
+# need to access sharemem log device for smem logs
+allow qlogd smem_log_device:chr_file rw_file_perms;
+
+# need to add more capabilities for qlogd
+allow qlogd self:capability {
+    setuid
+    setgid
+    dac_override
+    dac_read_search
+    sys_admin
+    net_raw
+    net_admin
+    fowner
+    fsetid
+    kill
+    sys_module
+};
+allow qlogd self:capability2 syslog;
+allow qlogd self:packet_socket { create ioctl bind getopt setopt };
+
+# need to access system_data partitions for configration files
+allow qlogd qlogd_data_file:dir rw_dir_perms;
+allow qlogd qlogd_data_file:file create_file_perms;
+allow qlogd system_file:file x_file_perms;
+
+# need to create and listen socket
+allow qlogd qlogd_socket:sock_file create_file_perms;
+
+# need to start shell execute files
+allow qlogd shell_exec:file rx_file_perms;
+
+# need to create and write files in fuse partition
+allow qlogd fuse:dir create_dir_perms;
+allow qlogd fuse:file create_file_perms;
+
+# need to capture kmsg
+allow qlogd kernel:system syslog_mod;
+
+# need for qdss log and odl from UI
+userdebug_or_eng(`
+  allow qlogd { debugfs qdss_device }:file r_file_perms;
+  allow qlogd sysfs:file w_file_perms;
+  r_dir_file(qlogd, storage_file)
+  r_dir_file(qlogd, mnt_user_file)
+')
+
+# need for capture adb logs
+unix_socket_connect(qlogd, logdr, logd)
+
+# need for subsystem ramdump
+allow qlogd device:dir r_dir_perms;
+allow qlogd ramdump_device:chr_file { setattr rw_file_perms };
+
+# need for qxdm log
+allow qlogd diag_exec:file rx_file_perms;
+wakelock_use(qlogd)

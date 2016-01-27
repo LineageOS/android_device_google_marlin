@@ -1,0 +1,62 @@
+type mm-pp-daemon, domain;
+type mm-pp-daemon_exec, exec_type, file_type;
+
+init_daemon_domain(mm-pp-daemon)
+
+#Need to use fb ioctls to communicate with kernel
+allow mm-pp-daemon graphics_device:chr_file rw_file_perms;
+allow mm-pp-daemon graphics_device:dir r_dir_perms;
+
+# Allow reading/writing to '/persist/display/*'
+# The color config file is dynamically created
+allow mm-pp-daemon persist_display_file:dir rw_dir_perms;
+allow mm-pp-daemon persist_display_file:file create_file_perms;
+
+# Allow for directory search only to '/persist'
+allow mm-pp-daemon persist_file:dir search;
+
+# Allow reading/writing data config files
+allow mm-pp-daemon display_misc_file:dir create_dir_perms;
+allow mm-pp-daemon display_misc_file:file create_file_perms;
+
+# Allow read to sensor device and read/write to sensor socket
+allow mm-pp-daemon sensors_device:chr_file r_file_perms;
+allow mm-pp-daemon sensors_socket:sock_file rw_file_perms;
+allow mm-pp-daemon sensors:unix_stream_socket connectto;
+
+allow mm-pp-daemon system_prop:property_service set;
+
+# Allow service manager to find surface flinger service,
+# sensorservice service, permission_service, and power service (for
+# acquire wakelock)
+allow mm-pp-daemon { surfaceflinger_service sensorservice_service
+    permission_service power_service }:service_manager find;
+
+# Allow mm-pp-daemon to call binder for screen refresh
+binder_use(mm-pp-daemon)
+binder_call(mm-pp-daemon, system_server)
+binder_call(mm-pp-daemon, surfaceflinger)
+
+userdebug_or_eng(`
+  # This allows pp-daemon to use shell commands to blank
+  # the display - it uses input keyevent to do this
+  allow mm-pp-daemon { shell_exec zygote_exec }:file rx_file_perms;
+  allow mm-pp-daemon system_file:file x_file_perms;
+  allow mm-pp-daemon self:process ptrace;
+
+  # This allows pp-daemon to set debug property
+  allow mm-pp-daemon debug_prop:property_service set;
+')
+
+# Allow mm-pp-daemon to change the brightness of the target during display
+# calibration
+allow mm-pp-daemon sysfs:file rw_file_perms;
+
+# Allow socket calls in pp-daemon
+unix_socket_connect(mm-pp-daemon, property, init)
+unix_socket_connect(mm-pp-daemon, pps, init)
+
+allow mm-pp-daemon init:unix_stream_socket { listen accept };
+
+# Allow connections between sensor manager and mm-pp-daemon
+allow mm-pp-daemon system_server:unix_stream_socket rw_socket_perms;

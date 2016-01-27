@@ -1,0 +1,27 @@
+type fidodaemon, domain;
+type fidodaemon_exec, exec_type, file_type;
+
+#Allow for transition from init domain to fidodaemon
+init_daemon_domain(fidodaemon)
+
+#Allow fidodaemon to use Binder IPC
+binder_use(fidodaemon)
+
+#Allow apps to interact with fidodaemon
+binder_call(fidodaemon, platform_app)
+binder_call(fidodaemon, system_app)
+
+#Mark fidodaemon as a Binder service domain
+binder_service(fidodaemon)
+
+#Allow fidodaemon to be registered with service manager
+allow fidodaemon fidodaemon_service:service_manager add;
+
+#Allow communication with init over property server
+unix_socket_connect(fidodaemon, property, init);
+
+#Allow access to tee device
+allow fidodaemon tee_device:chr_file rw_file_perms;
+
+#Allow access to firmware
+r_dir_file(fidodaemon, firmware_file)

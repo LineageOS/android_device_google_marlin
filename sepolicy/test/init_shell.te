@@ -1,0 +1,4 @@
+userdebug_or_eng(`
+  allow qti_init_shell fuse:dir create_dir_perms;
+  allow qti_init_shell fuse:file create_file_perms;
+')

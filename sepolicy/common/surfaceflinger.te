@@ -1,0 +1,36 @@
+allow surfaceflinger sysfs_graphics:file rw_file_perms;
+allow surfaceflinger sysfs:file w_file_perms;
+
+# Allow reading/writing to 'persist/display/*'
+allow surfaceflinger persist_display_file:dir rw_dir_perms;
+allow surfaceflinger persist_display_file:file create_file_perms;
+
+# Allow only directory search to '/persist'
+allow surfaceflinger persist_file:dir search;
+
+allow surfaceflinger sysfs:file write;
+
+# Allows pp-daemon to refresh the screen in calibration mode
+r_dir_file(surfaceflinger, mm-pp-daemon)
+
+binder_call(surfaceflinger, location)
+binder_call(surfaceflinger, tee)
+
+# access to perflock
+allow surfaceflinger mpctl_socket:dir r_dir_perms;
+unix_socket_send(surfaceflinger, mpctl, perfd)
+unix_socket_connect(surfaceflinger, mpctl, perfd)
+unix_socket_send(surfaceflinger, mpctl, mpdecision)
+unix_socket_connect(surfaceflinger, mpctl, mpdecision)
+
+# access to /data/misc/display for dumping input frames
+allow surfaceflinger display_misc_file:dir create_dir_perms;
+allow surfaceflinger display_misc_file:file create_file_perms;
+
+# Allows access to dpps daemon in calibration mode
+unix_socket_connect(surfaceflinger, pps, mm-pp-daemon)
+
+r_dir_file(surfaceflinger, firmware_file)
+
+#Allow access to fastmmi
+binder_call(surfaceflinger, mmi)

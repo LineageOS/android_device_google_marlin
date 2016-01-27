@@ -1,0 +1,30 @@
+qmux_socket(rild);
+binder_use(rild)
+
+allow rild ssr_device:chr_file r_file_perms;
+
+r_dir_file(rild, sysfs_ssr)
+r_dir_file(rild, sysfs_esoc)
+
+allow rild sysfs_esoc:file w_file_perms;
+
+binder_call(rild, mediaserver)
+
+#Rule for RILD to talk to peripheral manager
+use_per_mgr(rild);
+
+allow rild rild_socket:chr_file r_file_perms;
+unix_socket_connect(rild, rild, time_daemon)
+allow rild system_health_monitor_device:chr_file r_file_perms;
+
+dontaudit rild domain:dir r_dir_perms;
+allow rild time_daemon:unix_stream_socket connectto;
+r_dir_file(rild, netmgrd)
+
+#Allow access to netmgrd socket
+netmgr_socket(rild);
+
+allow rild mediaserver_service:service_manager find;
+
+# Rule for RILD to talk to peripheral manager
+use_per_mgr(rild);
