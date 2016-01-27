@@ -23,7 +23,7 @@ QCOM_BOARD_PLATFORMS += msmcobalt
 QSD8K_BOARD_PLATFORMS := qsd8k
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
-ANDROID_COMPILE_WITH_JACK := false
+#ANDROID_COMPILE_WITH_JACK := false
 
 #List of targets that use video hw
 MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909 msm8992 msm8996 msm8952 msm8937 titanium msmcobalt
@@ -150,7 +150,7 @@ BT := javax.btobex
 BT += libattrib_static
 BT += hcidump.sh
 BT += libbt-vendor
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/marlin/common
 
 #C2DColorConvert
 C2DCC := libc2dcolorconvert
@@ -676,7 +676,6 @@ PRODUCT_PACKAGES := \
     Updater \
     CalendarProvider \
     SyncProvider \
-    IM \
     VoiceDialer \
     FMRadio \
     FM2 \
@@ -846,22 +845,22 @@ PRODUCT_COPY_FILES := \
 
 # gps/location secuity configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/common/sec_config:system/etc/sec_config
+    device/htc/marlin/common/sec_config:system/etc/sec_config
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/qcom/common/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/qcom/common/media/media_codecs.xml:system/etc/media_codecs.xml
+    device/htc/marlin/common/media/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/marlin/common/media/media_codecs.xml:system/etc/media_codecs.xml
 
 # enable overlays to use our version of
 # source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/marlin/common/device/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/htc/marlin/common/product/overlay
 
 # include additional build utilities
--include device/qcom/common/utils.mk
+-include device/htc/marlin/common/utils.mk
 
 #Enabling Ring Tones
 #include frameworks/base/data/sounds/OriginalAudio.mk
@@ -869,6 +868,7 @@ PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 #Enabling video for live effects
 -include frameworks/base/data/videos/VideoPackage1.mk
 
+#TODO: move to device.mk
 # dm-verity definitions
 PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
@@ -876,7 +876,7 @@ $(call inherit-product, build/target/product/verity.mk)
 #skip boot jars check
 SKIP_BOOT_JARS_CHECK := true
 
-ifeq ($(TARGET_BUILD_VARIANT),user)
+#TODO: always adb.secure ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
     ro.adb.secure=1
-endif
+#endif

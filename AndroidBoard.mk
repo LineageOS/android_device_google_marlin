@@ -1,3 +1,6 @@
+TARGET_BOOTIMG_SIGNED := false
+TARGET_NO_BOOTLOADER := true
+
 LOCAL_PATH := $(call my-dir)
 
 #----------------------------------------------------------------------
@@ -38,7 +41,8 @@ ifeq ($(KERNEL_DEFCONFIG),)
     endif
 endif
 
-include kernel/AndroidKernel.mk
+# Do not build kernel
+# include kernel/AndroidKernel.mk
 
 $(INSTALLED_KERNEL_TARGET): $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	$(transform-prebuilt-to-target)
@@ -166,7 +170,9 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
 endif
 
 # HTC prebuilt subsys images to $(OUT)
-include device/qcom/msm8996/prebuilt-subsys-images.mk
+# -> vendor include device/qcom/msm8996/prebuilt-subsys-images.mk
+# TODO: move this in the vendor makefile
+-include vendor/htc/marlin/prebuilt-subsys-images.mk
 
 #----------------------------------------------------------------------
 # ultrasound support
@@ -201,12 +207,12 @@ endif
 # extra images
 #----------------------------------------------------------------------
 #ifeq (, $(wildcard vendor/qcom/build/tasks/generate_extra_images.mk))
-include device/qcom/common/generate_extra_images.mk
+#include device/htc/marlin/common/generate_extra_images.mk
 #endif
 
 #----------------------------------------------------------------------
 # pick up additional files for Tiny Android builds
 #----------------------------------------------------------------------
 #ifeq ($(BUILD_TINY_ANDROID), true)
-#include device/qcom/common/rootdir/Android.mk
+#include device/htc/marlin/common/rootdir/Android.mk
 #endif

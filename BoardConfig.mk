@@ -4,13 +4,15 @@
 #
 
 TARGET_BOARD_PLATFORM := msm8996
-TARGET_BOOTLOADER_BOARD_NAME := msm8996
+TARGET_BOOTLOADER_BOARD_NAME := marlin
 
+TARGET_USES_AOSP := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := kryo
+#TODO: add kryo support? TARGET_CPU_VARIANT := kryo
+TARGET_CPU_VARIANT := generic
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
@@ -22,7 +24,7 @@ else
 TARGET_2ND_CPU_VARIANT := cortex-a9
 endif
 
-TARGET_NO_BOOTLOADER := false
+TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
 # use msm8996 LK configuration
@@ -60,7 +62,7 @@ ENABLE_MULTI_INPUT := false
 ENABLE_ONEDOTONE_CHANNEL := false
 
 #All audio flags need to be definded before including htc-audio.mk
-include device/qcom/common/audio/htc-audio.mk
+include device/htc/marlin/common/audio/htc-audio.mk
 #HTC_AUD_END
 
 
@@ -70,11 +72,12 @@ USE_CAMERA_STUB := true
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/marlin/common
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
@@ -95,7 +98,7 @@ endif
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
 
-BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
+BOARD_EGL_CFG := device/htc/marlin/egl.cfg
 BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_KERNEL_BASE        := 0x80000000
@@ -120,7 +123,8 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PER_MGR_ENABLED := true
 
 #Enable HW based full disk encryption
-TARGET_HW_DISK_ENCRYPTION := true
+# TODO: disable due to compile error due to mismatch with system/vold
+# TARGET_HW_DISK_ENCRYPTION := true
 
 #Enable SW based full disk encryption
 TARGET_SWV8_DISK_ENCRYPTION := false
@@ -151,7 +155,7 @@ LIBHTC_SENSORHUB_PROJECT := g_project
 
 TARGET_LDPRELOAD := libNimsWrap.so
 
-TARGET_COMPILE_WITH_MSM_KERNEL := true
+# TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 TARGET_KERNEL_APPEND_DTB := true
 # Added to indicate that protobuf-c is supported in this build
@@ -162,10 +166,12 @@ ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := device/htc/marlin/common/cryptfs_hw
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 
 # Enable MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
+
+-include vendor/htc/marlin/BoardConfigVendor.mk
