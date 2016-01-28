@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2012, The Linux Foundation. All rights reserved.
+#  Copyright (c) 2016, The Linux Foundation. All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without
 #  modification, are permitted provided that the following conditions are
@@ -27,25 +27,5 @@
 #  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_lunch_combo msm8974-userdebug
-add_lunch_combo msm8610-userdebug
-add_lunch_combo msm8226-userdebug
-add_lunch_combo apq8084-userdebug
-add_lunch_combo mpq8092-userdebug
-add_lunch_combo msm_bronze-userdebug
-add_lunch_combo msm8916_32-userdebug
-add_lunch_combo msm8916_32_512-userdebug
-add_lunch_combo msm8916_32_k64-userdebug
-add_lunch_combo msm8916_64-userdebug
-add_lunch_combo msm8994-userdebug
-add_lunch_combo msm8996-userdebug
-add_lunch_combo msm8909-userdebug
-add_lunch_combo msm8909_512-userdebug
-add_lunch_combo msm8992-userdebug
-add_lunch_combo msm8952_64-userdebug
-add_lunch_combo msm8952_32-userdebug
-add_lunch_combo msm8937_32-userdebug
-add_lunch_combo msm8937_64-userdebug
-add_lunch_combo titanium_32-userdebug
-add_lunch_combo titanium_64-userdebug
-add_lunch_combo msmcobalt-userdebug
+add_lunch_combo aosp_marlin-userdebug
+add_lunch_combo aosp_sailfish-userdebug
