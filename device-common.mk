@@ -22,7 +22,7 @@
 # TARGET_USES_CHINOOK_SENSORHUB := true
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/htc/marlin-kernel/Image.gz-dtb
+    LOCAL_KERNEL := device/google/marlin-kernel/Image.gz-dtb
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -31,7 +31,7 @@ TARGET_KERNEL_DLKM_DISABLE := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-DEVICE_PACKAGE_OVERLAYS := device/htc/marlin/overlay
+DEVICE_PACKAGE_OVERLAYS := device/google/marlin/overlay
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 BOARD_HAVE_QCOM_FM := false
 TARGET_USES_NQ_NFC := false
@@ -41,18 +41,18 @@ TARGET_USES_NQ_NFC := false
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/htc/marlin/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/htc/marlin/media_codecs.xml:system/etc/media_codecs.xml \
-                      device/htc/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
+                      device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
+                      device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
-PRODUCT_COPY_FILES += device/htc/marlin/whitelistedapps.xml:system/etc/whitelistedapps.xml
+PRODUCT_COPY_FILES += device/google/marlin/whitelistedapps.xml:system/etc/whitelistedapps.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, device/htc/marlin/common/common64.mk)
+$(call inherit-product, device/google/marlin/common/common64.mk)
 
 #PRODUCT_NAME := msm8996
 #PRODUCT_DEVICE := msm8996
@@ -79,36 +79,36 @@ PRODUCT_PACKAGES += libGLES_android
 # Audio configuration file
 ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/common/media/audio_policy.conf:system/etc/audio_policy.conf
+    device/google/marlin/common/media/audio_policy.conf:system/etc/audio_policy.conf
 else
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/audio_policy.conf:system/etc/audio_policy.conf
+    device/google/marlin/audio_policy.conf:system/etc/audio_policy.conf
 endif
 
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    device/htc/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    device/htc/marlin/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/htc/marlin/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
-    device/htc/marlin/mixer_paths_dtp.xml:system/etc/mixer_paths_dtp.xml \
-    device/htc/marlin/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
-    device/htc/marlin/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
-    device/htc/marlin/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
-    device/htc/marlin/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/htc/marlin/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
-    device/htc/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/htc/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/htc/marlin/AudioBTIDnew.csv:system/etc/AudioBTIDnew.csv \
-    device/htc/marlin/Tfa98xx.cnt:system/etc/Tfa98xx.cnt \
-    device/htc/marlin/Tfa98xx2.cnt:system/etc/Tfa98xx2.cnt \
-    device/htc/marlin/Tfa98xx2_n1b.cnt:system/etc/Tfa98xx2_n1b.cnt \
-    device/htc/marlin/Tfa98xx_n1b.cnt:system/etc/Tfa98xx_n1b.cnt \
-    device/htc/marlin/htc_sound_mfg.txt:system/etc/htc_sound_mfg.txt
+    device/google/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
+    device/google/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    device/google/marlin/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/google/marlin/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
+    device/google/marlin/mixer_paths_dtp.xml:system/etc/mixer_paths_dtp.xml \
+    device/google/marlin/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
+    device/google/marlin/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
+    device/google/marlin/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
+    device/google/marlin/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
+    device/google/marlin/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
+    device/google/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
+    device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/google/marlin/AudioBTIDnew.csv:system/etc/AudioBTIDnew.csv \
+    device/google/marlin/Tfa98xx.cnt:system/etc/Tfa98xx.cnt \
+    device/google/marlin/Tfa98xx2.cnt:system/etc/Tfa98xx2.cnt \
+    device/google/marlin/Tfa98xx2_n1b.cnt:system/etc/Tfa98xx2_n1b.cnt \
+    device/google/marlin/Tfa98xx_n1b.cnt:system/etc/Tfa98xx_n1b.cnt \
+    device/google/marlin/htc_sound_mfg.txt:system/etc/htc_sound_mfg.txt
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
-    device/htc/marlin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    device/google/marlin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
+    device/google/marlin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
 
 # Listen configuration file
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/listen_platform_info.xml:system/etc/listen_platform_info.xml
+    device/google/marlin/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
@@ -131,7 +131,7 @@ PRODUCT_PACKAGES += \
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/sensors/hals.conf:system/etc/sensors/hals.conf
+    device/google/marlin/sensors/hals.conf:system/etc/sensors/hals.conf
 
 # Sensor features
 PRODUCT_COPY_FILES += \
@@ -149,9 +149,9 @@ PRODUCT_COPY_FILES += \
 
 # HTC_SENSOR_HUB
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/i2ctest:system/bin/i2ctest \
-    device/htc/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so \
-    device/htc/marlin/sensor_hub/sensor_hub_htc_xb.img:system/etc/firmware/sensor_hub_htc_xb.img
+    device/google/marlin/i2ctest:system/bin/i2ctest \
+    device/google/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so \
+    device/google/marlin/sensor_hub/sensor_hub_htc_xb.img:system/etc/firmware/sensor_hub_htc_xb.img
 PRODUCT_PACKAGES += \
     downloadsensorhub
 
@@ -164,7 +164,7 @@ PRODUCT_COPY_FILES += \
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/htc/marlin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
+    device/google/marlin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
 ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
 PRODUCT_PACKAGES += \
@@ -216,7 +216,7 @@ PRODUCT_AAPT_CONFIG += xlarge large
 # TODO: move to vendor mk file
 ### HTC touch ###
 #PRODUCT_COPY_FILES += \
-#    vendor/htc/marlin/prebuilts/tp_SYN3708.img:system/etc/firmware/synaptics.img
+#    vendor/google_devices/marlin/prebuilts/tp_SYN3708.img:system/etc/firmware/synaptics.img
 
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)

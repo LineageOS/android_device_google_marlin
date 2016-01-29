@@ -18,4 +18,4 @@
 #
 # Everything in this directory will become public
 
--include device/htc/marlin/device-common.mk
+-include device/google/marlin/device-common.mk

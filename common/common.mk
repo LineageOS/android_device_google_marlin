@@ -1,4 +1,4 @@
-$(call inherit-product, device/htc/marlin/common/base.mk)
+$(call inherit-product, device/google/marlin/common/base.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
@@ -20,7 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1\
     persist.radio.sib16_support=1
 
-PRODUCT_PRIVATE_KEY := device/htc/marlin/common/qcom.key
+PRODUCT_PRIVATE_KEY := device/google/marlin/common/qcom.key
 PRODUCT_PACKAGES += qcril.db
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)

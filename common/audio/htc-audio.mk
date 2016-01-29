@@ -1,7 +1,7 @@
 # TODO: remove this, we should not be generating files in the source directory
 # Can remove htc_audio.h if nobody will include it.
 # Now keep to avoid somewhere meet build break.
-HEADER := device/htc/marlin/common/audio/htc_audio.h
+HEADER := device/google/marlin/common/audio/htc_audio.h
 HEADER_TEMP := $(HEADER).tmp
 
 $(shell cat /dev/null > $(HEADER_TEMP))
@@ -23,7 +23,7 @@ $(call append, \#define HTC_AUDIO_H)
 $(call append, \#endif //HTC_AUDIO_H)
 
 # include QCT platform features
--include device/htc/marlin/common/audio/qcom-$(TARGET_BOARD_PLATFORM)-audio.mk
+-include device/google/marlin/common/audio/qcom-$(TARGET_BOARD_PLATFORM)-audio.mk
 
 #
 # include below hTC features
@@ -230,14 +230,14 @@ ifeq ($(USES_NXP_DUAL_SPEAKER),true)
 HTC_INTERNAL_CDEFS += -DUSES_NXP_DUAL_SPEAKER
     ifeq ($(ENABLE_HARMAN_EFFECT),true)
          PRODUCT_COPY_FILES += \
-            device/htc/marlin/common/audio/HARMAN_default_vol_level.conf:system/etc/default_vol_level.conf
+            device/google/marlin/common/audio/HARMAN_default_vol_level.conf:system/etc/default_vol_level.conf
     else
          PRODUCT_COPY_FILES += \
-            device/htc/marlin/common/audio/DULTFA_default_vol_level.conf:system/etc/default_vol_level.conf
+            device/google/marlin/common/audio/DULTFA_default_vol_level.conf:system/etc/default_vol_level.conf
     endif
 else
      PRODUCT_COPY_FILES += \
-        device/htc/marlin/common/audio/NOTFA_default_vol_level.conf:system/etc/default_vol_level.conf
+        device/google/marlin/common/audio/NOTFA_default_vol_level.conf:system/etc/default_vol_level.conf
 endif
 
 ifeq ($(ENABLE_AUDIOVIDEO_TUNNEL),true)
@@ -260,12 +260,12 @@ endif
 
 ifeq ($(USES_TFA9887_LEFT),true)
      PRODUCT_COPY_FILES += \
-        device/htc/marlin/common/audio/DULTFA_default_vol_level.conf:system/etc/default_vol_level.conf
+        device/google/marlin/common/audio/DULTFA_default_vol_level.conf:system/etc/default_vol_level.conf
 else
      PRODUCT_COPY_FILES += \
-        device/htc/marlin/common/audio/TFA_default_vol_level.conf:system/etc/TFA_default_vol_level.conf
+        device/google/marlin/common/audio/TFA_default_vol_level.conf:system/etc/TFA_default_vol_level.conf
      PRODUCT_COPY_FILES += \
-        device/htc/marlin/common/audio/NOTFA_default_vol_level.conf:system/etc/NOTFA_default_vol_level.conf
+        device/google/marlin/common/audio/NOTFA_default_vol_level.conf:system/etc/NOTFA_default_vol_level.conf
 endif
 
 ifneq ($(CODEC_REG_PATH),)
@@ -322,7 +322,7 @@ PRODUCT_COPY_FILES += \
 $(warning ENABLE_GLOBAL_SRS_EFFECT: COPY SRS licence)
 endif
 
-PRODUCT_COPY_FILES += device/htc/marlin/common/audio/audio_effects.conf:system/etc/htc_audio_effects.conf
+PRODUCT_COPY_FILES += device/google/marlin/common/audio/audio_effects.conf:system/etc/htc_audio_effects.conf
 $(warning AUD: COPY common/audio/audio_effects.conf to system/etc/htc_audio_effects.conf)
 
-include device/htc/marlin/common/audio/htc-audio-effects.mk
+include device/google/marlin/common/audio/htc-audio-effects.mk

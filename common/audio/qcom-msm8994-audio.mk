@@ -1,6 +1,6 @@
 ## QCT compile option
 # enable sequence: e.g., msm8994
-#    1. $ANDROID/device/htc/$TARGET_PRODUCT/BoardConfig.mk
+#    1. $ANDROID/device/google/$TARGET_PRODUCT/BoardConfig.mk
 #    2. $ANDROID/device/qcom/$TARGET_BOARD_PLATFORM/BoardConfig.mk
 #       -  include $(QCPATH)/common/$TARGET_BOARD_PLATFORM/BoardConfigVendor.mk
 #    3. $ANDROID/vendor/qcom/proprietary/common/$TARGET_BOARD_PLATFORM/BoardConfigVendor.mk

@@ -27,8 +27,8 @@ PRODUCT_MODEL := AOSP on msm8996
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
-$(call inherit-product, device/htc/marlin/device-sailfish.mk)
-$(call inherit-product-if-exists, vendor/htc/marlin/device-vendor.mk)
+$(call inherit-product, device/google/marlin/device-sailfish.mk)
+$(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor.mk)
 
 PRODUCT_PACKAGES += \
     Launcher3

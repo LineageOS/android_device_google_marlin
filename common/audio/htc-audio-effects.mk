@@ -1,4 +1,4 @@
-EFFECT_CONFIG := device/htc/marlin/common/audio/audio_effects.conf
+EFFECT_CONFIG := device/google/marlin/common/audio/audio_effects.conf
 
 $(shell cat /dev/null > $(EFFECT_CONFIG))
 

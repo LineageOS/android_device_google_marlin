@@ -62,7 +62,7 @@ ENABLE_MULTI_INPUT := false
 ENABLE_ONEDOTONE_CHANNEL := false
 
 #All audio flags need to be definded before including htc-audio.mk
-include device/htc/marlin/common/audio/htc-audio.mk
+include device/google/marlin/common/audio/htc-audio.mk
 #HTC_AUD_END
 
 
@@ -72,7 +72,7 @@ USE_CAMERA_STUB := true
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/marlin/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/marlin/common
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
@@ -98,7 +98,7 @@ endif
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
 
-BOARD_EGL_CFG := device/htc/marlin/egl.cfg
+BOARD_EGL_CFG := device/google/marlin/egl.cfg
 BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_KERNEL_BASE        := 0x80000000
@@ -166,7 +166,7 @@ ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 
-TARGET_CRYPTFS_HW_PATH := device/htc/marlin/common/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := device/google/marlin/common/cryptfs_hw
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
@@ -174,4 +174,4 @@ HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 # Enable MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
 
--include vendor/htc/marlin/BoardConfigVendor.mk
+-include vendor/google_devices/marlin/BoardConfigVendor.mk

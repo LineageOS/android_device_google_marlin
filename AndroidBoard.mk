@@ -172,7 +172,7 @@ endif
 # HTC prebuilt subsys images to $(OUT)
 # -> vendor include device/qcom/msm8996/prebuilt-subsys-images.mk
 # TODO: move this in the vendor makefile
--include vendor/htc/marlin/prebuilt-subsys-images.mk
+-include vendor/google_devices/marlin/prebuilt-subsys-images.mk
 
 #----------------------------------------------------------------------
 # ultrasound support
@@ -207,12 +207,12 @@ endif
 # extra images
 #----------------------------------------------------------------------
 #ifeq (, $(wildcard vendor/qcom/build/tasks/generate_extra_images.mk))
-#include device/htc/marlin/common/generate_extra_images.mk
+#include device/google/marlin/common/generate_extra_images.mk
 #endif
 
 #----------------------------------------------------------------------
 # pick up additional files for Tiny Android builds
 #----------------------------------------------------------------------
 #ifeq ($(BUILD_TINY_ANDROID), true)
-#include device/htc/marlin/common/rootdir/Android.mk
+#include device/google/marlin/common/rootdir/Android.mk
 #endif
