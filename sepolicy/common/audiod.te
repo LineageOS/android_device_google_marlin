@@ -1,0 +1,24 @@
+# audio deamon
+type audiod, domain;
+type audiod_exec, exec_type, file_type;
+init_daemon_domain(audiod)
+allow audiod proc_audiod:file r_file_perms;
+allow audiod audio_device:chr_file rw_file_perms;
+allow audiod mediaserver_service:service_manager find;
+binder_use(audiod)
+binder_call(audiod, mediaserver)
+
+#HTC_AUD_START
+binder_call(mediaserver, audiod)
+allow audiod audiod_device:chr_file { read write open ioctl };
+
+allow adsprpcd unlabeled:dir {search};
+allow adsprpcd unlabeled:dir r_file_perms;
+allow adsprpcd unlabeled:file r_file_perms;
+
+# avoid uevent adsp loading failed at booting
+allow init vfat:dir { search };
+# avoid uevent adsp loading failed after SSR
+allow kernel vfat:dir { search };
+allow kernel vfat:file { open getattr };
+#HTC_AUD_END

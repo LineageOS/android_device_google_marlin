@@ -1,0 +1,70 @@
+# Policy for sensor daemon
+type sensors, domain;
+type sensors_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(sensors)
+
+type_transition sensors system_data_file:{ dir file } sensors_data_file;
+
+allow sensors self:capability {
+    # Change own perms to (nobody,nobody)
+    setuid
+    setgid
+    # Chown /data/misc/sensors/debug/ to nobody
+    chown
+    # Access /data/misc/sensors/debug and /data/system/sensors/settings
+    dac_override
+    dac_read_search
+    net_bind_service
+};
+
+dontaudit sensors self:capability { fsetid net_raw };
+
+# Sensors socket
+allow sensors sensors_socket:sock_file create_file_perms;
+type_transition sensors socket_device:sock_file sensors_socket "sensor_ctl_socket";
+allow sensors socket_device:dir rw_dir_perms;
+
+# Create directories and files under /data/misc/sensors
+# and /data/system/sensors. Allow generic r/w file access.
+allow sensors system_data_file:dir create_dir_perms;
+allow sensors sensors_data_file:dir create_dir_perms;
+allow sensors sensors_data_file:file create_file_perms;
+
+# Access sensor nodes (/dev/msm_dsps, /dev/sensors)
+allow sensors sensors_device:chr_file rw_file_perms;
+
+# Access to /persist/sensors
+allow sensors persist_file:dir r_dir_perms;
+allow sensors sensors_persist_file:dir create_dir_perms;
+allow sensors sensors_persist_file:file create_file_perms;
+
+# Access to execmem
+allow sensors self:process execmem;
+
+# Wake lock access
+wakelock_use(sensors)
+
+allow sensors cgroup:dir { create add_name };
+
+allow sensors self:socket *;
+
+# Access to other devices
+allow sensors smd_device:chr_file rw_file_perms;
+allow sensors smem_log_device:chr_file rw_file_perms;
+allow sensors device_latency:chr_file w_file_perms;
+
+# Access to tests from userdebug/eng builds
+userdebug_or_eng(`
+  domain_auto_trans(shell, sensors_exec, sensors)
+')
+
+binder_use(sensors)
+binder_call(sensors, servicemanager)
+binder_call(sensors, per_mgr)
+
+allow sensors sysfs:file w_file_perms;
+
+#Rules for sensors to talk to peripheral manager
+use_per_mgr(sensors);

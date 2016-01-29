@@ -1,0 +1,87 @@
+#permissive cnd;
+type cnd, domain, mlstrustedsubject;
+type cnd_exec, exec_type, file_type;
+file_type_auto_trans(cnd, socket_device, cnd_socket);
+
+# cnd is started by init, type transit from init domain to cnd domain
+init_daemon_domain(cnd)
+
+# associate netdomain as an attribute of cnd domain
+net_domain(cnd)
+
+allow cnd smem_log_device:chr_file rw_file_perms;
+
+# allow cnd the following capability
+allow cnd self:capability {
+    setuid
+    setgid
+    dac_override
+    net_raw
+    chown
+    fsetid
+    net_admin
+    sys_module
+};
+
+allow cnd self:capability2 block_suspend;
+
+# socket used to communicate with kernel via the netlink syscall
+allow cnd self:{
+    netlink_tcpdiag_socket
+    netlink_route_socket
+    netlink_socket
+    # allow cnd to perform socket operation on itself
+    socket
+} create_socket_perms;
+
+# allow cnd to read tcp diagnostics through netlink
+allow cnd self:netlink_tcpdiag_socket nlmsg_read;
+
+# allow cnd to set system property
+allow cnd system_prop:property_service set;
+unix_socket_connect(cnd, property, init)
+
+# allow cnd to access cnd_data_file
+allow cnd cnd_data_file:file create_file_perms;
+allow cnd cnd_data_file:sock_file { unlink create setattr };
+allow cnd cnd_data_file:dir rw_dir_perms;
+
+# allow cnd to access qmux_radio_socket
+qmux_socket(cnd)
+
+# allow cnd to access wpa_socket
+unix_socket_send(cnd, wpa, wpa)
+allow cnd wpa_socket:dir rw_dir_perms;
+allow cnd wpa_socket:sock_file { create unlink setattr };
+allow cnd wifi_data_file:dir r_dir_perms;
+
+# allow cnd to obtain wakelock
+wakelock_use(cnd)
+
+# allow cnd to get appname and use inet socket
+cnd_nims_socket_perm(appdomain)
+cnd_nims_socket_perm(system_server)
+cnd_nims_socket_perm(mediaserver)
+cnd_nims_socket_perm(mtp)
+cnd_nims_socket_perm(wfdservice)
+cnd_nims_socket_perm(drmserver)
+
+# allow cnd to access ipa_dev
+allow cnd ipa_dev:chr_file rw_file_perms;
+
+# allow access to nims
+allow cnd socket_device:dir remove_name;
+
+allow cnd ipacm_data_file:dir r_dir_perms;
+allow cnd ipacm_data_file:file r_file_perms;
+
+# explicitly allow udp socket permissions for appdomain
+allow cnd appdomain:udp_socket rw_socket_perms;
+
+#allow cnd daemon to invoke hostapd_cli
+allow cnd shell_exec:file rx_file_perms;
+domain_auto_trans(cnd, hostapd_exec, hostapd)
+
+# only allow getopt for appdomain
+allow appdomain zygote:unix_dgram_socket getopt;
+dontaudit { domain -appdomain } zygote:unix_dgram_socket getopt;

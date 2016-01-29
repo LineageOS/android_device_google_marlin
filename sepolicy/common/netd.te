@@ -1,0 +1,21 @@
+#Policies for IPv6 tethering
+allow netd netd:capability { setgid setuid };
+dontaudit netd self:capability sys_module;
+
+allow netd netd:packet_socket create_socket_perms;
+
+unix_socket_connect(netd, cnd, cnd)
+
+allow netd wfdservice:fd use;
+allow netd wfdservice:tcp_socket rw_socket_perms;
+
+binder_use(netd);
+binder_call(netd, qtitetherservice_app);
+
+# allow to read /data/misc/ipa/tether_stats file
+allow netd ipacm_data_file:dir r_dir_perms;
+allow netd ipacm_data_file:file r_file_perms;
+
+# needed for netd to start FST Manager via system property
+allow netd netd_prop:property_service set;
+allow netd qtitetherservices_service:service_manager find;

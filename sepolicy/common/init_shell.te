@@ -1,0 +1,155 @@
+# Restricted domain for shell processes spawned by init.
+# Normally these are shell commands or scripts invoked via sh
+# from an init*.rc file.  No service should ever run in this domain.
+type qti_init_shell, domain;
+domain_auto_trans(init, shell_exec, qti_init_shell)
+
+# For executing init shell scripts (init.qcom.early_boot.sh)
+allow qti_init_shell rootfs:file entrypoint;
+
+# For getting idle_time value
+# this is needed for dynamic_fps and bw_mode_bitmap
+allow qti_init_shell sysfs_graphics:file {rw_file_perms setattr};
+allow qti_init_shell sysfs:file setattr;
+
+allow qti_init_shell persist_file:dir w_dir_perms;
+allow qti_init_shell persist_file:file create_file_perms;
+allow qti_init_shell smd_device:chr_file rw_file_perms;
+
+# Run helpers from / or /system without changing domain.
+allow qti_init_shell { system_file rootfs shell_exec }:file execute_no_trans;
+
+# For accessing fmradio device node
+allow qti_init_shell fm_radio_device:chr_file r_file_perms;
+
+#give permission to read/write fm dir for calibration file
+allow qti_init_shell fm_data_file: dir rw_dir_perms;
+
+#allow shell to access /dev/vm_bms
+allow qti_init_shell vm_bms_device:chr_file getattr;
+
+#HTC_AUD
+allow qti_init_shell usf_device:chr_file { getattr };
+
+# create/open, read/write permission for fm calibration file.
+allow qti_init_shell fm_data_file: file create_file_perms;
+
+# for insmod of iris ko, this is needed.
+# dac_read/override is needed for scripts to do chown/mkdir which is
+# needed by most of the services
+# fowner and fsetid are needed for chmod display nodes.
+allow qti_init_shell self:capability {
+    sys_module
+    net_admin
+    chown
+    fowner
+    fsetid
+    dac_override
+    dac_read_search
+};
+
+# For  property starting with hw
+# freq_prop - for setting frequency from postboot script
+# perfd_prop - for setting ctl.perfd property from postboot script
+# mpdecision_prop - for setting ctl.mpdecision property from postboot script
+# bluetooth_prop - for setting bt related properties from postboot script
+# uicc_prop - for access to UICC property
+# ctl_qmuxd_prop/ctl_netmgrd_prop - Needed in order to set properties on qmuxd and netmgrd processes
+# rmnet_mux_prop - Needed to set persist.rmnet.mux property
+allow qti_init_shell {
+    system_prop
+    freq_prop
+    perfd_prop
+    mpdecision_prop
+    bluetooth_prop
+    config_prop
+    sensors_prop
+    msm_irqbalance_prop
+    ipacm_prop
+    ipacm-diag_prop
+    qti_prop
+    ctl_rildaemon_prop
+    uicc_prop
+    ctl_qmuxd_prop
+    ctl_netmgrd_prop
+    ctl_port-bridge_prop
+    sf_lcd_density_prop
+    opengles_prop
+    mdm_helper_prop
+    fm_prop
+    usf_prop
+    qemu_hw_mainkeys_prop
+    alarm_boot_prop
+    boot_animation_prop
+    # Needed for starting console in userdebug mode
+    userdebug_or_eng(`ctl_console_prop coresight_prop')
+    rmnet_mux_prop
+    ctl_hbtp_prop
+    #Needed for starting vm_bms executable post-boot
+    vm_bms_prop
+}:property_service set;
+
+allow qti_init_shell efs_boot_dev:blk_file r_file_perms;
+
+# For hci_comm_init
+allow qti_init_shell { serial_device userdebug_or_eng(`qdss_device') }:chr_file rw_file_perms;
+
+# Allow property changes
+unix_socket_connect(qti_init_shell, property, init)
+
+allow qti_init_shell {
+    sysfs
+    sysfs_devices_system_cpu
+    sysfs_thermal
+    sysfs_lowmemorykiller
+}:file w_file_perms;
+
+r_dir_file(qti_init_shell, sysfs_thermal)
+allow qti_init_shell sysfs_socinfo:file write;
+
+# Check if /dev/sensors or /dev/msm_dsps present
+allow qti_init_shell sensors_data_file:dir r_dir_perms;
+allow qti_init_shell sensors_device:chr_file r_file_perms;
+
+# To start sensors for DSPS enabled platforms
+r_dir_file(qti_init_shell, persist_file)
+r_dir_file(qti_init_shell, sensors_persist_file)
+allow qti_init_shell sensors_persist_file:file setattr;
+
+# To start of selected USF based calculators
+r_dir_file(qti_init_shell, usf_data_file)
+allow qti_init_shell usf_data_file:file w_file_perms;
+r_dir_file(qti_init_shell, persist_usf_file)
+allow qti_init_shell persist_usf_file:dir w_dir_perms;
+allow qti_init_shell usf_data_file:dir create_dir_perms;
+allow qti_init_shell usf_data_file:{ file lnk_file } create_file_perms;
+
+# To check if /system/bin/msm_irqbalance is persent in the device
+allow qti_init_shell msm_irqbalanced_exec:file getattr;
+
+# To write to /data/system/perfd
+allow qti_init_shell mpctl_data_file:dir w_dir_perms;
+allow qti_init_shell mpctl_data_file:file { write getattr unlink };
+
+allow qti_init_shell { proc proc_net }:file write;
+
+allow qti_init_shell radio_data_file:dir create_dir_perms;
+allow qti_init_shell radio_data_file:file create_file_perms;
+
+allow qti_init_shell graphics_device:dir create_dir_perms;
+allow qti_init_shell graphics_device:lnk_file create_file_perms;
+
+# To create sensor dir inside /data/misc/
+allow qti_init_shell system_data_file:dir create_dir_perms;
+
+#insmod of ko from scripts need kernel key search
+allow qti_init_shell kernel:key search;
+
+# To change owner of /sys/devices/virtual/hsicctl/hsicctl0/modem_wait to radio
+allow qti_init_shell sysfs_hsic_modem_wait:file { r_file_perms setattr };
+
+# core-ctl
+allow qti_init_shell cgroup:dir add_name;
+
+# To allow copy for mbn files
+r_dir_file(qti_init_shell, firmware_file)

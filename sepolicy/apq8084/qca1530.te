@@ -1,0 +1,74 @@
+# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+
+type qca1530, domain;
+type qca1530_exec, exec_type, file_type;
+net_domain(qca1530)
+init_daemon_domain(qca1530)
+
+userdebug_or_eng(`
+  domain_auto_trans(shell, qca1530_exec, qca1530)
+  domain_auto_trans(adbd, qca1530_exec, qca1530)
+')
+
+qmux_socket(qca1530)
+wakelock_use(qca1530)
+unix_socket_connect(qca1530, property, init)
+
+# need to access sharemem log device for smem logs
+allow qca1530 smem_log_device:chr_file rw_file_perms;
+
+allow qca1530 location_data_file:dir create_dir_perms;
+allow qca1530 location_data_file:file create_file_perms;
+allow qca1530 qca1530_data_file:dir create_dir_perms;
+allow qca1530 qca1530_data_file:file create_file_perms;
+allow qca1530 sysfs_qca1530:file { rw_file_perms setattr };
+allow qca1530 sysfs_qca1530:dir r_dir_perms;
+allow qca1530 self:capability {
+    setuid
+    setgid
+    setpcap
+    dac_override
+    net_raw
+    fowner
+    chown
+    fsetid
+    sys_nice
+};
+
+allow qca1530 self:capability2 syslog;
+allow qca1530 self:{ unix_dgram_socket packet_socket socket } create_socket_perms;
+
+# Execute the shell or system commands.
+allow qca1530 { qca1530_exec shell_exec }:file rx_file_perms;
+allow qca1530 system_file:file x_file_perms;
+
+#Setting sys.qca1530 property in QCA1530 detect service
+#Setting system default properties on start command to system server
+allow qca1530 { qca1530_prop ctl_default_prop }:property_service set;
+
+# Access to serial port conncting to QCA1530 chip
+allow qca1530 serial_device:chr_file rw_file_perms;

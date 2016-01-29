@@ -1,0 +1,177 @@
+# config.mk
+#
+# Product-specific compile-time definitions
+#
+
+TARGET_BOARD_PLATFORM := msm8996
+TARGET_BOOTLOADER_BOARD_NAME := marlin
+
+TARGET_USES_AOSP := true
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+#TODO: add kryo support? TARGET_CPU_VARIANT := kryo
+TARGET_CPU_VARIANT := generic
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+ifneq ($(TARGET_USES_AOSP), true)
+TARGET_2ND_CPU_VARIANT := cortex-a53
+else
+TARGET_2ND_CPU_VARIANT := cortex-a9
+endif
+
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL := false
+BOOTLOADER_GCC_VERSION := arm-eabi-4.8
+# use msm8996 LK configuration
+BOOTLOADER_PLATFORM := msm8996
+
+TARGET_USES_OVERLAY := true
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
+
+BOARD_USES_GENERIC_AUDIO := true
+
+#HTC_AUD_START
+BOARD_USES_TINYALSA := true
+
+ENABLE_FASTMIXER := true
+ENABLE_BT_HW_AEC := true
+ENABLE_OFFLOAD_VISUALIZER_EFFECT := true
+ENABLE_MIRRORLINK_RECORD := false
+
+BOARD_USES_TFA9888_AUDIO := true
+# Enable 24BIT in framework
+ENABLE_24BIT_AUDIO := true
+# Enable HD Audio
+ENABLE_HD_AUDIO := true
+# Enabel AS3
+ENABLE_ACOUSTIC_SHOCK3 := false
+# Enable Balance & stereo to mono
+ENABLE_AUDIO_BALANCE := false
+ENABLE_STEREO2MONO := false
+#Enable 32bit effect
+HTC_32BIT_EFFECT := false
+#Enable multi input
+ENABLE_MULTI_INPUT := false
+#Enable Speaker feature - 1.1 Channel
+ENABLE_ONEDOTONE_CHANNEL := false
+
+#All audio flags need to be definded before including htc-audio.mk
+include device/htc/marlin/common/audio/htc-audio.mk
+#HTC_AUD_END
+
+
+USE_CAMERA_STUB := true
+-include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
+
+# Some framework code requires this to enable BT
+BOARD_HAVE_BLUETOOTH := true
+BOARD_USES_WIPOWER := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/marlin/common
+
+USE_OPENGL_RENDERER := true
+BOARD_USE_LEGACY_UI := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+
+TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API :=true
+ifneq ($(TARGET_USES_AOSP),true)
+TARGET_USES_QCOM_BSP := true
+endif
+
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
+
+BOARD_EGL_CFG := device/htc/marlin/egl.cfg
+BOARD_KERNEL_SEPARATED_DT := true
+
+BOARD_KERNEL_BASE        := 0x80000000
+BOARD_KERNEL_PAGESIZE    := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x02000000
+BOARD_RAMDISK_OFFSET     := 0x02200000
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_USES_UNCOMPRESSED_KERNEL := false
+
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+TARGET_NO_RPC := true
+
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+TARGET_INIT_VENDOR_LIB := libinit_msm
+
+#Enable Peripheral Manager
+TARGET_PER_MGR_ENABLED := true
+
+#Enable HW based full disk encryption
+# TODO: disable due to compile error due to mismatch with system/vold
+# TARGET_HW_DISK_ENCRYPTION := true
+
+#Enable SW based full disk encryption
+TARGET_SWV8_DISK_ENCRYPTION := false
+
+#Enable PD locater/notifier
+TARGET_PD_SERVICE_ENABLED := true
+
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+TARGET_BOOTIMG_SIGNED := true
+
+# Enable dex pre-opt to speed up initial boot
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_PIC := true
+      ifneq ($(TARGET_BUILD_VARIANT),user)
+        # Retain classes.dex in APK's for non-user builds
+        DEX_PREOPT_DEFAULT := nostripping
+      endif
+    endif
+endif
+
+# Enable sensor multi HAL
+USE_SENSOR_MULTI_HAL := true
+
+# HTC_SENSOR_HUB
+LIBHTC_SENSORHUB_PROJECT := g_project
+
+TARGET_LDPRELOAD := libNimsWrap.so
+
+# TARGET_COMPILE_WITH_MSM_KERNEL := true
+
+TARGET_KERNEL_APPEND_DTB := true
+# Added to indicate that protobuf-c is supported in this build
+PROTOBUF_SUPPORTED := false
+
+#Add NON-HLOS files for ota upgrade
+ADD_RADIO_FILES := true
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
+
+TARGET_CRYPTFS_HW_PATH := device/htc/marlin/common/cryptfs_hw
+
+#Add support for firmare upgrade on 8996
+HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
+
+# Enable MDTP (Mobile Device Theft Protection)
+TARGET_USE_MDTP := true
+
+-include vendor/htc/marlin/BoardConfigVendor.mk

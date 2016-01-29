@@ -1,0 +1,42 @@
+# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+
+###################################
+# Dev block nodes
+#
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/fsc                                u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/fsg                                u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst1                           u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst2                           u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/ssd                                u:object_r:ssd_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/misc                               u:object_r:misc_partition:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/userdata                           u:object_r:userdata_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/boot                               u:object_r:boot_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/recovery                           u:object_r:recovery_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/cache                              u:object_r:cache_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp                                u:object_r:frp_block_device:s0
+/dev/block/mmcblk0rpmb                                                              u:object_r:rpmb_device:s0
+/dev/block/mmcblk0                                                                  u:object_r:root_block_device:s0

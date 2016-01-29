@@ -1,0 +1,4 @@
+allow adbd tombstone_data_file:dir getattr;
+
+# allow read access for adb
+r_dir_file(adbd, RIDL_data_file)

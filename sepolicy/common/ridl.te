@@ -1,0 +1,109 @@
+# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# RIDL
+type RIDL, domain;
+type RIDL_exec, exec_type, file_type;
+
+allow RIDL RIDL_socket:sock_file create_file_perms;
+allow RIDL RIDL_socket:dir create_dir_perms;
+
+# make transition from init to its domain
+init_daemon_domain(RIDL)
+
+# allow socket connections to us
+net_domain(RIDL)
+
+allow RIDL RIDL_data_file:dir create_dir_perms;
+allow RIDL RIDL_data_file:file create_file_perms;
+allow RIDL RIDL_data_file:lnk_file { create read unlink };
+allow RIDL debugfs:file read;
+
+# ver_info.txt
+r_dir_file(RIDL, firmware_file)
+
+# sdcard0/1
+allow RIDL fuse:dir create_dir_perms;
+allow RIDL fuse:file create_file_perms;
+
+# dmesg
+allow RIDL kernel:system syslog_read;
+
+# QMUX
+qmux_socket(RIDL)
+
+# ramdumps
+allow RIDL ramdump_device:chr_file rw_file_perms;
+
+# logcat
+unix_socket_connect(RIDL, logdr, logd)
+
+binder_use(RIDL)
+allow RIDL shell_exec:file { rx_file_perms };
+allow RIDL sysfs:file write;
+allow RIDL system_file:file x_file_perms;
+binder_call(RIDL, system_server)
+
+# recovery
+allow RIDL cache_file:dir create_dir_perms;
+allow RIDL cache_file:file create_file_perms;
+
+# reboot recovery
+allow RIDL powerctl_prop:property_service set;
+unix_socket_connect(RIDL, property, init)
+
+# ANR
+allow RIDL anr_data_file:dir r_dir_perms;
+allow RIDL anr_data_file:file r_file_perms;
+
+# detect /data/anr directory is created
+allow RIDL system_data_file:dir read;
+
+userdebug_or_eng(`
+	# Access to ANR/segfaults
+	allow RIDL tombstone_data_file:dir rw_dir_perms;
+	allow RIDL tombstone_data_file:file { unlink rw_file_perms };
+	allow RIDL anr_data_file:dir rw_dir_perms;
+	allow RIDL anr_data_file:file { unlink rw_file_perms };
+
+	# tcpdump
+	allow RIDL self:packet_socket create_socket_perms;
+	allow RIDL self:capability net_raw;
+')
+
+# drop root caps
+allow RIDL self:capability { setuid setgid };
+
+# access to /proc/kmsg
+allow RIDL self:capability2 syslog;
+allow RIDL kernel:system syslog_mod;
+
+# allow access to /storage/ for sdcard
+allow RIDL storage_file:dir r_dir_perms;
+
+# allow logcat access
+read_logd( RIDL );

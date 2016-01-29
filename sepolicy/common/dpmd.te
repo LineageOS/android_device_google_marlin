@@ -1,0 +1,73 @@
+#dpmd as domain
+type dpmd, domain, mlstrustedsubject;
+type dpmd_exec, exec_type, file_type;
+file_type_auto_trans(dpmd, socket_device, dpmwrapper_socket);
+init_daemon_domain(dpmd)
+net_domain(dpmd)
+allow dpmd {
+    dpmd_exec
+    system_file
+}:file x_file_perms;
+
+#allow dpmd to access dpm_data_file
+allow dpmd dpmd_data_file:file create_file_perms;
+allow dpmd dpmd_data_file:dir create_dir_perms;
+
+#allow dpmd to access qmux radio socket
+qmux_socket(dpmd);
+
+allow dpmd sysfs_wake_lock:file rw_file_perms;
+
+#self capability
+allow dpmd self:{
+    socket
+    netlink_socket
+} rw_socket_perms;
+
+allow dpmd self:capability {
+    setuid
+    setgid
+    dac_override
+    net_raw chown
+    fsetid
+    net_admin
+    sys_module
+};
+
+#socket, self
+allow dpmd smem_log_device:chr_file rw_file_perms;
+unix_socket_connect(dpmd, property, init)
+wakelock_use(dpmd)
+
+allow dpmd {
+    system_prop
+    ctl_default_prop
+}:property_service set;
+
+#misc.
+allow dpmd shell_exec:file rx_file_perms;
+
+#permission to unlink dpmwrapper socket
+allow dpmd socket_device:dir remove_name;
+
+#permission to communicate with cnd_socket for installing iptable rules
+unix_socket_connect(dpmd, cnd, cnd);
+
+#allow dpmd to create socket
+allow dpmd self:socket create_socket_perms;
+allow dpmd self:netlink_socket create_socket_perms;
+
+#allow dpmd to write to /proc/net/sys
+allow dpmd proc_net:file write;
+
+#allow dpmd get appname and use inet socket.
+dpmd_socket_perm(appdomain)
+dpmd_socket_perm(system_server)
+dpmd_socket_perm(mediaserver)
+dpmd_socket_perm(mtp)
+dpmd_socket_perm(wfdservice)
+dpmd_socket_perm(drmserver)
+dpmd_socket_perm(netd)
+
+#explicitly allow udp socket permissions for appdomain
+allow dpmd appdomain:udp_socket rw_socket_perms;

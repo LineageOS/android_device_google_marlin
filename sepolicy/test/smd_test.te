@@ -1,0 +1,13 @@
+#must be defined for file_contexts
+type smd_test_exec, exec_type, file_type;
+
+userdebug_or_eng(`
+  type smd_test, domain;
+  domain_auto_trans(shell, smd_test_exec, smd_test)
+  domain_auto_trans(adbd, smd_test_exec, smd_test)
+  #SMD device node and test file contexts
+  allow smd_test smd_device:chr_file {ioctl read write open getattr append};
+  #tests are launched from pseudo terminal, so output will be directed there
+  #and as such needs adequate allow rules
+  allow smd_test devpts:chr_file {ioctl read write open getattr};
+')

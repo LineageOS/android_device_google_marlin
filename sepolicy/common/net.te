@@ -1,0 +1,15 @@
+# allow netdomain access to cnd
+unix_socket_connect(netdomain, cnd, cnd)
+
+# allow netdomain access to dpmd
+unix_socket_connect(netdomain, dpmwrapper, dpmd)
+
+allow netd self:capability fsetid;
+allow netd hostapd:unix_dgram_socket sendto;
+
+# Allow netd to chmod dir /data/misc/dhcp
+allow netd dhcp_data_file:dir create_dir_perms;
+
+type_transition netd wifi_data_file:dir wpa_socket "sockets";
+allow netd wpa_socket:dir create_dir_perms;
+allow netd wpa_socket:sock_file create_file_perms;

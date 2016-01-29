@@ -1,0 +1,10 @@
+# mobicore daemon
+type mcStarter, domain;
+type mcStarter_exec, exec_type, file_type;
+init_daemon_domain(mcStarter)
+
+# Allow Mobicore to use qseecom services for loading the app
+allow mcStarter tee_device:chr_file rw_file_perms;
+
+# Allow Mobicore to access the firmware files
+r_dir_file(mcStarter, firmware_file)

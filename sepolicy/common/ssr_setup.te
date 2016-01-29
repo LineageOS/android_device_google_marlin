@@ -1,0 +1,16 @@
+# Policy for ssr_setup
+# ssr_setup - ssr_setup domain
+type ssr_setup, domain;
+type ssr_setup_exec, exec_type, file_type;
+init_daemon_domain(ssr_setup);
+
+# Required to discover esoc's
+r_dir_file(ssr_setup, sysfs_esoc)
+
+# Required to enable/disable ssr
+r_dir_file(ssr_setup, sysfs_ssr)
+allow ssr_setup sysfs_ssr:lnk_file w_file_perms;
+allow ssr_setup sysfs_ssr_toggle:file rw_file_perms;
+
+# Keeping this here till sysfs labeling is resolved
+allow ssr_setup sysfs:file w_file_perms;

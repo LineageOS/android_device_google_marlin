@@ -1,0 +1,66 @@
+/system/bin/kernel-tests/smd.* u:object_r:smd_test_exec:s0
+/system/bin/qmi-framework-tests/qmi_ping.*      u:object_r:qmi_ping_exec:s0
+/system/bin/qmi-framework-tests/qmi_test.*      u:object_r:qmi_test_service_exec:s0
+
+/system/bin/diag_dci_client      u:object_r:diagdciclient_exec:s0
+
+/system/bin/ptt_socket_app                      u:object_r:wcnss_service_exec:s0
+/system/bin/athdiag                             u:object_r:wcnss_service_exec:s0
+/system/bin/cld-fwlog-netlink                   u:object_r:wcnss_service_exec:s0
+/system/bin/cld-fwlog-record                    u:object_r:wcnss_service_exec:s0
+/system/bin/cld-fwlog-parser                    u:object_r:wcnss_service_exec:s0
+/system/bin/cnss_diag                           u:object_r:wcnss_service_exec:s0
+/system/bin/iwpriv                              u:object_r:wcnss_service_exec:s0
+/system/bin/iwconfig                            u:object_r:wcnss_service_exec:s0
+/system/bin/iw                                  u:object_r:wcnss_service_exec:s0
+/system/bin/iwlist                              u:object_r:wcnss_service_exec:s0
+/system/bin/iwss_test                           u:object_r:wcnss_service_exec:s0
+/system/bin/pktlogconf                          u:object_r:wcnss_service_exec:s0
+/system/bin/iperf                               u:object_r:wcnss_service_exec:s0
+/system/bin/mboxping                            u:object_r:wcnss_service_exec:s0
+/system/bin/sigma_dut                           u:object_r:wcnss_service_exec:s0
+/system/bin/pktlog                              u:object_r:wcnss_service_exec:s0
+/system/bin/hal_proxy_daemon                    u:object_r:wcnss_service_exec:s0
+/system/bin/Wifilogger_app                      u:object_r:wcnss_service_exec:s0
+/system/bin/hs20-osu-client                     u:object_r:wcnss_service_exec:s0
+/system/bin/ndc                                 u:object_r:wcnss_service_exec:s0
+/system/bin/playreadygtest(.*)                  u:object_r:sectest_exec:s0
+/system/bin/oem(.*)test                         u:object_r:sectest_exec:s0
+/system/bin/widevine(.*)                        u:object_r:sectest_exec:s0
+/system/bin/qseecom_sample_client               u:object_r:sectest_exec:s0
+/system/bin/isdbtmmtest                         u:object_r:sectest_exec:s0
+/system/bin/secure_ui_sample_client             u:object_r:sectest_exec:s0
+/system/bin/qseecom_security_test               u:object_r:sectest_exec:s0
+/system/bin/qfipsverify                         u:object_r:sectest_exec:s0
+/system/bin/qseecom_assurance_test              u:object_r:sectest_exec:s0
+/system/bin/drm_generic_prov_test               u:object_r:sectest_exec:s0
+/system/bin/ParserApp                           u:object_r:sectest_exec:s0
+/system/bin/StoreKeybox                         u:object_r:sectest_exec:s0
+/system/bin/InstallKeybox                       u:object_r:sectest_exec:s0
+
+#Authentication and FIDO
+/system/vendor/bin/sampleauthdaemon             u:object_r:fidotest_exec:s0
+/system/vendor/bin/qseeproxysampledaemon        u:object_r:qseeproxysample_exec:s0
+
+#Context for location features
+/system/bin/sdp_test                            u:object_r:location_exec:s0
+/system/bin/icm_test                            u:object_r:location_exec:s0
+/system/bin/pf_test_app                         u:object_r:location_exec:s0
+/system/bin/quipc_ipe_test                      u:object_r:location_exec:s0
+/system/bin/ipead_test                          u:object_r:location_exec:s0
+/system/bin/quipc_iwmm_test                     u:object_r:location_exec:s0
+/system/bin/slimcw_test                         u:object_r:location_exec:s0
+/system/bin/lowi_test                           u:object_r:location_exec:s0
+/system/bin/test-lowi-client                    u:object_r:location_exec:s0
+/system/bin/quipc_os_api_test_1                 u:object_r:location_exec:s0
+/system/bin/quipc_os_api_test_2                 u:object_r:location_exec:s0
+/system/bin/loc_api_v02_utt                     u:object_r:location_exec:s0
+/system/bin/test-version                        u:object_r:location_exec:s0
+/system/bin/test-pos-tx                         u:object_r:location_exec:s0
+/system/bin/xtwifi-upload-test                  u:object_r:location_exec:s0
+/system/bin/test-fake-ap                        u:object_r:location_exec:s0
+/system/bin/loc_api_app                         u:object_r:location_exec:s0
+/system/bin/test_loc_api_client                 u:object_r:location_exec:s0
+
+#Context for mediaserver
+/data/display-tests/media(/.*)?                 u:object_r:display_test_media_file:s0
