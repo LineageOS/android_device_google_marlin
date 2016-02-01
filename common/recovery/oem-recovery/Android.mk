@@ -6,7 +6,9 @@ LOCAL_C_INCLUDES := bootable/recovery \
 		    system/core/libsparse \
 		    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := gpt-utils.c dec.c oem-updater.c
+ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+endif
 LOCAL_MODULE := librecovery_updater_msm
 include $(BUILD_STATIC_LIBRARY)
 endif
