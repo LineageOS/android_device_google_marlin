@@ -1,3 +1,4 @@
+$(error UNUSED)
 # This makefile is used to generate extra images for QCOM targets
 # persist, device tree & NAND images required for different QCOM targets.
 

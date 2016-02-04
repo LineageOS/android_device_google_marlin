@@ -35,11 +35,11 @@ on early-init
     symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
 
-on post-fs
-    export LD_PRELOAD libNimsWrap.so
+#on post-fs
+#    export LD_PRELOAD libNimsWrap.so
 
 on fs
-    wait /dev/block/bootdevice
+#   wait /dev/block/bootdevice
     mount_all fstab.qcom
     swapon_all fstab.qcom
 
@@ -47,28 +47,28 @@ on fs
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
-    wait /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
+    wait /dev/block/platform/soc/624000.ufshc/sda18 # /dev/block/bootdevice/by-name/cache
+    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/cache /cache nosuid nodev barrier=1
 
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+    wait /dev/block/platform/soc/624000.ufshc/sda8 # /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/persist /persist nosuid nodev barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
-    wait /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
+    wait /dev/block/platform/soc/624000.ufshc/sda17 # /dev/block/bootdevice/by-name/dsp
+    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/dsp /dsp nosuid nodev barrier=1
     restorecon_recursive /dsp
 
-    wait /dev/block/bootdevice/by-name/radio
-    mount vfat /dev/block/bootdevice/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    wait /dev/block/platform/soc/624000.ufshc/sdd27 # /dev/block/bootdevice/by-name/radio
+    mount vfat /dev/block/platform/soc/624000.ufshc/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
 
 #HTC_AUD_START
-    wait /dev/block/bootdevice/by-name/adsp
-    mount vfat /dev/block/bootdevice/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    wait /dev/block/platform/soc/624000.ufshc/sdd28 # /dev/block/bootdevice/by-name/adsp
+    mount vfat /dev/block/platform/soc/624000.ufshc/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
 #HTC_AUD_END
 
-    wait /dev/block/bootdevice/by-name/bluetooth
-    mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
+#   wait /dev/block/platform/soc/624000.ufshc/by-name/bluetooth # /dev/block/bootdevice/by-name/bluetooth
+#   mount vfat /dev/block/platform/soc/624000.ufshc/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -79,7 +79,6 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
-    mkdir /data/usf 0700 system system
     mkdir /data/misc/tloc/ 0700 system drmrpc
     mkdir /data/misc/qvop 0660 system system
     mkdir /data/misc/audio_pp 0771 media audio
@@ -97,6 +96,9 @@ on boot
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
     write /proc/sys/kernel/sched_boost 1
     write /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input0/update_fw 1
+
+    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
 
     # I2C tool
     chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
@@ -236,70 +238,6 @@ service audiod /system/bin/audiod
    class late_start
    user system
    group system
-
-
-service usf_tester /system/bin/usf_tester
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_epos /system/bin/usf_epos
-    class main
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_gesture /system/bin/usf_gesture
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_sync_gesture /system/bin/usf_sync_gesture
-    user system
-    group system inet audio
-    disabled
-    oneshot
-
-service usf_p2p /system/bin/usf_p2p
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_hovering /system/bin/usf_hovering
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_proximity /system/bin/usf_proximity
-    class late_start
-    user system
-    group system inet audio
-
-service usf_pairing /system/bin/usf_pairing
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf_sw_calib /system/bin/usf_sw_calib
-    user system
-    group system inet
-    disabled
-    oneshot
-
-service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-on property:init.svc.bootanim=stopped
-    start usf-post-boot
 
 service imsqmidaemon /system/bin/imsqmidaemon
     class main

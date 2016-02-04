@@ -1,3 +1,5 @@
+#TODO: REMOVE THIS, do not generate files into the source directory
+
 EFFECT_CONFIG := device/google/marlin/common/audio/audio_effects.conf
 
 $(shell cat /dev/null > $(EFFECT_CONFIG))

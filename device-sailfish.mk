@@ -18,4 +18,12 @@
 #
 # Everything in this directory will become public
 
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
+
 -include device/google/marlin/device-common.mk
+
+#TODO rename to ueventd.sailfish.rc
+PRODUCT_COPY_FILES += \
+    device/google/marlin/ueventd.common.rc:root/ueventd.qcom.rc

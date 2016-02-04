@@ -26,52 +26,31 @@ ifeq ($(TARGET_PREBUILT_KERNEL),)
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
-TARGET_KERNEL_DLKM_DISABLE := true
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 DEVICE_PACKAGE_OVERLAYS := device/google/marlin/overlay
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-BOARD_HAVE_QCOM_FM := false
-TARGET_USES_NQ_NFC := false
 
-#QTIC flag
--include $(QCPATH)/common/config/qtic-config.mk
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.target.rc:root/init.target.rc \
+    device/google/marlin/fstab.qcom:root/fstab.qcom
+
+# Input device files
+PRODUCT_COPY_FILES += \
+    device/google/marlin/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/google/marlin/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
 # copy customized media_profiles and media_codecs xmls for msm8996
-ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
                       device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
                       device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
-endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
-
-PRODUCT_COPY_FILES += device/google/marlin/whitelistedapps.xml:system/etc/whitelistedapps.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
-
-#PRODUCT_NAME := msm8996
-#PRODUCT_DEVICE := msm8996
-#PRODUCT_BRAND := Android
-#PRODUCT_MODEL := MSM8996 for arm64
-
-# PRODUCT_BOOT_JARS += tcmiface
-
-#ifneq ($(strip $(QCPATH)),)
-#PRODUCT_BOOT_JARS += WfdCommon
-#PRODUCT_BOOT_JARS += com.qti.dpmframework
-#PRODUCT_BOOT_JARS += dpmapi
-#PRODUCT_BOOT_JARS += com.qti.location.sdk
-#endif
-
-#ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
-#PRODUCT_BOOT_JARS += qcom.fmradio
-#endif #BOARD_HAVE_QCOM_FM
-#PRODUCT_BOOT_JARS += qcmediaplayer
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -147,6 +126,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.relative_humidity.xml:system/etc/permissions/android.hardware.sensor.relative_humidity.xml \
     frameworks/native/data/etc/android.hardware.sensor.hifi_sensors.xml:system/etc/permissions/android.hardware.sensor.hifi_sensors.xml
 
+PRODUCT_COPY_FILES += \
+    device/google/marlin/sec_config:system/etc/sec_config
+
 # HTC_SENSOR_HUB
 PRODUCT_COPY_FILES += \
     device/google/marlin/i2ctest:system/bin/i2ctest \
@@ -165,40 +147,6 @@ PRODUCT_COPY_FILES += \
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
     device/google/marlin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
-
-ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
-PRODUCT_PACKAGES += \
-    NQNfcNci \
-    libnqnfc-nci \
-    libnqnfc_nci_jni \
-    nfc_nci.nqx.default \
-    libp61-jcop-kit \
-    com.nxp.nfc.nq \
-    com.nxp.nfc.nq.xml \
-    libpn547_fw.so \
-    libpn548ad_fw.so \
-    libnfc-brcm.conf \
-    libnfc-nxp.conf \
-    nqnfcee_access.xml \
-    nqnfcse_access.xml \
-    Tag \
-    com.android.nfc_extras \
-    libQPayJNI \
-    com.android.qti.qpay \
-    com.android.qti.qpay.xml \
-    SmartcardService \
-    org.simalliance.openmobileapi \
-    org.simalliance.openmobileapi.xml
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
-
-# SmartcardService, SIM1,SIM2,eSE1 not including eSE2,SD1 as default
-ADDITIONAL_BUILD_PROPERTIES += persist.nfc.smartcard.config=SIM1,SIM2,eSE1
-endif # TARGET_USES_NQ_NFC
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -1,5 +1,4 @@
 ifeq ($(TARGET_INIT_VENDOR_LIB),libinit_msm)
-
 LOCAL_PATH := $(call my-dir)
 LIBINIT_MSM_PATH := $(call my-dir)
 

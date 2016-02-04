@@ -1,3 +1,5 @@
+$(error this file should be UNUSED!)
+
 TARGET_BOOTIMG_SIGNED := false
 TARGET_NO_BOOTLOADER := true
 

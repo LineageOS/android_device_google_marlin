@@ -82,7 +82,10 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2457600000
+#BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
+#BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
+#BOARD_SYSTEMIMAGE_SQUASHFS_COMPRESSOR := lz4
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -96,7 +99,7 @@ ifneq ($(TARGET_USES_AOSP),true)
 TARGET_USES_QCOM_BSP := true
 endif
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff androidboot.selinux=permissive
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
 BOARD_KERNEL_SEPARATED_DT := true
@@ -135,17 +138,20 @@ TARGET_PD_SERVICE_ENABLED := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
 
-# Enable dex pre-opt to speed up initial boot
-ifeq ($(HOST_OS),linux)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_PIC := true
-      ifneq ($(TARGET_BUILD_VARIANT),user)
-        # Retain classes.dex in APK's for non-user builds
-        DEX_PREOPT_DEFAULT := nostripping
-      endif
-    endif
-endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+WITH_DEXPREOPT := false
+WITH_DEXPREOPT_PIC := false
+## Enable dex pre-opt to speed up initial boot
+#ifeq ($(HOST_OS),linux)
+#    ifeq ($(WITH_DEXPREOPT),)
+#      WITH_DEXPREOPT := true
+#      WITH_DEXPREOPT_PIC := true
+#      ifneq ($(TARGET_BUILD_VARIANT),user)
+#        # Retain classes.dex in APK's for non-user builds
+#        DEX_PREOPT_DEFAULT := nostripping
+#      endif
+#    endif
+#endif
 
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
@@ -153,7 +159,7 @@ USE_SENSOR_MULTI_HAL := true
 # HTC_SENSOR_HUB
 LIBHTC_SENSORHUB_PROJECT := g_project
 
-TARGET_LDPRELOAD := libNimsWrap.so
+#TARGET_LDPRELOAD := libNimsWrap.so
 
 # TARGET_COMPILE_WITH_MSM_KERNEL := true
 

@@ -18,4 +18,12 @@
 #
 # Everything in this directory will become public
 
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
+
 -include device/google/marlin/device-common.mk
+
+#TODO rename to ueventd.marlin.rc
+PRODUCT_COPY_FILES += \
+    device/google/marlin/ueventd.common.rc:root/ueventd.qcom.rc

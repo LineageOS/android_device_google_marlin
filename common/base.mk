@@ -73,7 +73,7 @@ ALSA_UCM += snd_soc_msm_samarium_Tapan
 ANGLE := libangle
 
 #APPOPS_POLICY
-APPOPS_POLICY := appops_policy.xml
+#APPOPS_POLICY := appops_policy.xml
 
 AUDIO_HARDWARE := audio.primary.mpq8064
 AUDIO_HARDWARE += audio.primary.apq8084
@@ -198,11 +198,6 @@ EBTABLES += libebtc
 #FASTPOWERON
 FASTPOWERON := FastBoot
 
-#FM
-FM := qcom.fmradio
-FM += libqcomfm_jni
-FM += libfmjni
-
 #GPS
 GPS_HARDWARE := gps.conf
 GPS_HARDWARE += gps.default
@@ -255,7 +250,6 @@ INIT += vold.fstab
 INIT += init.qcom.ril.path.sh
 INIT += init.qcom.usb.rc
 INIT += init.qcom.usb.sh
-INIT += usf_post_boot.sh
 INIT += init.qcom.efs.sync.sh
 INIT += ueventd.qcom.rc
 INIT += init.ath3k.bt.sh
@@ -677,10 +671,6 @@ PRODUCT_PACKAGES := \
     CalendarProvider \
     SyncProvider \
     VoiceDialer \
-    FMRadio \
-    FM2 \
-    FMRadio \
-    FMRecord \
     VideoEditor
 
 
@@ -698,7 +688,7 @@ endif
 PRODUCT_PACKAGES += $(ALSA_HARDWARE)
 PRODUCT_PACKAGES += $(ALSA_UCM)
 PRODUCT_PACKAGES += $(ANGLE)
-PRODUCT_PACKAGES += $(APPOPS_POLICY)
+#PRODUCT_PACKAGES += $(APPOPS_POLICY)
 PRODUCT_PACKAGES += $(AUDIO_HARDWARE)
 PRODUCT_PACKAGES += $(AUDIO_POLICY)
 PRODUCT_PACKAGES += $(TINY_ALSA_TEST_APPS)
@@ -810,7 +800,6 @@ PRODUCT_PACKAGES_DEBUG := init.qcom.testscripts.sh
 
 
 #NANOPB_LIBRARY_NAME := libnanopb-c-2.8.0
-
 PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -842,10 +831,6 @@ PRODUCT_COPY_FILES := \
 #PRODUCT_COPY_FILES += \
     system/bluetooth/data/stack.conf:system/etc/bluetooth/stack.conf
 #endif # BOARD_HAVE_BLUETOOTH_BLUEZ
-
-# gps/location secuity configuration file
-PRODUCT_COPY_FILES += \
-    device/google/marlin/common/sec_config:system/etc/sec_config
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
