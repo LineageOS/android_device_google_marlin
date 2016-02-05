@@ -27,3 +27,11 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 #TODO rename to ueventd.sailfish.rc
 PRODUCT_COPY_FILES += \
     device/google/marlin/ueventd.common.rc:root/ueventd.qcom.rc
+
+# Sensor packages
+PRODUCT_PACKAGES += \
+    sensortool.sailfish \
+    sensors.sailfish \
+    activity_recognition.sailfish
+
+

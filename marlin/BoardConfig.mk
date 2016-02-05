@@ -180,4 +180,6 @@ HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 # Enable MDTP (Mobile Device Theft Protection)
 TARGET_USE_MDTP := true
 
+TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
+
 -include vendor/google_devices/marlin/BoardConfigVendor.mk

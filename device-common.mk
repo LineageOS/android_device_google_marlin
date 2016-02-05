@@ -19,7 +19,7 @@
 # Everything in this directory will become public
 
 # Enable support for chinook sensorhub
-# TARGET_USES_CHINOOK_SENSORHUB := true
+TARGET_USES_CHINOOK_SENSORHUB := true
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.gz-dtb
@@ -108,10 +108,6 @@ PRODUCT_PACKAGES += \
     antradio_app \
     libvolumelistener
 
-# Sensor HAL conf file
-PRODUCT_COPY_FILES += \
-    device/google/marlin/sensors/hals.conf:system/etc/sensors/hals.conf
-
 # Sensor features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -129,13 +125,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:system/etc/sec_config
 
-# HTC_SENSOR_HUB
 PRODUCT_COPY_FILES += \
     device/google/marlin/i2ctest:system/bin/i2ctest \
-    device/google/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so \
-    device/google/marlin/sensor_hub/sensor_hub_htc_xb.img:system/etc/firmware/sensor_hub_htc_xb.img
-PRODUCT_PACKAGES += \
-    downloadsensorhub
+    device/google/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so
 
 PRODUCT_SUPPORTS_VERITY := true
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system

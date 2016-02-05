@@ -27,3 +27,15 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 #TODO rename to ueventd.marlin.rc
 PRODUCT_COPY_FILES += \
     device/google/marlin/ueventd.common.rc:root/ueventd.qcom.rc
+
+# Sensor hub init script
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.marlin.sensorhub.rc:root/init.marlin.sensorhub.rc
+
+# Sensor packages
+PRODUCT_PACKAGES += \
+    sensortool.marlin \
+    sensors.marlin \
+    activity_recognition.marlin
+
+
