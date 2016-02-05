@@ -22,13 +22,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 PRODUCT_NAME := aosp_marlin
-#PRODUCT_BRAND := Android
+PRODUCT_DEVICE := marlin
+PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on msm8996
 PRODUCT_MANUFACTURER := google
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
 $(call inherit-product, device/google/marlin/device-marlin.mk)
-$(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor-marlin.mk)
 
 PRODUCT_PACKAGES += \
     Launcher3
