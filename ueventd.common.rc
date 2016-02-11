@@ -51,6 +51,7 @@
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
 
+/dev/spich                0640   system     system
 /dev/radio0               0640   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/ttyUSB0              0660   bluetooth  bluetooth
