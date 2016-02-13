@@ -40,8 +40,8 @@ on early-init
 
 on fs
 #   wait /dev/block/bootdevice
-    mount_all fstab.qcom
-    swapon_all fstab.qcom
+    mount_all fstab.${ro.hardware}
+    swapon_all fstab.${ro.hardware}
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file

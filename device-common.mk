@@ -32,10 +32,6 @@ PRODUCT_COPY_FILES += \
 
 DEVICE_PACKAGE_OVERLAYS := device/google/marlin/overlay
 
-PRODUCT_COPY_FILES += \
-    device/google/marlin/init.target.rc:root/init.target.rc \
-    device/google/marlin/fstab.qcom:root/fstab.qcom
-
 # Input device files
 PRODUCT_COPY_FILES += \
     device/google/marlin/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
