@@ -25,12 +25,9 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 -include device/google/marlin/device-common.mk
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.target.rc:root/init.target.rc \
-    device/google/marlin/fstab.common:root/fstab.marlin
-
-#TODO rename to ueventd.marlin.rc
-PRODUCT_COPY_FILES += \
-    device/google/marlin/ueventd.common.rc:root/ueventd.qcom.rc
+    device/google/marlin/init.common.rc:root/init.marlin.rc \
+    device/google/marlin/fstab.common:root/fstab.marlin \
+    device/google/marlin/ueventd.common.rc:root/ueventd.marlin.rc
 
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
