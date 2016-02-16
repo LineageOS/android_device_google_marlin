@@ -118,6 +118,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.relative_humidity.xml:system/etc/permissions/android.hardware.sensor.relative_humidity.xml \
     frameworks/native/data/etc/android.hardware.sensor.hifi_sensors.xml:system/etc/permissions/android.hardware.sensor.hifi_sensors.xml
 
+# Common sensor packages
+PRODUCT_PACKAGES += \
+    sensortest
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:system/etc/sec_config
 
