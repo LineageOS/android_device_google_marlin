@@ -26,7 +26,6 @@
 #
 
 import init.qcom.usb.rc
-import init.${ro.hardware}.rc
 import init.qcom.factory.rc
 
 on early-init
