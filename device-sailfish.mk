@@ -29,6 +29,10 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/fstab.common:root/fstab.sailfish \
     device/google/marlin/ueventd.common.rc:root/ueventd.sailfish.rc
 
+# Sensor hub init script
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.common.sensorhub.rc:root/init.sailfish.sensorhub.rc
+
 # Sensor packages
 PRODUCT_PACKAGES += \
     sensortool.sailfish \

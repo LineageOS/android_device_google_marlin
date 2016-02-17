@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.marlin.sensorhub.rc:root/init.marlin.sensorhub.rc
+    device/google/marlin/init.common.sensorhub.rc:root/init.marlin.sensorhub.rc
 
 # Sensor packages
 PRODUCT_PACKAGES += \
