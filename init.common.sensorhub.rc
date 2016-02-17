@@ -5,6 +5,6 @@ on post-fs
     ## Update SH FW if needed
     start flash-sh-fw
 
-service flash-sh-fw /system/vendor/bin/sensortool.marlin -f /system/vendor/firmware/nano4x1_marlin.bin
+service flash-sh-fw /system/vendor/bin/sensortool.${ro.hardware} -f /system/vendor/firmware/nano4x1_${ro.hardware}.bin
     oneshot
     disabled
