@@ -27,6 +27,8 @@
 #
 #
 
+import init.qcom.rc
+
 on early-init
     mkdir /firmware 0771 system system
     mkdir /firmware/radio 0771 system system
