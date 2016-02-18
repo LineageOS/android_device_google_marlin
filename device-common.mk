@@ -82,6 +82,8 @@ PRODUCT_COPY_FILES += \
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
+    device/google/marlin/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf     \
+    device/google/marlin/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf     \
     device/google/marlin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/google/marlin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
@@ -95,9 +97,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf \
-    p2p_supplicant_overlay.conf
-
+    wpa_supplicant.conf
 
 # Listen configuration file
 PRODUCT_COPY_FILES += \
