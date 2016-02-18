@@ -83,15 +83,21 @@ PRODUCT_COPY_FILES += \
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
     device/google/marlin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
-    device/google/marlin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    device/google/marlin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
 
+# Wi-Fi
 PRODUCT_PACKAGES += \
-    wpa_supplicant_overlay.conf \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf \
     p2p_supplicant_overlay.conf
+
 
 # Listen configuration file
 PRODUCT_COPY_FILES += \
