@@ -5,6 +5,7 @@
 
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOOTLOADER_BOARD_NAME := sailfish
+TARGET_BOARD_INFO_FILE := device/google/marlin/sailfish/board-info.txt
 
 TARGET_USES_AOSP := true
 TARGET_ARCH := arm64

@@ -5,6 +5,7 @@
 
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOOTLOADER_BOARD_NAME := marlin
+TARGET_BOARD_INFO_FILE := device/google/marlin/marlin/board-info.txt
 
 TARGET_USES_AOSP := true
 TARGET_ARCH := arm64
