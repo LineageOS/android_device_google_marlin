@@ -2,9 +2,10 @@ on post-fs
     ## ensure correct calibration file permissions
     chown root system /persist/sensorcal.json
     chmod 0640 /persist/sensorcal.json
-    ## Update SH FW if needed
-    start flash-sh-fw
+    start flash-nanohub-fw
 
-service flash-sh-fw /system/vendor/bin/sensortool.${ro.hardware} -f /system/vendor/firmware/nano4x1_${ro.hardware}.bin
+# TODO: Fix path to nanoapp_cmd once partitions are setup
+service flash-nanohub-fw /system/vendor/bin/nanoapp_cmd download
     oneshot
     disabled
+

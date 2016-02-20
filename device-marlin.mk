@@ -31,12 +31,10 @@ PRODUCT_COPY_FILES += \
 
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.sensorhub.rc:root/init.marlin.sensorhub.rc
+    device/google/marlin/init.common.nanohub.rc:root/init.marlin.nanohub.rc
 
 # Sensor packages
 PRODUCT_PACKAGES += \
-    sensortool.marlin \
     sensors.marlin \
     activity_recognition.marlin
-
 
