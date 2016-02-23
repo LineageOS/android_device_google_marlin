@@ -1,3 +1,0 @@
-#Define the files written during the operation of mm-pp-daemon
-type display_test_media_file, file_type, data_file_type;
-

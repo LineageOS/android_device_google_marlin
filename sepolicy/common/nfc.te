@@ -1,3 +1,0 @@
-qmux_socket(nfc);
-allow nfc nfc_data_file:file x_file_perms;
-allow nfc self:socket create_socket_perms;

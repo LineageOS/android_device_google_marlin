@@ -1,7 +1,0 @@
-# add domain for qfintverify,
-type qfips, domain;
-
-domain_trans(init, rootfs, qfips)
-
-# Allow qfips read/write access to qce and rng devices.
-allow qfips {qce_device rng_device}:chr_file rw_file_perms;

@@ -1,8 +1,0 @@
-#============= system_app ==============
-userdebug_or_eng(`
-  # Rules for QSensors Test Application
-  allow system_app sensors:unix_stream_socket connectto;
-  allow system_app sensors_device:chr_file getattr;
-  allow system_app sensors_socket:sock_file write;
-  allow system_app socket_device:dir read;
-')
