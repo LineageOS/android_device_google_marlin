@@ -1,3 +1,0 @@
-r_dir_file(healthd, sysfs_battery_supply)
-r_dir_file(healthd, sysfs_usb_supply)
-r_dir_file(healthd, sysfs_thermal);

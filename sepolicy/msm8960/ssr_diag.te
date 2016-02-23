@@ -1,3 +1,0 @@
-userdebug_or_eng(`
-  allow ssr_diag self:netlink_kobject_uevent_socket create;
-')
