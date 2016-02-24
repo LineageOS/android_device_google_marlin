@@ -1,4 +1,5 @@
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
+/dev/mdss_rotator              u:object_r:graphics_device:s0
 /dev/spich                     u:object_r:sensors_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 
