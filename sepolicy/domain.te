@@ -1,0 +1,19 @@
+# line in the (se)sand: DO NOT grant net_admin capability!
+neverallow {
+  domain
+  -bluetooth
+  -clatd
+  -dhcp
+  -dnsmasq
+  -healthd
+  -hostapd
+  -init
+  -netd
+  -ppp
+  -racoon
+  -rild
+  -system_server
+  -ueventd
+  -vold
+  -wpa
+} self:capability net_admin;
