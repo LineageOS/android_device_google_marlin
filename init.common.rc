@@ -91,6 +91,16 @@ on property:init.svc.bootanim=running
 on boot
     start rmt_storage
     start rfs_access
+
+    # Bluetooth
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt /dev/ttyHS0
+    chmod 0660 /dev/ttyHS0
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
+    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+
 # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
@@ -105,6 +115,18 @@ on boot
     # I2C tool
     chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
     chmod 664 /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
+
+service start_hci_filter /system/bin/wcnss_filter
+    class late_start
+    user root
+    group bluetooth
+    disabled
+
+on property:wc_transport.start_hci=true
+    start start_hci_filter
+
+on property:wc_transport.start_hci=false
+    stop start_hci_filter
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
