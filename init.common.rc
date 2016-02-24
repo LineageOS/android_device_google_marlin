@@ -28,6 +28,7 @@
 #
 
 import init.qcom.rc
+import init.${ro.hardware}.sensorhub.rc
 
 on early-init
     mkdir /firmware 0771 system system
