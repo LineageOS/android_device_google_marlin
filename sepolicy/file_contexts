@@ -1,5 +1,6 @@
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
 /dev/spich                     u:object_r:sensors_device:s0
+/dev/ttyHSL0                   u:object_r:console_device:s0
 
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_a        u:object_r:boot_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_b        u:object_r:boot_block_device:s0
