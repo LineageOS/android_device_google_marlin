@@ -1,0 +1,2 @@
+# symlink /sdcard to backing block
+allow init tmpfs:lnk_file create;
