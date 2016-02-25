@@ -42,7 +42,9 @@ on early-init
 #    export LD_PRELOAD libNimsWrap.so
 
 on fs
-#   wait /dev/block/bootdevice
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
     mount_all fstab.${ro.hardware}
     swapon_all fstab.${ro.hardware}
 
@@ -50,28 +52,28 @@ on fs
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
-    wait /dev/block/platform/soc/624000.ufshc/sda18 # /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/cache /cache nosuid nodev barrier=1
+    wait /dev/block/bootdevice/sda18 # /dev/block/bootdevice/by-name/cache
+    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
 
-    wait /dev/block/platform/soc/624000.ufshc/sda8 # /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/persist /persist nosuid nodev barrier=1
+    wait /dev/block/bootdevice/sda8 # /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
-    wait /dev/block/platform/soc/624000.ufshc/sda17 # /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/dsp /dsp nosuid nodev barrier=1
+    wait /dev/block/bootdevice/sda17 # /dev/block/bootdevice/by-name/dsp
+    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
     restorecon_recursive /dsp
 
-    wait /dev/block/platform/soc/624000.ufshc/sdd27 # /dev/block/bootdevice/by-name/radio
-    mount vfat /dev/block/platform/soc/624000.ufshc/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    wait /dev/block/bootdevice/sdd27 # /dev/block/bootdevice/by-name/radio
+    mount vfat /dev/block/bootdevice/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
 
 #HTC_AUD_START
-    wait /dev/block/platform/soc/624000.ufshc/sdd28 # /dev/block/bootdevice/by-name/adsp
-    mount vfat /dev/block/platform/soc/624000.ufshc/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    wait /dev/block/bootdevice/sdd28 # /dev/block/bootdevice/by-name/adsp
+    mount vfat /dev/block/bootdevice/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
 #HTC_AUD_END
 
-#   wait /dev/block/platform/soc/624000.ufshc/by-name/bluetooth # /dev/block/bootdevice/by-name/bluetooth
-#   mount vfat /dev/block/platform/soc/624000.ufshc/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
+#   wait /dev/block/bootdevice/by-name/bluetooth # /dev/block/bootdevice/by-name/bluetooth
+#   mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
