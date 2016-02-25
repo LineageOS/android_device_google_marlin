@@ -351,9 +351,6 @@ on property:persist.sys.ssr.enable_ramdumps=1
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
-on property:sys.boot_completed=1
-    write /dev/kmsg "Boot completed "
-
 on property:persist.radio.atfwd.start=false
     stop atfwd
 
