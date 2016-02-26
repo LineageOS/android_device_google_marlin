@@ -117,6 +117,13 @@ on boot
     chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
     chmod 664 /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
 
+    # update cpusets now that processors are up
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-1
+
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user root

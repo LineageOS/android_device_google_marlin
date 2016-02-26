@@ -25,6 +25,8 @@ else
 TARGET_2ND_CPU_VARIANT := cortex-a9
 endif
 
+ENABLE_CPUSETS := true
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
