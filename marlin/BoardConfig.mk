@@ -37,35 +37,7 @@ MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 
 BOARD_USES_GENERIC_AUDIO := true
 
-#HTC_AUD_START
-BOARD_USES_TINYALSA := true
-
-ENABLE_FASTMIXER := true
-ENABLE_BT_HW_AEC := true
-ENABLE_OFFLOAD_VISUALIZER_EFFECT := true
-ENABLE_MIRRORLINK_RECORD := false
-
-BOARD_USES_TFA9888_AUDIO := true
-# Enable 24BIT in framework
-ENABLE_24BIT_AUDIO := true
-# Enable HD Audio
-ENABLE_HD_AUDIO := true
-# Enabel AS3
-ENABLE_ACOUSTIC_SHOCK3 := false
-# Enable Balance & stereo to mono
-ENABLE_AUDIO_BALANCE := false
-ENABLE_STEREO2MONO := false
-#Enable 32bit effect
-HTC_32BIT_EFFECT := false
-#Enable multi input
-ENABLE_MULTI_INPUT := false
-#Enable Speaker feature - 1.1 Channel
-ENABLE_ONEDOTONE_CHANNEL := false
-
-#All audio flags need to be definded before including htc-audio.mk
-include device/google/marlin/common/audio/htc-audio.mk
-#HTC_AUD_END
-
+BOARD_USES_ALSA_AUDIO := true
 
 USE_CAMERA_STUB := true
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
