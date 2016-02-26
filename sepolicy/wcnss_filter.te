@@ -1,0 +1,5 @@
+# Policy for /system/bin/wcnss_filter
+type wcnss_filter, domain;
+type wcnss_filter_exec, exec_type, file_type;
+
+init_daemon_domain(wcnss_filter)
