@@ -157,6 +157,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1
 
+# Set bluetooth soc to rome
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=rome
+
 PRODUCT_AAPT_CONFIG += xlarge large
 
 # TODO: move to vendor mk file
