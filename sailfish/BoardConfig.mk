@@ -88,7 +88,6 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
-BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_PAGESIZE    := 4096
