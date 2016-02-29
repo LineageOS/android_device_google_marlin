@@ -1,0 +1,5 @@
+# Policy for /system/bin/init.qcom.bt.sh
+type init_bt, domain;
+type init_bt_exec, exec_type, file_type;
+
+init_daemon_domain(init_bt)

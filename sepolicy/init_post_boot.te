@@ -1,0 +1,5 @@
+# Policy for /system/bin/init.qcom.post_boot.sh
+type init_post_boot, domain;
+type init_post_boot_exec, exec_type, file_type;
+
+init_daemon_domain(init_post_boot)
