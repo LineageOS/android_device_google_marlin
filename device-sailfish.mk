@@ -31,12 +31,10 @@ PRODUCT_COPY_FILES += \
 
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.sensorhub.rc:root/init.sailfish.sensorhub.rc
+    device/google/marlin/init.common.nanohub.rc:root/init.sailfish.nanohub.rc
 
 # Sensor packages
 PRODUCT_PACKAGES += \
-    sensortool.sailfish \
     sensors.sailfish \
     activity_recognition.sailfish
-
 

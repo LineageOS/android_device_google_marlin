@@ -18,9 +18,6 @@
 #
 # Everything in this directory will become public
 
-# Enable support for chinook sensorhub
-TARGET_USES_CHINOOK_SENSORHUB := true
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.gz-dtb
 else
@@ -126,7 +123,8 @@ PRODUCT_COPY_FILES += \
 
 # Common sensor packages
 PRODUCT_PACKAGES += \
-    sensortest
+    sensortest \
+    nanoapp_cmd
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:system/etc/sec_config
