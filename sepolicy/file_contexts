@@ -15,7 +15,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/metadata      u:object_r:metadata_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
-# files in /system/bin
+# files in /system
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
 /system/bin/pm-service             u:object_r:per_mgr_exec:s0
@@ -23,8 +23,17 @@
 /system/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /system/bin/time_daemon            u:object_r:time_daemon_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
-
 /system/vendor/bin/nanoapp_cmd     u:object_r:nanoapp_cmd_exec:s0
+
+# init launched scripts
+/system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
+/system/bin/init\.qcom\.sh                  u:object_r:init_qcom_exec:s0
+/system/bin/init\.qcom\.post_boot\.sh       u:object_r:init_post_boot_exec:s0
+/system/bin/init\.qcom\.zram\.sh            u:object_r:init_zram_exec:s0
+/system/bin/init\.qcom\.class_core\.sh      u:object_r:init_class_core_exec:s0
+/system/bin/init\.class_main\.sh            u:object_r:init_class_main_exec:s0
+/system/bin/init\.qcom.bt\.sh               u:object_r:init_bt_exec:s0
+/system/bin/init\.qcom\.sensor\.sh          u:object_r:init_sensor_exec:s0
 
 # Sysfs files used by nanoapp_cmd
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0

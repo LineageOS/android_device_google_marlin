@@ -1,0 +1,5 @@
+# Policy for /system/bin/init.qcom.sensor.sh
+type init_sensor, domain;
+type init_sensor_exec, exec_type, file_type;
+
+init_daemon_domain(init_sensor)

@@ -144,6 +144,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
+# init launched script
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.class_main.sh:system/bin/init.class_main.sh \
+    device/google/marlin/init.qcom.bt.sh:system/bin/init.qcom.bt.sh \
+    device/google/marlin/init.qcom.class_core.sh:system/bin/init.qcom.class_core.sh \
+    device/google/marlin/init.qcom.post_boot.sh:system/bin/init.qcom.post_boot.sh \
+    device/google/marlin/init.qcom.sensors.sh:system/bin/init.qcom.sensors.sh \
+    device/google/marlin/init.qcom.sh:system/bin/init.qcom.sh \
+    device/google/marlin/init.qcom.usb.sh:system/bin/init.qcom.usb.sh \
+    device/google/marlin/init.qcom.zram.sh:system/bin/init.qcom.zram.sh
+
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1
@@ -173,3 +184,4 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 # setup dm-verity configs.
 # PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7464900.sdhci/by-name/system
 # $(call inherit-product, build/target/product/verity.mk)
+
