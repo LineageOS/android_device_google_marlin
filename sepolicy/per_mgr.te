@@ -1,0 +1,5 @@
+# Policy for /system/bin/pm-service
+type per_mgr, domain;
+type per_mgr_exec, exec_type, file_type;
+
+init_daemon_domain(per_mgr)
