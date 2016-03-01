@@ -23,7 +23,7 @@
 /system/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /system/bin/time_daemon            u:object_r:time_daemon_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
-/system/vendor/bin/nanoapp_cmd     u:object_r:nanoapp_cmd_exec:s0
+/system/bin/nanoapp_cmd            u:object_r:nanoapp_cmd_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
