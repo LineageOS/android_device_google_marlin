@@ -4,8 +4,7 @@ on post-fs
     chmod 0640 /persist/sensorcal.json
     start flash-nanohub-fw
 
-# TODO: Fix path to nanoapp_cmd once partitions are setup
-service flash-nanohub-fw /system/vendor/bin/nanoapp_cmd download
+service flash-nanohub-fw /system/bin/nanoapp_cmd download
     oneshot
     disabled
 
