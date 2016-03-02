@@ -1,0 +1,5 @@
+# Policy for /system/bin/qmuxd
+type qmuxd, domain;
+type qmuxd_exec, exec_type, file_type;
+
+init_daemon_domain(qmuxd)
