@@ -342,11 +342,11 @@ service tlocd /system/bin/tloc_daemon
     user system
     group drmrpc gps net_raw
 
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
+#on property:init.svc.surfaceflinger=stopped
+#    stop ppd
 
-on property:init.svc.surfaceflinger=running
-    start ppd
+#on property:init.svc.surfaceflinger=running
+#    start ppd
 
 service energy-awareness /system/bin/energy-awareness
     class main
