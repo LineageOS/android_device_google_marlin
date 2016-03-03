@@ -18,8 +18,6 @@
 #
 # Everything in this directory will become public
 
-TARGET_USES_NANOHUB := false
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.gz-dtb
 else
