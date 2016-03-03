@@ -171,6 +171,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=rome
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+
 PRODUCT_AAPT_CONFIG += xlarge large
 
 # TODO: move to vendor mk file
