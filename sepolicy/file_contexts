@@ -17,6 +17,9 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/metadata      u:object_r:metadata_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
+# files in firmware
+/firmware(/.*)?         u:object_r:firmware_file:s0
+
 # files in /system
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
