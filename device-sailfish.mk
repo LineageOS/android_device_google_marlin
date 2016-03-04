@@ -34,9 +34,7 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.nanohub.rc:root/init.sailfish.nanohub.rc
 
 # Sensor packages
-ifeq ($(TARGET_USES_NANOHUB),true)
 PRODUCT_PACKAGES += \
     sensors.sailfish \
     activity_recognition.sailfish
-endif
 
