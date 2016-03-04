@@ -61,21 +61,11 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     device/google/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/google/marlin/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/google/marlin/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
-    device/google/marlin/mixer_paths_dtp.xml:system/etc/mixer_paths_dtp.xml \
-    device/google/marlin/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
     device/google/marlin/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
-    device/google/marlin/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
     device/google/marlin/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/google/marlin/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     device/google/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/google/marlin/AudioBTIDnew.csv:system/etc/AudioBTIDnew.csv \
-    device/google/marlin/Tfa98xx.cnt:system/etc/Tfa98xx.cnt \
-    device/google/marlin/Tfa98xx2.cnt:system/etc/Tfa98xx2.cnt \
-    device/google/marlin/Tfa98xx2_n1b.cnt:system/etc/Tfa98xx2_n1b.cnt \
-    device/google/marlin/Tfa98xx_n1b.cnt:system/etc/Tfa98xx_n1b.cnt \
-    device/google/marlin/htc_sound_mfg.txt:system/etc/htc_sound_mfg.txt
+    device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
@@ -168,6 +158,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set bluetooth soc to rome
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=rome
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_AAPT_CONFIG += xlarge large
 
