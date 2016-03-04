@@ -41,7 +41,6 @@ BOARD_USES_GENERIC_AUDIO := true
 
 BOARD_USES_ALSA_AUDIO := true
 
-USE_CAMERA_STUB := true
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
 
 # Some framework code requires this to enable BT
