@@ -1,0 +1,3 @@
+# Only allow gpu ioctl commands that have been demonstrated to be necessary.
+allowxperm mediacodec gpu_device:chr_file
+  ioctl { gpu_ioctls unpriv_tty_ioctls };
