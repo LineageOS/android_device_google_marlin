@@ -1,0 +1,2 @@
+# in addition to ioctl commands granted to netdomain allow system_server to use:
+allowxperm system_server self:udp_socket ioctl SIOCSIFFLAGS;

@@ -1,0 +1,4 @@
+# limit the socket ioctl commands granted to all netdomain processes.
+# Only allow unprivilaged commands unless explicitly granted.
+allowxperm netdomain self:{ rawip_socket tcp_socket udp_socket }
+  ioctl { unpriv_sock_ioctls unpriv_tty_ioctls };
