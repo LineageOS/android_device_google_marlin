@@ -303,14 +303,14 @@ else
     prev_version_info=""
 fi
 
-cur_version_info=`cat /firmware/verinfo/ver_info.txt`
+cur_version_info=`cat /firmware/radio/modem_pr/verinfo/ver_info.txt`
 if [ "$prev_version_info" != "$cur_version_info" ]; then
     rm -rf /data/misc/radio/modem_config
     mkdir /data/misc/radio/modem_config
     chmod 770 /data/misc/radio/modem_config
-    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/misc/radio/modem_config
+    cp -r /firmware/radio/modem_pr/mcfg/configs/* /data/misc/radio/modem_config
     chown -hR radio.radio /data/misc/radio/modem_config
-    cp /firmware/verinfo/ver_info.txt /data/misc/radio/ver_info.txt
+    cp /firmware/radio/modem_pr/verinfo/ver_info.txt /data/misc/radio/ver_info.txt
     chown radio.radio /data/misc/radio/ver_info.txt
 fi
 echo 1 > /data/misc/radio/copy_complete
