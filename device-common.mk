@@ -61,11 +61,14 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     device/google/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/google/marlin/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/google/marlin/mixer_paths_tasha_t50.xml:system/etc/mixer_paths_tasha_t50.xml \
     device/google/marlin/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     device/google/marlin/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/google/marlin/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     device/google/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml
+    device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/google/marlin/audio_platform_info_tasha_t50.xml:system/etc/audio_platform_info_tasha_t50.xml \
+    device/google/marlin/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
