@@ -33,6 +33,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 #include "utils.h"
 #include "list.h"
@@ -41,6 +42,8 @@
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <utils/Log.h>
+
+#define INTERACTION_BOOST
 
 char scaling_gov_path[4][80] ={
     "sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
@@ -177,6 +180,22 @@ int get_scaling_governor(char governor[], int size)
             governor[len--] = '\0';
     }
 
+    return 0;
+}
+
+int is_sched_energy_aware(void)
+{
+    char sched_features[500];
+    if (sysfs_read(SCHED_FEATURES_PATH, sched_features,
+                sizeof(sched_features)) < 0) {
+        // Can't obtain the sched_features. Return.
+        return -1;
+    }
+
+    char *pch = strstr(sched_features, ENERGY_AWARE_SCHED_FEATURE);
+    if(!pch) {
+        return -1;
+    }
     return 0;
 }
 

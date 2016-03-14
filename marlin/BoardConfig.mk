@@ -8,6 +8,8 @@ TARGET_BOOTLOADER_BOARD_NAME := marlin
 TARGET_BOARD_INFO_FILE := device/google/marlin/marlin/board-info.txt
 
 ENABLE_SCHEDBOOST := true
+TARGET_USES_INTERACTION_BOOST := true
+
 TARGET_USES_AOSP := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
