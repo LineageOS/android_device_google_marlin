@@ -29,9 +29,9 @@
 /system/bin/time_daemon            u:object_r:time_daemon_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
 /system/bin/nanoapp_cmd            u:object_r:nanoapp_cmd_exec:s0
-
 /system/bin/netmgrd                u:object_r:netmgrd_exec:s0
 /system/bin/qmuxd                  u:object_r:qmuxd_exec:s0
+/system/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
