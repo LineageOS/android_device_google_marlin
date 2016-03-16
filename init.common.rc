@@ -33,10 +33,9 @@ import init.qcom.rc
 on early-init
     mkdir /firmware 0771 system system
     mkdir /firmware/radio 0771 system system
-    mkdir /firmware/adsp 0771 system system	#HTC_AUD
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
-    mkdir /dsp 0771 media media
+    symlink /system/vendor/lib/dsp /dsp
 
 #on post-fs
 #    export LD_PRELOAD libNimsWrap.so
@@ -60,17 +59,8 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
-    wait /dev/block/bootdevice/sda17 # /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
-    restorecon_recursive /dsp
-
     wait /dev/block/bootdevice/by-name/modem_a
     mount vfat /dev/block/bootdevice/by-name/modem_a /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-
-#HTC_AUD_START
-    wait /dev/block/bootdevice/sdd28 # /dev/block/bootdevice/by-name/adsp
-    mount vfat /dev/block/bootdevice/by-name/adsp /firmware/adsp ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-#HTC_AUD_END
 
 #   wait /dev/block/bootdevice/by-name/bluetooth # /dev/block/bootdevice/by-name/bluetooth
 #   mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
