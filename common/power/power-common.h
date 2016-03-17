@@ -37,6 +37,9 @@
 #define ONDEMAND_GOVERNOR "ondemand"
 #define INTERACTIVE_GOVERNOR "interactive"
 #define MSMDCVS_GOVERNOR "msm-dcvs"
+#define SCHED_GOVERNOR "sched"
+#define SCHED_FEATURES_PATH "/sys/kernel/debug/sched_features"
+#define ENERGY_AWARE_SCHED_FEATURE "ENERGY_AWARE"
 
 #define HINT_HANDLED (0)
 #define HINT_NONE (-1)
