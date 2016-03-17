@@ -31,7 +31,9 @@
 
 int sysfs_read(char *path, char *s, int num_bytes);
 int sysfs_write(char *path, char *s);
+int sysfs_get_size_in_bytes(char *path);
 int get_scaling_governor(char governor[], int size);
+int is_sched_energy_aware(void);
 int get_scaling_governor_check_cores(char governor[], int size,int core_num);
 
 void vote_ondemand_io_busy_off();
