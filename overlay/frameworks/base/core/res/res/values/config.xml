@@ -313,7 +313,7 @@
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
          If no value is found for the rat-name in use, the system default will be applied.
--->
+    -->
     <string-array name="config_mobile_tcp_buffers">
         <item>umts:131072,262144,1452032,4096,16384,399360</item>
         <item>hspa:131072,262144,2441216,4096,16384,399360</item>
@@ -404,10 +404,8 @@
     </string-array>
 
     <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
+    <!-- TODO:  Set MMS user agent values -->
+    <!-- <string name="config_mms_user_agent" translatable="false"></string> -->
     <!-- MMS user agent prolfile url -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">http://wap1.huawei.com/uaprof/HUAWEI_angler-Uaprofile.xml</string>
-
-    <!-- Operating volatage for bluetooth controller. 0 by default-->
-    <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
+    <!-- <string name="config_mms_user_agent_profile_url" translatable="false"></string> -->
 </resources>
