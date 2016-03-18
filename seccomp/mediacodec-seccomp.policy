@@ -1,0 +1,3 @@
+# device specific syscalls
+pselect6: 1
+eventfd2: 1
