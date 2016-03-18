@@ -831,8 +831,8 @@ PRODUCT_COPY_FILES += \
 
 # enable overlays to use our version of
 # source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/common/device/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/google/marlin/common/product/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/google/marlin/common/device/overlay
+#PRODUCT_PACKAGE_OVERLAYS += device/google/marlin/common/product/overlay
 
 # include additional build utilities
 -include device/google/marlin/common/utils.mk
