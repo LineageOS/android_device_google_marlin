@@ -180,6 +180,13 @@ PRODUCT_AAPT_CONFIG += xlarge large
 #PRODUCT_COPY_FILES += \
 #    vendor/google_devices/marlin/prebuilts/tp_SYN3708.img:system/etc/firmware/synaptics.img
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    fingerprintd
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
