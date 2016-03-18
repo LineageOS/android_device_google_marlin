@@ -1,0 +1,6 @@
+#integrated sensor process
+type ims, domain;
+type ims_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(ims)
