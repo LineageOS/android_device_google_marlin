@@ -35,9 +35,9 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
 # copy customized media_profiles and media_codecs xmls for msm8996
-#PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
-#                      device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
-#                      device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
+                      device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
+                      device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
