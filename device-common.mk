@@ -163,7 +163,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=rome
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.cne.feature=1 \
+    persist.radio.RATE_ADAPT_ENABLE=1 \
+    persist.radio.ROTATION_ENABLE=1 \
     persist.radio.sw_mbn_update=1 \
+    persist.radio.videopause.mode=1 \
+    persist.radio.VT_ENABLE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1 \
+    persist.rcs.supported=1 \
     rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_AAPT_CONFIG += xlarge large
