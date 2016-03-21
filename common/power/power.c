@@ -224,13 +224,41 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 int duration = 3000;
                 interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
             } else {
-                // The portion below as it is bogus and wrong!. This
-                // either needs to be removed once EAS becomes standard or
-                // appropriately modified to ensure that the right parameters
-                // are passed.
-                int resources[] = {0x702, 0x20F, 0x30F};
-                int duration = 3000;
-                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
+                int duration_hint = 0;
+                static unsigned long long previous_boost_time = 0;
+
+                // little core freq bump for 1.5s
+                int fling_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
+                int touch_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
+                int duration = 1500;
+
+                if (data) {
+                    duration_hint = *((int*)data);
+                }
+
+                struct timeval cur_boost_timeval = {0, 0};
+                gettimeofday(&cur_boost_timeval, NULL);
+                unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
+                double elapsed_time = (double)(cur_boost_time - previous_boost_time);
+                if (elapsed_time > 750000)
+                    elapsed_time = 750000;
+                // don't hint if it's been less than 250ms since last boost
+                // also detect if we're doing anything resembling a fling
+                // support additional boosting in case of flings
+                else if (elapsed_time < 250000 && duration_hint <= 750)
+                    return;
+
+                if (data) {
+                    if (duration_hint > 1000) {
+                        if (duration_hint < 5000) {
+                            duration = duration_hint + 750;
+                        } else {
+                            duration = 5750;
+                        }
+                    }
+                    interaction(duration, sizeof(fling_resources)/sizeof(fling_resources[0]), fling_resources);
+                } else
+                    interaction(duration, sizeof(touch_resources)/sizeof(touch_resources[0]), touch_resources);
             }
         }
         break;
