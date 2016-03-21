@@ -35,6 +35,7 @@
 /system/bin/loc_launcher           u:object_r:location_exec:s0
 /system/bin/location-mq            u:object_r:location_exec:s0
 /system/bin/lowi-server            u:object_r:location_exec:s0
+/system/vendor/bin/perfd           u:object_r:perfd_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
