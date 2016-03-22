@@ -1,2 +1,2 @@
 # in addition to ioctl commands granted to netdomain allow wpa to use:
-allowxperm wpa self:udp_socket ioctl { SIOCSIFFLAGS SIOCGIFHWADDR RMNET_IOCTL_EXTENDED };
+allowxperm wpa self:udp_socket ioctl { SIOCSIFFLAGS SIOCGIFHWADDR RMNET_IOCTL_SET_LLP_ETHERNET RMNET_IOCTL_EXTENDED };
