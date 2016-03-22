@@ -294,9 +294,11 @@ on post-fs-data
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
     #Create PERFD deamon related dirs
+    setprop ro.min_freq_0 384000
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
+    rm /data/system/perfd/default_values
     chmod 2770 /data/system/perfd
 
     # NFC local data and nfcee xml storage
@@ -917,6 +919,10 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
+
+service perfd /vendor/bin/perfd
+   class main
+   user root
 
 on charger
     setprop persist.sys.usb.config charging
