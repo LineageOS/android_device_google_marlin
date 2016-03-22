@@ -40,6 +40,7 @@
 /system/bin/netmgrd                u:object_r:netmgrd_exec:s0
 /system/bin/qmuxd                  u:object_r:qmuxd_exec:s0
 /system/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
+/system/bin/port-bridge            u:object_r:port-bridge_exec:s0
 /system/bin/loc_launcher           u:object_r:location_exec:s0
 /system/bin/location-mq            u:object_r:location_exec:s0
 /system/bin/lowi-server            u:object_r:location_exec:s0
@@ -70,4 +71,3 @@
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
-
