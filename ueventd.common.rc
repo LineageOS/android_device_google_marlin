@@ -179,8 +179,9 @@
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
-# ultrasonic fingerprint
-/sys/devices/soc/757a000.i2c/i2c-6/*                eeprom         0440    system   system
+# fpc fingerprint
+/sys/devices/soc/soc:fp_fpc*        irq               0600  system system
+/sys/devices/soc/soc:fp_fpc*        wakeup_enable     0200  system system
 
 # sensors
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
