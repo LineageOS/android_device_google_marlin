@@ -14,6 +14,8 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_nfc(/.*)?                      u:object_r:qmuxd_socket:s0
+/dev/msm_audio_cal             u:object_r:audio_cal_device:s0
+/dev/msm_rtac                  u:object_r:audio_cal_device:s0
 
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_a        u:object_r:boot_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_b        u:object_r:boot_block_device:s0
@@ -80,6 +82,7 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
+/sys/devices/soc0/hw_platform                    u:object_r:sysfs_audio_cal:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
