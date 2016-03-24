@@ -16,6 +16,12 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/userdata      u:object_r:userdata_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/misc          u:object_r:misc_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/metadata      u:object_r:metadata_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/fsc           u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/fsg           u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/modem_a       u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/modem_b       u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/modemst1      u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/modemst2      u:object_r:modem_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
 # files in firmware
@@ -25,7 +31,7 @@
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
 /system/bin/pm-service             u:object_r:per_mgr_exec:s0
-/system/bin/rmt_storage            u:object_r:rmt_storage_exec:s0
+/system/bin/rmt_storage            u:object_r:rmt_exec:s0
 /system/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /system/bin/time_daemon            u:object_r:time_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
@@ -54,12 +60,11 @@
 /system/bin/init\.qcom.bt\.sh               u:object_r:init_bt_exec:s0
 /system/bin/init\.qcom\.sensor\.sh          u:object_r:init_sensor_exec:s0
 
-# Sysfs files used by nanoapp_cmd
+# /sys
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
+/devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
+/sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
-
-# /sys
-/sys/bus/msm_subsys(/.*)?                       u:object_r:sysfs_msm_subsys:s0
 
