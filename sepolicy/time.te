@@ -1,0 +1,13 @@
+# Policy for /system/bin/time_daemon
+type time, domain;
+type time_exec, exec_type, file_type;
+
+init_daemon_domain(time)
+
+allow time self:socket rw_socket_perms;
+
+# /sys/bus/msm_subsys
+r_dir_file(time, sysfs_msm_subsys)
+
+# files in /data/time
+allow time time_data_file:file create_file_perms;
