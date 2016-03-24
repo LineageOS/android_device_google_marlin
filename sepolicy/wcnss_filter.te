@@ -3,3 +3,14 @@ type wcnss_filter, domain;
 type wcnss_filter_exec, exec_type, file_type;
 
 init_daemon_domain(wcnss_filter)
+
+# talk to /dev/ttyHS0
+allow wcnss_filter console_device:chr_file rw_file_perms;
+
+# write to proc/sysrq-trigger
+allow wcnss_filter proc_sysrq:file w_file_perms;
+
+# access to /dev/diag on debug builds
+userdebug_or_eng(`
+  allow wcnss_filter diag_device:chr_file rw_file_perms;
+')
