@@ -27,7 +27,7 @@
 /system/bin/pm-service             u:object_r:per_mgr_exec:s0
 /system/bin/rmt_storage            u:object_r:rmt_storage_exec:s0
 /system/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
-/system/bin/time_daemon            u:object_r:time_daemon_exec:s0
+/system/bin/time_daemon            u:object_r:time_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
 /system/bin/nanoapp_cmd            u:object_r:nanoapp_cmd_exec:s0
 /system/bin/netmgrd                u:object_r:netmgrd_exec:s0
@@ -38,6 +38,11 @@
 /system/bin/lowi-server            u:object_r:location_exec:s0
 /system/vendor/bin/perfd           u:object_r:perfd_exec:s0
 /system/bin/qseecomd               u:object_r:tee_exec:s0
+/system/bin/cnd                                 u:object_r:cnd_exec:s0
+/system/bin/imsdatadaemon                       u:object_r:ims_exec:s0
+/system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
+/system/bin/ims_rtp_daemon                      u:object_r:ims_exec:s0
+/system/bin/imscmservice                        u:object_r:imscm_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
@@ -52,11 +57,9 @@
 # Sysfs files used by nanoapp_cmd
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
 
-###################################
-# System files
-#
-/system/bin/cnd                                 u:object_r:cnd_exec:s0
-/system/bin/imsdatadaemon                       u:object_r:ims_exec:s0
-/system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
-/system/bin/ims_rtp_daemon                      u:object_r:ims_exec:s0
-/system/bin/imscmservice                        u:object_r:imscm_exec:s0
+# /data
+/data/time(/.*)?                 u:object_r:time_data_file:s0
+
+# /sys
+/sys/bus/msm_subsys(/.*)?                       u:object_r:sysfs_msm_subsys:s0
+
