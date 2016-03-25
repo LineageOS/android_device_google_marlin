@@ -1,0 +1,14 @@
+# Policy for /system/bin/rmt_storage
+type rmt, domain;
+type rmt_exec, exec_type, file_type;
+
+init_daemon_domain(rmt)
+wakelock_use(rmt)
+
+allow rmt modem_block_device:blk_file rw_file_perms;
+
+# access to /dev/uio0 and /sys/class/uio
+allow rmt uio_device:chr_file rw_file_perms;
+r_dir_file(rmt, sysfs_uio)
+
+allow rmt self:socket create_socket_perms;

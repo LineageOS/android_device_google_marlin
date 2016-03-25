@@ -1,1 +1,2 @@
 type diag_device, dev_type;
+type modem_block_device, dev_type;
