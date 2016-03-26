@@ -102,6 +102,9 @@ ro.bluetooth.wipower=true
 #as embedded wipower mode by deafult
 ro.bluetooth.emb_wp_mode=true
 
+#Property for loading BDA from bdaddress module in kernel
+ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
+
 #
 #snapdragon value add features
 #
