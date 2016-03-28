@@ -64,6 +64,7 @@
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
