@@ -23,7 +23,6 @@ QCOM_BOARD_PLATFORMS += msmcobalt
 QSD8K_BOARD_PLATFORMS := qsd8k
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
-#ANDROID_COMPILE_WITH_JACK := false
 
 #List of targets that use video hw
 MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909 msm8992 msm8996 msm8952 msm8937 titanium msmcobalt
@@ -619,6 +618,9 @@ VT_QTI_PERMISSIONS := qti_permissions.xml
 #IMS SETTINGS
 IMS_SETTINGS := imssettings
 
+#IMS Extension module for Android Telephony
+IMS_EXT := ims-ext-common
+
 #CRDA
 CRDA := crda
 CRDA += regdbdump
@@ -629,6 +631,7 @@ CRDA += init.crda.sh
 #WLAN
 WLAN := prima_wlan.ko
 WLAN += pronto_wlan.ko
+WLAN += qca_cld_wlan.ko
 
 #FSTMAN
 FSTMAN := fstman
@@ -754,6 +757,7 @@ PRODUCT_PACKAGES += $(CRDA)
 PRODUCT_PACKAGES += $(WLAN)
 PRODUCT_PACKAGES += $(IPACM)
 PRODUCT_PACKAGES += $(FSTMAN)
+PRODUCT_PACKAGES += $(IMS_EXT)
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
