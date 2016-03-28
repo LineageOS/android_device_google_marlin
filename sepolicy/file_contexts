@@ -5,6 +5,7 @@
 /dev/nanohub_comms             u:object_r:sensors_device:s0
 /dev/ttyHS0                    u:object_r:console_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
+/dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
 
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_a        u:object_r:boot_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_b        u:object_r:boot_block_device:s0
@@ -49,6 +50,7 @@
 /system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
 /system/bin/ims_rtp_daemon                      u:object_r:ims_exec:s0
 /system/bin/imscmservice                        u:object_r:imscm_exec:s0
+/system/bin/adsprpcd               u:object_r:adsprpcd_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
