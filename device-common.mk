@@ -115,8 +115,14 @@ PRODUCT_COPY_FILES += \
 
 # Common sensor packages
 PRODUCT_PACKAGES += \
-    sensortest \
     nanoapp_cmd
+
+# sensor utilities (only for userdebug and eng builds)
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    nanotool \
+    sensortest
+endif
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:system/etc/sec_config
