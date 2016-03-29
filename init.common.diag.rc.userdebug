@@ -1,0 +1,8 @@
+# This file gets copied as /init.common.diag.rc
+
+on post-fs-data
+    # Modem logging collection
+    mkdir /data/diag_logs 0777 system system
+
+on boot
+    chmod 666 /dev/diag

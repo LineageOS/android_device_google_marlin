@@ -197,6 +197,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
+# Modem debugger
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    QXDMLogger
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.common.diag.rc.userdebug:root/init.common.diag.rc
+else
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init.common.diag.rc.user:root/init.common.diag.rc
+endif
+
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
