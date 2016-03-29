@@ -179,6 +179,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=1 \
     rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.mode=concurrent
+
 # IMS over WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true
