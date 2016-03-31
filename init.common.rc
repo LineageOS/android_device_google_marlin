@@ -115,7 +115,7 @@ on boot
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
     write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-2
 
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
