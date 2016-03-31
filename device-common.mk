@@ -214,6 +214,9 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:root/init.common.diag.rc
 endif
 
+PRODUCT_COPY_FILES += \
+    device/google/marlin/thermal-engine-marlin.conf:system/etc/thermal-engine.conf
+
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
