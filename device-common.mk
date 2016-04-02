@@ -231,3 +231,7 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 # PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7464900.sdhci/by-name/system
 # $(call inherit-product, build/target/product/verity.mk)
 
+#Property of the BDA module path for loading BDA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
+
