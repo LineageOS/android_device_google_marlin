@@ -8720,12 +8720,12 @@
   />
 
   <apn carrier="IMS"
-       mcc="310"
-       mnc="170"
-       apn="ims"
-       type="ims"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
+      mcc="310"
+      mnc="170"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="DataConnect"
@@ -9829,12 +9829,12 @@
   />
 
   <apn carrier="IMS"
-       mcc="310"
-       mnc="410"
-       apn="ims"
-       type="ims"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
+      mcc="310"
+      mnc="410"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="ATT Phone"
@@ -10303,12 +10303,12 @@
   />
 
   <apn carrier="IMS"
-       mcc="310"
-       mnc="560"
-       apn="ims"
-       type="ims"
-       protocol="IPV4V6"
-       roaming_protocol="IPV4V6"
+      mcc="310"
+      mnc="560"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="DobsonMMS"
@@ -24307,11 +24307,12 @@
       type="mms"
   />
 
-  <apn carrier="GPRS"
+  <apn carrier="Internet"
       mcc="427"
       mnc="01"
       apn="data"
       type="default,supl"
+      authtype="1"
   />
 
   <apn carrier="MMS"
