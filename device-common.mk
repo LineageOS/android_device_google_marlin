@@ -196,11 +196,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_AAPT_CONFIG += xlarge large
 
-# TODO: move to vendor mk file
-### HTC touch ###
-#PRODUCT_COPY_FILES += \
-#    vendor/google_devices/marlin/prebuilts/tp_SYN3708.img:system/etc/firmware/synaptics.img
-
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd
