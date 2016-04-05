@@ -1,2 +1,4 @@
 type diag_device, dev_type;
+type sg_device, dev_type;
 type modem_block_device, dev_type;
+type ssd_block_device, dev_type;
