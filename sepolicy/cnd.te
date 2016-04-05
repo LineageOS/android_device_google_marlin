@@ -2,3 +2,6 @@ type cnd, domain;
 type cnd_exec, exec_type, file_type;
 
 init_daemon_domain(cnd)
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(cnd)

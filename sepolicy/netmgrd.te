@@ -6,3 +6,6 @@ init_daemon_domain(netmgrd)
 
 # in addition to ioctl commands granted to netdomain allow netmgrd to use:
 allowxperm netmgrd self:udp_socket ioctl RMNET_IOCTL_EXTENDED;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(netmgrd)
