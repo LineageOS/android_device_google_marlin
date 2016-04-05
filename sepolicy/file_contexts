@@ -1,4 +1,6 @@
 /dev/diag                      u:object_r:diag_device:s0
+/dev/qseecom                   u:object_r:tee_device:s0
+/dev/sg[0-9]+                  u:object_r:sg_device:s0
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
 /dev/mdss_rotator              u:object_r:graphics_device:s0
 /dev/nanohub                   u:object_r:sensors_device:s0
@@ -23,6 +25,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/modem_b       u:object_r:modem_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/modemst1      u:object_r:modem_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/modemst2      u:object_r:modem_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/ssd           u:object_r:ssd_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
 # files in firmware
