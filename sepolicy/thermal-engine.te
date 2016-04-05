@@ -3,3 +3,6 @@ type thermal-engine, domain;
 type thermal-engine_exec, exec_type, file_type;
 
 init_daemon_domain(thermal-engine)
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(thermal-engine)

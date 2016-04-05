@@ -4,3 +4,6 @@ type ims_exec, exec_type, file_type;
 
 # Started by init
 init_daemon_domain(ims)
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(ims)
