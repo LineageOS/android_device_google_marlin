@@ -4,10 +4,18 @@ type time_exec, exec_type, file_type;
 
 init_daemon_domain(time)
 
-allow time self:socket rw_socket_perms;
+allow time self:capability { setgid setuid sys_time };
+
+allow time self:socket create_socket_perms;
 
 # /sys/bus/msm_subsys
 r_dir_file(time, sysfs_msm_subsys)
 
 # files in /data/time
 allow time time_data_file:file create_file_perms;
+allow time time_data_file:dir rw_dir_perms;
+allow time rtc_device:chr_file r_file_perms;
+
+userdebug_or_eng(`
+  allow time  diag_device:chr_file rw_file_perms;
+')
