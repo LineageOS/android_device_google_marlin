@@ -66,6 +66,9 @@ public class QtiCallConstants {
     /* Call substate extra key name */
     public static final String CALL_SUBSTATE_EXTRA_KEY = "CallSubstate";
 
+    /* Call encryption status extra key. The value will be a boolean. */
+    public static final String CALL_ENCRYPTION_EXTRA_KEY = "CallEncryption";
+
     /* Call fail code extra key name */
     public static final String EXTRAS_KEY_CALL_FAIL_EXTRA_CODE  = "CallFailExtraCode";
 
