@@ -210,6 +210,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.userdebug:root/init.common.diag.rc
+
+# Subsystem ramdump
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ssr.enable_ramdumps=1
 else
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:root/init.common.diag.rc
