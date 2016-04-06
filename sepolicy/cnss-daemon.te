@@ -1,0 +1,5 @@
+# Policy for /system/bin/cnss-daemon
+type cnss-daemon, domain;
+type cnss-daemon_exec, exec_type, file_type;
+
+init_daemon_domain(cnss-daemon)
