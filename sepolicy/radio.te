@@ -1,2 +1,4 @@
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(radio)
+
+allow radio uce_service:service_manager { add find };
