@@ -12,3 +12,5 @@ type custom_ab_block_device, dev_type;
 type gpt_block_device, dev_type;
 type modem_block_device, dev_type;
 type ssd_block_device, dev_type;
+
+type ramdump_block_device, dev_type;
