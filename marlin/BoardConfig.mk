@@ -48,6 +48,8 @@ AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
 
+BOARD_HAL_STATIC_LIBRARIES := libdumpstate.marlin
+
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
