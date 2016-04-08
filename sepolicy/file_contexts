@@ -9,6 +9,7 @@
 mdev/ttyHS0                    u:object_r:console_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
+/dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
 /dev/socket/qmux_audio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_bluetooth(/.*)?                u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
@@ -65,6 +66,7 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 /system/bin/adsprpcd               u:object_r:adsprpcd_exec:s0
 /system/bin/cnss-daemon            u:object_r:cnss-daemon_exec:s0
 /system/bin/cnss_diag              u:object_r:cnss_diag_exec:s0
+/system/vendor/bin/chred           u:object_r:chred_exec:s0
 
 # init launched scripts
 /system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
