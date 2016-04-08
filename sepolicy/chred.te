@@ -1,0 +1,7 @@
+# Policy for /system/vendor/bin/chred
+type chred, domain;
+type chred_exec, exec_type, file_type;
+
+init_daemon_domain(chred)
+
+allow chred sdsprpc_device:chr_file rw_file_perms;
