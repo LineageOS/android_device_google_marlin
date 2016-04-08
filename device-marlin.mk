@@ -26,6 +26,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.marlin.rc \
+    device/google/marlin/init.common.usb.rc:root/init.marlin.usb.rc \
     device/google/marlin/fstab.common:root/fstab.marlin \
     device/google/marlin/ueventd.common.rc:root/ueventd.marlin.rc
 

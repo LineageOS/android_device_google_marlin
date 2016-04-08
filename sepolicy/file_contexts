@@ -66,25 +66,18 @@
 /system/bin/lowi-server            u:object_r:location_exec:s0
 /system/vendor/bin/perfd           u:object_r:perfd_exec:s0
 /system/bin/qseecomd               u:object_r:tee_exec:s0
-/system/bin/cnd                                 u:object_r:cnd_exec:s0
-/system/bin/imsdatadaemon                       u:object_r:ims_exec:s0
-/system/bin/imsqmidaemon                        u:object_r:ims_exec:s0
-/system/bin/ims_rtp_daemon                      u:object_r:ims_exec:s0
-/system/bin/imscmservice                        u:object_r:imscm_exec:s0
+/system/bin/cnd                    u:object_r:cnd_exec:s0
+/system/bin/imsdatadaemon          u:object_r:ims_exec:s0
+/system/bin/imsqmidaemon           u:object_r:ims_exec:s0
+/system/bin/ims_rtp_daemon         u:object_r:ims_exec:s0
+/system/bin/imscmservice           u:object_r:imscm_exec:s0
 /system/bin/adsprpcd               u:object_r:adsprpcd_exec:s0
 /system/bin/cnss-daemon            u:object_r:cnss-daemon_exec:s0
 /system/bin/cnss_diag              u:object_r:cnss_diag_exec:s0
 /system/vendor/bin/chred           u:object_r:chred_exec:s0
 
-# init launched scripts
-/system/bin/init\.qcom\.usb\.sh             u:object_r:init_usb_exec:s0
-/system/bin/init\.qcom\.sh                  u:object_r:init_qcom_exec:s0
-/system/bin/init\.qcom\.post_boot\.sh       u:object_r:init_post_boot_exec:s0
-/system/bin/init\.qcom\.zram\.sh            u:object_r:init_zram_exec:s0
-/system/bin/init\.qcom\.class_core\.sh      u:object_r:init_class_core_exec:s0
-/system/bin/init\.class_main\.sh            u:object_r:init_class_main_exec:s0
-/system/bin/init\.qcom.bt\.sh               u:object_r:init_bt_exec:s0
-/system/bin/init\.qcom\.sensor\.sh          u:object_r:init_sensor_exec:s0
+/system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
+/system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 
 # /sys
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0

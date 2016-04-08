@@ -26,6 +26,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.sailfish.rc \
+    device/google/marlin/init.common.usb.rc:root/init.sailfish.usb.rc \
     device/google/marlin/fstab.common:root/fstab.sailfish \
     device/google/marlin/ueventd.common.rc:root/ueventd.sailfish.rc
 
