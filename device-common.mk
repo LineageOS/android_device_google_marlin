@@ -50,6 +50,10 @@ $(call inherit-product, device/google/marlin/common/common64.mk)
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
+# graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196609
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
