@@ -4,5 +4,8 @@ type location_exec, exec_type, file_type;
 
 init_daemon_domain(location)
 
+binder_use(location)
+binder_call(location, system_server)
+
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(location)

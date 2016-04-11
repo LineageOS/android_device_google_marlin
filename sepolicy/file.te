@@ -5,6 +5,7 @@ type firmware_file, fs_type, contextmount_type;
 
 # /data
 type time_data_file, file_type, data_file_type;
+type perfd_data_file, file_type, data_file_type;
 
 # /sys
 type sysfs_msm_subsys, sysfs_type, fs_type;
