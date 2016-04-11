@@ -387,7 +387,7 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13"
+      bearer_bitmask="13|18"
       mvno_type="gid"
       mvno_match_data="BAE0000000000000"
       profile_id="0"
@@ -420,7 +420,7 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13"
+      bearer_bitmask="13|18"
       mvno_type="gid"
       mvno_match_data="BAE0000000000000"
       profile_id="3"
@@ -469,7 +469,7 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13"
+      bearer_bitmask="13|18"
       mvno_type="gid"
       mvno_match_data="BAE0000000000000"
       profile_id="2"
@@ -504,7 +504,7 @@
       mmsc="http://mms.vzwreseller.com/servlets/mms"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13"
+      bearer_bitmask="13|18"
       mvno_type="gid"
       mvno_match_data="BAE0000000000000"
       profile_id="4"
@@ -7892,7 +7892,7 @@
       profile_id="1"
   />
 
-  <!-- bearer 13, 14 -->
+  <!-- bearer 13, 14, 18 -->
   <apn carrier="Verizon Internet"
       mcc="310"
       mnc="004"
@@ -7900,14 +7900,14 @@
       type="default,dun"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13|14"
+      bearer_bitmask="13|14|18"
       profile_id="0"
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
   />
 
-  <!-- bearer 13, 14 -->
+  <!-- bearer 13, 14, 18 -->
   <apn carrier="Verizon FOTA"
       mcc="310"
       mnc="004"
@@ -7915,14 +7915,14 @@
       type="fota"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13|14"
+      bearer_bitmask="13|14|18"
       profile_id="3"
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
   />
 
-  <!-- bearer 13, 14 -->
+  <!-- bearer 13, 14, 18 -->
   <apn carrier="Verizon IMS"
       mcc="310"
       mnc="004"
@@ -7930,14 +7930,14 @@
       type="ims"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13|14"
+      bearer_bitmask="13|14|18"
       profile_id="2"
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
   />
 
-  <!-- bearer 13, 14 -->
+  <!-- bearer 13, 14, 18 -->
   <apn carrier="Verizon CBS"
       mcc="310"
       mnc="004"
@@ -7946,7 +7946,7 @@
       mmsc="http://mms.vzwreseller.com/servlets/mms"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="13|14"
+      bearer_bitmask="13|14|18"
       profile_id="4"
       modem_cognitive="true"
       max_conns="1023"
@@ -13698,33 +13698,8 @@
   <!-- and a second APN to be used when DUN is required.  Even though the -->
   <!-- parameters appear the same, the profileID sent to the radio when requesting -->
   <!-- a DUN connection will be different -->
-  <!-- bearer 4, 5, 6, 7, 8, 12 -->
-  <apn carrier="Verizon"
-      mcc="311"
-      mnc="480"
-      apn="internet"
-      authtype="3"
-      type="default,mms,supl,fota,ims,cbs"
-      mmsc="http://mms.vzwreseller.com/servlets/mms"
-      protocol="IPV4V6"
-      bearer_bitmask="4|5|6|7|8|12"
-      user_visible="false"
-  />
-  <!-- bearer 4, 5, 6, 7, 8, 12 -->
-  <apn carrier="Verizon"
-      mcc="311"
-      mnc="480"
-      apn="internet"
-      authtype="3"
-      type="default,mms,supl,fota,ims,cbs,dun"
-      mmsc="http://mms.vzwreseller.com/servlets/mms"
-      protocol="IPV4V6"
-      bearer_bitmask="4|5|6|7|8|12"
-      profile_id="1"
-      user_visible="false"
-  />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
+  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15, 18 -->
   <apn carrier="Verizon"
       mcc="311"
       mnc="480"
@@ -13733,14 +13708,14 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="1|2|3|9|10|11|13|14|15"
+      bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="0"
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
   />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
+  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15, 18 -->
   <apn carrier="Verizon"
       mcc="311"
       mnc="480"
@@ -13749,7 +13724,7 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="1|2|3|9|10|11|13|14|15"
+      bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="3"
       modem_cognitive="true"
       max_conns="1023"
@@ -13757,7 +13732,7 @@
       user_visible="false"
   />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
+  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15, 18 -->
   <apn carrier="Verizon"
       mcc="311"
       mnc="480"
@@ -13766,7 +13741,7 @@
       authtype="0"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="1|2|3|9|10|11|13|14|15"
+      bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="2"
       modem_cognitive="true"
       max_conns="1023"
@@ -13774,7 +13749,7 @@
       user_visible="false"
   />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
+  <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15, 18 -->
   <apn carrier="Verizon"
       mcc="311"
       mnc="480"
@@ -13784,7 +13759,7 @@
       mmsc="http://mms.vzwreseller.com/servlets/mms"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      bearer_bitmask="1|2|3|9|10|11|13|14|15"
+      bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="4"
       modem_cognitive="true"
       max_conns="1023"
