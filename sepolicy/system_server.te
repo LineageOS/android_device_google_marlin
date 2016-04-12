@@ -1,5 +1,29 @@
 # in addition to ioctl commands granted to netdomain allow system_server to use:
-allowxperm system_server self:udp_socket ioctl SIOCSIFFLAGS;
+allowxperm system_server self:udp_socket ioctl { SIOCSIFFLAGS RMNET_IOCTL_EXTENDED };
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(system_server)
+
+# /dev/uhid
+allow system_server uhid_device:chr_file rw_file_perms;
+
+# talk to perfd
+allow system_server perfd_data_file:dir search;
+allow system_server perfd_data_file:sock_file write;
+allow system_server perfd:unix_stream_socket connectto;
+
+#allow system_server location:unix_stream_socket connectto;
+unix_socket_connect(system_server, netmgrd, netmgrd)
+
+# talk to peripheral manager
+allow system_server per_mgr_service:service_manager find;
+binder_call(system_server, per_mgr)
+
+# files in /sys
+allow system_server sysfs_audio_cal:file r_file_perms;
+allow system_server sysfs_msm_subsys:dir r_dir_perms;
+allow system_server sysfs_msm_subsys:lnk_file read;
+
+userdebug_or_eng(`
+  allow system_server diag_device:chr_file rw_file_perms;
+')
