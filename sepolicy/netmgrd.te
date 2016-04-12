@@ -20,18 +20,27 @@ allow netmgrd netmgrd_socket:sock_file create_file_perms;
 # communicate with netd
 unix_socket_connect(netmgrd, netd, netd)
 
-allow netmgrd proc_net:file r_file_perms;
+allow netmgrd proc_net:file rw_file_perms;
 
 # specifically not allowing dac_override, net_admin, net_raw, and sys_module
 allow netmgrd self:capability { setgid setpcap setuid };
 
-# execute shell and files in /system/
+# execute shell, ip, and toolbox
 allow netmgrd shell_exec:file rx_file_perms;
 allow netmgrd system_file:file rx_file_perms;
+allow netmgrd toolbox_exec:file rx_file_perms;
 
 # netmgrd sockets
 allow netmgrd self:netlink_route_socket { create_socket_perms nlmsg_read nlmsg_write };
-allow netmgrd self:netlink_socket write;
+allow netmgrd self:netlink_socket create_socket_perms;
 allow netmgrd self:netlink_xfrm_socket { create_socket_perms nlmsg_write };
 allow netmgrd self:rawip_socket create_socket_perms;
 allow netmgrd self:socket create_socket_perms;
+
+set_prop(netmgrd, net_radio_prop)
+
+# read files in /sys
+allow netmgrd sysfs:dir r_dir_perms;
+r_dir_file(netmgrd, sysfs_msm_subsys)
+allow netmgrd sysfs_net:dir r_dir_perms;
+allow netmgrd sysfs_net:file rw_file_perms;

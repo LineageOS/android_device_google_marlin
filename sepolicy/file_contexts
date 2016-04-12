@@ -11,7 +11,7 @@
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
 /dev/subsys_.*                 u:object_r:ssr_device:s0
 /dev/msm_thermal_query         u:object_r:thermal_device:s0
-mdev/ttyHS0                    u:object_r:console_device:s0
+/dev/ttyHS0                    u:object_r:console_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/v4l-subdev.*              u:object_r:video_device:s0
 /dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
@@ -86,11 +86,16 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 # /sys
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
+/sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
-/sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
-/sys/devices/soc/ce0000\.qcom,venus(/.*)?        u:object_r:sysfs_video:s0
-/sys/devices/soc0/hw_platform                    u:object_r:sysfs_audio_cal:s0
+/sys/devices/soc/ce0000\.qcom,venus(/.*)?        u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/soc:qcom,kgsl-hyp(/.*)?         u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/soc:qcom,cnss(/.*)?             u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/9300000\.qcom,lpass(/.*)?       u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/1c00000\.qcom,ssc(/.*)?         u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/2080000\.qcom,mss(/.*)?         u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
