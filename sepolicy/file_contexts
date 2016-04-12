@@ -86,6 +86,7 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
+/sys/devices/soc/ce0000\.qcom,venus(/.*)?        u:object_r:sysfs_video:s0
 /sys/devices/soc0/hw_platform                    u:object_r:sysfs_audio_cal:s0
 
 # /data
