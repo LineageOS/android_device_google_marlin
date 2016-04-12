@@ -3,7 +3,6 @@ qmux_socket(radio)
 
 allow radio uce_service:service_manager { add find };
 
-r_dir_file(radio, sysfs_video)
 r_dir_file(radio, sysfs_msm_subsys)
 
 # communicate with ims
