@@ -11,6 +11,7 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
 /dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
+/dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/qmux_audio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_bluetooth(/.*)?                u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
@@ -89,3 +90,4 @@ mdev/ttyHS0                    u:object_r:console_device:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
+/data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
