@@ -1,5 +1,0 @@
-# Policy for /system/bin/init.class_main.sh
-type init_class_main, domain;
-type init_class_main_exec, exec_type, file_type;
-
-init_daemon_domain(init_class_main)

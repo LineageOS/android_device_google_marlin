@@ -1,5 +1,0 @@
-# Policy for /system/bin/init.qcom.usb.sh
-type init_usb, domain;
-type init_usb_exec, exec_type, file_type;
-
-init_daemon_domain(init_usb)
