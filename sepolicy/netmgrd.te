@@ -18,7 +18,7 @@ allow netmgrd netmgrd_socket:dir rw_dir_perms;
 allow netmgrd netmgrd_socket:sock_file create_file_perms;
 
 # communicate with netd
-unix_socket_connect(netmgr, netd, netd)
+unix_socket_connect(netmgrd, netd, netd)
 
 allow netmgrd proc_net:file r_file_perms;
 
