@@ -1,6 +1,2 @@
-type sysfs_audio_cal, sysfs_type, fs_type;
-type audio_cal_device, dev_type;
-
 allow audioserver audio_cal_device:chr_file rw_file_perms;
-allow audioserver sysfs_audio_cal:file r_file_perms;
-
+allow audioserver sysfs_soc:file r_file_perms;
