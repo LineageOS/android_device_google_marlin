@@ -3,3 +3,8 @@ type per_mgr, domain;
 type per_mgr_exec, exec_type, file_type;
 
 init_daemon_domain(per_mgr)
+
+allow per_mgr per_mgr_service:service_manager add;
+
+binder_use(per_mgr)
+binder_call(per_mgr, system_server) 
