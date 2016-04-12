@@ -1,3 +1,5 @@
+/dev/at_.*                     u:object_r:at_device:s0
+/dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
 /dev/diag                      u:object_r:diag_device:s0
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
 /dev/mdss_rotator              u:object_r:graphics_device:s0
@@ -5,12 +7,13 @@
 /dev/nanohub                   u:object_r:sensors_device:s0
 /dev/nanohub_comms             u:object_r:sensors_device:s0
 /dev/qseecom                   u:object_r:tee_device:s0
+/dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
+/dev/subsys_.*                 u:object_r:ssr_device:s0
 /dev/msm_thermal_query         u:object_r:thermal_device:s0
 mdev/ttyHS0                    u:object_r:console_device:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
-/dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
-/dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
+/dev/v4l-subdev.*              u:object_r:video_device:s0
 /dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/qmux_audio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_bluetooth(/.*)?                u:object_r:qmuxd_socket:s0
