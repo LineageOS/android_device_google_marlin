@@ -3,3 +3,7 @@ type cnss-daemon, domain;
 type cnss-daemon_exec, exec_type, file_type;
 
 init_daemon_domain(cnss-daemon)
+# access to /dev/diag on debug builds
+userdebug_or_eng(`
+  allow cnss-daemon diag_device:chr_file rw_file_perms;
+')
