@@ -4,5 +4,8 @@ on post-fs-data
     # Modem logging collection
     mkdir /data/diag_logs 0777 system system
 
+    # Create symlink for OEM adb_keys
+    symlink /vendor/etc/adb_keys /data/misc/adb/adb_keys
+
 on boot
     chmod 666 /dev/diag
