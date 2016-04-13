@@ -4,9 +4,26 @@ type ims_exec, exec_type, file_type;
 
 # Started by init
 init_daemon_domain(ims)
+net_domain(ims)
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(ims)
+
+# talk to netmgrd and cnd
+unix_socket_connect(ims, netmgrd, netmgrd)
+unix_socket_connect(ims, cnd, cnd)
+set_prop(ims, system_prop)
+
+# files in /sys
+allow ims sysfs:dir r_dir_perms;
+r_dir_file(ims, sysfs_msm_subsys)
+r_dir_file(ims, sysfs_soc)
+
+# additional socket perms
+allow ims ims_socket:sock_file write;
+allow ims self:netlink_socket create_socket_perms;
+allow ims self:socket create_socket_perms;
+allowxperm ims self:udp_socket ioctl RMNET_IOCTL_EXTENDED;
 
 userdebug_or_eng(`
   allow ims diag_device:chr_file rw_file_perms;
