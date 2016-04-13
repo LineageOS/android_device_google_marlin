@@ -7,3 +7,7 @@ init_daemon_domain(ims)
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(ims)
+
+userdebug_or_eng(`
+  allow ims diag_device:chr_file rw_file_perms;
+')

@@ -1,2 +1,5 @@
 allow audioserver audio_cal_device:chr_file rw_file_perms;
 allow audioserver sysfs_soc:file r_file_perms;
+userdebug_or_eng(`
+  allow audioserver diag_device:chr_file rw_file_perms;
+')
