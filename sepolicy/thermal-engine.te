@@ -12,9 +12,12 @@ allow thermal-engine self:socket create_socket_perms;
 # /dev/msm_thermal_query
 allow thermal-engine thermal_device:chr_file rw_file_perms;
 
-# files in /sys/devices/virtual/thermal
+# files in /sys/
+allow thermal-engine sysfs:dir r_dir_perms;
 allow thermal-engine sysfs_thermal:dir r_dir_perms;
 allow thermal-engine sysfs_thermal:file rw_file_perms;
+r_dir_file(thermal-engine, sysfs_msm_subsys)
+r_dir_file(thermal-engine, sysfs_soc)
 
 allow thermal-engine uio_device:chr_file rw_file_perms;
 
