@@ -1,10 +1,6 @@
 type at_device, dev_type;
 type audio_cal_device, dev_type;
-type cnd_socket, dev_type;
 type diag_device, dev_type;
-type ims_socket, dev_type;
-type netmgrd_socket, dev_type;
-type qmuxd_socket, dev_type;
 type sdsprpc_device, dev_type;
 type sg_device, dev_type;
 type ssr_device, dev_type;
