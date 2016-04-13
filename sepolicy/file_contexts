@@ -87,6 +87,7 @@
 # /sys
 /sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
+/sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
