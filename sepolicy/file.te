@@ -11,3 +11,9 @@ type perfd_data_file, file_type, data_file_type;
 type sysfs_net, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type;
+
+# /dev/socket needs to be file_type so init can create
+type cnd_socket, file_type;
+type ims_socket, file_type;
+type netmgrd_socket, file_type;
+type qmuxd_socket, file_type;
