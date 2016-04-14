@@ -159,14 +159,8 @@ PRODUCT_COPY_FILES += \
 
 # init launched script
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.class_main.sh:system/bin/init.class_main.sh \
-    device/google/marlin/init.qcom.bt.sh:system/bin/init.qcom.bt.sh \
-    device/google/marlin/init.qcom.class_core.sh:system/bin/init.qcom.class_core.sh \
-    device/google/marlin/init.qcom.post_boot.sh:system/bin/init.qcom.post_boot.sh \
-    device/google/marlin/init.qcom.sensors.sh:system/bin/init.qcom.sensors.sh \
-    device/google/marlin/init.qcom.sh:system/bin/init.qcom.sh \
-    device/google/marlin/init.qcom.usb.sh:system/bin/init.qcom.usb.sh \
-    device/google/marlin/init.qcom.zram.sh:system/bin/init.qcom.zram.sh
+    device/google/marlin/init.radio.sh:system/bin/init.radio.sh \
+    device/google/marlin/init.power.sh:system/bin/init.power.sh
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
