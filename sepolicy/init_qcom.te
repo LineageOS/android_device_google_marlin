@@ -1,5 +1,0 @@
-# Policy for /system/bin/init.qcom.sh
-type init_qcom, domain;
-type init_qcom_exec, exec_type, file_type;
-
-init_daemon_domain(init_qcom)
