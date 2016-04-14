@@ -113,7 +113,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Enable Peripheral Manager
 TARGET_PER_MGR_ENABLED := true

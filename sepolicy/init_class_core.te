@@ -1,5 +1,0 @@
-# Policy for /system/bin/init.qcom.class_core.sh
-type init_class_core, domain;
-type init_class_core_exec, exec_type, file_type;
-
-init_daemon_domain(init_class_core)
