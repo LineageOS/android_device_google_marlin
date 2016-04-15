@@ -13698,6 +13698,18 @@
   <!-- and a second APN to be used when DUN is required.  Even though the -->
   <!-- parameters appear the same, the profileID sent to the radio when requesting -->
   <!-- a DUN connection will be different -->
+  <!-- bearer 4, 5, 6, 7, 8, 12 -->
+  <apn carrier="Verizon"
+      mcc="311"
+      mnc="480"
+      apn="internet"
+      authtype="3"
+      type="default,mms,supl,fota,ims,cbs,dun"
+      mmsc="http://mms.vzwreseller.com/servlets/mms"
+      protocol="IPV4V6"
+      bearer_bitmask="4|5|6|7|8|12"
+      user_visible="false"
+  />
 
   <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15, 18 -->
   <apn carrier="Verizon"
