@@ -241,3 +241,8 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
 
+# Needed for encryption
+PRODUCT_PACKAGES += \
+    keystore.msm8996 \
+    gatekeeper.msm8996
+
