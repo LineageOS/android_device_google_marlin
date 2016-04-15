@@ -612,6 +612,7 @@ service loc_launcher /system/bin/loc_launcher
 service init-radio-sh /system/bin/init.radio.sh
     class late_start
     user root
+    group system radio
     oneshot
 
 service atfwd /system/bin/ATFWD-daemon
