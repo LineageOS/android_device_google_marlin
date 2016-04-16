@@ -92,6 +92,7 @@
 /sys/devices/soc/9300000\.qcom,lpass(/.*)?       u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/1c00000\.qcom,ssc(/.*)?         u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/2080000\.qcom,mss(/.*)?         u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
 /sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
 
 # /data
