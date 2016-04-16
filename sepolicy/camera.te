@@ -7,3 +7,7 @@ init_daemon_domain(camera)
 allow camera ion_device:chr_file r_file_perms;
 allow camera sysfs_msm_subsys:file r_file_perms;
 allow camera video_device:chr_file rw_file_perms;
+allow camera sysfs_video:dir search;
+allow camera sysfs_video:file r_file_perms;
+
+set_prop(camera, camera_prop)
