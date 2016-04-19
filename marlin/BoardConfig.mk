@@ -148,9 +148,6 @@ ifeq ($(HOST_OS),linux)
    endif
 endif
 
-# Enable sensor multi HAL
-USE_SENSOR_MULTI_HAL := true
-
 # HTC_SENSOR_HUB
 LIBHTC_SENSORHUB_PROJECT := g_project
 
