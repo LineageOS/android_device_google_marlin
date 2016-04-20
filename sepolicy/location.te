@@ -9,3 +9,13 @@ binder_call(location, system_server)
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(location)
+
+allow location self:netlink_route_socket create_socket_perms;
+allow location self:netlink_socket create_socket_perms;
+allow location self:socket create_socket_perms;
+allow location self:udp_socket create_socket_perms;
+
+# files in /sys
+allow location sysfs:dir r_dir_perms;
+r_dir_file(location, sysfs_msm_subsys);
+r_dir_file(location, sysfs_soc)
