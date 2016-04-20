@@ -265,6 +265,15 @@ AB_OTA_PARTITIONS := \
   system
 #TODO(deymo): Add modem and vendor to the previous list.
 
+# NFC packages
+PRODUCT_PACKAGES += \
+    NfcNci \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/google/marlin/nfc/libpn551_fw.so:system/vendor/firmware/libpn551_fw.so
+
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
     bootctrl.msm8996
