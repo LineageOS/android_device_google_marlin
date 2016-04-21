@@ -217,48 +217,48 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 ALOGE("Can't obtain scaling governor.");
                 return;
             }
-            if ((is_sched_energy_aware() == 0) &&
-                (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) ==
-                 0)) {
-                int resources[] = {0x5528};
-                int duration = 3000;
-                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
-            } else {
-                int duration_hint = 0;
-                static unsigned long long previous_boost_time = 0;
+            int duration_hint = 0;
+            static unsigned long long previous_boost_time = 0;
+            int duration = 1500;
+            if (data) {
+                duration_hint = *((int*)data);
+            }
 
-                // little core freq bump for 1.5s
-                int fling_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
-                int touch_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
-                int duration = 1500;
+            struct timeval cur_boost_timeval = {0, 0};
+            gettimeofday(&cur_boost_timeval, NULL);
+            unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
+            unsigned long long elapsed_time = (cur_boost_time - previous_boost_time);
+            if (elapsed_time > 750000)
+                elapsed_time = 750000;
+            // don't hint if it's been less than 250ms since last boost
+            // also detect if we're doing anything resembling a fling
+            // support additional boosting in case of flings
+            else if (elapsed_time < 250000 && duration_hint <= 750)
+                return;
 
-                if (data) {
-                    duration_hint = *((int*)data);
-                }
-
-                struct timeval cur_boost_timeval = {0, 0};
-                gettimeofday(&cur_boost_timeval, NULL);
-                unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
-                double elapsed_time = (double)(cur_boost_time - previous_boost_time);
-                if (elapsed_time > 750000)
-                    elapsed_time = 750000;
-                // don't hint if it's been less than 250ms since last boost
-                // also detect if we're doing anything resembling a fling
-                // support additional boosting in case of flings
-                else if (elapsed_time < 250000 && duration_hint <= 750)
-                    return;
-
-                if (data) {
-                    if (duration_hint > 1000) {
-                        if (duration_hint < 5000) {
-                            duration = duration_hint + 750;
-                        } else {
-                            duration = 5750;
-                        }
+            if (data) {
+                if (duration_hint > 1000) {
+                    if (duration_hint < 5000) {
+                        duration = duration_hint + 750;
+                    } else {
+                        duration = 5750;
                     }
+                }
+            }
+	    // Scheduler is EAS.
+            if ((is_sched_energy_aware() != -1) &&
+                  (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0)) {
+                // Setting the value of foreground schedtune boost to 40.
+                int resources[] = {0x5528};
+                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
+            } else { // Scheduler is HMP.
+                if (data) {
+                    int fling_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
                     interaction(duration, sizeof(fling_resources)/sizeof(fling_resources[0]), fling_resources);
-                } else
+                } else {
+                    int touch_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
                     interaction(duration, sizeof(touch_resources)/sizeof(touch_resources[0]), touch_resources);
+                }
             }
         }
         break;
