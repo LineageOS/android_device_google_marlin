@@ -1,4 +1,4 @@
-# in addition to ioctl commands granted to netdomain allow system_server to use:
+# in addition to ioctl commands granted to domain allow system_server to use:
 allowxperm system_server self:udp_socket ioctl { SIOCSIFFLAGS RMNET_IOCTL_EXTENDED };
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
