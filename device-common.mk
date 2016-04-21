@@ -50,6 +50,9 @@ $(call inherit-product, device/google/marlin/common/common64.mk)
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
+# For android_filesystem_config.h
+PRODUCT_PACKAGES += fs_config_files
+
 # Audio configuration file
 ifeq ($(TARGET_USES_AOSP), true)
 PRODUCT_COPY_FILES += \
@@ -245,4 +248,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     keystore.msm8996 \
     gatekeeper.msm8996
-
