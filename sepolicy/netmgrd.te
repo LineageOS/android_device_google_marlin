@@ -5,9 +5,6 @@ type netmgrd_exec, exec_type, file_type;
 init_daemon_domain(netmgrd)
 net_domain(netmgrd)
 
-# in addition to ioctl commands granted to netdomain allow netmgrd to use:
-allowxperm netmgrd self:udp_socket ioctl RMNET_IOCTL_EXTENDED;
-
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(netmgrd)
 
@@ -36,6 +33,11 @@ allow netmgrd self:netlink_socket create_socket_perms;
 allow netmgrd self:netlink_xfrm_socket { create_socket_perms nlmsg_write };
 allow netmgrd self:rawip_socket create_socket_perms;
 allow netmgrd self:socket create_socket_perms;
+# in addition to ioctl commands granted to domain allow netmgrd to use:
+allowxperm netmgrd self:udp_socket ioctl {
+  SIOCSIFFLAGS SIOCSIFMTU SIOCKILLADDR SIOCETHTOOL SIOCDEVPRIVATE_2-SIOCDEVPRIVATE_4
+  SIOCDEVPRIVATE_8 SIOCDEVPRIVATE_A SIOCDEVPRIVATE_B SIOCDEVPRIVATE_D
+};
 
 set_prop(netmgrd, net_radio_prop)
 

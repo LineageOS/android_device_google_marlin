@@ -1,2 +1,2 @@
-# in addition to ioctl commands granted to netdomain allow netd to use:
+# in addition to ioctl commands granted to domain allow netd to use:
 allowxperm netd self:udp_socket ioctl { SIOCSIFFLAGS SIOCSIFADDR SIOCGIFHWADDR };
