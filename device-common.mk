@@ -248,3 +248,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     keystore.msm8996 \
     gatekeeper.msm8996
+
+# Use the A/B updater.
+AB_OTA_UPDATER := true
+PRODUCT_PACKAGES += \
+   update_engine \
+   update_engine_client \
+   update_verifier
+
+# A/B updater updatable partitions list. Keep in sync with the partition list
+# with "_a" and "_b" variants in the device.
+AB_OTA_PARTITIONS := \
+  boot \
+  system
+
+#TODO(deymo): Add modem and vendor to the previous list.
