@@ -95,6 +95,7 @@
 /sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_video:s0
 /sys/devices/soc/aa4000\.qcom,fd(/.*)?           u:object_r:sysfs_video:s0
 /sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
+/sys/devices/soc/600000\.qcom,pcie/pci0000:00/0000:00:00\.0/0000:01:00\.0/net/wlan0(/.*)? u:object_r:sysfs_wifi:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
