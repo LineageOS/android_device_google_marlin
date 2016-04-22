@@ -1,0 +1,7 @@
+allow cameraserver perfd:unix_stream_socket connectto;
+allow cameraserver perfd_data_file:sock_file write;
+allow cameraserver camera:unix_dgram_socket sendto;
+allow cameraserver camera_data_file:sock_file write;
+allow cameraserver camera_device:chr_file rw_file_perms;
+allow cameraserver gpu_device:chr_file rw_file_perms;
+get_prop(cameraserver, camera_prop)
