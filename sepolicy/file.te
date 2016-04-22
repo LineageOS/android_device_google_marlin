@@ -12,6 +12,7 @@ type sysfs_net, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type;
 type sysfs_video, sysfs_type, fs_type;
+type sysfs_wifi, sysfs_type, fs_type;
 
 # /dev/socket needs to be file_type so init can create
 type cnd_socket, file_type;
