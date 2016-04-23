@@ -24,3 +24,6 @@ type cnd_socket, file_type;
 type ims_socket, file_type;
 type netmgrd_socket, file_type;
 type qmuxd_socket, file_type;
+
+type bt_firmware_file, file_type;
+type persist_file, file_type;

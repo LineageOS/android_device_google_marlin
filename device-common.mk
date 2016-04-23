@@ -51,7 +51,8 @@ $(call inherit-product, device/google/marlin/common/common64.mk)
 PRODUCT_PACKAGES += libGLES_android
 
 # For android_filesystem_config.h
-PRODUCT_PACKAGES += fs_config_files
+PRODUCT_PACKAGES += fs_config_files \
+                    fs_config_dirs
 
 # Audio configuration file
 ifeq ($(TARGET_USES_AOSP), true)
