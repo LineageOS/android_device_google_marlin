@@ -8,8 +8,8 @@ init_daemon_domain(init_radio)
 allow init_radio toolbox_exec:file rx_file_perms;
 allow init_radio shell_exec:file rx_file_perms;
 allow init_radio radio_data_file:file w_file_perms;
-allow init_radio firmware_file:dir search;
+allow init_radio firmware_file:dir r_dir_perms;
 allow init_radio firmware_file:file r_file_perms;
-allow init_radio radio_data_file:dir w_dir_perms;
-allow init_radio radio_data_file:file w_file_perms;
+allow init_radio radio_data_file:dir create_dir_perms;
+allow init_radio radio_data_file:file create_file_perms;
 allow init_radio self:capability chown;
