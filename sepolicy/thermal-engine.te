@@ -8,6 +8,7 @@ init_daemon_domain(thermal-engine)
 qmux_socket(thermal-engine)
 
 allow thermal-engine self:socket create_socket_perms;
+allowxperm thermal-engine self:socket ioctl msm_sock_ipc_ioctls;
 
 # /dev/msm_thermal_query
 allow thermal-engine thermal_device:chr_file rw_file_perms;
