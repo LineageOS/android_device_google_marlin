@@ -1,2 +1,5 @@
 # symlink /sdcard to backing block
 allow init tmpfs:lnk_file create;
+
+# Run "ifup lo" to bring up the localhost interface
+allowxperm init self:udp_socket ioctl { SIOCSIFFLAGS };
