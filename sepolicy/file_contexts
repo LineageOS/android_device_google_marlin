@@ -95,6 +95,7 @@
 /sys/devices/soc/2080000\.qcom,mss(/.*)?         u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_camera:s0
 /sys/devices/soc/aa4000\.qcom,fd(/.*)?           u:object_r:sysfs_video:s0
+/sys/devices/soc/soc:fp_fpc1020(/.*)?            u:object_r:sysfs_fingerprint:s0
 /sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
 /sys/devices/virtual/htc_laser(/.*)?             u:object_r:sysfs_camera:s0
 /sys/devices/soc/600000\.qcom,pcie/pci0000:00/0000:00:00\.0/0000:01:00\.0/net/wlan0(/.*)? u:object_r:sysfs_wifi:s0
