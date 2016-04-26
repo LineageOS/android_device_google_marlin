@@ -7,6 +7,7 @@ init_daemon_domain(time)
 allow time self:capability { setgid setuid sys_time };
 
 allow time self:socket create_socket_perms;
+allowxperm time self:socket ioctl msm_sock_ipc_ioctls;
 
 # /sys/bus/msm_subsys
 r_dir_file(time, sysfs_msm_subsys)
