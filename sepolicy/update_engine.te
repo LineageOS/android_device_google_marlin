@@ -1,0 +1,7 @@
+# Allow update_engine read/write on the device-specific partitions it should
+# update.
+allow update_engine {
+  custom_ab_block_device
+  ssd_block_device
+  modem_block_device
+}:blk_file rw_file_perms;

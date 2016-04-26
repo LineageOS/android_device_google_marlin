@@ -252,14 +252,20 @@ PRODUCT_PACKAGES += \
 # Use the A/B updater.
 AB_OTA_UPDATER := true
 PRODUCT_PACKAGES += \
-   update_engine \
-   update_engine_client \
-   update_verifier
+    update_engine \
+    update_verifier
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
 
 # A/B updater updatable partitions list. Keep in sync with the partition list
 # with "_a" and "_b" variants in the device.
 AB_OTA_PARTITIONS := \
   boot \
   system
-
 #TODO(deymo): Add modem and vendor to the previous list.
+
+# Bootloader HAL used for A/B updates.
+PRODUCT_PACKAGES += \
+    bootctrl.msm8996
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
