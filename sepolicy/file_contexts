@@ -120,3 +120,10 @@
 /data/time(/.*)?                 u:object_r:time_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
+
+# /
+
+/bt_firmware(/.*)?      u:object_r:bt_firmware_file:s0
+/persist(/.*)?          u:object_r:persist_file:s0
+/tombstones             u:object_r:rootfs:s0
+/dsp                    u:object_r:rootfs:s0
