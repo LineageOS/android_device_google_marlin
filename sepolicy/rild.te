@@ -18,6 +18,7 @@ r_dir_file(rild, sysfs_soc)
 allow rild time:unix_stream_socket connectto;
 
 allowxperm rild self:udp_socket ioctl priv_sock_ioctls;
+allowxperm rild self:socket ioctl msm_sock_ipc_ioctls;
 userdebug_or_eng(`
   allow rild diag_device:chr_file rw_file_perms;
 ')
