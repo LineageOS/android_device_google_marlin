@@ -10,6 +10,7 @@
 /dev/qseecom                   u:object_r:tee_device:s0
 /dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
+/dev/stune(/.*)?               u:object_r:stune_device:s0
 /dev/subsys_.*                 u:object_r:ssr_device:s0
 /dev/msm_thermal_query         u:object_r:thermal_device:s0
 /dev/ttyHS0                    u:object_r:console_device:s0
