@@ -41,6 +41,7 @@
 #include <utils/Log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
+#include <cutils/properties.h>
 
 #include "utils.h"
 #include "metadata-defs.h"
@@ -196,6 +197,7 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 
 /* Declare function before use */
 void interaction(int duration, int num_args, int opt_list[]);
+int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
