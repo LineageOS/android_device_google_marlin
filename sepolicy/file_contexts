@@ -94,6 +94,8 @@
 /system/bin/cnss-daemon            u:object_r:cnss-daemon_exec:s0
 /system/bin/cnss_diag              u:object_r:cnss_diag_exec:s0
 /system/vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
+/system/bin/subsystem_ramdump      u:object_r:subsystem_ramdump_exec:s0
+/system/bin/ssr_setup              u:object_r:ssr_setup_exec:s0
 
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0

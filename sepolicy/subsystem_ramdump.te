@@ -1,0 +1,6 @@
+# Policy for system/bin/subsystem_ramdump
+type subsystem_ramdump_exec, exec_type, file_type;
+userdebug_or_eng(`
+  type subsystem_ramdump, domain;
+  init_daemon_domain(subsystem_ramdump)
+')

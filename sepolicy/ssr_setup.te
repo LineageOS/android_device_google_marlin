@@ -1,0 +1,6 @@
+# Policy for system/bin/ssr_setup
+type ssr_setup_exec, exec_type, file_type;
+userdebug_or_eng(`
+  type ssr_setup, domain;
+  init_daemon_domain(ssr_setup)
+')
