@@ -235,6 +235,24 @@ void interaction(int duration, int num_args, int opt_list[])
 #endif
 }
 
+int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]) 
+{
+#ifdef INTERACTION_BOOST
+    if (duration < 0 || num_args < 1 || opt_list[0] == NULL)
+        return 0;
+
+    if (qcopt_handle) {
+        if (perf_lock_acq) {
+            lock_handle = perf_lock_acq(lock_handle, duration, opt_list, num_args);
+            if (lock_handle == -1)
+                ALOGE("Failed to acquire lock.");
+        }
+    }
+    return lock_handle;
+#endif
+    return 0;
+}
+
 void perform_hint_action(int hint_id, int resource_values[], int num_resources)
 {
     if (qcopt_handle) {

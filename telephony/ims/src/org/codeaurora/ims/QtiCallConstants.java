@@ -190,17 +190,5 @@ public class QtiCallConstants {
      * Add participant in an active or conference call option
      */
     public static final int CAPABILITY_ADD_PARTICIPANT = 0x02000000;
-
-    /**
-     * Extra indicating the Wifi Quality
-     * <p>
-     * Type: int (one of the VOWIFI_QUALITY_* values)
-     */
-    public static final String VOWIFI_CALL_QUALITY_EXTRA_KEY = "VoWiFiCallQuality";
-
-    public static final int VOWIFI_QUALITY_NONE = 0;
-    public static final int VOWIFI_QUALITY_EXCELLENT = 1;
-    public static final int VOWIFI_QUALITY_FAIR = 2;
-    public static final int VOWIFI_QUALITY_POOR = 4;
 }
 
