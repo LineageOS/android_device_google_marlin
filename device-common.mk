@@ -207,6 +207,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_AAPT_CONFIG += xlarge large
 
+# Enable camera EIS
+# eis.enable: enables electronic image stabilization
+# is_type: sets image stabilization type
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.eis.enable=1 \
+    persist.camera.is_type=4
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd
