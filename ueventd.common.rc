@@ -227,6 +227,7 @@
 /dev/uio0                 0660   system     system
 /dev/uio1                 0660   system     system
 /dev/uio2                 0660   system     system
+/dev/uio3                 0660   system     system
 
 # SSR devices
 /dev/subsys_*         0640   system     system
