@@ -15,7 +15,28 @@
  */
 
 #include <dumpstate.h>
+#include <cutils/properties.h>
+#include <stdlib.h>
 
 void dumpstate_board()
 {
+    char prop_str[PROPERTY_VALUE_MAX];
+    int len;
+    char *end_ptr;
+    unsigned long ret_val = 0;
+
+    /* Check if smlog_dump tool exist */
+    if (!access("/system/bin/smlog_dump", F_OK)) {
+        property_get("persist.radio.smlog_switch" ,prop_str,"");
+        len = strlen(prop_str);
+        if (len > 0) {
+            ret_val = strtoul( prop_str, &end_ptr, 0 );
+        }
+
+        /* Only SMLOG is enable, and SMLOG DUMP would be excuted */
+        if (ret_val == 1) {
+            run_command("SMLOG DUMP", 30, SU_PATH, "root", "smlog_dump", "-d", NULL);
+        }
+    }
+
 };
