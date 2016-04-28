@@ -97,7 +97,7 @@
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 
 # /sys
-/sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
+/sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
