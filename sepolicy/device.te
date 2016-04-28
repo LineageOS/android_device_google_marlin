@@ -6,6 +6,8 @@ type sg_device, dev_type;
 type ssr_device, dev_type;
 type stune_device, dev_type;
 type thermal_device, dev_type;
+type pta_device, dev_type;
+
 
 type custom_ab_block_device, dev_type;
 type gpt_block_device, dev_type;
