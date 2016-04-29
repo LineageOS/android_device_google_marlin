@@ -1,3 +1,4 @@
+AtCmdFwd                                       u:object_r:atfwd_service:s0
 cneservice                                     u:object_r:cne_service:s0
 qti.ims.connectionmanagerservice               u:object_r:imscm_service:s0
 rcs                                            u:object_r:radio_service:s0
