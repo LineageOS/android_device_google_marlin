@@ -2,3 +2,16 @@ type perfd, domain;
 type perfd_exec, exec_type, file_type;
 
 init_daemon_domain(perfd)
+
+allow perfd cgroup:file r_file_perms;
+
+# files in /data/misc/perfd and /data/system/perfd
+allow perfd perfd_data_file:dir create_dir_perms;
+allow perfd perfd_data_file:{ file sock_file } create_file_perms;
+
+allow perfd proc_kernel_sched:file r_file_perms;
+allow perfd sysfs:dir r_dir_perms;
+allow perfd sysfs_perf:dir search;
+allow perfd sysfs_perf:file r_file_perms;
+allow perfd sysfs_soc:dir search;
+allow perfd sysfs_soc:file r_file_perms;
