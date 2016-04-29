@@ -4,8 +4,9 @@ type sysfs_nanoapp_cmd, sysfs_type, fs_type;
 type firmware_file, fs_type, contextmount_type;
 
 # /data
-type time_data_file, file_type, data_file_type;
+type location_data_file, file_type, data_file_type;
 type perfd_data_file, file_type, data_file_type;
+type time_data_file, file_type, data_file_type;
 
 # /sys
 type sysfs_camera, sysfs_type, fs_type;
