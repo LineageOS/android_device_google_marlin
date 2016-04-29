@@ -100,6 +100,7 @@
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
+/sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
 /devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)?   u:object_r:sysfs_uio:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
@@ -119,6 +120,7 @@
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
+/data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
 
 # /
