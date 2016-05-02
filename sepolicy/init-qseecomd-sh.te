@@ -1,0 +1,9 @@
+type init-qcom-qseecomd-sh, domain;
+type init-qcom-qseecomd-sh_exec, exec_type, file_type;
+
+init_daemon_domain(init-qcom-qseecomd-sh)
+
+allow init-qcom-qseecomd-sh shell_exec:file rx_file_perms;
+
+# execute toybox/toolbox
+allow init-qcom-qseecomd-sh toolbox_exec:file rx_file_perms;
