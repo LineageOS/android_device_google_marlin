@@ -168,6 +168,7 @@ PRODUCT_COPY_FILES += \
 
 # init launched script
 PRODUCT_COPY_FILES += \
+    device/google/marlin/init.qcom.qseecomd.sh:system/bin/init.qcom.qseecomd.sh \
     device/google/marlin/init.radio.sh:system/bin/init.radio.sh \
     device/google/marlin/init.power.sh:system/bin/init.power.sh
 
