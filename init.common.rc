@@ -43,6 +43,12 @@ on fs
     wait /dev/block/bootdevice/by-name/modem_a
     mount vfat /dev/block/bootdevice/by-name/modem_a /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
 
+on post-fs
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+
+    start qseecomd
+    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
