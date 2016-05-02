@@ -485,6 +485,12 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
    start ims_rtp_daemon
    start imscmservice
 
+service energy-awareness /system/bin/energy-awareness
+    class main
+    user root
+    group system
+    oneshot
+
 service ssr_setup /system/bin/ssr_setup
     oneshot
     disabled
