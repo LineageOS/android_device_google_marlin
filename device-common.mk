@@ -299,3 +299,7 @@ PRODUCT_PACKAGES += \
     bootctrl.msm8996
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
+
+# Storage: for factory reset protection feature
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.frp.pst=/dev/block/bootdevice/by-name/frp
