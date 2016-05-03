@@ -8,7 +8,7 @@ service flash-nanohub-fw /system/bin/nanoapp_cmd download
     oneshot
     disabled
 
-service chred /system/vendor/bin/chred
+service nanohub_slpi /system/vendor/bin/nanohub_slpi
     class late_start
     user root
     group system
