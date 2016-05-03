@@ -599,8 +599,8 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service cnss_diag /system/bin/cnss_diag -q -f
-    class main
+service cnss_diag /system/bin/cnss_diag -q
+    class late_start
     user root
     group root
     oneshot
