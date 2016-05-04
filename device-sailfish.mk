@@ -60,3 +60,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nxp.sailfish.conf:system/etc/libnfc-nxp.conf
 
+# display
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=480
+
