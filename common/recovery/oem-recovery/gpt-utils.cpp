@@ -1491,21 +1491,21 @@ int gpt_disk_commit(struct gpt_disk *disk)
                                 __func__);
                 goto error;
         }
-        //Write back the secondary header
-        if(gpt_set_header(disk->hdr_bak, fd, SECONDARY_GPT) != 0) {
-                ALOGE("%s: Failed to update primary GPT header",
-                                __func__);
-                goto error;
-        }
         //Write back the primary partition array
         if (gpt_set_pentry_arr(disk->hdr, fd, disk->pentry_arr)) {
-                ALOGE("%s: Failed to write GPT partition arr to storage",
+                ALOGE("%s: Failed to write primary GPT partition arr",
                                 __func__);
                 goto error;
         }
-        //Write back the secondary partition array
+        //Write back the secondary header
+        if(gpt_set_header(disk->hdr_bak, fd, SECONDARY_GPT) != 0) {
+                ALOGE("%s: Failed to update secondary GPT header",
+                                __func__);
+                goto error;
+        }
+	//Write back the secondary partition array
         if (gpt_set_pentry_arr(disk->hdr_bak, fd, disk->pentry_arr_bak)) {
-                ALOGE("%s: Failed to write GPT partition arr to storage",
+                ALOGE("%s: Failed to write secondary GPT partition arr",
                                 __func__);
                 goto error;
         }
