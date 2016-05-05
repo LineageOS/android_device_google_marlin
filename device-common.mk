@@ -77,11 +77,18 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/sound_trigger_mixer_paths_tasha_t50.xml:system/etc/sound_trigger_mixer_paths_tasha_t50.xml \
     device/google/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/google/marlin/audio_platform_info_tasha_t50.xml:system/etc/audio_platform_info_tasha_t50.xml \
-    device/google/marlin/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt
+    device/google/marlin/audio_platform_info_tasha_t50.xml:system/etc/audio_platform_info_tasha_t50.xml
 
 PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
+
+# set audio fluence, ns, aec property
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.fluencetype=fluencepro \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.voicecomm=true \
+    persist.audio.fluence.voicerec=false
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
