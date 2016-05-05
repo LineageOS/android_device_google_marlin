@@ -299,3 +299,7 @@ PRODUCT_PACKAGES += \
     bootctrl.msm8996
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
+
+# Simlock package and ZeroTouch package
+PRODUCT_PACKAGES += \
+    OobConfig
