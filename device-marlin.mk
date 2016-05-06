@@ -24,6 +24,10 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 -include device/google/marlin/device-common.mk
 
+# display
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=560
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.marlin.rc \
     device/google/marlin/init.common.usb.rc:root/init.marlin.usb.rc \
@@ -59,8 +63,4 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nxp.marlin.conf:system/etc/libnfc-nxp.conf
-
-# display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=640
 
