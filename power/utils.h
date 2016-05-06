@@ -51,3 +51,4 @@ void release_request(int lock_handle);
 int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 
 long long calc_timespan_us(struct timespec start, struct timespec end);
+void start_prefetch(int pid, const char *packageName);
