@@ -24,6 +24,10 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 -include device/google/marlin/device-common.mk
 
+# display
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=420
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.sailfish.rc \
     device/google/marlin/init.common.usb.rc:root/init.sailfish.usb.rc \
@@ -59,8 +63,4 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nxp.sailfish.conf:system/etc/libnfc-nxp.conf
-
-# display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
 
