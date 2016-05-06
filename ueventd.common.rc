@@ -244,3 +244,6 @@
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
 /dev/hbtp_vm              0660   system     system
+
+# Storage: for factory reset protection feature
+/dev/block/bootdevice/by-name/frp       0660   system     system
