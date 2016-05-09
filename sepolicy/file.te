@@ -11,12 +11,17 @@ type time_data_file, file_type, data_file_type;
 # /sys
 type sysfs_camera, sysfs_type, fs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
-type sysfs_net, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
+type sysfs_msm_core, sysfs_type, fs_type;
+type sysfs_net, sysfs_type, fs_type;
 type sysfs_perf, sysfs_type, fs_type;
+type sysfs_pcie, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type;
 type sysfs_video, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type;
+
+# debugfs
+type debugfs_msm_core, debugfs_type, fs_type;
 
 # /proc
 type proc_kernel_sched, fs_type;
@@ -26,6 +31,7 @@ type cnd_socket, file_type;
 type ims_socket, file_type;
 type netmgrd_socket, file_type;
 type qmuxd_socket, file_type;
+type thermal_socket, file_type;
 
 type bt_firmware_file, file_type;
 type persist_file, file_type;
