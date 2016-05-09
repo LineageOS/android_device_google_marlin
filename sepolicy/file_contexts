@@ -10,7 +10,6 @@
 /dev/qseecom                   u:object_r:tee_device:s0
 /dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
-/dev/stune(/.*)?               u:object_r:stune_device:s0
 /dev/subsys_.*                 u:object_r:ssr_device:s0
 /dev/msm_thermal_query         u:object_r:thermal_device:s0
 /dev/ttyHS0                    u:object_r:console_device:s0
@@ -25,6 +24,9 @@
 /dev/socket/qmux_gps(/.*)?                      u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?                    u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_nfc(/.*)?                      u:object_r:qmuxd_socket:s0
+/dev/socket/thermal-send-client                 u:object_r:thermal_socket:s0
+/dev/socket/thermal-recv-client                 u:object_r:thermal_socket:s0
+/dev/socket/thermal-recv-passive-client         u:object_r:thermal_socket:s0
 /dev/msm_audio_cal             u:object_r:audio_cal_device:s0
 /dev/msm_rtac                  u:object_r:audio_cal_device:s0
 /dev/pn551                     u:object_r:nfc_device:s0
@@ -104,6 +106,7 @@
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
+/sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
@@ -117,12 +120,16 @@
 /sys/devices/soc/9300000\.qcom,lpass(/.*)?       u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/1c00000\.qcom,ssc(/.*)?         u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/2080000\.qcom,mss(/.*)?         u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc/600000\.qcom,pcie(/.*)?         u:object_r:sysfs_pcie:s0
 /sys/devices/soc/8c0000\.qcom,msm-cam(/.*)?      u:object_r:sysfs_camera:s0
 /sys/devices/soc/aa4000\.qcom,fd(/.*)?           u:object_r:sysfs_video:s0
 /sys/devices/soc/soc:fp_fpc1020(/.*)?            u:object_r:sysfs_fingerprint:s0
 /sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
 /sys/devices/virtual/htc_laser(/.*)?             u:object_r:sysfs_camera:s0
 /sys/devices/soc/600000\.qcom,pcie/pci0000:00/0000:00:00\.0/0000:01:00\.0/net/wlan0(/.*)? u:object_r:sysfs_wifi:s0
+
+# debugfs
+/sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
