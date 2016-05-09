@@ -5,4 +5,4 @@ LOCAL_SRC_FILES := healthd_board_msm.cpp
 LOCAL_MODULE := libhealthd.msm
 LOCAL_CFLAGS := -Werror
 LOCAL_C_INCLUDES := system/core/healthd bootable/recovery
-include $(BUILD_STATIC_LIBRARY)
+#include $(BUILD_STATIC_LIBRARY)
