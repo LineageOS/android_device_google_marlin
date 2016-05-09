@@ -530,6 +530,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group root wakelock
 
 on property:wc_transport.start_root=true
     start hci_filter_root
