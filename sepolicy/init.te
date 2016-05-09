@@ -3,3 +3,5 @@ allow init tmpfs:lnk_file create;
 
 # Run "ifup lo" to bring up the localhost interface
 allowxperm init self:udp_socket ioctl { SIOCSIFFLAGS };
+
+allow init proc_kernel_sched:file w_file_perms;
