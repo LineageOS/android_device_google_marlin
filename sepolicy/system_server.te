@@ -13,7 +13,9 @@ allow system_server perfd_data_file:dir search;
 allow system_server perfd_data_file:sock_file write;
 allow system_server perfd:unix_stream_socket connectto;
 
-#allow system_server location:unix_stream_socket connectto;
+allow system_server location:unix_stream_socket connectto;
+allow system_server location_data_file:sock_file write;
+
 unix_socket_connect(system_server, netmgrd, netmgrd)
 
 # talk to peripheral manager

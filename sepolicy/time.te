@@ -10,6 +10,7 @@ allow time self:socket create_socket_perms;
 allowxperm time self:socket ioctl msm_sock_ipc_ioctls;
 
 # /sys/bus/msm_subsys
+allow time sysfs:dir r_dir_perms;
 r_dir_file(time, sysfs_msm_subsys)
 
 # files in /data/time
