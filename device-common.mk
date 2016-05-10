@@ -302,4 +302,4 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/bootdevice/by-name/frp
+    ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
