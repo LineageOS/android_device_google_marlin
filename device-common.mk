@@ -279,11 +279,12 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device.
-AB_OTA_PARTITIONS := \
-  boot \
-  system
-#TODO(deymo): Add modem and vendor to the previous list.
+# with "_a" and "_b" variants in the device. Note that the vendor can add more
+# more partitions to this list for the bootloader and radio.
+AB_OTA_PARTITIONS += \
+    boot \
+    system
+#TODO(deymo): Add vendor to the previous list.
 
 # NFC packages
 PRODUCT_PACKAGES += \
