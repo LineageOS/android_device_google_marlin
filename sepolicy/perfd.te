@@ -18,7 +18,7 @@ allow perfd sysfs_perf:file rw_file_perms;
 allow perfd sysfs_soc:dir search;
 allow perfd sysfs_soc:file r_file_perms;
 allow perfd sysfs_msm_subsys:dir search;
-allow perfd sysfs_msm_subsys:file r_file_perms;
+allow perfd sysfs_msm_subsys:file rw_file_perms;
 allow perfd sysfs_devices_system_cpu:file w_file_perms;
 
 allow perfd proc_kernel_sched:file w_file_perms;
