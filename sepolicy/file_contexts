@@ -13,7 +13,7 @@
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
 /dev/subsys_.*                 u:object_r:ssr_device:s0
 /dev/msm_thermal_query         u:object_r:thermal_device:s0
-/dev/ttyHS0                    u:object_r:console_device:s0
+/dev/ttyHS0                    u:object_r:hci_attach_dev:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/v4l-subdev.*              u:object_r:video_device:s0
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
@@ -108,6 +108,7 @@
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
+/sys/devices/bt_qca[0-9]+/rfkill/rfkill0/state   u:object_r:sysfs_bluetooth_writable:s0
 /sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
@@ -137,6 +138,7 @@
 /sys/kernel/debug/rmt_storage(/.*)?              u:object_r:debugfs_rmt_storage:s0
 
 # /data
+/data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ramdump_data_file:s0
 /data/misc/location(/.*)?        u:object_r:location_data_file:s0
