@@ -108,10 +108,11 @@
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
 /sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
+/sys/devices/soc/70000\.qcom,msm-core(/.*)?      u:object_r:sysfs_msm_core:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
-/sys/module/subsystem_restart                    u:object_r:sysfs_msm_subsys_restart:s0
+/sys/module/subsystem_restart(/.*)?              u:object_r:sysfs_msm_subsys_restart:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/ce0000\.qcom,venus(/.*)?        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/b00000\.qcom,kgsl-3d0(/.*)?     u:object_r:sysfs_msm_subsys:s0
