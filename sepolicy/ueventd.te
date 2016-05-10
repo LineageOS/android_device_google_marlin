@@ -1,0 +1,4 @@
+allow ueventd sysfs_camera:file w_file_perms;
+allow ueventd sysfs_fingerprint:file w_file_perms;
+allow ueventd sysfs_msm_subsys:file w_file_perms;
+allow ueventd sysfs_video:file w_file_perms;
