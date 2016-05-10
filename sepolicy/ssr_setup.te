@@ -3,4 +3,7 @@ type ssr_setup_exec, exec_type, file_type;
 userdebug_or_eng(`
   type ssr_setup, domain;
   init_daemon_domain(ssr_setup)
+  allow ssr_setup sysfs_msm_subsys:dir r_dir_perms;
+  allow ssr_setup sysfs_msm_subsys:file rw_file_perms;
+  allow ssr_setup sysfs_msm_subsys:lnk_file read;
 ')
