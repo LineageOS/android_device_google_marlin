@@ -8,6 +8,7 @@
 /dev/nanohub                   u:object_r:sensors_device:s0
 /dev/nanohub_comms             u:object_r:sensors_device:s0
 /dev/qseecom                   u:object_r:tee_device:s0
+/dev/ramdump_.*                u:object_r:ramdump_device:s0
 /dev/sdsprpc-smd               u:object_r:sdsprpc_device:s0
 /dev/sg[0-9]+                  u:object_r:sg_device:s0
 /dev/subsys_.*                 u:object_r:ssr_device:s0
@@ -110,7 +111,7 @@
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
 /sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
-/sys/devices/soc/0\.qcom,rmtfs_sharedmem/uio(/.*)? u:object_r:sysfs_uio:s0
+/sys/module/subsystem_restart                    u:object_r:sysfs_msm_subsys_restart:s0
 /sys/bus/msm_subsys(/.*)?                        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/ce0000\.qcom,venus(/.*)?        u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc/b00000\.qcom,kgsl-3d0(/.*)?     u:object_r:sysfs_msm_subsys:s0
@@ -127,12 +128,16 @@
 /sys/devices/soc0(/.*)?                          u:object_r:sysfs_soc:s0
 /sys/devices/virtual/htc_laser(/.*)?             u:object_r:sysfs_camera:s0
 /sys/devices/soc/600000\.qcom,pcie/pci0000:00/0000:00:00\.0/0000:01:00\.0/net/wlan0(/.*)? u:object_r:sysfs_wifi:s0
+/sys/devices/soc/0\.qcom,rmtfs_sharedmem(/.*)?             u:object_r:sysfs_rmtfs:s0
+/sys/devices/soc/84000000\.qcom,rmtfs_rtel_sharedmem(/.*)? u:object_r:sysfs_rmtfs:s0
 
 # debugfs
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
+/sys/kernel/debug/rmt_storage(/.*)?              u:object_r:debugfs_rmt_storage:s0
 
 # /data
 /data/time(/.*)?                 u:object_r:time_data_file:s0
+/data/ramdump(/.*)?              u:object_r:ramdump_data_file:s0
 /data/misc/location(/.*)?        u:object_r:location_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
