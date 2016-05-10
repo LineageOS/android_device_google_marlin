@@ -27,7 +27,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-DEVICE_PACKAGE_OVERLAYS := device/google/marlin/overlay
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
 # Input device files
 PRODUCT_COPY_FILES += \
