@@ -1467,6 +1467,18 @@
         <ctl name="MAD Input" value="ADC1" />
     </path>
 
+    <path name="set-capture-format-24le">
+        <ctl name="SLIM_0_TX Format" value="S24_LE" />
+    </path>
+
+    <path name="set-capture-format-16le">
+        <ctl name="SLIM_0_TX Format" value="S16_LE" />
+    </path>
+
+    <path name="set-capture-format-default">
+        <path name="set-capture-format-16le" />
+    </path>
+
     <!-- Added for ADSP testfwk -->
     <path name="ADSP testfwk">
         <ctl name="SLIMBUS_DL_HL Switch" value="1" />
