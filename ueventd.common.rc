@@ -51,8 +51,8 @@
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
 
-/dev/nanohub              0640   system     system
-/dev/nanohub_comms        0640   system     system
+/dev/nanohub              0660   system     system
+/dev/nanohub_comms        0660   system     system
 /dev/radio0               0640   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/ttyUSB0              0660   bluetooth  bluetooth
