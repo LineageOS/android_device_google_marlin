@@ -1,4 +1,4 @@
-allow tee self:capability { chown setgid setuid sys_rawio };
+allow tee self:capability { chown setgid setuid sys_rawio sys_admin };
 
 # scan SCSI devices
 allow tee device:dir r_dir_perms;
