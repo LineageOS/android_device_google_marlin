@@ -7,6 +7,8 @@ on post-fs
 service flash-nanohub-fw /system/bin/nanoapp_cmd download
     oneshot
     disabled
+    user root
+    group system
 
 service nanohub_slpi /system/vendor/bin/nanohub_slpi
     class late_start
