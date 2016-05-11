@@ -29,7 +29,6 @@
 package org.codeaurora.ims;
 
 import org.codeaurora.ims.internal.IQtiImsExtListener;
-import org.codeaurora.ims.QtiViceInfo;
 import android.telephony.Rlog;
 
 /**
@@ -60,10 +59,6 @@ public class QtiImsExtListenerBaseImpl extends IQtiImsExtListener.Stub {
 
     @Override
     public void receiveCallDeflectResponse(int result) {
-    }
-
-    @Override
-    public void notifyRefreshViceInfo(QtiViceInfo viceInfo) {
     }
 
     @Override
