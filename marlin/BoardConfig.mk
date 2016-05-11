@@ -81,7 +81,7 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2457600000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 #BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
 #BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 #BOARD_SYSTEMIMAGE_SQUASHFS_COMPRESSOR := lz4
@@ -139,19 +139,16 @@ TARGET_PD_SERVICE_ENABLED := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
 
-WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-WITH_DEXPREOPT := false
-WITH_DEXPREOPT_PIC := false
-## Enable dex pre-opt to speed up initial boot
+# Enable dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
-   ifeq ($(WITH_DEXPREOPT),)
-     WITH_DEXPREOPT := true
-     WITH_DEXPREOPT_PIC := true
-     ifneq ($(TARGET_BUILD_VARIANT),user)
-       # Retain classes.dex in APK's for non-user builds
-       DEX_PREOPT_DEFAULT := nostripping
-     endif
-   endif
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+    WITH_DEXPREOPT_PIC := true
+    ifneq ($(TARGET_BUILD_VARIANT),user)
+      # Retain classes.dex in APK's for non-user builds
+      DEX_PREOPT_DEFAULT := nostripping
+    endif
+  endif
 endif
 
 # HTC_SENSOR_HUB
