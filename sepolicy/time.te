@@ -13,6 +13,9 @@ allowxperm time self:socket ioctl msm_sock_ipc_ioctls;
 allow time sysfs:dir r_dir_perms;
 r_dir_file(time, sysfs_msm_subsys)
 
+allow time sysfs_soc:dir search;
+allow time sysfs_soc:file r_file_perms;
+
 # files in /data/time
 allow time time_data_file:file create_file_perms;
 allow time time_data_file:dir rw_dir_perms;
