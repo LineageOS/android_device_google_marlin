@@ -23,9 +23,11 @@ allow system_server per_mgr_service:service_manager find;
 binder_call(system_server, per_mgr)
 
 # files in /sys
-allow system_server sysfs_soc:file r_file_perms;
-allow system_server sysfs_msm_subsys:dir r_dir_perms;
-allow system_server sysfs_msm_subsys:lnk_file read;
+r_dir_file(system_server, sysfs_type)
+
+# write to files owned by location daemon
+allow system_server location_data_file:dir create_dir_perms;
+allow system_server location_data_file:{ file fifo_file } create_file_perms;
 
 userdebug_or_eng(`
   allow system_server diag_device:chr_file rw_file_perms;

@@ -6,3 +6,6 @@ allowxperm init self:udp_socket ioctl { SIOCSIFFLAGS };
 
 allow init proc_kernel_sched:file w_file_perms;
 allow init sysfs_type:lnk_file read;
+
+allow init firmware_file:dir mounton;
+allow init persist_file:dir mounton;
