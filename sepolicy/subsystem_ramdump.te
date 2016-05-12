@@ -7,6 +7,5 @@ userdebug_or_eng(`
   allow subsystem_ramdump device:dir r_dir_perms;
   allow subsystem_ramdump ramdump_device:chr_file r_file_perms;
 
-  r_dir_file(subsystem_ramdump, sysfs_msm_subsys)
-  r_dir_file(subsystem_ramdump, sysfs_msm_subsys_restart)
+  r_dir_file(subsystem_ramdump, sysfs_type)
 ')

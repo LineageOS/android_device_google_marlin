@@ -1,0 +1,3 @@
+allowxperm priv_app self:udp_socket ioctl { SIOCGIWESSID };
+
+r_dir_file(priv_app, sysfs_type)

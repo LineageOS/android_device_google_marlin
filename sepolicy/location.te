@@ -21,9 +21,7 @@ allow location self:socket create_socket_perms;
 allowxperm location self:socket ioctl msm_sock_ipc_ioctls;
 
 # files in /sys
-allow location sysfs:dir r_dir_perms;
-r_dir_file(location, sysfs_msm_subsys);
-r_dir_file(location, sysfs_soc)
+r_dir_file(location, sysfs_type)
 
 allow location proc_net:file r_file_perms;
 

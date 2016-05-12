@@ -2,7 +2,5 @@
 allowxperm wpa self:udp_socket ioctl priv_sock_ioctls;
 allowxperm wpa self:packet_socket ioctl { SIOCGIFINDEX SIOCGIFHWADDR };
 
-# path to: /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/p2p0/phy80211
-allow wpa sysfs_pcie:dir search;
-allow wpa sysfs_pcie:lnk_file { getattr read };
-allow wpa sysfs_wifi:dir search;
+# read files in /sys
+r_dir_file(wpa, sysfs_type)

@@ -1,7 +1,0 @@
-allowxperm priv_app self:udp_socket ioctl { SIOCGIWESSID };
-allow priv_app sysfs_net:dir search;
-allow priv_app sysfs_net:file r_file_perms;
-allow priv_app sysfs_pcie:dir search;
-allow priv_app sysfs_pcie:file r_file_perms;
-allow priv_app sysfs_wifi:dir search;
-allow priv_app sysfs_wifi:file r_file_perms;
