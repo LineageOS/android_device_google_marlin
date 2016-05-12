@@ -12,14 +12,13 @@ allow perfd perfd_data_file:dir create_dir_perms;
 allow perfd perfd_data_file:{ file sock_file } create_file_perms;
 
 allow perfd proc_kernel_sched:file r_file_perms;
-allow perfd sysfs:dir r_dir_perms;
-allow perfd sysfs_perf:dir search;
-allow perfd sysfs_perf:file rw_file_perms;
-allow perfd sysfs_soc:dir search;
-allow perfd sysfs_soc:file r_file_perms;
-allow perfd sysfs_msm_subsys:dir search;
-allow perfd sysfs_msm_subsys:file rw_file_perms;
-allow perfd sysfs_devices_system_cpu:file w_file_perms;
+
+# read access /sys
+r_dir_file(perfd, sysfs_type)
+# write to select files in /sys
+allow perfd sysfs_perf:file write;
+allow perfd sysfs_msm_subsys:file write;
+allow perfd sysfs_devices_system_cpu:file write;
 
 allow perfd proc_kernel_sched:file w_file_perms;
 
