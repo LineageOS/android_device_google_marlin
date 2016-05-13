@@ -100,10 +100,20 @@ static int process_cam_preview_hint(void *metadata)
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
             ALOGI("Cam Preview hint start");
             return HINT_HANDLED;
+        } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(SCHED_GOVERNOR))) {
+            int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32};
+
+            perform_hint_action(cam_preview_metadata.hint_id,
+                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
+            ALOGI("Cam Preview hint start");
+            return HINT_HANDLED;
         }
     } else if (cam_preview_metadata.state == 0) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) ||
+            ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(SCHED_GOVERNOR)))) {
             undo_hint_action(cam_preview_metadata.hint_id);
             ALOGI("Cam Preview hint stop");
             return HINT_HANDLED;
@@ -169,10 +179,29 @@ static int process_video_encode_hint(void *metadata)
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
             ALOGI("Video Encode hint start");
             return HINT_HANDLED;
+        } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(SCHED_GOVERNOR))) {
+
+            /* 1. bus DCVS set to V2 config:
+             *    -low power ceil mpbs - 2500
+             *    -low power io percent - 50
+             * 2. hysteresis optimization
+             *    -bus dcvs hysteresis tuning
+             *    -sample_ms of 10 ms
+             */
+            int resource_values[] = {
+                0x41810000, 0x9C4, 0x41814000, 0x32, 0x4180C000, 0x0, 0x41820000, 0xA };
+
+            perform_hint_action(video_encode_metadata.hint_id,
+                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
+            ALOGI("Video Encode hint start");
+            return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) ||
+            ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(SCHED_GOVERNOR)))) {
             undo_hint_action(video_encode_metadata.hint_id);
             ALOGI("Video Encode hint stop");
             return HINT_HANDLED;
