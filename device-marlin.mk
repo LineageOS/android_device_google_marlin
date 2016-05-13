@@ -38,20 +38,6 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/ueventd.common.rc:root/ueventd.marlin.rc \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.marlin.rc
 
-# Audio tfa9891 firmware and config
-PRODUCT_COPY_FILES += \
-    device/google/marlin/marlin/audio/TFA9891_M1.cnt:system/etc/firmware/tfa98xx.cnt
-
-# Audio ACDB
-PRODUCT_COPY_FILES += \
-    device/google/marlin/marlin/audio/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb \
-    device/google/marlin/marlin/audio/General_cal.acdb:system/etc/acdbdata/General_cal.acdb \
-    device/google/marlin/marlin/audio/Global_cal.acdb:system/etc/acdbdata/Global_cal.acdb \
-    device/google/marlin/marlin/audio/Handset_cal.acdb:system/etc/acdbdata/Handset_cal.acdb \
-    device/google/marlin/marlin/audio/Hdmi_cal.acdb:system/etc/acdbdata/Hdmi_cal.acdb \
-    device/google/marlin/marlin/audio/Headset_cal.acdb:system/etc/acdbdata/Headset_cal.acdb \
-    device/google/marlin/marlin/audio/Speaker_cal.acdb:system/etc/acdbdata/Speaker_cal.acdb
-
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.nanohub.rc:root/init.marlin.nanohub.rc
