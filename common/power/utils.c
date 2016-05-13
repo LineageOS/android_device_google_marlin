@@ -256,6 +256,15 @@ int interaction_with_handle(int lock_handle, int duration, int num_args, int opt
 void perform_hint_action(int hint_id, int resource_values[], int num_resources)
 {
     if (qcopt_handle) {
+        struct hint_data temp_hint_data = {
+            .hint_id = hint_id
+        };
+        struct list_node *found_node = find_node(&active_hint_list_head,
+                                                 &temp_hint_data);
+        if (found_node) {
+            ALOGE("hint ID %d already active", hint_id);
+            return;
+        }
         if (perf_lock_acq) {
             /* Acquire an indefinite lock for the requested resources. */
             int lock_handle = perf_lock_acq(0, 0, resource_values,
@@ -318,7 +327,7 @@ void undo_hint_action(int hint_id)
 
                 if (found_hint_data) {
                     if (perf_lock_rel(found_hint_data->perflock_handle) == -1)
-                        ALOGE("Perflock release failed.");
+                        ALOGE("Perflock release failed: %d", hint_id);
                 }
 
                 if (found_node->data) {
@@ -327,8 +336,9 @@ void undo_hint_action(int hint_id)
                 }
 
                 remove_list_node(&active_hint_list_head, found_node);
+                ALOGV("Undo of hint ID %d succeeded", hint_id);
             } else {
-                ALOGE("Invalid hint ID.");
+                ALOGE("Invalid hint ID: %d", hint_id);
             }
         }
     }
