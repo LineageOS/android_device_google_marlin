@@ -99,6 +99,7 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /system/vendor/lib/dsp:/dsp
 
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
+BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 BOARD_SECCOMP_POLICY += device/google/marlin/seccomp
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
