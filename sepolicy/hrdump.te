@@ -6,7 +6,7 @@ init_daemon_domain(htc_ramdump)
 
 allow htc_ramdump kmsg_device:chr_file { append open };
 allow htc_ramdump userdata_block_device:blk_file { read write open };
-allow htc_ramdump self:capability { fowner fsetid };
+allow htc_ramdump self:capability { fowner fsetid sys_rawio };
 
 set_prop(htc_ramdump, debug_prop)
 

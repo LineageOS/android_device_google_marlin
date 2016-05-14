@@ -102,7 +102,7 @@
 /system/vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
 /system/bin/subsystem_ramdump      u:object_r:subsystem_ramdump_exec:s0
 /system/bin/ssr_setup              u:object_r:ssr_setup_exec:s0
-/system/bin/rdump2storage          u:object_r:htc_ramdump_exec:s0
+/system/bin/ramdump                u:object_r:htc_ramdump_exec:s0
 
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
