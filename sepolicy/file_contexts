@@ -65,6 +65,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/modemst1      u:object_r:modem_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/modemst2      u:object_r:modem_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/ssd           u:object_r:ssd_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/ramdump       u:object_r:ramdump_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
 # files in firmware
@@ -101,6 +102,7 @@
 /system/vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
 /system/bin/subsystem_ramdump      u:object_r:subsystem_ramdump_exec:s0
 /system/bin/ssr_setup              u:object_r:ssr_setup_exec:s0
+/system/bin/rdump2storage          u:object_r:htc_ramdump_exec:s0
 
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
