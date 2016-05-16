@@ -396,4 +396,8 @@
     <!-- <string name="config_mms_user_agent" translatable="false"></string> -->
     <!-- MMS user agent prolfile url -->
     <!-- <string name="config_mms_user_agent_profile_url" translatable="false"></string> -->
+
+    <!-- Use the Google-branded Wallpaper picker as the default wallpaper cropper. -->
+    <string name="config_wallpaperCropperPackage" translatable="false">com.google.android.apps.wallpaper</string>
+
 </resources>
