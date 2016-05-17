@@ -284,9 +284,9 @@
         <EncoderProfile quality="highspeedhigh" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="42000000"
-                   width="1280"
-                   height="720"
-                   frameRate="240" />
+                   width="1920"
+                   height="1080"
+                   frameRate="120" />
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
