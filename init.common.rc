@@ -518,6 +518,7 @@ service ss_ramdump /system/bin/subsystem_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
+    mkdir /data/ramdump 660 system system
     start ssr_setup
     start ss_ramdump
 
