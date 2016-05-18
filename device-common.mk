@@ -32,7 +32,8 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 # Input device files
 PRODUCT_COPY_FILES += \
     device/google/marlin/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/google/marlin/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
+    device/google/marlin/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
+    device/google/marlin/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
