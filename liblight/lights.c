@@ -35,6 +35,11 @@
 
 /******************************************************************************/
 
+/*
+ * Change this to 1 to support battery notifications via BatteryService
+ */
+#define LIGHTS_SUPPORT_BATTERY 0
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
@@ -229,6 +234,7 @@ handle_speaker_battery_locked(struct light_device_t* dev)
     }
 }
 
+#if LIGHTS_SUPPORT_BATTERY
 static int
 set_light_battery(struct light_device_t* dev,
         struct light_state_t const* state)
@@ -239,6 +245,7 @@ set_light_battery(struct light_device_t* dev,
     pthread_mutex_unlock(&g_lock);
     return 0;
 }
+#endif
 
 static int
 set_light_notifications(struct light_device_t* dev,
@@ -306,8 +313,10 @@ static int open_lights(const struct hw_module_t* module, char const* name,
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name))
         set_light = set_light_backlight;
+#if LIGHTS_SUPPORT_BATTERY
     else if (0 == strcmp(LIGHT_ID_BATTERY, name))
         set_light = set_light_battery;
+#endif
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
     else if (0 == strcmp(LIGHT_ID_BUTTONS, name))
