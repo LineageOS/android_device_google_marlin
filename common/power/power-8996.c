@@ -102,10 +102,12 @@ static int process_cam_preview_hint(void *metadata)
             return HINT_HANDLED;
         } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(SCHED_GOVERNOR))) {
-            int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32};
+            int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32,
+                                     0x42C10000, 0x64,  0x42C14000, 0x64};
 
-            perform_hint_action(cam_preview_metadata.hint_id,
-                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
+            perform_hint_action(
+                cam_preview_metadata.hint_id, resource_values,
+                sizeof(resource_values) / sizeof(resource_values[0]));
             ALOGI("Cam Preview hint start");
             return HINT_HANDLED;
         }
@@ -189,8 +191,9 @@ static int process_video_encode_hint(void *metadata)
              *    -bus dcvs hysteresis tuning
              *    -sample_ms of 10 ms
              */
-            int resource_values[] = {
-                0x41810000, 0x9C4, 0x41814000, 0x32, 0x4180C000, 0x0, 0x41820000, 0xA };
+            int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32,
+                                     0x4180C000, 0x0,   0x41820000, 0xA,
+                                     0x42C10000, 0x64,  0x42C14000, 0x64};
 
             perform_hint_action(video_encode_metadata.hint_id,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
