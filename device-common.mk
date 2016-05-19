@@ -191,7 +191,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     persist.camera.gyro.android=4 \
-    persist.camera.tof.direct=1
+    persist.camera.tof.direct=1 \
+    persist.camera.tnr.preview=1 \
+    persist.camera.tnr.video=1
 
 # Set bluetooth soc to rome
 PRODUCT_PROPERTY_OVERRIDES += \
