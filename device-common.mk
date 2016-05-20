@@ -220,8 +220,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
-    telephony.lteOnCdmaDevice=1 \
-    persist.radio.mode_pref_nv10=1
+    telephony.lteOnCdmaDevice=1
 
 PRODUCT_AAPT_CONFIG += xlarge large
 
