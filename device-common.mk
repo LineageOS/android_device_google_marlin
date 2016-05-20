@@ -211,6 +211,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent
 
+# Enable SM log mechanism by default
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.smlog_switch=1
+endif
+
 # IMS over WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true
