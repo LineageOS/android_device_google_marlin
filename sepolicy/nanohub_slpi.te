@@ -1,4 +1,4 @@
-# Policy for /system/vendor/bin/nanohub_slpi
+# Policy for /vendor/bin/nanohub_slpi
 type nanohub_slpi, domain;
 type nanohub_slpi_exec, exec_type, file_type;
 
