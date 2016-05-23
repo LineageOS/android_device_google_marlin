@@ -6031,6 +6031,15 @@
       mvno_type="imsi"
   />
 
+  <apn carrier="O2 DE IMS"
+      mcc="262"
+      mnc="07"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="o2 Internet Prepaid"
       mcc="262"
       mnc="07"
@@ -6089,6 +6098,15 @@
       type="default,supl,mms"
       mvno_match_data="26207500"
       mvno_type="imsi"
+  />
+
+  <apn carrier="O2 DE IMS"
+      mcc="262"
+      mnc="08"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Truphone"
@@ -6782,6 +6800,15 @@
       mvno_type="gid"
   />
 
+  <apn carrier="TELUS IMS"
+      mcc="302"
+      mnc="220"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="Koodo"
       mcc="302"
       mnc="220"
@@ -6828,6 +6855,15 @@
       mmsport="80"
       mvno_match_data="54"
       mvno_type="gid"
+  />
+
+  <apn carrier="TELUS IMS"
+      mcc="302"
+      mnc="221"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Koodo"
@@ -6989,6 +7025,15 @@
       mmsc="http://mms.bell.ca/mms/wapenc"
   />
 
+  <apn carrier="Bell Mobility IMS"
+      mcc="302"
+      mnc="610"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="MTS"
       mcc="302"
       mnc="660"
@@ -7045,6 +7090,15 @@
       mvno_match_data="CITYFONE"
   />
 
+  <apn carrier="Rogers IMS"
+      mcc="302"
+      mnc="370"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="Rogers LTE"
       mcc="302"
       mnc="720"
@@ -7053,6 +7107,15 @@
       mmsproxy="mmsproxy.rogers.com"
       mmsc="http://mms.gprs.rogers.com"
       mmsport="80"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="Rogers IMS"
+      mcc="302"
+      mnc="720"
+      apn="ims"
+      type="ims"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
   />
