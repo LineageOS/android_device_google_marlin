@@ -127,6 +127,7 @@ int extract_images (char *file_path)
             buffer = malloc(img_header[i].size);
             fread(buffer, img_header[i].size, 1, fp);
             fwrite(buffer, img_header[i].size, 1, fout);
+            free(buffer);
             fclose(fout);
         }
         fclose(fp);
