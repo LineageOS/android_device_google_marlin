@@ -26344,6 +26344,15 @@
       type="default,supl,mms"
   />
 
+  <apn carrier="Telstra IMS"
+      mcc="505"
+      mnc="01"
+      apn="telstra.ims"
+      type="ims"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="Telstra Internet"
       mcc="505"
       mnc="01"
