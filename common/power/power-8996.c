@@ -172,10 +172,9 @@ static int process_video_encode_hint(void *metadata)
              *    -disable ignore_hispeed_notif
              *    -sLVT hispeed freq to 806MHz
              */
-            int resource_values[] = {0x41400000, 0x4, 0x41410000, 0x5F, 0x41414000, 0x326,
-                0x41420000, 0x5A, 0x41400100, 0x4, 0x41410100, 0x5F, 0x41414100, 0x22C, 0x41420100, 0x5A,
+            int resource_values[] = {
                 0x41810000, 0x9C4, 0x41814000, 0x32, 0x4180C000, 0x0, 0x41820000, 0xA,
-                0x41438100, 0x0,  0x41438000, 0x0};
+                0x41438100, 0x1,  0x41438000, 0x1 };
 
             perform_hint_action(video_encode_metadata.hint_id,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
