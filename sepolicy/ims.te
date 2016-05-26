@@ -2,6 +2,11 @@
 type ims, domain;
 type ims_exec, exec_type, file_type;
 
+# b/28340421
+userdebug_or_eng(`
+  permissive ims;
+')
+
 # Started by init
 init_daemon_domain(ims)
 net_domain(ims)
