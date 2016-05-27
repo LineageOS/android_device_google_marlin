@@ -38,20 +38,6 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/ueventd.common.rc:root/ueventd.sailfish.rc \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.sailfish.rc
 
-# Audio tfa9891 firmware and config
-PRODUCT_COPY_FILES += \
-    device/google/marlin/sailfish/audio/TFA9891_S1.cnt:system/etc/firmware/tfa98xx.cnt
-
-# Audio ACDB
-PRODUCT_COPY_FILES += \
-    device/google/marlin/sailfish/audio/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb \
-    device/google/marlin/sailfish/audio/General_cal.acdb:system/etc/acdbdata/General_cal.acdb \
-    device/google/marlin/sailfish/audio/Global_cal.acdb:system/etc/acdbdata/Global_cal.acdb \
-    device/google/marlin/sailfish/audio/Handset_cal.acdb:system/etc/acdbdata/Handset_cal.acdb \
-    device/google/marlin/sailfish/audio/Hdmi_cal.acdb:system/etc/acdbdata/Hdmi_cal.acdb \
-    device/google/marlin/sailfish/audio/Headset_cal.acdb:system/etc/acdbdata/Headset_cal.acdb \
-    device/google/marlin/sailfish/audio/Speaker_cal.acdb:system/etc/acdbdata/Speaker_cal.acdb
-
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.nanohub.rc:root/init.sailfish.nanohub.rc
