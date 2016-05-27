@@ -59,15 +59,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
 
-# Audio configuration file
-ifeq ($(TARGET_USES_AOSP), true)
-PRODUCT_COPY_FILES += \
-    device/google/marlin/common/media/audio_policy.conf:system/etc/audio_policy.conf
-else
-PRODUCT_COPY_FILES += \
-    device/google/marlin/audio_policy.conf:system/etc/audio_policy.conf
-endif
-
+# Audio configuration
+USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_COPY_FILES += \
     device/google/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     device/google/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -78,7 +71,13 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/sound_trigger_mixer_paths_tasha_t50.xml:system/etc/sound_trigger_mixer_paths_tasha_t50.xml \
     device/google/marlin/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     device/google/marlin/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/google/marlin/audio_platform_info_tasha_t50.xml:system/etc/audio_platform_info_tasha_t50.xml
+    device/google/marlin/audio_platform_info_tasha_t50.xml:system/etc/audio_platform_info_tasha_t50.xml \
+    device/google/marlin/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
+    device/google/marlin/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml
 
 PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
@@ -163,7 +162,6 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/i2ctest:system/bin/i2ctest \
     device/google/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so
 
-PRODUCT_SUPPORTS_VERITY := true
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
