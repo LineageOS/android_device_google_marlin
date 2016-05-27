@@ -151,6 +151,9 @@ endif
 # HTC_SENSOR_HUB
 LIBHTC_SENSORHUB_PROJECT := g_project
 
+#Enable/Disable Camera daemon
+CAMERA_DAEMON_NOT_PRESENT := true
+
 #TARGET_LDPRELOAD := libNimsWrap.so
 
 # TARGET_COMPILE_WITH_MSM_KERNEL := true
