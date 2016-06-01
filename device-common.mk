@@ -158,10 +158,6 @@ endif
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:system/etc/sec_config
 
-PRODUCT_COPY_FILES += \
-    device/google/marlin/i2ctest:system/bin/i2ctest \
-    device/google/marlin/libftm_lib_i2c_utility.so:system/lib64/libftm_lib_i2c_utility.so
-
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
