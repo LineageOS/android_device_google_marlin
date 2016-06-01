@@ -211,6 +211,26 @@ static void power_hint(struct power_module *module, power_hint_t hint,
     switch(hint) {
         case POWER_HINT_VSYNC:
         break;
+        case POWER_HINT_LAUNCH:
+        {
+            char governor[80];
+
+            if (get_scaling_governor(governor, sizeof(governor)) == -1) {
+                ALOGE("Can't obtain scaling governor.");
+                return;
+            }
+            int duration = 5000;
+            if ((is_sched_energy_aware() != -1) &&
+                  (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) ==
+                   0)) {
+                // Setting schedtune boost to 80 and increasing DDR min_freq to
+                // 500MHz.
+                int resources[] = {0x42C0C000, 0x50, 0x41800000, 0x33};
+                interaction(duration, sizeof(resources) / sizeof(resources[0]),
+                            resources);
+              }
+        }
+        break;
         case POWER_HINT_INTERACTION:
         {
             char governor[80];
