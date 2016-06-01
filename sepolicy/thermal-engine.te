@@ -1,4 +1,4 @@
-# Policy for /system/vendorbin/thermal-engine
+# Policy for /vendor/bin/thermal-engine
 type thermal-engine, domain;
 type thermal-engine_exec, exec_type, file_type;
 
