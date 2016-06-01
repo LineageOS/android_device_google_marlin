@@ -94,7 +94,7 @@ endif
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=marlin user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff androidboot.selinux=permissive
 
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
-BOARD_ROOT_EXTRA_SYMLINKS := /system/vendor/lib/dsp:/dsp
+BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
@@ -180,6 +180,8 @@ TARGET_USE_VERIZON_APN_LIB_PREBUILT := true
 TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
 
 -include vendor/google_devices/marlin/BoardConfigVendor.mk
+# Build a separate vendor.img
+TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
 NXP_CHIP_TYPE := PN551

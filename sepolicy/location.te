@@ -25,7 +25,7 @@ r_dir_file(location, sysfs_type)
 
 allow location proc_net:file r_file_perms;
 
-# execute /system/vendor/bin/slim_daemon
+# execute /vendor/bin/slim_daemon
 allow location system_file:file rx_file_perms;
 
 # execute /system/bin/lowi-server

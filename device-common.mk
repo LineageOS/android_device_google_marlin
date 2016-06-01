@@ -62,8 +62,8 @@ PRODUCT_PACKAGES += fs_config_files \
 # Audio configuration
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_COPY_FILES += \
-    device/google/marlin/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    device/google/marlin/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    device/google/marlin/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    device/google/marlin/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     device/google/marlin/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/google/marlin/mixer_paths_tasha_t50.xml:system/etc/mixer_paths_tasha_t50.xml \
     device/google/marlin/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
@@ -170,7 +170,7 @@ PRODUCT_COPY_FILES += \
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/google/marlin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
+    device/google/marlin/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # init launched script
 PRODUCT_COPY_FILES += \
@@ -206,7 +206,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.VT_ENABLE=1 \
     persist.radio.VT_HYBRID_ENABLE=1 \
     persist.rcs.supported=1 \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent
@@ -285,8 +285,8 @@ PRODUCT_PACKAGES_DEBUG += \
 # more partitions to this list for the bootloader and radio.
 AB_OTA_PARTITIONS += \
     boot \
-    system
-#TODO(deymo): Add vendor to the previous list.
+    system \
+    vendor
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -299,7 +299,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/google/marlin/nfc/libpn551_fw.so:system/vendor/firmware/libpn551_fw.so
+    device/google/marlin/nfc/libpn551_fw.so:$(TARGET_COPY_OUT_VENDOR)/firmware/libpn551_fw.so
 
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
@@ -313,7 +313,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
-# TODO: enable once we have a separate vendor parition
-#PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/bootdevice/by-name/vendor
+PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/bootdevice/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
 

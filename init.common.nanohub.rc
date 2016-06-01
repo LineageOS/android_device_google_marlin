@@ -10,7 +10,7 @@ service flash-nanohub-fw /system/bin/nanoapp_cmd download
     user root
     group system
 
-service nanohub_slpi /system/vendor/bin/nanohub_slpi
+service nanohub_slpi /vendor/bin/nanohub_slpi
     class late_start
     user root
     group system
