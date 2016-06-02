@@ -311,6 +311,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
 
+# OEM Unlock reporting
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.oem_unlock_supported=1
+
 # Setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/bootdevice/by-name/vendor
