@@ -1,6 +1,11 @@
 type cnd, domain;
 type cnd_exec, exec_type, file_type;
 
+# b/28340421
+userdebug_or_eng(`
+  permissive cnd;
+')
+
 # cnd creates /dev/socket/nims
 file_type_auto_trans(cnd, socket_device, cnd_socket);
 allow cnd socket_device:dir remove_name;
@@ -9,7 +14,7 @@ init_daemon_domain(cnd)
 net_domain(cnd)
 
 # do not grant net_raw, net_admin, or dac_override
-allow cnd self:capability { fsetid setgid setuid };
+allow cnd self:capability { chown fsetid setgid setuid };
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(cnd)

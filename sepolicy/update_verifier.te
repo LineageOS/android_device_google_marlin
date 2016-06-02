@@ -1,0 +1,4 @@
+# b/28959137
+userdebug_or_eng(`
+  permissive update_verifier;
+')

@@ -1,4 +1,10 @@
+# b/28382389
+userdebug_or_eng(`
+  permissive audioserver;
+')
+
 allow audioserver perfd:unix_stream_socket connectto;
+allow audioserver perfd_data_file:dir search;
 allow audioserver perfd_data_file:sock_file write;
 
 allow audioserver audio_cal_device:chr_file rw_file_perms;
