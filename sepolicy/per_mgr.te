@@ -2,6 +2,11 @@
 type per_mgr, domain;
 type per_mgr_exec, exec_type, file_type;
 
+# b/28340421
+userdebug_or_eng(`
+  permissive per_mgr;
+')
+
 init_daemon_domain(per_mgr)
 
 allow per_mgr per_mgr_service:service_manager add;

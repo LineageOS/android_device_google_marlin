@@ -2,6 +2,11 @@
 type rmt, domain;
 type rmt_exec, exec_type, file_type;
 
+# b/28340421
+userdebug_or_eng(`
+  permissive rmt;
+')
+
 init_daemon_domain(rmt)
 wakelock_use(rmt)
 

@@ -2,6 +2,11 @@
 type cnss_diag, domain;
 type cnss_diag_exec, exec_type, file_type;
 
+# b/28340421
+userdebug_or_eng(`
+  permissive cnss_diag;
+')
+
 init_daemon_domain(cnss_diag)
 
 allow cnss_diag self:capability { setgid setuid };

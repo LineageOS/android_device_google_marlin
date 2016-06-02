@@ -8,6 +8,7 @@ binder_use(rild)
 binder_call(rild, audioserver)
 binder_call(rild, per_mgr)
 
+allow rild netmgrd_socket:dir search;
 unix_socket_connect(rild, netmgrd, netmgrd)
 allow rild per_mgr:binder { call transfer };
 allow rild servicemanager:binder call;

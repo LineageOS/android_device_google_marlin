@@ -530,6 +530,8 @@ service iop /system/bin/iop
     disabled
 
 service cnd /system/bin/cnd
+    user root
+    group root inet
     class late_start
     socket cnd stream 660 root inet
 
