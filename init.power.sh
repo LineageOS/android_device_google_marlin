@@ -23,7 +23,6 @@ write /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask 0
 write /sys/devices/soc/soc:qcom,bcl/mode enable
 
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000

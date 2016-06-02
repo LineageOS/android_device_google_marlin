@@ -1,4 +1,5 @@
 allow mediaserver perfd:unix_stream_socket connectto;
+allow mediaserver perfd_data_file:dir search;
 allow mediaserver perfd_data_file:sock_file write;
 allow mediaserver sysfs_soc:dir search;
 allow mediaserver sysfs_soc:file r_file_perms;

@@ -14,3 +14,6 @@ set_prop(tee, system_prop)
 allow tee system_data_file:dir r_dir_perms;
 allow tee fingerprintd_data_file:dir rw_dir_perms;
 allow tee fingerprintd_data_file:file create_file_perms;
+
+# /persist
+r_dir_file(tee, persist_file)
