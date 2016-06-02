@@ -8782,15 +8782,6 @@
       mtu="1410"
   />
 
-  <apn carrier="IMS"
-      mcc="310"
-      mnc="170"
-      apn="ims"
-      type="ims"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-  />
-
   <apn carrier="DataConnect"
       mcc="310"
       mnc="170"
@@ -9914,15 +9905,6 @@
       mtu="1410"
   />
 
-  <apn carrier="IMS"
-      mcc="310"
-      mnc="410"
-      apn="ims"
-      type="ims"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-  />
-
   <apn carrier="ATT Phone"
       mcc="310"
       mnc="410"
@@ -10386,15 +10368,6 @@
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
       mtu="1410"
-  />
-
-  <apn carrier="IMS"
-      mcc="310"
-      mnc="560"
-      apn="ims"
-      type="ims"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="DobsonMMS"
