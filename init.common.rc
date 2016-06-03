@@ -222,7 +222,6 @@ on early-boot
 
 on boot
     exec - root root system -- /system/bin/init.power.sh
-    start iop
 
     # update cpusets now that processors are up
     write /dev/cpuset/top-app/cpus 0-3
