@@ -26394,7 +26394,7 @@
   <apn carrier="Telstra IMS"
       mcc="505"
       mnc="01"
-      apn="telstra.ims"
+      apn="ims"
       type="ims"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
