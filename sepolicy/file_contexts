@@ -113,6 +113,7 @@
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
+/sys/devices/bt_qca[0-9]+/extldo                 u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bt_qca[0-9]+/rfkill/rfkill0/state   u:object_r:sysfs_bluetooth_writable:s0
 /sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
 /sys/devices/soc/70000\.qcom,msm-core(/.*)?      u:object_r:sysfs_msm_core:s0

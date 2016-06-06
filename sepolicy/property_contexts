@@ -1,3 +1,4 @@
 persist.camera.            u:object_r:camera_prop:s0
 htc.camera.                u:object_r:camera_prop:s0
 sensors.                   u:object_r:sensors_prop:s0
+wc_transport.              u:object_r:wc_prop:s0
