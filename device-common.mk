@@ -310,8 +310,7 @@ PRODUCT_PACKAGES_DEBUG += \
 # more partitions to this list for the bootloader and radio.
 AB_OTA_PARTITIONS += \
     boot \
-    system \
-    vendor
+    system
 
 # NFC packages
 PRODUCT_PACKAGES += \
