@@ -477,7 +477,7 @@ LIBQDUTILS := libqdutils
 LIBQDMETADATA := libqdMetaData
 
 #LIBPOWER
-LIBPOWER := power.$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT)))
+LIBPOWER := power.$(patsubst %f,%,$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT))))
 
 #LLVM for RenderScript
 #use qcom LLVM

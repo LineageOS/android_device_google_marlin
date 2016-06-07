@@ -47,7 +47,7 @@ ifneq ($(TARGET_USES_AOSP),true)
     LOCAL_CFLAGS += -DEXTRA_POWERHAL_HINTS
 endif
 
-LOCAL_MODULE := power.$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT)))
+LOCAL_MODULE := power.$(patsubst %f,%,$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT))))
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
