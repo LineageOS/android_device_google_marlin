@@ -328,3 +328,8 @@ $(call inherit-product, build/target/product/verity.mk)
 # Partitions (listed in the file) to be bricked under recovery.
 TARGET_RECOVERY_BRICK := \
     device/google/marlin/recovery.brick.common
+
+# GPS configuration file
+PRODUCT_COPY_FILES += \
+	device/google/marlin/gps.conf:system/etc/gps.conf
+

@@ -198,8 +198,8 @@ EBTABLES += libebtc
 FASTPOWERON := FastBoot
 
 #GPS
-GPS_HARDWARE := gps.conf
-GPS_HARDWARE += gps.default
+#GPS_HARDWARE := gps.conf
+GPS_HARDWARE := gps.default
 GPS_HARDWARE += libgps.utils
 GPS_HARDWARE += libloc_eng
 GPS_HARDWARE += libloc_api_v02
