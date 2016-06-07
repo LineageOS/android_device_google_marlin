@@ -55,6 +55,17 @@ PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196609
 
+# HWUI common settings
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.gradient_cache_size=1 \
+    ro.hwui.drop_shadow_cache_size=6 \
+    ro.hwui.r_buffer_cache_size=8 \
+    ro.hwui.texture_cache_flushrate=0.4 \
+    ro.hwui.text_small_cache_width=1024 \
+    ro.hwui.text_small_cache_height=1024 \
+    ro.hwui.text_large_cache_width=2048 \
+    ro.hwui.text_large_cache_height=1024
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
