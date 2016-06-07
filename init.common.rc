@@ -268,10 +268,6 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
     chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
 
-    # I2C tool
-    chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
-    chmod 664 /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
-
     # Permission for laser sensor driver
     chown camera camera /sys/class/htc_laser/laser/enable_ps_sensor
     # Permission for LED driver
