@@ -137,8 +137,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml
 
+# For SPN display
+PRODUCT_COPY_FILES += \
+    device/google/marlin/spn-conf.xml:system/etc/spn-conf.xml
 
-#
 # Common sensor packages
 TARGET_USES_NANOHUB_SENSORHAL := true
 NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
