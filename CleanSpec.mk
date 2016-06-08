@@ -48,3 +48,4 @@ $(call add-clean-step, find $(OUT_DIR)/target/product/marlin/ -name \*sensors.ma
 $(call add-clean-step, find $(OUT_DIR)/target/product/marlin/ -name \*activity_recognition.marlin* -exec rm -rf {} \;)
 $(call add-clean-step, find $(OUT_DIR)/target/product/sailfish/ -name \*sensors.sailfish* -exec rm -rf {} \;)
 $(call add-clean-step, find $(OUT_DIR)/target/product/sailfish/ -name \*activity_recognition.sailfish* -exec rm -rf {} \;)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/app/WebViewGoogle)
