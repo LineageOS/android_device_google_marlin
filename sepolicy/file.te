@@ -24,6 +24,7 @@ type sysfs_rmtfs, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_video, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_power_management, sysfs_type, fs_type;
 
 # debugfs
 type debugfs_msm_core, debugfs_type, fs_type;
