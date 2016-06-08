@@ -6961,6 +6961,17 @@
       roaming_protocol="IP"
   />
 
+  <apn carrier="Fido Internet"
+      mcc="302"
+      mnc="370"
+      apn="IMS"
+      type="default,mms,agps,supl,fota,hipri"
+      mvno_match_data="DD"
+      mvno_type="gid"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
   <apn carrier="MTS"
       mcc="302"
       mnc="370"
