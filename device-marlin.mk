@@ -31,6 +31,12 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/marlin/overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560
 
+# HWUI cache sizes
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=72 \
+    ro.hwui.layer_cache_size=48 \
+    ro.hwui.path_cache_size=32
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.marlin.rc \
     device/google/marlin/init.common.usb.rc:root/init.marlin.usb.rc \
