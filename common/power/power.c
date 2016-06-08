@@ -49,6 +49,9 @@
 #include "performance.h"
 #include "power-common.h"
 
+#define USINSEC 1000000L
+#define NSINUS 1000L
+
 static int saved_dcvs_cpu0_slack_max = -1;
 static int saved_dcvs_cpu0_slack_min = -1;
 static int saved_mpdecision_slack_max = -1;
@@ -57,6 +60,12 @@ static int saved_interactive_mode = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 int display_boost;
+
+//interaction boost global variables
+static pthread_mutex_t s_interaction_lock = PTHREAD_MUTEX_INITIALIZER;
+static struct timespec s_previous_boost_timespec;
+static int s_previous_duration;
+
 
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
@@ -199,6 +208,13 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 void interaction(int duration, int num_args, int opt_list[]);
 int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 
+static long long calc_timespan_us(struct timespec start, struct timespec end) {
+    long long diff_in_us = 0;
+    diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
+    diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
+    return diff_in_us;
+}
+
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
 {
@@ -240,35 +256,27 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 ALOGE("Can't obtain scaling governor.");
                 return;
             }
-            int duration_hint = 0;
-            static unsigned long long previous_boost_time = 0;
-            int duration = 1500;
+
+            int duration = 1500; // 1.5s by default
             if (data) {
-                duration_hint = *((int*)data);
+                duration = *((int*)data);
             }
 
-            struct timeval cur_boost_timeval = {0, 0};
-            gettimeofday(&cur_boost_timeval, NULL);
-            unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
-            unsigned long long elapsed_time = (cur_boost_time - previous_boost_time);
-            if (elapsed_time > 750000)
-                elapsed_time = 750000;
-            // don't hint if it's been less than 250ms since last boost
-            // also detect if we're doing anything resembling a fling
-            // support additional boosting in case of flings
-            else if (elapsed_time < 250000 && duration_hint <= 750)
+            struct timespec cur_boost_timespec;
+            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+
+            pthread_mutex_lock(&s_interaction_lock);
+            long long elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
+            // don't hint if previous hint is still active
+            if (elapsed_time < s_previous_duration * 1000) {
+                pthread_mutex_unlock(&s_interaction_lock);
                 return;
-
-            if (data) {
-                if (duration_hint > 1000) {
-                    if (duration_hint < 5000) {
-                        duration = duration_hint + 750;
-                    } else {
-                        duration = 5750;
-                    }
-                }
             }
-	    // Scheduler is EAS.
+            s_previous_boost_timespec = cur_boost_timespec;
+            s_previous_duration = duration;
+            pthread_mutex_unlock(&s_interaction_lock);
+
+            // Scheduler is EAS.
             if ((is_sched_energy_aware() != -1) &&
                   (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0)) {
                 // Setting the value of foreground schedtune boost to 40 and
@@ -276,13 +284,8 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 int resources[] = {0x42C0C000, 0x32, 0x41800000, 0x33, 0x40800000, 900, 0x40800100, 900};
                 interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
             } else { // Scheduler is HMP.
-                if (data) {
-                    int fling_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
-                    interaction(duration, sizeof(fling_resources)/sizeof(fling_resources[0]), fling_resources);
-                } else {
-                    int touch_resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
-                    interaction(duration, sizeof(touch_resources)/sizeof(touch_resources[0]), touch_resources);
-                }
+                int resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
+                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
             }
         }
         break;
