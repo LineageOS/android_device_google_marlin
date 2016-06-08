@@ -344,5 +344,8 @@ TARGET_RECOVERY_BRICK := \
 
 # GPS configuration file
 PRODUCT_COPY_FILES += \
-	device/google/marlin/gps.conf:system/etc/gps.conf
+    device/google/marlin/gps.conf:system/etc/gps.conf
 
+# A/B OTA dexopt A tool
+# Note: intermediate step for full support. b/25612095
+PRODUCT_PACKAGES += otapreopt_chroot
