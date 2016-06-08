@@ -31,6 +31,12 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/sailfish/overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=420
 
+# HWUI cache sizes
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=56 \
+    ro.hwui.layer_cache_size=32 \
+    ro.hwui.path_cache_size=16
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.sailfish.rc \
     device/google/marlin/init.common.usb.rc:root/init.sailfish.usb.rc \
