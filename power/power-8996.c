@@ -372,10 +372,9 @@ static int process_activity_launch_hint(void *data)
 
 int power_hint_override(struct power_module *module, power_hint_t hint, void *data)
 {
-    struct timeval cur_boost_timeval = {0, 0};
-    static unsigned long long previous_boost_time = 0;
-    unsigned long long cur_boost_time;
-    double elapsed_time;
+    static struct timespec s_previous_boost_timespec;
+    struct timespec cur_boost_timespec;
+    long long elapsed_time;
     int duration;
 
     int resources_launch[] = {
@@ -418,9 +417,8 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
     if (hint == POWER_HINT_INTERACTION) {
         duration = data ? *((int *)data) : 500;
 
-        gettimeofday(&cur_boost_timeval, NULL);
-        cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
-        elapsed_time = (double) (cur_boost_time - previous_boost_time);
+        clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+        elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
         if (elapsed_time > 750000)
             elapsed_time = 750000;
         /**
@@ -431,7 +429,7 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
         else if (elapsed_time < 250000 && duration <= 750)
             return HINT_HANDLED;
 
-        previous_boost_time = cur_boost_time;
+        s_previous_boost_timespec = cur_boost_timespec;
 
         if (duration >= 1500) {
             interaction(duration, ARRAY_SIZE(resources_interaction_fling_boost),

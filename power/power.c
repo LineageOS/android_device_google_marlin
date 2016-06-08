@@ -245,7 +245,7 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 void interaction(int duration, int num_args, int opt_list[]);
 void release_request(int lock_handle);
 
-static long long calc_timespan_us(struct timespec start, struct timespec end) {
+long long calc_timespan_us(struct timespec start, struct timespec end) {
     long long diff_in_us = 0;
     diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
     diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
