@@ -346,6 +346,11 @@ TARGET_RECOVERY_BRICK := \
 PRODUCT_COPY_FILES += \
     device/google/marlin/gps.conf:system/etc/gps.conf
 
-# A/B OTA dexopt A tool
-# Note: intermediate step for full support. b/25612095
-PRODUCT_PACKAGES += otapreopt_chroot
+# A/B OTA dexopt package
+PRODUCT_PACKAGES += otapreopt_script
+
+# A/B OTA dexopt update_engine hookup
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4
