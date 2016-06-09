@@ -18,8 +18,8 @@ allow location system_server:unix_stream_socket { read write };
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(location)
 
-allow location self:netlink_route_socket create_socket_perms;
-allow location self:netlink_socket create_socket_perms;
+allow location self:netlink_route_socket create_socket_perms_no_ioctl;
+allow location self:netlink_socket create_socket_perms_no_ioctl;
 allow location self:udp_socket create_socket_perms;
 allowxperm location self:udp_socket ioctl { SIOCGIFINDEX SIOCGIFHWADDR SIOCIWFIRSTPRIV_05 };
 allow location self:socket create_socket_perms;

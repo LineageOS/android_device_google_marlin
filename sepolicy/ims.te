@@ -22,7 +22,7 @@ r_dir_file(ims, sysfs_type)
 
 # additional socket perms
 allow ims ims_socket:sock_file write;
-allow ims self:netlink_socket create_socket_perms;
+allow ims self:netlink_socket create_socket_perms_no_ioctl;
 allow ims self:socket create_socket_perms;
 allowxperm ims self:udp_socket ioctl RMNET_IOCTL_EXTENDED;
 allowxperm ims self:socket ioctl msm_sock_ipc_ioctls;

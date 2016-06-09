@@ -15,7 +15,7 @@ init_daemon_domain(cnss-daemon)
 allow cnss-daemon self:capability { setgid setuid };
 
 # whitelist socket ioctl commands
-allow cnss-daemon self:netlink_socket create_socket_perms;
+allow cnss-daemon self:netlink_socket create_socket_perms_no_ioctl;
 allow cnss-daemon self:socket create_socket_perms;
 allowxperm cnss-daemon self:socket ioctl msm_sock_ipc_ioctls;
 
