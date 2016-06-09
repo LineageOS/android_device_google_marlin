@@ -2534,15 +2534,16 @@ void LocApiV02 :: reportGnssMeasurementData(
         svMeasurment_len =
             gnss_measurement_report_ptr.svMeasurement_len;
         gnssMeasurementData.measurement_count = svMeasurment_len;
-        LOC_LOGV ("%s:%d]: there are %d SV measurements\n",
+        LOC_LOGV ("%s:%d]: there are %d valid SV measurements\n",
                   __func__, __LINE__, svMeasurment_len);
     } else {
-        LOC_LOGV ("%s:%d]: there is no valid SV measurements\n",
+        LOC_LOGV ("%s:%d]: there are no valid SV measurements\n",
                   __func__, __LINE__);
     }
 
-    if (svMeasurment_len != 0 &&
-        gnss_measurement_report_ptr.system == eQMI_LOC_SV_SYSTEM_GPS_V02) {
+    LOC_LOGV("%s:%d]: There are %d GNSS measurements\n",
+        __func__, __LINE__, svMeasurment_len);
+    if (gnss_measurement_report_ptr.system == eQMI_LOC_SV_SYSTEM_GPS_V02) {
 
         // the array of measurements
         int index = 0;
@@ -2562,8 +2563,8 @@ void LocApiV02 :: reportGnssMeasurementData(
                   __func__, __LINE__);
         LocApiBase::reportGnssMeasurementData(gnssMeasurementData);
     } else {
-        LOC_LOGV ("%s:%d]: There is no GNSS measurement.\n",
-                  __func__, __LINE__);
+        LOC_LOGV ("%s:%d]: There is no GPS measurement, constellation=%d\n",
+                  __func__, __LINE__, gnss_measurement_report_ptr.system);
     }
 }
 
@@ -2732,7 +2733,7 @@ void LocApiV02 :: convertGnssClock (GnssClock& gnssClock,
         newDiscCount = gnss_measurement_info.numClockResets;
         if ((true == mMeasurementsStarted) ||
             (oldDiscCount != newDiscCount) ||
-            (newRefFCount < oldRefFCount))
+            (newRefFCount <= oldRefFCount))
         {
             if (true == mMeasurementsStarted)
             {
@@ -2749,19 +2750,19 @@ void LocApiV02 :: convertGnssClock (GnssClock& gnssClock,
         gnssClock.time_uncertainty_ns = 0.0;
 
         if (gnss_measurement_info.systemTime_valid) {
-        uint16_t systemWeek = gnss_measurement_info.systemTime.systemWeek;
-        uint32_t systemMsec = gnss_measurement_info.systemTime.systemMsec;
-        float sysClkBias = gnss_measurement_info.systemTime.systemClkTimeBias;
-        float sysClkUncMs = gnss_measurement_info.systemTime.systemClkTimeUncMs;
-        bool isTimeValid = (sysClkUncMs <= 15.0f); // 15ms
+            uint16_t systemWeek = gnss_measurement_info.systemTime.systemWeek;
+            uint32_t systemMsec = gnss_measurement_info.systemTime.systemMsec;
+            float sysClkBias = gnss_measurement_info.systemTime.systemClkTimeBias;
+            float sysClkUncMs = gnss_measurement_info.systemTime.systemClkTimeUncMs;
+            bool isTimeValid = (sysClkUncMs <= 16.0f); // 16ms
             double gps_time_ns;
 
             if (systemWeek != C_GPS_WEEK_UNKNOWN && isTimeValid) {
                 // full_bias_ns, bias_ns & bias_uncertainty_ns
                 double temp = (double)(systemWeek)* (double)WEEK_MSECS + (double)systemMsec;
                 gps_time_ns = (double)temp*1e6 - (double)((int)(sysClkBias*1e6));
-                gnssClock.full_bias_ns = (int64_t)(gps_time_ns - gnssClock.time_ns);
-                gnssClock.bias_ns = (double)(gps_time_ns - gnssClock.time_ns) - gnssClock.full_bias_ns;
+                gnssClock.full_bias_ns = (int64_t)(gnssClock.time_ns - gps_time_ns);
+                gnssClock.bias_ns = (double)(gnssClock.time_ns - gps_time_ns) - gnssClock.full_bias_ns;
                 gnssClock.bias_uncertainty_ns = (double)sysClkUncMs * 1e6;
                 flags |= (GNSS_CLOCK_HAS_FULL_BIAS | GNSS_CLOCK_HAS_BIAS | GNSS_CLOCK_HAS_BIAS_UNCERTAINTY);
             }
