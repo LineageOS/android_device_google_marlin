@@ -1,8 +1,3 @@
-# b/29160970 b/29170806
-userdebug_or_eng(`
-  permissive kernel;
-')
-
 r_dir_file(kernel, firmware_file)
 
 # for diag over socket
