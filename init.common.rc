@@ -499,13 +499,13 @@ service ssr_setup /system/bin/ssr_setup
 
 service ss_ramdump /system/bin/subsystem_ramdump
     class main
-    user system
-    group system
+    user root
+    group root system
     disabled
 
 on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
-    mkdir /data/ramdump 760 system system
+    mkdir /data/ramdump 760 root root
     start ssr_setup
     start ss_ramdump
 
