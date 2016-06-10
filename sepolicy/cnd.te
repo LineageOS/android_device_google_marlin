@@ -12,6 +12,7 @@ allow cnd socket_device:dir remove_name;
 
 init_daemon_domain(cnd)
 net_domain(cnd)
+wakelock_use(cnd)
 
 # do not grant net_raw, net_admin, or dac_override
 allow cnd self:capability { chown fsetid setgid setuid };
