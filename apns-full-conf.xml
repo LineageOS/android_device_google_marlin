@@ -6965,7 +6965,7 @@
       mcc="302"
       mnc="370"
       apn="IMS"
-      type="default,mms,agps,supl,fota,hipri"
+      type="ims"
       mvno_match_data="DD"
       mvno_type="gid"
       protocol="IPV4V6"
