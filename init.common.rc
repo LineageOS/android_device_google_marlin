@@ -523,7 +523,7 @@ service iop /system/bin/iop
 
 service cnd /system/bin/cnd
     user root
-    group root inet
+    group root inet wakelock
     class late_start
     socket cnd stream 660 root inet
 
