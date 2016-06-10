@@ -19,6 +19,7 @@ r_dir_file(perfd, sysfs_type)
 allow perfd sysfs_perf:file write;
 allow perfd sysfs_msm_subsys:file write;
 allow perfd sysfs_devices_system_cpu:file write;
+allow perfd sysfs_power_management:file write;
 
 allow perfd proc_kernel_sched:file w_file_perms;
 
