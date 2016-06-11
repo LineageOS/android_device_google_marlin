@@ -179,6 +179,8 @@ TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
 -include vendor/google_devices/marlin/BoardConfigVendor.mk
 # Build a separate vendor.img
 TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_PARTITION_SIZE := 314572800
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 #NFC
 NXP_CHIP_TYPE := PN551
