@@ -32,6 +32,7 @@ LOCAL_SRC_FILES = \
 
 LOCAL_CFLAGS += \
     -fno-short-enums \
+    -Wno-unused-parameter \
     -D_ANDROID_
 
 LOCAL_COPY_HEADERS_TO:= libloc_api_v02/
