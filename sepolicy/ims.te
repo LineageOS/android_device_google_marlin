@@ -20,9 +20,7 @@ unix_socket_connect(ims, cnd, cnd)
 set_prop(ims, system_prop)
 
 # files in /sys
-allow ims sysfs:dir r_dir_perms;
-r_dir_file(ims, sysfs_msm_subsys)
-r_dir_file(ims, sysfs_soc)
+r_dir_file(ims, sysfs_type)
 
 # additional socket perms
 allow ims ims_socket:sock_file write;
