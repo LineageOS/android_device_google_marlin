@@ -257,7 +257,7 @@ PRODUCT_COPY_FILES += \
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
-    QXDMLogger
+    QXDMLoggerV2
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.userdebug:root/init.common.diag.rc
