@@ -1,7 +1,4 @@
-# b/28382389
-userdebug_or_eng(`
-  permissive audioserver;
-')
+binder_call(audioserver, rild)
 
 allow audioserver perfd:unix_stream_socket connectto;
 allow audioserver perfd_data_file:dir search;
