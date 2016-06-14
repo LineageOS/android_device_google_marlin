@@ -13,7 +13,7 @@ allow cnss_diag self:capability { setgid setuid };
 
 allow cnss_diag self:netlink_socket create_socket_perms;
 
-allow cnss-daemon sysfs_msm_core:dir search;
+r_dir_file(cnss-daemon, sysfs_type)
 allow cnss-daemon sysfs_msm_core:file w_file_perms;
 
 userdebug_or_eng(`
