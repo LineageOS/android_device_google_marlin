@@ -95,10 +95,6 @@ static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 int display_boost;
 
-//launch boost global variables
-static int s_launch_mode;
-static int s_handle_launch;
-
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
 };
@@ -238,7 +234,6 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 
 /* Declare function before use */
 void interaction(int duration, int num_args, int opt_list[]);
-int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 void release_request(int lock_handle);
 
 static void power_hint(struct power_module *module, power_hint_t hint,
@@ -252,34 +247,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
 
     switch(hint) {
         case POWER_HINT_VSYNC:
-        break;
-        case POWER_HINT_LAUNCH:
-        {
-            char governor[80];
-
-            if (get_scaling_governor(governor, sizeof(governor)) == -1) {
-                ALOGE("Can't obtain scaling governor.");
-                return;
-            }
-            ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
-            if (data && s_launch_mode == 0) {
-                int duration = 0;
-                if ((is_sched_energy_aware() != -1) &&
-                    (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) ==
-                     0)) {
-                    // Setting schedtune boost to 50 and increasing DDR min_freq to
-                    // 500MHz and increasing scaling_min_freq of CPUs to 900MHz.
-                    int resources[] = {0x42C0C000, 0x32, 0x41800000, 0x33,
-                                       0x40800000, 900,  0x40800100, 900};
-                    s_handle_launch = interaction_with_handle(s_handle_launch, duration,
-                                       sizeof(resources) / sizeof(resources[0]), resources);
-                    s_launch_mode = 1;
-                }
-            } else if (s_launch_mode == 1){
-                release_request(s_handle_launch);
-                s_launch_mode = 0;
-            }
-        }
         break;
         case POWER_HINT_INTERACTION:
         {
