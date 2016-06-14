@@ -14,7 +14,7 @@ allow cnss_diag self:capability { setgid setuid };
 allow cnss_diag self:netlink_socket create_socket_perms;
 
 r_dir_file(cnss-daemon, sysfs_type)
-allow cnss-daemon sysfs_msm_core:file w_file_perms;
+allow cnss-daemon sysfs_msm_core:file write;
 
 userdebug_or_eng(`
   allow cnss_diag diag_device:chr_file rw_file_perms;
