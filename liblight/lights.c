@@ -19,6 +19,7 @@
 // #define LOG_NDEBUG 0
 
 #include <cutils/log.h>
+#include <cutils/properties.h>
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -41,6 +42,7 @@
  * Change this to 1 to support battery notifications via BatteryService
  */
 #define LIGHTS_SUPPORT_BATTERY 1
+#define CG_COLOR_ID_PROPERTY "ro.boot.hardware.color"
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
@@ -48,6 +50,7 @@ static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 static int g_attention = 0;
+static int rgb_brightness_ratio = 255;
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -100,8 +103,22 @@ char const*const BLUE_RGB_START_FILE
 
 void init_globals(void)
 {
+    char color_id_prop[PROPERTY_VALUE_MAX] = {""};
+
     // init the mutex
     pthread_mutex_init(&g_lock, NULL);
+
+    // check CG color
+    property_get(CG_COLOR_ID_PROPERTY, color_id_prop, "DEF00");
+    if (strcmp(color_id_prop, "GRA00") == 0) {
+        rgb_brightness_ratio = 25;
+    } else if (strcmp(color_id_prop, "SLV00") == 0) {
+        rgb_brightness_ratio = 15;
+    } else if (strcmp(color_id_prop, "BLU00") == 0) {
+        rgb_brightness_ratio = 15;
+    } else {
+        rgb_brightness_ratio = 20;
+    }
 }
 
 static int
@@ -229,9 +246,9 @@ set_speaker_light_locked(struct light_device_t* dev,
             state->flashMode, colorRGB, onMS, offMS);
 #endif
 
-    red = (colorRGB >> 16) & 0xFF;
-    green = (colorRGB >> 8) & 0xFF;
-    blue = colorRGB & 0xFF;
+    red = ((colorRGB >> 16) & 0xFF) * rgb_brightness_ratio / 255;
+    green = ((colorRGB >> 8) & 0xFF) * rgb_brightness_ratio / 255;
+    blue = (colorRGB & 0xFF) * rgb_brightness_ratio / 255;
 
     write_double_int(RED_ON_OFF_MS_FILE, onMS, offMS);
     write_int(RED_LED_FILE, red);
