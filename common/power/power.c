@@ -97,15 +97,7 @@ int display_boost;
 
 //launch boost global variables
 static int s_launch_mode;
-static pthread_mutex_t s_launch_lock = PTHREAD_MUTEX_INITIALIZER;
 static int s_handle_launch;
-
-
-//interaction boost global variables
-static pthread_mutex_t s_interaction_lock = PTHREAD_MUTEX_INITIALIZER;
-static struct timespec s_previous_boost_timespec;
-static int s_previous_duration;
-
 
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
@@ -249,13 +241,6 @@ void interaction(int duration, int num_args, int opt_list[]);
 int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 void release_request(int lock_handle);
 
-static long long calc_timespan_us(struct timespec start, struct timespec end) {
-    long long diff_in_us = 0;
-    diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
-    diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
-    return diff_in_us;
-}
-
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
 {
@@ -277,7 +262,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 return;
             }
             ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
-            pthread_mutex_lock(&s_launch_lock);
             if (data && s_launch_mode == 0) {
                 int duration = 0;
                 if ((is_sched_energy_aware() != -1) &&
@@ -295,44 +279,31 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 release_request(s_handle_launch);
                 s_launch_mode = 0;
             }
-            pthread_mutex_unlock(&s_launch_lock);
         }
         break;
         case POWER_HINT_INTERACTION:
         {
             char governor[80];
 
-            // If we are in launch mode, touch boost will be ignored.
-            pthread_mutex_lock(&s_launch_lock);
-            if (s_launch_mode) {
-                pthread_mutex_unlock(&s_launch_lock);
-                return;
-            }
-            pthread_mutex_unlock(&s_launch_lock);
-
             if (get_scaling_governor(governor, sizeof(governor)) == -1) {
                 ALOGE("Can't obtain scaling governor.");
                 return;
             }
-
-            int duration = 1500; // 1.5s by default
+            int duration_hint = 0;
+            int duration = 1500;
             if (data) {
-                duration = *((int*)data);
+                duration_hint = *((int*)data);
             }
 
-            struct timespec cur_boost_timespec;
-            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
-
-            pthread_mutex_lock(&s_interaction_lock);
-            long long elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
-            // don't hint if previous hint is still active
-            if (elapsed_time < s_previous_duration * 1000) {
-                pthread_mutex_unlock(&s_interaction_lock);
-                return;
+            if (data) {
+                if (duration_hint > 1000) {
+                    if (duration_hint < 5000) {
+                        duration = duration_hint + 750;
+                    } else {
+                        duration = 5750;
+                    }
+                }
             }
-            s_previous_boost_timespec = cur_boost_timespec;
-            s_previous_duration = duration;
-            pthread_mutex_unlock(&s_interaction_lock);
 
             // Scheduler is EAS.
             if ((is_sched_energy_aware() != -1) &&
