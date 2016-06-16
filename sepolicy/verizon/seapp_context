@@ -1,2 +1,0 @@
-#Add for OBDM tool
-user=_app seinfo=obdm domain=radio type=radio_data_file
