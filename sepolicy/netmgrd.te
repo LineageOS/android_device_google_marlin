@@ -44,6 +44,7 @@ set_prop(netmgrd, net_radio_prop)
 
 # read files in /sys
 r_dir_file(netmgrd, sysfs_type)
+allow netmgrd sysfs_net:file write;
 
 userdebug_or_eng(`
   allow netmgrd diag_device:chr_file rw_file_perms;
