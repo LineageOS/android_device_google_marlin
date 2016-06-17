@@ -15,7 +15,13 @@ allow perfd proc_kernel_sched:file r_file_perms;
 
 # read access /sys
 r_dir_file(perfd, sysfs_type)
-# write to select files in /sys
+# normally write is not granted to the default "sysfs" label.
+# In this case, perfd needs access to files in /sys that are
+# commonly created and destroyed. When the kernel creates them,
+# they are created with the default label "sysfs". For robustness,
+# allow perfd to write to "sysfs" to ensure it can optimally
+# tune the power/cpu settings.
+allow perfd sysfs:file write;
 allow perfd sysfs_perf:file write;
 allow perfd sysfs_msm_subsys:file write;
 allow perfd sysfs_devices_system_cpu:file write;
