@@ -27,9 +27,7 @@ allow cnd self:netlink_tcpdiag_socket create_socket_perms_no_ioctl;
 allow cnd self:socket create_socket_perms;
 allowxperm cnd self:socket ioctl msm_sock_ipc_ioctls;
 
-allow cnd sysfs:dir r_dir_perms;
-r_dir_file(cnd, sysfs_msm_subsys)
-r_dir_file(cnd, sysfs_soc)
+r_dir_file(cnd, sysfs_type)
 
 userdebug_or_eng(`
   allow cnd diag_device:chr_file rw_file_perms;
