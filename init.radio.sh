@@ -19,8 +19,9 @@ else
 fi
 
 cur_version_info=`cat /firmware/radio/modem_pr/verinfo/ver_info.txt`
-if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
+if [ ! -f /firmware/radio/modem_pr/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
     rm -rf /data/misc/radio/modem_config
+    rm /data/misc/radio/ver_info.txt
     mkdir /data/misc/radio/modem_config
     chmod 770 /data/misc/radio/modem_config
     cp -r /firmware/radio/modem_pr/mcfg/configs/* /data/misc/radio/modem_config
