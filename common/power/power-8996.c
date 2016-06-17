@@ -212,54 +212,6 @@ static int process_video_encode_hint(void *metadata)
     return HINT_NONE;
 }
 
-static int process_activity_launch_hint(void *data)
-{
-    char governor[80];
-    static int launch_handle = -1;
-    static int launch_mode;
-    /*Default duration of 2 seconds launch boost*/
-    int duration = 0;
-    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
-        ALOGE("Can't obtain scaling governor.");
-
-        return HINT_NONE;
-    }
-
-    ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
-    if (data && launch_mode == 0) {
-        int eas_launch_resources[] = {0x40804000, 0xFFF, 0x40804100, 0xFFF,
-                                  0x40800000, 0xFFF, 0x40800100, 0xFFF,
-                                  0x41800000, 140,   0x40400000, 0x1,
-                                  0x42C0C000, 0x1};
-        int hmp_launch_resources[] = {0x40C00000, 0x1,   0x40804000, 0xFFF,
-                                  0x40804100, 0xFFF, 0x40800000, 0xFFF,
-                                  0x40800100, 0xFFF, 0x41800000, 140,
-                                  0x40400000, 0x1,   0x42C0C000, 0x1};
-        int* launch_resources;
-        size_t launch_resources_size;
-        if ((is_sched_energy_aware() == 0) &&
-              (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0)) {
-            launch_resources = eas_launch_resources;
-            launch_resources_size = sizeof(eas_launch_resources) / sizeof(eas_launch_resources[0]);
-        } else if (strncmp(governor, INTERACTIVE_GOVERNOR,
-                           strlen(INTERACTIVE_GOVERNOR)) == 0) { /*HMP boost*/
-            launch_resources = hmp_launch_resources;
-            launch_resources_size = sizeof(hmp_launch_resources) / sizeof(hmp_launch_resources[0]);
-        }
-        launch_handle = interaction_with_handle(
-            launch_handle, duration, launch_resources_size, launch_resources);
-        if (launch_handle > 0) {
-            launch_mode = 1;
-            ALOGI("Activity launch hint handled");
-        }
-        return HINT_HANDLED;
-    } else if (data == NULL  && launch_mode == 1) {
-        release_request(launch_handle);
-        launch_mode = 0;
-        return HINT_HANDLED;
-    }
-    return HINT_NONE;
-}
 int power_hint_override(struct power_module *module, power_hint_t hint, void *data)
 {
     int ret_val = HINT_NONE;
@@ -271,9 +223,6 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
 #endif
         case POWER_HINT_VIDEO_ENCODE:
             ret_val = process_video_encode_hint(data);
-            break;
-        case POWER_HINT_LAUNCH:
-            ret_val = process_activity_launch_hint(data);
             break;
         default:
             break;
