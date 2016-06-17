@@ -1,3 +1,5 @@
+get_prop(domain, camera_prop)
+
 dontaudit domain self:capability sys_module;
 
 # limit the socket ioctl commands granted to all domain processes.

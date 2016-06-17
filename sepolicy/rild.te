@@ -10,11 +10,8 @@ binder_call(rild, per_mgr)
 
 allow rild netmgrd_socket:dir search;
 unix_socket_connect(rild, netmgrd, netmgrd)
-allow rild per_mgr:binder { call transfer };
-allow rild servicemanager:binder call;
 
-r_dir_file(rild, sysfs_msm_subsys)
-r_dir_file(rild, sysfs_soc)
+r_dir_file(rild, sysfs_type)
 
 allow rild time:unix_stream_socket connectto;
 
