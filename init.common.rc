@@ -216,6 +216,8 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
+    # Update dm-verity state and set partition.*.verified properties
+    verity_update_state
 
 on boot
     exec - root root system -- /system/bin/init.power.sh
