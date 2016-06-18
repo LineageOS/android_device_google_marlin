@@ -45,7 +45,11 @@ neverallow {
   -ueventd
   -vold
   -wpa
+  # device specific
   -netmgrd
+  -cnss-daemon # STOPSHIP b/28340421
+  -cnss_diag   # STOPSHIP b/28340421
+  -location    # STOPSHIP b/28340421
 } self:capability net_admin;
 
 neverallow domain *:{
