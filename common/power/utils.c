@@ -183,22 +183,6 @@ int get_scaling_governor(char governor[], int size)
     return 0;
 }
 
-int is_sched_energy_aware(void)
-{
-    char sched_features[500];
-    if (sysfs_read(SCHED_FEATURES_PATH, sched_features,
-                sizeof(sched_features)) < 0) {
-        // Can't obtain the sched_features. Return.
-        return -1;
-    }
-
-    char *pch = strstr(sched_features, ENERGY_AWARE_SCHED_FEATURE);
-    if(!pch) {
-        return -1;
-    }
-    return 0;
-}
-
 int get_scaling_governor_check_cores(char governor[], int size,int core_num)
 {
 
