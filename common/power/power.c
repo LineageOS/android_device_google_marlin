@@ -264,9 +264,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
             if (data && s_launch_mode == 0) {
                 int duration = 0;
-                if ((is_sched_energy_aware() != -1) &&
-                    (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) ==
-                     0)) {
+                if (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
                     // Setting schedtune boost to 50 and increasing DDR min_freq to
                     // 500MHz and increasing scaling_min_freq of CPUs to 900MHz.
                     int resources[] = {0x42C0C000, 0x32, 0x41800000, 0x33,
@@ -306,8 +304,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             }
 
             // Scheduler is EAS.
-            if ((is_sched_energy_aware() != -1) &&
-                  (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0)) {
+            if (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
                 // Setting the value of foreground schedtune boost to 40 and
                 // scaling_min_freq to 900MHz.
                 int resources[] = {0x42C0C000, 0x32, 0x41800000, 0x33, 0x40800000, 900, 0x40800100, 900};
