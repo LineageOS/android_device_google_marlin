@@ -144,6 +144,8 @@
 /sys/devices/soc/0\.qcom,rmtfs_sharedmem(/.*)?             u:object_r:sysfs_rmtfs:s0
 /sys/devices/soc/84000000\.qcom,rmtfs_rtel_sharedmem(/.*)? u:object_r:sysfs_rmtfs:s0
 /sys/module/lpm_levels/parameters(/.*)?                u:object_r:sysfs_power_management:s0
+/sys/devices/soc/qpnp-fg-[0-9a-f]+/power_supply/bms/capacity             u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc/qpnp-smbcharger-[0-9a-f]+/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0
 
 # debugfs
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
