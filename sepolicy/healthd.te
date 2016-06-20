@@ -1,4 +1,0 @@
-# b/28984132
-userdebug_or_eng(`
-  permissive healthd;
-')
