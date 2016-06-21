@@ -1,10 +1,13 @@
 type cnd, domain;
 type cnd_exec, exec_type, file_type;
 
-# b/28340421
-userdebug_or_eng(`
-  permissive cnd;
-')
+# b/29473921
+allow cnd self:capability dac_override;
+
+# STOPSHIP b/28340421
+# Temporarily grant this permission and log its use.
+allow cnd self:capability net_raw;
+auditallow cnd self:capability net_raw;
 
 # cnd creates /dev/socket/nims
 file_type_auto_trans(cnd, socket_device, cnd_socket);

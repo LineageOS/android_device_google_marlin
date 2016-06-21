@@ -2,16 +2,17 @@
 type rmt, domain;
 type rmt_exec, exec_type, file_type;
 
-# b/28340421
-userdebug_or_eng(`
-  permissive rmt;
-')
+# STOPSHIP b/28340421
+# Temporarily grant this permission and log its use.
+allow rmt self:capability net_raw;
+auditallow rmt self:capability net_raw;
 
 init_daemon_domain(rmt)
 wakelock_use(rmt)
 
-allow rmt self:capability { setgid setpcap setuid };
+allow rmt self:capability { setgid setpcap setuid sys_admin };
 
+allow rmt block_device:dir search;
 allow rmt modem_block_device:blk_file rw_file_perms;
 
 # access to /dev/uio0

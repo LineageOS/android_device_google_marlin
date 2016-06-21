@@ -2,10 +2,10 @@
 type cnss-daemon, domain;
 type cnss-daemon_exec, exec_type, file_type;
 
-# b/28340421
-userdebug_or_eng(`
-  permissive cnss-daemon;
-')
+# STOPSHIP b/28340421
+# Temporarily grant this permission and log its use.
+allow cnss-daemon self:capability net_admin;
+auditallow cnss-daemon self:capability net_admin;
 
 init_daemon_domain(cnss-daemon)
 
