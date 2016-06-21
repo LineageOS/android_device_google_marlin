@@ -589,7 +589,7 @@ service ipacm-diag /system/bin/ipacm-diag
 service qti /vendor/bin/qti
     class main
     user radio
-    group radio net_raw diag usb net_admin
+    group radio diag usb
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
