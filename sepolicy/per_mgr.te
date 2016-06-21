@@ -2,10 +2,10 @@
 type per_mgr, domain;
 type per_mgr_exec, exec_type, file_type;
 
-# b/28340421
-userdebug_or_eng(`
-  permissive per_mgr;
-')
+# STOPSHIP b/28340421
+# Temporarily grant this permission and log its use.
+allow per_mgr self:capability net_raw;
+auditallow per_mgr self:capability net_raw;
 
 init_daemon_domain(per_mgr)
 
@@ -15,6 +15,7 @@ binder_use(per_mgr)
 binder_call(per_mgr, system_server)
 binder_call(per_mgr, rild)
 
+allow per_mgr firmware_file:dir search;
 allow per_mgr firmware_file:file r_file_perms;
 allow per_mgr self:socket create_socket_perms;
 allowxperm per_mgr self:socket ioctl msm_sock_ipc_ioctls;
