@@ -271,9 +271,9 @@ static void power_hint(struct power_module *module, power_hint_t hint,
 
             int duration = 1500; // 1.5s by default
             if (data) {
-                int input_duration = *((int*)data);
+                int input_duration = *((int*)data) + 750;
                 if (input_duration > duration) {
-                    duration = input_duration;
+                    duration = (input_duration > 5750) ? 5750 : input_duration;
                 }
             }
 
