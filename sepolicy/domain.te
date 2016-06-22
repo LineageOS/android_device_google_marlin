@@ -34,6 +34,7 @@ neverallow {
   -clatd
   -dhcp
   -dnsmasq
+  -dumpstate
   -healthd
   -hostapd
   -init
