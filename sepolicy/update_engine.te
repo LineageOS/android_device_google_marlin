@@ -1,3 +1,7 @@
+userdebug_or_eng(`
+  permissive update_engine;
+')
+
 # Allow update_engine read/write on the device-specific partitions it should
 # update.
 allow update_engine {
