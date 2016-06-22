@@ -129,10 +129,41 @@ static int process_cam_preview_hint(void *metadata)
 }
 #endif
 
+static int process_boost(int boost_handle, int duration)
+{
+    char governor[80];
+    int eas_launch_resources[] = {0x40804000, 0xFFF, 0x40804100, 0xFFF,
+                                         0x40800000, 0xFFF, 0x40800100, 0xFFF,
+                                         0x41800000, 140,   0x40400000, 0x1};
+    int hmp_launch_resources[] = {0x40C00000, 0x1,   0x40804000, 0xFFF,
+                                         0x40804100, 0xFFF, 0x40800000, 0xFFF,
+                                         0x40800100, 0xFFF, 0x41800000, 140,
+                                         0x40400000, 0x1};
+    int* launch_resources;
+    size_t launch_resources_size;
+
+    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
+        ALOGE("Can't obtain scaling governor.");
+        return -1;
+    }
+    if (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
+        launch_resources = eas_launch_resources;
+        launch_resources_size = sizeof(eas_launch_resources) / sizeof(eas_launch_resources[0]);
+    } else if (strncmp(governor, INTERACTIVE_GOVERNOR,
+                       strlen(INTERACTIVE_GOVERNOR)) == 0) { /*HMP boost*/
+        launch_resources = hmp_launch_resources;
+        launch_resources_size = sizeof(hmp_launch_resources) / sizeof(hmp_launch_resources[0]);
+    }
+    boost_handle = interaction_with_handle(
+        boost_handle, duration, launch_resources_size, launch_resources);
+    return boost_handle;
+}
+
 static int process_video_encode_hint(void *metadata)
 {
     char governor[80];
     struct video_encode_metadata_t video_encode_metadata;
+    static int boost_handle = -1;
 
     if (get_scaling_governor(governor, sizeof(governor)) == -1) {
         ALOGE("Can't obtain scaling governor.");
@@ -156,6 +187,9 @@ static int process_video_encode_hint(void *metadata)
     }
 
     if (video_encode_metadata.state == 1) {
+        int duration = 2000; // boosts 2s for starting encoding
+        boost_handle = process_boost(boost_handle, duration);
+        ALOGD("LAUNCH ENCODER-ON: %d MS", duration);
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             /* 1. cpufreq params
@@ -203,6 +237,7 @@ static int process_video_encode_hint(void *metadata)
             return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
+        // boost handle is intentionally not released, release_request(boost_handle);
         if (((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) ||
             ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
@@ -211,6 +246,31 @@ static int process_video_encode_hint(void *metadata)
             ALOGI("Video Encode hint stop");
             return HINT_HANDLED;
         }
+    }
+    return HINT_NONE;
+}
+
+static int process_activity_launch_hint(void *data)
+{
+    static int launch_handle = -1;
+    static int launch_mode;
+    // boost will timeout in 5s
+    int duration = 5000;
+
+    ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
+    if (data && launch_mode == 0) {
+        launch_handle = process_boost(launch_handle, duration);
+        if (launch_handle > 0) {
+            launch_mode = 1;
+            ALOGI("Activity launch hint handled");
+            return HINT_HANDLED;
+        } else {
+            return HINT_NONE;
+        }
+    } else if (data == NULL  && launch_mode == 1) {
+        release_request(launch_handle);
+        launch_mode = 0;
+        return HINT_HANDLED;
     }
     return HINT_NONE;
 }
@@ -226,6 +286,9 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
 #endif
         case POWER_HINT_VIDEO_ENCODE:
             ret_val = process_video_encode_hint(data);
+            break;
+        case POWER_HINT_LAUNCH:
+            ret_val = process_activity_launch_hint(data);
             break;
         default:
             break;
