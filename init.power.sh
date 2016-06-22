@@ -36,6 +36,9 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 79000
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 0
 
+# EAS: Capping the max frequency of silver core to 1.6GHz
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1593600
+
 write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
 write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif 1
