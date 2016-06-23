@@ -224,8 +224,8 @@ on boot
 
     # update cpusets now that processors are up
     write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/foreground/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-2
+    write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
     # set default schedTune value for foreground (only affects EAS)
