@@ -1,0 +1,6 @@
+type obdm_app, domain;
+
+app_domain(obdm_app)
+net_domain(obdm_app)
+
+r_dir_file(obdm_app, proc)
