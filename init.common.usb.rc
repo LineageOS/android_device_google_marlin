@@ -8,7 +8,6 @@ on boot
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
 
     write /sys/class/android_usb/f_mass_storage/lun/nofua 1
-    setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
 
     write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports BAM2BAM_IPA
     write /sys/module/g_android/parameters/mtp_tx_req_len 131072
