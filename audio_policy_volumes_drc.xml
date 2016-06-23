@@ -24,9 +24,9 @@ volume index from 0 to 100.
 
 <volumes>
     <volume stream="AUDIO_STREAM_VOICE_CALL" deviceCategory="DEVICE_CATEGORY_HEADSET">
-        <point>0,-2499</point>
-        <point>38,-1530</point>
-        <point>56,-1040</point>
+        <point>0,-4000</point>
+        <point>33,-2700</point>
+        <point>66,-1300</point>
         <point>100,0</point>
     </volume>
     <volume stream="AUDIO_STREAM_VOICE_CALL" deviceCategory="DEVICE_CATEGORY_SPEAKER">
