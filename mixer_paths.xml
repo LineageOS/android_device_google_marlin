@@ -1220,14 +1220,14 @@
     </path>
 
     <!-- Phone RCV HAC RX -->
-    <!-- EAR RX0 D:0 dB, A:6 dB; Lineout1 RX3 D:0 dB, A:0 dB -->
+    <!-- EAR RX0 D:0 dB, A:6 dB; Lineout1 RX3 D:0 dB, A:-6 dB -->
     <path name="voice-hac-handset">
         <path name="handset" />
         <ctl name="RX INT3_2 MUX" value="RX0" />
         <ctl name="RX0 Mix Digital Volume" value="84" />
         <ctl name="RX3 Mix Digital Volume" value="84" />
         <ctl name="EAR PA Gain" value="G_6_DB" />
-        <ctl name="LINEOUT1 Volume" value="20" />
+        <ctl name="LINEOUT1 Volume" value="16" />
     </path>
 
     <!-- HS RX path with DRE on -->
