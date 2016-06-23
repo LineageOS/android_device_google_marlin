@@ -361,6 +361,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4
 
+#Reduce cost of scrypt for FBE CE decryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.scrypt_params=13:3:1
+
 # Add minidebug info to the system server to support diagnosing native crashes.
 ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     # System server and some of its services.
