@@ -91,7 +91,7 @@
 /system/bin/location-mq            u:object_r:location_exec:s0
 /system/bin/lowi-server            u:object_r:location_exec:s0
 /system/bin/energy-awareness       u:object_r:energyawareness_exec:s0
-/system/bin/qseecomd               u:object_r:tee_exec:s0
+/vendor/bin/qseecomd               u:object_r:tee_exec:s0
 /system/bin/cnd                    u:object_r:cnd_exec:s0
 /system/bin/imsdatadaemon          u:object_r:ims_exec:s0
 /system/bin/imsqmidaemon           u:object_r:ims_exec:s0
