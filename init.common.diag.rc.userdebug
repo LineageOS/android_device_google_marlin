@@ -17,3 +17,4 @@ on post-fs-data
 
 on boot
     chmod 666 /dev/diag
+    setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
