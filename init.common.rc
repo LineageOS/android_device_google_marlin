@@ -231,6 +231,15 @@ on boot
     # set default schedTune value for foreground (only affects EAS)
     write /dev/stune/foreground/schedtune.boost 10
 
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
     # Bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
