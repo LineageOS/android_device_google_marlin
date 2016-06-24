@@ -335,6 +335,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    sdm.debug.disable_rotator_split=1
+
 # OEM Unlock reporting
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.oem_unlock_supported=1
