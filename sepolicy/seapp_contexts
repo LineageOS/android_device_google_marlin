@@ -1,0 +1,5 @@
+# Production default camera application for marlin/sailfish
+user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=user
+
+# Debug default camera application for marlin/sailfish
+user=_app seinfo=android_debug name=com.google.android.GoogleCameraEng domain=google_camera_app_debug type=app_data_file levelFrom=user
