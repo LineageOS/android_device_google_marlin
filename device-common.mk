@@ -207,7 +207,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera.disable_zsl_mode=1 \
     persist.camera.gyro.android=4 \
     persist.camera.tof.direct=1 \
     persist.camera.tnr.preview=1 \
