@@ -404,9 +404,6 @@
     <!-- MMS user agent prolfile url -->
     <!-- <string name="config_mms_user_agent_profile_url" translatable="false"></string> -->
 
-    <!-- Use the Google-branded Wallpaper picker as the default wallpaper cropper. -->
-    <string name="config_wallpaperCropperPackage" translatable="false">com.google.android.apps.wallpaper</string>
-
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>"/system/framework/arm64/boot-framework.oat"</item>
