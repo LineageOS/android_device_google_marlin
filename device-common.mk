@@ -375,3 +375,6 @@ endif
 # b/29541773
 $(call add-product-sanitizer-module-config,librilutils_static,never)
 $(call add-product-sanitizer-module-config,rild,never)
+
+# b/28423767
+$(call add-product-sanitizer-module-config,rmt_storage,never)
