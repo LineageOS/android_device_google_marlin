@@ -13,14 +13,8 @@ function copy() {
 
 ################################################################################
 
-# disable thermal bcl hotplug to switch governor
+# disable thermal hotplug to switch governor
 write /sys/module/msm_thermal/core_control/enabled 0
-write /sys/devices/soc/soc:qcom,bcl/mode disable
-bcl_hotplug_mask=`cat /sys/devices/soc/soc:qcom,bcl/hotplug_mask`
-write /sys/devices/soc/soc:qcom,bcl/hotplug_mask 0
-bcl_soc_hotplug_mask=`cat /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask`
-write /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask 0
-write /sys/devices/soc/soc:qcom,bcl/mode enable
 
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
@@ -59,12 +53,8 @@ write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
 write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "sched"
 
-# re-enable thermal and BCL hotplug
+# re-enable thermal hotplug
 write /sys/module/msm_thermal/core_control/enabled 1
-write /sys/devices/soc/soc:qcom,bcl/mode disable
-write /sys/devices/soc/soc:qcom,bcl/hotplug_mask $bcl_hotplug_mask
-write /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask $bcl_soc_hotplug_mask
-write /sys/devices/soc/soc:qcom,bcl/mode enable
 
 # input boost configuration
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
