@@ -375,3 +375,10 @@ ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
+
+# b/29541773
+$(call add-product-sanitizer-module-config,librilutils_static,never)
+$(call add-product-sanitizer-module-config,rild,never)
+
+# b/28423767
+$(call add-product-sanitizer-module-config,rmt_storage,never)
