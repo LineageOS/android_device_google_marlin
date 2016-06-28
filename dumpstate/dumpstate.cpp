@@ -52,4 +52,8 @@ void dumpstate_board()
         }
     }
 
+    /* Check if qsee_logger tool exists */
+    if (!access("/system/bin/qsee_logger", F_OK)) {
+        run_command("FP LOGS", 10, "qsee_logger", "-d", NULL);
+    }
 };
