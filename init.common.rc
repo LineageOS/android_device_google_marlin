@@ -505,8 +505,10 @@ service energy-awareness /system/bin/energy-awareness
     oneshot
 
 service ssr_setup /system/bin/ssr_setup
+    class main
+    user root
+    group root system
     oneshot
-    disabled
 
 service ss_ramdump /system/bin/subsystem_ramdump
     class main
@@ -517,7 +519,6 @@ service ss_ramdump /system/bin/subsystem_ramdump
 on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     mkdir /data/ramdump 760 root root
-    start ssr_setup
     start ss_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=0
