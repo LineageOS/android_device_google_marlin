@@ -2,10 +2,7 @@
 type ims, domain;
 type ims_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
-allow ims self:capability net_raw;
-auditallow ims self:capability net_raw;
+allow ims self:capability net_bind_service;
 
 # Started by init
 init_daemon_domain(ims)
