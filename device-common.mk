@@ -277,6 +277,10 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:root/init.common.diag.rc
 endif
 
+# Subsystem silent restart
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ssr.restart_level=modem
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal-engine-marlin.conf:system/etc/thermal-engine.conf
 
