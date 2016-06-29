@@ -301,6 +301,14 @@ AB_OTA_UPDATER := true
 PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
+
+# Tell the system to enable copying odexes from other partition.
+PRODUCT_PACKAGES += \
+	cppreopts.sh
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cp_system_other_odex=1
+
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
