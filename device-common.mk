@@ -393,3 +393,12 @@ $(call add-product-sanitizer-module-config,rild,never)
 
 # b/28423767
 $(call add-product-sanitizer-module-config,rmt_storage,never)
+
+# b/29238951
+$(call add-product-sanitizer-module-config,cameraserver,never)
+
+# b/28992626
+# For Hangouts, make ASAN-lite only sanitize 32-bit.
+ifeq (true,$(SANITIZE_LITE))
+  SANITIZE_ARCH := 32
+endif
