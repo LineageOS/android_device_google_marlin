@@ -13,6 +13,13 @@ function copy() {
 
 ################################################################################
 
+# disable thermal hotplug to switch governor
+write /sys/module/msm_thermal/core_control/enabled 0
+
+# bring back main cores CPU 0,2
+write /sys/devices/system/cpu/cpu0/online 1
+write /sys/devices/system/cpu/cpu2/online 1
+
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
@@ -49,6 +56,9 @@ write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
 # if EAS is present, switch to sched governor (no effect if not EAS)
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
 write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "sched"
+
+# re-enable thermal hotplug
+write /sys/module/msm_thermal/core_control/enabled 1
 
 # input boost configuration
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
