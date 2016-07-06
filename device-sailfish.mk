@@ -31,6 +31,10 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/sailfish/overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=420
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.vc_call_vol_steps=7
+
 # HWUI cache sizes
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=56 \
