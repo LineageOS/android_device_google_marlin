@@ -7186,9 +7186,6 @@
       apn="pda.bell.ca"
       type="default,mms,supl"
       mmsc="http://mms.bell.ca/mms/wapenc"
-      authtype="2"
-      mvno_type="gid"
-      mvno_match_data="61"
   />
 
   <apn carrier="Bell Mobility IMS"
@@ -7198,9 +7195,6 @@
       type="ims"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
-      authtype="2"
-      mvno_type="gid"
-      mvno_match_data="61"
   />
 
   <apn carrier="Virgin Mobile"
