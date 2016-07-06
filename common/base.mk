@@ -655,7 +655,6 @@ PRODUCT_PACKAGES := \
     Music \
     Phone \
     Provision \
-    Protips \
     QuickSearchBox \
     Settings \
     Sync \
