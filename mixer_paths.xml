@@ -60,6 +60,7 @@
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia7" value="0" />
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia10" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia11" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia12" value="0" />
@@ -73,6 +74,10 @@
     <ctl name="MultiMedia5 Mixer AFE_PCM_TX" value="0" />
     <ctl name="MultiMedia5 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="MultiMedia5 Mixer AUX_PCM_UL_TX" value="0" />
+    <ctl name="MultiMedia8 Mixer SLIM_0_TX" value="0" />
+    <ctl name="MultiMedia8 Mixer AFE_PCM_TX" value="0" />
+    <ctl name="MultiMedia8 Mixer TERT_MI2S_TX" value="0" />
+    <ctl name="MultiMedia8 Mixer AUX_PCM_UL_TX" value="0" />
     <ctl name="MultiMedia1 Mixer MI2S_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_4_TX" value="0" />
@@ -85,6 +90,8 @@
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia7" value="0" />
     <ctl name="SLIMBUS_5_RX Audio Mixer MultiMedia7" value="0" />
+    <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia8" value="0" />
+    <ctl name="SLIMBUS_5_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia10" value="0" />
     <ctl name="SLIMBUS_5_RX Audio Mixer MultiMedia10" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia11" value="0" />
@@ -104,6 +111,7 @@
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia3" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="0" />
+    <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="MultiMedia6 Mixer SLIM_0_TX" value="0" />
     <ctl name="IIR0 INP0 MUX" value="ZERO" />
     <ctl name="IIR0 INP1 MUX" value="ZERO" />
@@ -280,6 +288,7 @@
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia16" value="0" />
     <ctl name="MultiMedia1 Mixer AFE_PCM_TX" value="0" />
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia5" value="0" />
+    <ctl name="AFE_PCM_RX Audio Mixer MultiMedia8" value="0" />
     <!-- usb headset end -->
 
     <!-- Voice -->
@@ -368,6 +377,7 @@
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="AUX_PCM_RX Audio Mixer MultiMedia6" value="0" />
+    <ctl name="AUX_PCM_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="0" />
     <!-- IIR/voice anc -->
     <ctl name="IIR0 Band1" id ="0" value="268435456" />
@@ -513,11 +523,11 @@
     </path>
 
     <path name="audio-ull-playback">
-        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="1" />
+        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia8" value="1" />
     </path>
 
     <path name="audio-ull-playback speaker">
-        <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia3" value="1" />
+        <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia8" value="1" />
     </path>
 
     <path name="audio-ull-playback speaker-and-headphones">
@@ -526,7 +536,7 @@
     </path>
 
     <path name="audio-ull-playback bt-sco">
-        <ctl name="AUX_PCM_RX Audio Mixer MultiMedia3" value="1" />
+        <ctl name="AUX_PCM_RX Audio Mixer MultiMedia8" value="1" />
     </path>
 
     <path name="audio-ull-playback bt-sco-wb">
@@ -535,7 +545,7 @@
     </path>
 
     <path name="audio-ull-playback afe-proxy">
-        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="1" />
+        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia8" value="1" />
     </path>
 
     <path name="multi-channel-playback afe-proxy">
@@ -603,11 +613,11 @@
     </path>
 
     <path name="low-latency-record">
-      <ctl name="MultiMedia5 Mixer SLIM_0_TX" value="1" />
+      <ctl name="MultiMedia8 Mixer SLIM_0_TX" value="1" />
     </path>
 
     <path name="low-latency-record bt-sco">
-      <ctl name="MultiMedia5 Mixer AUX_PCM_UL_TX" value="1" />
+      <ctl name="MultiMedia8 Mixer AUX_PCM_UL_TX" value="1" />
     </path>
 
     <path name="low-latency-record bt-sco-wb">
@@ -616,7 +626,7 @@
     </path>
 
     <path name="low-latency-record capture-fm">
-      <ctl name="MultiMedia5 Mixer TERT_MI2S_TX" value="1" />
+      <ctl name="MultiMedia8 Mixer TERT_MI2S_TX" value="1" />
     </path>
 
     <path name="fm-virtual-record capture-fm">
