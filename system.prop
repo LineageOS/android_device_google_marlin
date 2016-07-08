@@ -165,6 +165,9 @@ use.voice.path.for.pcm.voip=true
 #Enable multi channel aac through offload
 audio.offload.multiaac.enable=true
 
+#Period size for ull playback & low latency record
+audio_hal.period_multiplier=2
+
 # system prop for NFC DT
 ro.nfc.port=I2C
 
