@@ -65,4 +65,9 @@
     <string translatable="false" name="config_mobile_hotspot_provision_app_no_ui">com.google.android.carrierentitlement.SILENT_ENTITLEMENT_CHECK</string>
     <string translatable="false" name="config_mobile_hotspot_provision_response">com.google.android.carrierentitlement.SILENT_ENTITLEMENT_CHECK_RESULT</string>
 
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">g2pw2100</string>
+    <!-- MMS user agent prolfile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprof.vtext.com/htc/g2pw2100/g2pw2100.xml</string>
+
 </resources>
