@@ -2,6 +2,3 @@
 
 on property:ro.boot.mode=normal
     rm /dev/diag
-
-on boot
-    setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage
