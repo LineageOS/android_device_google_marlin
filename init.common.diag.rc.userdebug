@@ -17,7 +17,6 @@ on post-fs-data
 
 on boot
     chmod 666 /dev/diag
-    setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
 
 on property:sys.usb.config=rndis,diag
      write /sys/class/android_usb/android0/enable 0
