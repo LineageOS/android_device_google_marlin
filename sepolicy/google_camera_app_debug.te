@@ -29,3 +29,8 @@ allow google_camera_app_debug proc_meminfo:file r_file_perms;
 
 # gdbserver / stack traces
 allow google_camera_app_debug self:process ptrace;
+
+# Read and write system app data files passed over Binder.
+# Motivating case was /data/data/com.android.settings/cache/*.jpg for
+# cropping or taking user photos.
+allow google_camera_app_debug system_app_data_file:file { read write getattr };
