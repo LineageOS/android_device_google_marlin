@@ -8154,7 +8154,7 @@
       apn="VZWINTERNET"
       type="default,dun"
       protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
+      roaming_protocol="IP"
       bearer_bitmask="13|14|18"
       profile_id="0"
       modem_cognitive="true"
