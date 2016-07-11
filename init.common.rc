@@ -228,8 +228,9 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
-    # set default schedTune value for foreground (only affects EAS)
-    write /dev/stune/foreground/schedtune.boost 10
+    # set default schedTune value for foreground/top-app (only affects EAS)
+    write /dev/stune/foreground/schedtune.boost 1
+    write /dev/stune/top-app/schedtune.boost 10
 
     # add a cpuset for the camera daemon
     # we want all cores for camera
