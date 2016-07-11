@@ -55,7 +55,7 @@ PRODUCT_PACKAGES += libGLES_android
 
 # graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196609
+    ro.opengles.version=196610
 
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
