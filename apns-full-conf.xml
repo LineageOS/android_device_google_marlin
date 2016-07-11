@@ -6850,15 +6850,6 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS IMS"
-      mcc="302"
-      mnc="220"
-      apn="ims"
-      type="ims"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-  />
-
   <apn carrier="Koodo"
       mcc="302"
       mnc="220"
@@ -6973,15 +6964,6 @@
       protocol="IPV4V6"
       mvno_match_data="55"
       mvno_type="gid"
-  />
-
-  <apn carrier="TELUS IMS"
-      mcc="302"
-      mnc="221"
-      apn="ims"
-      type="ims"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Koodo"
