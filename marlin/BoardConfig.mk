@@ -190,6 +190,8 @@ TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
 BOARD_USES_SYSTEM_OTHER_ODEX := true
 
 -include vendor/google_devices/marlin/BoardConfigVendor.mk
+# Build a separate vendor.img
+TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
 NXP_CHIP_TYPE := PN551
