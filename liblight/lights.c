@@ -83,7 +83,7 @@ char const*const GREEN_ON_OFF_MS_FILE
         = "/sys/class/leds/green/on_off_ms";
 
 char const*const BLUE_ON_OFF_MS_FILE
-        = "/sys/class/leds/red/on_off_ms";
+        = "/sys/class/leds/blue/on_off_ms";
 
 char const*const RED_RGB_START_FILE
         = "/sys/class/leds/red/rgb_start";
