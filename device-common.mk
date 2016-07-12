@@ -40,8 +40,8 @@ PRODUCT_COPY_FILES += \
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
-                      device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+		      device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
+		      device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -73,9 +73,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.offload_wakelock=false
 
+# enable FIFO UI scheduling by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
-                    fs_config_dirs
+		    fs_config_dirs
 
 # Audio configuration
 USE_XML_AUDIO_POLICY_CONF := 1
