@@ -2,10 +2,7 @@
 type ims, domain;
 type ims_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
-allow ims self:capability net_raw;
-auditallow ims self:capability net_raw;
+allow ims self:capability net_bind_service;
 
 # Started by init
 init_daemon_domain(ims)
@@ -33,3 +30,7 @@ allowxperm ims self:socket ioctl msm_sock_ipc_ioctls;
 userdebug_or_eng(`
   allow ims diag_device:chr_file rw_file_perms;
 ')
+
+# Runs /system/bin/sh for executing ndc commands via popen
+allow ims shell_exec:file rx_file_perms;
+
