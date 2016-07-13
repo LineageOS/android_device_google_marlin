@@ -2,10 +2,7 @@
 type per_mgr, domain;
 type per_mgr_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
-allow per_mgr self:capability net_raw;
-auditallow per_mgr self:capability net_raw;
+allow per_mgr self:capability net_bind_service;
 
 init_daemon_domain(per_mgr)
 
