@@ -6040,6 +6040,19 @@
       type="mms"
   />
 
+  <apn carrier="O2 Internet"
+      mcc="262"
+      mnc="07"
+      apn="internet"
+      mmsc="http://10.81.0.7:8002"
+      mmsproxy=""
+      mmsport="8080"
+      authtype="1"
+      type="default,supl,mms"
+      protocol="IP"
+      roaming_protocol="IP"
+  />
+
   <apn carrier="o2 Internet"
       mcc="262"
       mnc="07"
@@ -6050,6 +6063,15 @@
       type="default,supl,mms"
       mvno_match_data="2620739"
       mvno_type="imsi"
+  />
+
+  <apn carrier="O2 DE IMS"
+      mcc="262"
+      mnc="07"
+      apn="ims"
+      type="ims"
+      protocol="IP"
+      roaming_protocol="IP"
   />
 
   <apn carrier="O2 DE IMS"
