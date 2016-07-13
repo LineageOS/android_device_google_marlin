@@ -6821,6 +6821,8 @@
       mmsc="http://aliasredirect.net/proxy/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IPV6"
+      roaming_protocol="IP"
       mvno_match_data="54"
       mvno_type="gid"
   />
@@ -6833,6 +6835,8 @@
       mmsc="http://aliasredirect.net/proxy/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IPV6"
+      roaming_protocol="IP"
       mvno_match_data="55"
       mvno_type="gid"
   />
@@ -6843,7 +6847,7 @@
       apn="isp.telus.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="54"
       mvno_type="gid"
   />
@@ -6854,7 +6858,7 @@
       apn="isp.telus.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="55"
       mvno_type="gid"
   />
@@ -6867,6 +6871,8 @@
       mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IP"
+      roaming_protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
   />
@@ -6879,6 +6885,8 @@
       mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IP"
+      roaming_protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
   />
@@ -6889,7 +6897,7 @@
       apn="sp.koodo.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
   />
@@ -6900,7 +6908,7 @@
       apn="sp.koodo.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
   />
@@ -6937,6 +6945,8 @@
       mmsc="http://aliasredirect.net/proxy/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IPV6"
+      roaming_protocol="IP"
       mvno_match_data="54"
       mvno_type="gid"
   />
@@ -6949,6 +6959,8 @@
       mmsc="http://aliasredirect.net/proxy/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IPV6"
+      roaming_protocol="IP"
       mvno_match_data="55"
       mvno_type="gid"
   />
@@ -6959,7 +6971,7 @@
       apn="isp.telus.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="54"
       mvno_type="gid"
   />
@@ -6970,7 +6982,7 @@
       apn="isp.telus.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="55"
       mvno_type="gid"
   />
@@ -6983,6 +6995,8 @@
       mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IP"
+      roaming_protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
   />
@@ -6995,6 +7009,8 @@
       mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
+      protocol="IP"
+      roaming_protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
   />
@@ -7005,7 +7021,7 @@
       apn="sp.koodo.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
   />
@@ -7016,7 +7032,7 @@
       apn="sp.koodo.com"
       server="*"
       type="dun"
-      protocol="IPV4V6"
+      protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
   />
