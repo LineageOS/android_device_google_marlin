@@ -15,6 +15,7 @@ app_domain(google_camera_app_debug)
 allow google_camera_app_debug app_api_service:service_manager find;
 allow google_camera_app_debug audioserver_service:service_manager find;
 allow google_camera_app_debug cameraserver_service:service_manager find;
+allow google_camera_app_debug drmserver_service:service_manager find;
 allow google_camera_app_debug mediacodec_service:service_manager find;
 allow google_camera_app_debug mediaextractor_service:service_manager find;
 allow google_camera_app_debug mediaserver_service:service_manager find;
