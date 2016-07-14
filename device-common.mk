@@ -69,6 +69,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
 
+# Don't hold AudioOffload wakelock
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.offload_wakelock=false
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
