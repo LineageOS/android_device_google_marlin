@@ -15,9 +15,6 @@
  * limitations under the License.
  */
 
-
-// #define LOG_NDEBUG 0
-
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
@@ -36,12 +33,10 @@
 
 #include <hardware/lights.h>
 
-/******************************************************************************/
-
 /*
  * Change this to 1 to support battery notifications via BatteryService
  */
-#define LIGHTS_SUPPORT_BATTERY 1
+#define LIGHTS_SUPPORT_BATTERY 0
 #define CG_COLOR_ID_PROPERTY "ro.boot.hardware.color"
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
