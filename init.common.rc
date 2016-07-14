@@ -635,6 +635,7 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
+    disabled
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
