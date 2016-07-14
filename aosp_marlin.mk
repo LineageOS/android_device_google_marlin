@@ -28,6 +28,8 @@ PRODUCT_MODEL := AOSP on msm8996
 PRODUCT_MANUFACTURER := google
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
+PRODUCT_COPY_FILES += device/google/marlin/fstab.aosp_common:root/fstab.marlin
+
 $(call inherit-product, device/google/marlin/device-marlin.mk)
 $(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor-marlin.mk)
 
