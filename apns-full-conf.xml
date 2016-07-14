@@ -7071,7 +7071,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="MMS"
+  <apn carrier="Eastlink MMS"
       mcc="302"
       mnc="270"
       apn="mms.mobi.eastlink.ca"
@@ -7081,11 +7081,11 @@
       type="mms"
   />
 
-  <apn carrier="Internet"
+  <apn carrier="Eastlink Internet"
       mcc="302"
       mnc="270"
       apn="wisp.mobi.eastlink.ca"
-      type="default,supl"
+      type="default,supl,dun,hipri"
   />
 
   <apn carrier="MOWAP"
@@ -7167,15 +7167,14 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Internet"
+  <apn carrier="Wind Mobile Internet"
       mcc="302"
       mnc="490"
       apn="internet.windmobile.ca"
-      type="default,supl"
-      protocol="IPV4V6"
+      type="default,hipri,dun,supl"
   />
 
-  <apn carrier="MMS"
+  <apn carrier="Wind Mobile MMS"
       mcc="302"
       mnc="490"
       apn="mms.windmobile.ca"
@@ -7185,27 +7184,33 @@
       type="mms"
   />
 
-  <apn carrier="Media"
+  <apn carrier="Videotron Mobile"
       mcc="302"
       mnc="500"
       apn="media.ng"
       mmsc="http://media.videotron.com"
+      mmsproxy="10.208.89.17"
+      mmsport="8080"
       type="default,supl,mms"
   />
 
-  <apn carrier="Media"
+  <apn carrier="Videotron Mobile"
       mcc="302"
       mnc="510"
       apn="media.ng"
       mmsc="http://media.videotron.com"
+      mmsproxy="10.208.89.17"
+      mmsport="8080"
       type="default,supl,mms"
   />
 
-  <apn carrier="Media"
+  <apn carrier="Videotron Mobile"
       mcc="302"
       mnc="520"
       apn="media.ng"
       mmsc="http://media.videotron.com"
+      mmsproxy="10.208.89.17"
+      mmsport="8080"
       type="default,supl,mms"
   />
 
@@ -7247,7 +7252,7 @@
       type="default,mms,supl"
       mmsc="http://mmsc2.mts.net/"
       mmsproxy="wapgw1.mts.net"
-      mmsport="9201"
+      mmsport="9401"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
   />
@@ -7316,6 +7321,8 @@
       mmsc="http://mms.sasktel.com/"
       mmsproxy="mig.sasktel.com"
       mmsport="80"
+      protocol="IP"
+      roaming_protocol="IP"
   />
 
   <apn carrier="Verizon CDMA HRPD"
