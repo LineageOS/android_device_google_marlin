@@ -36,6 +36,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/aboot_[ab]        u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/apdp_[ab]         u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/boot_[ab]         u:object_r:boot_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/bootlocker_[ab]   u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/cmnlib32_[ab]     u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/cmnlib64_[ab]     u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/devcfg_[ab]       u:object_r:custom_ab_block_device:s0
