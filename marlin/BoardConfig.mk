@@ -60,7 +60,7 @@ BOARD_HAL_STATIC_LIBRARIES := libdumpstate.marlin
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/marlin/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/marlin/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAS_QCA_BT_ROME := true
 WCNSS_FILTER_USES_SIBS := true
@@ -176,8 +176,6 @@ PROTOBUF_SUPPORTED := false
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-
-TARGET_CRYPTFS_HW_PATH := device/google/marlin/common/cryptfs_hw
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
