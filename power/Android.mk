@@ -11,32 +11,8 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_SRC_FILES := power.c metadata-parser.c utils.c list.c hint-data.c
 
 # Include target-specific files.
-ifeq ($(call is-board-platform-in-list, msm8974), true)
-LOCAL_SRC_FILES += power-8974.c
-endif
-
-ifeq ($(call is-board-platform-in-list, msm8226), true)
-LOCAL_SRC_FILES += power-8226.c
-endif
-
-ifeq ($(call is-board-platform-in-list, msm8610), true)
-LOCAL_SRC_FILES += power-8610.c
-endif
-
-ifeq ($(call is-board-platform-in-list, apq8084), true)
-LOCAL_SRC_FILES += power-8084.c
-endif
-
-ifeq ($(call is-board-platform-in-list, msm8994), true)
-LOCAL_SRC_FILES += power-8994.c
-endif
-
 ifeq ($(call is-board-platform-in-list, msm8996), true)
 LOCAL_SRC_FILES += power-8996.c
-endif
-
-ifeq ($(call is-board-platform-in-list,msm8952), true)
-LOCAL_SRC_FILES += power-8952.c
 endif
 
 ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
