@@ -5971,7 +5971,7 @@
       user="telekom"
       password="telekom"
       mmsc="http://mms.t-mobile.de/servlets/mms"
-      mmsproxy="172.28.23.131"
+      mmsproxy="109.237.176.193"
       mmsport="8008"
       authtype="1"
       type="default,supl,mms"
