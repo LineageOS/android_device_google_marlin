@@ -197,11 +197,15 @@ set_light_backlight(struct light_device_t* dev,
             ALOGE("%s: Failed to write to %s: %s\n", __FUNCTION__, PERSISTENCE_FILE,
                     strerror(errno));
         }
+        if (lpEnabled != 0) {
+            // This is defined in BoardConfig.mk.
+            brightness = DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS;
+        }
     }
 
     g_last_backlight_mode = state->brightnessMode;
 
-    if (!lpEnabled) {
+    if (!err) {
         err = write_int(LCD_FILE, brightness);
     }
 
