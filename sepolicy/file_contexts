@@ -1,4 +1,5 @@
 /dev/at_.*                     u:object_r:at_device:s0
+/dev/avtimer                   u:object_r:avtimer_device:s0
 /dev/adsprpc-smd               u:object_r:adsprpcd_device:s0
 /dev/diag                      u:object_r:diag_device:s0
 /dev/jpeg[0-9]+                u:object_r:camera_device:s0
