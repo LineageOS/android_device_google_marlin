@@ -33,4 +33,10 @@ userdebug_or_eng(`
 
 # Runs /system/bin/sh for executing ndc commands via popen
 allow ims shell_exec:file rx_file_perms;
+allow ims system_file:file rx_file_perms;
 
+# use /dev/ion memory
+allow ims ion_device:chr_file r_file_perms;
+
+# use fds passed from radio app
+allow ims radio:fd use;
