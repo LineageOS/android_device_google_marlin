@@ -12,3 +12,8 @@ unix_socket_connect(radio, ims, ims)
 userdebug_or_eng(`
   allow radio diag_device:chr_file rw_file_perms;
 ')
+
+# access to /dev/avtimer
+allow radio avtimer_device:chr_file rw_file_perms;
+
+allowxperm radio self:udp_socket ioctl priv_sock_ioctls;
