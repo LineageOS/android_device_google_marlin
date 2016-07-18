@@ -211,13 +211,6 @@ HDMID := hdmid
 #HOSTAPD
 HOSTAPD := hostapd
 HOSTAPD += hostapd_cli
-HOSTAPD += nt_password_hash
-HOSTAPD += hlr_auc_gw
-HOSTAPD += test-milenage
-HOSTAPD += hostapd.conf
-HOSTAPD += hostapd_default.conf
-HOSTAPD += hostapd.deny
-HOSTAPD += hostapd.accept
 
 #I420COLORCONVERT
 I420CC := libI420colorconvert
