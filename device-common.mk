@@ -294,7 +294,7 @@ endif
 
 # Subsystem silent restart
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.restart_level=venus,AR6320,slpi,modem
+    persist.sys.ssr.restart_level=venus,AR6320,slpi,modem,adsp
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal-engine-marlin.conf:system/etc/thermal-engine.conf
