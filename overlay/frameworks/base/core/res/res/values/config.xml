@@ -287,12 +287,6 @@
     <!-- Boolean indicating whether or not wifi should turn off when emergency call is made -->
     <bool translatable="false" name="config_wifi_turn_off_during_emergency_call">true</bool>
 
-    <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">Nexus6P</string>
-
-    <!-- MMS user agent prolfile url -->
-    <!-- TODO: add one here -->
-
    <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
@@ -408,12 +402,6 @@
         <item>"bp-tools:rndis:rndis,serial,adb"</item>
         <item>"bp-tools:rndis,adb:rndis,serial,adb"</item>
     </string-array>
-
-    <!-- MMS user agent string -->
-    <!-- TODO:  Set MMS user agent values -->
-    <!-- <string name="config_mms_user_agent" translatable="false"></string> -->
-    <!-- MMS user agent prolfile url -->
-    <!-- <string name="config_mms_user_agent_profile_url" translatable="false"></string> -->
 
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
