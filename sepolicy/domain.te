@@ -27,32 +27,6 @@ allowxperm domain domain:{
   key_socket
 } ioctl { 0 };
 
-# line in the (se)sand: DO NOT grant net_admin capability!
-neverallow {
-  domain
-  -bluetooth
-  -clatd
-  -dhcp
-  -dnsmasq
-  -dumpstate
-  -healthd
-  -hostapd
-  -init
-  -netd
-  -ppp
-  -racoon
-  -rild
-  -system_server
-  -ueventd
-  -vold
-  -wpa
-  # device specific
-  -netmgrd
-  -cnss-daemon # STOPSHIP b/28340421
-  -cnss_diag   # STOPSHIP b/28340421
-  -location    # STOPSHIP b/28340421
-} self:capability net_admin;
-
 neverallow domain *:{
   appletalk_socket
   netlink_firewall_socket
