@@ -611,8 +611,14 @@ static const locClientRespIndTableStructT locClientRespIndTable[]= {
     sizeof(qmiLocGdtReceiveDoneStatusIndMsgT_v02) },
 
    { QMI_LOC_GDT_DOWNLOAD_END_STATUS_IND_V02,
-     sizeof(qmiLocGdtDownloadEndStatusIndMsgT_v02) }
+     sizeof(qmiLocGdtDownloadEndStatusIndMsgT_v02) },
 
+   // for XTRA Client 2.0
+   { QMI_LOC_INJECT_XTRA_DATA_IND_V02,
+     sizeof(qmiLocInjectXtraDataIndMsgT_v02) },
+
+   { QMI_LOC_INJECT_XTRA_PCID_IND_V02,
+     sizeof(qmiLocInjectXtraPcidIndMsgT_v02) }
 };
 
 
@@ -1507,6 +1513,19 @@ static bool validateRequest(
     case QMI_LOC_GDT_DOWNLOAD_END_STATUS_REQ_V02:
     {
         *pOutLen = sizeof(qmiLocGdtDownloadEndStatusReqMsgT_v02);
+        break;
+    }
+
+    // XTRA Client 2.0
+    case QMI_LOC_INJECT_XTRA_DATA_REQ_V02:
+    {
+        *pOutLen = sizeof(qmiLocInjectXtraDataReqMsgT_v02);
+        break;
+    }
+
+    case QMI_LOC_INJECT_XTRA_PCID_REQ_V02:
+    {
+        *pOutLen = sizeof(qmiLocInjectXtraPcidReqMsgT_v02);
         break;
     }
 
