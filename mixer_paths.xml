@@ -1013,12 +1013,22 @@
         <ctl name="DEC8 Volume" value="106" />
     </path>
 
+    <!-- Ch1: 3rd mic DEC5/TX5, Ch2: 2nd mic DEC6/TX6, Ch3: 1st mic DEC7/TX7, Ch4 4th mic DEC8/TX8 -->
+    <path name="unprocessed-quad-mic">
+        <path name="quad-mic" />
+    </path>
+
     <!-- three mic TX 3rd:DEC5 22dB, 2nd:DEC6 22dB, 1st:DEC7 22dB,-->
     <path name="three-mic">
         <path name="triple-mic" />
         <ctl name="DEC5 Volume" value="106" />
         <ctl name="DEC6 Volume" value="106" />
         <ctl name="DEC7 Volume" value="106" />
+    </path>
+
+    <!-- Unprocessed-three-mic TX 3rd:DEC5 22dB, 2nd:DEC6 22dB, 1st:DEC7 22dB,-->
+    <path name="unprocessed-three-mic">
+        <path name="three-mic" />
     </path>
 
     <!-- Sidetone -->
@@ -1147,14 +1157,14 @@
         <ctl name="DEC7 Volume" value="88" />
     </path>
 
-    <path name="unprocessed-handset-mic">
-        <path name="dmic1" />
-    </path>
-
     <!-- VR MIC 1st D:22 dB -->
     <path name="voice-rec-mic">
         <path name="dmic1" />
         <ctl name="DEC7 Volume" value="106" />
+    </path>
+
+    <path name="unprocessed-handset-mic">
+        <path name="voice-rec-mic" />
     </path>
 
     <!-- CAMCORDER MIC 2nd D:4 dB -->
@@ -1203,6 +1213,11 @@
         <path name="handset-dmic-endfire" />
         <ctl name="DEC7 Volume" value="106" />
         <ctl name="DEC6 Volume" value="106" />
+    </path>
+
+    <!-- Unprocessed-stereo-mic 1st D:22 dB, 2nd D:22 dB -->
+    <path name="unprocessed-stereo-mic">
+        <path name="voice-rec-dmic-ef" />
     </path>
 
     <!-- Earpiece D:0 dB, A:6 dB -->
@@ -1276,22 +1291,22 @@
     </path>
 
     <!-- HS RX -->
-    <!-- HS RX playback D:-12 dB, A:0 dB -->
+    <!-- HS RX playback D:-10 dB, A:0 dB -->
     <path name="headphones">
         <path name="headphones-DRE" />
-        <ctl name="RX1 Mix Digital Volume" value="72" />
-        <ctl name="RX2 Mix Digital Volume" value="72" />
+        <ctl name="RX1 Mix Digital Volume" value="74" />
+        <ctl name="RX2 Mix Digital Volume" value="74" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
     </path>
 
-    <!-- HS RX line D:0 dB, A:-15 dB -->
+    <!-- HS RX line D:0 dB, A:0 dB -->
     <path name="line">
-        <path name="headphones-generic" />
+        <path name="headphones-DRE" />
         <ctl name="RX1 Mix Digital Volume" value="84" />
         <ctl name="RX2 Mix Digital Volume" value="84" />
-        <ctl name="HPHL Volume" value="10" />
-        <ctl name="HPHR Volume" value="10" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
     </path>
 
     <!-- Phone HS RX D:0 dB, A:0 dB -->
@@ -1317,6 +1332,11 @@
         <path name="adc2" />
         <ctl name="ADC2 Volume" value="8" />
         <ctl name="DEC0 Volume" value="84" />
+    </path>
+
+    <!-- Unprocessed-headset-mic TX D:0 dB, A:12 dB -->
+    <path name="unprocessed-headset-mic">
+        <path name="headset-mic" />
     </path>
 
     <!-- Phone HS TX D:0 dB, A:21 dB -->
