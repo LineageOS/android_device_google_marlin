@@ -45,3 +45,7 @@ type bt_firmware_file, file_type;
 type persist_file, file_type;
 type persist_data_file, file_type;
 type persist_display_file, file_type;
+
+# msm_irqbalance
+type proc_irq, fs_type;
+type irqbalance_socket, file_type;
