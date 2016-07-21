@@ -107,3 +107,5 @@ if [[ $(getprop ro.debuggable) == "1" && ! -e /sys/class/tty/ttyHSL0 ]]
 then
     write /sys/module/printk/parameters/console_suspend N
 fi
+
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
