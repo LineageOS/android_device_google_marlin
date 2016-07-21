@@ -6835,7 +6835,7 @@
       type="default,supl"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="220"
       apn="sp.telus.com"
@@ -6849,7 +6849,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="220"
       apn="sp.telus.com"
@@ -6863,7 +6863,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS Tether"
+  <apn carrier="TELUS ISP"
       mcc="302"
       mnc="220"
       apn="isp.telus.com"
@@ -6874,7 +6874,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS Tether"
+  <apn carrier="TELUS ISP"
       mcc="302"
       mnc="220"
       apn="isp.telus.com"
@@ -6885,7 +6885,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Koodo"
+  <apn carrier="Koodo SP"
       mcc="302"
       mnc="220"
       apn="sp.koodo.com"
@@ -6899,7 +6899,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Koodo"
+  <apn carrier="Koodo SP"
       mcc="302"
       mnc="220"
       apn="sp.koodo.com"
@@ -6922,6 +6922,7 @@
       protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Koodo Tether"
@@ -6933,6 +6934,7 @@
       protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Mobile Internet"
@@ -6959,7 +6961,7 @@
        mvno_match_data="4D4F"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="221"
       apn="sp.telus.com"
@@ -6973,7 +6975,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="221"
       apn="sp.telus.com"
@@ -6987,7 +6989,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS Tether"
+  <apn carrier="TELUS ISP"
       mcc="302"
       mnc="221"
       apn="isp.telus.com"
@@ -6998,7 +7000,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="TELUS Tether"
+  <apn carrier="TELUS ISP"
       mcc="302"
       mnc="221"
       apn="isp.telus.com"
@@ -7009,7 +7011,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Koodo"
+  <apn carrier="Koodo SP"
       mcc="302"
       mnc="221"
       apn="sp.koodo.com"
@@ -7023,7 +7025,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Koodo"
+  <apn carrier="Koodo SP"
       mcc="302"
       mnc="221"
       apn="sp.koodo.com"
@@ -7046,6 +7048,7 @@
       protocol="IP"
       mvno_match_data="4B"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Koodo Tether"
@@ -7057,6 +7060,7 @@
       protocol="IP"
       mvno_match_data="4F"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="PC mobile"
@@ -7142,15 +7146,11 @@
       roaming_protocol="IP"
   />
 
-  <apn carrier="Fido Internet"
+  <apn carrier="Fido Tethering"
       mcc="302"
       mnc="370"
-      apn="IMS"
-      type="ims"
-      mvno_match_data="DD"
-      mvno_type="gid"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
+      apn="ltedata.apn"
+      type="dun"
   />
 
   <apn carrier="MTS"
@@ -7301,16 +7301,25 @@
       mvno_match_data="CITYFONE"
   />
 
-  <apn carrier="Rogers LTE"
+  <apn carrier="Rogers Internet"
       mcc="302"
       mnc="720"
       apn="ltemobile.apn"
-      type="default,mms,supl"
+      type="default,mms,supl,hipri,ia"
       mmsproxy="mmsproxy.rogers.com"
       mmsc="http://mms.gprs.rogers.com"
       mmsport="80"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="Rogers Tethering"
+      mcc="302"
+      mnc="720"
+      apn="ltedata.apn"
+      type="dun"
+      protocol="IP"
+      roaming_protocol="IP"
   />
 
   <apn carrier="SaskTel"
