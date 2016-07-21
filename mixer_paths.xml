@@ -1016,6 +1016,10 @@
     <!-- Ch1: 3rd mic DEC5/TX5, Ch2: 2nd mic DEC6/TX6, Ch3: 1st mic DEC7/TX7, Ch4 4th mic DEC8/TX8 -->
     <path name="unprocessed-quad-mic">
         <path name="quad-mic" />
+        <ctl name="DEC5 Volume" value="86" />
+        <ctl name="DEC6 Volume" value="86" />
+        <ctl name="DEC7 Volume" value="86" />
+        <ctl name="DEC8 Volume" value="86" />
     </path>
 
     <!-- three mic TX 3rd:DEC5 22dB, 2nd:DEC6 22dB, 1st:DEC7 22dB,-->
@@ -1026,9 +1030,12 @@
         <ctl name="DEC7 Volume" value="106" />
     </path>
 
-    <!-- Unprocessed-three-mic TX 3rd:DEC5 22dB, 2nd:DEC6 22dB, 1st:DEC7 22dB,-->
+    <!-- Unprocessed-three-mic TX 3rd:DEC5 2dB, 2nd:DEC6 2dB, 1st:DEC7 2dB,-->
     <path name="unprocessed-three-mic">
         <path name="three-mic" />
+        <ctl name="DEC5 Volume" value="86" />
+        <ctl name="DEC6 Volume" value="86" />
+        <ctl name="DEC7 Volume" value="86" />
     </path>
 
     <!-- Sidetone -->
@@ -1163,8 +1170,10 @@
         <ctl name="DEC7 Volume" value="106" />
     </path>
 
+    <!-- Unprocessed Handset MIC 1st D:2 dB -->
     <path name="unprocessed-handset-mic">
         <path name="voice-rec-mic" />
+        <ctl name="DEC7 Volume" value="86" />
     </path>
 
     <!-- CAMCORDER MIC 2nd D:4 dB -->
@@ -1215,9 +1224,11 @@
         <ctl name="DEC6 Volume" value="106" />
     </path>
 
-    <!-- Unprocessed-stereo-mic 1st D:22 dB, 2nd D:22 dB -->
+    <!-- Unprocessed-stereo-mic 1st D:2 dB, 2nd D:2 dB -->
     <path name="unprocessed-stereo-mic">
         <path name="voice-rec-dmic-ef" />
+        <ctl name="DEC7 Volume" value="86" />
+        <ctl name="DEC6 Volume" value="86" />
     </path>
 
     <!-- Earpiece D:0 dB, A:6 dB -->
@@ -1411,10 +1422,10 @@
     <path name="afe-proxy">
     </path>
 
-    <!-- Unprocessed MIC 1st D:22 dB -->
+    <!-- Unprocessed MIC 1st D:2 dB -->
     <path name="unprocessed-mic">
         <path name="dmic1" />
-        <ctl name="DEC7 Volume" value="106" />
+        <ctl name="DEC7 Volume" value="86" />
     </path>
 
     <path name="hdmi-tx">
