@@ -711,6 +711,13 @@ typedef union
 
     const qmiLocGdtDownloadEndStatusReqMsgT_v02* pGdtDownloadEndStatusReq;
     /* QMI_LOC_GDT_DOWNLOAD_END_STATUS_REQ_V02*/
+
+    // XTRA Client 2.0
+    const qmiLocInjectXtraDataReqMsgT_v02 *pInjectXtraDataReq;
+    /*QMI_LOC_INJECT_XTRA_DATA_REQ_V02*/
+
+    const qmiLocInjectXtraPcidReqMsgT_v02 *pInjectXtraPcidReq;
+    /*QMI_LOC_INJECT_XTRA_PCID_REQ_V02*/
 }locClientReqUnionType;
 
 
