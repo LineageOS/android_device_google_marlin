@@ -19,6 +19,7 @@
 /dev/v4l-subdev.*              u:object_r:video_device:s0
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
 /dev/socket/ims_.*                              u:object_r:ims_socket:s0
+/dev/socket/msm_irqbalance                      u:object_r:irqbalance_socket:s0
 /dev/socket/netmgr(/.*)?                        u:object_r:netmgrd_socket:s0
 /dev/socket/nims                                u:object_r:cnd_socket:s0
 /dev/socket/qmux_audio(/.*)?                    u:object_r:qmuxd_socket:s0
@@ -115,6 +116,7 @@
 /vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /vendor/bin/perfd           u:object_r:perfd_exec:s0
 /vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
+/vendor/bin/msm_irqbalance  u:object_r:irqbalance_exec:s0
 
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
