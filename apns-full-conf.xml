@@ -7218,8 +7218,10 @@
       mcc="302"
       mnc="610"
       apn="pda.bell.ca"
-      type="default,mms,supl"
+      type="default,mms,supl,dun,hipri,ia"
       mmsc="http://mms.bell.ca/mms/wapenc"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="Virgin Mobile"
