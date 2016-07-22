@@ -387,6 +387,9 @@ on boot
     setprop ro.qualcomm.bluetooth.map true
     setprop ro.bluetooth.hfp.ver 1.6
 
+    # set hardware sku
+    setprop ro.boot.hardware.sku ${ro.boot.mid}
+
 on property:wc_transport.start_hci=true
     start start_hci_filter
 
