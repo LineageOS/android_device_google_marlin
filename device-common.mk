@@ -235,6 +235,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=rome
 
+MARLIN_SAILFISH_RIL_LIBRARY := /vendor/lib64/libril-qc-qmi-1.so
+ifneq ($(filter address thread,$(SANITIZE_TARGET)),)
+# Under ASAN, override normal ril library path to be in /data so the sanitized library is used.
+# See b/29541773.
+PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/data$(MARLIN_SAILFISH_RIL_LIBRARY)
+else
+# Use normal /vendor path by default.
+PRODUCT_PROPERTY_OVERRIDES += rild.libpath=$(MARLIN_SAILFISH_RIL_LIBRARY)
+endif
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
     persist.radio.RATE_ADAPT_ENABLE=1 \
