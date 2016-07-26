@@ -68,6 +68,8 @@
 #define RPM_MASTER_STAT "/d/rpm_master_stats"
 #endif
 
+#define GPU_MAX_FREQ_PATH "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq"
+
 /* RPM runs at 19.2Mhz. Divide by 19200 for msec */
 #define RPM_CLK 19200
 
@@ -94,6 +96,7 @@ static int saved_interactive_mode = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 int display_boost;
+static int sustained_performance_mode = 0;
 
 //interaction boost global variables
 static pthread_mutex_t s_interaction_lock = PTHREAD_MUTEX_INITIALIZER;
@@ -260,6 +263,30 @@ static void power_hint(struct power_module *module, power_hint_t hint,
     switch(hint) {
         case POWER_HINT_VSYNC:
         break;
+        /* Sustained performance mode:
+         * All CPUs are capped to ~750MHz
+         * GPU frequency is capped to 510MHz
+         */
+        case POWER_HINT_SUSTAINED_PERFORMANCE:
+        {
+            static int sustained_mode_handle = 0;
+            pthread_mutex_lock(&s_interaction_lock);
+            if (data && sustained_performance_mode == 0) {
+                int resources[] = {0x40804000, 750, 0x40804100, 750};
+                int duration = 0;
+                sustained_mode_handle = interaction_with_handle(
+                    sustained_mode_handle, duration,
+                    sizeof(resources) / sizeof(resources[0]), resources);
+                sysfs_write(GPU_MAX_FREQ_PATH, "510000000");
+                sustained_performance_mode = 1;
+            } else if (sustained_performance_mode == 1) {
+                release_request(sustained_mode_handle);
+                sysfs_write(GPU_MAX_FREQ_PATH, "624000000");
+                sustained_performance_mode = 0;
+            }
+            pthread_mutex_unlock(&s_interaction_lock);
+        }
+        break;
         case POWER_HINT_INTERACTION:
         {
             char governor[80];
@@ -268,6 +295,14 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 ALOGE("Can't obtain scaling governor.");
                 return;
             }
+
+            pthread_mutex_lock(&s_interaction_lock);
+            if (sustained_performance_mode) {
+                pthread_mutex_unlock(&s_interaction_lock);
+                return;
+            }
+            pthread_mutex_unlock(&s_interaction_lock);
+
 
             int duration = 1500; // 1.5s by default
             if (data) {
