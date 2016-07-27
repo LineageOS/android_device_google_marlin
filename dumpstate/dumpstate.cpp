@@ -13,54 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <errno.h>
-#include <string>
-#include <string.h>
 
 #include <dumpstate.h>
-#include <cutils/log.h>
-#define LOG_TAG "dumpstate"
 #include <cutils/properties.h>
 #include <stdlib.h>
-
-/**
- * Dump Wearable node database if present.
- *
- * TODO This function is a temporary solution for Android Wear and should be
- * removed once dumpsys has proper support for adding files to the zip, or
- * moved to a common library.
- */
-void dump_wear_nodedb() {
-    // we rely on su to workaround selinux permissions in the app data directory
-    // so this will only work on userdebug builds
-    if (is_user_build()) {
-        return;
-    }
-
-    std::string tmp_nodedb_path = bugreport_dir + "/wear-nodedb.db";
-    std::string wear_nodedb_path = "/data/data/com.google.android.gms/databases/node.db";
-
-    if (run_command("COPY WEAR NODE DB", 600, SU_PATH, "root",
-                "cp", wear_nodedb_path.c_str(), tmp_nodedb_path.c_str(), NULL)) {
-        MYLOGE("Wear node.db copy failed\n");
-        return;
-    }
-    if (run_command("CHOWN WEAR NODE DB", 600, SU_PATH, "root",
-                "chown", "shell:shell", tmp_nodedb_path.c_str(), NULL)) {
-        MYLOGE("Wear node.db chown failed\n");
-        return;
-    }
-    if (add_zip_entry(ZIP_ROOT_DIR + wear_nodedb_path, tmp_nodedb_path)) {
-        MYLOGD("Wear node.db added to zip file\n");
-    } else {
-        MYLOGE("Unable to add zip for Wear node.db\n");
-    }
-    // unconditionally remove the db since it's just a copy
-    if (remove(tmp_nodedb_path.c_str())) {
-        MYLOGE("Error removing Wear node.db file %s: %s\n",
-                tmp_nodedb_path.c_str(), strerror(errno));
-    }
-}
 
 void dumpstate_board()
 {
@@ -100,6 +56,4 @@ void dumpstate_board()
     if (!access("/system/bin/qsee_logger", F_OK)) {
         run_command("FP LOGS", 10, "qsee_logger", "-d", NULL);
     }
-
-    dump_wear_nodedb();
 };
