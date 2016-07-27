@@ -446,3 +446,9 @@ $(call add-product-sanitizer-module-config,surfaceflinger libsigchain,never)
 ifeq (true,$(SANITIZE_LITE))
   SANITIZE_ARCH := 32
 endif
+
+# b/30349163
+# Set Marlin/Sailfish default log size on userdebug/eng build to 1M
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PROPERTY_OVERRIDES += ro.logd.size=1M
+endif
