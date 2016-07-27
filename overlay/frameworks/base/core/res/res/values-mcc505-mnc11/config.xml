@@ -22,6 +22,5 @@
 <resources>
     <string-array translatable="false" name="config_default_vm_number">
         <item>+61101</item>
-        <item>#101#</item>
     </string-array>
 </resources>
