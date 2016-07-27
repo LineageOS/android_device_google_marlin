@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.sailfish
 
+# Thermal packages
+PRODUCT_PACKAGES += \
+    thermal.sailfish
+
 # VR packages
 PRODUCT_PACKAGES += \
     vr.sailfish
