@@ -272,12 +272,12 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             static int sustained_mode_handle = 0;
             pthread_mutex_lock(&s_interaction_lock);
             if (data && sustained_performance_mode == 0) {
-                int resources[] = {0x40804000, 750, 0x40804100, 750};
+                int resources[] = {0x40804000, 1200, 0x40804100, 1200};
                 int duration = 0;
                 sustained_mode_handle = interaction_with_handle(
                     sustained_mode_handle, duration,
                     sizeof(resources) / sizeof(resources[0]), resources);
-                sysfs_write(GPU_MAX_FREQ_PATH, "510000000");
+                sysfs_write(GPU_MAX_FREQ_PATH, "315000000");
                 sustained_performance_mode = 1;
             } else if (sustained_performance_mode == 1) {
                 release_request(sustained_mode_handle);
