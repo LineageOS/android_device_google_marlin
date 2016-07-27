@@ -405,4 +405,6 @@
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
 
+    <!-- If this is true, device supports Sustained Performance Mode. -->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
 </resources>
