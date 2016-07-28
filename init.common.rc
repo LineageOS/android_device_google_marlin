@@ -678,6 +678,7 @@ service perfd /vendor/bin/perfd
    class main
    user root
    group root system
+   writepid /dev/cpuset/system-background/tasks
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
