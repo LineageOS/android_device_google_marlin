@@ -15,6 +15,9 @@ on post-fs-data
     # Enable clk debug on suspend
     write /d/clk/debug_suspend 1
 
+    # Enable persist log
+    setprop logd.logpersistd logcatd
+
 on boot
     chmod 666 /dev/diag
 
