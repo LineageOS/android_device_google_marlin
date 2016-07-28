@@ -393,14 +393,8 @@ TARGET_RECOVERY_WIPE := \
     device/google/marlin/recovery.wipe.common
 
 # GPS configuration file
-ifneq (,$(filter marlinw sailfishw, $(PRODUCT_NAME)))
 PRODUCT_COPY_FILES += \
     device/google/marlin/gps.conf:system/etc/gps.conf
-else
-#verizon gps configuration file
-PRODUCT_COPY_FILES += \
-    device/google/marlin/gps.conf.verizon:system/etc/gps.conf
-endif
 
 # A/B OTA dexopt package
 PRODUCT_PACKAGES += otapreopt_script
