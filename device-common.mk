@@ -438,9 +438,6 @@ $(call add-product-sanitizer-module-config,rild,never)
 # b/28423767
 $(call add-product-sanitizer-module-config,rmt_storage,never)
 
-# b/29238951
-$(call add-product-sanitizer-module-config,cameraserver,never)
-
 # b/30302693
 $(call add-product-sanitizer-module-config,surfaceflinger libsigchain,never)
 
