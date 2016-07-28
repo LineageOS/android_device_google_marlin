@@ -5,14 +5,16 @@ type cnss_diag_exec, exec_type, file_type;
 # STOPSHIP b/28340421
 # Temporarily grant this permission and log its use.
 allow cnss_diag self:capability net_admin;
-allow cnss_diag self:capability { setgid setuid };
-allow cnss_diag self:netlink_socket create_socket_perms;
-
 auditallow cnss_diag self:capability net_admin;
 
 init_daemon_domain(cnss_diag)
-r_dir_file(cnss_diag, sysfs_type)
 
+allow cnss_diag self:capability { setgid setuid };
+
+allow cnss_diag self:netlink_socket create_socket_perms_no_ioctl;
+
+r_dir_file(cnss-daemon, sysfs_type)
+allow cnss-daemon sysfs_msm_core:file write;
 
 userdebug_or_eng(`
   allow cnss_diag diag_device:chr_file rw_file_perms;
