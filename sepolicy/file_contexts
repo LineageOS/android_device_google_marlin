@@ -112,6 +112,8 @@
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 
+/system/bin/preloads_copy\.sh     u:object_r:preloads_copy_exec:s0
+
 # files in /vendor
 /vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /vendor/bin/perfd           u:object_r:perfd_exec:s0
