@@ -377,7 +377,6 @@ on boot
     write /proc/sys/net/ipv6/conf/default/accept_ra_defrtr 1
 
     # bluetooth init
-    exec - root root system -- /system/bin/btnvtool -O
     setprop ro.qualcomm.bluetooth.opp true
     setprop ro.qualcomm.bluetooth.hfp true
     setprop ro.qualcomm.bluetooth.hsp true
@@ -495,12 +494,6 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
    start ims_rtp_daemon
    start imscmservice
 
-service energy-awareness /system/bin/energy-awareness
-    class main
-    user root
-    group system
-    oneshot
-
 service ssr_setup /system/bin/ssr_setup
     class main
     user root
@@ -574,17 +567,6 @@ service netmgrd /system/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
-
-service ipacm-diag /system/bin/ipacm-diag
-    class main
-    user system
-    socket ipacm_log_file dgram 660 system net_admin
-    group net_admin diag
-
-service qti /vendor/bin/qti
-    class main
-    user radio
-    group radio diag usb
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
@@ -668,11 +650,6 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     group system diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
-
-service qseeproxydaemon /vendor/bin/qseeproxydaemon
-    class late_start
-    user system
-    group system
 
 service perfd /vendor/bin/perfd
    class main

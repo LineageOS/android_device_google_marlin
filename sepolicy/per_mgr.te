@@ -11,6 +11,7 @@ allow per_mgr per_mgr_service:service_manager add;
 binder_use(per_mgr)
 binder_call(per_mgr, system_server)
 binder_call(per_mgr, rild)
+binder_call(per_mgr, per_proxy)
 
 allow per_mgr firmware_file:dir search;
 allow per_mgr firmware_file:file r_file_perms;
