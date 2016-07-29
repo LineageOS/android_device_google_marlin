@@ -239,7 +239,9 @@ MARLIN_SAILFISH_RIL_LIBRARY := /vendor/lib64/libril-qc-qmi-1.so
 ifneq ($(filter address thread,$(SANITIZE_TARGET)),)
 # Under ASAN, override normal ril library path to be in /data so the sanitized library is used.
 # See b/29541773.
-PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/data$(MARLIN_SAILFISH_RIL_LIBRARY)
+# Don't use /data just yet, b/29541773
+# PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/data$(MARLIN_SAILFISH_RIL_LIBRARY)
+PRODUCT_PROPERTY_OVERRIDES += rild.libpath=$(MARLIN_SAILFISH_RIL_LIBRARY)
 else
 # Use normal /vendor path by default.
 PRODUCT_PROPERTY_OVERRIDES += rild.libpath=$(MARLIN_SAILFISH_RIL_LIBRARY)
@@ -428,7 +430,7 @@ endif
 
 # b/29541773
 $(call add-product-sanitizer-module-config,librilutils_static,never)
-$(call add-product-sanitizer-module-config,rild,never)
+$(call add-product-sanitizer-module-config,rild libril,never)
 
 # b/28423767
 $(call add-product-sanitizer-module-config,rmt_storage,never)
