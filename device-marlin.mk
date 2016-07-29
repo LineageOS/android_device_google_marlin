@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.marlin
 
+# Thermal packages
+PRODUCT_PACKAGES += \
+    thermal.marlin
+
 # VR packages
 PRODUCT_PACKAGES += \
     vr.marlin
