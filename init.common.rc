@@ -212,6 +212,7 @@ on early-boot
 
 on boot
     exec - root root system -- /system/bin/init.power.sh
+    exec - root root system -- /system/bin/init.mid.sh
 
     # update cpusets now that processors are up
     write /dev/cpuset/top-app/cpus 0-3
@@ -388,9 +389,6 @@ on boot
     setprop ro.bluetooth.dun true
     setprop ro.qualcomm.bluetooth.map true
     setprop ro.bluetooth.hfp.ver 1.6
-
-    # set hardware sku
-    setprop ro.boot.hardware.sku ${ro.boot.mid}
 
 on property:wc_transport.start_hci=true
     start start_hci_filter
