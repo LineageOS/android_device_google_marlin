@@ -24,8 +24,4 @@
     <signer signature="@GOOGLE" >
       <seinfo value="google" />
     </signer>
-    <!-- android debug key -->
-    <signer signature="@ANDROID_DEBUG" >
-      <seinfo value="android_debug" />
-    </signer>
 </policy>
