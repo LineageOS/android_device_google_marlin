@@ -68,8 +68,6 @@
 #define RPM_MASTER_STAT "/d/rpm_master_stats"
 #endif
 
-#define GPU_MAX_FREQ_PATH "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq"
-
 /* RPM runs at 19.2Mhz. Divide by 19200 for msec */
 #define RPM_CLK 19200
 
@@ -96,7 +94,10 @@ static int saved_interactive_mode = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 int display_boost;
-static int sustained_performance_mode = 0;
+static int sustained_mode_handle = 0;
+static int vr_mode_handle = 0;
+int sustained_performance_mode = 0;
+int vr_mode = 0;
 
 //interaction boost global variables
 static pthread_mutex_t s_interaction_lock = PTHREAD_MUTEX_INITIALIZER;
@@ -264,25 +265,140 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_VSYNC:
         break;
         /* Sustained performance mode:
-         * All CPUs are capped to ~750MHz
-         * GPU frequency is capped to 510MHz
+         * All CPUs are capped to ~1.2GHz
+         * GPU frequency is capped to 315MHz
+         */
+        /* VR+Sustained performance mode:
+         * All CPUs are locked to ~1.2GHz
+         * GPU frequency is locked to 315MHz
+         * GPU BW min_freq is raised to 775MHz
          */
         case POWER_HINT_SUSTAINED_PERFORMANCE:
         {
-            static int sustained_mode_handle = 0;
+            int duration = 0;
             pthread_mutex_lock(&s_interaction_lock);
             if (data && sustained_performance_mode == 0) {
-                int resources[] = {0x40804000, 1200, 0x40804100, 1200};
-                int duration = 0;
-                sustained_mode_handle = interaction_with_handle(
-                    sustained_mode_handle, duration,
-                    sizeof(resources) / sizeof(resources[0]), resources);
-                sysfs_write(GPU_MAX_FREQ_PATH, "315000000");
+                int* resources;
+                if (vr_mode == 0) { // Sustained mode only.
+                    // Ensure that POWER_HINT_LAUNCH is not in progress.
+                    if (launch_mode == 1) {
+                        release_request(launch_handle);
+                        launch_mode = 0;
+                    }
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
+                    // 0x42C20000: gpu max freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40804000, 1209, 0x40804100, 1209,
+                                       0x42C24000, 133,  0x42C20000, 315,
+                                       0x42C28000, 7759};
+                    sustained_mode_handle = interaction_with_handle(
+                        sustained_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                } else if (vr_mode == 1) { // Sustained + VR mode.
+                    release_request(vr_mode_handle);
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
+                    // 0x40800000: cpu0 min freq
+                    // 0x40800100: cpu2 min freq
+                    // 0x42C20000: gpu max freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40800000, 1209, 0x40800100, 1209,
+                                       0x40804000, 1209, 0x40804100, 1209,
+                                       0x42C24000, 315,  0x42C20000, 315,
+                                       0x42C28000, 7759};
+                    sustained_mode_handle = interaction_with_handle(
+                        sustained_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                }
                 sustained_performance_mode = 1;
             } else if (sustained_performance_mode == 1) {
                 release_request(sustained_mode_handle);
-                sysfs_write(GPU_MAX_FREQ_PATH, "624000000");
+                if (vr_mode == 1) { // Switch back to VR Mode.
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
+                    // 0x40800000: cpu0 min freq
+                    // 0x40800100: cpu2 min freq
+                    // 0x42C20000: gpu max freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40804000, 1440, 0x40804100, 1440,
+                                       0x40800000, 1440, 0x40800100, 1440,
+                                       0x42C20000, 510,  0x42C24000, 510,
+                                       0x42C28000, 7759};
+                    vr_mode_handle = interaction_with_handle(
+                        vr_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                }
                 sustained_performance_mode = 0;
+            }
+            pthread_mutex_unlock(&s_interaction_lock);
+        }
+        break;
+        /* VR mode:
+         * All CPUs are locked at ~1.4GHz
+         * GPU frequency is locked  to 510MHz
+         * GPU BW min_freq is raised to 775MHz
+         */
+        case POWER_HINT_VR_MODE:
+        {
+            int duration = 0;
+            pthread_mutex_lock(&s_interaction_lock);
+            if (data && vr_mode == 0) {
+                if (sustained_performance_mode == 0) { // VR mode only.
+                    // Ensure that POWER_HINT_LAUNCH is not in progress.
+                    if (launch_mode == 1) {
+                        release_request(launch_handle);
+                        launch_mode = 0;
+                    }
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
+                    // 0x40800000: cpu0 min freq
+                    // 0x40800100: cpu2 min freq
+                    // 0x42C20000: gpu max freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40800000, 1440, 0x40800100, 1440,
+                                       0x40804000, 1440, 0x40804100, 1440,
+                                       0x42C20000, 510,  0x42C24000, 510,
+                                       0x42C28000, 7759};
+                    vr_mode_handle = interaction_with_handle(
+                        vr_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                } else if (sustained_performance_mode == 1) { // Sustained + VR mode.
+                    release_request(sustained_mode_handle);
+                    // 0x40800000: cpu0 min freq
+                    // 0x40800100: cpu2 min freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40800000, 1209, 0x40800100, 1209,
+                                       0x42C24000, 315,  0x42C28000, 7759};
+                    vr_mode_handle = interaction_with_handle(
+                        vr_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                }
+                vr_mode = 1;
+            } else if (vr_mode == 1) {
+                release_request(vr_mode_handle);
+                if (sustained_performance_mode == 1) { // Switch back to sustained Mode.
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
+                    // 0x40800000: cpu0 min freq
+                    // 0x40800100: cpu2 min freq
+                    // 0x42C20000: gpu max freq
+                    // 0x42C24000: gpu min freq
+                    // 0x42C28000: gpu bus min freq
+                    int resources[] = {0x40800000, 0,    0x40800100, 0,
+                                       0x40804000, 1209, 0x40804100, 1209,
+                                       0x42C24000, 133,  0x42C20000, 315,
+                                       0x42C28000, 0};
+                    sustained_mode_handle = interaction_with_handle(
+                        sustained_mode_handle, duration,
+                        sizeof(resources) / sizeof(resources[0]), resources);
+                }
+                vr_mode = 0;
             }
             pthread_mutex_unlock(&s_interaction_lock);
         }
@@ -297,7 +413,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             }
 
             pthread_mutex_lock(&s_interaction_lock);
-            if (sustained_performance_mode) {
+            if (sustained_performance_mode || vr_mode) {
                 pthread_mutex_unlock(&s_interaction_lock);
                 return;
             }
