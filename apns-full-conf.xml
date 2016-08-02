@@ -7103,6 +7103,8 @@
       mnc="370"
       apn="ltedata.apn"
       type="dun"
+      mvno_match_data="DD"
+      mvno_type="gid"
       protocol="IPV4V6"
   />
 
