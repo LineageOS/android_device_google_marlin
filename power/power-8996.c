@@ -48,6 +48,8 @@
 #include "power-common.h"
 
 static int display_hint_sent;
+int launch_handle = -1;
+int launch_mode;
 
 #ifdef EXTRA_POWERHAL_HINTS
 static int process_cam_preview_hint(void *metadata)
@@ -252,10 +254,11 @@ static int process_video_encode_hint(void *metadata)
 
 static int process_activity_launch_hint(void *data)
 {
-    static int launch_handle = -1;
-    static int launch_mode;
     // boost will timeout in 5s
     int duration = 5000;
+    if (sustained_performance_mode || vr_mode) {
+        return HINT_HANDLED;
+    }
 
     ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
     if (data && launch_mode == 0) {
