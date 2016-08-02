@@ -29,6 +29,11 @@
 
 #include <cutils/properties.h>
 
+extern int launch_handle;
+extern int launch_mode;
+extern int sustained_performance_mode;
+extern int vr_mode;
+
 int sysfs_read(char *path, char *s, int num_bytes);
 int sysfs_write(char *path, char *s);
 int sysfs_get_size_in_bytes(char *path);
