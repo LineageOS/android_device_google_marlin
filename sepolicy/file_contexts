@@ -82,6 +82,7 @@
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
 /system/bin/pm-service             u:object_r:per_mgr_exec:s0
+/system/bin/pm-proxy               u:object_r:per_proxy_exec:s0
 /system/bin/rmt_storage            u:object_r:rmt_exec:s0
 /system/bin/time_daemon            u:object_r:time_exec:s0
 /system/bin/wcnss_filter           u:object_r:wcnss_filter_exec:s0
@@ -94,7 +95,6 @@
 /system/bin/loc_launcher           u:object_r:location_exec:s0
 /system/bin/location-mq            u:object_r:location_exec:s0
 /system/bin/lowi-server            u:object_r:location_exec:s0
-/system/bin/energy-awareness       u:object_r:energyawareness_exec:s0
 /vendor/bin/qseecomd               u:object_r:tee_exec:s0
 /system/bin/cnd                    u:object_r:cnd_exec:s0
 /system/bin/imsdatadaemon          u:object_r:ims_exec:s0
