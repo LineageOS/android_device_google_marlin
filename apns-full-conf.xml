@@ -7063,27 +7063,6 @@
       type="mms"
   />
 
-  <apn carrier="Internet"
-      mcc="302"
-      mnc="370"
-      apn="movil.vtr.com"
-      user="vtrmovil"
-      password="vtrmovil"
-      authtype="2"
-      type="default,supl"
-  />
-
-  <apn carrier="MMS"
-      mcc="302"
-      mnc="370"
-      apn="mms.vtr.com"
-      authtype="0"
-      mmsproxy="194.168.94.210"
-      mmsc="http://192.168.94.162:19090/was"
-      mmsport="9028"
-      type="mms"
-  />
-
   <apn carrier="Fido Internet"
       mcc="302"
       mnc="370"
