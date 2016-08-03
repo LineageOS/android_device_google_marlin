@@ -254,7 +254,6 @@ IPROUTE2 += libiprouteutil
 #IPACM
 IPACM += ipacm
 IPACM += IPACM_cfg.xml
-IPACM += ipacm-diag
 
 #IPTABLES
 IPTABLES := libiptc
