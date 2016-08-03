@@ -551,6 +551,7 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group root system wakelock
+    ioprio rt 1
 
 on property:wc_transport.start_root=true
     start hci_filter_root
