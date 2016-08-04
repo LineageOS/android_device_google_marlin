@@ -216,7 +216,8 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init.qcom.qseecomd.sh:system/bin/init.qcom.qseecomd.sh \
     device/google/marlin/init.radio.sh:system/bin/init.radio.sh \
     device/google/marlin/init.power.sh:system/bin/init.power.sh \
-    device/google/marlin/init.mid.sh:system/bin/init.mid.sh
+    device/google/marlin/init.mid.sh:system/bin/init.mid.sh \
+    device/google/marlin/init.foreground.sh:system/bin/init.foreground.sh
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
