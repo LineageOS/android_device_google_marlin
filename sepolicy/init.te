@@ -10,3 +10,6 @@ allow init sysfs_type:lnk_file read;
 allow init firmware_file:dir mounton;
 allow init persist_file:dir mounton;
 allow init userdata_block_device:blk_file { write };
+
+allow init debugfs_sps:dir search;
+allow init debugfs_sps:file w_file_perms;
