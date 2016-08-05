@@ -60,6 +60,12 @@ on post-fs-data
     mkdir /data/misc/audio_pp 0771 media audio
     mkdir /data/preloads 0775 system system
 
+    # Disable verbosity for sensorhub
+    write /d/sps/debug_level_option 4
+    write /d/sps/log_level_sel 4
+    # Write to the base address of BAM pipe
+    write /d/sps/bam_addr 122961920
+
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
