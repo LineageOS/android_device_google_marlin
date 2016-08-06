@@ -6045,7 +6045,7 @@
       mnc="07"
       apn="internet"
       mmsc="http://10.81.0.7:8002"
-      mmsproxy=""
+      mmsproxy="82.113.100.5"
       mmsport="8080"
       authtype="1"
       type="default,supl,mms"
