@@ -112,6 +112,7 @@
 /system/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
 /system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
+/system/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
 
 /system/bin/preloads_copy\.sh     u:object_r:preloads_copy_exec:s0
 
