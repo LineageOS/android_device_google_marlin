@@ -43,7 +43,6 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/cmnlib64_[ab]     u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/devcfg_[ab]       u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/hosd_[ab]         u:object_r:custom_ab_block_device:s0
-/dev/block/platform/soc/624000\.ufshc/by-name/htc_cerberus_[ab] u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/keystore_[ab]     u:object_r:custom_ab_block_device:s0
