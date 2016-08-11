@@ -37,6 +37,7 @@ void dumpstate_board()
     run_command("cpu0-1 cpuidle", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu0/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done", NULL);
     dump_file("cpu2-3 time-in-state", "/sys/devices/system/cpu/cpu2/cpufreq/stats/time_in_state");
     run_command("cpu2-3 cpuidle", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done", NULL);
+    dump_file("MDP xlogs", "/d/mdp/xlog/dump");
 
     /* Check if smlog_dump tool exist */
     if (!access("/system/bin/smlog_dump", F_OK)) {
