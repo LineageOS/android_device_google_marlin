@@ -21,7 +21,7 @@ allow boot_control_hal gpt_block_device:blk_file rw_file_perms;
 # Allow boot_control_hal to access /dev/sgN devices (generic SCSI) to write the
 # A/B slot selection for the XBL partition. Allow also to issue a
 # UFS_IOCTL_QUERY ioctl.
-allow update_engine sg_device:chr_file rw_file_perms;
+allow boot_control_hal sg_device:chr_file rw_file_perms;
 
 # Allow boot_control_hal to write to the XBL devices.
 allow boot_control_hal xbl_block_device:blk_file rw_file_perms;
