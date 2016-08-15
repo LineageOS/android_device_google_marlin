@@ -3739,6 +3739,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
@@ -3837,6 +3839,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
@@ -3860,6 +3864,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
@@ -3894,6 +3900,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
@@ -3942,6 +3950,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
@@ -4070,6 +4080,8 @@
       password="secure"
       authtype="1"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
   />
 
   <apn carrier="EE MMS"
