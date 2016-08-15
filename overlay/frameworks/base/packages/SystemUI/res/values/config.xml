@@ -37,22 +37,8 @@
     <!-- Doze: should the pickup sensor be used as a pulse signal? -->
     <bool name="doze_pulse_on_pick_up">true</bool>
 
-    <!-- Doze: a list of pickup sensor subtypes that perform a proximity check before they trigger.
-               If not empty, either * or !* must appear to specify the default.
-               If empty, falls back to doze_pickup_performs_proximity_check.
-
-               Examples: 1,2,3,!* -> subtypes 1,2 and 3 perform the check, all others don't.
-                         !1,!2,*  -> subtypes 1 and 2 don't perform the check, all others do.
-                         !8,*     -> subtype 8 does not perform the check, all others do
-                         1,1,*    -> illegal, every item may only appear once
-                         1,!1,*   -> illegal, no contradictions allowed
-                         1,2      -> illegal, need either * or !*
-                         1,,4a3   -> illegal, no empty or non-numeric terms allowed
-
-               Marlin/Sailfish subtypes:
-               8: double-tap
-    -->
-    <string name="doze_pickup_subtype_performs_proximity_check">!8,*</string>
+    <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
+    <bool name="doze_pickup_performs_proximity_check">true</bool>
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
