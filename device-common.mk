@@ -442,3 +442,9 @@ endif
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += ro.logd.size=1M
 endif
+
+# b/30022738
+# Work around janky screenrecord performance by disabling hardware composer
+# virtual displays
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_hwc_vds=1
