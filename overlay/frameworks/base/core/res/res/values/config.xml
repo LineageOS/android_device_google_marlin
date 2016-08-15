@@ -151,10 +151,6 @@
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">4</integer>
 
-    <!-- File used to enable the double touch gesture.
-         TODO: move to input HAL once ready. -->
-    <string name="config_doubleTouchGestureEnableFile">/sys/android_touch/synaptics_rmi4_dsx/wake_gesture</string>
-
     <!--  Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
 
