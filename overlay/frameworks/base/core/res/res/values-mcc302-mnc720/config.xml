@@ -26,7 +26,7 @@
          Or string format of ApnSettingV3.
          note that empty fields can be ommitted: "name,apn,,,,,,,,,310,260,,DUN" -->
     <string-array translatable="false" name="config_tether_apndata">
-        <item>[ApnSettingV3]Rogers Tethering,ltedata.apn,,,,,,,,,302,720,,DUN,IPV4V6,IP,true,,,,,,,,,</item>
+        <item>[ApnSettingV3]Rogers Tethering,ltedata.apn,,,,,,,,,302,720,,DUN,IPV4V6,IPV4V6,true,,,,,,,,,</item>
     </string-array>
 </resources>
 
