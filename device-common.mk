@@ -266,6 +266,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1
 
 PRODUCT_AAPT_CONFIG += xlarge large
+PRODUCT_CHARACTERISTICS := nosdcard
 
 # Enable camera EIS
 # eis.enable: enables electronic image stabilization
