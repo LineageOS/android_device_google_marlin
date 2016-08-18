@@ -57,6 +57,8 @@ TARGET_USES_QCOM_MM_AUDIO := true
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.marlin
 
+TARGET_AUX_OS_VARIANT_LIST := marlin
+
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
