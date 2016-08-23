@@ -1305,11 +1305,11 @@
     </path>
 
     <!-- HS RX -->
-    <!-- HS RX playback D:-10 dB, A:0 dB -->
+    <!-- HS RX playback D:-7 dB, A:0 dB -->
     <path name="headphones">
         <path name="headphones-DRE" />
-        <ctl name="RX1 Mix Digital Volume" value="74" />
-        <ctl name="RX2 Mix Digital Volume" value="74" />
+        <ctl name="RX1 Mix Digital Volume" value="77" />
+        <ctl name="RX2 Mix Digital Volume" value="77" />
         <ctl name="HPHL Volume" value="20" />
         <ctl name="HPHR Volume" value="20" />
     </path>
