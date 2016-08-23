@@ -99,7 +99,7 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
-ifeq ($(TARGET_PRODUCT),sailfish)
+ifneq ($(filter sailfish sailfishf, $(TARGET_PRODUCT)),)
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
 BOARD_SECCOMP_POLICY += device/google/marlin/seccomp
