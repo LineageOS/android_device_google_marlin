@@ -26573,13 +26573,6 @@
       type="default,supl"
   />
 
-  <apn carrier="Telstra Broadband"
-      mcc="505"
-      mnc="01"
-      apn="telstra.internet"
-      type="dun"
-   />
-
   <apn carrier="Telstra MMS"
       mcc="505"
       mnc="01"
