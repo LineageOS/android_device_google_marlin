@@ -4,8 +4,8 @@ type rmt_exec, exec_type, file_type;
 
 # STOPSHIP b/28340421
 # Temporarily grant this permission and log its use.
-allow rmt self:capability net_raw;
-auditallow rmt self:capability net_raw;
+allow rmt self:capability net_bind_service;
+auditallow rmt self:capability net_bind_service;
 
 init_daemon_domain(rmt)
 wakelock_use(rmt)
