@@ -417,7 +417,6 @@ extern const sensor_t kSensorList[] = {
         SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_SPECIAL_REPORTING_MODE,
         { NULL, NULL }
     },
-    /*
     {
         "Pickup Gesture",
         "Google",
@@ -436,7 +435,6 @@ extern const sensor_t kSensorList[] = {
         SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ONE_SHOT_MODE,
         { NULL, NULL }
     },
-    */
     {
         "Sensors Sync",
         "Google",
