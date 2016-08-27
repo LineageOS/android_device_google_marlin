@@ -524,6 +524,7 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group root system wakelock
+    ioprio rt 1
 
 service port-bridge /system/bin/port-bridge
     class main
