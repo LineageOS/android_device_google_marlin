@@ -1,11 +1,6 @@
 type cnd, domain;
 type cnd_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
-allow cnd self:capability net_raw;
-auditallow cnd self:capability net_raw;
-
 # cnd creates /dev/socket/nims
 file_type_auto_trans(cnd, socket_device, cnd_socket);
 allow cnd socket_device:dir remove_name;
@@ -15,7 +10,7 @@ net_domain(cnd)
 wakelock_use(cnd)
 
 # do not grant net_raw, net_admin, or dac_override
-allow cnd self:capability { chown fsetid setgid setuid };
+allow cnd self:capability { chown fsetid setgid setuid net_bind_service};
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(cnd)
