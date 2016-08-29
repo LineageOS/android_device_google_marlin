@@ -3407,20 +3407,11 @@
       apn="mobile.o2.co.uk"
       user="o2web"
       password="password"
-      type="default,supl"
-  />
-
-  <apn carrier="O2 MMS"
-      mcc="234"
-      mnc="10"
-      apn="wap.o2.co.uk"
-      user="o2wap"
-      password="password"
       authtype="1"
       mmsc="http://mmsc.mms.o2.co.uk:8002"
       mmsproxy="82.132.254.1"
       mmsport="8080"
-      type="mms"
+      type="default, hipri, dun, supl, mms"
   />
 
   <apn carrier="O2 Pay &amp; Go"
