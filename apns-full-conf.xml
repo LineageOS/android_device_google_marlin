@@ -3411,7 +3411,7 @@
       mmsc="http://mmsc.mms.o2.co.uk:8002"
       mmsproxy="82.132.254.1"
       mmsport="8080"
-      type="default, hipri, dun, supl, mms"
+      type="default, hipri, supl, mms"
   />
 
   <apn carrier="O2 Pay &amp; Go"
