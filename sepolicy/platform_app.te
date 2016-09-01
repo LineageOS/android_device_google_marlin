@@ -3,4 +3,9 @@ userdebug_or_eng(`
    allow platform_app diag_logs:dir rw_dir_perms;
    allow platform_app diag_logs:file create_file_perms;
    allow platform_app diag_device:chr_file rw_file_perms;
+   allow platform_app cnss_diag_data_file:dir create_dir_perms;
+   allow platform_app cnss_diag_data_file:file create_file_perms;
+   dontaudit platform_app proc_sysrq:file getattr;
+   dontaudit platform_app proc_iomem:file getattr;
+   set_prop(platform_app, cnss_diag_prop);
 ')

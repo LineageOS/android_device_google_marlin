@@ -18,4 +18,6 @@ allow cnss-daemon sysfs_msm_core:file write;
 
 userdebug_or_eng(`
   allow cnss_diag diag_device:chr_file rw_file_perms;
+  allow cnss_diag cnss_diag_data_file:dir create_dir_perms;
+  allow cnss_diag cnss_diag_data_file:file create_file_perms;
 ')

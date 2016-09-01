@@ -3,6 +3,8 @@
 on post-fs-data
     # Modem logging collection
     mkdir /data/diag_logs 0777 system system
+    # WLAN logging collection
+    mkdir /data/cnss_diag 0777 system system
 
     # Copy OEM adb_keys if /data/misc/adb/adb_keys does not exist
     copy /data/misc/adb/adb_keys /data/misc/adb/adb_keys_temp
@@ -88,3 +90,23 @@ on property:sys.usb.config=diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,ad
     write /sys/class/android_usb/android0/enable 1
     start adbd
     setprop sys.usb.state ${sys.usb.config}
+
+on property:persist.sys.cnss.diag_qxdm=true
+    start cnss_diag
+
+on property:persist.sys.cnss.diag_qxdm=false
+    stop cnss_diag
+
+on property:persist.sys.cnss.diag_txt=true
+    start cnss_diag_txt
+
+on property:persist.sys.cnss.diag_txt=false
+    stop cnss_diag_txt
+
+service cnss_diag_txt /system/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.conf
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+
