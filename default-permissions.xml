@@ -42,8 +42,8 @@
     -->
 
     <exception
-            package="com.google.android.apps.youtube.vr ">
-        <!-- Contacts -->
+            package="com.google.android.apps.youtube.vr">
+        <!-- Microphone -->
         <permission name="android.permission.RECORD_AUDIO" fixed="false"/>
     </exception>
 
