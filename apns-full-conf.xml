@@ -404,7 +404,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="0"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -420,7 +420,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="0"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -437,7 +437,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="3"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -453,7 +453,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="3"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -469,7 +469,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="2"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -486,7 +486,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="2"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -503,7 +503,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="4"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -521,7 +521,7 @@
       mvno_match_data="BAE0000000000000"
       profile_id="4"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -8087,7 +8087,7 @@
       bearer_bitmask="13|14|18"
       profile_id="0"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -8102,7 +8102,7 @@
       bearer_bitmask="13|14|18"
       profile_id="3"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -8117,7 +8117,7 @@
       bearer_bitmask="13|14|18"
       profile_id="2"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -8133,7 +8133,7 @@
       bearer_bitmask="13|14|18"
       profile_id="4"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -13938,7 +13938,7 @@
       bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="0"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
   />
 
@@ -13954,7 +13954,7 @@
       bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="3"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
       user_visible="false"
   />
@@ -13971,7 +13971,7 @@
       bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="2"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
       user_visible="false"
   />
@@ -13989,7 +13989,7 @@
       bearer_bitmask="1|2|3|9|10|11|13|14|15|18"
       profile_id="4"
       modem_cognitive="true"
-      max_conns="1023"
+      max_conns="20"
       max_conns_time="300"
       user_visible="false"
   />
