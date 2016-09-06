@@ -73,6 +73,8 @@ const char SENSOR_STRING_TYPE_DOUBLE_TWIST[] =
     "com.google.sensor.double_twist";
 const char SENSOR_STRING_TYPE_DOUBLE_TAP[] =
     "com.google.sensor.double_tap";
+const char SENSOR_STRING_TYPE_DOUBLE_TOUCH[] =
+    "com.google.sensor.double_touch";
 
 extern const sensor_t kSensorList[] = {
     {
@@ -505,6 +507,24 @@ extern const sensor_t kSensorList[] = {
         "",                                     // requiredPermission
         0,                                      // maxDelay
         SENSOR_FLAG_ON_CHANGE_MODE,
+        { NULL, NULL }
+    },
+    {
+        "Double Touch",
+        "Google",
+        kVersion,
+        COMMS_SENSOR_DOUBLE_TOUCH,
+        SENSOR_TYPE_DOUBLE_TOUCH,
+        1.0f,                                   // maxRange
+        1.0f,                                   // XXX resolution
+        0.0f,                                   // XXX power
+        -1,                                     // minDelay
+        0,                                      // XXX fifoReservedEventCount
+        0,                                      // XXX fifoMaxEventCount
+        SENSOR_STRING_TYPE_DOUBLE_TOUCH,
+        "",                                     // requiredPermission
+        0,                                      // maxDelay
+        SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ONE_SHOT_MODE,
         { NULL, NULL }
     },
 };
