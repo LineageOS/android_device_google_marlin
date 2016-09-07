@@ -25,7 +25,7 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all fstab.${ro.hardware}
+    mount_all fstab.${ro.hardware} --early
     swapon_all fstab.${ro.hardware}
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -39,6 +39,21 @@ on fs
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
+
+on late-fs
+    # Enable audio and video device for bootanim
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_slpi/boot 1
+    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+
+    # Start bootanim and its dependencies
+    start servicemanager
+    start surfaceflinger
+    start audioserver
+    start bootanim
+    # mount RW partitions which need run fsck
+    mount_all fstab.${ro.hardware} --late
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
@@ -218,8 +233,6 @@ on early-boot
     write /sys/module/pil_msa/parameters/pbl_mba_boot_timeout_ms ${persist.sys.mba_boot_timeout}
     write /sys/module/pil_msa/parameters/modem_auth_timeout_ms ${persist.sys.modem_auth_timeout}
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
-    write /sys/kernel/boot_adsp/boot 1
-    write /sys/kernel/boot_slpi/boot 1
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
 
@@ -284,9 +297,6 @@ on boot
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
     write /proc/sys/kernel/sched_boost 1
     write /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input0/update_fw 1
-
-    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
-    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
 
     # Permission for laser sensor driver
     chown camera camera /sys/class/htc_laser/laser/enable_ps_sensor
