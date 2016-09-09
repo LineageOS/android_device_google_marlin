@@ -40,6 +40,10 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
+on post-fs
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+    start qseecomd
+
 on late-fs
     # Enable audio and video device for bootanim
     write /sys/kernel/boot_adsp/boot 1
@@ -55,13 +59,11 @@ on late-fs
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
 
-on post-fs
-    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-
-    start qseecomd
-    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
-
 on post-fs-data
+    # restart qseecomd once we have /data/
+    restart qseecomd
+    # busy loop to wait for `sys.listeners.registered' prop
+    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
