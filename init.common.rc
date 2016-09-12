@@ -43,6 +43,8 @@ on fs
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
     start qseecomd
+    # busy loop to wait for qseecomd started
+    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
 
 on late-fs
     # Enable audio and video device for bootanim
@@ -62,8 +64,6 @@ on late-fs
 on post-fs-data
     # restart qseecomd once we have /data/
     restart qseecomd
-    # busy loop to wait for `sys.listeners.registered' prop
-    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
