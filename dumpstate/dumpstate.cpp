@@ -50,6 +50,8 @@ void dumpstate_board()
         /* Only SMLOG is enable, and SMLOG DUMP would be excuted */
         if (ret_val == 1) {
             run_command("SMLOG DUMP", 30, SU_PATH, "root", "smlog_dump", "-d", NULL);
+            // Remove smlog folders older than 10 days.
+            run_command("RM OLD SMLOG", 30, SU_PATH, "root", "/system/bin/sh", "-c", "find /data/smlog_* -mtime +10 -prune -delete", NULL);
         }
     }
 
