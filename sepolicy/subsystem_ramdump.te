@@ -11,4 +11,6 @@ userdebug_or_eng(`
 
   allow subsystem_ramdump ramdump_data_file:dir rw_dir_perms;
   allow subsystem_ramdump ramdump_data_file:file create_file_perms;
+
+  set_prop(subsystem_ramdump, ssr_prop)
 ')
