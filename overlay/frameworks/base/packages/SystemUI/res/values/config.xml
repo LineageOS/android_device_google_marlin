@@ -40,6 +40,9 @@
     <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
     <bool name="doze_pickup_performs_proximity_check">true</bool>
 
+    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
+    <string name="doze_double_tap_sensor_type" translatable="false">com.google.sensor.double_touch</string>
+
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
         wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,custom(com.google.android.gms/.nearby.discovery.ui.DiscoveryTileService)
