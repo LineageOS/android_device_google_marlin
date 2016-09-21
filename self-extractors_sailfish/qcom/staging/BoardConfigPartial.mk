@@ -11,12 +11,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-ifneq ($(filter sailfish,$(TARGET_DEVICE)),)
-LOCAL_STEM := sailfish/BoardConfigPartial.mk
-else
-LOCAL_STEM := marlin/BoardConfigPartial.mk
-endif
-
--include vendor/google_devices/$(LOCAL_STEM)
--include vendor/qcom/$(LOCAL_STEM)
