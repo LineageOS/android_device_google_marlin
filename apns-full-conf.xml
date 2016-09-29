@@ -3526,7 +3526,7 @@
       type="mms"
   />
 
-  <apn carrier="Vodafone UK"
+  <apn carrier="Contract WAP"
       mcc="234"
       mnc="15"
       apn="wap.vodafone.co.uk"
@@ -3539,7 +3539,7 @@
       type="default,supl,mms"
   />
 
-  <apn carrier="Vodafone UK Prepay"
+  <apn carrier="PAYG WAP"
       mcc="234"
       mnc="15"
       apn="pp.vodafone.co.uk"
