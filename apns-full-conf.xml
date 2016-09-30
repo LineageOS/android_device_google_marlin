@@ -3401,7 +3401,7 @@
       type="mms"
   />
 
-  <apn carrier="O2 Mobile Web"
+  <apn carrier="O2 Pay Monthly"
       mcc="234"
       mnc="10"
       apn="mobile.o2.co.uk"
