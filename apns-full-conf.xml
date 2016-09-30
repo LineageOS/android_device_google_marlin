@@ -9451,7 +9451,7 @@
        mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
        type="mms"
        protocol="IPV6"
-       roaming_protocol="IP"
+       roaming_protocol="IPV6"
        bearer_bitmask="18"
   />
 
