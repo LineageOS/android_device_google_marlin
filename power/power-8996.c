@@ -122,95 +122,6 @@ static void set_power_profile(int profile) {
     current_power_profile = profile;
 }
 
-#ifdef EXTRA_POWERHAL_HINTS
-static int process_cam_preview_hint(void *metadata)
-{
-    char governor[80];
-    struct cam_preview_metadata_t cam_preview_metadata;
-
-    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
-        ALOGE("Can't obtain scaling governor.");
-
-        return HINT_NONE;
-    }
-
-    /* Initialize encode metadata struct fields */
-    memset(&cam_preview_metadata, 0, sizeof(struct cam_preview_metadata_t));
-    cam_preview_metadata.state = -1;
-    cam_preview_metadata.hint_id = CAM_PREVIEW_HINT_ID;
-
-    if (metadata) {
-        if (parse_cam_preview_metadata((char *)metadata, &cam_preview_metadata) ==
-            -1) {
-            ALOGE("Error occurred while parsing metadata.");
-            return HINT_NONE;
-        }
-    } else {
-        return HINT_NONE;
-    }
-
-    if (cam_preview_metadata.state == 1) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            /* sched and cpufreq params
-             * above_hispeed_delay for LVT - 40ms
-             * go hispeed load for LVT - 95
-             * hispeed freq for LVT - 556 MHz
-             * target load for LVT - 90
-             * above hispeed delay for sLVT - 40ms
-             * go hispeed load for sLVT - 95
-             * hispeed freq for sLVT - 556 MHz
-             * target load for sLVT - 90
-             * bus DCVS set to V2 config:
-             *  low power ceil mpbs - 2500
-             *  low power io percent - 50
-             */
-            int resource_values[] = {
-                ABOVE_HISPEED_DELAY_BIG, 0x4,
-                GO_HISPEED_LOAD_BIG, 0x5F,
-                HISPEED_FREQ_BIG, 0x22C,
-                TARGET_LOADS_BIG, 0x5A,
-                ABOVE_HISPEED_DELAY_LITTLE, 0x4,
-                GO_HISPEED_LOAD_LITTLE, 0x5F,
-                HISPEED_FREQ_LITTLE, 0x22C,
-                TARGET_LOADS_LITTLE, 0x5A,
-                LOW_POWER_CEIL_MBPS, 0x9C4,
-                LOW_POWER_IO_PERCENT, 0x32,
-            };
-
-            perform_hint_action(cam_preview_metadata.hint_id,
-                    resource_values, ARRAY_SIZE(resource_values));
-            ALOGI("Cam Preview hint start");
-            return HINT_HANDLED;
-        } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(SCHED_GOVERNOR))) {
-            /*
-             * lower bus BW to save power
-             *   0x41810000: low power ceil mpbs = 2500
-             *   0x41814000: low power io percent = 50
-             */
-            int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32};
-
-            perform_hint_action(
-                cam_preview_metadata.hint_id, resource_values,
-                sizeof(resource_values) / sizeof(resource_values[0]));
-            ALOGI("Cam Preview hint start");
-            return HINT_HANDLED;
-        }
-    } else if (cam_preview_metadata.state == 0) {
-        if (((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) ||
-            ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(SCHED_GOVERNOR)))) {
-            undo_hint_action(cam_preview_metadata.hint_id);
-            ALOGI("Cam Preview hint stop");
-            return HINT_HANDLED;
-        }
-    }
-    return HINT_NONE;
-}
-#endif
-
 static int process_boost(int boost_handle, int duration)
 {
     char governor[80];
@@ -457,11 +368,6 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
             return HINT_HANDLED;
         }
     }
-
-#ifdef EXTRA_POWERHAL_HINTS
-    if (hint == POWER_HINT_CAM_PREVIEW)
-        return process_cam_preview_hint(data);
-#endif
 
     if (hint == POWER_HINT_VIDEO_ENCODE)
         return process_video_encode_hint(data);
