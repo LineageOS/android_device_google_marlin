@@ -7,6 +7,11 @@ allow init_foreground proc:file getattr;
 allow init_foreground proc_iomem:file getattr;
 allow init_foreground proc_meminfo:file getattr;
 allow init_foreground proc_sysrq:file getattr;
+dontaudit init_foreground proc_interrupts:file getattr;
+dontaudit init_foreground proc_stat:file getattr;
+dontaudit init_foreground proc_timer:file getattr;
+dontaudit init_foreground proc_zoneinfo:file getattr;
+
 allow init_foreground shell_exec:file { getattr read };
 allow init_foreground toolbox_exec:file rx_file_perms;
 
