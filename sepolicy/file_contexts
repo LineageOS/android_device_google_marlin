@@ -179,11 +179,6 @@
 /tombstones             u:object_r:rootfs:s0
 /dsp                    u:object_r:rootfs:s0
 
-# make /dev/snd/seq and /dev/snd/timer inaccessible by labeling with
-# default "device" label
-/dev/snd/seq            u:object_r:device:s0
-/dev/snd/timer          u:object_r:device:s0
-
 # /persist
 /persist(/.*)?          u:object_r:persist_file:s0
 /persist/data(/.*)?     u:object_r:persist_data_file:s0
