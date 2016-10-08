@@ -470,6 +470,10 @@ LIBQDMETADATA := libqdMetaData
 
 #LIBPOWER
 LIBPOWER := power.$(patsubst %f,%,$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT))))
+LIBPOWER += android.hardware.power@1.0-impl
+ifeq ($(ENABLE_TREBLE), true)
+LIBPOWER += android.hardware.power@1.0-service
+endif
 
 #LLVM for RenderScript
 #use qcom LLVM
