@@ -83,27 +83,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/IMS.cfg:system/etc/diag/IMS.cfg:qcom \
     vendor/qcom/sailfish/proprietary/MarlinSailfish_Radio-generic.cfg:system/etc/diag/MarlinSailfish_Radio-generic.cfg:qcom \
     vendor/qcom/sailfish/proprietary/wlan.cfg:system/etc/diag/wlan.cfg:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b00:system/etc/firmware/cmnlib64.b00:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b01:system/etc/firmware/cmnlib64.b01:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b02:system/etc/firmware/cmnlib64.b02:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b03:system/etc/firmware/cmnlib64.b03:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b04:system/etc/firmware/cmnlib64.b04:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.b05:system/etc/firmware/cmnlib64.b05:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib64.mdt:system/etc/firmware/cmnlib64.mdt:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b00:system/etc/firmware/cmnlib.b00:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b01:system/etc/firmware/cmnlib.b01:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b02:system/etc/firmware/cmnlib.b02:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b03:system/etc/firmware/cmnlib.b03:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b04:system/etc/firmware/cmnlib.b04:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.b05:system/etc/firmware/cmnlib.b05:qcom \
-    vendor/qcom/sailfish/proprietary/cmnlib.mdt:system/etc/firmware/cmnlib.mdt:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b00:system/etc/firmware/cppf.b00:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b01:system/etc/firmware/cppf.b01:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b02:system/etc/firmware/cppf.b02:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b03:system/etc/firmware/cppf.b03:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b04:system/etc/firmware/cppf.b04:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b05:system/etc/firmware/cppf.b05:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.b06:system/etc/firmware/cppf.b06:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_10_0.fw:system/etc/firmware/cpp_firmware_v1_10_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_1_1.fw:system/etc/firmware/cpp_firmware_v1_1_1.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_1_6.fw:system/etc/firmware/cpp_firmware_v1_1_6.fw:qcom \
@@ -113,7 +92,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_5_2.fw:system/etc/firmware/cpp_firmware_v1_5_2.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_6_0.fw:system/etc/firmware/cpp_firmware_v1_6_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_8_0.fw:system/etc/firmware/cpp_firmware_v1_8_0.fw:qcom \
-    vendor/qcom/sailfish/proprietary/cppf.mdt:system/etc/firmware/cppf.mdt:qcom \
     vendor/qcom/sailfish/proprietary/nvm_tlv_1.3.bin:system/etc/firmware/nvm_tlv_1.3.bin:qcom \
     vendor/qcom/sailfish/proprietary/nvm_tlv_2.1.bin:system/etc/firmware/nvm_tlv_2.1.bin:qcom \
     vendor/qcom/sailfish/proprietary/nvm_tlv_3.0.bin:system/etc/firmware/nvm_tlv_3.0.bin:qcom \
@@ -125,14 +103,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/rampatch_tlv_3.2.tlv:system/etc/firmware/rampatch_tlv_3.2.tlv:qcom \
     vendor/qcom/sailfish/proprietary/rampatch_tlv.img:system/etc/firmware/rampatch_tlv.img:qcom \
     vendor/qcom/sailfish/proprietary/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b00:system/etc/firmware/widevine.b00:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b01:system/etc/firmware/widevine.b01:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b02:system/etc/firmware/widevine.b02:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b03:system/etc/firmware/widevine.b03:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b04:system/etc/firmware/widevine.b04:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b05:system/etc/firmware/widevine.b05:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.b06:system/etc/firmware/widevine.b06:qcom \
-    vendor/qcom/sailfish/proprietary/widevine.mdt:system/etc/firmware/widevine.mdt:qcom \
     vendor/qcom/sailfish/proprietary/flp.conf:system/etc/flp.conf:qcom \
     vendor/qcom/sailfish/proprietary/izat.conf:system/etc/izat.conf:qcom \
     vendor/qcom/sailfish/proprietary/lowi.conf:system/etc/lowi.conf:qcom \
