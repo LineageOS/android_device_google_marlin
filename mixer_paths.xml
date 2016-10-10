@@ -1128,13 +1128,11 @@
 
     <!-- Phone SPK RX -->
     <path name="voice-speaker">
-        <ctl name="QUAT_MI2S BitWidth" value="S16_LE" />
         <ctl name="spk Profile" value="voice" />
     </path>
 
     <!-- Phone SPK RX -->
     <path name="voice-speaker-hfp">
-        <ctl name="QUAT_MI2S BitWidth" value="S16_LE" />
         <ctl name="spk Profile" value="voice" />
     </path>
 
