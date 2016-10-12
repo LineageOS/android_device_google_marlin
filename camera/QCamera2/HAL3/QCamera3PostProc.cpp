@@ -1185,7 +1185,6 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
         // create jpeg encoding session
         mm_jpeg_encode_params_t encodeParam;
         memset(&encodeParam, 0, sizeof(mm_jpeg_encode_params_t));
-        encodeParam.main_dim.src_dim = src_dim;
         encodeParam.main_dim.dst_dim = dst_dim;
         encodeParam.thumb_dim.src_dim = src_dim;
         encodeParam.thumb_dim.dst_dim = jpeg_settings->thumbnail_size;
@@ -1195,6 +1194,13 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
         }
 
         getFWKJpegEncodeConfig(encodeParam, recvd_frame, jpeg_settings);
+        QCamera3StreamMem *memObj = (QCamera3StreamMem *)(recvd_frame->input_buffer.mem_info);
+        if (NULL == memObj) {
+            LOGE("Memeory Obj of main frame is NULL");
+            return NO_MEMORY;
+        }
+        // clean and invalidate cache ops through mem obj of the frame
+        memObj->cleanInvalidateCache(recvd_frame->input_buffer.buf_idx);
         LOGH("#src bufs:%d # tmb bufs:%d #dst_bufs:%d",
                      encodeParam.num_src_bufs,encodeParam.num_tmb_bufs,encodeParam.num_dst_bufs);
 
