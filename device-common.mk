@@ -189,7 +189,10 @@ PRODUCT_COPY_FILES += \
 TARGET_USES_NANOHUB_SENSORHAL := true
 NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
 NANOHUB_SENSORHAL_SENSORLIST := $(LOCAL_PATH)/sensorhal/sensorlist.cpp
-PRODUCT_PACKAGES += context_hub.default
+
+PRODUCT_PACKAGES += \
+    context_hub.default \
+    android.hardware.sensors@1.0-impl
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
