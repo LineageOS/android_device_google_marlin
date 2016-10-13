@@ -412,6 +412,15 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl
 
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-service
+endif
+
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.notify_nfc=1
