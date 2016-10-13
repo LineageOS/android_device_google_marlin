@@ -39,6 +39,7 @@ void dumpstate_board()
     ds.DumpFile("cpu2-3 time-in-state", "/sys/devices/system/cpu/cpu2/cpufreq/stats/time_in_state");
     ds.RunCommand("cpu2-3 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"}, CommandOptions::AS_ROOT_5);
     ds.DumpFile("MDP xlogs", "/d/mdp/xlog/dump");
+    ds.RunCommand("RAMDUMP LIST", {"/system/bin/sh", "-c", "cat /data/data/com.android.ramdump/files/RAMDUMP_LIST"}, CommandOptions::AS_ROOT_5);
 
     /* Check if smlog_dump tool exist */
     if (!access("/system/bin/smlog_dump", F_OK)) {
