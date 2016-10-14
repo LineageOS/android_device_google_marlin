@@ -477,3 +477,8 @@ endif
 # virtual displays
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_hwc_vds=1
+
+# b/32109329
+# Workaround for audio glitches
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.adm.buffering.ms=3
