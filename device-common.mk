@@ -380,6 +380,10 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
 
+# HW Composer
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl
+
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.notify_nfc=1
