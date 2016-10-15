@@ -1,1 +1,0 @@
-allowxperm racoon self:udp_socket ioctl { SIOCSIFFLAGS SIOCSIFADDR };
