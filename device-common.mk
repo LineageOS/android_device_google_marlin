@@ -263,7 +263,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable SM log mechanism by default
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.smlog_switch=1
+    persist.radio.smlog_switch=1 \
+    ro.radio.log_prefix="htc_smlog_"
 endif
 
 # Set snapshot timer to 3 second

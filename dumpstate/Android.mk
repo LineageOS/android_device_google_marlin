@@ -19,6 +19,8 @@ include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := frameworks/native/cmds/dumpstate
 
+LOCAL_STATIC_LIBRARIES := libbase
+
 LOCAL_SRC_FILES := dumpstate.cpp
 
 LOCAL_MODULE := libdumpstate.$(TARGET_DEVICE)

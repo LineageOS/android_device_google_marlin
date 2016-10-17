@@ -16,16 +16,52 @@
 
 #include <dumpstate.h>
 #include <cutils/properties.h>
+#include <libgen.h>
 #include <stdlib.h>
+#include <string>
+#include <android-base/properties.h>
+
+#define LOG_TAG "dumpstate"
+#include <cutils/log.h>
+
+#define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
+#define MODEM_LOGGING_SWITCH "persist.radio.smlog_switch"
+
+static void getModemLogs(Dumpstate &ds)
+{
+    bool modemLogsEnabled = 0;
+
+    /* Check if smlog_dump tool exist */
+    if (!ds.IsUserBuild() && !access("/system/bin/smlog_dump", F_OK)) {
+        modemLogsEnabled = android::base::GetBoolProperty(MODEM_LOGGING_SWITCH, false);
+
+        /* Execute SMLOG DUMP if SMLOG is enabled */
+        if (modemLogsEnabled && !ds.GetPath("").empty()) {
+            std::string bugreportDir = dirname(ds.GetPath("").c_str());
+            CommandOptions options = CommandOptions::WithTimeout(120).AsRoot().Build();
+            ds.RunCommand("SMLOG DUMP", { "smlog_dump", "-d", "-o", bugreportDir.c_str() }, options);
+
+            // Remove smlog folders older than 10 days.
+            std::string filePrefix = android::base::GetProperty(MODEM_LOG_PREFIX_PROPERTY, "");
+            if (!filePrefix.empty()) {
+
+                std::string removeCommand = "find " +
+                    bugreportDir + "/" + filePrefix + "* -mtime +10 -prune -delete";
+
+                ds.RunCommand("RM OLD SMLOG",
+                              { "/system/bin/sh", "-c", removeCommand.c_str()},
+                              CommandOptions::AS_ROOT_5);
+            }
+        }
+    }
+}
+
 
 void dumpstate_board()
 {
-    char prop_str[PROPERTY_VALUE_MAX];
-    int len;
-    char *end_ptr;
-    unsigned long ret_val = 0;
     Dumpstate& ds = Dumpstate::GetInstance();
 
+    getModemLogs(ds);
     ds.DumpFile("CPU present", "/sys/devices/system/cpu/present");
     ds.DumpFile("CPU online", "/sys/devices/system/cpu/online");
     ds.DumpFile("RPM Stats", "/d/rpm_stats");
@@ -40,23 +76,6 @@ void dumpstate_board()
     ds.RunCommand("cpu2-3 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"}, CommandOptions::AS_ROOT_5);
     ds.DumpFile("MDP xlogs", "/d/mdp/xlog/dump");
     ds.RunCommand("RAMDUMP LIST", {"/system/bin/sh", "-c", "cat /data/data/com.android.ramdump/files/RAMDUMP_LIST"}, CommandOptions::AS_ROOT_5);
-
-    /* Check if smlog_dump tool exist */
-    if (!access("/system/bin/smlog_dump", F_OK)) {
-        property_get("persist.radio.smlog_switch" ,prop_str,"");
-        len = strlen(prop_str);
-        if (len > 0) {
-            ret_val = strtoul( prop_str, &end_ptr, 0 );
-        }
-
-        /* Only SMLOG is enable, and SMLOG DUMP would be excuted */
-        if (ret_val == 1) {
-            CommandOptions options = CommandOptions::WithTimeout(30).AsRoot().Build();
-            ds.RunCommand("SMLOG DUMP", { "smlog_dump", "-d"}, options);
-            // Remove smlog folders older than 10 days.
-            ds.RunCommand("RM OLD SMLOG", { "/system/bin/sh", "-c", "find /data/smlog_* -mtime +10 -prune -delete"}, options);
-        }
-    }
 
     /* Check if qsee_logger tool exists */
     if (!access("/system/bin/qsee_logger", F_OK)) {
