@@ -638,13 +638,13 @@ PRODUCT_PACKAGES := \
     DeskClock \
     AlarmProvider \
     Bluetooth \
-    Calculator \
     Calendar \
     Camera \
     CellBroadcastReceiver \
     CertInstaller \
     DrmProvider \
     Email \
+	ExactCalculator \
     Gallery2 \
     LatinIME \
     Mms \
