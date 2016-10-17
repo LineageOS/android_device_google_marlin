@@ -15,15 +15,62 @@
  */
 
 #include <dumpstate.h>
-#include <cutils/properties.h>
 #include <stdlib.h>
+#include <string>
+#include <cutils/properties.h>
+
+#define LOG_TAG "dumpstate"
+#include <cutils/log.h>
+
+#define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
+#define MODEM_LOGGING_SWITCH "persist.radio.smlog_switch"
+
+static std::string get_property_value (const std::string& property_name) {
+
+    char property[PROPERTY_VALUE_MAX];
+    property_get (property_name.c_str(), property, "");
+
+    return property;
+}
+
+/*
+ * Returns true if the system property `key` has the value "1", "y", "yes",
+ * "on", or "true", false for "0", "n", "no", "off", or "false",
+ * or `default_value` otherwise.
+ */
+static bool get_bool_property_value (const std::string& property_name,
+                                     bool default_value) {
+    std::string value = get_property_value(property_name);
+    if (value == "1" || value == "y" || value == "yes" || value == "on" || value == "true") {
+        return true;
+    } else if (value == "0" || value == "n" || value == "no" || value == "off" || value == "false") {
+        return false;
+    }
+    return default_value;
+}
 
 void dumpstate_board()
 {
-    char prop_str[PROPERTY_VALUE_MAX];
-    int len;
-    char *end_ptr;
-    unsigned long ret_val = 0;
+    /* Check if smlog_dump tool exist */
+    if (!is_user_build() && !access("/system/bin/smlog_dump", F_OK)) {
+        bool modem_logging_enabled = get_bool_property_value (MODEM_LOGGING_SWITCH, false);
+
+        /* Execute SMLOG DUMP if SMLOG is enabled */
+        if (modem_logging_enabled && !bugreport_dir.empty()) {
+            run_command("SMLOG DUMP", 120, SU_PATH, "root", "smlog_dump", "-d",
+                        "-o", bugreport_dir.c_str(), NULL);
+
+            // Remove smlogs older than 10 days
+            std::string file_prefix = get_property_value (MODEM_LOG_PREFIX_PROPERTY);
+            if (!file_prefix.empty()) {
+                std::string remove_command = "find " +
+                    bugreport_dir + "/" + file_prefix + "* -mtime +10 -prune -delete";
+                MYLOGD("Removing old logs using command %s\n", remove_command.c_str());
+                run_command("RM OLD SMLOG", 5, SU_PATH,
+                            "root", "/system/bin/sh", "-c", remove_command.c_str(), NULL);
+            }
+        }
+    }
 
     dump_file("CPU present", "/sys/devices/system/cpu/present");
     dump_file("CPU online", "/sys/devices/system/cpu/online");
@@ -38,20 +85,6 @@ void dumpstate_board()
     dump_file("cpu2-3 time-in-state", "/sys/devices/system/cpu/cpu2/cpufreq/stats/time_in_state");
     run_command("cpu2-3 cpuidle", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done", NULL);
     dump_file("MDP xlogs", "/d/mdp/xlog/dump");
-
-    /* Check if smlog_dump tool exist */
-    if (!access("/system/bin/smlog_dump", F_OK)) {
-        property_get("persist.radio.smlog_switch" ,prop_str,"");
-        len = strlen(prop_str);
-        if (len > 0) {
-            ret_val = strtoul( prop_str, &end_ptr, 0 );
-        }
-
-        /* Only SMLOG is enable, and SMLOG DUMP would be excuted */
-        if (ret_val == 1) {
-            run_command("SMLOG DUMP", 30, SU_PATH, "root", "smlog_dump", "-d", NULL);
-        }
-    }
 
     /* Check if qsee_logger tool exists */
     if (!access("/system/bin/qsee_logger", F_OK)) {
