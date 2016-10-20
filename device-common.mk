@@ -266,6 +266,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.smlog_switch=1
 endif
 
+# Set snapshot timer to 3 second
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.snapshot_enabled=1 \
+    persist.radio.snapshot_timer=3
+
 # IMS over WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true
