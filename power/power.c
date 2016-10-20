@@ -369,12 +369,18 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                         sizeof(resources) / sizeof(resources[0]), resources);
                 } else if (sustained_performance_mode == 1) { // Sustained + VR mode.
                     release_request(sustained_mode_handle);
+                    // 0x40804000: cpu0 max freq
+                    // 0x40804100: cpu2 max freq
                     // 0x40800000: cpu0 min freq
                     // 0x40800100: cpu2 min freq
+                    // 0x42C20000: gpu max freq
                     // 0x42C24000: gpu min freq
                     // 0x42C28000: gpu bus min freq
                     int resources[] = {0x40800000, 1209, 0x40800100, 1209,
-                                       0x42C24000, 315,  0x42C28000, 7759};
+                                       0x40804000, 1209, 0x40804100, 1209,
+                                       0x42C24000, 315,  0x42C20000, 315,
+                                       0x42C28000, 7759};
+
                     vr_mode_handle = interaction_with_handle(
                         vr_mode_handle, duration,
                         sizeof(resources) / sizeof(resources[0]), resources);
