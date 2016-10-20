@@ -100,3 +100,10 @@ done
 # Enable all LPMs by default
 # This will enable C4, D4, D3, E4 and M3 LPMs
 write /sys/module/lpm_levels/parameters/sleep_disabled N
+
+# On debuggable builds, enable console_suspend if uart is enabled to save power
+# Otherwise, disable console_suspend to get better logging for kernel crashes
+if [[ $(getprop ro.debuggable) == "1" && ! -e /sys/class/tty/ttyHSL0 ]]
+then
+    write /sys/module/printk/parameters/console_suspend N
+fi
