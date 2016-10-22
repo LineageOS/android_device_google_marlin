@@ -385,6 +385,15 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
 
+# VR
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-service
+endif
+
 # HW Composer
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl
