@@ -19,8 +19,6 @@ include $(CLEAR_VARS)
 
 LOCAL_STATIC_LIBRARIES := libdumpstateheaders
 
-LOCAL_STATIC_LIBRARIES := libbase
-
 LOCAL_SRC_FILES := dumpstate.cpp
 
 LOCAL_MODULE := libdumpstate.$(TARGET_DEVICE)
