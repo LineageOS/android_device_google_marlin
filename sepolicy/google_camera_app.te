@@ -29,3 +29,9 @@ allow google_camera_app adsprpcd_device:chr_file { r_file_perms };
 # Motivating case was /data/data/com.android.settings/cache/*.jpg for
 # cropping or taking user photos.
 allow google_camera_app system_app_data_file:file { read write getattr };
+
+# Access to /data/media.
+# This should be removed if sdcardfs is modified to alter the secontext for its
+# accesses to the underlying FS.
+allow google_camera_app media_rw_data_file:dir create_dir_perms;
+allow google_camera_app media_rw_data_file:file create_file_perms;
