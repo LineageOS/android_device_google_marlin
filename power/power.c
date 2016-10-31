@@ -419,8 +419,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 pthread_mutex_unlock(&s_interaction_lock);
                 return;
             }
-            pthread_mutex_unlock(&s_interaction_lock);
-
 
             int duration = 1500; // 1.5s by default
             if (data) {
@@ -433,7 +431,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             struct timespec cur_boost_timespec;
             clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
 
-            pthread_mutex_lock(&s_interaction_lock);
             long long elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
             // don't hint if previous hint's duration covers this hint's duration
             if ((s_previous_duration * 1000) > (elapsed_time + duration * 1000)) {
@@ -442,7 +439,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             }
             s_previous_boost_timespec = cur_boost_timespec;
             s_previous_duration = duration;
-            pthread_mutex_unlock(&s_interaction_lock);
 
             // Scheduler is EAS.
             if (true || strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
@@ -454,6 +450,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 int resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
                 interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
             }
+            pthread_mutex_unlock(&s_interaction_lock);
         }
         break;
         case POWER_HINT_VIDEO_ENCODE:
