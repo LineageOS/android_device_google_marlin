@@ -30,57 +30,59 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <string>
+#include <vector>
+
 #include "edify/expr.h"
 #include "dec.h"
 #include "gpt-utils.h"
 
 Value* DecryptFn(const char* name, State* state, int argc, Expr* argv[]) {
     int rc = -1;
-    char *src_file, *dst_file;
 
     if (argc != 2)
         return ErrorAbort(state, "%s expects 2 args, got %d", name, argc);
 
-    if (ReadArgs(state, argv, 2, &src_file, &dst_file))
+    std::vector<std::string> args;
+    if (!ReadArgs(state, argc, argv, &args))
         return NULL;
+    const std::string& src_file = args[0];
+    const std::string& dst_file = args[1];
 
-    rc = decrypt_image(src_file, dst_file);
+    rc = decrypt_image(src_file.c_str(), dst_file.c_str());
 
-    free(src_file);
-    free(dst_file);
-
-    return StringValue(strdup(rc >= 0 ? "t" : ""));
+    return StringValue(rc >= 0 ? "t" : "");
 }
 
 Value* BootUpdateFn(const char* name, State* state, int argc, Expr* argv[])
 {
     int rc = 0;
-    char *stageStr;
     enum boot_update_stage stage;
 
     if (argc != 1)
         return ErrorAbort(state, "%s() expects 1 args, got %d", name, argc);
 
-    if (ReadArgs(state, argv, 1, &stageStr))
+    std::vector<std::string> args;
+    if (!ReadArgs(state, argc, argv, &args))
         return NULL;
 
-    if (!strcmp(stageStr, "main"))
+    const std::string& stageStr = args[0];
+    if (stageStr == "main")
         stage = UPDATE_MAIN;
-    else if (!strcmp(stageStr, "backup"))
+    else if (stageStr == "backup")
         stage = UPDATE_BACKUP;
-    else if (!strcmp(stageStr, "finalize"))
+    else if (stageStr == "finalize")
         stage = UPDATE_FINALIZE;
     else {
         fprintf(stderr, "Unrecognized boot update stage, exitting\n");
         rc = -1;
     }
 
-    free(stageStr);
-
     if (!rc)
         rc = prepare_boot_update(stage);
 
-    return StringValue(strdup(rc ? "" : "t"));
+    return StringValue(rc ? "" : "t");
 }
 
 void Register_librecovery_updater_msm() {
