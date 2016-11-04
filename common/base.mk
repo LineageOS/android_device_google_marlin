@@ -396,6 +396,7 @@ LIBMEMTRACK += memtrack.mpq8092
 LIBMEMTRACK += memtrack.msm8996
 LIBMEMTRACK += memtrack.msm8952
 LIBMEMTRACK += memtrack.msm8937
+LIBMEMTRACK += android.hardware.memtrack@1.0-impl
 
 #LIBLIGHTS
 LIBLIGHTS := lights.msm8660
