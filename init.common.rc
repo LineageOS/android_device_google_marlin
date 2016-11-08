@@ -26,6 +26,13 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all fstab.${ro.hardware} --early
+
+    start qseecomd
+    # Busy loop to wait for qseecomd started
+    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
+    # Start devices by sysfs trigger
+    start devstart_sh
+
     swapon_all fstab.${ro.hardware}
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -42,35 +49,23 @@ on fs
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-    start qseecomd
-    # busy loop to wait for qseecomd started
-    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
 
 on late-fs
-    # Enable audio and video device for bootanim
-    write /sys/kernel/boot_adsp/boot 1
-    write /sys/kernel/boot_slpi/boot 1
-    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
-    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
-
-    # Start bootanim and its dependencies
+    # Start servicemanager for faster bootanim
     start servicemanager
-    start surfaceflinger
-    start audioserver
-    start bootanim
+    trigger show-animation
+
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
 
     # boot time fs tune
+    write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/iosched/iostats 0
     write /sys/block/sda/queue/read_ahead_kb 2048
     write /sys/block/sda/queue/nr_requests 256
     write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-0/queue/nr_requests 256
     write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/nr_requests 256
 
 on post-fs-data
     # restart qseecomd once we have /data/
@@ -243,6 +238,8 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
+    # Busy loop to wait for devices booted by devstart_sh just in case device not ready
+    exec - root root system -- /system/bin/init.qcom.devwait.sh
 
 on boot
     exec - root root system -- /system/bin/init.power.sh
@@ -301,6 +298,10 @@ on boot
     # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
+
+    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
 
@@ -657,13 +658,11 @@ on property:sys.boot_completed=1
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
     # end boot time fs tune
-    write /sys/block/sda/queue/iosched/iostats 1
     write /sys/block/sda/queue/read_ahead_kb 128
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/dm-0/queue/nr_requests 128
     write /sys/block/dm-1/queue/read_ahead_kb 128
-    write /sys/block/dm-1/queue/nr_requests 128
+    write /sys/block/sda/queue/iostats 1
 
 # battery driver settings for the retail demo environment where
 # the device will be perpertually plugged in to a power source
@@ -672,3 +671,16 @@ on property:sys.retaildemo.enabled=1
 
 on property:sys.retaildemo.enabled=0
     write /sys/class/power_supply/battery/full_level_dis_batt_chg 100
+
+service devstart_sh /system/bin/init.qcom.devstart.sh
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on show-animation && property:sys.qcom.devup=1
+    # Start bootanim and its dependencies
+    start surfaceflinger
+    start audioserver
+    start bootanim
