@@ -10,7 +10,7 @@ on charger
 
 service charger /charger
     class charger
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
