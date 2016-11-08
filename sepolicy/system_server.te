@@ -1,5 +1,8 @@
 # in addition to ioctl commands granted to domain allow system_server to use:
 allowxperm system_server self:udp_socket ioctl priv_sock_ioctls;
+
+# At a minimum, used for GPS (b/32290392)
+allow system_server self:socket ioctl; # create already in core policy
 allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
