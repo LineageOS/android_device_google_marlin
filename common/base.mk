@@ -844,5 +844,5 @@ SKIP_BOOT_JARS_CHECK := true
 
 #TODO: always adb.secure ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-    ro.adb.secure=1
+    ro.adb.secure=0
 #endif
