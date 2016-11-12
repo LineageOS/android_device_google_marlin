@@ -111,6 +111,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
+PRODUCT_PACKAGES += \
+    android.hardware.audio.effect@2.0-impl
+
 # set audio fluence, ns, aec property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluencepro \
