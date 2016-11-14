@@ -3,7 +3,7 @@
 
 # Getting and setting GPT attributes for the bootloader iterates over all the
 # partition names in the block_device directory /dev/block/.../by-name
-allow boot_control_hal block_device:dir { open read };
+allow boot_control_hal block_device:dir r_dir_perms;
 
 # Allow boot_control_hal to get attributes on all the A/B partitions.
 allow boot_control_hal {
@@ -22,6 +22,11 @@ allow boot_control_hal gpt_block_device:blk_file rw_file_perms;
 # A/B slot selection for the XBL partition. Allow also to issue a
 # UFS_IOCTL_QUERY ioctl.
 allow boot_control_hal sg_device:chr_file rw_file_perms;
+
+# Allow boot control to read the sysfs to lookup what /dev/sgN device
+# corresponds to the XBL partitions.
+allow boot_control_hal sysfs:file r_file_perms;
+allow boot_control_hal sysfs:dir r_dir_perms;
 
 # Allow boot_control_hal to write to the XBL devices.
 allow boot_control_hal xbl_block_device:blk_file rw_file_perms;
