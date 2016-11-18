@@ -119,7 +119,6 @@
             system/lib64/libloc_ds_api.so \
             system/lib64/libloc_eng.so \
             system/lib64/libminui.so \
-            system/lib64/librilqmiservices.so \
             system/lib64/libtinyxml.so \
             system/lib64/libwifi-hal-qcom.so \
             system/lib/hw/gps.default.so \
@@ -131,7 +130,6 @@
             system/lib/libloc_eng.so \
             system/lib/libminui.so \
             system/lib/libmm-qcamera.so \
-            system/lib/librilqmiservices.so \
             system/lib/libtinyxml.so \
             system/usr/qfipsverify/bootimg.hmac \
             system/usr/qfipsverify/qfipsverify.hmac \
