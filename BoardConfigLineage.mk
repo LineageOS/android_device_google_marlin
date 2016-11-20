@@ -16,6 +16,9 @@ TARGET_KERNEL_SOURCE := kernel/google/marlin
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
+# Hardware
+BOARD_USES_CYANOGEN_HARDWARE := true
+
 # Sepolicy
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 

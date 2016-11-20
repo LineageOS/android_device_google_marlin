@@ -9,6 +9,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager
 
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
 # NFC
 PRODUCT_PACKAGES += \
     nfc_nci.pn54x.default
