@@ -12,6 +12,10 @@ PRODUCT_PACKAGES += Gello
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager
 
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
