@@ -116,7 +116,10 @@ PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio.effect@2.0-impl
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
 
 # set audio fluence, ns, aec property
 PRODUCT_PROPERTY_OVERRIDES += \
