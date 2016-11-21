@@ -206,7 +206,8 @@ NANOHUB_SENSORHAL_SENSORLIST := $(LOCAL_PATH)/sensorhal/sensorlist.cpp
 
 PRODUCT_PACKAGES += \
     context_hub.default \
-    android.hardware.sensors@1.0-impl
+    android.hardware.sensors@1.0-impl \
+    android.hardware.contexthub@1.0-impl \
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
