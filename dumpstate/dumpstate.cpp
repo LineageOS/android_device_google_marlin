@@ -63,13 +63,15 @@ void dumpstate_board()
             // Remove smlogs older than 10 days
             std::string file_prefix = get_property_value (MODEM_LOG_PREFIX_PROPERTY);
             if (!file_prefix.empty()) {
-                std::string remove_command = "find " +
-                    bugreport_dir + "/" + file_prefix + "* -mtime +10 -prune -delete";
+                std::string remove_command = "/system/bin/find " +
+                    bugreport_dir + "/" + file_prefix + "* -mtime +10 -delete";
                 MYLOGD("Removing old logs using command %s\n", remove_command.c_str());
                 run_command("RM OLD SMLOG", 5, SU_PATH,
                             "root", "/system/bin/sh", "-c", remove_command.c_str(), NULL);
             }
         }
+        run_command("RM OLD SMLOG", 5, SU_PATH, "root", "/system/bin/sh", "-c",
+                    "/system/bin/find /data/smlog_* -delete", NULL);
     }
 
     dump_file("CPU present", "/sys/devices/system/cpu/present");
