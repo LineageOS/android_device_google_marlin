@@ -7178,6 +7178,14 @@
       roaming_protocol="IP"
   />
 
+  <apn carrier="Bell Mobility IMS"
+      mcc="302"
+      mnc="610"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
+  />
+
   <apn carrier="Virgin Mobile"
       mcc="302"
       mnc="610"
@@ -7199,6 +7207,14 @@
       authtype="2"
       mvno_type="gid"
       mvno_match_data="62"
+  />
+
+  <apn carrier="Bell Mobility Test IMS"
+      mcc="302"
+      mnc="640"
+      apn="ims"
+      type="ims"
+      protocol="IPV4V6"
   />
 
   <apn carrier="MTS"
