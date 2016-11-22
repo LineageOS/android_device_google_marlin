@@ -45,14 +45,17 @@ static void getModemLogs(Dumpstate &ds)
             std::string filePrefix = android::base::GetProperty(MODEM_LOG_PREFIX_PROPERTY, "");
             if (!filePrefix.empty()) {
 
-                std::string removeCommand = "find " +
-                    bugreportDir + "/" + filePrefix + "* -mtime +10 -prune -delete";
+                std::string removeCommand = "/system/bin/find " +
+                    bugreportDir + "/" + filePrefix + "* -mtime +10 -delete";
 
                 ds.RunCommand("RM OLD SMLOG",
                               { "/system/bin/sh", "-c", removeCommand.c_str()},
                               CommandOptions::AS_ROOT_5);
             }
         }
+        ds.RunCommand("RM OLD SMLOG",
+                      { "/system/bin/sh", "-c", "/system/bin/find /data/smlog_* -delete" },
+                      CommandOptions::AS_ROOT_5);
     }
 }
 
