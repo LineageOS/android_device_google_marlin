@@ -195,6 +195,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/spn-conf.xml:system/etc/spn-conf.xml
 
+# new gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl
+
 # Common sensor packages
 TARGET_USES_NANOHUB_SENSORHAL := true
 NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
@@ -394,8 +398,10 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl
 
 ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-service
+PRODUCT_PACKAGES +=                         \
+    android.hardware.nfc@1.0-service        \
+    android.hardware.gatekeeper@1.0-service \
+
 endif
 
 # Vibrator
