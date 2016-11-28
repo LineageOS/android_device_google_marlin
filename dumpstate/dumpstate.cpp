@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#define LOG_TAG "dumpstate"
+
 #include <dumpstate.h>
 #include <cutils/properties.h>
 #include <libgen.h>
@@ -21,7 +23,6 @@
 #include <string>
 #include <android-base/properties.h>
 
-#define LOG_TAG "dumpstate"
 #include <cutils/log.h>
 
 #define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
