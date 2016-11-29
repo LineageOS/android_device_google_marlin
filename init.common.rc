@@ -13,8 +13,9 @@ service charger /charger
     seclabel u:r:healthd:s0
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
+    restorecon --recursive /sys/kernel/tracing
 
 on init
     # Support legacy paths
