@@ -61,6 +61,15 @@ on late-fs
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
 
+    # boot time fs tune
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+
 on post-fs-data
     # restart qseecomd once we have /data/
     restart qseecomd
@@ -706,7 +715,12 @@ on property:sys.boot_completed=1
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
-
+    # end boot time fs tune
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/iostats 1
 
 # battery driver settings for the retail demo environment where
 # the device will be perpertually plugged in to a power source
