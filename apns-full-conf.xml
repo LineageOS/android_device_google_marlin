@@ -3409,7 +3409,7 @@
       password="password"
       authtype="1"
       mmsc="http://mmsc.mms.o2.co.uk:8002"
-      type="default, hipri, supl, mms"
+      type="default,hipri,supl,mms"
   />
 
   <apn carrier="O2 Pay &amp; Go"
@@ -26786,7 +26786,7 @@
       mmsproxy="10.0.0.172"
       mmsport="80"
       mmsc="http://mmsc.myuni.com.cn"
-      type="default, mms"/>
+      type="default,mms"/>
 
   <apn carrier="ctlte"
       mcc="460"
