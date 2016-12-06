@@ -348,6 +348,15 @@
      mvno_type="imsi"
   />
 
+  <apn carrier="Jump Roam"
+      mcc="204"
+      mnc="04"
+      apn="mobiledata"
+      authtype="0"
+      mvno_type="spn"
+      mvno_match_data="Jump"
+  />
+
   <apn carrier="Truphone"
       mcc="204"
       mnc="04"
@@ -3495,6 +3504,15 @@
       mmsport="8080"
       mvno_type="spn"
       mvno_match_data="giffgaff"
+  />
+
+  <apn carrier="Jump UK"
+      mcc="234"
+      mnc="10"
+      apn="mobiledata"
+      authtype="0"
+      mvno_type="spn"
+      mvno_match_data="Jump"
   />
 
   <apn carrier="O2 MOBILE WEB"
