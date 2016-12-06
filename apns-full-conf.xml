@@ -6006,6 +6006,16 @@
       type="default,supl"
   />
 
+  <apn carrier="Rebtel"
+      mcc="260"
+      mnc="44"
+      apn="rebtel"
+      mmsc="http://mmsc.rebtel.com"
+      mmsproxy="185.114.248.80"
+      mmsport="8080"
+      type="default,supl,mms"
+  />
+
   <apn carrier="Telekom IMS"
       mcc="262"
       mnc="01"
