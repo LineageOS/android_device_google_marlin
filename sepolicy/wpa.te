@@ -1,0 +1,6 @@
+# in addition to ioctl commands granted to domain allow wpa to use:
+allowxperm wpa self:udp_socket ioctl priv_sock_ioctls;
+allowxperm wpa self:packet_socket ioctl { SIOCGIFINDEX SIOCGIFHWADDR };
+
+# read files in /sys
+r_dir_file(wpa, sysfs_type)

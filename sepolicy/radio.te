@@ -1,0 +1,19 @@
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(radio)
+
+allow radio uce_service:service_manager { add find };
+
+r_dir_file(radio, sysfs_msm_subsys)
+
+# communicate with ims
+unix_socket_connect(radio, ims, ims)
+
+# access to /dev/diag on debug builds
+userdebug_or_eng(`
+  allow radio diag_device:chr_file rw_file_perms;
+')
+
+# access to /dev/avtimer
+allow radio avtimer_device:chr_file rw_file_perms;
+
+allowxperm radio self:udp_socket ioctl priv_sock_ioctls;

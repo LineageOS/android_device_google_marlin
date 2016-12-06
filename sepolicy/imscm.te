@@ -1,0 +1,11 @@
+#integrated sensor process
+type imscm, domain;
+type imscm_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(imscm)
+binder_use(imscm)
+
+allow imscm imscm_service:service_manager add;
+allow imscm sysfs:dir r_dir_perms;
+r_dir_file(imscm, sysfs_msm_subsys)

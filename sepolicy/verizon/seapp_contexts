@@ -1,0 +1,2 @@
+# Verizon for OBDM tool
+user=_app seinfo=verizon name=com.wits.monitor domain=obdm_app type=app_data_file levelFrom=all

@@ -1,0 +1,3 @@
+get_prop(domain, camera_prop)
+
+dontaudit domain self:capability sys_module;

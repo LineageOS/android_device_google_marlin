@@ -1,0 +1,22 @@
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(rild)
+
+allow rild audioserver_service:service_manager find;
+allow rild per_mgr_service:service_manager find;
+
+binder_use(rild)
+binder_call(rild, audioserver)
+binder_call(rild, per_mgr)
+
+allow rild netmgrd_socket:dir search;
+unix_socket_connect(rild, netmgrd, netmgrd)
+
+r_dir_file(rild, sysfs_type)
+
+allow rild time:unix_stream_socket connectto;
+
+allowxperm rild self:udp_socket ioctl priv_sock_ioctls;
+allowxperm rild self:socket ioctl msm_sock_ipc_ioctls;
+userdebug_or_eng(`
+  allow rild diag_device:chr_file rw_file_perms;
+')

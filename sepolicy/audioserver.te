@@ -1,0 +1,14 @@
+binder_call(audioserver, rild)
+
+allow audioserver perfd:unix_stream_socket connectto;
+allow audioserver perfd_data_file:dir search;
+allow audioserver perfd_data_file:sock_file write;
+
+allow audioserver audio_cal_device:chr_file rw_file_perms;
+r_dir_file(audioserver, sysfs_soc)
+
+binder_call(audioserver, bootanim)
+
+userdebug_or_eng(`
+  allow audioserver diag_device:chr_file rw_file_perms;
+')

@@ -1,0 +1,44 @@
+# in addition to ioctl commands granted to domain allow system_server to use:
+allowxperm system_server self:udp_socket ioctl priv_sock_ioctls;
+allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(system_server)
+
+# /dev/uhid
+allow system_server uhid_device:chr_file rw_file_perms;
+
+# talk to perfd
+allow system_server perfd_data_file:dir search;
+allow system_server perfd_data_file:sock_file write;
+allow system_server perfd:unix_stream_socket connectto;
+
+allow system_server location:unix_stream_socket connectto;
+allow system_server location_data_file:sock_file write;
+
+allow system_server netmgrd_socket:dir search;
+unix_socket_connect(system_server, netmgrd, netmgrd)
+
+# talk to peripheral manager
+allow system_server per_mgr_service:service_manager find;
+binder_call(system_server, per_mgr)
+
+# files in /sys
+r_dir_file(system_server, sysfs_type)
+
+# write to files owned by location daemon
+allow system_server location_data_file:dir create_dir_perms;
+allow system_server location_data_file:{ file fifo_file } create_file_perms;
+
+# read sensor calibration data
+allow system_server persist_file:dir search;
+allow system_server persist_file:file r_file_perms;
+set_prop(system_server, sensors_prop)
+
+# interact with thermal_config
+allow system_server thermal-engine:unix_stream_socket connectto;
+allow system_server thermal_socket:sock_file write;
+
+userdebug_or_eng(`
+  allow system_server diag_device:chr_file rw_file_perms;
+')

@@ -1,0 +1,49 @@
+# loc_launcher service
+type location, domain;
+type location_exec, exec_type, file_type;
+
+# STOPSHIP b/28340421
+# Temporarily grant this permission and log its use.
+allow location self:capability { net_admin net_raw };
+auditallow location self:capability { net_admin net_raw };
+
+init_daemon_domain(location)
+
+allow location self:capability { setgid setuid };
+
+binder_use(location)
+binder_call(location, system_server)
+allow location system_server:unix_stream_socket { read write };
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(location)
+
+allow location self:netlink_route_socket create_socket_perms_no_ioctl;
+allow location self:netlink_socket create_socket_perms_no_ioctl;
+allow location self:udp_socket create_socket_perms;
+allowxperm location self:udp_socket ioctl { SIOCGIFINDEX SIOCGIFHWADDR SIOCIWFIRSTPRIV_05 };
+allow location self:socket create_socket_perms;
+# whitelist socket ioctl commands
+allowxperm location self:socket ioctl msm_sock_ipc_ioctls;
+
+# files in /sys
+r_dir_file(location, sysfs_type)
+
+allow location proc_net:file r_file_perms;
+
+# execute /vendor/bin/slim_daemon
+allow location system_file:file rx_file_perms;
+
+# execute /system/bin/lowi-server
+allow location location_exec:file rx_file_perms;
+
+# /data/misc/location
+allow location location_data_file:dir create_dir_perms;
+allow location location_data_file:{ file sock_file } create_file_perms;
+
+allow location permission_service:service_manager find;
+allow location sensorservice_service:service_manager find;
+
+userdebug_or_eng(`
+  allow location diag_device:chr_file rw_file_perms;
+')

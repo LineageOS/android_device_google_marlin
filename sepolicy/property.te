@@ -1,0 +1,6 @@
+type camera_prop, property_type;
+type sensors_prop, property_type;
+type wc_prop, property_type;
+type hw_sku_prop, property_type;
+type mid_prop, property_type;
+type ssr_prop, property_type;

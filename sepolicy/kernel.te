@@ -1,0 +1,6 @@
+r_dir_file(kernel, firmware_file)
+
+# for diag over socket
+userdebug_or_eng(`
+  allow kernel self:socket create;
+')

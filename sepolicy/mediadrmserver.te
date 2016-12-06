@@ -1,0 +1,7 @@
+# supress audit messages for attempting access to /firmware
+dontaudit mediadrmserver firmware_file:dir search;
+
+# communicate with perfd
+allow mediadrmserver perfd_data_file:dir search;
+allow mediadrmserver perfd:unix_stream_socket connectto;
+allow mediadrmserver perfd_data_file:sock_file write;

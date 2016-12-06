@@ -1,0 +1,15 @@
+type atfwd, domain;
+type atfwd_exec, exec_type, file_type;
+
+init_daemon_domain(atfwd)
+
+binder_use(atfwd)
+
+allow atfwd atfwd_service:service_manager find;
+
+allow atfwd self:socket create_socket_perms;
+allowxperm atfwd self:socket ioctl msm_sock_ipc_ioctls;
+
+r_dir_file(atfwd, sysfs_type)
+
+set_prop(atfwd, radio_prop)

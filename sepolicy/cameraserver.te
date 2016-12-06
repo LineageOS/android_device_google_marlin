@@ -1,0 +1,27 @@
+# communicate with perfd
+allow cameraserver perfd_data_file:dir search;
+allow cameraserver perfd:unix_stream_socket connectto;
+allow cameraserver perfd_data_file:sock_file write;
+
+# communicate with camera
+allow cameraserver camera:unix_dgram_socket sendto;
+allow cameraserver camera_data_file:sock_file write;
+allow cameraserver camera_device:chr_file rw_file_perms;
+
+allow cameraserver gpu_device:chr_file rw_file_perms;
+
+# access to /dev/input/event{5,10}
+allow cameraserver input_device:dir r_dir_perms;
+allow cameraserver input_device:chr_file r_file_perms;
+
+set_prop(cameraserver, camera_prop)
+
+allow cameraserver sysfs_enable_ps_sensor:file w_file_perms;
+r_dir_file(cameraserver, sysfs_type)
+# find libraries
+allow cameraserver system_file:dir r_dir_perms;
+
+# talk to system_server
+allow cameraserver system_server:unix_stream_socket { read write };
+
+allow cameraserver sensorservice_service:service_manager find;
