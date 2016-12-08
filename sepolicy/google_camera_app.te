@@ -2,6 +2,11 @@ type google_camera_app, domain;
 
 app_domain(google_camera_app)
 
+# app_domain fallout
+tmpfs_domain(google_camera_app)
+# Map with PROT_EXEC.
+allow google_camera_app google_camera_app_tmpfs:file execute;
+
 # Access standard system services
 allow google_camera_app app_api_service:service_manager find;
 allow google_camera_app audioserver_service:service_manager find;

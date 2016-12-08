@@ -1,6 +1,12 @@
 type obdm_app, domain;
 
 app_domain(obdm_app)
+
+# app_domain fallout
+tmpfs_domain(obdm_app)
+# Map with PROT_EXEC.
+allow obdm_app obdm_app_tmpfs:file execute;
+
 net_domain(obdm_app)
 
 r_dir_file(obdm_app, proc)
