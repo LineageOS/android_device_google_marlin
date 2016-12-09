@@ -416,6 +416,9 @@ on boot
     setprop ro.qualcomm.bluetooth.map true
     setprop ro.bluetooth.hfp.ver 1.6
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 on property:wc_transport.start_hci=true
     start start_hci_filter
 
