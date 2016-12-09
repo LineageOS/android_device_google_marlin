@@ -359,7 +359,13 @@ AB_OTA_PARTITIONS += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    Tag
+    Tag  \
+    android.hardware.nfc@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+	android.hardware.nfc@1.0-service
+endif
 
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
 PRODUCT_PROPERTY_OVERRIDES += \
