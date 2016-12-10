@@ -514,7 +514,7 @@ $(call add-product-sanitizer-module-config,surfaceflinger libsigchain,never)
 # b/28992626
 # For Hangouts, make ASAN-lite only sanitize 32-bit.
 ifeq (true,$(SANITIZE_LITE))
-  SANITIZE_TARGET_ARCH := arm
+  SANITIZE_ARCH := 32
 endif
 
 # b/30349163
