@@ -435,6 +435,12 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-service
 endif
 
+# Test HAL for hwbinder performance benchamrk  (only for userdebug and eng builds)
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+     android.hardware.tests.libhwbinder@1.0-impl
+endif
+
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.notify_nfc=1
