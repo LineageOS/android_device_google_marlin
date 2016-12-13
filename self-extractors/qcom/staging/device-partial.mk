@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
     vendor/qcom/marlin/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/marlin/proprietary/gptest:system/bin/gptest:qcom \
-    vendor/qcom/marlin/proprietary/hal_proxy_daemon:system/bin/hal_proxy_daemon:qcom \
     vendor/qcom/marlin/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init:qcom \
     vendor/qcom/marlin/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/marlin/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
@@ -129,7 +128,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/lib64/libloc_eng.so:system/lib64/libloc_eng.so:qcom \
     vendor/qcom/marlin/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
     vendor/qcom/marlin/proprietary/lib64/libtinyxml.so:system/lib64/libtinyxml.so:qcom \
-    vendor/qcom/marlin/proprietary/lib64/libwifi-hal-qcom.so:system/lib64/libwifi-hal-qcom.so:qcom \
     vendor/qcom/marlin/proprietary/gps.default.so:system/lib/hw/gps.default.so:qcom \
     vendor/qcom/marlin/proprietary/libgps.utils.so:system/lib/libgps.utils.so:qcom \
     vendor/qcom/marlin/proprietary/libion.so:system/lib/libion.so:qcom \

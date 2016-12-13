@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
     vendor/qcom/sailfish/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/sailfish/proprietary/gptest:system/bin/gptest:qcom \
-    vendor/qcom/sailfish/proprietary/hal_proxy_daemon:system/bin/hal_proxy_daemon:qcom \
     vendor/qcom/sailfish/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init:qcom \
     vendor/qcom/sailfish/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/sailfish/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
@@ -130,7 +129,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/lib64/libloc_eng.so:system/lib64/libloc_eng.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libtinyxml.so:system/lib64/libtinyxml.so:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libwifi-hal-qcom.so:system/lib64/libwifi-hal-qcom.so:qcom \
     vendor/qcom/sailfish/proprietary/gps.default.so:system/lib/hw/gps.default.so:qcom \
     vendor/qcom/sailfish/proprietary/libgps.utils.so:system/lib/libgps.utils.so:qcom \
     vendor/qcom/sailfish/proprietary/libion.so:system/lib/libion.so:qcom \

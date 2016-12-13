@@ -18,7 +18,6 @@
             system/bin/diag_uart_log \
             system/bin/ftmdaemon \
             system/bin/gptest \
-            system/bin/hal_proxy_daemon \
             system/bin/hci_qcomm_init \
             system/bin/imscmservice \
             system/bin/imsdatadaemon \
@@ -121,7 +120,6 @@
             system/lib64/libloc_eng.so \
             system/lib64/libminui.so \
             system/lib64/libtinyxml.so \
-            system/lib64/libwifi-hal-qcom.so \
             system/lib/hw/gps.default.so \
             system/lib/libgps.utils.so \
             system/lib/libion.so \
