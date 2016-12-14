@@ -37,6 +37,10 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
+                <mixPort name="mmap_no_irq_out" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT|AUDIO_OUTPUT_FLAG_MMAP_NOIRQ">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
                 <mixPort name="deep_buffer" role="source"
                         flags="AUDIO_OUTPUT_FLAG_DEEP_BUFFER">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -76,6 +80,12 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,16000,48000" channelMasks="AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_MONO"/>
                 </mixPort>
+                <mixPort name="mmap_no_irq_in" role="sink" flags="AUDIO_INPUT_FLAG_MMAP_NOIRQ">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_3"/>
+                </mixPort>
+
             </mixPorts>
             <devicePorts>
                 <devicePort tagName="Earpiece" type="AUDIO_DEVICE_OUT_EARPIECE" role="sink">
@@ -110,15 +120,15 @@
             </devicePorts>
             <routes>
                 <route type="mix" sink="Earpiece"
-                       sources="primary output,raw,deep_buffer"/>
+                       sources="primary output,raw,deep_buffer,mmap_no_irq_out"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,raw,deep_buffer,compressed_offload"/>
+                       sources="primary output,raw,deep_buffer,compressed_offload,mmap_no_irq_out"/>
                 <route type="mix" sink="Wired Headset"
-                       sources="primary output,raw,deep_buffer,compressed_offload"/>
+                       sources="primary output,raw,deep_buffer,compressed_offload,mmap_no_irq_out"/>
                 <route type="mix" sink="Wired Headphones"
-                       sources="primary output,raw,deep_buffer,compressed_offload"/>
+                       sources="primary output,raw,deep_buffer,compressed_offload,mmap_no_irq_out"/>
                 <route type="mix" sink="Line Out"
-                       sources="primary output,raw,deep_buffer,compressed_offload"/>
+                       sources="primary output,raw,deep_buffer,compressed_offload,mmap_no_irq_out"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,raw,deep_buffer"/>
                 <route type="mix" sink="BT SCO Headset"
@@ -133,6 +143,8 @@
                        sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic"/>
                 <route type="mix" sink="voice_rx"
                        sources="Telephony Rx"/>
+                <route type="mix" sink="mmap_no_irq_in"
+                       sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic"/>
             </routes>
 
         </module>
