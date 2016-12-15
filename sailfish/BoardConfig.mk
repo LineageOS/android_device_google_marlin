@@ -97,7 +97,7 @@ endif
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=sailfish user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff
 
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
+BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio metadata persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
