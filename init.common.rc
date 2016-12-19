@@ -82,6 +82,7 @@ on post-fs-data
     mkdir /data/misc/qvop 0660 system system
     mkdir /data/misc/audio_pp 0771 media audio
     mkdir /data/preloads 0775 system system
+    mkdir /data/misc/netmgr 0700 root root
 
     # Disable verbosity for sensorhub
     write /d/sps/debug_level_option 4
