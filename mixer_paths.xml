@@ -509,6 +509,16 @@
         <ctl name="AFE_PCM_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
+    <path name="deep-buffer-playback speaker-and-bt-sco">
+      <path name="deep-buffer-playback speaker" />
+      <path name="deep-buffer-playback bt-sco"  />
+    </path>
+
+    <path name="deep-buffer-playback speaker-and-bt-sco-wb">
+      <path name="deep-buffer-playback speaker" />
+      <path name="deep-buffer-playback bt-sco-wb"  />
+    </path>
+
     <path name="low-latency-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia5" value="1" />
     </path>
@@ -535,6 +545,15 @@
         <ctl name="AFE_PCM_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 
+    <path name="low-latency-playback speaker-and-bt-sco">
+      <path name="low-latency-playback speaker" />
+      <path name="low-latency-playback bt-sco"  />
+    </path>
+
+    <path name="low-latency-playback speaker-and-bt-sco-wb">
+      <path name="low-latency-playback speaker" />
+      <path name="low-latency-playback bt-sco-wb"  />
+    </path>
     <path name="audio-ull-playback">
         <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia8" value="1" />
     </path>
@@ -559,6 +578,16 @@
 
     <path name="audio-ull-playback afe-proxy">
         <ctl name="AFE_PCM_RX Audio Mixer MultiMedia8" value="1" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-bt-sco">
+      <path name="audio-ull-playback speaker" />
+      <path name="audio-ull-playback bt-sco"  />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-bt-sco-wb">
+      <path name="audio-ull-playback speaker" />
+      <path name="audio-ull-playback bt-sco-wb"  />
     </path>
 
     <path name="mmap-playback">
@@ -615,6 +644,16 @@
 
     <path name="compress-offload-playback afe-proxy">
         <ctl name="AFE_PCM_RX Audio Mixer MultiMedia4" value="1" />
+    </path>
+
+    <path name="compress-offload-playback speaker-and-bt-sco">
+      <path name="compress-offload-playback speaker" />
+      <path name="compress-offload-playback bt-sco"  />
+    </path>
+
+    <path name="compress-offload-playback speaker-and-bt-sco-wb">
+      <path name="compress-offload-playback speaker" />
+      <path name="compress-offload-playback bt-sco-wb"  />
     </path>
 
     <path name="audio-record">
