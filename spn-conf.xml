@@ -3,6 +3,8 @@
     <spnOverride numeric="23430" spn="EE"/>
     <spnOverride numeric="23433" spn="EE"/>
     <spnOverride numeric="26201" spn="Telekom"/>
+    <spnOverride numeric="302370" spn="Fido"/>
+    <spnOverride numeric="302720" spn="Rogers"/>
     <spnOverride numeric="310004" spn="Verizon Wireless"/>
     <spnOverride numeric="310120" spn="Sprint"/>
     <spnOverride numeric="310150" spn="AT&amp;T"/>
