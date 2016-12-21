@@ -25,6 +25,15 @@
 #define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
 #define MODEM_LOGGING_SWITCH "persist.radio.smlog_switch"
 
+static std::vector<std::string> ril_and_netmgr_logs
+                {
+                 "/data/misc/radio/ril_log",
+                 "/data/misc/radio/ril_log_old",
+                 "/data/misc/netmgr/netmgr_log",
+                 "/data/misc/netmgr/netmgr_log_old"
+                };
+static std::string modem_log_folder_name = "modem_log";
+
 static std::string get_property_value (const std::string& property_name) {
 
     char property[PROPERTY_VALUE_MAX];
@@ -57,9 +66,17 @@ void dumpstate_board()
 
         /* Execute SMLOG DUMP if SMLOG is enabled */
         if (modem_logging_enabled && !bugreport_dir.empty()) {
+            std::string modem_log_dir = bugreport_dir + "/" + modem_log_folder_name;
+            std::string modem_log_mkdir_cmd= "/system/bin/mkdir " + modem_log_dir;
+            run_command("MKDIR MODEM LOG", 5, SU_PATH, "root", "/system/bin/sh", "-c",
+                        modem_log_mkdir_cmd.c_str(), NULL);
             run_command("SMLOG DUMP", 120, SU_PATH, "root", "smlog_dump", "-d",
-                        "-o", bugreport_dir.c_str(), NULL);
-
+                        "-o", modem_log_dir.c_str(), NULL);
+            for(unsigned int i = 0; i < ril_and_netmgr_logs.size(); i++)
+            {
+              std::string copy_cmd= "/system/bin/cp " + ril_and_netmgr_logs[i] + " " + modem_log_dir;
+              run_command("MV RIL LOG", 20, SU_PATH, "root", "/system/bin/sh", "-c", copy_cmd.c_str(), NULL);
+            }
             // Remove smlogs older than 10 days
             std::string file_prefix = get_property_value (MODEM_LOG_PREFIX_PROPERTY);
             if (!file_prefix.empty()) {
@@ -69,6 +86,16 @@ void dumpstate_board()
                 run_command("RM OLD SMLOG", 5, SU_PATH,
                             "root", "/system/bin/sh", "-c", remove_command.c_str(), NULL);
             }
+            std::string modem_log_combined = bugreport_dir + "/" + file_prefix + "all.tar.gz";
+            std::string modem_log_gzip_cmd= "/system/bin/tar czvf " + modem_log_combined + " -C" + modem_log_dir + " .";
+            run_command("GZIP LOG", 5, SU_PATH, "root", "/system/bin/sh", "-c",
+                        modem_log_gzip_cmd.c_str(), NULL);
+            std::string modem_log_perm_cmd= "/system/bin/chmod a+rw " + modem_log_combined;
+            run_command("CHG PERM", 5, SU_PATH, "root", "/system/bin/sh", "-c",
+                        modem_log_perm_cmd.c_str(), NULL);
+            std::string modem_log_clear_cmd= "/system/bin/rm -r " + modem_log_dir;
+            run_command("RM MODEM DIR", 5, SU_PATH, "root", "/system/bin/sh", "-c",
+                        modem_log_clear_cmd.c_str(), NULL);
         }
         run_command("RM OLD SMLOG", 5, SU_PATH, "root", "/system/bin/sh", "-c",
                     "/system/bin/find /data/smlog_* -delete", NULL);
