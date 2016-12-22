@@ -54,8 +54,6 @@ TARGET_USES_QCOM_MM_AUDIO := true
 
 -include $(QCPATH)/common/msm8996/BoardConfigVendor.mk
 
-BOARD_HAL_STATIC_LIBRARIES := libdumpstate.sailfish
-
 TARGET_AUX_OS_VARIANT_LIST := sailfish
 
 # Some framework code requires this to enable BT

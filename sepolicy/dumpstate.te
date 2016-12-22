@@ -1,2 +1,0 @@
-# supress audit messages for attempting access to /firmware
-dontaudit dumpstate firmware_file:dir search;

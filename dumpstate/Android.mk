@@ -16,13 +16,26 @@
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
+LOCAL_MODULE := android.hardware.dumpstate@1.0-service.marlin
+LOCAL_INIT_RC := android.hardware.dumpstate@1.0-service.marlin.rc
+LOCAL_MODULE_RELATIVE_PATH := hw
 
-LOCAL_STATIC_LIBRARIES := libdumpstateheaders
+LOCAL_SRC_FILES := \
+    DumpstateDevice.cpp \
+    service.cpp
 
-LOCAL_SRC_FILES := dumpstate.cpp
-
-LOCAL_MODULE := libdumpstate.$(TARGET_DEVICE)
+LOCAL_SHARED_LIBRARIES := \
+    android.hardware.dumpstate@1.0 \
+    libbase \
+    libcutils \
+    libdumpstateutil \
+    libhidlbase \
+    libhidltransport \
+    libhwbinder \
+    liblog \
+    libutils
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 
-include $(BUILD_STATIC_LIBRARY)
+include $(BUILD_EXECUTABLE)
