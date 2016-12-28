@@ -16,3 +16,6 @@ allow wcnss_filter proc_sysrq:file w_file_perms;
 userdebug_or_eng(`
   allow wcnss_filter diag_device:chr_file rw_file_perms;
 ')
+
+# Allow reading Bluetooth-related system properties
+get_prop(wcnss_filter, bluetooth_prop)
