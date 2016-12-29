@@ -26,9 +26,6 @@ endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
