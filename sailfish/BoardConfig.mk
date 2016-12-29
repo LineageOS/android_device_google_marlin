@@ -123,7 +123,6 @@ endif
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
@@ -161,7 +160,6 @@ CAMERA_DAEMON_NOT_PRESENT := true
 
 # TARGET_COMPILE_WITH_MSM_KERNEL := true
 
-TARGET_KERNEL_APPEND_DTB := true
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := false
 
@@ -217,5 +215,11 @@ AB_OTA_PARTITIONS += \
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/marlin/recovery.wipe.common
+
+# Kernel
+BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_CONFIG := m1s1_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/marlin
 
 -include vendor/google/sailfish/BoardConfigVendor.mk
