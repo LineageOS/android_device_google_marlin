@@ -23,4 +23,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys
 
-$(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
+$(call inherit-product, vendor/google/marlin/marlin-vendor.mk)
