@@ -26,6 +26,9 @@ endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
 
+# Setting vendor SPL
+VENDOR_SECURITY_PATCH := "2019-10-06"
+
 PRODUCT_SOONG_NAMESPACES += \
     device/google/marlin \
     vendor/google/camera \
@@ -631,6 +634,21 @@ PRODUCT_PACKAGES_DEBUG += a_sns_test
 PRODUCT_PACKAGES += \
     misc_writer
 
+# Build vendor img
+AB_OTA_PARTITIONS += vendor
+
+# Camera
+PRODUCT_PACKAGES += \
+    libmm-qcamera
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.2-service.clearkey
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true \
+    media.mediadrmservice.enable=true
+
 # Google Assistant
 PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
@@ -639,3 +657,11 @@ PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
     RcsService \
     PresencePolling
+
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
+# Tool
+PRODUCT_PACKAGES += \
+    libtinyxml
