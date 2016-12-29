@@ -6,8 +6,8 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 # NOTE: fstab.aosp_common is used for aosp. Make changes there as well.
 #<src>                                  <mnt_point>       <type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/bootdevice/by-name/system    /           ext4    ro,barrier=1,discard                                wait,slotselect,verify
-/dev/block/bootdevice/by-name/vendor    /vendor     ext4    ro,barrier=1,discard                                wait,slotselect,verify
+/dev/block/bootdevice/by-name/system    /           ext4    ro,barrier=1,discard                                wait,slotselect
+/dev/block/bootdevice/by-name/vendor    /vendor     ext4    ro,barrier=1,discard                                wait,slotselect
 /dev/block/bootdevice/by-name/modem     /firmware/radio    vfat    ro,shortname=lower,uid=1000,gid=0,dmask=227,fmask=337,context=u:object_r:firmware_file:s0   wait,slotselect
 /dev/block/bootdevice/by-name/userdata    /data             ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc      latemount,wait,check,formattable,fileencryption=ice
 /dev/block/zram0                        none              swap    defaults                                            zramsize=536870912
