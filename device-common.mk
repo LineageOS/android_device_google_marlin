@@ -27,7 +27,6 @@ endif
 PRODUCT_SHIPPING_API_LEVEL := 25
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
