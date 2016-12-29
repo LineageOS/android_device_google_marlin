@@ -766,7 +766,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += qcril.db
 
 # MSM updater library
-PRODUCT_PACKAGES += librecovery_updater_msm
+PRODUCT_PACKAGES += librecovery_updater_$(TARGET_BOARD_PLATFORM)
 
 # vcard jar
 PRODUCT_PACKAGES += vcard
