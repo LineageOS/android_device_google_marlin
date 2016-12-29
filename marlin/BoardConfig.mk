@@ -166,7 +166,7 @@ CAMERA_DAEMON_NOT_PRESENT := true
 
 #TARGET_LDPRELOAD := libNimsWrap.so
 
-# TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 TARGET_KERNEL_APPEND_DTB := true
 # Added to indicate that protobuf-c is supported in this build
@@ -198,3 +198,5 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
 NXP_CHIP_TYPE := PN551
+
+-include device/google/marlin/marlin/BoardConfigLineage.mk
