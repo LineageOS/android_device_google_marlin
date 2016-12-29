@@ -194,3 +194,5 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
 NXP_CHIP_TYPE := PN551
+
+-include device/google/marlin/sailfish/BoardConfigLineage.mk
