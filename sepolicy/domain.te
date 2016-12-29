@@ -1,3 +1,13 @@
 get_prop(domain, camera_prop)
 
 dontaudit domain self:capability sys_module;
+
+# Do not allow access to the serial number of the camera's sensor except for a
+# few whitelisted domains.
+neverallow {
+  domain
+  -dumpstate
+  -cameraserver
+  -init
+  -shell
+} camera_serialno_prop:file r_file_perms;
