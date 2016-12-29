@@ -83,7 +83,7 @@ Value* BootUpdateFn(const char* name, State* state, int argc, Expr* argv[])
     return StringValue(strdup(rc ? "" : "t"));
 }
 
-void Register_librecovery_updater_msm() {
+void Register_librecovery_updater_msm8996() {
     RegisterFunction("msm.decrypt", DecryptFn);
     RegisterFunction("msm.boot_update", BootUpdateFn);
 }
