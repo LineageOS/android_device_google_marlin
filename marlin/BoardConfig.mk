@@ -218,3 +218,5 @@ AB_OTA_PARTITIONS += \
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/marlin/recovery.wipe.common
+
+-include vendor/google/marlin/BoardConfigVendor.mk
