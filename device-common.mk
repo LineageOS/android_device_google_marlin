@@ -259,8 +259,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=10 \
-    telephony.lteOnCdmaDevice=1
+    ro.telephony.default_network=10
 
 PRODUCT_AAPT_CONFIG += xlarge large
 PRODUCT_CHARACTERISTICS := nosdcard
