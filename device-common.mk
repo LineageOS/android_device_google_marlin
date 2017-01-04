@@ -105,6 +105,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.ardware.keymaster@2.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@2.0-service
+endif
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
