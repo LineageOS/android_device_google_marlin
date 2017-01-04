@@ -332,7 +332,7 @@ PRODUCT_PACKAGES += \
 # boot_control HAL and its dependencies.
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8996 \
-    librecovery_updater_msm \
+    libgptutils \
     libsparse_static
 PRODUCT_PACKAGES += \
     update_engine_sideload
