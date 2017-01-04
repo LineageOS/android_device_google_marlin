@@ -15,7 +15,6 @@ allow cameraserver input_device:dir r_dir_perms;
 allow cameraserver input_device:chr_file r_file_perms;
 
 set_prop(cameraserver, camera_prop)
-set_prop(cameraserver, camera_serialno_prop)
 
 allow cameraserver sysfs_enable_ps_sensor:file w_file_perms;
 r_dir_file(cameraserver, sysfs_type)
