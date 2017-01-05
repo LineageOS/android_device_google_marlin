@@ -765,8 +765,8 @@ PRODUCT_PACKAGES += \
 # Qcril configuration file
 PRODUCT_PACKAGES += qcril.db
 
-# MSM updater library
-PRODUCT_PACKAGES += librecovery_updater_msm
+# GPT utils library
+PRODUCT_PACKAGES += libgptutils
 
 # vcard jar
 PRODUCT_PACKAGES += vcard
