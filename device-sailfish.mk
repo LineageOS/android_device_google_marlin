@@ -41,10 +41,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.layer_cache_size=32 \
     ro.hwui.path_cache_size=16
 
-# Use Sdcardfs
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=1
-
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:root/init.sailfish.rc \
     device/google/marlin/init.common.usb.rc:root/init.sailfish.usb.rc \
