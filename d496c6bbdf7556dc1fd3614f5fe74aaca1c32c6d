@@ -22,6 +22,30 @@
       "revId": "d496c6bbdf7556dc1fd3614f5fe74aaca1c32c6d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_206f8894",
+        "filename": "device-lineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-06T04:21:25Z",
+      "side": 1,
+      "message": "i literally have no idea, but without it the fingerprint sensor is unresponsive",
+      "parentUuid": "fa3479d7_20ac28ed",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "d496c6bbdf7556dc1fd3614f5fe74aaca1c32c6d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
