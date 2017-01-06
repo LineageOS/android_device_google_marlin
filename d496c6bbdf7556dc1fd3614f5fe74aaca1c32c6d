@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_20ac28ed",
+        "filename": "device-lineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-06T02:27:52Z",
+      "side": 1,
+      "message": "What actually uses this?",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "d496c6bbdf7556dc1fd3614f5fe74aaca1c32c6d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
