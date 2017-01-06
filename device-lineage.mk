@@ -1,5 +1,7 @@
 # Camera
-PRODUCT_PACKAGES += libion
+PRODUCT_PACKAGES += \
+    libion \
+    Snap
 
 # IMS
 PRODUCT_PACKAGES += \
