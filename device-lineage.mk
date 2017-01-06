@@ -1,6 +1,7 @@
 # Camera
 PRODUCT_PACKAGES += \
-    libmm-qcamera
+    libmm-qcamera \
+    Snap
 
 # DRM
 PRODUCT_PACKAGES += \
