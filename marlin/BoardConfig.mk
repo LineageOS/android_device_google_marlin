@@ -146,6 +146,7 @@ TARGET_PD_SERVICE_ENABLED := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
 
+WITH_DEXPREOPT := false
 # Enable dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
   ifeq ($(WITH_DEXPREOPT),)
