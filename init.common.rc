@@ -441,6 +441,9 @@ service per_proxy /system/bin/pm-proxy
     group system
     disabled
 
+on property:ro.build.type=userdebug
+   write /sys/class/uio/uio1/device/rtel/rtel 1
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
@@ -522,9 +525,6 @@ on property:persist.sys.ssr.enable_ramdumps=1
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-
-on property:ro.build.type=userdebug
-   write /sys/class/uio/uio1/device/rtel/rtel 1
 
 service iop /system/bin/iop
     class main
