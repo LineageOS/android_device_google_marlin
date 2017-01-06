@@ -5,6 +5,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Gello
 PRODUCT_PACKAGES += Gello
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+
 # Snap
 PRODUCT_PACKAGES += Snap
 
