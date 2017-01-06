@@ -1,7 +1,5 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(call is-vendor-board-platform,QCOM),true)
-
 # HAL module implemenation stored in
 # hw/<POWERS_HARDWARE_MODULE_ID>.<ro.hardware>.so
 include $(CLEAR_VARS)
@@ -23,8 +21,6 @@ ifneq ($(TARGET_USES_AOSP),true)
     LOCAL_CFLAGS += -DEXTRA_POWERHAL_HINTS
 endif
 
-LOCAL_MODULE := power.$(patsubst %f,%,$(subst _eas,,$(subst aosp_,,$(TARGET_PRODUCT))))
+LOCAL_MODULE := power.msm8996
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
-
-endif
