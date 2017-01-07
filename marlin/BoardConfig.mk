@@ -210,3 +210,6 @@ NXP_CHIP_TYPE := PN551
 
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
+
+# Use mke2fs to create ext4 images
+TARGET_USES_MKE2FS := true
