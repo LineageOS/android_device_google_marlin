@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_f44a6254",
+        "filename": "power/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-07T16:32:42Z",
+      "side": 1,
+      "message": "power.$(PRODUCT_DEVICE) ??",
+      "revId": "a0dbac476965b54f38c1089ac7f94b92976c354f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
