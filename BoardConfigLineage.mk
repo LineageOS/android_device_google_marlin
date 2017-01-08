@@ -3,6 +3,9 @@
 # Audio
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 
+# Disable dex pre-opt
+WITH_DEXPREOPT := false
+
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
