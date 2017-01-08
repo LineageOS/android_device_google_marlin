@@ -35,6 +35,24 @@
       "revId": "d776556758bbfa58676c89def740f83099879270",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_5ab957e8",
+        "filename": "marlin/BoardConfigLineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-08T01:54:22Z",
+      "side": 1,
+      "message": "/shrug no idea, its needed for marlin, haven\u0027t seen it necessary for other devices",
+      "parentUuid": "fa3479d7_9abfbfd0",
+      "revId": "d776556758bbfa58676c89def740f83099879270",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
