@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_7a99bb6d",
+        "filename": "BoardConfigLineage.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-08T02:25:14Z",
+      "side": 1,
+      "message": "this needs to be in the device-specific boardconfigs",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 50
+      },
+      "revId": "d77122aa4c3d4a7be70c31c28f1e78042cde14d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
