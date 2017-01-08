@@ -16,6 +16,24 @@
       "revId": "582530bb35a335a2eeb659e6dcf51e78a35836a5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_fe08062f",
+        "filename": "marlin/BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-08T01:52:01Z",
+      "side": 1,
+      "message": "not just easier, less chance of merge conflicting down the road",
+      "parentUuid": "fa3479d7_9e18da85",
+      "revId": "582530bb35a335a2eeb659e6dcf51e78a35836a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
