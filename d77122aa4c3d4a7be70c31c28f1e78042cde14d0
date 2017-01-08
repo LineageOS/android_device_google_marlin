@@ -22,6 +22,30 @@
       "revId": "d77122aa4c3d4a7be70c31c28f1e78042cde14d0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_badde316",
+        "filename": "BoardConfigLineage.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-08T02:29:20Z",
+      "side": 1,
+      "message": "They use the same config, AFAICT. Do we want to split them up? I don\u0027t see much of a reason to do so, since DTB presumably takes care of most of the device-specific differences.",
+      "parentUuid": "fa3479d7_7a99bb6d",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 50
+      },
+      "revId": "d77122aa4c3d4a7be70c31c28f1e78042cde14d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
