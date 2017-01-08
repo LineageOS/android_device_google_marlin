@@ -17,6 +17,24 @@
       "revId": "d776556758bbfa58676c89def740f83099879270",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_9abfbfd0",
+        "filename": "marlin/BoardConfigLineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-08T01:53:38Z",
+      "side": 1,
+      "message": "don\u0027t just set this*",
+      "parentUuid": "fa3479d7_daed47f1",
+      "revId": "d776556758bbfa58676c89def740f83099879270",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
