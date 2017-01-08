@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_4a6f4293",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-08T22:48:30Z",
+      "side": 1,
+      "message": "I wonder if we can build this stuff out of hardware/qcom/gps",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 12
+      },
+      "revId": "c7a7bed3d53e0b8a851aa47ca6218e6e2ab9e7da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
