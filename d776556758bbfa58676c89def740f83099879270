@@ -53,6 +53,24 @@
       "revId": "d776556758bbfa58676c89def740f83099879270",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_9aa69fc0",
+        "filename": "marlin/BoardConfigLineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-08T02:05:26Z",
+      "side": 1,
+      "message": "I reckon it\u0027d be good to build with kernel headers for other nexus devices as well, since we do make some changes to the AOSP HALs every now and then.",
+      "parentUuid": "fa3479d7_5ab957e8",
+      "revId": "d776556758bbfa58676c89def740f83099879270",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
