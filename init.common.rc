@@ -690,14 +690,6 @@ service perfd /vendor/bin/perfd
    group root system
    writepid /dev/cpuset/system-background/tasks
 
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-
 on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_boost 0
     # update cpusets now that boot is complete and we want better load balancing
