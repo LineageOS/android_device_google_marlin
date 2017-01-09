@@ -5,6 +5,10 @@ PRODUCT_PACKAGES += libion
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.fingerprint=fpc
 
+# Google assistant
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opa.eligible_device=true
+
 # IMS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager
