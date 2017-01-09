@@ -1,5 +1,8 @@
 # Common board config for marlin, sailfish
 
+# Audio
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
