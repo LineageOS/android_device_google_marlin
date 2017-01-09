@@ -60,18 +60,10 @@ bin/lowi-server
 etc/flp.conf
 etc/izat.conf
 etc/lowi.conf
-lib64/hw/gps.default.so
-lib64/libgps.utils.so
 lib64/libloc_api_v02.so
-lib64/libloc_core.so
 lib64/libloc_ds_api.so
-lib64/libloc_eng.so
-lib/hw/gps.default.so
-lib/libgps.utils.so
 lib/libloc_api_v02.so
-lib/libloc_core.so
 lib/libloc_ds_api.so
-lib/libloc_eng.so
 etc/sap.conf
 
 # IMS/HD Voice
