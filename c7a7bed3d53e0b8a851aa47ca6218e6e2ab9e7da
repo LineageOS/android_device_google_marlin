@@ -22,6 +22,30 @@
       "revId": "c7a7bed3d53e0b8a851aa47ca6218e6e2ab9e7da",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_eac71611",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-09T01:40:33Z",
+      "side": 1,
+      "message": "You won\u0027t be able to build libloc_api_v02, libloc_ds_api, loc_launcher, lowi-server, but the other stuff might be possible, and it looks like Google updated hardware/qcom/gps as well.",
+      "parentUuid": "fa3479d7_4a6f4293",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 12
+      },
+      "revId": "c7a7bed3d53e0b8a851aa47ca6218e6e2ab9e7da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
