@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_0a901aeb",
+        "filename": "device-lineage.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-09T02:36:34Z",
+      "side": 1,
+      "message": "This is listed as a LOCAL_REQUIRED_MODULE for com.android.ims.rcsmanager",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "24bb76d1f0292f7046d4c9fb5cf766fcb13449f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
