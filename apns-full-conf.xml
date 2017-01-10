@@ -6881,32 +6881,7 @@
       mmsport="8799"
       protocol="IPV6"
       roaming_protocol="IP"
-      mvno_match_data="54"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS SP"
-      mcc="302"
-      mnc="220"
-      apn="sp.telus.com"
-      type="default,mms,supl,hipri,ia"
-      mmsc="http://aliasredirect.net/proxy/mmsc"
-      mmsproxy="mmscproxy.mobility.ca"
-      mmsport="8799"
-      protocol="IPV6"
-      roaming_protocol="IP"
-      mvno_match_data="55"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS ISP"
-      mcc="302"
-      mnc="220"
-      apn="isp.telus.com"
-      server="*"
-      type="dun"
-      protocol="IP"
-      mvno_match_data="54"
+      mvno_match_data="5455"
       mvno_type="gid"
   />
 
@@ -6916,28 +6891,7 @@
       apn="ims"
       type="ims"
       protocol="IPV6"
-      mvno_match_data="54"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS IMS"
-      mcc="302"
-      mnc="220"
-      apn="ims"
-      type="ims"
-      protocol="IPV6"
-      mvno_match_data="55"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS ISP"
-      mcc="302"
-      mnc="220"
-      apn="isp.telus.com"
-      server="*"
-      type="dun"
-      protocol="IP"
-      mvno_match_data="55"
+      mvno_match_data="5455"
       mvno_type="gid"
   />
 
@@ -6951,21 +6905,7 @@
       mmsport="80"
       protocol="IP"
       roaming_protocol="IP"
-      mvno_match_data="4B"
-      mvno_type="gid"
-  />
-
-  <apn carrier="Koodo SP"
-      mcc="302"
-      mnc="220"
-      apn="sp.koodo.com"
-      type="*"
-      mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
-      mmsproxy="74.49.0.18"
-      mmsport="80"
-      protocol="IP"
-      roaming_protocol="IP"
-      mvno_match_data="4F"
+      mvno_match_data="4B4F"
       mvno_type="gid"
   />
 
@@ -6975,17 +6915,7 @@
       apn="ims"
       type="ims"
       protocol="IPV6"
-      mvno_match_data="4B"
-      mvno_type="gid"
-  />
-
-  <apn carrier="Koodo IMS"
-      mcc="302"
-      mnc="220"
-      apn="ims"
-      type="ims"
-      protocol="IPV6"
-      mvno_match_data="4F"
+      mvno_match_data="4B4F"
       mvno_type="gid"
   />
 
@@ -6997,7 +6927,7 @@
       mmsc="http://aliasredirect.net/proxy/mb/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
-      mvno_match_data="50"
+      mvno_match_data="5043"
       mvno_type="gid"
   />
 
@@ -7023,32 +6953,7 @@
       mmsport="8799"
       protocol="IPV6"
       roaming_protocol="IP"
-      mvno_match_data="54"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS SP"
-      mcc="302"
-      mnc="221"
-      apn="sp.telus.com"
-      type="default,mms,supl,hipri,ia"
-      mmsc="http://aliasredirect.net/proxy/mmsc"
-      mmsproxy="mmscproxy.mobility.ca"
-      mmsport="8799"
-      protocol="IPV6"
-      roaming_protocol="IP"
-      mvno_match_data="55"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS ISP"
-      mcc="302"
-      mnc="221"
-      apn="isp.telus.com"
-      server="*"
-      type="dun"
-      protocol="IP"
-      mvno_match_data="54"
+      mvno_match_data="5455"
       mvno_type="gid"
   />
 
@@ -7058,28 +6963,7 @@
       apn="ims"
       type="ims"
       protocol="IPV6"
-      mvno_match_data="54"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS IMS"
-      mcc="302"
-      mnc="221"
-      apn="ims"
-      type="ims"
-      protocol="IPV6"
-      mvno_match_data="55"
-      mvno_type="gid"
-  />
-
-  <apn carrier="TELUS ISP"
-      mcc="302"
-      mnc="221"
-      apn="isp.telus.com"
-      server="*"
-      type="dun"
-      protocol="IP"
-      mvno_match_data="55"
+      mvno_match_data="5455"
       mvno_type="gid"
   />
 
@@ -7093,21 +6977,7 @@
       mmsport="80"
       protocol="IP"
       roaming_protocol="IP"
-      mvno_match_data="4B"
-      mvno_type="gid"
-  />
-
-  <apn carrier="Koodo SP"
-      mcc="302"
-      mnc="221"
-      apn="sp.koodo.com"
-      type="*"
-      mmsc="http://aliasredirect.net/proxy/koodo/mmsc"
-      mmsproxy="74.49.0.18"
-      mmsport="80"
-      protocol="IP"
-      roaming_protocol="IP"
-      mvno_match_data="4F"
+      mvno_match_data="4B4F"
       mvno_type="gid"
   />
 
@@ -7117,17 +6987,7 @@
       apn="ims"
       type="ims"
       protocol="IPV6"
-      mvno_match_data="4B"
-      mvno_type="gid"
-  />
-
-  <apn carrier="Koodo IMS"
-      mcc="302"
-      mnc="221"
-      apn="ims"
-      type="ims"
-      protocol="IPV6"
-      mvno_match_data="4F"
+      mvno_match_data="4B4F"
       mvno_type="gid"
   />
 
@@ -7139,7 +6999,7 @@
       mmsc="http://aliasredirect.net/proxy/mb/mmsc"
       mmsproxy="74.49.0.18"
       mmsport="80"
-      mvno_match_data="50"
+      mvno_match_data="5043"
       mvno_type="gid"
   />
 
