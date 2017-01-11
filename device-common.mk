@@ -403,7 +403,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2
 
 # OEM Unlock reporting
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
 
 # Setup dm-verity configs
