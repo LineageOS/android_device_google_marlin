@@ -518,6 +518,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.scrypt_params=13:3:1
 
+# Set if a device image has the VTS coverage instrumentation.
+ifeq ($(NATIVE_COVERAGE),true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vts.coverage=1
+endif
+
 # Add minidebug info to the system server to support diagnosing native crashes.
 ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     # System server and some of its services.
