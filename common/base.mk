@@ -333,6 +333,10 @@ LIBCAMERA += mm-qcamera-app
 LIBCAMERA += camera_test
 LIBCAMERA += org.codeaurora.camera
 
+# Enable binderized camera HAL
+#LIBCAMERA += android.hardware.camera.provider@2.4-service
+#LIBCAMERA += android.hardware.camera.device@3.2-impl-binderized
+
 #LIBCOPYBIT
 LIBCOPYBIT := copybit.msm8660
 LIBCOPYBIT += copybit.msm8960
