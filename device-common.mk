@@ -378,7 +378,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8996 \
     libgptutils \
-    libsparse_static
+    libsparse
 PRODUCT_PACKAGES += \
     update_engine_sideload
 
