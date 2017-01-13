@@ -113,6 +113,9 @@ etc/permissions/telephonyservice.xml
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/SprintHM/SprintHM.apk
 
+# Subsystem Restart
+bin/ssr_setup
+
 # Time Services
 bin/time_daemon
 
