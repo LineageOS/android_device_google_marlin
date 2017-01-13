@@ -26,4 +26,7 @@
     <!-- MMS user agent prolfile url -->
     <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/G_2PW4100.xml</string>
 
+    <!-- Default screen brightness for VR setting. Default value: 0x58 => 88. -->
+    <integer name="config_screenBrightnessForVrSettingDefault">88</integer>
+
 </resources>
