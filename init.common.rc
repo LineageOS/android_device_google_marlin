@@ -238,6 +238,14 @@ on early-boot
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
 
+    # SSR Setup
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related" # venus
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "system"  # a530_zap_signed
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related" # AR6320
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related" # adsp
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level "related" # slpi
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level "related" # modem
+
 on boot
     exec - root root system -- /system/bin/init.power.sh
     exec - root root system -- /system/bin/init.mid.sh
