@@ -424,11 +424,6 @@ service hci_filter_root /system/bin/wcnss_filter
     group bluetooth diag system
     disabled
 
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group system
-
 service per_mgr /system/bin/pm-service
     class core
     user system
