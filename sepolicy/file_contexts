@@ -118,10 +118,11 @@
 /system/bin/preloads_copy\.sh     u:object_r:preloads_copy_exec:s0
 
 # files in /vendor
-/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
-/vendor/bin/perfd           u:object_r:perfd_exec:s0
-/vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
+/vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.marlin      u:object_r:hal_dumpstate_impl_exec:s0
 /vendor/bin/msm_irqbalance  u:object_r:irqbalance_exec:s0
+/vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
+/vendor/bin/perfd           u:object_r:perfd_exec:s0
+/vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0

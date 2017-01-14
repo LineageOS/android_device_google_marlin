@@ -1,0 +1,7 @@
+type hal_dumpstate_impl, domain, hal_dumpstate;
+type hal_dumpstate_impl_exec, exec_type, file_type;
+
+init_daemon_domain(hal_dumpstate_impl)
+
+# supress audit messages for attempting access to /firmware
+dontaudit dumpstate firmware_file:dir search;

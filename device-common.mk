@@ -169,6 +169,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.full.xml:system/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:system/etc/permissions/android.hardware.camera.raw.xml
 
+# Dumpstate HAL
+PRODUCT_PACKAGES += \
+    android.hardware.dumpstate@1.0-service.marlin
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwpa_client \
