@@ -361,6 +361,15 @@ AB_OTA_PARTITIONS += \
     boot \
     system
 
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-service
+endif
+
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
