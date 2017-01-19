@@ -119,6 +119,8 @@ bin/ssr_setup
 
 # Time Services
 bin/time_daemon
+-lib/libtime_genoff.so
+-lib64/libtime_genoff.so
 
 # USB
 bin/port-bridge
