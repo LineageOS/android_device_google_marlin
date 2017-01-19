@@ -111,7 +111,7 @@ PRODUCT_PACKAGES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.ardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
