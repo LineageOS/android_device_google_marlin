@@ -109,6 +109,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
 
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service
+endif
+
 # Keymaster HAL
 PRODUCT_PACKAGES += \
     android.ardware.keymaster@3.0-impl
