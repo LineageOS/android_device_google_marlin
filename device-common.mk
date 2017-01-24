@@ -587,3 +587,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Workaround for audio glitches
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.adm.buffering.ms=3
+
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
