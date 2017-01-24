@@ -155,6 +155,9 @@ static int process_boost(int boost_handle, int duration)
                        strlen(INTERACTIVE_GOVERNOR)) == 0) { /*HMP boost*/
         launch_resources = hmp_launch_resources;
         launch_resources_size = sizeof(hmp_launch_resources) / sizeof(hmp_launch_resources[0]);
+    } else {
+        ALOGE("Unsupported governor.");
+        return -1;
     }
     boost_handle = interaction_with_handle(
         boost_handle, duration, launch_resources_size, launch_resources);
