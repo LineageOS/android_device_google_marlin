@@ -200,9 +200,9 @@ static uint16_t rmnetctl_transact(rmnetctl_hndl_t *hndl,
 		break;
 	}
 	return_code = RMNETCTL_SUCCESS;
-	} while(0);
 	free(request_buf);
 	free(response_buf);
+	} while(0);
 	return return_code;
 }
 
