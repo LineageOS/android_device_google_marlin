@@ -51,6 +51,28 @@ const float kMaxSampleRateHzLight = 5.0;
 const float kMinSampleRateHzOrientation = 12.5f;
 const float kMaxSampleRateHzOrientation = 200.0f;
 
+#ifdef DIRECT_REPORT_ENABLED
+constexpr uint32_t kDirectReportFlagAccel = (
+        // support up to rate level fast (nominal 200Hz);
+        (SENSOR_DIRECT_RATE_FAST << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
+        // support ashmem direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+constexpr uint32_t kDirectReportFlagGyro = (
+        // support up to rate level fast (nominal 200Hz);
+        (SENSOR_DIRECT_RATE_FAST << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
+        // support ashmem direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+constexpr uint32_t kDirectReportFlagMag = (
+        // support up to rate level normal (nominal 50Hz);
+        (SENSOR_DIRECT_RATE_NORMAL << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
+        // support ashmem direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+#else
+constexpr uint32_t kDirectReportFlagAccel = 0;
+constexpr uint32_t kDirectReportFlagGyro = 0;
+constexpr uint32_t kDirectReportFlagMag = 0;
+#endif
+
 /*
  * The fowllowing max count is determined by the total number of blocks
  * avaliable in the shared nanohub buffer and number of samples each type of
@@ -128,7 +150,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_ACCELEROMETER,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzAccel),    // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagAccel,
         { NULL, NULL }
     },
     {
@@ -146,7 +168,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_GYROSCOPE,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzGyro),     // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagGyro,
         { NULL, NULL }
     },
     {
@@ -182,7 +204,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_MAGNETIC_FIELD,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzMag),      // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagMag,
         { NULL, NULL }
     },
     {
