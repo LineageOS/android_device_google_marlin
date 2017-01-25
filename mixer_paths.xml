@@ -1189,10 +1189,11 @@
         <ctl name="DEC7 Volume" value="86" />
     </path>
 
-    <!-- CAMCORDER MIC 2nd D:4 dB -->
+    <!-- CAMCORDER MIC 2nd D:0 dB 24bit -->
     <path name="camcorder-mic">
         <path name="dmic3" />
-        <ctl name="DEC6 Volume" value="88" />
+        <ctl name="DEC6 Volume" value="84" />
+        <ctl name="SLIM_0_TX Format" value="S24_LE" />
     </path>
 
     <path name="handset-mic-db">
