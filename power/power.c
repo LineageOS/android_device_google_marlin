@@ -459,6 +459,8 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_VIDEO_DECODE:
             process_video_decode_hint(data);
         break;
+	default:
+	break;
     }
 }
 
