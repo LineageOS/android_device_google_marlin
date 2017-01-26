@@ -13,8 +13,6 @@ service charger /charger
     seclabel u:r:charger:s0
 
 on early-init
-    # Start devices by sysfs trigger
-    start devstart_sh
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
@@ -39,8 +37,12 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all fstab.${ro.hardware} --early
-    # Start qseecomd after vendor/ mounted
+
     start qseecomd
+    # Busy loop to wait for qseecomd started
+    exec - root root system -- /system/bin/init.qcom.qseecomd.sh
+    # Start devices by sysfs trigger
+    start devstart_sh
 
     swapon_all fstab.${ro.hardware}
 
@@ -60,16 +62,9 @@ on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
 on late-fs
-    # Busy loop to wait for qseecomd started, prefetch property for shell for faster exec
-    exec - root root system -- /system/bin/init.qcom.qseecomd.sh ${sys.listeners.registered:-false}
-
-    # Busy loop to wait for devices, prefetch properties for shell for faster path
-    exec - root root system -- /system/bin/init.qcom.devwait.sh ${sys.qcom.devup:-0}
-    # Start services for bootanim
+    # Start servicemanager for faster bootanim
     start servicemanager
-    start surfaceflinger
-    start audioserver
-    start bootanim
+    trigger show-animation
 
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
@@ -84,9 +79,7 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
-    # Set sku property
-    start mid_sh
-    # Restart qseecomd once we have /data/
+    # restart qseecomd once we have /data/
     restart qseecomd
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -257,11 +250,15 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
+    # Busy loop to wait for devices booted by devstart_sh just in case device not ready
+    exec - root root system -- /system/bin/init.qcom.devwait.sh
 
 on boot
-    # Exec init.mid.sh and init.foreground.sh in background
-    start power_sh
-    start foreground_sh
+    exec - root root system -- /system/bin/init.power.sh
+    exec - root root system -- /system/bin/init.mid.sh
+
+    exec - root root system readproc -- /system/bin/init.foreground.sh
+
     # add a cpuset for the camera daemon
     # we want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -681,23 +678,8 @@ service devstart_sh /system/bin/init.qcom.devstart.sh
     disabled
     oneshot
 
-service foreground_sh /system/bin/init.foreground.sh
-    class main
-    user root
-    group root system readproc
-    disabled
-    oneshot
-
-service power_sh /system/bin/init.power.sh
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-
-service mid_sh /system/bin/init.mid.sh
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
+on show-animation && property:sys.qcom.devup=1
+    # Start bootanim and its dependencies
+    start surfaceflinger
+    start audioserver
+    start bootanim
