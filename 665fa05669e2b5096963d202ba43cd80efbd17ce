@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_8d2546ad",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-01-26T20:36:00Z",
+      "side": 1,
+      "message": "let\u0027s get rid of the nfc_nci.marlin.so stuff, we already have to do manual intervention to get blobs to pull from a stock rom. its simpler to just have the lib here (plus that\u0027s what it\u0027d be named on a user\u0027s device anyway for when the extract_files.sh over adb)",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 25
+      },
+      "revId": "665fa05669e2b5096963d202ba43cd80efbd17ce",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
