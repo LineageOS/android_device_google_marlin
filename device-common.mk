@@ -148,6 +148,14 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service
 endif
 
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-service
+endif
+
 # set audio fluence, ns, aec property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluencepro \
