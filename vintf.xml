@@ -1,13 +1,13 @@
 <manifest version="1.0">
     <hal format="hidl">
         <name>android.hardware.audio</name>
-        <transport>hwbinder</transport>
+        <transport>passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
-        <transport>hwbinder</transport>
+        <transport>passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>
@@ -73,13 +73,13 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.light</name>
-        <transport>hwbinder</transport>
+        <transport>passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>
     <hal format="hidl">
         <name>android.hardware.nfc</name>
-        <transport>hwbinder</transport>
+        <transport>passthrough</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
     </hal>
@@ -91,7 +91,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
-        <transport>hwbinder</transport>
+        <transport>passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
     </hal>

@@ -109,15 +109,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
-# TODO(b/34258263): will marlin/sailfish be binderized devices?
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.light@2.0-service \
-    android.hardware.nfc@1.0-service
-
 # Light HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service
+endif
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -143,6 +142,11 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.broadcastradio@1.0-impl \
     android.hardware.soundtrigger@2.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service
+endif
 
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -451,6 +455,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES +=                         \
+    android.hardware.nfc@1.0-service        \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.gnss@1.0-service       \
     android.hardware.vibrator@1.0-service
