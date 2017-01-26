@@ -449,6 +449,7 @@ ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES +=                         \
     android.hardware.nfc@1.0-service        \
     android.hardware.gatekeeper@1.0-service \
+    android.hardware.gnss@1.0-service       \
     android.hardware.vibrator@1.0-service
 endif
 
