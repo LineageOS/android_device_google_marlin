@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.bluetooth@1.0-service \
     android.hardware.contexthub@1.0-service \
+    android.hardware.gnss@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
@@ -458,8 +459,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES +=                         \
-    android.hardware.gatekeeper@1.0-service \
-    android.hardware.gnss@1.0-service
+    android.hardware.gatekeeper@1.0-service
 endif
 
 # Vibrator
