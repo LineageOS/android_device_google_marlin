@@ -113,11 +113,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.bluetooth@1.0-service \
+    android.hardware.contexthub@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
     android.hardware.power@1.0-service \
-    android.hardware.vibrator@1.0-service
+    android.hardware.vibrator@1.0-service \
 
 # Light HAL
 PRODUCT_PACKAGES += \
