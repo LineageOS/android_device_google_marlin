@@ -1,0 +1,2 @@
+allow hal_memtrack debugfs_kgsl:dir search;
+allow hal_memtrack debugfs_kgsl:file read;
