@@ -166,6 +166,9 @@
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
 /sys/kernel/debug/rmt_storage(/.*)?              u:object_r:debugfs_rmt_storage:s0
 /sys/kernel/debug/sps(/.*)?                      u:object_r:debugfs_sps:s0
+/sys/kernel/debug/rpm_stats                      u:object_r:debugfs_rpm:s0
+/sys/kernel/debug/rpm_master_stats               u:object_r:debugfs_rpm:s0
+/sys/kernel/debug/kgsl(/.*)?                     u:object_r:debugfs_kgsl:s0
 
 # /data
 /data/diag_logs(/.*)?            u:object_r:diag_logs:s0
