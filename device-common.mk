@@ -433,8 +433,10 @@ AB_OTA_PARTITIONS += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl
 
+ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service
+endif
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -442,8 +444,10 @@ PRODUCT_PACKAGES += \
     Tag \
     android.hardware.nfc@1.0-impl
 
+ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service
+endif
 
 # Thermal packages
 PRODUCT_PACKAGES += \
