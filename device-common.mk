@@ -449,9 +449,14 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service
 endif
 
-# Thermal packages
+# Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-service
+endif
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
