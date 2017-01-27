@@ -62,9 +62,10 @@ on post-fs
     start devstart_sh
 
 on late-fs
-    # Start servicemanager for faster bootanim
+    # Start services for bootanim
     start servicemanager
-    trigger show-animation
+    start surfaceflinger
+    start bootanim
 
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
@@ -677,12 +678,6 @@ service devstart_sh /system/bin/init.qcom.devstart.sh
     group root system
     disabled
     oneshot
-
-on show-animation && property:sys.qcom.devup=1
-    # Start bootanim and its dependencies
-    start surfaceflinger
-    start audioserver
-    start bootanim
 
 service foreground_sh /system/bin/init.foreground.sh
     class main
