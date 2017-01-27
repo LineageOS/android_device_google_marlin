@@ -111,6 +111,7 @@ PRODUCT_COPY_FILES += \
 
 # TODO(b/34258263): will marlin/sailfish be binderized devices?
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service \
     android.hardware.light@2.0-service \
     android.hardware.nfc@1.0-service
 
@@ -140,13 +141,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
     android.hardware.soundtrigger@2.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service
-endif
 
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
