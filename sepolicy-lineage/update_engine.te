@@ -1,0 +1,2 @@
+allow update_engine app_data_file:file r_file_perms;
+allow update_engine self:capability { dac_override dac_read_search };
