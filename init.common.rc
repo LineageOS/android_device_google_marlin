@@ -80,6 +80,9 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
+    start zygote
+    start netd
+
     # Set sku property
     start mid_sh
     # Restart qseecomd once we have /data/
