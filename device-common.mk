@@ -112,6 +112,7 @@ PRODUCT_COPY_FILES += \
 # TODO(b/34258263): will marlin/sailfish be binderized devices?
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
+    android.hardware.nfc@1.0-service
 
 # Light HAL
 PRODUCT_PACKAGES += \
@@ -443,11 +444,6 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     android.hardware.nfc@1.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-service
-endif
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
