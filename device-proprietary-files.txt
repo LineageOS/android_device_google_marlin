@@ -91,6 +91,7 @@ bin/pm-service
 
 # Qualcomm framework
 bin/irsc_util
+bin/qti
 etc/permissions/qti_permissions.xml
 
 # Radio
