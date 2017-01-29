@@ -17,6 +17,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # Sepolicy
+BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy-lineage
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 
 # Snapdragon LLVM
