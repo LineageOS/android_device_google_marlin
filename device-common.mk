@@ -113,7 +113,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.light@2.0-service \
-    android.hardware.nfc@1.0-service
+    android.hardware.nfc@1.0-service \
+    android.hardware.vibrator@1.0-service
 
 # Light HAL
 PRODUCT_PACKAGES += \
@@ -456,13 +457,12 @@ PRODUCT_PACKAGES += \
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES +=                         \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gnss@1.0-service       \
-    android.hardware.vibrator@1.0-service
+    android.hardware.gnss@1.0-service
 endif
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-impl
 
 # VR
 PRODUCT_PACKAGES += \
