@@ -322,8 +322,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.smlog_switch=1 \
-    ro.radio.log_prefix="htc_smlog_" \
-    ro.radio.log_loc="/data/smlog_dump"
+    ro.radio.log_prefix="htc_smlog_"
 endif
 
 # Set snapshot timer to 3 second
