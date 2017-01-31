@@ -128,6 +128,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
 # Light HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
