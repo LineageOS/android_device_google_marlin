@@ -109,6 +109,8 @@
 /system/bin/subsystem_ramdump      u:object_r:subsystem_ramdump_exec:s0
 /system/bin/ssr_setup              u:object_r:ssr_setup_exec:s0
 /system/bin/ramdump                u:object_r:htc_ramdump_exec:s0
+/system/bin/smlog_dump             u:object_r:smlog_dump_exec:s0
+/system/bin/qsee_logger            u:object_r:qsee_logger_exec:s0
 
 /system/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
 /system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
@@ -134,6 +136,8 @@
 /sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
 /sys/devices/soc/70000\.qcom,msm-core(/.*)?      u:object_r:sysfs_msm_core:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
+/sys/class/thermal(/.*)?                         u:object_r:sysfs_thermal:s0
+/sys/class/uio(/.*)?                             u:object_r:sysfs_uio:s0
 /sys/module/msm_performance(/.*)?                u:object_r:sysfs_perf:s0
 /sys/devices/virtual/net(/.*)?                   u:object_r:sysfs_net:s0
 /sys/module/subsystem_restart(/.*)?              u:object_r:sysfs_msm_subsys_restart:s0
@@ -166,10 +170,18 @@
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
 /sys/kernel/debug/rmt_storage(/.*)?              u:object_r:debugfs_rmt_storage:s0
 /sys/kernel/debug/sps(/.*)?                      u:object_r:debugfs_sps:s0
+/sys/kernel/debug/rpm_stats                      u:object_r:debugfs_rpm:s0
+/sys/kernel/debug/rpm_master_stats               u:object_r:debugfs_rpm:s0
+/sys/kernel/debug/ipc_logging(/.*)?              u:object_r:debugfs_ipc:s0
+/sys/kernel/debug/dma_buf/bufinfo                u:object_r:debugfs_bufinfo:s0
+/sys/kernel/debug/mdp/xlog/dump                  u:object_r:debugfs_mdp:s0
+/sys/kernel/debug/tzdbg/qsee_log                 u:object_r:debugfs_qsee_log:s0
+/sys/kernel/debug/ion(/.*)?                      u:object_r:debugfs_ion:s0
 
 # /data
 /data/diag_logs(/.*)?            u:object_r:diag_logs:s0
 /data/cnss_diag(/.*)?            u:object_r:cnss_diag_data_file:s0
+/data/smlog_dump(/.*)?           u:object_r:smlog_dump_file:s0
 /data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ramdump_data_file:s0
