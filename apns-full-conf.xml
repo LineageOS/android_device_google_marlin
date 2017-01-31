@@ -7268,6 +7268,7 @@
       type="ims"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
+      user_visible="false"
   />
 
   <apn carrier="Rogers Tethering"
