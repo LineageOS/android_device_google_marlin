@@ -110,6 +110,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
 # TODO(b/34258263): will marlin/sailfish be binderized devices?
+PRODUCT_PROPERTY_OVERRIDES += persist.hal.binderization=true
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.bluetooth@1.0-service \
