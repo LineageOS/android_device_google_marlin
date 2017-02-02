@@ -112,6 +112,7 @@ PRODUCT_COPY_FILES += \
 # TODO(b/34258263): will marlin/sailfish be binderized devices?
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
+    android.hardware.boot@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
@@ -486,11 +487,6 @@ PRODUCT_PACKAGES += \
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-service
-endif
 
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))

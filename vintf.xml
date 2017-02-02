@@ -25,7 +25,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.boot</name>
-        <transport>passthrough</transport>
+        <transport>toggled</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
     </hal>
