@@ -28,6 +28,7 @@
 #include "DumpstateUtil.h"
 
 #define MODEM_LOG_PREFIX_PROPERTY "ro.radio.log_prefix"
+#define MODEM_LOG_LOC_PROPERTY "ro.radio.log_loc"
 #define MODEM_LOGGING_SWITCH "persist.radio.smlog_switch"
 
 using android::os::dumpstate::CommandOptions;
@@ -46,33 +47,30 @@ namespace {
 static void getModemLogs(int fd)
 {
     bool modemLogsEnabled = 0;
-
+    std::string modemLogDir = android::base::GetProperty(MODEM_LOG_LOC_PROPERTY, "");
+    if (modemLogDir.empty()) {
+        ALOGD("No modem log place is set\n");
+        return;
+    }
     /* Check if smlog_dump tool exist */
-    if (!PropertiesHelper::IsUserBuild() && !access("/system/bin/smlog_dump", F_OK)) {
+    if (!PropertiesHelper::IsUserBuild() && !access("/system/bin/smlog_dump", X_OK)) {
         modemLogsEnabled = android::base::GetBoolProperty(MODEM_LOGGING_SWITCH, false);
 
         /* Execute SMLOG DUMP if SMLOG is enabled */
         if (modemLogsEnabled) {
-            // TODO: uses a temporary path instead
-            std::string bugreportDir = "/bugreports";
-            CommandOptions options = CommandOptions::WithTimeout(120).AsRoot().Build();
-            RunCommandToFd(fd, "SMLOG DUMP", { "smlog_dump", "-d", "-o", bugreportDir.c_str() }, options);
-
+            CommandOptions options = CommandOptions::WithTimeout(120).Build();
+            RunCommandToFd(fd, "SMLOG DUMP", { "smlog_dump", "-d", "-o", modemLogDir.c_str() }, options);
             // Remove smlog folders older than 10 days.
             std::string filePrefix = android::base::GetProperty(MODEM_LOG_PREFIX_PROPERTY, "");
             if (!filePrefix.empty()) {
 
                 std::string removeCommand = "/system/bin/find " +
-                    bugreportDir + "/" + filePrefix + "* -mtime +10 -delete";
+                    modemLogDir + "/" + filePrefix + "* -mtime +10 -delete";
 
                 RunCommandToFd(fd, "RM OLD SMLOG",
-                              { "/system/bin/sh", "-c", removeCommand.c_str()},
-                              CommandOptions::AS_ROOT);
+                { "/system/bin/sh", "-c", removeCommand.c_str() });
             }
         }
-        RunCommandToFd(fd, "RM OLD SMLOG",
-                      { "/system/bin/sh", "-c", "/system/bin/find /data/smlog_* -delete" },
-                      CommandOptions::AS_ROOT);
     }
 }
 
@@ -98,18 +96,17 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     DumpFileToFd(fd, "RPM Stats", "/d/rpm_stats");
     DumpFileToFd(fd, "Power Management Stats", "/d/rpm_master_stats");
     DumpFileToFd(fd, "SMD Log", "/d/ipc_logging/smd/log");
-    RunCommandToFd(fd, "ION HEAPS", {"/system/bin/sh", "-c", "for d in $(ls -d /d/ion/*); do for f in $(ls $d); do echo --- $d/$f; cat $d/$f; done; done"}, CommandOptions::AS_ROOT);
+    RunCommandToFd(fd, "ION HEAPS", {"/system/bin/sh", "-c", "for d in $(ls -d /d/ion/*); do for f in $(ls $d); do echo --- $d/$f; cat $d/$f; done; done"});
     DumpFileToFd(fd, "dmabuf info", "/d/dma_buf/bufinfo");
-    RunCommandToFd(fd, "Temperatures", {"/system/bin/sh", "-c", "for f in `ls /sys/class/thermal` ; do type=`cat /sys/class/thermal/$f/type` ; temp=`cat /sys/class/thermal/$f/temp` ; echo \"$type: $temp\" ; done"}, CommandOptions::AS_ROOT);
+    RunCommandToFd(fd, "Temperatures", {"/system/bin/sh", "-c", "for f in `ls /sys/class/thermal` ; do type=`cat /sys/class/thermal/$f/type` ; temp=`cat /sys/class/thermal/$f/temp` ; echo \"$type: $temp\" ; done"});
     DumpFileToFd(fd, "cpu0-1 time-in-state", "/sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state");
-    RunCommandToFd(fd, "cpu0-1 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu0/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"}, CommandOptions::AS_ROOT);
+    RunCommandToFd(fd, "cpu0-1 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu0/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"});
     DumpFileToFd(fd, "cpu2-3 time-in-state", "/sys/devices/system/cpu/cpu2/cpufreq/stats/time_in_state");
-    RunCommandToFd(fd, "cpu2-3 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"}, CommandOptions::AS_ROOT);
+    RunCommandToFd(fd, "cpu2-3 cpuidle", {"/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"});
     DumpFileToFd(fd, "MDP xlogs", "/d/mdp/xlog/dump");
-    RunCommandToFd(fd, "RAMDUMP LIST", {"/system/bin/sh", "-c", "cat /data/data/com.android.ramdump/files/RAMDUMP_LIST"}, CommandOptions::AS_ROOT);
 
     /* Check if qsee_logger tool exists */
-    if (!access("/system/bin/qsee_logger", F_OK)) {
+    if (!access("/system/bin/qsee_logger", X_OK)) {
       RunCommandToFd(fd, "FP LOGS", {"qsee_logger", "-d"});
     }
 

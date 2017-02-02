@@ -5,6 +5,8 @@ on post-fs-data
     mkdir /data/diag_logs 0777 system system
     # WLAN logging collection
     mkdir /data/cnss_diag 0777 system system
+    # SM DUMP logging collection
+    mkdir /data/smlog_dump 0777 system system
 
     # Copy OEM adb_keys if /data/misc/adb/adb_keys does not exist
     copy /data/misc/adb/adb_keys /data/misc/adb/adb_keys_temp
