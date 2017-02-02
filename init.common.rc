@@ -56,8 +56,8 @@ on fs
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-    # Busy loop to wait for qseecomd started, prefetch property for shell for faster exec
-    exec - root root system -- /system/bin/init.qcom.qseecomd.sh ${sys.listeners.registered:-false}
+    # wait qseecomd come up
+    wait_for_prop sys.listeners.registered true
     # Start devices by sysfs trigger
     start devstart_sh
 
@@ -256,8 +256,8 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
-    # Busy loop to wait for devices, prefetch properties for shell for faster exec
-    exec - root root system -- /system/bin/init.qcom.devwait.sh ${sys.qcom.devup:-0}
+    # wait for devices
+    wait_for_prop sys.qcom.devup 1
 
 on boot
     # Exec init.mid.sh and init.foreground.sh in background
