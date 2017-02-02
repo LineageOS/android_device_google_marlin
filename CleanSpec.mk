@@ -49,3 +49,5 @@ $(call add-clean-step, find $(OUT_DIR)/target/product/marlin/ -name \*activity_r
 $(call add-clean-step, find $(OUT_DIR)/target/product/sailfish/ -name \*sensors.sailfish* -exec rm -rf {} \;)
 $(call add-clean-step, find $(OUT_DIR)/target/product/sailfish/ -name \*activity_recognition.sailfish* -exec rm -rf {} \;)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/app/WebViewGoogle)
+$(call add-clean-step, rm $(OUT_DIR)/target/product/marlin/system/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
+$(call add-clean-step, rm $(OUT_DIR)/target/product/sailfish/system/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
