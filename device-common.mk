@@ -112,6 +112,7 @@ PRODUCT_COPY_FILES += \
 # TODO(b/34258263): will marlin/sailfish be binderized devices?
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
+    android.hardware.bluetooth@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
@@ -434,11 +435,6 @@ AB_OTA_PARTITIONS += \
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service
-endif
 
 # NFC packages
 PRODUCT_PACKAGES += \
