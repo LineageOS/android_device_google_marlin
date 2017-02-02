@@ -1,0 +1,3 @@
+# connect to the thermal engine
+allow hal_vr thermal_socket:sock_file write;
+allow hal_vr thermal-engine:unix_stream_socket connectto;
