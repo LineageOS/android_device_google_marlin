@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_acda3176",
+        "filename": "BoardConfigLineage.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-02-03T02:05:22Z",
+      "side": 1,
+      "message": "Could also add the vzw config entry here instead.",
+      "revId": "1d4fef00ce3c625a3e88a5707abe8a08b7b1c9e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_ccdd7572",
+        "filename": "marlin/BoardConfig.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-02-03T02:05:22Z",
+      "side": 1,
+      "message": "Is this another instance where TARGET_PRODUCT is not what we are expecting?",
+      "range": {
+        "startLine": 109,
+        "startChar": 34,
+        "endLine": 109,
+        "endChar": 47
+      },
+      "revId": "1d4fef00ce3c625a3e88a5707abe8a08b7b1c9e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
