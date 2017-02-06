@@ -478,7 +478,8 @@ endif
 
 # HW Composer
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
 
 # Boot control
 PRODUCT_PACKAGES += \
