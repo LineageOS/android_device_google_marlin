@@ -6017,19 +6017,11 @@
   <apn carrier="Telekom Internet"
       mcc="262"
       mnc="01"
-      apn=""
-      type="ia"
-      protocol="IPV4V6"
-  />
-
-  <apn carrier="Telekom Internet"
-      mcc="262"
-      mnc="01"
       apn="internet.telekom"
       user="telekom"
       password="telekom"
       authtype="1"
-      type="default,supl"
+      type="default,supl,ia"
       protocol="IPV4V6"
   />
 
