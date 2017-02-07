@@ -80,9 +80,7 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
-    start zygote
     start netd
-
     # Set sku property
     start mid_sh
     # Restart qseecomd once we have /data/
@@ -245,6 +243,11 @@ on post-fs-data
     chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
     chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
     chmod 0660 /sys/class/devfreq/soc:qcom,gpubw/min_freq
+
+# zygote need to be started after otapreopt which will be done on post-fs-data
+# start zygote on the next action after post-fs-data which is load_persist_props_action
+on load_persist_props_action
+    start zygote
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
