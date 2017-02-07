@@ -13,6 +13,7 @@ type ramdump_data_file, file_type, data_file_type, mlstrustedobject;
 type time_data_file, file_type, data_file_type;
 type display_data_file, file_type, data_file_type;
 type netmgr_data_file, file_type, data_file_type;
+type nanohub_lock_file, file_type, data_file_type;
 
 # /sys
 type sysfs_camera, sysfs_type, fs_type;
