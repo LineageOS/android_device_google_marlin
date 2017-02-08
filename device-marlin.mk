@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/ueventd.common.rc:root/ueventd.marlin.rc \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.marlin.rc
 
+# SdcardFS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
+
 # Sensor hub init script
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.nanohub.rc:root/init.marlin.nanohub.rc
