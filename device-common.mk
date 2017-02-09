@@ -119,8 +119,7 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
     android.hardware.power@1.0-service \
-    android.hardware.sensors@1.0-service \
-    android.hardware.vibrator@1.0-service
+    android.hardware.vibrator@1.0-service \
 
 # Light HAL
 PRODUCT_PACKAGES += \
