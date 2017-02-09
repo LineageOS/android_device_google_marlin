@@ -190,9 +190,7 @@
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
 /data/misc/netmgr(/.*)?          u:object_r:netmgr_data_file:s0
-/data/system/nanohub_lock  u:object_r:nanohub_lock_file:s0
-/data/misc/sensorcal_saved.json  u:object_r:sensors_saved_settings_file:s0
-
+/data/system/nanohub_lock(/.*)?  u:object_r:nanohub_lock_file:s0
 
 # /
 
@@ -204,7 +202,6 @@
 /persist(/.*)?          u:object_r:persist_file:s0
 /persist/data(/.*)?     u:object_r:persist_data_file:s0
 /persist/display(/.*)?  u:object_r:persist_display_file:s0
-/persist/sensorcal.json  u:object_r:sensors_cal_file:s0
 
 /metadata               u:object_r:rootfs:s0
 /metadata/.*            u:object_r:vold_data_file:s0
