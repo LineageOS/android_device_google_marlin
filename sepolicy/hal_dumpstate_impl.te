@@ -4,9 +4,6 @@ hal_impl_domain(hal_dumpstate_impl, hal_dumpstate)
 type hal_dumpstate_impl_exec, exec_type, file_type;
 init_daemon_domain(hal_dumpstate_impl)
 
-# supress audit messages for attempting access to /firmware
-dontaudit hal_dumpstate_impl firmware_file:dir search;
-
 # Execute dump scripts
 allow hal_dumpstate_impl shell_exec:file rx_file_perms;
 allow hal_dumpstate_impl toolbox_exec:file rx_file_perms;
