@@ -119,7 +119,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
     android.hardware.power@1.0-service \
-    android.hardware.vibrator@1.0-service \
+    android.hardware.thermal@1.0-service \
+    android.hardware.vibrator@1.0-service
 
 # Light HAL
 PRODUCT_PACKAGES += \
@@ -447,11 +448,6 @@ PRODUCT_PACKAGES += \
 # Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-service
-endif
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
