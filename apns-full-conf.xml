@@ -22634,6 +22634,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -22642,6 +22643,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -22999,6 +23001,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23007,6 +23010,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23016,6 +23020,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23024,6 +23029,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23033,6 +23039,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23041,6 +23048,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23050,6 +23058,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23058,6 +23067,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23067,6 +23077,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23075,6 +23086,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23084,6 +23096,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23092,6 +23105,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23101,6 +23115,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23109,6 +23124,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23118,6 +23134,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23126,6 +23143,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23135,6 +23153,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23143,6 +23162,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23152,6 +23172,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23160,6 +23181,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23169,6 +23191,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23177,6 +23200,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23186,6 +23210,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23194,6 +23219,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23203,6 +23229,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23211,6 +23238,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23220,6 +23248,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23228,6 +23257,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23237,6 +23267,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23245,6 +23276,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23254,6 +23286,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23262,6 +23295,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23271,6 +23305,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23279,6 +23314,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23288,6 +23324,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23296,6 +23333,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23305,6 +23343,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23313,6 +23352,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23322,6 +23362,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23330,6 +23371,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
@@ -23339,6 +23381,7 @@
       apn="jionet"
       type="default,supl"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="IMS"
@@ -23347,6 +23390,7 @@
       apn="ims"
       type="ims"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       user_visible="false"
   />
 
