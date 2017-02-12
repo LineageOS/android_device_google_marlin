@@ -1,5 +1,6 @@
 allow ueventd sysfs_camera:file w_file_perms;
 allow ueventd sysfs_fingerprint:file w_file_perms;
+allow ueventd sysfs_leds:file w_file_perms;
 allow ueventd sysfs_msm_core:file w_file_perms;
 allow ueventd sysfs_msm_subsys:file w_file_perms;
 allow ueventd sysfs_nanoapp_cmd:file w_file_perms;
