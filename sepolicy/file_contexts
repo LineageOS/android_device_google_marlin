@@ -202,6 +202,3 @@
 /persist(/.*)?          u:object_r:persist_file:s0
 /persist/data(/.*)?     u:object_r:persist_data_file:s0
 /persist/display(/.*)?  u:object_r:persist_display_file:s0
-
-/metadata               u:object_r:rootfs:s0
-/metadata/.*            u:object_r:vold_data_file:s0
