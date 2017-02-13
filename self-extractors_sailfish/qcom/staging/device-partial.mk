@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
     vendor/qcom/sailfish/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/sailfish/proprietary/gptest:system/bin/gptest:qcom \
-    vendor/qcom/sailfish/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init:qcom \
     vendor/qcom/sailfish/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/sailfish/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
     vendor/qcom/sailfish/proprietary/imsqmidaemon:system/bin/imsqmidaemon:qcom \
@@ -39,7 +38,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/mdm_helper:system/bin/mdm_helper:qcom \
     vendor/qcom/sailfish/proprietary/mdm_helper_proxy:system/bin/mdm_helper_proxy:qcom \
     vendor/qcom/sailfish/proprietary/mm-qcamera-daemon:system/bin/mm-qcamera-daemon:qcom \
-    vendor/qcom/sailfish/proprietary/myftm:system/bin/myftm:qcom \
     vendor/qcom/sailfish/proprietary/nanotool:system/bin/nanotool:qcom \
     vendor/qcom/sailfish/proprietary/netmgrd:system/bin/netmgrd:qcom \
     vendor/qcom/sailfish/proprietary/nl_listener:system/bin/nl_listener:qcom \

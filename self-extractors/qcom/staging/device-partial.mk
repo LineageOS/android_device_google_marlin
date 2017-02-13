@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
     vendor/qcom/marlin/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/marlin/proprietary/gptest:system/bin/gptest:qcom \
-    vendor/qcom/marlin/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init:qcom \
     vendor/qcom/marlin/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/marlin/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
     vendor/qcom/marlin/proprietary/imsqmidaemon:system/bin/imsqmidaemon:qcom \
@@ -39,7 +38,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/mdm_helper:system/bin/mdm_helper:qcom \
     vendor/qcom/marlin/proprietary/mdm_helper_proxy:system/bin/mdm_helper_proxy:qcom \
     vendor/qcom/marlin/proprietary/mm-qcamera-daemon:system/bin/mm-qcamera-daemon:qcom \
-    vendor/qcom/marlin/proprietary/myftm:system/bin/myftm:qcom \
     vendor/qcom/marlin/proprietary/netmgrd:system/bin/netmgrd:qcom \
     vendor/qcom/marlin/proprietary/nl_listener:system/bin/nl_listener:qcom \
     vendor/qcom/marlin/proprietary/pktlogconf:system/bin/pktlogconf:qcom \

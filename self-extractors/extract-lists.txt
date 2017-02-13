@@ -18,7 +18,6 @@
             system/bin/diag_uart_log \
             system/bin/ftmdaemon \
             system/bin/gptest \
-            system/bin/hci_qcomm_init \
             system/bin/imscmservice \
             system/bin/imsdatadaemon \
             system/bin/imsqmidaemon \
@@ -30,7 +29,6 @@
             system/bin/mdm_helper \
             system/bin/mdm_helper_proxy \
             system/bin/mm-qcamera-daemon \
-            system/bin/myftm \
             system/bin/netmgrd \
             system/bin/nl_listener \
             system/bin/pktlogconf \
