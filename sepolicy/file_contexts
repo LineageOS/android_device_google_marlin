@@ -88,7 +88,6 @@
 /system/bin/nanoapp_cmd            u:object_r:nanoapp_cmd_exec:s0
 /system/bin/netmgrd                u:object_r:netmgrd_exec:s0
 /system/bin/qmuxd                  u:object_r:qmuxd_exec:s0
-/system/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
 /system/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
 /system/bin/port-bridge            u:object_r:port-bridge_exec:s0
 /system/bin/loc_launcher           u:object_r:location_exec:s0
@@ -110,11 +109,6 @@
 /system/bin/smlog_dump             u:object_r:smlog_dump_exec:s0
 /system/bin/qsee_logger            u:object_r:qsee_logger_exec:s0
 
-/system/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
-/system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
-/system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
-/system/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
-
 /system/bin/preloads_copy\.sh     u:object_r:preloads_copy_exec:s0
 
 # files in /vendor
@@ -123,6 +117,12 @@
 /vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
 /vendor/bin/perfd           u:object_r:perfd_exec:s0
 /vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
+
+/vendor/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
+/vendor/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
+/vendor/bin/init\.power\.sh        u:object_r:init_power_exec:s0
+/vendor/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
+/vendor/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
 
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
