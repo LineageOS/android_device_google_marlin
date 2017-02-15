@@ -60,7 +60,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/test_diag:system/bin/test_diag:qcom \
     vendor/qcom/sailfish/proprietary/test_module_pproc:system/bin/test_module_pproc:qcom \
     vendor/qcom/sailfish/proprietary/time_daemon:system/bin/time_daemon:qcom \
-    vendor/qcom/sailfish/proprietary/wcnss_filter:system/bin/wcnss_filter:qcom \
+    vendor/qcom/sailfish/proprietary/wcnss_filter:vendor/bin/wcnss_filter:qcom \
     vendor/qcom/sailfish/proprietary/wdsdaemon:system/bin/wdsdaemon:qcom \
     vendor/qcom/sailfish/proprietary/WifiLogger_app:system/bin/WifiLogger_app:qcom \
     vendor/qcom/sailfish/proprietary/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb:qcom \
