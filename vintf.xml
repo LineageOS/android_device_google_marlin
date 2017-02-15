@@ -156,12 +156,6 @@
         <version>1.0</version>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.media</name>
-        <transport>hwbinder</transport>
-        <impl level="generic"></impl>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
