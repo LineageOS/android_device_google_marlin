@@ -71,10 +71,10 @@ extern "C" {
 /* list the names of the backed-up partitions to be swapped */
 /* extension used for the backup partitions - tzbak, abootbak, etc. */
 #define BAK_PTN_NAME_EXT    "bak"
-#define XBL_PRIMARY         "/dev/block/bootdevice/by-name/xbl"
-#define XBL_BACKUP          "/dev/block/bootdevice/by-name/xblbak"
-#define XBL_AB_PRIMARY      "/dev/block/bootdevice/by-name/xbl_a"
-#define XBL_AB_SECONDARY    "/dev/block/bootdevice/by-name/xbl_b"
+#define XBL_PRIMARY         "/dev/block/platform/soc/624000.ufshc/by-name/xbl"
+#define XBL_BACKUP          "/dev/block/platform/soc/624000.ufshc/by-name/xblbak"
+#define XBL_AB_PRIMARY      "/dev/block/platform/soc/624000.ufshc/by-name/xbl_a"
+#define XBL_AB_SECONDARY    "/dev/block/platform/soc/624000.ufshc/by-name/xbl_b"
 /* GPT defines */
 #define MAX_LUNS                    26
 //Size of the buffer that needs to be passed to the UFS ioctl
