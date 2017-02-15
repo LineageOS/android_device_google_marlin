@@ -847,7 +847,7 @@ PRODUCT_COPY_FILES += \
 
 #TODO: move to device.mk
 # dm-verity definitions
-PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
+PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/platform/soc/624000.ufshc/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
 
 #skip boot jars check

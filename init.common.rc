@@ -6,7 +6,7 @@ on charger
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    wait /dev/block/bootdevice
+    wait /dev/block/platform/soc/624000.ufshc
 
 service charger /charger
     class charger
@@ -46,11 +46,11 @@ on fs
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
-    wait /dev/block/bootdevice/sda18 # /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev noatime barrier=1
+    wait /dev/block/platform/soc/624000.ufshc/sda18
+    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/cache /cache nosuid nodev noatime barrier=1
 
-    wait /dev/block/bootdevice/sda8 # /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev noatime barrier=1
+    wait /dev/block/platform/soc/624000.ufshc/sda8
+    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/persist /persist nosuid nodev noatime barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
