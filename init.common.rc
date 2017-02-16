@@ -604,7 +604,7 @@ service loc_launcher /system/bin/loc_launcher
     class late_start
     group gps inet diag wifi
 
-service init-radio-sh /system/bin/init.radio.sh
+service init-radio-sh /vendor/bin/init.radio.sh
     class late_start
     user radio
     group root radio
@@ -679,28 +679,28 @@ on property:sys.retaildemo.enabled=1
 on property:sys.retaildemo.enabled=0
     write /sys/class/power_supply/battery/full_level_dis_batt_chg 100
 
-service devstart_sh /system/bin/init.qcom.devstart.sh
+service devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
     user root
     group root system
     disabled
     oneshot
 
-service foreground_sh /system/bin/init.foreground.sh
+service foreground_sh /vendor/bin/init.foreground.sh
     class main
     user root
     group root system readproc
     disabled
     oneshot
 
-service power_sh /system/bin/init.power.sh
+service power_sh /vendor/bin/init.power.sh
     class main
     user root
     group root system
     disabled
     oneshot
 
-service mid_sh /system/bin/init.mid.sh
+service mid_sh /vendor/bin/init.mid.sh
     class main
     user root
     group root system
