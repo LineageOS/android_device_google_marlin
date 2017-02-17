@@ -54,8 +54,8 @@ write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
 write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
 
 # if EAS is present, switch to sched governor (no effect if not EAS)
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
-write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "sched"
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "schedutil"
 
 # re-enable thermal hotplug
 write /sys/module/msm_thermal/core_control/enabled 1
