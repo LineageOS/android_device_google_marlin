@@ -6906,6 +6906,17 @@
       mvno_type="gid"
   />
 
+  <apn carrier="TELUS ISP"
+      mcc="302"
+      mnc="220"
+      apn="isp.telus.com"
+      server="*"
+      type="dun"
+      protocol="IP"
+      mvno_match_data="5455"
+      mvno_type="gid"
+  />
+
   <apn carrier="TELUS IMS"
       mcc="302"
       mnc="220"
@@ -6975,6 +6986,17 @@
       mmsport="8799"
       protocol="IPV6"
       roaming_protocol="IP"
+      mvno_match_data="5455"
+      mvno_type="gid"
+  />
+
+  <apn carrier="TELUS ISP"
+      mcc="302"
+      mnc="221"
+      apn="isp.telus.com"
+      server="*"
+      type="dun"
+      protocol="IP"
       mvno_match_data="5455"
       mvno_type="gid"
   />
