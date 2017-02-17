@@ -169,7 +169,6 @@
 /sys/kernel/debug/sps(/.*)?                      u:object_r:debugfs_sps:s0
 /sys/kernel/debug/rpm_stats                      u:object_r:debugfs_rpm:s0
 /sys/kernel/debug/rpm_master_stats               u:object_r:debugfs_rpm:s0
-/sys/kernel/debug/kgsl(/.*)?                     u:object_r:debugfs_kgsl:s0
 /sys/kernel/debug/ipc_logging(/.*)?              u:object_r:debugfs_ipc:s0
 /sys/kernel/debug/dma_buf/bufinfo                u:object_r:debugfs_bufinfo:s0
 /sys/kernel/debug/mdp/xlog/dump                  u:object_r:debugfs_mdp:s0
