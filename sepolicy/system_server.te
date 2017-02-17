@@ -62,6 +62,9 @@ allow system_server thermal_socket:sock_file write;
 # rpm
 r_dir_file(system_server, debugfs_rpm)
 
+# kgsl
+allow system_server debugfs_kgsl:file { open read getattr };
+
 userdebug_or_eng(`
   allow system_server diag_device:chr_file rw_file_perms;
 ')
