@@ -6914,6 +6914,7 @@
       protocol="IPV6"
       mvno_match_data="5455"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Koodo SP"
@@ -6986,6 +6987,7 @@
       protocol="IPV6"
       mvno_match_data="5455"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Koodo SP"
