@@ -1043,6 +1043,95 @@ int QCamera3HardwareInterface::validateStreamDimensions(
     return rc;
 }
 
+/*===========================================================================
+ * FUNCTION   : validateUsageFlags
+ *
+ * DESCRIPTION: Check if the configuration usage flags map to same internal format.
+ *
+ * PARAMETERS :
+ *   @stream_list : streams to be configured
+ *
+ * RETURN     :
+ *   NO_ERROR if the usage flags are supported
+ *   error code if usage flags are not supported
+ *
+ *==========================================================================*/
+int QCamera3HardwareInterface::validateUsageFlags(
+        const camera3_stream_configuration_t* streamList)
+{
+    for (size_t j = 0; j < streamList->num_streams; j++) {
+        const camera3_stream_t *newStream = streamList->streams[j];
+
+        if (newStream->format != HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED ||
+            (newStream->stream_type != CAMERA3_STREAM_OUTPUT &&
+             newStream->stream_type != CAMERA3_STREAM_BIDIRECTIONAL)) {
+            continue;
+        }
+
+        bool isVideo = IS_USAGE_VIDEO(newStream->usage);
+        bool isPreview = IS_USAGE_PREVIEW(newStream->usage);
+        bool isZSL = IS_USAGE_ZSL(newStream->usage);
+        cam_format_t videoFormat = QCamera3Channel::getStreamDefaultFormat(
+                CAM_STREAM_TYPE_VIDEO, newStream->width, newStream->height);
+        cam_format_t previewFormat = QCamera3Channel::getStreamDefaultFormat(
+                CAM_STREAM_TYPE_PREVIEW, newStream->width, newStream->height);
+        cam_format_t zslFormat = QCamera3Channel::getStreamDefaultFormat(
+                CAM_STREAM_TYPE_SNAPSHOT, newStream->width, newStream->height);
+
+        // Color space for this camera device is guaranteed to be ITU_R_601_FR.
+        // So color spaces will always match.
+
+        // Check whether underlying formats of shared streams match.
+        if (isVideo && isPreview && videoFormat != previewFormat) {
+            LOGE("Combined video and preview usage flag is not supported");
+            return -EINVAL;
+        }
+        if (isPreview && isZSL && previewFormat != zslFormat) {
+            LOGE("Combined preview and zsl usage flag is not supported");
+            return -EINVAL;
+        }
+        if (isVideo && isZSL && videoFormat != zslFormat) {
+            LOGE("Combined video and zsl usage flag is not supported");
+            return -EINVAL;
+        }
+    }
+    return NO_ERROR;
+}
+
+/*===========================================================================
+ * FUNCTION   : validateUsageFlagsForEis
+ *
+ * DESCRIPTION: Check if the configuration usage flags conflict with Eis
+ *
+ * PARAMETERS :
+ *   @stream_list : streams to be configured
+ *
+ * RETURN     :
+ *   NO_ERROR if the usage flags are supported
+ *   error code if usage flags are not supported
+ *
+ *==========================================================================*/
+int QCamera3HardwareInterface::validateUsageFlagsForEis(
+        const camera3_stream_configuration_t* streamList)
+{
+    for (size_t j = 0; j < streamList->num_streams; j++) {
+        const camera3_stream_t *newStream = streamList->streams[j];
+
+        bool isVideo = IS_USAGE_VIDEO(newStream->usage);
+        bool isPreview = IS_USAGE_PREVIEW(newStream->usage);
+
+        // Because EIS is "hard-coded" for certain use case, and current
+        // implementation doesn't support shared preview and video on the same
+        // stream, return failure if EIS is forced on.
+        if (isPreview && isVideo && m_bEisEnable && m_bEisSupportedSize) {
+            LOGE("Combined video and preview usage flag is not supported due to EIS");
+            return -EINVAL;
+        }
+    }
+    return NO_ERROR;
+}
+
+
 /*==============================================================================
  * FUNCTION   : isSupportChannelNeeded
  *
@@ -1373,6 +1462,11 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         return BAD_VALUE;
     }
 
+    rc = validateUsageFlags(streamList);
+    if (rc != NO_ERROR) {
+        return rc;
+    }
+
     mOpMode = streamList->operation_mode;
     LOGD("mOpMode: %d", mOpMode);
 
@@ -1430,6 +1524,7 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     m_bEisSupportedSize = false;
     m_bTnrEnabled = false;
     bool isZsl = false;
+    bool isPreview = false;
     uint32_t videoWidth = 0U;
     uint32_t videoHeight = 0U;
     size_t rawStreamCnt = 0;
@@ -1510,6 +1605,11 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                 newStream->stream_type == CAMERA3_STREAM_INPUT){
             isZsl = true;
         }
+        if ((HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED == newStream->format) &&
+                IS_USAGE_PREVIEW(newStream->usage)) {
+            isPreview = true;
+        }
+
         if (newStream->stream_type == CAMERA3_STREAM_INPUT){
             inputStream = newStream;
         }
@@ -1534,6 +1634,7 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
             }
             m_bEisSupportedSize = (newStream->width <= maxEisWidth) &&
                                   (newStream->height <= maxEisHeight);
+
         }
         if (newStream->stream_type == CAMERA3_STREAM_BIDIRECTIONAL ||
                 newStream->stream_type == CAMERA3_STREAM_OUTPUT) {
@@ -1608,6 +1709,10 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         m_bEisEnable = false;
     }
 
+    if (validateUsageFlagsForEis(streamList) != NO_ERROR) {
+        pthread_mutex_unlock(&mMutex);
+        return -EINVAL;
+    }
     /* Logic to enable/disable TNR based on specific config size/etc.*/
     if ((m_bTnrPreview || m_bTnrVideo) && m_bIsVideo &&
             ((videoWidth == 1920 && videoHeight == 1080) ||
