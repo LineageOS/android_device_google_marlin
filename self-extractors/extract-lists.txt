@@ -50,7 +50,6 @@
             system/bin/test_diag \
             system/bin/test_module_pproc \
             system/bin/time_daemon \
-            vendor/bin/wcnss_filter \
             system/bin/wdsdaemon \
             system/bin/WifiLogger_app \
             system/etc/acdbdata/Bluetooth_cal.acdb \
