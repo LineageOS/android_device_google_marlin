@@ -461,7 +461,7 @@ service qseecomd /vendor/bin/qseecomd
    user root
    group root
 
-service thermal-engine /vendor/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
    class main
    user root
    group root system
