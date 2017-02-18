@@ -59,7 +59,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/test_diag:system/bin/test_diag:qcom \
     vendor/qcom/marlin/proprietary/test_module_pproc:system/bin/test_module_pproc:qcom \
     vendor/qcom/marlin/proprietary/time_daemon:system/bin/time_daemon:qcom \
-    vendor/qcom/marlin/proprietary/wcnss_filter:vendor/bin/wcnss_filter:qcom \
     vendor/qcom/marlin/proprietary/wdsdaemon:system/bin/wdsdaemon:qcom \
     vendor/qcom/marlin/proprietary/WifiLogger_app:system/bin/WifiLogger_app:qcom \
     vendor/qcom/marlin/proprietary/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb:qcom \
