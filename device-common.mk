@@ -97,6 +97,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
+# Use power.marlin on all devices
+PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
