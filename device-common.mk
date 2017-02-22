@@ -126,6 +126,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service \
     android.hardware.vr@1.0-service \
 
+PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
+
 # Light HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
