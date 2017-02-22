@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     nfc_nci.marlin
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/nfc/libnfc-nxp.marlin.conf:system/etc/libnfc-nxp.conf
+    device/google/marlin/nfc/libnfc-nxp.marlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # Led packages
 PRODUCT_PACKAGES += \
