@@ -17,14 +17,6 @@ on boot
     setprop sys.usb.mtp.device_type 3
     setprop sys.usb.rps_mask 0
 
-    chown root system /sys/class/dual_role_usb/otg_default/mode
-    chown root system /sys/class/dual_role_usb/otg_default/power_role
-    chown root system /sys/class/dual_role_usb/otg_default/data_role
-    chmod 664 /sys/class/dual_role_usb/otg_default/mode
-    chmod 664 /sys/class/dual_role_usb/otg_default/power_role
-    chmod 664 /sys/class/dual_role_usb/otg_default/data_role
-
-
 on post-fs
     write /sys/class/android_usb/android0/f_ffs/aliases adb,mtp
     mkdir /dev/usb-ffs 0775 shell shell
