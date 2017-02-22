@@ -159,10 +159,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
 
-# OMX HAL
-PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-impl
-
 # set audio fluence, ns, aec property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluencepro \
