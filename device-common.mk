@@ -40,9 +40,11 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/synaptics_dsxv26.idc:system/usr/idc/synaptics_dsxv26.idc
 
 # copy customized media_profiles and media_codecs xmls for msm8996
-PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:system/etc/media_profiles.xml \
+PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
                       device/google/marlin/media_codecs.xml:system/etc/media_codecs.xml \
                       device/google/marlin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.settings.xml=/vendor/etc/media_profiles.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -173,8 +175,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
-    device/google/marlin/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf     \
-    device/google/marlin/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf     \
+    device/google/marlin/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf     \
+    device/google/marlin/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf     \
     device/google/marlin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/google/marlin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
@@ -268,7 +270,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/sec_config:system/etc/sec_config
+    device/google/marlin/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/system
 
