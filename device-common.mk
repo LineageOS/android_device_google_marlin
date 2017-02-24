@@ -147,6 +147,10 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 endif
 
+# Usb HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service.marlin
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
@@ -594,6 +598,3 @@ endif
 # Workaround for audio glitches
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.adm.buffering.ms=3
-
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
