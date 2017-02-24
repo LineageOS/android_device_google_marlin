@@ -65,7 +65,7 @@
         <param key="snd_card_name" value="msm8996-tasha"/>
     </config_params>
     <gain_db_to_level_mapping>
-        <gain_level_map db="-43.4" level="15"/>
+        <gain_level_map db="-62.4" level="15"/>
         <gain_level_map db="-42.4" level="14"/>
         <gain_level_map db="-41.4" level="13"/>
         <gain_level_map db="-40.4" level="12"/>
@@ -76,8 +76,8 @@
         <gain_level_map db="-23" level="7"/>
         <gain_level_map db="-20" level="6"/>
         <gain_level_map db="-17" level="5"/>
-        <gain_level_map db="-14" level="4"/>
-        <gain_level_map db="-11.9" level="3"/>
+        <gain_level_map db="-14.5" level="4"/>
+        <gain_level_map db="-12" level="3"/>
         <gain_level_map db="-8.7" level="2"/>
         <gain_level_map db="0" level="1"/>
     </gain_db_to_level_mapping>
