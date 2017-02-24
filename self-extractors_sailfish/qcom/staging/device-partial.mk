@@ -138,4 +138,51 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
     vendor/qcom/sailfish/proprietary/bootimg.hmac:system/usr/qfipsverify/bootimg.hmac:qcom \
     vendor/qcom/sailfish/proprietary/qfipsverify.hmac:system/usr/qfipsverify/qfipsverify.hmac:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.biometrics.fingerprint@2.1.so:system/lib64/android.hardware.biometrics.fingerprint@2.1.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.device@1.0.so:system/lib64/android.hardware.camera.device@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.device@3.2.so:system/lib64/android.hardware.camera.device@3.2.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.provider@2.4.so:system/lib64/android.hardware.camera.provider@2.4.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.configstore@1.0.so:system/lib64/android.hardware.configstore@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.contexthub@1.0.so:system/lib64/android.hardware.contexthub@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.drm@1.0.so:system/lib64/android.hardware.drm@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.gnss@1.0.so:system/lib64/android.hardware.gnss@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.graphics.allocator@2.0.so:system/lib64/android.hardware.graphics.allocator@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.light@2.0.so:system/lib64/android.hardware.light@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.memtrack@1.0.so:system/lib64/android.hardware.memtrack@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.power@1.0.so:system/lib64/android.hardware.power@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.sensors@1.0.so:system/lib64/android.hardware.sensors@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.thermal@1.0.so:system/lib64/android.hardware.thermal@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.usb@1.0.so:system/lib64/android.hardware.usb@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.vibrator@1.0.so:system/lib64/android.hardware.vibrator@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.vr@1.0.so:system/lib64/android.hardware.vr@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.wifi@1.0.so:system/lib64/android.hardware.wifi@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.audio@2.0.so:system/lib64/android.hardware.audio@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.common@1.0.so:system/lib64/android.hardware.camera.common@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.graphics.common@1.0.so:system/lib64/android.hardware.graphics.common@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.graphics.composer@2.1.so:system/lib64/android.hardware.graphics.composer@2.1.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.camera.device@1.0.so:system/lib/android.hardware.camera.device@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.camera.device@3.2.so:system/lib/android.hardware.camera.device@3.2.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.camera.provider@2.4.so:system/lib/android.hardware.camera.provider@2.4.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.configstore@1.0.so:system/lib/android.hardware.configstore@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.contexthub@1.0.so:system/lib/android.hardware.contexthub@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.drm@1.0.so:system/lib/android.hardware.drm@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.gnss@1.0.so:system/lib/android.hardware.gnss@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.graphics.allocator@2.0.so:system/lib/android.hardware.graphics.allocator@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.light@2.0.so:system/lib/android.hardware.light@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.memtrack@1.0.so:system/lib/android.hardware.memtrack@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.power@1.0.so:system/lib/android.hardware.power@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.sensors@1.0.so:system/lib/android.hardware.sensors@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.thermal@1.0.so:system/lib/android.hardware.thermal@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.vibrator@1.0.so:system/lib/android.hardware.vibrator@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.vr@1.0.so:system/lib/android.hardware.vr@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.audio@2.0.so:system/lib/android.hardware.audio@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.camera.common@1.0.so:system/lib/android.hardware.camera.common@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.graphics.common@1.0.so:system/lib/android.hardware.graphics.common@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.graphics.composer@2.1.so:system/lib/android.hardware.graphics.composer@2.1.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/libfmq.so:system/lib64/libfmq.so:qcom \
+    vendor/qcom/sailfish/proprietary/libfmq.so:system/lib/libfmq.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.audio.effect@2.0.so:system/lib64/android.hardware.audio.effect@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/android.hardware.audio.common@2.0.so:system/lib64/android.hardware.audio.common@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.audio.effect@2.0.so:system/lib/android.hardware.audio.effect@2.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/android.hardware.audio.common@2.0.so:system/lib/android.hardware.audio.common@2.0.so:qcom \
 
