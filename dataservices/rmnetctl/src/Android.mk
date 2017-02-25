@@ -17,6 +17,8 @@ endif
 LOCAL_CLANG := true
 LOCAL_MODULE := librmnetctl
 LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := qcom
+LOCAL_PROPRIETARY_MODULE := true
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
