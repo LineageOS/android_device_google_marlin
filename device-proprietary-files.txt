@@ -80,6 +80,7 @@ lib/libimscamera_jni.so
 lib64/libimscamera_jni.so
 lib/libimsmedia_jni.so
 lib64/libimsmedia_jni.so
+-priv-app/CNEService/CNEService.apk
 
 # NFC
 lib/hw/nfc_nci.msm8996.so
