@@ -5,11 +5,17 @@ type firmware_file, fs_type, contextmount_type;
 
 # /data
 type diag_logs, file_type, data_file_type, mlstrustedobject;
+type cnss_diag_data_file, file_type, data_file_type, mlstrustedobject;
+type smlog_dump_file, file_type, data_file_type;
 type location_data_file, file_type, data_file_type;
 type perfd_data_file, file_type, data_file_type;
-type ramdump_data_file, file_type, data_file_type;
+type ramdump_data_file, file_type, data_file_type, mlstrustedobject;
 type time_data_file, file_type, data_file_type;
 type display_data_file, file_type, data_file_type;
+type netmgr_data_file, file_type, data_file_type;
+type nanohub_lock_file, file_type, data_file_type;
+type sensors_cal_file, file_type;
+type sensors_saved_settings_file, file_type, data_file_type;
 
 # /sys
 type sysfs_camera, sysfs_type, fs_type;
@@ -33,6 +39,11 @@ type debugfs_rmt_storage, debugfs_type, fs_type;
 type debugfs_sps, debugfs_type, fs_type;
 type debugfs_rpm, debugfs_type, fs_type;
 type debugfs_kgsl, debugfs_type, fs_type;
+type debugfs_ipc, debugfs_type, fs_type;
+type debugfs_bufinfo, debugfs_type, fs_type;
+type debugfs_mdp, debugfs_type, fs_type;
+type debugfs_ion, debugfs_type, fs_type;
+type debugfs_qsee_log, debugfs_type, fs_type;
 
 # /proc
 type proc_kernel_sched, fs_type;
