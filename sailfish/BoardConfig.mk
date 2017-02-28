@@ -101,7 +101,6 @@ BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
 ifneq ($(filter sailfish sailfishf, $(TARGET_PRODUCT)),)
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
-BOARD_SECCOMP_POLICY += device/google/marlin/seccomp
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
 
