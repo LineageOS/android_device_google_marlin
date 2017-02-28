@@ -369,17 +369,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
+INIT_COMMON_DIAG_RC := root/init.common.diag.rc
+ifeq ($(ENABLE_EARLY_MOUNT), true)
+INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
+endif
+
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.diag.rc.userdebug:root/init.common.diag.rc
+    device/google/marlin/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
 
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.enable_ramdumps=1
 else
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.diag.rc.user:root/init.common.diag.rc
+    device/google/marlin/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
 endif
 
 # Subsystem silent restart
