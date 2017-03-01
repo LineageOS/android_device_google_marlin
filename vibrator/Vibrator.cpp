@@ -38,6 +38,8 @@ namespace implementation {
 static constexpr int MAX_VOLTAGE = 3596;
 static constexpr int MIN_VOLTAGE = 116;
 
+static constexpr uint32_t CLICK_TIMING_MS = 20;
+
 Vibrator::Vibrator(std::ofstream&& enable, std::ofstream&& amplitude) :
         mEnable(std::move(enable)),
         mAmplitude(std::move(amplitude)) {}
@@ -82,8 +84,29 @@ Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
     return Status::OK;
 }
 
-Return<void> Vibrator::perform(Effect, EffectStrength, perform_cb _hidl_cb) {
-    _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
+Return<void> Vibrator::perform(Effect effect, EffectStrength strength, perform_cb _hidl_cb) {
+    if (effect == Effect::CLICK) {
+        uint8_t amplitude;
+        switch (strength) {
+        case EffectStrength::LIGHT:
+            amplitude = 36;
+            break;
+        case EffectStrength::MEDIUM:
+            amplitude = 128;
+            break;
+        case EffectStrength::STRONG:
+            amplitude = 255;
+            break;
+        default:
+            _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
+            return Void();
+        }
+        on(CLICK_TIMING_MS);
+        setAmplitude(amplitude);
+        _hidl_cb(Status::OK, CLICK_TIMING_MS);
+    } else {
+        _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
+    }
     return Void();
 }
 
