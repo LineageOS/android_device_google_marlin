@@ -15,3 +15,7 @@ service nanohub_slpi /vendor/bin/nanohub_slpi
     user root
     group system
 
+on post-fs-data
+    mkdir /data/system/nanohub_lock/
+    restorecon /data/system/nanohub_lock
+
