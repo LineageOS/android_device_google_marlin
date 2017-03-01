@@ -16,6 +16,10 @@
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.1</version>
+        <interface>
+            <name>IBiometricsFingerprint</name>
+            <instance>fingerprint_hal</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
@@ -34,6 +38,10 @@
         <transport>toggled</transport>
         <impl level="generic"></impl>
         <version>2.4</version>
+        <interface>
+            <name>ICameraProvider</name>
+            <instance>legacy/0</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.configstore</name>
@@ -52,6 +60,14 @@
         <transport>toggled</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
+        <interface>
+            <name>ICryptoFactory</name>
+            <instance>crypto</instance>
+        </interface>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>drm</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.dumpstate</name>
@@ -136,6 +152,10 @@
         <transport>toggled</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>sound_trigger.primary</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.thermal</name>
