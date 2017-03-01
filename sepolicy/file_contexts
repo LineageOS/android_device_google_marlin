@@ -78,6 +78,10 @@
 /firmware(/.*)?         u:object_r:firmware_file:s0
 
 # files in /system
+/system/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
+/system/bin/init\.power\.sh        u:object_r:init_power_exec:s0
+/system/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
+/system/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
 /system/bin/pm-service             u:object_r:per_mgr_exec:s0
