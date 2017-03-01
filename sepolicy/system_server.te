@@ -33,14 +33,32 @@ r_dir_file(system_server, sysfs_type)
 allow system_server location_data_file:dir create_dir_perms;
 allow system_server location_data_file:{ file fifo_file } create_file_perms;
 
-# read sensor calibration data
+## Rules needed for sensors HAL when it is running in passthrough mode.
+
+# Access to the nanohub device
+allow system_server sensors_device:chr_file rw_file_perms;
+# Access to the lock file to arbitrate access
+allow system_server nanohub_lock_file:dir create_dir_perms;
+allow system_server nanohub_lock_file:file create_file_perms;
+# Access to uinput for lidstate determination
+allow system_server uhid_device:chr_file rw_file_perms;
+# Allow access to persistent partition for calibration data
 allow system_server persist_file:dir search;
-allow system_server persist_file:file r_file_perms;
+allow system_server sensors_cal_file:dir create_dir_perms;
+allow system_server sensors_cal_file:file create_file_perms;
+# Allow access to saved settings file
+allow system_server sensors_saved_settings_file:dir create_dir_perms;
+allow system_server sensors_saved_settings_file:file create_file_perms;
+# Allow access to sensor properties
 set_prop(system_server, sensors_prop)
 
+## End sensor HAL section
+
 # interact with thermal_config
-allow system_server thermal-engine:unix_stream_socket connectto;
-allow system_server thermal_socket:sock_file write;
+set_prop(system_server, thermal_prop)
+
+# rpm
+r_dir_file(system_server, debugfs_rpm)
 
 # kgsl
 allow system_server debugfs_kgsl:file { open read getattr };
