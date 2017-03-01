@@ -16,6 +16,10 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
+# Pixel Experience
+PRODUCT_COPY_FILES += \
+  device/google/marlin/nexus.xml:system/etc/sysconfig/nexus.xml
+
 # SDCardFS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true
