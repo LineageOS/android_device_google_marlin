@@ -137,6 +137,7 @@
 /sys/devices/bt_qca[0-9]+/rfkill/rfkill0/state   u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/soc/leds-qpnp-ffffffc0f92b4400/leds(/.*)? u:object_r:sysfs_leds:s0
 /sys/devices/soc/900000\.qcom,mdss_mdp/900000\.qcom,mdss_mdp:qcom,mdss_fb_primary/leds(/.*)? u:object_r:sysfs_leds:s0
+/sys/devices/soc/900000\.qcom,mdss_mdp/caps      u:object_r:sysfs_mdss_mdp_caps:s0
 /sys/module/msm_core(/.*)?                       u:object_r:sysfs_msm_core:s0
 /sys/devices/soc/70000\.qcom,msm-core(/.*)?      u:object_r:sysfs_msm_core:s0
 /sys/module/msm_thermal(/.*)?                    u:object_r:sysfs_thermal:s0
