@@ -87,7 +87,7 @@ PRODUCT_PACKAGES += fs_config_files \
 
 # Vendor Interface Manifest
 PRODUCT_COPY_FILES += \
-    device/google/marlin/vintf.xml:vendor/manifest.xml
+    device/google/marlin/manifest.xml:vendor/manifest.xml
 
 # Audio configuration
 USE_XML_AUDIO_POLICY_CONF := 1
