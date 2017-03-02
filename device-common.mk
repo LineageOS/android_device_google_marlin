@@ -33,11 +33,11 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
 # Input device files
 PRODUCT_COPY_FILES += \
-    device/google/marlin/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/google/marlin/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
-    device/google/marlin/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
-    device/google/marlin/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
-    device/google/marlin/synaptics_dsxv26.idc:system/usr/idc/synaptics_dsxv26.idc
+    device/google/marlin/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    device/google/marlin/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl \
+    device/google/marlin/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    device/google/marlin/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
+    device/google/marlin/synaptics_dsxv26.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/synaptics_dsxv26.idc
 
 # copy customized media_profiles and media_codecs xmls for msm8996
 PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
