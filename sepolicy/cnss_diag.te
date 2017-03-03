@@ -13,6 +13,9 @@ allow cnss_diag self:capability { setgid setuid };
 
 allow cnss_diag self:netlink_socket create_socket_perms_no_ioctl;
 
+# b/35877764 suppress the udp_socket denial message temproarily
+dontaudit cnss_diag self:udp_socket create;
+
 r_dir_file(cnss-daemon, sysfs_type)
 allow cnss-daemon sysfs_msm_core:file write;
 
