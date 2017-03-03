@@ -43,3 +43,10 @@ qmux_socket(hal_camera)
 
 # allow hal_camera to call some socket ioctls
 allowxperm hal_camera self:socket ioctl { IPC_ROUTER_IOCTL_LOOKUP_SERVER IPC_ROUTER_IOCTL_BIND_CONTROL_PORT };
+
+# ignore spurious denial
+dontaudit hal_camera graphics_device:dir search;
+
+userdebug_or_eng(`
+  allow hal_camera diag_device:chr_file rw_file_perms;
+')
