@@ -13,7 +13,7 @@ allow location self:capability { setgid setuid };
 
 binder_use(location)
 binder_call(location, system_server)
-allow location system_server:unix_stream_socket { read write };
+allow location hal_wifi:unix_stream_socket { read write };
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(location)
