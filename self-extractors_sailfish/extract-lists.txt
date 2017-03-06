@@ -66,10 +66,6 @@
             system/etc/cne/Nexus/ATT/ATT_profiles.xml \
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
-            system/etc/diag/CHRE.cfg \
-            system/etc/diag/IMS.cfg \
-            system/etc/diag/MarlinSailfish_Radio-generic.cfg \
-            system/etc/diag/wlan.cfg \
             system/etc/firmware/cpp_firmware_v1_10_0.fw \
             system/etc/firmware/cpp_firmware_v1_1_1.fw \
             system/etc/firmware/cpp_firmware_v1_1_6.fw \
