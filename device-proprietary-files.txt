@@ -68,23 +68,23 @@ lib/libloc_ds_api.so
 etc/sap.conf
 
 # IMS/HD Voice
--app/ims/ims.apk
--app/imssettings/imssettings.apk
 bin/ATFWD-daemon
 bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 bin/ims_rtp_daemon
 etc/permissions/imscm.xml
-lib/libimscamera_jni.so
-lib64/libimscamera_jni.so
-lib/libimsmedia_jni.so
-lib64/libimsmedia_jni.so
 -priv-app/CNEService/CNEService.apk
+-vendor/app/ims/ims.apk:app/ims/ims.apk
+-vendor/app/imssettings/imssettings.apk:app/imssettings/imssettings.apk
+vendor/lib/libimscamera_jni.so:lib/libimscamera_jni.so
+vendor/lib64/libimscamera_jni.so:lib64/libimscamera_jni.so
+vendor/lib/libimsmedia_jni.so:lib/libimsmedia_jni.so
+vendor/lib64/libimsmedia_jni.so:lib64/libimsmedia_jni.so
 
 # NFC
-lib/hw/nfc_nci.msm8996.so
-lib64/hw/nfc_nci.msm8996.so
+lib/hw/nfc_nci.marlin.so:lib/hw/nfc_nci.msm8996.so
+lib64/hw/nfc_nci.marlin.so:lib64/hw/nfc_nci.msm8996.so
 
 # Peripheral manager
 bin/pm-proxy
@@ -118,8 +118,8 @@ bin/ssr_setup
 
 # Time Services
 bin/time_daemon
--lib/libtime_genoff.so
--lib64/libtime_genoff.so
+-vendor/lib/libtime_genoff.so:lib/libtime_genoff.so
+-vendor/lib64/libtime_genoff.so:lib64/libtime_genoff.so
 
 # USB
 bin/port-bridge
