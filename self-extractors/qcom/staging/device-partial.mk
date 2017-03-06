@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#  blob(s) necessary for Dragon hardware
+#  blob(s) necessary for Marlin hardware
 PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/adsprpcd:system/bin/adsprpcd:qcom \
     vendor/qcom/marlin/proprietary/ATFWD-daemon:system/bin/ATFWD-daemon:qcom \
@@ -74,10 +74,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/ATT_profiles.xml:system/etc/cne/Nexus/ATT/ATT_profiles.xml:qcom \
     vendor/qcom/marlin/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml:qcom \
     vendor/qcom/marlin/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
-    vendor/qcom/marlin/proprietary/CHRE.cfg:system/etc/diag/CHRE.cfg:qcom \
-    vendor/qcom/marlin/proprietary/IMS.cfg:system/etc/diag/IMS.cfg:qcom \
-    vendor/qcom/marlin/proprietary/MarlinSailfish_Radio-generic.cfg:system/etc/diag/MarlinSailfish_Radio-generic.cfg:qcom \
-    vendor/qcom/marlin/proprietary/wlan.cfg:system/etc/diag/wlan.cfg:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_10_0.fw:system/etc/firmware/cpp_firmware_v1_10_0.fw:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_1_1.fw:system/etc/firmware/cpp_firmware_v1_1_1.fw:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_1_6.fw:system/etc/firmware/cpp_firmware_v1_1_6.fw:qcom \
@@ -137,4 +133,92 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
     vendor/qcom/marlin/proprietary/bootimg.hmac:system/usr/qfipsverify/bootimg.hmac:qcom \
     vendor/qcom/marlin/proprietary/qfipsverify.hmac:system/usr/qfipsverify/qfipsverify.hmac:qcom \
+    vendor/qcom/marlin/proprietary/lib64/libfmq.so:system/lib64/libfmq.so:qcom \
+    vendor/qcom/marlin/proprietary/libfmq.so:system/lib/libfmq.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.audio@2.0.so:system/lib64/android.hardware.audio@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.audio.common@2.0.so:system/lib64/android.hardware.audio.common@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.audio.common@2.0-util.so:system/lib64/android.hardware.audio.common@2.0-util.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.audio.effect@2.0.so:system/lib64/android.hardware.audio.effect@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.biometrics.fingerprint@2.1.so:system/lib64/android.hardware.biometrics.fingerprint@2.1.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.bluetooth@1.0.so:system/lib64/android.hardware.bluetooth@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.boot@1.0.so:system/lib64/android.hardware.boot@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.broadcastradio@1.0.so:system/lib64/android.hardware.broadcastradio@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.camera.common@1.0.so:system/lib64/android.hardware.camera.common@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.camera.device@1.0.so:system/lib64/android.hardware.camera.device@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.camera.device@3.2.so:system/lib64/android.hardware.camera.device@3.2.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.camera.provider@2.4.so:system/lib64/android.hardware.camera.provider@2.4.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.configstore@1.0.so:system/lib64/android.hardware.configstore@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.contexthub@1.0.so:system/lib64/android.hardware.contexthub@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.drm@1.0.so:system/lib64/android.hardware.drm@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.dumpstate@1.0.so:system/lib64/android.hardware.dumpstate@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.gatekeeper@1.0.so:system/lib64/android.hardware.gatekeeper@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.gnss@1.0.so:system/lib64/android.hardware.gnss@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.graphics.allocator@2.0.so:system/lib64/android.hardware.graphics.allocator@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.graphics.common@1.0.so:system/lib64/android.hardware.graphics.common@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.graphics.composer@2.1.so:system/lib64/android.hardware.graphics.composer@2.1.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.graphics.mapper@2.0.so:system/lib64/android.hardware.graphics.mapper@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.health@1.0.so:system/lib64/android.hardware.health@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.ir@1.0.so:system/lib64/android.hardware.ir@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.keymaster@3.0.so:system/lib64/android.hardware.keymaster@3.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.light@2.0.so:system/lib64/android.hardware.light@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.media@1.0.so:system/lib64/android.hardware.media@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.media.omx@1.0.so:system/lib64/android.hardware.media.omx@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.memtrack@1.0.so:system/lib64/android.hardware.memtrack@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.nfc@1.0.so:system/lib64/android.hardware.nfc@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.power@1.0.so:system/lib64/android.hardware.power@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.radio@1.0.so:system/lib64/android.hardware.radio@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.radio.deprecated@1.0.so:system/lib64/android.hardware.radio.deprecated@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.renderscript@1.0.so:system/lib64/android.hardware.renderscript@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.sensors@1.0.so:system/lib64/android.hardware.sensors@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.soundtrigger@2.0.so:system/lib64/android.hardware.soundtrigger@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.tests.libhwbinder@1.0.so:system/lib64/android.hardware.tests.libhwbinder@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.thermal@1.0.so:system/lib64/android.hardware.thermal@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.tv.cec@1.0.so:system/lib64/android.hardware.tv.cec@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.tv.input@1.0.so:system/lib64/android.hardware.tv.input@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.usb@1.0.so:system/lib64/android.hardware.usb@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.vibrator@1.0.so:system/lib64/android.hardware.vibrator@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.vr@1.0.so:system/lib64/android.hardware.vr@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.wifi@1.0.so:system/lib64/android.hardware.wifi@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/android.hardware.wifi.supplicant@1.0.so:system/lib64/android.hardware.wifi.supplicant@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.audio@2.0.so:system/lib/android.hardware.audio@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.audio.common@2.0.so:system/lib/android.hardware.audio.common@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.audio.common@2.0-util.so:system/lib/android.hardware.audio.common@2.0-util.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.audio.effect@2.0.so:system/lib/android.hardware.audio.effect@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.bluetooth@1.0.so:system/lib/android.hardware.bluetooth@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.boot@1.0.so:system/lib/android.hardware.boot@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.broadcastradio@1.0.so:system/lib/android.hardware.broadcastradio@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.broadcastradio@1.1.so:system/lib/android.hardware.broadcastradio@1.1.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.camera.common@1.0.so:system/lib/android.hardware.camera.common@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.camera.device@1.0.so:system/lib/android.hardware.camera.device@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.camera.device@3.2.so:system/lib/android.hardware.camera.device@3.2.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.camera.provider@2.4.so:system/lib/android.hardware.camera.provider@2.4.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.configstore@1.0.so:system/lib/android.hardware.configstore@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.contexthub@1.0.so:system/lib/android.hardware.contexthub@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.drm@1.0.so:system/lib/android.hardware.drm@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.gatekeeper@1.0.so:system/lib/android.hardware.gatekeeper@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.gnss@1.0.so:system/lib/android.hardware.gnss@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.graphics.allocator@2.0.so:system/lib/android.hardware.graphics.allocator@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.graphics.common@1.0.so:system/lib/android.hardware.graphics.common@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.graphics.composer@2.1.so:system/lib/android.hardware.graphics.composer@2.1.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.graphics.mapper@2.0.so:system/lib/android.hardware.graphics.mapper@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.ir@1.0.so:system/lib/android.hardware.ir@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.keymaster@3.0.so:system/lib/android.hardware.keymaster@3.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.light@2.0.so:system/lib/android.hardware.light@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.media@1.0.so:system/lib/android.hardware.media@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.media.omx@1.0-impl.so:system/lib/android.hardware.media.omx@1.0-impl.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.media.omx@1.0.so:system/lib/android.hardware.media.omx@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.memtrack@1.0.so:system/lib/android.hardware.memtrack@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.nfc@1.0.so:system/lib/android.hardware.nfc@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.power@1.0.so:system/lib/android.hardware.power@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.radio@1.0.so:system/lib/android.hardware.radio@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.radio.deprecated@1.0.so:system/lib/android.hardware.radio.deprecated@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.renderscript@1.0.so:system/lib/android.hardware.renderscript@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.sensors@1.0.so:system/lib/android.hardware.sensors@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.soundtrigger@2.0.so:system/lib/android.hardware.soundtrigger@2.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.tests.libhwbinder@1.0.so:system/lib/android.hardware.tests.libhwbinder@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.thermal@1.0.so:system/lib/android.hardware.thermal@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.tv.cec@1.0.so:system/lib/android.hardware.tv.cec@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.tv.input@1.0.so:system/lib/android.hardware.tv.input@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.vibrator@1.0.so:system/lib/android.hardware.vibrator@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/android.hardware.vr@1.0.so:system/lib/android.hardware.vr@1.0.so:qcom \
 
