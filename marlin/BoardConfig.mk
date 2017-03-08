@@ -151,17 +151,8 @@ TARGET_PD_SERVICE_ENABLED := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_BOOTIMG_SIGNED := true
 
-# Enable dex pre-opt to speed up initial boot
-ifeq ($(HOST_OS),linux)
-  ifeq ($(WITH_DEXPREOPT),)
-    WITH_DEXPREOPT := true
-    WITH_DEXPREOPT_PIC := true
-    ifneq ($(TARGET_BUILD_VARIANT),user)
-      # Retain classes.dex in APK's for non-user builds
-      DEX_PREOPT_DEFAULT := nostripping
-    endif
-  endif
-endif
+# Disable Dex preopting altogether.
+WITH_DEXPREOPT := false
 
 # HTC_SENSOR_HUB
 LIBHTC_SENSORHUB_PROJECT := g_project
@@ -191,9 +182,6 @@ TARGET_USE_MDTP := true
 TARGET_USE_VERIZON_APN_LIB_PREBUILT := true
 
 TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
-
-# Install odex files into the other system image
-BOARD_USES_SYSTEM_OTHER_ODEX := true
 
 -include vendor/google_devices/marlin/BoardConfigVendor.mk
 # Build a separate vendor.img
