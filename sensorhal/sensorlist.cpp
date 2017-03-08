@@ -57,18 +57,21 @@ const float kMaxSampleRateHzOrientation = 200.0f;
 constexpr uint32_t kDirectReportFlagAccel = (
         // support up to rate level fast (nominal 200Hz);
         (SENSOR_DIRECT_RATE_FAST << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
-        // support ashmem direct channel
-        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+        // support ashmem and gralloc direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM
+        | SENSOR_FLAG_DIRECT_CHANNEL_GRALLOC);
 constexpr uint32_t kDirectReportFlagGyro = (
         // support up to rate level fast (nominal 200Hz);
         (SENSOR_DIRECT_RATE_FAST << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
-        // support ashmem direct channel
-        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+        // support ashmem and gralloc direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM
+        | SENSOR_FLAG_DIRECT_CHANNEL_GRALLOC);
 constexpr uint32_t kDirectReportFlagMag = (
         // support up to rate level normal (nominal 50Hz);
         (SENSOR_DIRECT_RATE_NORMAL << SENSOR_FLAG_SHIFT_DIRECT_REPORT)
-        // support ashmem direct channel
-        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM);
+        // support ashmem and gralloc direct channel
+        | SENSOR_FLAG_DIRECT_CHANNEL_ASHMEM
+        | SENSOR_FLAG_DIRECT_CHANNEL_GRALLOC);
 #else
 constexpr uint32_t kDirectReportFlagAccel = 0;
 constexpr uint32_t kDirectReportFlagGyro = 0;
