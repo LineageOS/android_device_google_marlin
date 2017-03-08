@@ -142,8 +142,7 @@ on post-fs-data
     restart qseecomd
 
 # zygote need to be started after otapreopt which will be done on post-fs-data
-# start zygote on the next action after post-fs-data which is load_persist_props_action
-on load_persist_props_action
+on zygote-start
     start zygote
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
