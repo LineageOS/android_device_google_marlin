@@ -3,3 +3,11 @@ allow netd sysfs_net:file w_file_perms;
 
 # in addition to ioctl commands granted to domain allow netd to use:
 allowxperm netd self:udp_socket ioctl { SIOCSIFFLAGS SIOCSIFADDR SIOCGIFHWADDR };
+
+# Enable XTRA downloads
+#
+# TODO:(b/35757613) - STOPSHIP - HAL cannot have direct inet access
+#
+allow netd hal_gnss_default:fd use;
+allow netd hal_gnss_default:tcp_socket { getopt read setopt write };
+
