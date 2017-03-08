@@ -60,7 +60,7 @@ endif
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.rc:$(INIT_RC) \
     device/google/marlin/init.common.usb.rc:$(INIT_USB_RC) \
-    device/google/marlin/fstab.common:root/fstab.sailfish \
+    device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sailfish \
     device/google/marlin/ueventd.common.rc:$(INIT_UEVENTD_RC) \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.sailfish.rc
 
