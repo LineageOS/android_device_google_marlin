@@ -1,6 +1,7 @@
 get_prop(domain, camera_prop)
 
 dontaudit domain self:capability sys_module;
+dontaudit domain kernel:system module_request;
 
 # b/29072816
 # Triggered by kernel code which calls request_firmware(), which
