@@ -428,13 +428,6 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_PACKAGES += \
     update_engine_sideload
 
-# Tell the system to enable copying odexes from other partition.
-PRODUCT_PACKAGES += \
-	cppreopts.sh
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cp_system_other_odex=1
-
 # Script that copies preloads directory from system_other to data partition
 PRODUCT_COPY_FILES += \
     device/google/marlin/preloads_copy.sh:system/bin/preloads_copy.sh
@@ -587,6 +580,10 @@ ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
+
+# Run with interpreter + JIT (no AOT) for both the boot image and apps.
+PRODUCT_DEX_PREOPT_BOOT_FLAGS := --compiler-filter=interpret-only
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=interpret-only
 
 # b/28423767
 $(call add-product-sanitizer-module-config,rmt_storage,never)
