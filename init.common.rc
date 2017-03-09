@@ -17,6 +17,11 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    # We have vendor/ as early mount so we can start qseecomd earlier
+    # early mount partions e.g. vendor/ will be mounted in init first stage
+    # see b/27805372
+    start qseecomd
+
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -90,9 +95,6 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all fstab.${ro.hardware} --early
-    # Start qseecomd after vendor/ mounted
-    start qseecomd
-
     swapon_all fstab.${ro.hardware}
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -109,12 +111,13 @@ on fs
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-    # wait qseecomd come up
+
+on late-fs
+    # Wait qseecomd started
     wait_for_prop sys.listeners.registered true
     # Start devices by sysfs trigger
     start devstart_sh
 
-on late-fs
     # Start services for bootanim
     start hwservicemanager
     start servicemanager
@@ -135,6 +138,7 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
+    # We can start netd here before in is launched in common init.rc on zygote-start
     start netd
     # Set sku property
     start mid_sh
@@ -143,7 +147,8 @@ on post-fs-data
 
 # zygote need to be started after otapreopt which will be done on post-fs-data
 on zygote-start
-    start zygote
+    # zygote is started in common init.rc
+    # and now we can continue initialize /data/
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
