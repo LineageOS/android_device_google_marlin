@@ -384,7 +384,8 @@ PRODUCT_COPY_FILES += \
 
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.enable_ramdumps=1
+    persist.sys.ssr.enable_ramdumps=1 \
+    persist.sys.crash_rcu=true
 else
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)

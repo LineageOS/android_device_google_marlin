@@ -112,3 +112,8 @@ service cnss_diag_txt /system/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.c
     disabled
     oneshot
 
+on property:persist.sys.crash_rcu=true
+    write /proc/sys/kernel/panic_on_rcu_stall 1
+
+on property:persist.sys.crash_rcu=false
+    write /proc/sys/kernel/panic_on_rcu_stall 0

@@ -6,3 +6,4 @@ type mid_prop, property_type;
 type ssr_prop, property_type;
 type cnss_diag_prop, property_type;
 type thermal_prop, property_type;
+type ramdump_prop, property_type;
