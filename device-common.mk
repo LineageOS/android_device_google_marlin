@@ -218,10 +218,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-# Listen configuration file
-PRODUCT_COPY_FILES += \
-    device/google/marlin/listen_platform_info.xml:system/etc/listen_platform_info.xml
-
 #ANT+ stack
 PRODUCT_PACKAGES += \
     AntHalService \
