@@ -6020,8 +6020,12 @@
       apn="internet.telekom"
       user="telekom"
       password="telekom"
+      mmsc="http://mms.t-mobile.de/servlets/mms"
+      mmsproxy="109.237.176.193"
+      mmsport="8008"
+      bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17"
       authtype="1"
-      type="default,supl,ia"
+      type="mms,default,supl,ia"
       protocol="IPV4V6"
   />
 
@@ -6031,13 +6035,11 @@
       apn="internet.telekom"
       user="telekom"
       password="telekom"
-      mmsc="http://mms.t-mobile.de/servlets/mms"
-      mmsproxy="109.237.176.193"
-      mmsport="8008"
-      bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17"
+      bearer_bitmask="18"
       authtype="1"
-      type="mms"
+      type="supl"
       protocol="IPV4V6"
+      user_visible="false"
   />
 
   <apn carrier="Telekom Internet"
