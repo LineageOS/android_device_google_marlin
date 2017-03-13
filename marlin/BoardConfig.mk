@@ -215,3 +215,8 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
 TARGET_USES_MKE2FS := true
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
+ifeq ($(TARGET_PRODUCT),marlin_svelte)
+BOARD_KERNEL_CMDLINE += mem=1152M
+MALLOC_SVELTE := true
+endif
