@@ -6032,19 +6032,6 @@
   <apn carrier="Telekom Internet"
       mcc="262"
       mnc="01"
-      apn="internet.telekom"
-      user="telekom"
-      password="telekom"
-      bearer_bitmask="18"
-      authtype="1"
-      type="supl"
-      protocol="IPV4V6"
-      user_visible="false"
-  />
-
-  <apn carrier="Telekom Internet"
-      mcc="262"
-      mnc="01"
       apn="hos"
       user="telekom"
       password="telekom"
@@ -6053,7 +6040,7 @@
       mmsport="8008"
       bearer_bitmask="18"
       authtype="1"
-      type="mms"
+      type="mms,supl"
       protocol="IPV4V6"
       user_visible="false"
   />
