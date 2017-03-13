@@ -33,11 +33,6 @@ ifneq (,$(filter msm8996 msmcobalt,$(TARGET_BOARD_PLATFORM)))
 endif
 
 LOCAL_CFLAGS += -D_ANDROID_ -DQCAMERA_REDEFINE_LOG
-LOCAL_COPY_HEADERS_TO := mm-camera-interface
-LOCAL_COPY_HEADERS += ../common/cam_intf.h
-LOCAL_COPY_HEADERS += ../common/cam_types.h
-LOCAL_COPY_HEADERS += ../common/cam_cond.h
-LOCAL_COPY_HEADERS += ../common/cam_semaphore.h
 
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/inc \
@@ -66,5 +61,10 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libmmcamera_interface_headers
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
+include $(BUILD_HEADER_LIBRARY)
 
 LOCAL_PATH := $(OLD_LOCAL_PATH)
