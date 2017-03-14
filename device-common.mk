@@ -143,11 +143,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-service
-endif
-
 # Usb HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.marlin
@@ -466,11 +461,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES +=                         \
-    android.hardware.gatekeeper@1.0-service
-endif
-
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
@@ -493,11 +483,6 @@ PRODUCT_PACKAGES += \
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-service
-endif
 
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
