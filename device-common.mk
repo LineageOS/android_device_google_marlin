@@ -575,9 +575,6 @@ endif
 # b/28423767
 $(call add-product-sanitizer-module-config,rmt_storage,never)
 
-# b/30302693
-$(call add-product-sanitizer-module-config,surfaceflinger libsigchain,never)
-
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
