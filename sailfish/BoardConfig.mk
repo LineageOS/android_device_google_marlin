@@ -200,3 +200,5 @@ NXP_CHIP_TYPE := PN551
 
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
+
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true

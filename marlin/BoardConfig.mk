@@ -213,3 +213,5 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
+
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
