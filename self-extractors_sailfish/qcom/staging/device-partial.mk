@@ -75,6 +75,8 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/ATT_profiles.xml:system/etc/cne/Nexus/ATT/ATT_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
+    vendor/qcom/sailfish/proprietary/dsi_config.xml:system/etc/data/dsi_config.xml:qcom \
+    vendor/qcom/sailfish/proprietary/netmgr_config.xml:system/etc/data/netmgr_config.xml:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_10_0.fw:system/etc/firmware/cpp_firmware_v1_10_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_1_1.fw:system/etc/firmware/cpp_firmware_v1_1_1.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_1_6.fw:system/etc/firmware/cpp_firmware_v1_1_6.fw:qcom \
