@@ -576,9 +576,6 @@ ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
 
-# b/28423767
-$(call add-product-sanitizer-module-config,rmt_storage,never)
-
 # b/36178213
 $(call add-product-sanitizer-module-config,nfc_nci.sailfish nfc_nci.marlin,never)
 
