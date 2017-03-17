@@ -22,6 +22,7 @@ allow hal_bootctl gpt_block_device:blk_file rw_file_perms;
 # A/B slot selection for the XBL partition. Allow also to issue a
 # UFS_IOCTL_QUERY ioctl.
 allow hal_bootctl sg_device:chr_file rw_file_perms;
+allow hal_bootctl self:capability sys_admin;
 
 # Read the sysfs to lookup what /dev/sgN device
 # corresponds to the XBL partitions.
