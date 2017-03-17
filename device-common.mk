@@ -578,6 +578,11 @@ $(call add-product-sanitizer-module-config,rmt_storage,never)
 # b/36178213
 $(call add-product-sanitizer-module-config,nfc_nci.sailfish nfc_nci.marlin,never)
 
+# b/35633646
+# Statically linked toybox for modprobe in recovery mode
+PRODUCT_PACKAGES += \
+    toybox_static
+
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
