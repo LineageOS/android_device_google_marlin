@@ -68,6 +68,8 @@
             system/etc/cne/Nexus/ATT/ATT_profiles.xml \
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
+            system/etc/data/dsi_config.xml \
+            system/etc/data/netmgr_config.xml \
             system/etc/diag/CHRE.cfg \
             system/etc/diag/IMS.cfg \
             system/etc/diag/MarlinSailfish_Radio-generic.cfg \
