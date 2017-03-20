@@ -66,6 +66,8 @@
             system/etc/cne/Nexus/ATT/ATT_profiles.xml \
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
+            system/etc/data/dsi_config.xml \
+            system/etc/data/netmgr_config.xml \
             system/etc/firmware/cpp_firmware_v1_10_0.fw \
             system/etc/firmware/cpp_firmware_v1_1_1.fw \
             system/etc/firmware/cpp_firmware_v1_1_6.fw \
