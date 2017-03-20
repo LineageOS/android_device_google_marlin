@@ -566,6 +566,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifeq ($(NATIVE_COVERAGE),true)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vts.coverage=1
+PRODUCT_SUPPORTS_VERITY_FEC := false
 endif
 
 # Add minidebug info to the system server to support diagnosing native crashes.
