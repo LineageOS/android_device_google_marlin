@@ -41,10 +41,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.layer_cache_size=32 \
     ro.hwui.path_cache_size=16
 
-# Use Sdcardfs
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=1
-
 INIT_RC := root/init.sailfish.rc
 INIT_USB_RC := root/init.sailfish.usb.rc
 INIT_UEVENTD_RC := root/ueventd.sailfish.rc
