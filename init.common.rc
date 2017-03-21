@@ -396,6 +396,9 @@ on boot
     chown system system /sys/class/leds/blue/rgb_start
     chown system system /sys/class/leds/lcd-backlight/low_persistence
 
+    # Permission for vibrator amplitude
+    chown system system /sys/class/timed_output/vibrator/voltage_level
+
     # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
