@@ -109,6 +109,9 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
+    # Start HW service manager early
+    start hwservicemanager
+
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
@@ -119,13 +122,17 @@ on late-fs
     start devstart_sh
 
     # Start services for bootanim
-    start hwservicemanager
     start servicemanager
     start vr_wm
     start surfaceflinger
     start bootanim
+    # Make sure HW service manager started and start required HAL services
+    wait_for_prop hwservicemanager.ready true
+    start hwcomposer-2-1
+    start configstore-hal-1-0
+    start gralloc-2-0
 
-    # mount RW partitions which need run fsck
+    # Mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
 
     # boot time fs tune
