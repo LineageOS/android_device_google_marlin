@@ -599,3 +599,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     device/google/marlin/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
+# Get rid of dex preoptimization to save space within system_other.img at the
+# one time cost of dexing on first boot.  This list can be found by running:
+# grep odex $ANDROID_PRODUCT_OUT/installed-files-system-other.txt
+# Sorted by *.odex size
+MARLINSAILFISH_DONT_DEXPREOPT_MODULES := \
+    BetterBug \
+    Volta \
+
+$(call add-product-dex-preopt-module-config,$(MARLINSAILFISH_DONT_DEXPREOPT_MODULES),disable)
