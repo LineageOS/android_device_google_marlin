@@ -576,9 +576,6 @@ ifneq (,$(filter user userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
 
-# b/36178213
-$(call add-product-sanitizer-module-config,nfc_nci.sailfish nfc_nci.marlin,never)
-
 # b/35633646
 # Statically linked toybox for modprobe in recovery mode
 PRODUCT_PACKAGES += \
