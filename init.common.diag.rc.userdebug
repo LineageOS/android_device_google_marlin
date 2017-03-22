@@ -107,8 +107,8 @@ on property:persist.sys.cnss.diag_txt=false
 
 service cnss_diag_txt /system/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.conf
     class late_start
-    user root
-    group root
+    user system
+    group system
     disabled
     oneshot
 

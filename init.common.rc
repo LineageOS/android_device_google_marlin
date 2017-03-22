@@ -664,14 +664,14 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 
 service cnss_diag /system/bin/cnss_diag -q
     class late_start
-    user root
-    group root
+    user system
+    group system
     oneshot
 
 service cnss-daemon /system/bin/cnss-daemon -n -l
     class late_start
     user system
-    group system inet net_admin wifi
+    group system inet wifi
 
 service loc_launcher /system/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
