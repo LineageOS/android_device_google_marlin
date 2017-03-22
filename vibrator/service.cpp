@@ -53,7 +53,12 @@ status_t registerVibratorService() {
 }
 
 int main() {
-    registerVibratorService();
     configureRpcThreadpool(1, true);
+    status_t status = registerVibratorService();
+
+    if (status != OK) {
+        return status;
+    }
+
     joinRpcThreadpool();
 }
