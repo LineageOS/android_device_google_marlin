@@ -41,28 +41,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.layer_cache_size=48 \
     ro.hwui.path_cache_size=32
 
-INIT_RC := root/init.marlin.rc
-INIT_USB_RC := root/init.marlin.usb.rc
-INIT_UEVENTD_RC := root/ueventd.marlin.rc
-INIT_NANOHUB_RC := root/init.marlin.nanohub.rc
-
-ifeq ($(ENABLE_EARLY_MOUNT), true)
-INIT_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.rc
-INIT_USB_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.usb.rc
-INIT_UEVENTD_RC := $(TARGET_COPY_OUT_VENDOR)/ueventd.rc
-INIT_NANOHUB_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.nanohub.rc
-endif
-
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.rc:$(INIT_RC) \
-    device/google/marlin/init.common.usb.rc:$(INIT_USB_RC) \
     device/google/marlin/fstab.common:root/fstab.marlin \
-    device/google/marlin/ueventd.common.rc:$(INIT_UEVENTD_RC) \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.marlin.rc
-
-# Sensor hub init script
-PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.nanohub.rc:$(INIT_NANOHUB_RC)
 
 # Sensor packages
 PRODUCT_PACKAGES += \
