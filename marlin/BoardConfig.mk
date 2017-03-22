@@ -29,7 +29,7 @@ ENABLE_CPUSETS := true
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := true
-ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
+ifneq ($(findstring aosp_marlin_svelte, $(TARGET_PRODUCT)),)
 TARGET_RECOVERY_FSTAB := device/google/marlin/fstab.aosp_svelte
 else
 TARGET_RECOVERY_FSTAB := device/google/marlin/fstab.common
@@ -86,7 +86,7 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
-ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
+ifneq ($(findstring aosp_marlin_svelte, $(TARGET_PRODUCT)),)
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_SYSTEMIMAGE_SQUASHFS_COMPRESSOR := lz4
