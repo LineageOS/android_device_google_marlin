@@ -242,7 +242,8 @@ PRODUCT_COPY_FILES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 # Common sensor packages
 TARGET_USES_NANOHUB_SENSORHAL := true
