@@ -216,7 +216,7 @@ TARGET_USES_MKE2FS := true
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
-ifeq ($(TARGET_PRODUCT),marlin_svelte)
+ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
 BOARD_KERNEL_CMDLINE += mem=1152M
 MALLOC_SVELTE := true
 endif
