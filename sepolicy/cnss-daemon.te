@@ -2,13 +2,9 @@
 type cnss-daemon, domain;
 type cnss-daemon_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
 allow cnss-daemon self:capability {
-    net_admin
     net_bind_service
 };
-auditallow cnss-daemon self:capability net_admin;
 
 init_daemon_domain(cnss-daemon)
 

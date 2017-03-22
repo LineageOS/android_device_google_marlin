@@ -2,11 +2,6 @@
 type cnss_diag, domain;
 type cnss_diag_exec, exec_type, file_type;
 
-# STOPSHIP b/28340421
-# Temporarily grant this permission and log its use.
-allow cnss_diag self:capability net_admin;
-auditallow cnss_diag self:capability net_admin;
-
 init_daemon_domain(cnss_diag)
 
 allow cnss_diag self:capability { setgid setuid };
