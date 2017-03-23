@@ -607,6 +607,8 @@ PRODUCT_COPY_FILES += \
 # Sorted by *.odex size
 MARLINSAILFISH_DONT_DEXPREOPT_MODULES := \
     BetterBug \
+    CloudPrint2 \
+    Hangouts \
     Volta \
 
 $(call add-product-dex-preopt-module-config,$(MARLINSAILFISH_DONT_DEXPREOPT_MODULES),disable)
