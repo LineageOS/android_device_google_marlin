@@ -6,6 +6,8 @@ init_daemon_domain(camera)
 
 allow camera self:capability sys_nice;
 
+# TODO(b/36569525): Remove this once camera no longer uses Binder
+typeattribute camera binder_in_vendor_violators;
 binder_use(camera)
 binder_call(camera, system_server)
 binder_call(camera, cameraserver)

@@ -5,5 +5,9 @@ hal_server_domain(hal_drm_widevine, hal_drm)
 type hal_drm_widevine_exec, exec_type, file_type;
 init_daemon_domain(hal_drm_widevine)
 
+# TODO(b/36576915): Remove this once Widevine-backed DRM HAL stops using Binder services,
+# such as mediametrics service it currently attempts to use
+typeattribute hal_drm_widevine binder_in_vendor_violators;
+
 allow hal_drm mediacodec:fd use;
 allow hal_drm { appdomain -isolated_app }:fd use;
