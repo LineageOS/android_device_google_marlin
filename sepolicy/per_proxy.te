@@ -1,4 +1,4 @@
-# Policy for /system/bin/pm-proxy
+# Policy for /vendor/bin/pm-proxy
 type per_proxy, domain;
 type per_proxy_exec, exec_type, file_type;
 

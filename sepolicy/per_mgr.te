@@ -1,4 +1,4 @@
-# Policy for /system/bin/pm-service
+# Policy for /vendor/bin/pm-service
 type per_mgr, domain;
 type per_mgr_exec, exec_type, file_type;
 

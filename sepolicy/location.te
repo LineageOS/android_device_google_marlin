@@ -34,7 +34,7 @@ allow location proc_net:file r_file_perms;
 # execute /vendor/bin/slim_daemon
 allow location system_file:file rx_file_perms;
 
-# execute /system/bin/lowi-server
+# execute /vendor/bin/lowi-server
 allow location location_exec:file rx_file_perms;
 
 # /data/misc/location
