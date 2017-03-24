@@ -369,8 +369,6 @@ PRODUCT_COPY_FILES += \
 
 INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 
-$(call inherit-product-if-exists, vendor/fpc/device/device.mk)
-
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_COPY_FILES += \
