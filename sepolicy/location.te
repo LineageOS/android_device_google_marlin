@@ -11,6 +11,8 @@ init_daemon_domain(location)
 
 allow location self:capability { setgid setuid };
 
+# TODO(b/36569343): Remove this once location daemon stops using Binder
+typeattribute location binder_in_vendor_violators;
 binder_use(location)
 binder_call(location, system_server)
 allow location hal_wifi:unix_stream_socket { read write };
