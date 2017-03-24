@@ -42,7 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.path_cache_size=16
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/fstab.common:root/fstab.sailfish \
+    device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sailfish \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.sailfish.rc
 
 # Sensor packages

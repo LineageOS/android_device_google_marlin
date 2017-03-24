@@ -42,7 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.path_cache_size=32
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/fstab.common:root/fstab.marlin \
+    device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
     device/google/marlin/init.recovery.common.rc:root/init.recovery.marlin.rc
 
 # Sensor packages
