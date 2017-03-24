@@ -3,6 +3,8 @@ type atfwd_exec, exec_type, file_type;
 
 init_daemon_domain(atfwd)
 
+# TODO(b/34603782): Remove this once atfwd no longer uses Binder
+typeattribute atfwd binder_in_vendor_violators;
 binder_use(atfwd)
 
 allow atfwd atfwd_service:service_manager find;
