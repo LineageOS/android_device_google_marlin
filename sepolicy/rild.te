@@ -1,6 +1,8 @@
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(rild)
 
+# TODO(b/36443535): Remove this once rild stops using Binder
+typeattribute rild binder_in_vendor_violators;
 allow rild audioserver_service:service_manager find;
 allow rild per_mgr_service:service_manager find;
 
