@@ -7,3 +7,11 @@ init_daemon_domain(qmuxd)
 allow qmuxd qmuxd_socket:dir w_dir_perms;
 allow qmuxd qmuxd_socket:sock_file create_file_perms;
 allow qmuxd self:socket create_socket_perms_no_ioctl;
+
+# TODO(b/34274385): Remove this once HALs are guaranteed to not be run in passthrough mode
+# What's going on here is that Camera HAL is talking over sockets to qmuxd, which is permitted.
+# However, those rules target hal_camera rather than hal_camera_server and thus are also
+# granted to all clients of these HALs (e.g., cameraserver) which are core components, and
+# socket communications between system components and vendor components are not permted.
+# Once we switch full Treble devices to binderized only mode, this issue will disappear.
+typeattribute qmuxd socket_between_core_and_vendor_violators;
