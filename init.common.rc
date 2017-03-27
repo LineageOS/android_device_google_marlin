@@ -111,9 +111,12 @@ on fs
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
-on late-fs
+# This section will be executed after all post-fs sections are done
+on post-fs && property:ro.hardware=*
     # Wait qseecomd started
     wait_for_prop sys.listeners.registered true
+
+on late-fs
     # Start devices by sysfs trigger
     start devstart_sh
 
@@ -122,8 +125,6 @@ on late-fs
     start vr_wm
     start surfaceflinger
     start bootanim
-    # Make sure HW service manager started and start required HAL services
-    wait_for_prop hwservicemanager.ready true
     start hwcomposer-2-1
     start configstore-hal-1-0
     start gralloc-2-0
