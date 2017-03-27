@@ -105,7 +105,7 @@ on property:persist.sys.cnss.diag_txt=true
 on property:persist.sys.cnss.diag_txt=false
     stop cnss_diag_txt
 
-service cnss_diag_txt /system/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.conf
+service cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.conf
     class late_start
     user system
     group system
