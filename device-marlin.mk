@@ -69,3 +69,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vr.marlin
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    fingerprint.marlin

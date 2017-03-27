@@ -69,3 +69,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vr.sailfish
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    fingerprint.sailfish
