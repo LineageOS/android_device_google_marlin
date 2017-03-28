@@ -39,6 +39,6 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,cell,bt,dnd,flashlight,rotation,battery,airplane,custom(com.google.android.gms/.nearby.discovery.ui.DiscoveryTileService)
+        wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,night
     </string>
 </resources>
