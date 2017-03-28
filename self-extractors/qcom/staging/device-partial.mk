@@ -74,9 +74,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_6_0.fw:system/etc/firmware/cpp_firmware_v1_6_0.fw:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_8_0.fw:system/etc/firmware/cpp_firmware_v1_8_0.fw:qcom \
     vendor/qcom/marlin/proprietary/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt:qcom \
-    vendor/qcom/marlin/proprietary/flp.conf:system/etc/flp.conf:qcom \
-    vendor/qcom/marlin/proprietary/izat.conf:system/etc/izat.conf:qcom \
-    vendor/qcom/marlin/proprietary/lowi.conf:system/etc/lowi.conf:qcom \
     vendor/qcom/marlin/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
     vendor/qcom/marlin/proprietary/embms.xml:system/etc/permissions/embms.xml:qcom \
     vendor/qcom/marlin/proprietary/imscm.xml:system/etc/permissions/imscm.xml:qcom \
@@ -86,7 +83,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/rcsservice.xml:system/etc/permissions/rcsservice.xml:qcom \
     vendor/qcom/marlin/proprietary/telephonyservice.xml:system/etc/permissions/telephonyservice.xml:qcom \
     vendor/qcom/marlin/proprietary/vzw_sso_permissions.xml:system/etc/permissions/vzw_sso_permissions.xml:qcom \
-    vendor/qcom/marlin/proprietary/sap.conf:system/etc/sap.conf:qcom \
     vendor/qcom/marlin/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/marlin/proprietary/embmslibrary.jar:system/framework/embmslibrary.jar:qcom \
     vendor/qcom/marlin/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \

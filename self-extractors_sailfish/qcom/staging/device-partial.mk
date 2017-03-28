@@ -75,9 +75,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_6_0.fw:system/etc/firmware/cpp_firmware_v1_6_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_8_0.fw:system/etc/firmware/cpp_firmware_v1_8_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt:qcom \
-    vendor/qcom/sailfish/proprietary/flp.conf:system/etc/flp.conf:qcom \
-    vendor/qcom/sailfish/proprietary/izat.conf:system/etc/izat.conf:qcom \
-    vendor/qcom/sailfish/proprietary/lowi.conf:system/etc/lowi.conf:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
     vendor/qcom/sailfish/proprietary/embms.xml:system/etc/permissions/embms.xml:qcom \
     vendor/qcom/sailfish/proprietary/imscm.xml:system/etc/permissions/imscm.xml:qcom \
@@ -87,7 +84,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/rcsservice.xml:system/etc/permissions/rcsservice.xml:qcom \
     vendor/qcom/sailfish/proprietary/telephonyservice.xml:system/etc/permissions/telephonyservice.xml:qcom \
     vendor/qcom/sailfish/proprietary/vzw_sso_permissions.xml:system/etc/permissions/vzw_sso_permissions.xml:qcom \
-    vendor/qcom/sailfish/proprietary/sap.conf:system/etc/sap.conf:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/sailfish/proprietary/embmslibrary.jar:system/framework/embmslibrary.jar:qcom \
     vendor/qcom/sailfish/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \

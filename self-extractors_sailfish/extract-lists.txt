@@ -66,9 +66,6 @@
             system/etc/firmware/cpp_firmware_v1_6_0.fw \
             system/etc/firmware/cpp_firmware_v1_8_0.fw \
             system/etc/firmware/tfa98xx.cnt \
-            system/etc/flp.conf \
-            system/etc/izat.conf \
-            system/etc/lowi.conf \
             system/etc/permissions/com.android.ims.rcsmanager.xml \
             system/etc/permissions/embms.xml \
             system/etc/permissions/imscm.xml \
@@ -78,7 +75,6 @@
             system/etc/permissions/rcsservice.xml \
             system/etc/permissions/telephonyservice.xml \
             system/etc/permissions/vzw_sso_permissions.xml \
-            system/etc/sap.conf \
             system/framework/com.android.ims.rcsmanager.jar \
             system/framework/embmslibrary.jar \
             system/framework/qcrilhook.jar \
