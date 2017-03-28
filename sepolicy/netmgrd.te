@@ -21,10 +21,13 @@ allow netmgrd proc_net:file rw_file_perms;
 
 allow netmgrd self:capability { net_admin net_raw setgid setpcap setuid };
 
+# TODO(b/36663482): Remove coredata_in_vendor_violators once
+# netmgrd no longer directly accesses /data outside
+# /data/vendor.
+typeattribute netmgrd coredata_in_vendor_violators;
 # read /data/misc/net
 allow netmgrd net_data_file:dir r_dir_perms;
 allow netmgrd net_data_file:file r_file_perms;
-
 # read and write /data/misc/netmgr
 userdebug_or_eng(`
   allow netmgrd netmgr_data_file:dir rw_dir_perms;

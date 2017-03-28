@@ -12,5 +12,9 @@ typeattribute hal_drm_widevine binder_in_vendor_violators;
 # TODO(b/36601602): Remove this once DRM HAL no longer uses Unix domain sockets to talk to tee daemon
 typeattribute hal_drm_widevine socket_between_core_and_vendor_violators;
 
+# TODO(b/36601695): Remove coredata_in_vendor_violators once hal_drm_widevine
+# no longer directly access /data outside /data/vendor.
+typeattribute hal_drm_widevine coredata_in_vendor_violators;
+
 allow hal_drm mediacodec:fd use;
 allow hal_drm { appdomain -isolated_app }:fd use;

@@ -13,6 +13,10 @@ allow hal_dumpstate_impl toolbox_exec:file rx_file_perms;
 # smlog_dump
 allow hal_dumpstate_impl smlog_dump_exec:file rx_file_perms;
 userdebug_or_eng(`
+# TODO(b/36654253): Remove coredata_in_vendor_violators once
+# hal_dumpstate_impl no longer directly accesses /data outside
+# /data/vendor.
+typeattribute hal_dumpstate_impl coredata_in_vendor_violators;
 allow hal_dumpstate_impl smlog_dump_file:dir create_dir_perms;
 allow hal_dumpstate_impl smlog_dump_file:file create_file_perms;
 allow hal_dumpstate_impl radio_data_file:dir r_dir_perms;

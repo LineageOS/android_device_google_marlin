@@ -1,2 +1,5 @@
 # TODO(b/36569385): Remove once Camera HAL no longer uses Binder
 typeattribute hal_camera_default binder_in_vendor_violators;
+# TODO(b/36651251): Remove once Camera Hal is no longer accessing
+# /data outside /data/vendor.
+typeattribute hal_camera_default coredata_in_vendor_violators;
