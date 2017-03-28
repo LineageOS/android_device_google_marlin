@@ -202,19 +202,3 @@ NXP_CHIP_TYPE := PN551
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-BOARD_ENFORCE_RRO := true
-# Some overlays can't be converted automatically to RROs due to private
-# resource dependency.
-# In such a case, the following packages can be included in
-# BOARD_ENFORCE_RRO_EXEMPT_SOURCES.
-#
-# 1. A package which is not included in AOSP system image.
-# 2. A package of which overlays don't include system critical configs.
-#
-# Otherwise, the source package should be updated to resolve the private
-# resource dependeny.
-BOARD_ENFORCE_RRO_EXEMPT_SOURCES := \
-    DocumentsUI \
-    SettingsGoogle \
-    SetupWizard
