@@ -9,5 +9,8 @@ init_daemon_domain(hal_drm_widevine)
 # such as mediametrics service it currently attempts to use
 typeattribute hal_drm_widevine binder_in_vendor_violators;
 
+# TODO(b/36601602): Remove this once DRM HAL no longer uses Unix domain sockets to talk to tee daemon
+typeattribute hal_drm_widevine socket_between_core_and_vendor_violators;
+
 allow hal_drm mediacodec:fd use;
 allow hal_drm { appdomain -isolated_app }:fd use;

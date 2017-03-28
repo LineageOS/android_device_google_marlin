@@ -23,6 +23,7 @@ allow hal_gnss sysfs_soc:file { read open getattr };
 #
 # TODO:(b/35757613) - STOPSHIP - HAL cannot have direct inet access
 #
+typeattribute hal_gnss_default socket_between_core_and_vendor_violators;
 allow hal_gnss dnsproxyd_socket:sock_file write;
 allow hal_gnss fwmarkd_socket:sock_file write;
 allow hal_gnss netd:unix_stream_socket connectto;

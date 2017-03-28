@@ -40,3 +40,12 @@ allow ims ion_device:chr_file r_file_perms;
 
 # use fds passed from radio app
 allow ims radio:fd use;
+
+# TODO(b/34274385): Remove this once Telphony HAL is guaranteed to not be run in passthrough mode
+# What's going on here is that Telephony HAL is talking over sockets to ims daemon, which is
+# permitted. However, those rules target hal_telephony rather than hal_telephony_server and thus
+# are also granted to all clients of Telephony HAL (e.g., radio daemon) which are core
+# components, and socket communications between system components and vendor components are not
+# permted.
+# Once we switch full Treble devices to binderized only mode, this issue will disappear.
+typeattribute ims socket_between_core_and_vendor_violators;
