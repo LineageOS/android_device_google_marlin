@@ -361,7 +361,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Fingerprint HIDL implementation
 PRODUCT_PACKAGES += \
-    fingerprint.fpc \
     android.hardware.biometrics.fingerprint@2.1-service
 
 PRODUCT_COPY_FILES += \
