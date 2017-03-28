@@ -51,7 +51,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.contexthub</name>
-        <transport arch="32+64">toggled</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
     </hal>
