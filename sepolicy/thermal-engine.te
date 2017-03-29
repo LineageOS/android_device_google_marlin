@@ -29,8 +29,14 @@ userdebug_or_eng(`
 allow thermal-engine proc_sysrq:file w_file_perms;
 # reboot warnings and errors to kernel via klog
 allow thermal-engine kmsg_device:chr_file w_file_perms;
+
+# TODO(b/36664251): Remove once thermal-engine no longer accesses data
+# outside /data/vendor. Also, the label cannot be radio_data_file since
+# that belongs to the radio app.
+typeattribute thermal-engine coredata_in_vendor_violators;
 # write file last_reboot_reason to inform of previous thermal shutdown
 allow thermal-engine reboot_data_file:dir ra_dir_perms;
 allow thermal-engine reboot_data_file:file create_file_perms;
+
 # reboot/shutdown for thermal limits exceeded
 allow thermal-engine self:capability sys_boot;
