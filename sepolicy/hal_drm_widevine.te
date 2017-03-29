@@ -5,8 +5,9 @@ hal_server_domain(hal_drm_widevine, hal_drm)
 type hal_drm_widevine_exec, exec_type, file_type;
 init_daemon_domain(hal_drm_widevine)
 
-# TODO(b/36601602): Remove this once DRM HAL no longer uses Unix domain sockets to talk to tee daemon
-typeattribute hal_drm_widevine socket_between_core_and_vendor_violators;
+# TODO(b/36576915): Remove this once Widevine-backed DRM HAL stops using Binder services,
+# such as mediametrics service it currently attempts to use
+typeattribute hal_drm_widevine binder_in_vendor_violators;
 
 # TODO(b/36601695): Remove coredata_in_vendor_violators once hal_drm_widevine
 # no longer directly access /data outside /data/vendor.
