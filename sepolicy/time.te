@@ -29,5 +29,6 @@ userdebug_or_eng(`
   allow time  diag_device:chr_file rw_file_perms;
 ')
 
-# TODO(b/36613996): Remove this once system_app no longer communicates over sockets with time daemon
+# TODO(b/36613996): Remove this once qtimeservice no longer communicates over sockets with time
+# daemon or once qtimeservice becomes a vendor service
 typeattribute time socket_between_core_and_vendor_violators;
