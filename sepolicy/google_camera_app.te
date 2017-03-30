@@ -1,4 +1,4 @@
-type google_camera_app, domain, coredomain;
+type google_camera_app, domain;
 
 app_domain(google_camera_app)
 
