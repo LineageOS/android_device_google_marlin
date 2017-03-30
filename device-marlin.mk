@@ -72,3 +72,17 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprint.marlin
+
+# A/B experiment: the default preopt settings is to save on space and use
+# the 'interpret-only' compiler filter. Special case marlin for now to
+# use the old default of 'speed'.
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=speed
+
+# Special case some packages to save space within system_other.img.
+SAVE_PREOPT_SPACE_PACKAGES := \
+    BetterBug \
+    CloudPrint2 \
+    Hangouts \
+    Volta \
+
+$(call add-product-dex-preopt-module-config,$(SAVE_PREOPT_SPACE_PACKAGES),--compiler-filter=interpret-only)
