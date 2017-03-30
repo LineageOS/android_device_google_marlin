@@ -1,4 +1,4 @@
-type obdm_app, domain;
+type obdm_app, domain, coredomain;
 
 app_domain(obdm_app)
 net_domain(obdm_app)
