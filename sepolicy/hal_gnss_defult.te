@@ -1,2 +1,0 @@
-# TODO(b/36576569): Remove this once hal_gnss_default stops accessing /dev/binder
-typeattribute hal_gnss_default binder_in_vendor_violators;
