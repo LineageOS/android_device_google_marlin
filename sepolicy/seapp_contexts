@@ -1,2 +1,11 @@
 # Production default camera application for marlin/sailfish
 user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=user
+
+user=system seinfo=platform name=com.quicinc.cne.CNEService domain=qcneservice type=system_app_data_file
+user=system seinfo=platform name=com.google.SSRestartDetector domain=ssr_detector type=system_app_data_file
+
+# AtFwd and FastDormancy apps
+user=system seinfo=platform name=com.qualcomm.telephony domain=qtelephony type=system_app_data_file
+
+# TimeService app
+user=system seinfo=platform name=com.qualcomm.timeservice domain=qtimeservice type=system_app_data_file

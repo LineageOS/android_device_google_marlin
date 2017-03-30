@@ -1,0 +1,14 @@
+# Qualcomm telephony apps, such as AtFwd and FastDormancy
+type qtelephony, domain, coredomain;
+
+app_domain(qtelephony)
+
+add_service(qtelephony, atfwd_service)
+
+allow qtelephony { app_api_service }:service_manager find;
+
+# Read and write /data/data subdirectory.
+allow qtelephony system_app_data_file:dir create_dir_perms;
+allow qtelephony system_app_data_file:{ file lnk_file } create_file_perms;
+
+set_prop(qtelephony, ctl_default_prop)
