@@ -29,3 +29,8 @@ userdebug_or_eng(`
 # TODO(b/36613472): Remove this once system_server,  mediaserver, bluetooth, and radio no longer
 # communicate with rild over sockets.
 typeattribute rild socket_between_core_and_vendor_violators;
+
+# TODO(b/36730929): Remove this once time daemon no longer access data outside
+# /data/vendor
+typeattribute rild coredata_in_vendor_violators;
+r_dir_file(rild, zoneinfo_data_file)
