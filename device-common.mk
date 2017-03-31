@@ -364,6 +364,7 @@ AB_OTA_PARTITIONS += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
+    libbt-vendor \
     android.hardware.bluetooth@1.0-impl
 
 # NFC packages
