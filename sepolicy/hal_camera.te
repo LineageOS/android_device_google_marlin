@@ -40,6 +40,10 @@ allow hal_camera self:socket { create ioctl read write };
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(hal_camera)
+# TODO(b/34274385): Remove this once Camera HAL is guaranteed to be binderized on full Treble
+# devices. Passthrough Camera HAL makes cameraserver use qmux socket which is a vendor socket.
+# cameraserver, being a non-vendor component, is not permitted to use that socket.
+typeattribute cameraserver socket_between_core_and_vendor_violators;
 
 # allow hal_camera to call some socket ioctls
 allowxperm hal_camera self:socket ioctl { IPC_ROUTER_IOCTL_LOOKUP_SERVER IPC_ROUTER_IOCTL_BIND_CONTROL_PORT };
