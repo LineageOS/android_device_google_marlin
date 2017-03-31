@@ -1,3 +1,5 @@
+# TODO(b/36791780): Remove this once radio no longer communicates with qmuxd over sockets
+typeattribute radio socket_between_core_and_vendor_violators;
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(radio)
 
