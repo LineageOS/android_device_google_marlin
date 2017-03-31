@@ -6939,6 +6939,7 @@
       protocol="IPV6"
       mvno_match_data="4B4F"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="Mobile Internet"
@@ -7023,6 +7024,7 @@
       protocol="IPV6"
       mvno_match_data="4B4F"
       mvno_type="gid"
+      user_visible="false"
   />
 
   <apn carrier="PC mobile"
