@@ -1,4 +1,8 @@
 userdebug_or_eng(`
+# TODO(b/36657258): Remove vendordata_in_core_violators once
+# dumpstate no longer directly accesses /data owned by a vendor
+# process.
+typeattribute dumpstate vendordata_in_core_violators;
 allow dumpstate smlog_dump_file:dir create_dir_perms;
 allow dumpstate smlog_dump_file:file create_file_perms;
 ')
