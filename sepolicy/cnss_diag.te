@@ -12,10 +12,6 @@ allow cnss_diag sysfs:file r_file_perms;
 # b/35877764 suppress the udp_socket denial message temproarily
 dontaudit cnss_diag self:udp_socket create;
 
-# TODO(b/36730929): Remove this once cnss_diag no longer accesses data outside
-# /data/vendor
-typeattribute cnss_diag coredata_in_vendor_violators;
-r_dir_file(cnss_diag, zoneinfo_data_file)
 userdebug_or_eng(`
   allow cnss_diag diag_device:chr_file rw_file_perms;
   allow cnss_diag cnss_diag_data_file:dir create_dir_perms;
