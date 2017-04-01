@@ -16,10 +16,6 @@ r_dir_file(time, sysfs_msm_subsys)
 allow time sysfs_soc:dir search;
 allow time sysfs_soc:file r_file_perms;
 
-# TODO(b/36730929): Remove this once time daemon no longer access data outside
-# /data/vendor
-typeattribute time coredata_in_vendor_violators;
-r_dir_file(time, zoneinfo_data_file)
 allow time time_data_file:file create_file_perms;
 allow time time_data_file:dir rw_dir_perms;
 
