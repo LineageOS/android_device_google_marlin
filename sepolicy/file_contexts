@@ -197,6 +197,7 @@
 /data/misc/netmgr(/.*)?          u:object_r:netmgr_data_file:s0
 /data/system/nanohub_lock(/.*)?  u:object_r:nanohub_lock_file:s0
 /data/misc/sensorcal_saved\.json  u:object_r:sensors_saved_settings_file:s0
+/data/vendor/nfc(/.*)?           u:object_r:nfc_vendor_data_file:s0
 
 
 # /
