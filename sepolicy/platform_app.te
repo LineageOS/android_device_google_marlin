@@ -1,4 +1,8 @@
 userdebug_or_eng(`
+
+   # TODO(b/36734870): Remove this once platform_app no longer directly
+   # accesses data owned by vendor components
+   typeattribute platform_app vendordata_in_core_violators;
    # qxdmlogger rundiag perms
    allow platform_app diag_logs:dir rw_dir_perms;
    allow platform_app diag_logs:file create_file_perms;
