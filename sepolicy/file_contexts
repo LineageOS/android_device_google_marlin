@@ -128,6 +128,32 @@
 /vendor/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 /vendor/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
 
+###############################################
+# same-process HAL files and their dependencies
+#
+/vendor/lib(64)?/hw/gralloc\.msm8996\.so   u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libqdMetaData\.so         u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libqservice\.so           u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libqdutils\.so            u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libadreno_utils\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libgsl\.so             u:object_r:same_process_hal_file:s0
+# libGLESv2_adreno depends on this
+/vendor/lib(64)?/libllvm-glnext\.so     u:object_r:same_process_hal_file:s0
+
+
+# Loaded by native loader (zygote) for all processes
+/vendor/lib(64)?/libhalide_hexagon_host\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libadsprpc\.so             u:object_r:same_process_hal_file:s0
+
+
+################################################
+# Treble violations to be fixed
+#
+# TODO: b/36806861
+/vendor/lib(64)?/libimsmedia_jni\.so         u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libimscamera_jni\.so        u:object_r:same_process_hal_file:s0
+
+
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
