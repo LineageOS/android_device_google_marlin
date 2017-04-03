@@ -66,10 +66,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
 
-# enable FIFO scheduling for UI and Render threads by default
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.use_fifo_ui=1
-
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.gradient_cache_size=1 \
