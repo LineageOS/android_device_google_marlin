@@ -15,7 +15,6 @@
 #  blob(s) necessary for Marlin hardware
 PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/adsprpcd:system/bin/adsprpcd:qcom \
-    vendor/qcom/marlin/proprietary/ATFWD-daemon:system/bin/ATFWD-daemon:qcom \
     vendor/qcom/marlin/proprietary/athdiag:system/bin/athdiag:qcom \
     vendor/qcom/marlin/proprietary/cnd:system/bin/cnd:qcom \
     vendor/qcom/marlin/proprietary/cnss-daemon:system/bin/cnss-daemon:qcom \
@@ -25,7 +24,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/diag_mdlog:system/bin/diag_mdlog:qcom \
     vendor/qcom/marlin/proprietary/diag_socket_log:system/bin/diag_socket_log:qcom \
     vendor/qcom/marlin/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
-    vendor/qcom/marlin/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/marlin/proprietary/gptest:system/bin/gptest:qcom \
     vendor/qcom/marlin/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/marlin/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
@@ -35,32 +33,22 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/loc_launcher:system/bin/loc_launcher:qcom \
     vendor/qcom/marlin/proprietary/lowi-server:system/bin/lowi-server:qcom \
     vendor/qcom/marlin/proprietary/mct-unit-test-app:system/bin/mct-unit-test-app:qcom \
-    vendor/qcom/marlin/proprietary/mdm_helper:system/bin/mdm_helper:qcom \
-    vendor/qcom/marlin/proprietary/mdm_helper_proxy:system/bin/mdm_helper_proxy:qcom \
-    vendor/qcom/marlin/proprietary/mm-qcamera-daemon:system/bin/mm-qcamera-daemon:qcom \
     vendor/qcom/marlin/proprietary/netmgrd:system/bin/netmgrd:qcom \
     vendor/qcom/marlin/proprietary/nl_listener:system/bin/nl_listener:qcom \
     vendor/qcom/marlin/proprietary/pktlogconf:system/bin/pktlogconf:qcom \
-    vendor/qcom/marlin/proprietary/PktRspTest:system/bin/PktRspTest:qcom \
     vendor/qcom/marlin/proprietary/pm-proxy:system/bin/pm-proxy:qcom \
     vendor/qcom/marlin/proprietary/pm-service:system/bin/pm-service:qcom \
     vendor/qcom/marlin/proprietary/port-bridge:system/bin/port-bridge:qcom \
-    vendor/qcom/marlin/proprietary/qfipsverify:system/bin/qfipsverify:qcom \
     vendor/qcom/marlin/proprietary/qmi_simple_ril_test:system/bin/qmi_simple_ril_test:qcom \
     vendor/qcom/marlin/proprietary/qseecom_sample_client:system/bin/qseecom_sample_client:qcom \
-    vendor/qcom/marlin/proprietary/radish:system/bin/radish:qcom \
     vendor/qcom/marlin/proprietary/rmt_storage:system/bin/rmt_storage:qcom \
-    vendor/qcom/marlin/proprietary/ssr_diag:system/bin/ssr_diag:qcom \
     vendor/qcom/marlin/proprietary/ssr_setup:system/bin/ssr_setup:qcom \
     vendor/qcom/marlin/proprietary/StoreKeybox:system/bin/StoreKeybox:qcom \
     vendor/qcom/marlin/proprietary/subsystem_ramdump:system/bin/subsystem_ramdump:qcom \
     vendor/qcom/marlin/proprietary/tbaseLoader:system/bin/tbaseLoader:qcom \
     vendor/qcom/marlin/proprietary/test_bet_8996:system/bin/test_bet_8996:qcom \
-    vendor/qcom/marlin/proprietary/test_diag:system/bin/test_diag:qcom \
     vendor/qcom/marlin/proprietary/test_module_pproc:system/bin/test_module_pproc:qcom \
     vendor/qcom/marlin/proprietary/time_daemon:system/bin/time_daemon:qcom \
-    vendor/qcom/marlin/proprietary/wdsdaemon:system/bin/wdsdaemon:qcom \
-    vendor/qcom/marlin/proprietary/WifiLogger_app:system/bin/WifiLogger_app:qcom \
     vendor/qcom/marlin/proprietary/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb:qcom \
     vendor/qcom/marlin/proprietary/General_cal.acdb:system/etc/acdbdata/General_cal.acdb:qcom \
     vendor/qcom/marlin/proprietary/Global_cal.acdb:system/etc/acdbdata/Global_cal.acdb:qcom \
@@ -85,16 +73,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_5_2.fw:system/etc/firmware/cpp_firmware_v1_5_2.fw:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_6_0.fw:system/etc/firmware/cpp_firmware_v1_6_0.fw:qcom \
     vendor/qcom/marlin/proprietary/cpp_firmware_v1_8_0.fw:system/etc/firmware/cpp_firmware_v1_8_0.fw:qcom \
-    vendor/qcom/marlin/proprietary/nvm_tlv_1.3.bin:system/etc/firmware/nvm_tlv_1.3.bin:qcom \
-    vendor/qcom/marlin/proprietary/nvm_tlv_2.1.bin:system/etc/firmware/nvm_tlv_2.1.bin:qcom \
-    vendor/qcom/marlin/proprietary/nvm_tlv_3.0.bin:system/etc/firmware/nvm_tlv_3.0.bin:qcom \
-    vendor/qcom/marlin/proprietary/nvm_tlv_3.2.bin:system/etc/firmware/nvm_tlv_3.2.bin:qcom \
-    vendor/qcom/marlin/proprietary/nvm_tlv.bin:system/etc/firmware/nvm_tlv.bin:qcom \
-    vendor/qcom/marlin/proprietary/rampatch_tlv_1.3.tlv:system/etc/firmware/rampatch_tlv_1.3.tlv:qcom \
-    vendor/qcom/marlin/proprietary/rampatch_tlv_2.1.tlv:system/etc/firmware/rampatch_tlv_2.1.tlv:qcom \
-    vendor/qcom/marlin/proprietary/rampatch_tlv_3.0.tlv:system/etc/firmware/rampatch_tlv_3.0.tlv:qcom \
-    vendor/qcom/marlin/proprietary/rampatch_tlv_3.2.tlv:system/etc/firmware/rampatch_tlv_3.2.tlv:qcom \
-    vendor/qcom/marlin/proprietary/rampatch_tlv.img:system/etc/firmware/rampatch_tlv.img:qcom \
     vendor/qcom/marlin/proprietary/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt:qcom \
     vendor/qcom/marlin/proprietary/flp.conf:system/etc/flp.conf:qcom \
     vendor/qcom/marlin/proprietary/izat.conf:system/etc/izat.conf:qcom \
@@ -108,7 +86,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/rcsservice.xml:system/etc/permissions/rcsservice.xml:qcom \
     vendor/qcom/marlin/proprietary/telephonyservice.xml:system/etc/permissions/telephonyservice.xml:qcom \
     vendor/qcom/marlin/proprietary/vzw_sso_permissions.xml:system/etc/permissions/vzw_sso_permissions.xml:qcom \
-    vendor/qcom/marlin/proprietary/qdcm_calib_data_M1_WQHD_SAMSUNG_S6E3HA3_5.5_command_mode_panel.xml:system/etc/qdcm_calib_data_M1_WQHD_SAMSUNG_S6E3HA3_5.5_command_mode_panel.xml:qcom \
     vendor/qcom/marlin/proprietary/sap.conf:system/etc/sap.conf:qcom \
     vendor/qcom/marlin/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/marlin/proprietary/embmslibrary.jar:system/framework/embmslibrary.jar:qcom \
@@ -131,10 +108,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/libloc_ds_api.so:system/lib/libloc_ds_api.so:qcom \
     vendor/qcom/marlin/proprietary/libloc_eng.so:system/lib/libloc_eng.so:qcom \
     vendor/qcom/marlin/proprietary/libminui.so:system/lib/libminui.so:qcom \
-    vendor/qcom/marlin/proprietary/libmm-qcamera.so:system/lib/libmm-qcamera.so:qcom \
     vendor/qcom/marlin/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
-    vendor/qcom/marlin/proprietary/bootimg.hmac:system/usr/qfipsverify/bootimg.hmac:qcom \
-    vendor/qcom/marlin/proprietary/qfipsverify.hmac:system/usr/qfipsverify/qfipsverify.hmac:qcom \
     vendor/qcom/marlin/proprietary/lib64/libfmq.so:system/lib64/libfmq.so:qcom \
     vendor/qcom/marlin/proprietary/libfmq.so:system/lib/libfmq.so:qcom \
     vendor/qcom/marlin/proprietary/lib64/android.hardware.audio@2.0.so:system/lib64/android.hardware.audio@2.0.so:qcom \

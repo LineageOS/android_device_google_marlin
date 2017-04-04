@@ -15,7 +15,6 @@
 #  blob(s) necessary for Dragon hardware
 PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/adsprpcd:system/bin/adsprpcd:qcom \
-    vendor/qcom/sailfish/proprietary/ATFWD-daemon:system/bin/ATFWD-daemon:qcom \
     vendor/qcom/sailfish/proprietary/athdiag:system/bin/athdiag:qcom \
     vendor/qcom/sailfish/proprietary/cnd:system/bin/cnd:qcom \
     vendor/qcom/sailfish/proprietary/cnss-daemon:system/bin/cnss-daemon:qcom \
@@ -25,7 +24,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/diag_mdlog:system/bin/diag_mdlog:qcom \
     vendor/qcom/sailfish/proprietary/diag_socket_log:system/bin/diag_socket_log:qcom \
     vendor/qcom/sailfish/proprietary/diag_uart_log:system/bin/diag_uart_log:qcom \
-    vendor/qcom/sailfish/proprietary/ftmdaemon:system/bin/ftmdaemon:qcom \
     vendor/qcom/sailfish/proprietary/gptest:system/bin/gptest:qcom \
     vendor/qcom/sailfish/proprietary/imscmservice:system/bin/imscmservice:qcom \
     vendor/qcom/sailfish/proprietary/imsdatadaemon:system/bin/imsdatadaemon:qcom \
@@ -35,33 +33,23 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/loc_launcher:system/bin/loc_launcher:qcom \
     vendor/qcom/sailfish/proprietary/lowi-server:system/bin/lowi-server:qcom \
     vendor/qcom/sailfish/proprietary/mct-unit-test-app:system/bin/mct-unit-test-app:qcom \
-    vendor/qcom/sailfish/proprietary/mdm_helper:system/bin/mdm_helper:qcom \
-    vendor/qcom/sailfish/proprietary/mdm_helper_proxy:system/bin/mdm_helper_proxy:qcom \
-    vendor/qcom/sailfish/proprietary/mm-qcamera-daemon:system/bin/mm-qcamera-daemon:qcom \
     vendor/qcom/sailfish/proprietary/nanotool:system/bin/nanotool:qcom \
     vendor/qcom/sailfish/proprietary/netmgrd:system/bin/netmgrd:qcom \
     vendor/qcom/sailfish/proprietary/nl_listener:system/bin/nl_listener:qcom \
     vendor/qcom/sailfish/proprietary/pktlogconf:system/bin/pktlogconf:qcom \
-    vendor/qcom/sailfish/proprietary/PktRspTest:system/bin/PktRspTest:qcom \
     vendor/qcom/sailfish/proprietary/pm-proxy:system/bin/pm-proxy:qcom \
     vendor/qcom/sailfish/proprietary/pm-service:system/bin/pm-service:qcom \
     vendor/qcom/sailfish/proprietary/port-bridge:system/bin/port-bridge:qcom \
-    vendor/qcom/sailfish/proprietary/qfipsverify:system/bin/qfipsverify:qcom \
     vendor/qcom/sailfish/proprietary/qmi_simple_ril_test:system/bin/qmi_simple_ril_test:qcom \
     vendor/qcom/sailfish/proprietary/qseecom_sample_client:system/bin/qseecom_sample_client:qcom \
-    vendor/qcom/sailfish/proprietary/radish:system/bin/radish:qcom \
     vendor/qcom/sailfish/proprietary/rmt_storage:system/bin/rmt_storage:qcom \
-    vendor/qcom/sailfish/proprietary/ssr_diag:system/bin/ssr_diag:qcom \
     vendor/qcom/sailfish/proprietary/ssr_setup:system/bin/ssr_setup:qcom \
     vendor/qcom/sailfish/proprietary/StoreKeybox:system/bin/StoreKeybox:qcom \
     vendor/qcom/sailfish/proprietary/subsystem_ramdump:system/bin/subsystem_ramdump:qcom \
     vendor/qcom/sailfish/proprietary/tbaseLoader:system/bin/tbaseLoader:qcom \
     vendor/qcom/sailfish/proprietary/test_bet_8996:system/bin/test_bet_8996:qcom \
-    vendor/qcom/sailfish/proprietary/test_diag:system/bin/test_diag:qcom \
     vendor/qcom/sailfish/proprietary/test_module_pproc:system/bin/test_module_pproc:qcom \
     vendor/qcom/sailfish/proprietary/time_daemon:system/bin/time_daemon:qcom \
-    vendor/qcom/sailfish/proprietary/wdsdaemon:system/bin/wdsdaemon:qcom \
-    vendor/qcom/sailfish/proprietary/WifiLogger_app:system/bin/WifiLogger_app:qcom \
     vendor/qcom/sailfish/proprietary/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb:qcom \
     vendor/qcom/sailfish/proprietary/General_cal.acdb:system/etc/acdbdata/General_cal.acdb:qcom \
     vendor/qcom/sailfish/proprietary/Global_cal.acdb:system/etc/acdbdata/Global_cal.acdb:qcom \
@@ -86,16 +74,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_5_2.fw:system/etc/firmware/cpp_firmware_v1_5_2.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_6_0.fw:system/etc/firmware/cpp_firmware_v1_6_0.fw:qcom \
     vendor/qcom/sailfish/proprietary/cpp_firmware_v1_8_0.fw:system/etc/firmware/cpp_firmware_v1_8_0.fw:qcom \
-    vendor/qcom/sailfish/proprietary/nvm_tlv_1.3.bin:system/etc/firmware/nvm_tlv_1.3.bin:qcom \
-    vendor/qcom/sailfish/proprietary/nvm_tlv_2.1.bin:system/etc/firmware/nvm_tlv_2.1.bin:qcom \
-    vendor/qcom/sailfish/proprietary/nvm_tlv_3.0.bin:system/etc/firmware/nvm_tlv_3.0.bin:qcom \
-    vendor/qcom/sailfish/proprietary/nvm_tlv_3.2.bin:system/etc/firmware/nvm_tlv_3.2.bin:qcom \
-    vendor/qcom/sailfish/proprietary/nvm_tlv.bin:system/etc/firmware/nvm_tlv.bin:qcom \
-    vendor/qcom/sailfish/proprietary/rampatch_tlv_1.3.tlv:system/etc/firmware/rampatch_tlv_1.3.tlv:qcom \
-    vendor/qcom/sailfish/proprietary/rampatch_tlv_2.1.tlv:system/etc/firmware/rampatch_tlv_2.1.tlv:qcom \
-    vendor/qcom/sailfish/proprietary/rampatch_tlv_3.0.tlv:system/etc/firmware/rampatch_tlv_3.0.tlv:qcom \
-    vendor/qcom/sailfish/proprietary/rampatch_tlv_3.2.tlv:system/etc/firmware/rampatch_tlv_3.2.tlv:qcom \
-    vendor/qcom/sailfish/proprietary/rampatch_tlv.img:system/etc/firmware/rampatch_tlv.img:qcom \
     vendor/qcom/sailfish/proprietary/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt:qcom \
     vendor/qcom/sailfish/proprietary/flp.conf:system/etc/flp.conf:qcom \
     vendor/qcom/sailfish/proprietary/izat.conf:system/etc/izat.conf:qcom \
@@ -109,7 +87,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/rcsservice.xml:system/etc/permissions/rcsservice.xml:qcom \
     vendor/qcom/sailfish/proprietary/telephonyservice.xml:system/etc/permissions/telephonyservice.xml:qcom \
     vendor/qcom/sailfish/proprietary/vzw_sso_permissions.xml:system/etc/permissions/vzw_sso_permissions.xml:qcom \
-    vendor/qcom/sailfish/proprietary/qdcm_calib_data_S1_FHD_SAMSUNG_EA8064TG_5.0_command_mode_panel.xml:system/etc/qdcm_calib_data_S1_FHD_SAMSUNG_EA8064TG_5.0_command_mode_panel.xml:qcom \
     vendor/qcom/sailfish/proprietary/sap.conf:system/etc/sap.conf:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/sailfish/proprietary/embmslibrary.jar:system/framework/embmslibrary.jar:qcom \
@@ -132,10 +109,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/libloc_ds_api.so:system/lib/libloc_ds_api.so:qcom \
     vendor/qcom/sailfish/proprietary/libloc_eng.so:system/lib/libloc_eng.so:qcom \
     vendor/qcom/sailfish/proprietary/libminui.so:system/lib/libminui.so:qcom \
-    vendor/qcom/sailfish/proprietary/libmm-qcamera.so:system/lib/libmm-qcamera.so:qcom \
     vendor/qcom/sailfish/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
-    vendor/qcom/sailfish/proprietary/bootimg.hmac:system/usr/qfipsverify/bootimg.hmac:qcom \
-    vendor/qcom/sailfish/proprietary/qfipsverify.hmac:system/usr/qfipsverify/qfipsverify.hmac:qcom \
     vendor/qcom/sailfish/proprietary/lib64/android.hardware.biometrics.fingerprint@2.1.so:system/lib64/android.hardware.biometrics.fingerprint@2.1.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.device@1.0.so:system/lib64/android.hardware.camera.device@1.0.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/android.hardware.camera.device@3.2.so:system/lib64/android.hardware.camera.device@3.2.so:qcom \
