@@ -3065,6 +3065,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 (i->partial_result_cnt == 0)) {
                 LOGE("Error: HAL missed urgent metadata for frame number %d",
                          i->frame_number);
+                i->partial_result_cnt++;
             }
 
             if (i->frame_number == urgent_frame_number &&
@@ -3160,13 +3161,16 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 continue;
             } else {
 
-                mPendingLiveRequest--;
-
                 CameraMetadata dummyMetadata;
                 dummyMetadata.update(ANDROID_REQUEST_ID, &(i->request_id), 1);
                 result.result = dummyMetadata.release();
 
                 notifyError(i->frame_number, CAMERA3_MSG_ERROR_RESULT);
+
+                // partial_result should be PARTIAL_RESULT_CNT in case of
+                // ERROR_RESULT.
+                i->partial_result_cnt = PARTIAL_RESULT_COUNT;
+                result.partial_result = PARTIAL_RESULT_COUNT;
             }
         } else {
             mPendingLiveRequest--;
