@@ -81,10 +81,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
 
-# Vendor Interface Manifest
-PRODUCT_COPY_FILES += \
-    device/google/marlin/manifest.xml:vendor/manifest.xml
-
 # Audio configuration
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_COPY_FILES += \
