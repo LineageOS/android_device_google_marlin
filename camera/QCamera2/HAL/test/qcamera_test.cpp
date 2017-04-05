@@ -1124,7 +1124,7 @@ void CameraContext::dataCallbackTimestamp(nsecs_t timestamp,
                 mInterpr->ViVUnlock();
                 return;
             }
-            mInterpr->mViVVid.graphBuf = new GraphicBuffer(anb, false);
+            mInterpr->mViVVid.graphBuf = GraphicBuffer::from(anb);
             if(NULL == mInterpr->mViVVid.graphBuf.get()) {
                 printf("Invalid Graphic buffer\n");
                 mInterpr->ViVUnlock();
