@@ -38,9 +38,3 @@ dontaudit domain firmware_file:dir search;
 
 allow domain debugfs_ion:dir search;
 allow domain debugfs_kgsl:dir search;
-
-# Marlin / Sailfish specific violations that need to be fixed
-# in platform TODO: b/36806861.
-# all apps had this access before, they continue to get it only
-# on this device
-allow domain vendor_app_file:lnk_file { open read };

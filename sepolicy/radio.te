@@ -7,6 +7,11 @@ allow radio uce_service:service_manager { add find };
 
 r_dir_file(radio, sysfs_msm_subsys)
 
+# Access to /vendor/framework/qti-vzw-ims-internal.jar for all
+# IMS packages running with com.android.phone sharedUID
+allow radio vendor_framework_file:dir { getattr search };
+allow radio vendor_framework_file:file { getattr open read };
+
 # communicate with ims
 unix_socket_connect(radio, ims, ims)
 
