@@ -3,3 +3,6 @@ typeattribute hal_camera_default binder_in_vendor_violators;
 # TODO(b/36651251, b/36730929): Remove once Camera Hal is no longer accessing
 # /data outside /data/vendor.
 typeattribute hal_camera_default coredata_in_vendor_violators;
+
+vndbinder_use(hal_camera_default);
+allow hal_camera_default qdisplay_service:vndservice_manager { find };
