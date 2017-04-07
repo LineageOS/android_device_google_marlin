@@ -31,12 +31,6 @@ PRODUCT_COPY_FILES += \
 
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res \
-    Bluetooth \
-    Settings \
-    TeleService
-
 # Input device files
 PRODUCT_COPY_FILES += \
     device/google/marlin/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
