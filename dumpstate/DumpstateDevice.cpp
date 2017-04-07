@@ -53,7 +53,7 @@ static void getModemLogs(int fd)
         return;
     }
     /* Check if smlog_dump tool exist */
-    if (!PropertiesHelper::IsUserBuild() && !access("/system/bin/smlog_dump", X_OK)) {
+    if (!PropertiesHelper::IsUserBuild() && !access("/vendor/bin/smlog_dump", X_OK)) {
         modemLogsEnabled = android::base::GetBoolProperty(MODEM_LOGGING_SWITCH, false);
 
         /* Execute SMLOG DUMP if SMLOG is enabled */
@@ -122,7 +122,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     DumpFileToFd(fd, "MDP xlogs", "/d/mdp/xlog/dump");
 
     /* Check if qsee_logger tool exists */
-    if (!access("/system/bin/qsee_logger", X_OK)) {
+    if (!access("/vendor/bin/qsee_logger", X_OK)) {
       RunCommandToFd(fd, "FP LOGS", {"qsee_logger", "-d"});
     }
 
