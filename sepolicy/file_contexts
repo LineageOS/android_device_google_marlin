@@ -182,8 +182,6 @@
 /sys/kernel/debug/ion(/.*)?                      u:object_r:debugfs_ion:s0
 
 # /data
-/data/diag_logs(/.*)?            u:object_r:diag_logs:s0
-/data/cnss_diag(/.*)?            u:object_r:cnss_diag_data_file:s0
 /data/smlog_dump(/.*)?           u:object_r:smlog_dump_file:s0
 /data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
@@ -198,7 +196,9 @@
 /data/system/nanohub_lock(/.*)?  u:object_r:nanohub_lock_file:s0
 /data/misc/sensorcal_saved\.json  u:object_r:sensors_saved_settings_file:s0
 /data/vendor/nfc(/.*)?           u:object_r:nfc_vendor_data_file:s0
-
+/data/vendor/radio(/.*)?         u:object_r:radio_vendor_data_file:s0
+/data/vendor/wifi(/.*)?          u:object_r:cnss_vendor_data_file:s0
+/data/vendor/ramdump(/.*)?       u:object_r:ramdump_vendor_data_file:s0
 
 # /
 

@@ -2,9 +2,11 @@
 
 on post-fs-data
     # Modem logging collection
-    mkdir /data/diag_logs 0777 system system
+    mkdir /data/vendor/radio 0775 radio radio
+    mkdir /data/vendor/radio/diag_logs 0777 system system
     # WLAN logging collection
-    mkdir /data/cnss_diag 0777 system system
+    mkdir /data/vendor/wifi 0777 system system
+    mkdir /data/vendor/wifi/cnss_diag 0777 system system
     # SM DUMP logging collection
     mkdir /data/smlog_dump 0777 system system
 
@@ -111,7 +113,7 @@ service cnss_diag /vendor/bin/cnss_diag -q -u
     group system
     oneshot
 
-service cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/cnss_diag/cnss_diag.conf
+service cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/vendor/wifi/cnss_diag/cnss_diag.conf
     class late_start
     user system
     group system
