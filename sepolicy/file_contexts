@@ -80,15 +80,14 @@
 # files in /system
 /system/bin/mm-pp-dpps             u:object_r:mm-pp-daemon_exec:s0
 /system/bin/nanoapp_cmd            u:object_r:nanoapp_cmd_exec:s0
-/system/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
-/system/bin/ATFWD-daemon           u:object_r:atfwd_exec:s0
-/system/bin/smlog_dump             u:object_r:smlog_dump_exec:s0
 /system/bin/qmuxd                  u:object_r:qmuxd_exec:s0
 /system/bin/location-mq            u:object_r:location_exec:s0
-/system/bin/qsee_logger            u:object_r:qsee_logger_exec:s0
 /system/bin/preloads_copy\.sh      u:object_r:preloads_copy_exec:s0
 
 # files in /vendor
+/vendor/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
+/vendor/bin/qsee_logger            u:object_r:qsee_logger_exec:s0
+/vendor/bin/smlog_dump             u:object_r:smlog_dump_exec:s0
 /vendor/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /vendor/bin/pm-service             u:object_r:per_mgr_exec:s0
 /vendor/bin/pm-proxy               u:object_r:per_proxy_exec:s0
@@ -109,6 +108,7 @@
 /vendor/bin/subsystem_ramdump      u:object_r:subsystem_ramdump_exec:s0
 /vendor/bin/ssr_setup              u:object_r:ssr_setup_exec:s0
 /vendor/bin/ramdump                u:object_r:htc_ramdump_exec:s0
+/vendor/bin/ATFWD-daemon           u:object_r:atfwd_exec:s0
 
 # files in /vendor
 /vendor/bin/hw/android\.hardware\.drm@1\.0-service.widevine          u:object_r:hal_drm_widevine_exec:s0
