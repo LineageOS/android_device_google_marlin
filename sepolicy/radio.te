@@ -24,3 +24,7 @@ userdebug_or_eng(`
 allow radio avtimer_device:chr_file rw_file_perms;
 
 allowxperm radio self:udp_socket ioctl priv_sock_ioctls;
+
+# Needed for use .so files in /vendor/lib64 needed by ims which runs as com.android.phone (radio)
+# r_dir_file(radio, vendor_file)
+allow radio vendor_file:file rx_file_perms;
