@@ -84,6 +84,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += fs_config_files \
                     fs_config_dirs
 
+# TextClassifier smart selection models files
+PRODUCT_PACKAGES += \
+    textclassifier.smartselection.bundle1
+
 # Audio configuration
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_COPY_FILES += \
