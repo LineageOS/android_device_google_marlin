@@ -164,6 +164,11 @@
 /vendor/lib(64)?/libimscamera_jni\.so        u:object_r:same_process_hal_file:s0
 
 
+# Misc files on /vendor
+
+/vendor/usr/idc(/.*)?                        u:object_r:idc_file:s0
+/vendor/usr/keylayout(/.*)?                  u:object_r:keylayout_file:s0
+
 # /sys
 /sys/devices/virtual/nanohub/nanohub(/.*)?       u:object_r:sysfs_nanoapp_cmd:s0
 /sys/devices/virtual/thermal(/.*)?               u:object_r:sysfs_thermal:s0
