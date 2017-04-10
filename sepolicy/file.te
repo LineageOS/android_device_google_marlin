@@ -67,3 +67,7 @@ type persist_display_file, file_type;
 # msm_irqbalance
 type proc_irq, fs_type;
 type irqbalance_socket, file_type;
+
+# /vendor
+type idc_file, file_type, vendor_file_type;
+type keylayout_file, file_type, vendor_file_type;
