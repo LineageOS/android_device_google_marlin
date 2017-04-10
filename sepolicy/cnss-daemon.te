@@ -1,6 +1,6 @@
 # Policy for /system/bin/cnss-daemon
 type cnss-daemon, domain;
-type cnss-daemon_exec, exec_type, file_type;
+type cnss-daemon_exec, exec_type, vendor_file_type, file_type;
 
 allow cnss-daemon self:capability {
     net_bind_service

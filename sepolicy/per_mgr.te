@@ -1,6 +1,6 @@
 # Policy for /vendor/bin/pm-service
 type per_mgr, domain;
-type per_mgr_exec, exec_type, file_type;
+type per_mgr_exec, exec_type, vendor_file_type, file_type;
 
 allow per_mgr self:capability net_bind_service;
 

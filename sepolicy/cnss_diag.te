@@ -1,6 +1,6 @@
 # Policy for /vendor/bin/cnss_diag
 type cnss_diag, domain;
-type cnss_diag_exec, exec_type, file_type;
+type cnss_diag_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(cnss_diag)
 
