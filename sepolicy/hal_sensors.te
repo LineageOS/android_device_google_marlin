@@ -24,5 +24,5 @@ allow hal_sensors sensors_saved_settings_file:file create_file_perms;
 set_prop(hal_sensors, sensors_prop)
 
 # Allow access to gralloc shared memory (ion), for sensor direct report
-allow hal_sensors ion_device:chr_file { open read };
+allow hal_sensors ion_device:chr_file { open read ioctl };
 allow hal_sensors hal_graphics_allocator:fd use;
