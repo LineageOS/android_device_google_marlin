@@ -27,4 +27,6 @@
     <bool name="config_allow_hfa_outside_of_setup_wizard">false</bool>
     <!-- Show Hearing aids option in  Call Settings -->
     <bool name="hac_enabled">true</bool>
+    <!-- Allow handover from telephony calls to another ConnectionService. -->
+    <bool name="config_support_handover_from">true</bool>
 </resources>
