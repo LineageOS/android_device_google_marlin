@@ -6060,6 +6060,22 @@
       protocol="IP"
   />
 
+  <apn carrier="congstar Internet"
+      mcc="262"
+      mnc="01"
+      apn="internet.telekom"
+      user="congstar"
+      password="cs"
+      mmsc="http://mms.t-mobile.de/servlets/mms"
+      mmsproxy="109.237.176.193"
+      mmsport="8008"
+      authtype="1"
+      type="mms,default,supl,ia"
+      protocol="IPV4V6"
+      mvno_match_data="44"
+      mvno_type="gid"
+  />
+
   <apn carrier="Vodafone DE"
       mcc="262"
       mnc="02"
