@@ -1,6 +1,6 @@
 #integrated sensor process
 type ims, domain;
-type ims_exec, exec_type, file_type;
+type ims_exec, exec_type, vendor_file_type, file_type;
 
 allow ims self:capability net_bind_service;
 

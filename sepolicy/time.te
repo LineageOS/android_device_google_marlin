@@ -1,6 +1,6 @@
 # Policy for /system/bin/time_daemon
 type time, domain;
-type time_exec, exec_type, file_type;
+type time_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(time)
 
