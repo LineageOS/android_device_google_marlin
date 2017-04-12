@@ -4,7 +4,7 @@ on post-fs
     chmod 0640 /persist/sensorcal.json
     start flash-nanohub-fw
 
-service flash-nanohub-fw /system/bin/nanoapp_cmd download
+service flash-nanohub-fw /vendor/bin/nanoapp_cmd download
     oneshot
     disabled
     user root
