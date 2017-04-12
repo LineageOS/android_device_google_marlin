@@ -2,7 +2,7 @@
 type hal_drm_widevine, domain;
 hal_server_domain(hal_drm_widevine, hal_drm)
 
-type hal_drm_widevine_exec, exec_type, file_type;
+type hal_drm_widevine_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_drm_widevine)
 
 # TODO(b/36576915): Remove this once Widevine-backed DRM HAL stops using Binder services,
