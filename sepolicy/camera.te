@@ -34,7 +34,6 @@ allow camera cameraserver:fd use;
 
 # TODO(b/36663461): Remove once camera no longer accesses data outside
 # /data/vendor
-typeattribute camera coredata_in_vendor_violators;
 typeattribute camera socket_between_core_and_vendor_violators;
 allow camera camera_data_file:dir rw_dir_perms;
 allow camera camera_data_file:sock_file { create unlink };
