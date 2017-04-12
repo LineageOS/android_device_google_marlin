@@ -1,5 +1,5 @@
 # Policy for system/bin/ssr_setup
-type ssr_setup_exec, exec_type, file_type;
+type ssr_setup_exec, exec_type, vendor_file_type, file_type;
 type ssr_setup, domain;
 
 init_daemon_domain(ssr_setup)
