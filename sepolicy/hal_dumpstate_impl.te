@@ -5,8 +5,8 @@ type hal_dumpstate_impl_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_dumpstate_impl)
 
 # Execute dump scripts
-allow hal_dumpstate_impl shell_exec:file rx_file_perms;
-allow hal_dumpstate_impl toolbox_exec:file rx_file_perms;
+allow hal_dumpstate_impl vendor_shell_exec:file rx_file_perms;
+allow hal_dumpstate_impl vendor_toolbox_exec:file rx_file_perms;
 # system file execution
 #allow hal_dumpstate_impl system_data_file:dir r_dir_perms;
 
