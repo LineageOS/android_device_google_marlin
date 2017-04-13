@@ -14,11 +14,11 @@ allow hal_sensors uhid_device:chr_file rw_file_perms;
 # Allow access to persistent partition for calibration data
 allow hal_sensors persist_file:dir search;
 allow hal_sensors sensors_cal_file:dir create_dir_perms;
-allow hal_sensors sensors_cal_file:file create_file_perms;
+allow hal_sensors sensors_cal_file:file { create_file_perms read };
 
 # Allow access to saved settings file
 allow hal_sensors sensors_saved_settings_file:dir create_dir_perms;
-allow hal_sensors sensors_saved_settings_file:file create_file_perms;
+allow hal_sensors sensors_saved_settings_file:file { create_file_perms read write };
 
 # Allow access to sensor properties
 set_prop(hal_sensors, sensors_prop)
@@ -26,3 +26,7 @@ set_prop(hal_sensors, sensors_prop)
 # Allow access to gralloc shared memory (ion), for sensor direct report
 allow hal_sensors ion_device:chr_file { open read };
 allow hal_sensors hal_graphics_allocator:fd use;
+
+# allow sensor hal to call scheduling policy service in system server
+allow hal_sensors_default system_server:binder call;
+

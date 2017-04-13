@@ -42,3 +42,6 @@ allow system_server debugfs_kgsl:file { open read getattr };
 userdebug_or_eng(`
   allow system_server diag_device:chr_file rw_file_perms;
 ')
+
+# allow system server to set sched fifo for sensor hal main thread to achieve right performance
+allow system_server hal_sensors_default:process setsched;
