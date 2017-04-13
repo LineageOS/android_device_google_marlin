@@ -39,4 +39,4 @@ allow thermal-engine reboot_data_file:dir ra_dir_perms;
 allow thermal-engine reboot_data_file:file create_file_perms;
 
 # reboot/shutdown for thermal limits exceeded
-allow thermal-engine self:capability sys_boot;
+set_prop(thermal-engine, powerctl_prop)
