@@ -3,8 +3,6 @@ type qtelephony, domain, coredomain;
 
 app_domain(qtelephony)
 
-add_service(qtelephony, atfwd_service)
-
 allow qtelephony { app_api_service }:service_manager find;
 
 # Read and write /data/data subdirectory.
