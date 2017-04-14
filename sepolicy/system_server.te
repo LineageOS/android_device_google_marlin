@@ -20,6 +20,7 @@ allow system_server netmgrd_socket:dir search;
 unix_socket_connect(system_server, netmgrd, netmgrd)
 
 binder_call(system_server, hal_camera_default)
+binder_call(system_server, location)
 
 # files in /sys
 r_dir_file(system_server, sysfs_type)
