@@ -595,3 +595,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     device/google/marlin/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
+# whitelisted app
+PRODUCT_COPY_FILES += \
+    device/google/marlin/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
