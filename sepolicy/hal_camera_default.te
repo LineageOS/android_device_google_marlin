@@ -1,5 +1,2 @@
-vndbinder_use(hal_camera_default);
-allow hal_camera_default qdisplay_service:vndservice_manager { find };
-
-binder_call(hal_camera_default, hal_graphics_composer)
-binder_call(hal_camera_default, system_server)
+# TODO(b/36569385): Remove once Camera HAL no longer uses Binder
+typeattribute hal_camera_default binder_in_vendor_violators;
