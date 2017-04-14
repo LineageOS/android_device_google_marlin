@@ -1,1 +1,3 @@
 vndbinder_use(hal_gnss_default)
+binder_call(hal_gnss_default, per_mgr);
+allow hal_gnss_default per_mgr_service:vndservice_manager find;
