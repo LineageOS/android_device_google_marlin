@@ -19,10 +19,6 @@ typeattribute netmgrd socket_between_core_and_vendor_violators;
 allow system_server netmgrd_socket:dir search;
 unix_socket_connect(system_server, netmgrd, netmgrd)
 
-# talk to peripheral manager
-allow system_server per_mgr_service:service_manager find;
-binder_call(system_server, per_mgr)
-
 binder_call(system_server, hal_camera_default)
 
 # files in /sys
