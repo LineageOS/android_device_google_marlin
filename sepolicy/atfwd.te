@@ -3,12 +3,6 @@ type atfwd_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(atfwd)
 
-# TODO(b/34603782): Remove this once atfwd no longer uses Binder
-typeattribute atfwd binder_in_vendor_violators;
-binder_use(atfwd)
-
-allow atfwd atfwd_service:service_manager find;
-
 allow atfwd self:socket create_socket_perms;
 allowxperm atfwd self:socket ioctl msm_sock_ipc_ioctls;
 
