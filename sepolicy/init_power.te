@@ -5,6 +5,7 @@ init_daemon_domain(init_power)
 
 allow init_power rootfs:file r_file_perms;
 allow init_power shell_exec:file rx_file_perms;
+allow init_power vendor_toolbox_exec:file rx_file_perms;
 allow init_power toolbox_exec:file rx_file_perms;
 
 # files are created in /sys as this script executes. Grant
