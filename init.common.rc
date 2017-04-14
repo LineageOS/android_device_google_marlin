@@ -111,8 +111,7 @@ on fs
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
-# This section will be executed after all post-fs sections are done
-on post-fs && property:ro.hardware=*
+on load_system_props_action
     # Wait qseecomd started
     wait_for_prop sys.listeners.registered true
 
@@ -121,7 +120,6 @@ on late-fs
     start devstart_sh
 
     # Start services for bootanim
-    start servicemanager
     start vr_wm
     start surfaceflinger
     start bootanim
