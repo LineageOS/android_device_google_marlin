@@ -220,3 +220,5 @@ ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
 BOARD_KERNEL_CMDLINE += mem=1152M
 MALLOC_SVELTE := true
 endif
+
+DEVICE_MANIFEST_FILE := device/google/marlin/manifest.xml
