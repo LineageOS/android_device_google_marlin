@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 
 # Convert ro.boot.mid to ro.boot.hardware.sku format
 
