@@ -95,6 +95,8 @@
 /vendor/bin/netmgrd                u:object_r:netmgrd_exec:s0
 /vendor/bin/port-bridge            u:object_r:port-bridge_exec:s0
 /vendor/bin/loc_launcher           u:object_r:location_exec:s0
+/vendor/bin/slim_daemon            u:object_r:location_exec:s0
+/vendor/bin/xtra-daemon            u:object_r:location_exec:s0
 /vendor/bin/lowi-server            u:object_r:location_exec:s0
 /vendor/bin/cnd                    u:object_r:cnd_exec:s0
 /vendor/bin/imsdatadaemon          u:object_r:ims_exec:s0

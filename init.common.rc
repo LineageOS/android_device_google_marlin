@@ -246,6 +246,14 @@ on zygote-start
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
 
+    # migrating the GNSS hal to vendor requires this to be relabeled; the
+    # directory itself is created by /vendor/bin/xtra-daemon
+    chown gps gps /data/misc/location/xtra
+    chmod 0750 /data/misc/location/xtra
+    chown gps gps /data/misc/location/xtra/socket_hal_xtra
+    chmod 0660 /data/misc/location/xtra/socket_hal_xtra
+    chown gps gps /data/misc/location/xtra/xtra.sqlite
+
     # Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared
