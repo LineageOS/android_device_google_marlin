@@ -159,6 +159,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
 
 PRODUCT_PACKAGES += \
+    mkshrc_vendor \
+    sh_vendor \
     toybox_vendor
 
 # set audio fluence, ns, aec property
