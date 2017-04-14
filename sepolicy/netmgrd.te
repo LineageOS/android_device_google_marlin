@@ -36,7 +36,9 @@ userdebug_or_eng(`
 
 # execute shell, ip, and toolbox
 allow netmgrd shell_exec:file rx_file_perms;
+allow netmgrd vendor_shell_exec:file rx_file_perms;
 allow netmgrd system_file:file rx_file_perms;
+allow netmgrd vendor_toolbox_exec:file rx_file_perms;
 allow netmgrd toolbox_exec:file rx_file_perms;
 
 # netmgrd sockets
