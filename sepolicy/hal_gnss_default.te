@@ -1,5 +1,1 @@
-# TODO(b/36730929): Remove once hal_gnss_default is no longer accessing
-# /data outside /data/vendor.
-typeattribute hal_gnss_default coredata_in_vendor_violators;
-
 vndbinder_use(hal_gnss_default)
