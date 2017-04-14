@@ -13,6 +13,7 @@ dontaudit init_foreground proc_timer:file getattr;
 dontaudit init_foreground proc_zoneinfo:file getattr;
 
 allow init_foreground shell_exec:file { getattr read };
+allow init_foreground vendor_toolbox_exec:file rx_file_perms;
 allow init_foreground toolbox_exec:file rx_file_perms;
 
 allow init_foreground domain:dir { getattr search };
