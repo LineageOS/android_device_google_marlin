@@ -163,6 +163,9 @@ PRODUCT_PACKAGES += \
     sh_vendor \
     toybox_vendor
 
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
+
 # set audio fluence, ns, aec property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluencepro \
