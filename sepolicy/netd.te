@@ -5,9 +5,5 @@ allow netd sysfs_net:file w_file_perms;
 allowxperm netd self:udp_socket ioctl { SIOCSIFFLAGS SIOCSIFADDR SIOCGIFHWADDR };
 
 # Enable XTRA downloads
-#
-# TODO:(b/35757613) - STOPSHIP - HAL cannot have direct inet access
-#
-allow netd hal_gnss_default:fd use;
-allow netd hal_gnss_default:tcp_socket { getopt read setopt write };
-
+allow netd location:fd use;
+allow netd location:tcp_socket { getopt read setopt write };
