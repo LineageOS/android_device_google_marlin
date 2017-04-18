@@ -110,8 +110,6 @@ on fs
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-
-on load_system_props_action
     # Wait qseecomd started
     wait_for_prop sys.listeners.registered true
 
