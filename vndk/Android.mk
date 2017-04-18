@@ -14,7 +14,6 @@ VNDK_SP_LIBRARIES := \
     libhidltransport\
     libutils\
     libc++\
-    libsync\
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)
