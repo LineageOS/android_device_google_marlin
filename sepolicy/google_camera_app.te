@@ -14,6 +14,8 @@ allow google_camera_app mediametrics_service:service_manager find;
 allow google_camera_app nfc_service:service_manager find;
 allow google_camera_app surfaceflinger_service:service_manager find;
 
+allow google_camera_app hidl_token_hwservice:hwservice_manager find;
+
 # Execute libraries from RenderScript cache
 allow google_camera_app app_data_file:file { rx_file_perms };
 

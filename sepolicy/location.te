@@ -13,6 +13,7 @@ allow location self:capability { setgid setuid };
 
 hwbinder_use(location)
 get_prop(location, hwservicemanager_prop)
+allow location fwk_sensor_hwservice:hwservice_manager find;
 binder_call(location, system_server)
 allow location hal_wifi:unix_stream_socket { read write };
 
