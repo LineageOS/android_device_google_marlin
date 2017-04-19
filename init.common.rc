@@ -331,6 +331,32 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
+
+    # access permission for secure touch
+    chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
+    chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
+
+    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+
+    chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
+    chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
+
+    # Permission for laser sensor driver
+    chown camera camera /sys/class/htc_laser/laser/enable_ps_sensor
+
+    # Permission for LED driver
+    chown system system /sys/class/leds/red/on_off_ms
+    chown system system /sys/class/leds/green/on_off_ms
+    chown system system /sys/class/leds/blue/on_off_ms
+    chown system system /sys/class/leds/red/rgb_start
+    chown system system /sys/class/leds/green/rgb_start
+    chown system system /sys/class/leds/blue/rgb_start
+    chown system system /sys/class/leds/lcd-backlight/low_persistence
+
+    # Permission for vibrator amplitude
+    chown system system /sys/class/timed_output/vibrator/voltage_level
+
     # wait for devices
     wait_for_prop sys.qcom.devup 1
 
@@ -385,30 +411,6 @@ on boot
 
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
-
-    # access permission for secure touch
-    chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
-    chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
-
-    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
-    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
-
-    chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
-    chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
-
-    # Permission for laser sensor driver
-    chown camera camera /sys/class/htc_laser/laser/enable_ps_sensor
-    # Permission for LED driver
-    chown system system /sys/class/leds/red/on_off_ms
-    chown system system /sys/class/leds/green/on_off_ms
-    chown system system /sys/class/leds/blue/on_off_ms
-    chown system system /sys/class/leds/red/rgb_start
-    chown system system /sys/class/leds/green/rgb_start
-    chown system system /sys/class/leds/blue/rgb_start
-    chown system system /sys/class/leds/lcd-backlight/low_persistence
-
-    # Permission for vibrator amplitude
-    chown system system /sys/class/timed_output/vibrator/voltage_level
 
     # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
