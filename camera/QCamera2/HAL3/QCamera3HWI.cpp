@@ -2255,7 +2255,8 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
 
                 default:
                     LOGE("not a supported format 0x%x", newStream->format);
-                    break;
+                    pthread_mutex_unlock(&mMutex);
+                    return -EINVAL;
                 }
             } else if (newStream->stream_type == CAMERA3_STREAM_INPUT) {
                 newStream->max_buffers = MAX_INFLIGHT_REPROCESS_REQUESTS;
@@ -10743,6 +10744,21 @@ int QCamera3HardwareInterface::validateStreamRotations(
     */
     for (size_t j = 0; j < streamList->num_streams; j++){
         camera3_stream_t *newStream = streamList->streams[j];
+
+        switch(newStream->rotation) {
+            case CAMERA3_STREAM_ROTATION_0:
+            case CAMERA3_STREAM_ROTATION_90:
+            case CAMERA3_STREAM_ROTATION_180:
+            case CAMERA3_STREAM_ROTATION_270:
+                //Expected values
+                break;
+            default:
+                LOGE("Error: Unsupported rotation of %d requested for stream"
+                        "type:%d and stream format:%d",
+                        newStream->rotation, newStream->stream_type,
+                        newStream->format);
+                return -EINVAL;
+        }
 
         bool isRotated = (newStream->rotation != CAMERA3_STREAM_ROTATION_0);
         bool isImplDef = (newStream->format ==
