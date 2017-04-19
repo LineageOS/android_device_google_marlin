@@ -618,4 +618,3 @@ PRODUCT_PACKAGES += \
     libhidltransport.vndk-sp\
     libutils.vndk-sp\
     libc++.vndk-sp\
-    libsync.vndk-sp\
