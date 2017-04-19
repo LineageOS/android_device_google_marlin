@@ -1,7 +1,7 @@
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(rild)
 
-allow rild per_mgr_service:vndservice_manager find;
+allow rild per_mgr_service:service_manager find;
 
 vndbinder_use(rild)
 binder_call(rild, per_mgr)
