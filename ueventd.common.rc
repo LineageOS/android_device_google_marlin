@@ -250,3 +250,6 @@
 
 # Storage: for factory reset protection feature
 /dev/block/platform/soc/624000.ufshc/by-name/frp       0660   system     system
+
+# hid sensor device
+/dev/hidraw*              0660   root       system
