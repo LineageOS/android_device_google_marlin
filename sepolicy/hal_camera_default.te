@@ -1,5 +1,5 @@
 vndbinder_use(hal_camera_default);
-allow hal_camera_default qdisplay_service:vndservice_manager { find };
+allow hal_camera_default qdisplay_service:service_manager { find };
 
 binder_call(hal_camera_default, hal_graphics_composer)
 binder_call(hal_camera_default, system_server)
