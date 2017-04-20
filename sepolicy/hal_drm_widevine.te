@@ -11,5 +11,5 @@ allow hal_drm { appdomain -isolated_app }:fd use;
 # The Qualcomm DRM-HAL implementation uses a vendor-binder service provided
 # by the HWC HAL.
 vndbinder_use(hal_drm_widevine);
-allow hal_drm_widevine qdisplay_service:vndservice_manager { find };
+allow hal_drm_widevine qdisplay_service:service_manager { find };
 binder_call(hal_drm_widevine, hal_graphics_composer)

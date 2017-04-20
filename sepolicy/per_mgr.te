@@ -6,7 +6,7 @@ allow per_mgr self:capability net_bind_service;
 
 init_daemon_domain(per_mgr)
 
-allow per_mgr per_mgr_service:vndservice_manager add;
+add_service(per_mgr, per_mgr_service)
 
 vndbinder_use(per_mgr)
 binder_call(per_mgr, rild)
