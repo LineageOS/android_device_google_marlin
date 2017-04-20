@@ -84,5 +84,14 @@ SAVE_PREOPT_SPACE_PACKAGES := \
     CloudPrint2 \
     Hangouts \
     Volta \
+    DMAgent \
+    GoogleJapaneseInput \
+    GooglePinyinIME \
+    GoogleHindiIME \
+    KoreanIME \
+    Photos \
+    PlayGames \
+    Videos \
+    Wallet \
 
 $(call add-product-dex-preopt-module-config,$(SAVE_PREOPT_SPACE_PACKAGES),--compiler-filter=interpret-only)
