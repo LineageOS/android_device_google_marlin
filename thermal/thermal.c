@@ -48,7 +48,7 @@ const int CPU_SENSORS[] = {4, 6, 9, 11};
 #define CPU_THROTTLING_THRESHOLD      60
 #define BATTERY_SHUTDOWN_THRESHOLD    60
 // device/google/marlin/thermal-engine-marlin.conf
-#define SKIN_THROTTLING_THRESHOLD     44
+#define SKIN_THROTTLING_THRESHOLD     47
 #define SKIN_SHUTDOWN_THRESHOLD       70
 #define VR_THROTTLED_BELOW_MIN        58
 

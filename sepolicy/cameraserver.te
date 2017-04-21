@@ -25,3 +25,12 @@ allow cameraserver system_file:dir r_dir_perms;
 allow cameraserver system_server:unix_stream_socket { read write };
 
 allow cameraserver sensorservice_service:service_manager find;
+
+allow cameraserver self:socket { create ioctl read write };
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets
+qmux_socket(cameraserver)
+
+# allow cameraserver to call some socket ioctls
+allowxperm cameraserver self:socket ioctl { IPC_ROUTER_IOCTL_LOOKUP_SERVER IPC_ROUTER_IOCTL_BIND_CONTROL_PORT };
+

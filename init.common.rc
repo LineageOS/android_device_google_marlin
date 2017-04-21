@@ -61,6 +61,15 @@ on late-fs
     # mount RW partitions which need run fsck
     mount_all fstab.${ro.hardware} --late
 
+    # boot time fs tune
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+
 on post-fs-data
     # restart qseecomd once we have /data/
     restart qseecomd
@@ -76,6 +85,7 @@ on post-fs-data
     mkdir /data/misc/qvop 0660 system system
     mkdir /data/misc/audio_pp 0771 media audio
     mkdir /data/preloads 0775 system system
+    mkdir /data/misc/netmgr 0700 root root
 
     # Disable verbosity for sensorhub
     write /d/sps/debug_level_option 4
@@ -93,8 +103,6 @@ on post-fs-data
     chown media_rw media_rw /data/media
 
     mkdir /data/misc/ipa 0700 net_admin net_admin
-
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -457,6 +465,9 @@ service per_proxy /system/bin/pm-proxy
     group system
     disabled
 
+on property:ro.build.type=userdebug
+   write /sys/class/uio/uio1/device/rtel/rtel 1
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
@@ -533,14 +544,11 @@ service ss_ramdump /system/bin/subsystem_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
-    mkdir /data/ramdump 760 root system
+    mkdir /data/ramdump 761 root system
     start ss_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-
-on property:ro.build.type=userdebug
-   write /sys/class/uio/uio1/device/rtel/rtel 1
 
 service iop /system/bin/iop
     class main
@@ -694,11 +702,16 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_boost 0
     # update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 0-2 
+    write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
-
+    # end boot time fs tune
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/iostats 1
 
 # battery driver settings for the retail demo environment where
 # the device will be perpertually plugged in to a power source

@@ -3,4 +3,6 @@ userdebug_or_eng(`
    allow platform_app diag_logs:dir rw_dir_perms;
    allow platform_app diag_logs:file create_file_perms;
    allow platform_app diag_device:chr_file rw_file_perms;
+   allow platform_app ramdump_data_file:dir { getattr open read remove_name rmdir search write };
+   allow platform_app ramdump_data_file:file { getattr open read unlink write };
 ')

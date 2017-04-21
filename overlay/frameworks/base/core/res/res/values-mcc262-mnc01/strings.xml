@@ -17,16 +17,10 @@
 */
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
 <resources>
-
-    <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">g2pw4100</string>
-    <!-- MMS user agent prolfile url -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/G_2PW4100.xml</string>
-
-    <!-- Default screen brightness for VR setting. Default value: 0x58 => 88. -->
-    <integer name="config_screenBrightnessForVrSettingDefault">88</integer>
-
+    <string name="wfc_mode_wifi_preferred_summary">WLAN preferred</string>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>WLAN Call</item>
+    </string-array>
 </resources>

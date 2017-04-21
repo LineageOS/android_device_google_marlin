@@ -47,6 +47,10 @@ $(call inherit-product, device/google/marlin/common/common64.mk)
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
 
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += TelephonyMonitor
+endif
+
 # graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
@@ -245,7 +249,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable SM log mechanism by default
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.smlog_switch=1
+    persist.radio.smlog_switch=1 \
+    ro.radio.log_prefix="modem_log_"
 endif
 
 # Set snapshot timer to 3 second
