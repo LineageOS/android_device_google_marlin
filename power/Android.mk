@@ -26,6 +26,8 @@ endif
 LOCAL_MODULE := power.marlin
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := qcom
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 endif
