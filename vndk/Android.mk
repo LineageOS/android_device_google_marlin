@@ -22,6 +22,9 @@ VNDK_SP_LIBRARIES := \
     libft2\
     libpng\
     libcompiler_rt\
+    libbacktrace\
+    libunwind\
+    liblzma\
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)
