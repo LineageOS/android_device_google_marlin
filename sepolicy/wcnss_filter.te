@@ -19,3 +19,6 @@ userdebug_or_eng(`
 
 # Allow reading Bluetooth-related system properties
 get_prop(wcnss_filter, bluetooth_prop)
+
+# allow wcnss to set threads to RT priority
+allow wcnss_filter self:capability sys_nice;
