@@ -629,3 +629,6 @@ PRODUCT_PACKAGES += \
     libft2.vndk-sp\
     libpng.vndk-sp\
     libcompiler_rt.vndk-sp\
+    libbacktrace.vndk-sp\
+    libunwind.vndk-sp\
+    liblzma.vndk-sp\
