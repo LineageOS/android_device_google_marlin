@@ -1,13 +1,15 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_COPY_HEADERS_TO   := dataservices/rmnetctl
-LOCAL_COPY_HEADERS      := ../inc/librmnetctl.h
+LOCAL_MODULE := librmnetctl_headers
+LOCAL_EXPORT_C_INCLUDE_DIRS:=$(LOCAL_PATH)/inc
+include $(BUILD_HEADER_LIBRARY)
 
+include $(CLEAR_VARS)
 LOCAL_SRC_FILES := librmnetctl.c
 LOCAL_CFLAGS := -Wall -Werror
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../inc
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/inc
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
