@@ -9,6 +9,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager
 
+# NFC
+PRODUCT_PACKAGES += \
+    nfc_nci.pn54x.default
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
