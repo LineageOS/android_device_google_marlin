@@ -85,10 +85,6 @@ vendor/lib64/libimscamera_jni.so:lib64/libimscamera_jni.so
 vendor/lib/libimsmedia_jni.so:lib/libimsmedia_jni.so
 vendor/lib64/libimsmedia_jni.so:lib64/libimsmedia_jni.so
 
-# NFC
-lib/hw/nfc_nci.marlin.so:lib/hw/nfc_nci.msm8996.so
-lib64/hw/nfc_nci.marlin.so:lib64/hw/nfc_nci.msm8996.so
-
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service
