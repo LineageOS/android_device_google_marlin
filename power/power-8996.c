@@ -26,7 +26,7 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#define LOG_NIDEBUG 0
+#define LOG_NDEBUG 1
 
 #include <errno.h>
 #include <string.h>
@@ -194,7 +194,7 @@ static int process_video_encode_hint(void *metadata)
     if (video_encode_metadata.state == 1) {
         int duration = 2000; // boosts 2s for starting encoding
         boost_handle = process_boost(boost_handle, duration);
-        ALOGD("LAUNCH ENCODER-ON: %d MS", duration);
+        ALOGV("LAUNCH ENCODER-ON: %d MS", duration);
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             /* 1. cpufreq params
@@ -221,7 +221,7 @@ static int process_video_encode_hint(void *metadata)
 
             perform_hint_action(video_encode_metadata.hint_id,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-            ALOGI("Video Encode hint start");
+            ALOGV("Video Encode hint start");
             return HINT_HANDLED;
         } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(SCHED_GOVERNOR))) {
@@ -238,7 +238,7 @@ static int process_video_encode_hint(void *metadata)
 
             perform_hint_action(video_encode_metadata.hint_id,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-            ALOGI("Video Encode hint start");
+            ALOGV("Video Encode hint start");
             return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
@@ -248,7 +248,7 @@ static int process_video_encode_hint(void *metadata)
             ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(SCHED_GOVERNOR)))) {
             undo_hint_action(video_encode_metadata.hint_id);
-            ALOGI("Video Encode hint stop");
+            ALOGV("Video Encode hint stop");
             return HINT_HANDLED;
         }
     }
@@ -263,12 +263,12 @@ static int process_activity_launch_hint(void *data)
         return HINT_HANDLED;
     }
 
-    ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
+    ALOGV("LAUNCH HINT: %s", data ? "ON" : "OFF");
     if (data && launch_mode == 0) {
         launch_handle = process_boost(launch_handle, duration);
         if (launch_handle > 0) {
             launch_mode = 1;
-            ALOGI("Activity launch hint handled");
+            ALOGV("Activity launch hint handled");
             return HINT_HANDLED;
         } else {
             return HINT_NONE;
@@ -322,7 +322,7 @@ int set_interactive_override(struct power_module *module, int on)
                 perform_hint_action(DISPLAY_STATE_HINT_ID,
                 resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
                 display_hint_sent = 1;
-                ALOGI("Display Off hint start");
+                ALOGV("Display Off hint start");
                 return HINT_HANDLED;
             }
         }
@@ -332,7 +332,7 @@ int set_interactive_override(struct power_module *module, int on)
             (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             undo_hint_action(DISPLAY_STATE_HINT_ID);
             display_hint_sent = 0;
-            ALOGI("Display Off hint stop");
+            ALOGV("Display Off hint stop");
             return HINT_HANDLED;
         }
     }
