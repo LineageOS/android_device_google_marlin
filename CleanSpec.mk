@@ -53,3 +53,7 @@ $(call add-clean-step, rm $(OUT_DIR)/target/product/marlin/system/lib/hw/android
 $(call add-clean-step, rm $(OUT_DIR)/target/product/sailfish/system/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/metadata)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/metadata)
+
+# Move vndk-sp libs from /vendor to /system
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/vndk-sp)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/vndk-sp)
