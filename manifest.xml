@@ -166,6 +166,10 @@
             <name>IOmx</name>
             <instance>default</instance>
         </interface>
+        <interface>
+            <name>IOmxStore</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.memtrack</name>
