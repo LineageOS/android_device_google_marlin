@@ -27,7 +27,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define LOG_NIDEBUG 0
+#define LOG_NDEBUG 1
 
 #include <errno.h>
 #include <inttypes.h>
@@ -106,7 +106,7 @@ static int s_previous_duration;
 
 static void power_init(struct power_module *module)
 {
-    ALOGI("QCOM power HAL initing.");
+    ALOGV("QCOM power HAL initing.");
 
     int fd;
     char buf[10] = {0};
@@ -137,7 +137,7 @@ static void process_video_decode_hint(void *metadata)
     }
 
     if (metadata) {
-        ALOGI("Processing video decode hint. Metadata: %s", (char *)metadata);
+        ALOGV("Processing video decode hint. Metadata: %s", (char *)metadata);
     }
 
     /* Initialize encode metadata struct fields. */
@@ -480,7 +480,7 @@ void set_interactive(struct power_module *module, int on)
         return;
     }
 
-    ALOGI("Got set_interactive hint");
+    ALOGV("Got set_interactive hint");
 
     if (get_scaling_governor(governor, sizeof(governor)) == -1) {
         ALOGE("Can't obtain scaling governor.");
@@ -797,7 +797,7 @@ static int get_platform_low_power_stats(struct power_module *module,
 static int power_open(const hw_module_t* module, const char* name,
                     hw_device_t** device)
 {
-    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+    ALOGV("%s: enter; name=%s", __FUNCTION__, name);
     int retval = 0; /* 0 is ok; -1 is error */
 
     if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
@@ -824,7 +824,7 @@ static int power_open(const hw_module_t* module, const char* name,
         retval = -EINVAL;
     }
 
-    ALOGD("%s: exit %d", __FUNCTION__, retval);
+    ALOGV("%s: exit %d", __FUNCTION__, retval);
     return retval;
 }
 
