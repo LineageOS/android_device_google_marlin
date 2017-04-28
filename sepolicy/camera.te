@@ -6,9 +6,6 @@ init_daemon_domain(camera)
 
 allow camera self:capability sys_nice;
 
-# TODO(b/36569525): Remove this once camera no longer uses Binder
-typeattribute camera binder_in_vendor_violators;
-binder_use(camera)
 binder_call(camera, system_server)
 binder_call(camera, cameraserver)
 allow camera system_server:unix_stream_socket { read write };
@@ -24,7 +21,6 @@ allow camera sysfs_camera:file rw_file_perms;
 allow camera sysfs_video:dir search;
 allow camera sysfs_video:file r_file_perms;
 allow camera system_file:dir r_dir_perms;
-allow camera sensorservice_service:service_manager find;
 
 set_prop(camera, camera_prop)
 
