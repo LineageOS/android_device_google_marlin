@@ -338,7 +338,7 @@ LIBCAMERA += camera.device@3.2-impl
 LIBCAMERA += android.hardware.camera.provider@2.4-impl
 
 # Enable binderized camera HAL
-LIBCAMERA += android.hardware.camera.provider@2.4-service
+#LIBCAMERA += android.hardware.camera.provider@2.4-service
 
 #LIBCOPYBIT
 LIBCOPYBIT := copybit.msm8660
