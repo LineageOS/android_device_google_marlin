@@ -67,6 +67,9 @@ lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 etc/sap.conf
 
+# Hotword Enrollment
+-priv-app/HotwordEnrollment/HotwordEnrollment.apk:PRESIGNED
+
 # IMS/HD Voice
 bin/ATFWD-daemon
 bin/imscmservice
