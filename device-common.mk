@@ -67,7 +67,9 @@ endif
 
 # graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610
+    ro.opengles.version=196610 \
+    ro.gfx.driver.0=com.google.pixel.marlin.gfxdrv
+PRODUCT_PACKAGES += marlin_gfxdrv
 
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
