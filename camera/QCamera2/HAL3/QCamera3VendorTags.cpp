@@ -175,7 +175,7 @@ vendor_tag_info_t
         QCAMERA3_DUALCAM_LINK_META_DATA_START] = {
     { "enable",            TYPE_BYTE },
     { "is_main",           TYPE_BYTE },
-    { "related_camera_id", TYPE_INT32 }
+    { "related_camera_id", TYPE_BYTE }
 };
 
 vendor_tag_info_t
