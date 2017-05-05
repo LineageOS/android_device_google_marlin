@@ -230,6 +230,8 @@
 /sys/kernel/debug/mdp/xlog/dump                  u:object_r:debugfs_mdp:s0
 /sys/kernel/debug/tzdbg/qsee_log                 u:object_r:debugfs_qsee_log:s0
 /sys/kernel/debug/ion(/.*)?                      u:object_r:debugfs_ion:s0
+/sys/kernel/debug/tcpm/9-0022                    u:object_r:debugfs_usb:s0
+/sys/kernel/debug/ipc_logging/fusb302/log        u:object_r:debugfs_usb:s0
 
 # /data
 /data/smlog_dump(/.*)?           u:object_r:smlog_dump_file:s0
