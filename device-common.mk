@@ -391,6 +391,15 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service
 endif
 
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-service
+endif
+
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 # Test HAL for hwbinder performance benchmark.
