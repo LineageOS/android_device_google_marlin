@@ -217,7 +217,8 @@
 /sys/module/lpm_levels/parameters(/.*)?                u:object_r:sysfs_power_management:s0
 /sys/devices/soc/qpnp-fg-[0-9a-f]+/power_supply/bms/capacity             u:object_r:sysfs_batteryinfo:s0
 /sys/devices/soc/qpnp-smbcharger-[0-9a-f]+/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0
-/sys/devices/virtual/timed_output/vibrator/voltage_level u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
+/sys/module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 
 # debugfs
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
