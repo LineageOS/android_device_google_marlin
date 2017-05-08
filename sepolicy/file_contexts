@@ -250,6 +250,7 @@
 /data/vendor/sensor(/.*)?        u:object_r:sensor_vendor_data_file:s0
 /data/vendor/wifi(/.*)?          u:object_r:cnss_vendor_data_file:s0
 /data/vendor/ramdump(/.*)?       u:object_r:ramdump_vendor_data_file:s0
+/data/vendor/camera(/.*)?        u:object_r:camera_vendor_data_file:s0
 
 # /
 
