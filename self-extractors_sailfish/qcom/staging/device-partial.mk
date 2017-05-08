@@ -130,7 +130,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/lib64/libloc_ds_api.so:system/lib64/libloc_ds_api.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libloc_eng.so:system/lib64/libloc_eng.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libtinyxml.so:system/lib64/libtinyxml.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/libtinyxml2.so:system/lib64/libtinyxml2.so:qcom \
     vendor/qcom/sailfish/proprietary/gps.default.so:system/lib/hw/gps.default.so:qcom \
     vendor/qcom/sailfish/proprietary/libgps.utils.so:system/lib/libgps.utils.so:qcom \
     vendor/qcom/sailfish/proprietary/libion.so:system/lib/libion.so:qcom \
@@ -140,7 +140,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/libloc_eng.so:system/lib/libloc_eng.so:qcom \
     vendor/qcom/sailfish/proprietary/libminui.so:system/lib/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/libmm-qcamera.so:system/lib/libmm-qcamera.so:qcom \
-    vendor/qcom/sailfish/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
+    vendor/qcom/sailfish/proprietary/libtinyxml2.so:system/lib/libtinyxml2.so:qcom \
     vendor/qcom/sailfish/proprietary/bootimg.hmac:system/usr/qfipsverify/bootimg.hmac:qcom \
     vendor/qcom/sailfish/proprietary/qfipsverify.hmac:system/usr/qfipsverify/qfipsverify.hmac:qcom \
 
