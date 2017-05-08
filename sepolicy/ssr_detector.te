@@ -14,3 +14,6 @@ allow ssr_detector { app_api_service }:service_manager find;
 # Read and write /data/data subdirectory.
 allow ssr_detector system_app_data_file:dir create_dir_perms;
 allow ssr_detector system_app_data_file:{ file lnk_file } create_file_perms;
+
+# Read sysfs info
+r_dir_file(ssr_detector, sysfs_msm_subsys)
