@@ -24,6 +24,7 @@ VNDK_SP_LIBRARIES := \
     libbacktrace\
     libunwind\
     liblzma\
+    libz\
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)
