@@ -4121,7 +4121,7 @@ no_error:
     }
 
     if (blob_request) {
-        KPI_ATRACE_INT("SNAPSHOT", 1);
+        KPI_ATRACE_ASYNC_BEGIN("SNAPSHOT", frameNumber);
     }
     if (blob_request && mRawDumpChannel) {
         LOGD("Trigger Raw based on blob request if Raw dump is enabled");
