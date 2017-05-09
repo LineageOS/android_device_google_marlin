@@ -63,6 +63,18 @@ if (gKpiDebugLevel >= KPI_ONLY) { \
 }\
 })
 
+#define KPI_ATRACE_ASYNC_BEGIN(name, cookie) ({\
+if (gKpiDebugLevel >= KPI_ONLY) { \
+     ATRACE_ASYNC_BEGIN(name, cookie); \
+}\
+})
+
+#define KPI_ATRACE_ASYNC_END(name, cookie) ({\
+if (gKpiDebugLevel >= KPI_ONLY) { \
+     ATRACE_ASYNC_END(name, cookie); \
+}\
+})
+
 #define KPI_ATRACE_INT(name,val) ({\
 if (gKpiDebugLevel >= KPI_ONLY) { \
      atrace_int(ATRACE_TAG, name, val); \
