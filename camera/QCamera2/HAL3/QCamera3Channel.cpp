@@ -3117,7 +3117,6 @@ void QCamera3PicChannel::jpegEvtHandle(jpeg_job_status_t status,
     camera3_stream_buffer_t result;
     camera3_jpeg_blob_t jpegHeader;
 
-    KPI_ATRACE_INT("SNAPSHOT", 0);
     QCamera3PicChannel *obj = (QCamera3PicChannel *)userdata;
     if (obj) {
         //Construct payload for process_capture_result. Call mChannelCb
@@ -3246,6 +3245,7 @@ void QCamera3PicChannel::jpegEvtHandle(jpeg_job_status_t status,
 
             LOGI("Issue Jpeg Callback frameNumber = %d status = %d",
                     resultFrameNumber, resultStatus);
+            KPI_ATRACE_ASYNC_END("SNAPSHOT", resultFrameNumber);
             if (obj->mChannelCB) {
                 obj->mChannelCB(NULL,
                         &result,

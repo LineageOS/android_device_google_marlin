@@ -45,10 +45,16 @@ extern volatile uint32_t gKpiDebugLevel;
 #define KPI_APT 1
 #define KPI_DBG 2
 
-#define KPI_ATRACE_INT(name,val) ({\
-if (gKpiDebugLevel >= KPI_APT) { \
-     atrace_int(ATRACE_TAG, name, val); \
-}\
+#define KPI_ATRACE_ASYNC_BEGIN(name, cookie) ({\
+  if (gKpiDebugLevel >= KPI_APT) { \
+    ATRACE_ASYNC_BEGIN(name, cookie); \
+  }\
+})
+
+#define KPI_ATRACE_ASYNC_END(name, cookie) ({\
+  if (gKpiDebugLevel >= KPI_APT) { \
+    ATRACE_ASYNC_END(name, cookie); \
+  }\
 })
 
 #endif
