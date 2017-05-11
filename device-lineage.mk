@@ -5,9 +5,6 @@ PRODUCT_PACKAGES += libion
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.fingerprint=fpc
 
-# Gello
-PRODUCT_PACKAGES += Gello
-
 # IMS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager
