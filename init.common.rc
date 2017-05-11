@@ -753,6 +753,9 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 128
     write /sys/block/sda/queue/iostats 1
 
+on property:sys.boot_completed=1 && property:ro.build.type=user
+    write /proc/sys/kernel/modules_disabled 1
+
 # battery driver settings for the retail demo environment where
 # the device will be perpertually plugged in to a power source
 on property:sys.retaildemo.enabled=1
