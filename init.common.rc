@@ -138,6 +138,9 @@ on post-fs-data
     # Restart qseecomd once we have /data/
     restart qseecomd
 
+    # b/36601397 Setup debug folders for camera
+    mkdir /data/vendor/camera 0770 camera camera
+
 # zygote need to be started after otapreopt which will be done on post-fs-data
 on zygote-start
     # zygote is started in common init.rc
@@ -166,9 +169,6 @@ on zygote-start
 
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
-
-    #Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -752,6 +752,9 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 128
     write /sys/block/dm-1/queue/read_ahead_kb 128
     write /sys/block/sda/queue/iostats 1
+
+on property:sys.boot_completed=1 && property:ro.build.type=user
+    write /proc/sys/kernel/modules_disabled 1
 
 # battery driver settings for the retail demo environment where
 # the device will be perpertually plugged in to a power source

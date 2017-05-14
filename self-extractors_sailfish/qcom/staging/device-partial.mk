@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptX_encoder.so:system/lib64/libaptX_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptXHD_encoder.so:system/lib64/libaptXHD_encoder.so:qcom \
-    vendor/qcom/sailfish/proprietary/lib/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
+    vendor/qcom/sailfish/proprietary/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libiperf.so:system/lib64/libiperf.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/vendor.qti.qcril.am@1.0.so:system/lib64/vendor.qti.qcril.am@1.0.so:qcom \
