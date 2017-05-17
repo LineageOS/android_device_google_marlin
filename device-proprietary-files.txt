@@ -53,7 +53,7 @@ etc/diag/wlan.cfg
 
 # Display
 etc/qdcm_calib_data_M1_WQHD_SAMSUNG_S6E3HA3_5.5_command_mode_panel.xml
-lib64/libuiblur.so
+lib64/libuiblur.so|4b3fabf5ded7c4af531abde681676fc5e9248494
 
 # GPS
 bin/loc_launcher
@@ -68,7 +68,7 @@ lib/libloc_ds_api.so
 etc/sap.conf
 
 # Hotword Enrollment
--priv-app/HotwordEnrollment/HotwordEnrollment.apk:PRESIGNED
+-priv-app/HotwordEnrollment/HotwordEnrollment.apk:priv-app/HotwordEnrollment/HotwordEnrollment.apk:PRESIGNED
 
 # IMS/HD Voice
 bin/ATFWD-daemon
@@ -78,8 +78,8 @@ bin/imsqmidaemon
 bin/ims_rtp_daemon
 etc/permissions/imscm.xml
 -priv-app/CNEService/CNEService.apk
--vendor/app/ims/ims.apk:app/ims/ims.apk
--vendor/app/imssettings/imssettings.apk:app/imssettings/imssettings.apk
+-app/ims/ims.apk
+-app/imssettings/imssettings.apk
 vendor/lib/libimscamera_jni.so:lib/libimscamera_jni.so
 vendor/lib64/libimscamera_jni.so:lib64/libimscamera_jni.so
 vendor/lib/libimsmedia_jni.so:lib/libimsmedia_jni.so
@@ -121,8 +121,8 @@ bin/ssr_setup
 
 # Time Services
 bin/time_daemon
--vendor/lib/libtime_genoff.so:lib/libtime_genoff.so
--vendor/lib64/libtime_genoff.so:lib64/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
+-vendor/lib64/libtime_genoff.so
 
 # USB
 bin/port-bridge
