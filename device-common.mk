@@ -40,14 +40,14 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl \
     device/google/marlin/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
     device/google/marlin/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
-    device/google/marlin/synaptics_dsxv26.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/synaptics_dsxv26.idc
+    device/google/marlin/synaptics_dsxv26.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/synaptics_dsxv26.idc \
+    device/google/marlin/vr-virtual-touchpad-1.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/vr-virtual-touchpad-1.idc
 
 # copy customized media_profiles and media_codecs xmls for msm8996
-PRODUCT_COPY_FILES += device/google/marlin/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-                      device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-                      device/google/marlin/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/vendor/etc/media_profiles.xml
+PRODUCT_COPY_FILES += \
+    device/google/marlin/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/google/marlin/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
-    android.hardware.power@1.0-service \
+    android.hardware.power@1.1-service.marlin \
     android.hardware.sensors@1.0-service \
     android.hardware.thermal@1.0-service \
     android.hardware.vr@1.0-service \
@@ -305,6 +305,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Low latency audio buffer size in frames
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
+
+# Write Manufacturer & Model information in created media files.
+# IMPORTANT: ONLY SET THIS PROPERTY TO TRUE FOR PUBLIC DEVICES
+ifneq ($(filter aosp_sailfish% sailfish% aosp_marlin% marlin%, $(TARGET_PRODUCT)),)
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.recorder.show_manufacturer_and_model=true
+else
+$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
+endif  #TARGET_PRODUCT
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.gyro.android=4 \
@@ -493,14 +502,6 @@ PRODUCT_PACKAGES += \
 
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-# Test HAL for hwbinder performance benchmark.
-PRODUCT_PACKAGES += \
-     android.hardware.tests.libhwbinder@1.0-impl
-
-# Test HAL for FMQ performance benchmark.
-PRODUCT_PACKAGES += \
-     android.hardware.tests.msgq@1.0-impl
-
 # For VTS profiling.
 PRODUCT_PACKAGES += \
      libvts_profiling \
@@ -613,7 +614,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0.vndk-sp\
     android.hardware.graphics.mapper@2.0.vndk-sp\
     android.hardware.graphics.common@1.0.vndk-sp\
-    android.hidl.base@1.0.vndk-sp\
     libhwbinder.vndk-sp\
     libbase.vndk-sp\
     libcutils.vndk-sp\
@@ -630,3 +630,6 @@ PRODUCT_PACKAGES += \
     libft2.vndk-sp\
     libpng.vndk-sp\
     libcompiler_rt.vndk-sp\
+    libbacktrace.vndk-sp\
+    libunwind.vndk-sp\
+    liblzma.vndk-sp\

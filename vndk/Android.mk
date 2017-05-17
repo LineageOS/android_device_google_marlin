@@ -5,7 +5,6 @@ VNDK_SP_LIBRARIES := \
     android.hardware.graphics.allocator@2.0\
     android.hardware.graphics.mapper@2.0\
     android.hardware.graphics.common@1.0\
-    android.hidl.base@1.0\
     libhwbinder\
     libbase\
     libcutils\
@@ -22,6 +21,9 @@ VNDK_SP_LIBRARIES := \
     libft2\
     libpng\
     libcompiler_rt\
+    libbacktrace\
+    libunwind\
+    liblzma\
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)

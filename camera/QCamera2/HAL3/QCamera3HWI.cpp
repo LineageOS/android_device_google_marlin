@@ -4121,7 +4121,7 @@ no_error:
     }
 
     if (blob_request) {
-        KPI_ATRACE_INT("SNAPSHOT", 1);
+        KPI_ATRACE_ASYNC_BEGIN("SNAPSHOT", frameNumber);
     }
     if (blob_request && mRawDumpChannel) {
         LOGD("Trigger Raw based on blob request if Raw dump is enabled");
@@ -8889,13 +8889,14 @@ camera_metadata_t* QCamera3HardwareInterface::translateCapabilityToMetadata(int 
     }
 
     //Update Link tags to default
-    int32_t sync_type = CAM_TYPE_STANDALONE;
+    uint8_t sync_type = CAM_TYPE_STANDALONE;
     settings.update(QCAMERA3_DUALCAM_LINK_ENABLE, &sync_type, 1);
 
-    int32_t is_main = 0; //this doesn't matter as app should overwrite
+    uint8_t is_main = 0; //this doesn't matter as app should overwrite
     settings.update(QCAMERA3_DUALCAM_LINK_IS_MAIN, &is_main, 1);
 
-    settings.update(QCAMERA3_DUALCAM_LINK_RELATED_CAMERA_ID, &is_main, 1);
+    uint8_t related_camera_id = mCameraId;
+    settings.update(QCAMERA3_DUALCAM_LINK_RELATED_CAMERA_ID, &related_camera_id, 1);
 
     /* CDS default */
     char prop[PROPERTY_VALUE_MAX];

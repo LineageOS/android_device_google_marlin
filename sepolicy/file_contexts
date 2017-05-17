@@ -117,6 +117,7 @@
 /vendor/bin/hw/android\.hardware\.drm@1\.0-service.widevine          u:object_r:hal_drm_widevine_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.marlin      u:object_r:hal_dumpstate_impl_exec:s0
 /vendor/bin/hw/android\.hardware\.usb@1\.0-service.marlin            u:object_r:hal_usb_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power@1\.1-service.marlin          u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/android\.hardware\.vibrator@1\.0-service.marlin       u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/msm_irqbalance  u:object_r:irqbalance_exec:s0
 /vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
@@ -217,7 +218,8 @@
 /sys/module/lpm_levels/parameters(/.*)?                u:object_r:sysfs_power_management:s0
 /sys/devices/soc/qpnp-fg-[0-9a-f]+/power_supply/bms/capacity             u:object_r:sysfs_batteryinfo:s0
 /sys/devices/soc/qpnp-smbcharger-[0-9a-f]+/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0
-/sys/devices/virtual/timed_output/vibrator/voltage_level u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
+/sys/module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 
 # debugfs
 /sys/kernel/debug/msm_core(/.*)?                 u:object_r:debugfs_msm_core:s0
@@ -230,6 +232,8 @@
 /sys/kernel/debug/mdp/xlog/dump                  u:object_r:debugfs_mdp:s0
 /sys/kernel/debug/tzdbg/qsee_log                 u:object_r:debugfs_qsee_log:s0
 /sys/kernel/debug/ion(/.*)?                      u:object_r:debugfs_ion:s0
+/sys/kernel/debug/tcpm/9-0022                    u:object_r:debugfs_usb:s0
+/sys/kernel/debug/ipc_logging/fusb302/log        u:object_r:debugfs_usb:s0
 
 # /data
 /data/smlog_dump(/.*)?           u:object_r:smlog_dump_file:s0
@@ -248,6 +252,7 @@
 /data/vendor/sensor(/.*)?        u:object_r:sensor_vendor_data_file:s0
 /data/vendor/wifi(/.*)?          u:object_r:cnss_vendor_data_file:s0
 /data/vendor/ramdump(/.*)?       u:object_r:ramdump_vendor_data_file:s0
+/data/vendor/camera(/.*)?        u:object_r:camera_vendor_data_file:s0
 
 # /
 

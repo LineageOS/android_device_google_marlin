@@ -30,23 +30,26 @@ type sysfs_msm_core, sysfs_type, fs_type;
 type sysfs_net, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_perf, sysfs_type, fs_type;
 type sysfs_pcie, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_power_management, sysfs_type, fs_type;
 type sysfs_rmtfs, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_timestamp_switch, sysfs_type, fs_type;
 type sysfs_video, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type, mlstrustedobject;
-type sysfs_power_management, sysfs_type, fs_type;
 
 # debugfs
 type debugfs_msm_core, debugfs_type, fs_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type debugfs_sps, debugfs_type, fs_type;
 type debugfs_rpm, debugfs_type, fs_type;
+type debugfs_wlan, debugfs_type, fs_type;
 type debugfs_kgsl, debugfs_type, fs_type;
 type debugfs_ipc, debugfs_type, fs_type;
 type debugfs_bufinfo, debugfs_type, fs_type;
 type debugfs_mdp, debugfs_type, fs_type;
 type debugfs_ion, debugfs_type, fs_type;
 type debugfs_qsee_log, debugfs_type, fs_type;
+type debugfs_usb, debugfs_type, fs_type;
 
 # /proc
 type proc_kernel_sched, fs_type;
@@ -71,3 +74,4 @@ type irqbalance_socket, file_type;
 # /vendor
 type idc_file, file_type, vendor_file_type;
 type keylayout_file, file_type, vendor_file_type;
+type camera_vendor_data_file, file_type, data_file_type;
