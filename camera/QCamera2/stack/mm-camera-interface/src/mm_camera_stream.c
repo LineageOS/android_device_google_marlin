@@ -38,6 +38,9 @@
 #define IOCTL_H <SYSTEM_HEADER_PREFIX/ioctl.h>
 #include IOCTL_H
 
+#define ATRACE_TAG ATRACE_TAG_CAMERA
+#include <cutils/trace.h>
+
 // Camera dependencies
 #include "cam_semaphore.h"
 #include "mm_camera_dbg.h"
@@ -1514,8 +1517,13 @@ int32_t mm_stream_read_msm_frame(mm_stream_t * my_obj,
     int32_t rc = 0;
     struct v4l2_buffer vb;
     struct v4l2_plane planes[VIDEO_MAX_PLANES];
+    char frame_type[64];
     LOGD("E, my_handle = 0x%x, fd = %d, state = %d",
           my_obj->my_hdl, my_obj->fd, my_obj->state);
+
+    snprintf(frame_type, sizeof(frame_type), "DQBUF: type %d",
+      my_obj->stream_info->stream_type);
+    ATRACE_BEGIN(frame_type);
 
     memset(&vb,  0,  sizeof(vb));
     vb.type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
@@ -1578,6 +1586,7 @@ int32_t mm_stream_read_msm_frame(mm_stream_t * my_obj,
     }
 
     LOGD("X rc = %d",rc);
+    ATRACE_END();
     return rc;
 }
 
