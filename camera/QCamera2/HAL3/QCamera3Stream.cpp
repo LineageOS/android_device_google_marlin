@@ -32,6 +32,7 @@
 // Camera dependencies
 #include "QCamera3HWI.h"
 #include "QCamera3Stream.h"
+#include "QCameraTrace.h"
 
 extern "C" {
 #include "mm_camera_dbg.h"
@@ -1142,6 +1143,7 @@ cam_stream_type_t QCamera3Stream::getMyType() const
 int32_t QCamera3Stream::mapBuf(uint8_t buf_type, uint32_t buf_idx,
         int32_t plane_idx, int fd, void *buffer, size_t size)
 {
+    ATRACE_CALL();
     return mCamOps->map_stream_buf(mCamHandle, mChannelHandle,
                                    mHandle, buf_type,
                                    buf_idx, plane_idx,
@@ -1165,6 +1167,7 @@ int32_t QCamera3Stream::mapBuf(uint8_t buf_type, uint32_t buf_idx,
  *==========================================================================*/
 int32_t QCamera3Stream::unmapBuf(uint8_t buf_type, uint32_t buf_idx, int32_t plane_idx)
 {
+    ATRACE_CALL();
     return mCamOps->unmap_stream_buf(mCamHandle, mChannelHandle,
                                      mHandle, buf_type,
                                      buf_idx, plane_idx);
@@ -1186,6 +1189,7 @@ int32_t QCamera3Stream::setParameter(cam_stream_parm_buffer_t &param)
 {
     int32_t rc = NO_ERROR;
     mStreamInfo->parm_buf = param;
+    ATRACE_CALL();
     rc = mCamOps->set_stream_parms(mCamHandle,
                                    mChannelHandle,
                                    mHandle,
