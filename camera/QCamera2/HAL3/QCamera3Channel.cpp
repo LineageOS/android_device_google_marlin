@@ -4002,6 +4002,7 @@ void QCamera3ReprocessChannel::streamCbRoutine(mm_camera_super_buf_t *super_fram
     //Got the pproc data callback. Now send to jpeg encoding
     uint8_t frameIndex;
     uint32_t resultFrameNumber;
+    ATRACE_CALL();
     mm_camera_super_buf_t* frame = NULL;
     QCamera3ProcessingChannel *obj = (QCamera3ProcessingChannel *)inputChHandle;
     cam_dimension_t dim;
@@ -4603,6 +4604,7 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
     int32_t rc = 0;
     int index;
     OfflineBuffer mappedBuffer;
+    ATRACE_CALL();
 
     if (m_numStreams < 1) {
         LOGE("No reprocess stream is created");
