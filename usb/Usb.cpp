@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 #include <assert.h>
+#include <chrono>
 #include <dirent.h>
 #include <pthread.h>
+#include <regex>
 #include <stdio.h>
 #include <sys/types.h>
+#include <thread>
 #include <unistd.h>
 #include <unordered_map>
 
@@ -69,8 +72,10 @@ std::string appendRoleNodeHelper(const std::string portName,
       return node + "/data_role";
     case PortRoleType::POWER_ROLE:
       return node + "/power_role";
+    case PortRoleType::MODE:
+      return node + "/port_type";
     default:
-      return node + "/mode";
+      return "";
   }
 }
 
@@ -85,8 +90,8 @@ std::string convertRoletoString(PortRole role) {
     if (role.role == static_cast<uint32_t>(PortDataRole::DEVICE))
       return "device";
   } else if (role.type == PortRoleType::MODE) {
-    if (role.role == static_cast<uint32_t>(PortMode::UFP)) return "ufp";
-    if (role.role == static_cast<uint32_t>(PortMode::DFP)) return "dfp";
+    if (role.role == static_cast<uint32_t>(PortMode::UFP)) return "sink";
+    if (role.role == static_cast<uint32_t>(PortMode::DFP)) return "source";
   }
   return "none";
 }
@@ -102,55 +107,136 @@ void extractRole(std::string *roleName) {
   }
 }
 
+void switchToDrp(const std::string &portName) {
+  std::string filename =
+      appendRoleNodeHelper(std::string(portName.c_str()), PortRoleType::MODE);
+  FILE *fp;
+
+  if (filename != "") {
+    fp = fopen(filename.c_str(), "w");
+    if (fp != NULL) {
+      int ret = fputs("dual", fp);
+      fclose(fp);
+      if (ret == EOF)
+        ALOGE("Fatal: Error while switching back to drp");
+    } else {
+      ALOGE("Fatal: Cannot open file to switch back to drp");
+    }
+  } else {
+    ALOGE("Fatal: invalid node type");
+  }
+}
+
+bool switchMode(const hidl_string &portName,
+                             const PortRole &newRole, struct Usb *usb) {
+  std::string filename =
+       appendRoleNodeHelper(std::string(portName.c_str()), newRole.type);
+  std::string written;
+  FILE *fp;
+  bool roleSwitch = false;
+
+  if (filename == "") {
+    ALOGE("Fatal: invalid node type");
+    return false;
+  }
+
+  fp = fopen(filename.c_str(), "w");
+  if (fp != NULL) {
+    // Hold the lock here to prevent loosing connected signals
+    // as once the file is written the partner added signal
+    // can arrive anytime.
+    pthread_mutex_lock(&usb->mPartnerLock);
+    usb->mPartnerUp = false;
+    int ret = fputs(convertRoletoString(newRole).c_str(), fp);
+    fclose(fp);
+
+    if (ret != EOF) {
+      struct timespec   to;
+      struct timeval    tp;
+
+wait_again:
+      gettimeofday(&tp, NULL);
+      to.tv_sec = tp.tv_sec + PORT_TYPE_TIMEOUT;
+      to.tv_nsec = tp.tv_usec * 1000;;
+
+      int err = pthread_cond_timedwait(&usb->mPartnerCV, &usb->mPartnerLock, &to);
+      // There are no uevent signals which implies role swap timed out.
+      if (err == ETIMEDOUT) {
+        ALOGI("uevents wait timedout");
+      // Sanity check.
+      } else if (!usb->mPartnerUp) {
+        goto wait_again;
+      // Role switch succeeded since usb->mPartnerUp is true.
+      } else {
+        roleSwitch = true;
+      }
+    } else {
+      ALOGI("Role switch failed while wrting to file");
+    }
+    pthread_mutex_unlock(&usb->mPartnerLock);
+  }
+
+  if (!roleSwitch)
+    switchToDrp(std::string(portName.c_str()));
+
+  return roleSwitch;
+}
+
+
+
 Return<void> Usb::switchRole(const hidl_string &portName,
                              const PortRole &newRole) {
   std::string filename =
       appendRoleNodeHelper(std::string(portName.c_str()), newRole.type);
   std::string written;
   FILE *fp;
+  bool roleSwitch = false;
+
+  if (filename == "") {
+    ALOGE("Fatal: invalid node type");
+    return Void();
+  }
+
+  pthread_mutex_lock(&mRoleSwitchLock);
 
   ALOGI("filename write: %s role:%s", filename.c_str(),
         convertRoletoString(newRole).c_str());
 
-  fp = fopen(filename.c_str(), "w");
-  if (fp != NULL) {
-    int ret = fputs(convertRoletoString(newRole).c_str(), fp);
-    fclose(fp);
-    if ((ret != EOF) && !readFile(filename, &written)) {
-      extractRole(&written);
-      ALOGI("written: %s", written.c_str());
-      if (written == convertRoletoString(newRole)) {
-        pthread_mutex_lock(&mLock);
-        if (mCallback != NULL) {
-          Return<void> ret = mCallback->notifyRoleSwitchStatus(
-              portName, newRole, Status::SUCCESS);
-          if (!ret.isOk())
-            ALOGE("RoleSwitch transaction error %s", ret.description().c_str());
+  if (newRole.type == PortRoleType::MODE) {
+      roleSwitch = switchMode(portName, newRole, this);
+  } else {
+    fp = fopen(filename.c_str(), "w");
+    if (fp != NULL) {
+      int ret = fputs(convertRoletoString(newRole).c_str(), fp);
+      fclose(fp);
+      if ((ret != EOF) && !readFile(filename, &written)) {
+        extractRole(&written);
+        ALOGI("written: %s", written.c_str());
+        if (written == convertRoletoString(newRole)) {
+          roleSwitch = true;
         } else {
-          ALOGE("Not notifying the userspace. Callback is not set");
+          ALOGE("Role switch failed");
         }
-        pthread_mutex_unlock(&mLock);
-        return Void();
       } else {
-        ALOGE("Role switch failed");
+        ALOGE("failed to update the new role");
       }
     } else {
-      ALOGE("failed to update the new role");
+      ALOGE("fopen failed");
     }
-  } else {
-    ALOGE("fopen failed");
   }
 
   pthread_mutex_lock(&mLock);
   if (mCallback != NULL) {
     Return<void> ret =
-        mCallback->notifyRoleSwitchStatus(portName, newRole, Status::ERROR);
+        mCallback->notifyRoleSwitchStatus(portName, newRole,
+          roleSwitch ? Status::SUCCESS : Status::ERROR);
     if (!ret.isOk())
       ALOGE("RoleSwitchStatus error %s", ret.description().c_str());
   } else {
     ALOGE("Not notifying the userspace. Callback is not set");
   }
   pthread_mutex_unlock(&mLock);
+  pthread_mutex_unlock(&mRoleSwitchLock);
 
   return Void();
 }
@@ -319,7 +405,7 @@ Status getPortStatusHelper(hidl_vec<PortStatus> *currentPortStatus) {
         goto done;
       }
 
-      (*currentPortStatus)[i].canChangeMode = false;
+      (*currentPortStatus)[i].canChangeMode = true;
       (*currentPortStatus)[i].canChangeDataRole =
           port.second ? canSwitchRoleHelper(port.first, PortRoleType::DATA_ROLE)
                       : false;
@@ -385,11 +471,17 @@ static void uevent_event(uint32_t /*epevents*/, struct data *payload) {
   cp = msg;
 
   while (*cp) {
-    if (!strncmp(cp, "DEVTYPE=typec_", strlen("DEVTYPE=typec_"))) {
+    if (std::regex_match(cp, std::regex("(add)(.*)(-partner)"))) {
+       ALOGI("partner added");
+       pthread_mutex_lock(&payload->usb->mPartnerLock);
+       payload->usb->mPartnerUp = true;
+       pthread_cond_signal(&payload->usb->mPartnerCV);
+       pthread_mutex_unlock(&payload->usb->mPartnerLock);
+    } else if (!strncmp(cp, "DEVTYPE=typec_", strlen("DEVTYPE=typec_"))) {
+      hidl_vec<PortStatus> currentPortStatus;
       ALOGI("uevent received %s", cp);
       pthread_mutex_lock(&payload->usb->mLock);
       if (payload->usb->mCallback != NULL) {
-        hidl_vec<PortStatus> currentPortStatus;
         Status status = getPortStatusHelper(&currentPortStatus);
         Return<void> ret = payload->usb->mCallback->notifyPortStatusChange(
             currentPortStatus, status);
@@ -398,6 +490,22 @@ static void uevent_event(uint32_t /*epevents*/, struct data *payload) {
         ALOGI("Notifying userspace skipped. Callback is NULL");
       }
       pthread_mutex_unlock(&payload->usb->mLock);
+
+      //Role switch is not in progress and port is in disconnected state
+      if (!pthread_mutex_trylock(&payload->usb->mRoleSwitchLock)) {
+        for (unsigned long i = 0; i < currentPortStatus.size(); i++) {
+          DIR *dp = opendir(std::string("/sys/class/typec/"
+              + std::string(currentPortStatus[i].portName.c_str())
+              + "-partner").c_str());
+          if (dp == NULL) {
+              //PortRole role = {.role = static_cast<uint32_t>(PortMode::UFP)};
+              switchToDrp(currentPortStatus[i].portName);
+          } else {
+              closedir(dp);
+          }
+        }
+        pthread_mutex_unlock(&payload->usb->mRoleSwitchLock);
+      }
       break;
     }
     /* advance to after the next \0 */
