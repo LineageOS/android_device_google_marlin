@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.nfc@1.0-service \
-    android.hardware.power@1.1-service.marlin \
+    android.hardware.power@1.0-service \
     android.hardware.sensors@1.0-service \
     android.hardware.thermal@1.0-service \
     android.hardware.vr@1.0-service \
