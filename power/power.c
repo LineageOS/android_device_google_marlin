@@ -245,7 +245,7 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 void interaction(int duration, int num_args, int opt_list[]);
 void release_request(int lock_handle);
 
-static long long calc_timespan_us(struct timespec start, struct timespec end) {
+long long calc_timespan_us(struct timespec start, struct timespec end) {
     long long diff_in_us = 0;
     diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
     diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
@@ -464,6 +464,11 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             process_video_decode_hint(data);
         break;
     }
+}
+
+int __attribute__ ((weak)) get_number_of_profiles()
+{
+    return 0;
 }
 
 int __attribute__ ((weak)) set_interactive_override(struct power_module *module, int on)
@@ -796,6 +801,14 @@ static int get_platform_low_power_stats(struct power_module *module,
     return 0;
 }
 
+int get_feature(struct power_module *module __unused, feature_t feature)
+{
+    if (feature == POWER_FEATURE_SUPPORTED_PROFILES) {
+        return get_number_of_profiles();
+    }
+    return -1;
+}
+
 struct power_module HAL_MODULE_INFO_SYM = {
     .common = {
         .tag = HARDWARE_MODULE_TAG,
@@ -812,5 +825,6 @@ struct power_module HAL_MODULE_INFO_SYM = {
     .setInteractive = set_interactive,
     .get_number_of_platform_modes = get_number_of_platform_modes,
     .get_platform_low_power_stats = get_platform_low_power_stats,
-    .get_voter_list = get_voter_list
+    .get_voter_list = get_voter_list,
+    .getFeature = get_feature
 };
