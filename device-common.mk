@@ -163,11 +163,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
 
 PRODUCT_PACKAGES += \
-    mkshrc_vendor \
-    sh_vendor \
-    toybox_vendor
-
-PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # set audio fluence, ns, aec property
