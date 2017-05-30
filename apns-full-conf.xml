@@ -7274,16 +7274,14 @@
       roaming_protocol="IPV4V6"
   />
 
-  <apn carrier="chatr"
+  <apn carrier="Chatr Internet"
       mcc="302"
       mnc="720"
       apn="chatrweb.apn"
       type="default,mms,supl"
       mmsc="http://mms.chatrwireless.com"
-      mmsproxy="205.151.11.11"
+      mmsproxy="mmsproxy.chatrwireless.com"
       mmsport="80"
-      proxy="205.151.11.11"
-      port="80"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
       mvno_match_data="302720x94"
