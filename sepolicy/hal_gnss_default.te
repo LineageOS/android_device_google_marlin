@@ -7,3 +7,7 @@ allow hal_gnss_default location_data_file:fifo_file { open read setattr write };
 allow hal_gnss_default location:unix_stream_socket connectto;
 allow hal_gnss_default location_data_file:sock_file write;
 
+# for SUPL/911 related compliance cases
+allow hal_gnss_default netmgrd:unix_stream_socket connectto;
+allow hal_gnss_default netmgrd_socket:sock_file write;
+allow hal_gnss_default self:netlink_route_socket { bind create nlmsg_read read write };
