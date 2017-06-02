@@ -6,6 +6,5 @@
 # its own socket.
 define(`qmux_socket', `
 allow $1 qmuxd_socket:dir create_dir_perms;
-unix_socket_connect($1, qmuxd, qmuxd)
 allow $1 qmuxd_socket:sock_file { read getattr write setattr create unlink };
 ')
