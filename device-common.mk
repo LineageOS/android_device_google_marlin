@@ -593,6 +593,13 @@ endif
 PRODUCT_PACKAGES += \
     toybox_static
 
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter aosp_marlin aosp_sailfish, $(TARGET_PRODUCT)))
+PRODUCT_PACKAGES += \
+    NexusLogger
+endif # filter it out for aosp build
+endif
+
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
