@@ -3001,13 +3001,14 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
     metadata_buffer_t *metadata = (metadata_buffer_t *)metadata_buf->bufs[0]->buffer;
     int32_t frame_number_valid, urgent_frame_number_valid;
     uint32_t frame_number, urgent_frame_number;
-    int64_t capture_time;
+    int64_t capture_time, capture_time_av;
     nsecs_t currentSysTime;
 
     int32_t *p_frame_number_valid =
             POINTER_OF_META(CAM_INTF_META_FRAME_NUMBER_VALID, metadata);
     uint32_t *p_frame_number = POINTER_OF_META(CAM_INTF_META_FRAME_NUMBER, metadata);
     int64_t *p_capture_time = POINTER_OF_META(CAM_INTF_META_SENSOR_TIMESTAMP, metadata);
+    int64_t *p_capture_time_av = POINTER_OF_META(CAM_INTF_META_SENSOR_TIMESTAMP_AV, metadata);
     int32_t *p_urgent_frame_number_valid =
             POINTER_OF_META(CAM_INTF_META_URGENT_FRAME_NUMBER_VALID, metadata);
     uint32_t *p_urgent_frame_number =
@@ -3030,9 +3031,26 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
     frame_number_valid =        *p_frame_number_valid;
     frame_number =              *p_frame_number;
     capture_time =              *p_capture_time;
+    capture_time_av =           *p_capture_time_av;
     urgent_frame_number_valid = *p_urgent_frame_number_valid;
     urgent_frame_number =       *p_urgent_frame_number;
     currentSysTime =            systemTime(CLOCK_MONOTONIC);
+
+    if (!gCamCapability[mCameraId]->timestamp_calibrated) {
+        const int tries = 3;
+        nsecs_t bestGap, measured;
+        for (int i = 0; i < tries; ++i) {
+            const nsecs_t tmono = systemTime(SYSTEM_TIME_MONOTONIC);
+            const nsecs_t tbase = systemTime(SYSTEM_TIME_BOOTTIME);
+            const nsecs_t tmono2 = systemTime(SYSTEM_TIME_MONOTONIC);
+            const nsecs_t gap = tmono2 - tmono;
+            if (i == 0 || gap < bestGap) {
+                bestGap = gap;
+                measured = tbase - ((tmono + tmono2) >> 1);
+            }
+        }
+        capture_time -= measured;
+    }
 
     // Detect if buffers from any requests are overdue
     for (auto &req : mPendingBuffersMap.mPendingBuffersInRequest) {
@@ -3194,7 +3212,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
             /* Set the timestamp in display metadata so that clients aware of
                private_handle such as VT can use this un-modified timestamps.
                Camera framework is unaware of this timestamp and cannot change this */
-            updateTimeStampInPendingBuffers(i->frame_number, i->timestamp);
+            updateTimeStampInPendingBuffers(i->frame_number, capture_time_av);
 
             // Find channel requiring metadata, meaning internal offline postprocess
             // is needed.
@@ -3701,7 +3719,7 @@ int QCamera3HardwareInterface::processCaptureRequest(
         }
 
         //If EIS is enabled, turn it on for video
-        bool setEis = m_bEisEnable && m_bEisSupportedSize;
+        bool setEis = m_bEisEnable && m_bEisSupportedSize && !meta.exists(QCAMERA3_USE_AV_TIMER);
         int32_t vsMode;
         vsMode = (setEis)? DIS_ENABLE: DIS_DISABLE;
         if (ADD_SET_PARAM_ENTRY_TO_BATCH(mParameters, CAM_INTF_PARM_DIS_ENABLE, vsMode)) {
