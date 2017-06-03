@@ -2024,6 +2024,8 @@ typedef enum {
     CAM_INTF_META_SENSOR_SENSITIVITY,
     /* Time at start of exposure of first row */
     CAM_INTF_META_SENSOR_TIMESTAMP,
+    /* Time at start of exposure of first row, AV timestamp */
+    CAM_INTF_META_SENSOR_TIMESTAMP_AV,
     /* Duration b/w start of first row exposure and the start of last
        row exposure in nanoseconds */
     CAM_INTF_META_SENSOR_ROLLING_SHUTTER_SKEW,
