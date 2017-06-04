@@ -427,7 +427,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8996 \
     libgptutils \
-    libsparse
+    libz
 PRODUCT_PACKAGES += \
     update_engine_sideload
 
@@ -584,6 +584,13 @@ endif
 # Statically linked toybox for modprobe in recovery mode
 PRODUCT_PACKAGES += \
     toybox_static
+
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter aosp_marlin aosp_sailfish, $(TARGET_PRODUCT)))
+PRODUCT_PACKAGES += \
+    NexusLogger
+endif # filter it out for aosp build
+endif
 
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
