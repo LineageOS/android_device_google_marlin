@@ -554,7 +554,7 @@ service iop /system/bin/iop
     class main
     user root
     group root
-    disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service cnd /system/bin/cnd
     user root

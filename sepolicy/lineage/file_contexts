@@ -1,0 +1,3 @@
+/data/misc/iop(/.*)?                            u:object_r:iop_data_file:s0
+/dev/socket/iop                                 u:object_r:iop_socket:s0
+/system/bin/iop                                 u:object_r:dumpstate_exec:s0
