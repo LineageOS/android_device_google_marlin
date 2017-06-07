@@ -85,6 +85,13 @@ vendor/lib64/libimscamera_jni.so:lib64/libimscamera_jni.so
 vendor/lib/libimsmedia_jni.so:lib/libimsmedia_jni.so
 vendor/lib64/libimsmedia_jni.so:lib64/libimsmedia_jni.so
 
+# Perf
+bin/iop:9406fac5487f5067fe6c787dfc8a93a63e8b64e4
+lib/libqti-iop-client.so:b83b7eda3f5cb9e6b403bf23d33aade6486eacbe
+lib/libqti-iop.so:8c63454a3c700ca994a3bdf6c3656867c4772c0c
+lib64/libqti-iop-client.so:64652ef71d76d0e9c57eaf3bbd19cc1be7ab8c0f
+lib64/libqti-iop.so:b04cf86515b6863ac380a3ff41dc68087526ea3c
+
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service
