@@ -21,6 +21,9 @@ allow time time_data_file:dir rw_dir_perms;
 
 allow time rtc_device:chr_file r_file_perms;
 
+# Set sys.time.set property
+set_prop(time, sys_time_prop)
+
 userdebug_or_eng(`
   allow time  diag_device:chr_file rw_file_perms;
 ')
