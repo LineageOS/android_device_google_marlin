@@ -476,10 +476,6 @@ LIBQDUTILS := libqdutils
 #LIBQDMETADATA
 LIBQDMETADATA := libqdMetaData
 
-#LIBPOWER
-LIBPOWER := power.marlin
-LIBPOWER += android.hardware.power@1.0-impl
-
 #LLVM for RenderScript
 #use qcom LLVM
 $(call inherit-product-if-exists, external/llvm/llvm-select.mk)

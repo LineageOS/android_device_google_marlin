@@ -42,6 +42,7 @@ type debugfs_msm_core, debugfs_type, fs_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type debugfs_sps, debugfs_type, fs_type;
 type debugfs_rpm, debugfs_type, fs_type;
+type debugfs_wlan, debugfs_type, fs_type;
 type debugfs_kgsl, debugfs_type, fs_type;
 type debugfs_ipc, debugfs_type, fs_type;
 type debugfs_bufinfo, debugfs_type, fs_type;
