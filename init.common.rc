@@ -135,12 +135,16 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
+    # Start time daemon early so that the system time can be set early
+    start time_daemon
     # We can start netd here before in is launched in common init.rc on zygote-start
     start netd
     # Set sku property
     start mid_sh
     # Restart qseecomd once we have /data/
     restart qseecomd
+    # Wait until the system time is set
+    wait_for_prop sys.time.set true
 
     # b/36601397 Setup debug folders for camera
     mkdir /data/vendor/camera 0770 camera camera
@@ -552,7 +556,7 @@ service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/ven
    socket thermal-recv-passive-client stream 0666 system system
 
 service time_daemon /vendor/bin/time_daemon
-   class late_start
+   class core
    user root
    group root
 
