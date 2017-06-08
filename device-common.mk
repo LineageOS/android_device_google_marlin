@@ -134,7 +134,6 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service \
     android.hardware.power@1.1-service.marlin \
     android.hardware.sensors@1.0-service \
-    android.hardware.thermal@1.0-service \
     android.hardware.vr@1.0-service \
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
@@ -470,10 +469,6 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     android.hardware.nfc@1.0-impl
-
-# Thermal HAL
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
