@@ -629,41 +629,7 @@ void *QCamera3Stream::dataProcRoutine(void *data)
                         break;
                     }
                 }
-                auto rc = pme->cancelBuffer(bufIdx);
-                if (FAILED_TRANSACTION == rc) {
-                    LOGE("%s: Buffer cancel failed", __func__);
-                    if ((bufIdx < pme->mNumBufs) && (bufIdx >= 0) &&
-                            (pme->mBufDefs != nullptr) &&
-                            (pme->mDataCB != NULL)) {
-                        if (pme->mBufDefs[bufIdx].buf_type !=
-                                CAM_STREAM_BUF_TYPE_USERPTR) {
-                            mm_camera_buf_def_t bufDef = pme->mBufDefs[bufIdx];
-                            mm_camera_super_buf_t *frame =
-                                    (mm_camera_super_buf_t *) malloc(
-                                            sizeof(mm_camera_super_buf_t));
-                            if (nullptr != frame) {
-                                memset(frame, 0, sizeof(mm_camera_super_buf_t));
-                                frame->num_bufs = 1;
-                                bufDef.flags = V4L2_BUF_FLAG_ERROR;
-                                frame->bufs[0] = &bufDef;
-                                frame->camera_handle = pme->mCamHandle;
-                                frame->ch_id = pme->mChannelHandle;
-
-                                //Data callback is responsible for freeing
-                                //super frame argument.
-                                pme->mDataCB(frame, pme, pme->mUserData);
-                            } else {
-                                LOGE("%s: Failed to allocate recovery "
-                                        "super frame!", __func__);
-                            }
-                        } else {
-                            LOGE("%s: Unable to recover user pointer"
-                                    " buffer type!", __func__);
-                        }
-                    } else {
-                        LOGE("%s: Unable to recover!", __func__);
-                    }
-                }
+                pme->cancelBuffer(bufIdx);
                 break;
             }
         case CAMERA_CMD_TYPE_DO_NEXT_JOB:
