@@ -3410,7 +3410,7 @@
       type="mms"
   />
 
-  <apn carrier="O2 Mobile Web"
+  <apn carrier="O2 Pay Monthly"
       mcc="234"
       mnc="10"
       apn="mobile.o2.co.uk"
@@ -3422,7 +3422,7 @@
       type="default,hipri,supl,mms"
   />
 
-  <apn carrier="O2 Pay &amp; Go"
+  <apn carrier="O2 Pay As You Go"
       mcc="234"
       mnc="10"
       apn="payandgo.o2.co.uk"
@@ -3436,7 +3436,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="O2 Pay &amp; Go"
+  <apn carrier="O2 Pay As You Go"
       mcc="234"
       mnc="10"
       apn="payandgo.o2.co.uk"
@@ -3450,7 +3450,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="O2 Pay &amp; Go"
+  <apn carrier="O2 Pay As You Go"
       mcc="234"
       mnc="10"
       apn="payandgo.o2.co.uk"
@@ -3464,7 +3464,7 @@
       mvno_type="gid"
   />
 
-  <apn carrier="O2 Pay &amp; Go"
+  <apn carrier="O2 Pay As You Go"
       mcc="234"
       mnc="10"
       apn="payandgo.o2.co.uk"
