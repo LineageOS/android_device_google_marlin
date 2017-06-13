@@ -113,8 +113,8 @@
 # files in /vendor
 /vendor/bin/hw/android\.hardware\.drm@1\.0-service.widevine          u:object_r:hal_drm_widevine_exec:s0
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.marlin      u:object_r:hal_dumpstate_impl_exec:s0
-/vendor/bin/hw/android\.hardware\.usb@1\.0-service.marlin            u:object_r:hal_usb_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power@1\.1-service.marlin          u:object_r:hal_power_default_exec:s0
+/vendor/bin/hw/android\.hardware\.usb@1\.1-service.marlin            u:object_r:hal_usb_default_exec:s0
 /vendor/bin/hw/android\.hardware\.vibrator@1\.0-service.marlin       u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/msm_irqbalance  u:object_r:irqbalance_exec:s0
 /vendor/bin/nanohub_slpi    u:object_r:nanohub_slpi_exec:s0
@@ -122,7 +122,6 @@
 /vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /vendor/bin/qseecomd        u:object_r:tee_exec:s0
 /vendor/bin/wcnss_filter    u:object_r:wcnss_filter_exec:s0
-
 /vendor/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
 /vendor/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
 /vendor/bin/init\.power\.sh        u:object_r:init_power_exec:s0
