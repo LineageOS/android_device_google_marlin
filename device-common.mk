@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 
 # Usb HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.marlin
+    android.hardware.usb@1.1-service.marlin
 
 # Audio effects
 PRODUCT_PACKAGES += \
