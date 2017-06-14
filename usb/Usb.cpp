@@ -513,7 +513,6 @@ static void uevent_event(uint32_t /*epevents*/, struct data *payload) {
       pthread_mutex_lock(&payload->usb->mLock);
       if (payload->usb->mCallback_1_0 != NULL) {
         sp<IUsbCallback> callback_V1_1 = IUsbCallback::castFrom(payload->usb->mCallback_1_0);
-        hidl_vec<PortStatus_1_1> currentPortStatus_1_1;
         Return<void> ret;
 
         // V1_1 callback
