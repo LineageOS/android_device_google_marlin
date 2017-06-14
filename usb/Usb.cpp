@@ -285,10 +285,10 @@ Status getCurrentRoleHelper(const std::string &portName, bool connected,
     if (getAccessoryConnected(portName, &accessory) != Status::SUCCESS) {
       return Status::ERROR;
     }
-    if (accessory == "Audio Adapter Accessory Mode") {
+    if (accessory == "analog_audio") {
       *currentRole = static_cast<uint32_t>(PortMode_1_1::AUDIO_ACCESSORY);
       return Status::SUCCESS;
-    } else if (accessory == "Debug Accessory Mode") {
+    } else if (accessory == "debug") {
       *currentRole = static_cast<uint32_t>(PortMode_1_1::DEBUG_ACCESSORY);
       return Status::SUCCESS;
     }
