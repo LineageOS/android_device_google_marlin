@@ -285,10 +285,10 @@ Status getCurrentRoleHelper(const std::string &portName, bool connected,
     if (getAccessoryConnected(portName, &accessory) != Status::SUCCESS) {
       return Status::ERROR;
     }
-    if (accessory == "Audio Adapter Accessory Mode") {
+    if (accessory == "analog_audio") {
       *currentRole = static_cast<uint32_t>(PortMode_1_1::AUDIO_ACCESSORY);
       return Status::SUCCESS;
-    } else if (accessory == "Debug Accessory Mode") {
+    } else if (accessory == "debug") {
       *currentRole = static_cast<uint32_t>(PortMode_1_1::DEBUG_ACCESSORY);
       return Status::SUCCESS;
     }
@@ -513,7 +513,6 @@ static void uevent_event(uint32_t /*epevents*/, struct data *payload) {
       pthread_mutex_lock(&payload->usb->mLock);
       if (payload->usb->mCallback_1_0 != NULL) {
         sp<IUsbCallback> callback_V1_1 = IUsbCallback::castFrom(payload->usb->mCallback_1_0);
-        hidl_vec<PortStatus_1_1> currentPortStatus_1_1;
         Return<void> ret;
 
         // V1_1 callback
