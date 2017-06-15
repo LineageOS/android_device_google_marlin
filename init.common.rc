@@ -130,9 +130,10 @@ on late-fs
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
-on post-fs-data
     # Start time daemon early so that the system time can be set early
     start time_daemon
+
+on post-fs-data
     # We can start netd here before in is launched in common init.rc on zygote-start
     start netd
     # Set sku property
