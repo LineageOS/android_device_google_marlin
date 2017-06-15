@@ -851,3 +851,10 @@ $(call inherit-product, build/target/product/verity.mk)
 
 #skip boot jars check
 SKIP_BOOT_JARS_CHECK := true
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+  SystemUIGoogle \
+  SettingsGoogle \
+  NexusLauncherPrebuilt \
+  GoogleCamera \
+  Maps \
