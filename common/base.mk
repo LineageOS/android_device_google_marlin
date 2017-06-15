@@ -851,4 +851,3 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
   SettingsGoogle \
   NexusLauncherPrebuilt \
   GoogleCamera \
-  Maps \
