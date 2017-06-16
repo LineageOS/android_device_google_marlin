@@ -50,6 +50,8 @@ type debugfs_mdp, debugfs_type, fs_type;
 type debugfs_ion, debugfs_type, fs_type;
 type debugfs_qsee_log, debugfs_type, fs_type;
 type debugfs_usb, debugfs_type, fs_type;
+type debugfs_runtime_pm, debugfs_type, fs_type;
+type debugfs_cnss, debugfs_type, fs_type;
 
 # /proc
 type proc_kernel_sched, fs_type;

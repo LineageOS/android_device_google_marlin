@@ -31,6 +31,13 @@ allow hal_dumpstate_impl  sysfs:dir r_dir_perms;
 # rpm stat
 allow hal_dumpstate_impl debugfs_rpm:file r_file_perms;
 allow hal_dumpstate_impl debugfs_bufinfo:file r_file_perms;
+# wlan power stats
+allow hal_dumpstate_impl debugfs_wlan:dir r_dir_perms;
+allow hal_dumpstate_impl debugfs_wlan:file r_file_perms;
+# runtime-pm
+allow hal_dumpstate_impl debugfs_runtime_pm:file r_file_perms;
+# cnss
+allow hal_dumpstate_impl debugfs_cnss:file r_file_perms;
 # qsee_logger
 allow hal_dumpstate_impl qsee_logger_exec:file rx_file_perms;
 allow hal_dumpstate_impl debugfs_qsee_log:file r_file_perms;
