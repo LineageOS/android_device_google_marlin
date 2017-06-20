@@ -109,8 +109,13 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     DumpFileToFd(fd, "CPU present", "/sys/devices/system/cpu/present");
     DumpFileToFd(fd, "CPU online", "/sys/devices/system/cpu/online");
     DumpFileToFd(fd, "INTERRUPTS", "/proc/interrupts");
+
     DumpFileToFd(fd, "RPM Stats", "/d/rpm_stats");
     DumpFileToFd(fd, "Power Management Stats", "/d/rpm_master_stats");
+    DumpFileToFd(fd, "WLAN Power Stats", "/d/wlan_wcnss/power_stats");
+    DumpFileToFd(fd, "Runtime-PM Stats", "/d/cnss_runtime_pm");
+    DumpFileToFd(fd, "CNSS Pre-Alloc", "/d/cnss-prealloc/status");
+
     DumpFileToFd(fd, "SMD Log", "/d/ipc_logging/smd/log");
     RunCommandToFd(fd, "ION HEAPS", {"/vendor/bin/sh", "-c", "for d in $(ls -d /d/ion/*); do for f in $(ls $d); do echo --- $d/$f; cat $d/$f; done; done"});
     DumpFileToFd(fd, "dmabuf info", "/d/dma_buf/bufinfo");
