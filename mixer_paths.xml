@@ -329,6 +329,13 @@
     <ctl name="VoLTE_Tx Mixer AFE_PCM_TX_VoLTE" value="0" />
     <!-- VoLTE end-->
 
+    <!-- Incall Recording -->
+    <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="0" />
+    <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="0" />
+    <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="0" />
+    <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="0" />
+    <!-- Incall Recording End -->
+
     <!-- Multimode Voice1 -->
     <ctl name="SLIM_0_RX_Voice Mixer VoiceMMode1" value="0" />
     <ctl name="VoiceMMode1_Tx Mixer SLIM_0_TX_MMode1" value="0" />
@@ -784,6 +791,128 @@
     <path name="voice2-call afe-proxy">
         <ctl name="AFE_PCM_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer AFE_PCM_TX_Voice2" value="1" />
+    </path>
+
+    <path name="incall-rec-uplink">
+        <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
+    </path>
+
+    <path name="incall-rec-uplink bt-sco">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink bt-sco-wb">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink usb-headset-mic">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink afe-proxy">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink-compress">
+        <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="1" />
+    </path>
+
+    <path name="incall-rec-uplink-compress bt-sco">
+        <path name="incall-rec-uplink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-compress bt-sco-wb">
+        <path name="incall-rec-uplink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-compress usb-headset-mic">
+        <path name="incall-rec-uplink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-compress afe-proxy">
+        <path name="incall-rec-uplink-compress" />
+    </path>
+
+    <path name="incall-rec-downlink">
+        <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="1" />
+    </path>
+
+    <path name="incall-rec-downlink bt-sco">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink bt-sco-wb">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink usb-headset-mic">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink afe-proxy">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink-compress">
+        <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="1" />
+    </path>
+
+    <path name="incall-rec-downlink-compress bt-sco">
+        <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-downlink-compress bt-sco-wb">
+        <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-downlink-compress usb-headset-mic">
+        <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-downlink-compress afe-proxy">
+        <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink">
+        <path name="incall-rec-uplink" />
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink bt-sco">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink bt-sco-wb">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink usb-headset-mic">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink afe-proxy">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink-compress">
+        <path name="incall-rec-uplink-compress" />
+        <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink-compress bt-sco">
+        <path name="incall-rec-uplink-and-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink-compress bt-sco-wb">
+        <path name="incall-rec-uplink-and-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink-compress usb-headset-mic">
+        <path name="incall-rec-uplink-and-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink-compress afe-proxy">
+        <path name="incall-rec-uplink-and-downlink-compress" />
     </path>
 
     <path name="hfp-sco">
