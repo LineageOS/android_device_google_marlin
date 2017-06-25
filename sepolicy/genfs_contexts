@@ -15,6 +15,8 @@ genfscon proc /debugdriver/driverdump                 u:object_r:proc_wifi_dbg:s
 # sysfs
 genfscon sysfs /devices/virtual/nanohub/nanohub       u:object_r:sysfs_nanoapp_cmd:s0
 genfscon sysfs /devices/virtual/thermal               u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/bt_qca6174/extldo             u:object_r:sysfs_bluetooth_writable:s0
+genfscon sysfs /devices/bt_qca6174/rfkill/rfkill0/state u:object_r:sysfs_bluetooth_writable:s0
 genfscon sysfs /devices/soc/leds-qpnp-24/leds         u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/soc/900000.qcom,mdss_mdp/caps u:object_r:sysfs_mdss_mdp_caps:s0
@@ -47,6 +49,8 @@ genfscon sysfs /devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.
 genfscon sysfs /devices/soc/0.qcom,rmtfs_sharedmem    u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /devices/soc/84000000.qcom,rmtfs_rtel_sharedmem u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /module/lpm_levels/parameters          u:object_r:sysfs_power_management:s0
+genfscon sysfs /devices/soc/qpnp-fg-17/power_supply/bms/capacity             u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 
