@@ -7,7 +7,6 @@ TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOOTLOADER_BOARD_NAME := sailfish
 TARGET_BOARD_INFO_FILE := device/google/marlin/sailfish/board-info.txt
 
-ENABLE_SCHEDBOOST := true
 TARGET_USES_INTERACTION_BOOST := true
 
 TARGET_USES_AOSP := true
@@ -22,8 +21,6 @@ TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
-
-ENABLE_CPUSETS := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
