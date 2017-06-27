@@ -345,10 +345,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.log_loc="/data/smlog_dump"
 endif
 
-# Set snapshot timer to 3 second
+# Disable snapshot feature
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.snapshot_enabled=1 \
-    persist.radio.snapshot_timer=3
+    persist.radio.snapshot_enabled=0 \
+    persist.radio.snapshot_timer=0
 
 # IMS over WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
