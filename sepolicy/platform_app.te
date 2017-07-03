@@ -6,3 +6,5 @@ userdebug_or_eng(`
    allow platform_app ramdump_data_file:dir { getattr open read remove_name rmdir search write };
    allow platform_app ramdump_data_file:file { getattr open read unlink write };
 ')
+
+allow platform_app nfc_service:service_manager find;
