@@ -65,3 +65,10 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp)
 # Revert: Move /system/lib/vndk-sp to /system/lib/vndk-sp-26.1.0
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp-*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp-*)
+
+# Remove /system/lib[64]/vndk-sp/libz.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libz.vndk-sp_*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib64/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
