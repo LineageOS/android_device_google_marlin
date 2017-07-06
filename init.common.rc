@@ -645,6 +645,7 @@ service rmt_storage /vendor/bin/rmt_storage
     user root
     group root system wakelock
     ioprio rt 1
+    shutdown critical
 
 service port-bridge /vendor/bin/port-bridge
     class main
