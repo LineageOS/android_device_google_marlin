@@ -13,6 +13,11 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    # Disable UFS powersaving
+    write /sys/devices/soc/624000.ufshc/clkscale_enable 0
+    write /sys/devices/soc/624000.ufshc/clkgate_enable 0
+    write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 0
+
     # We have vendor/ as early mount so we can start qseecomd earlier
     # early mount partions e.g. vendor/ will be mounted in init first stage
     # see b/27805372
@@ -744,6 +749,11 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     keycodes 114 115 116
 
 on property:sys.boot_completed=1
+    # Enable UFS powersaving
+    write /sys/devices/soc/624000.ufshc/clkscale_enable 1
+    write /sys/devices/soc/624000.ufshc/clkgate_enable 1
+    write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
+
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.${ro.hardware}
 
