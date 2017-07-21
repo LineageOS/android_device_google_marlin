@@ -72,6 +72,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/modemst2      u:object_r:modem_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/ssd           u:object_r:ssd_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/ramdump       u:object_r:ramdump_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/persist       u:object_r:persist_block_device:s0
 /dev/block/zram0                                            u:object_r:swap_block_device:s0
 
 # files in firmware
