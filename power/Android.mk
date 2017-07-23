@@ -40,6 +40,7 @@ ifneq ($(TARGET_USES_AOSP),true)
 endif
 
 LOCAL_SHARED_LIBRARIES := \
+    libbase \
     libcutils \
     libhidlbase \
     libhidltransport \

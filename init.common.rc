@@ -3,6 +3,11 @@ on charger
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     wait /dev/block/platform/soc/624000.ufshc
+    # Enable UFS powersaving
+    write /sys/devices/soc/624000.ufshc/clkscale_enable 1
+    write /sys/devices/soc/624000.ufshc/clkgate_enable 1
+    write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
+    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
 service charger /charger
     class charger
@@ -17,6 +22,7 @@ on init
     write /sys/devices/soc/624000.ufshc/clkscale_enable 0
     write /sys/devices/soc/624000.ufshc/clkgate_enable 0
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
     # We have vendor/ as early mount so we can start qseecomd earlier
     # early mount partions e.g. vendor/ will be mounted in init first stage
@@ -367,8 +373,38 @@ on early-boot
     wait_for_prop sys.qcom.devup 1
 
 on boot
-    # Exec init.mid.sh and init.foreground.sh in background
-    start power_sh
+    # from init.power.sh
+    # disable thermal hotplug to switch governor
+    write /sys/module/msm_thermal/core_control/enabled 0
+
+    # bring back main cores CPU 0,2
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+
+    # EAS: Capping the max frequency of silver core to 1.6GHz
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1593600
+
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
+
+    # if EAS is present, switch to sched governor (no effect if not EAS)
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "sched"
+
+    # re-enable thermal hotplug
+    write /sys/module/msm_thermal/core_control/enabled 1
+
+    # Setting b.L scheduler parameters
+    write /proc/sys/kernel/sched_migration_fixup 1
+    write /proc/sys/kernel/sched_upmigrate 95
+    write /proc/sys/kernel/sched_downmigrate 90
+    write /proc/sys/kernel/sched_freq_inc_notify 400000
+    write /proc/sys/kernel/sched_freq_dec_notify 400000
+    write /proc/sys/kernel/sched_spill_nr_run 3
+    write /proc/sys/kernel/sched_init_task_load 100
+
+    # Exec init.foreground.sh in background
     start foreground_sh
     # add a cpuset for the camera daemon
     # we want all cores for camera
@@ -649,7 +685,7 @@ service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group root system wakelock
-    ioprio rt 1
+    ioprio rt 0
     shutdown critical
 
 service port-bridge /vendor/bin/port-bridge
@@ -739,6 +775,7 @@ service perfd /vendor/bin/perfd
    user root
    group root system
    writepid /dev/cpuset/system-background/tasks
+   disabled
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
@@ -748,11 +785,17 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     oneshot
     keycodes 114 115 116
 
+on property:sys.post_boot.parsed=1
+    start perfd
+
 on property:sys.boot_completed=1
+    start power_sh
+
     # Enable UFS powersaving
     write /sys/devices/soc/624000.ufshc/clkscale_enable 1
     write /sys/devices/soc/624000.ufshc/clkgate_enable 1
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
+    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.${ro.hardware}
