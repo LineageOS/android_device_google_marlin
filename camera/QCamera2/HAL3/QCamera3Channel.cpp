@@ -4330,6 +4330,7 @@ QCamera3Stream * QCamera3ReprocessChannel::getSrcStreamBySrcHandle(uint32_t srcH
 int32_t QCamera3ReprocessChannel::unmapOfflineBuffers(bool all)
 {
     int rc = NO_ERROR;
+    Mutex::Autolock l(mOfflineBuffersLock);
     if (!mOfflineBuffers.empty()) {
         QCamera3Stream *stream = NULL;
         List<OfflineBuffer>::iterator it = mOfflineBuffers.begin();
@@ -4738,6 +4739,7 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
             frame->input_buffer.fd, frame->input_buffer.buffer,
             frame->input_buffer.frame_len);
     if (NO_ERROR == rc) {
+        Mutex::Autolock l(mOfflineBuffersLock);
         mappedBuffer.index = buf_idx;
         mappedBuffer.stream = pStream;
         mappedBuffer.type = CAM_MAPPING_BUF_TYPE_OFFLINE_INPUT_BUF;
@@ -4758,6 +4760,7 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
             frame->metadata_buffer.fd, frame->metadata_buffer.buffer,
             frame->metadata_buffer.frame_len);
     if (NO_ERROR == rc) {
+        Mutex::Autolock l(mOfflineBuffersLock);
         mappedBuffer.index = meta_buf_idx;
         mappedBuffer.stream = pStream;
         mappedBuffer.type = CAM_MAPPING_BUF_TYPE_OFFLINE_META_BUF;
