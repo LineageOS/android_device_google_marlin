@@ -428,9 +428,9 @@ private:
         uint8_t DevCamDebug_meta_enable;
         /* DevCamDebug metadata end */
 
-        bool focusStateSent;
-        bool focusStateValid;
-        uint8_t focusState;
+        bool focusStateSent = false;
+        bool focusStateValid = false;
+        uint8_t focusState = ANDROID_CONTROL_AF_STATE_INACTIVE;
     } PendingRequestInfo;
     typedef struct {
         uint32_t frame_number;
