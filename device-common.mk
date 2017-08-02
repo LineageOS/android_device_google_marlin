@@ -637,4 +637,5 @@ PRODUCT_PACKAGES += \
     libcompiler_rt.vndk-sp\
     libbacktrace.vndk-sp\
     libunwind.vndk-sp\
+    libunwindstack.vndk-sp\
     liblzma.vndk-sp\
