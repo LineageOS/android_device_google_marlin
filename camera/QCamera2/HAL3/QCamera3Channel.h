@@ -599,6 +599,7 @@ private:
     } OfflineBuffer;
 
     int32_t resetToCamPerfNormal(uint32_t frameNumber);
+    Mutex mOfflineBuffersLock; // Lock for offline buffers
     android::List<OfflineBuffer> mOfflineBuffers;
     android::List<OfflineBuffer> mOfflineMetaBuffers;
     int32_t mOfflineBuffersIndex;
