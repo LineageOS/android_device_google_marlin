@@ -110,8 +110,6 @@ on fs
     wait /dev/block/platform/soc/624000.ufshc/sda18
     mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/cache /cache nosuid nodev noatime barrier=1
 
-    wait /dev/block/platform/soc/624000.ufshc/sda8
-    mount ext4 /dev/block/platform/soc/624000.ufshc/by-name/persist /persist nosuid nodev noatime barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
@@ -154,8 +152,6 @@ on post-fs-data
     start netd
     # Set sku property
     start mid_sh
-    # Restart qseecomd once we have /data/
-    restart qseecomd
     # Wait until the system time is set
     wait_for_prop sys.time.set true
 
