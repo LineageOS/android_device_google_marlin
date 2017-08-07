@@ -68,10 +68,4 @@
         <permission name="android.permission.WRITE_CONTACTS" fixed="false"/>
     </exception>
 
-    <exception
-            package="com.google.android.soundpicker">
-        <!-- External storage -->
-        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
-    </exception>
-
 </exceptions>
