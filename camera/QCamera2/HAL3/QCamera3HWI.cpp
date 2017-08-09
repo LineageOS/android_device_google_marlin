@@ -434,7 +434,7 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
     property_get("persist.camera.avtimer.debug", prop, "0");
     m_debug_avtimer = (uint8_t)atoi(prop);
 
-    m_MobicatMask = property_get_bool("persist.camera.mobicat", 0);
+    m_MobicatMask = (uint8_t)property_get_int32("persist.camera.mobicat", 0);
 
     //Load and read GPU library.
     lib_surface_utils = NULL;
