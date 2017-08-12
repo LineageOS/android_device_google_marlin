@@ -637,6 +637,9 @@ typedef struct {
 
     /* if frames will not be received */
     uint8_t noFrameExpected;
+
+    /* Cache ops for this stream */
+    cam_stream_cache_ops_t cache_ops;
 } cam_stream_info_t;
 
 /*****************************************************************************
