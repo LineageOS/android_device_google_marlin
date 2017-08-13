@@ -107,6 +107,7 @@ BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
 ifneq ($(filter marlin marlinf, $(TARGET_PRODUCT)),)
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/marlin/sepolicy/private
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
 
