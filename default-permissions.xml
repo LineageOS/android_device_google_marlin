@@ -53,12 +53,6 @@
     </exception>
 
     <exception
-            package="com.verizon.vzwavs">
-        <!-- Phone -->
-        <permission name="android.permission.READ_PHONE_STATE" fixed="false"/>
-    </exception>
-
-    <exception
             package="com.google.android.apps.pixelmigrate">
         <!-- External storage -->
         <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
