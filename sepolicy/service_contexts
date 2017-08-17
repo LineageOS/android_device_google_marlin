@@ -4,3 +4,4 @@ qti.ims.connectionmanagerservice               u:object_r:imscm_service:s0
 rcs                                            u:object_r:radio_service:s0
 uce                                            u:object_r:uce_service:s0
 vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service:s0
+display.qservice                               u:object_r:surfaceflinger_service:s0
