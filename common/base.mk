@@ -561,10 +561,6 @@ RF4CE += rf4ce
 SENSORS_HARDWARE := sensors.msm7630_surf
 SENSORS_HARDWARE += sensors.msm7630_fusion
 
-#SOFTAP
-SOFTAP := libQWiFiSoftApCfg
-SOFTAP += libqsap_sdk
-
 #STK
 STK := Stk
 
