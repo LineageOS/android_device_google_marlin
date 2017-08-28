@@ -192,7 +192,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_GYROSCOPE_UNCALIBRATED,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzGyro),     // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagGyro,
         { NULL, NULL }
     },
     {
@@ -228,7 +228,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_MAGNETIC_FIELD_UNCALIBRATED,
         "",                                             // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzMag),           // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagMag,
         { NULL, NULL }
     },
     {
@@ -570,7 +570,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_ACCELEROMETER_UNCALIBRATED,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzAccel),    // maxDelay
-        SENSOR_FLAG_CONTINUOUS_MODE,
+        SENSOR_FLAG_CONTINUOUS_MODE | kDirectReportFlagAccel,
         { NULL, NULL }
     },
 };
