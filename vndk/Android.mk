@@ -28,7 +28,6 @@ VNDK_SP_LIBRARIES += \
     liblzma\
     libhidlbase\
     libhidltransport\
-    libz\
 
 endif
 
