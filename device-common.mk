@@ -633,4 +633,3 @@ PRODUCT_PACKAGES += \
     libunwind.vndk-sp\
     libunwindstack.vndk-sp\
     liblzma.vndk-sp\
-    libz.vndk-sp\
