@@ -477,7 +477,7 @@ LIBQDUTILS := libqdutils
 LIBQDMETADATA := libqdMetaData
 
 #LIBPOWER
-LIBPOWER := power.marlin
+LIBPOWER := power.msm8996
 LIBPOWER += android.hardware.power@1.0-impl
 
 #LLVM for RenderScript

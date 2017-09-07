@@ -25,7 +25,7 @@ endif
 
 LOCAL_CFLAGS += -Wno-unused-parameter
 
-LOCAL_MODULE := power.marlin
+LOCAL_MODULE := power.msm8996
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := qcom
 LOCAL_PROPRIETARY_MODULE := true
