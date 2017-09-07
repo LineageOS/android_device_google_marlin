@@ -205,3 +205,5 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 DEVICE_MANIFEST_FILE := device/google/marlin/manifest.xml
 DEVICE_MATRIX_FILE   := device/google/marlin/compatibility_matrix.xml
+
+-include device/google/marlin/sailfish/BoardConfigLineage.mk
