@@ -54,6 +54,7 @@ genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/capacity u:o
 genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/system_temp_level u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /module/diagchar                       u:object_r:sysfs_diag:s0
 
 # debugfs
 genfscon debugfs /kgsl/proc                u:object_r:debugfs_kgsl:s0
