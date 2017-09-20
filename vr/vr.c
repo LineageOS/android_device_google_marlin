@@ -23,7 +23,7 @@
 #include <hardware/hardware.h>
 
 static void restart_thermal_engine() {
-    if (property_set("ctl.restart", "thermal-engine")) {
+    if (property_set("ctl.restart", "vendor.thermal-engine")) {
         ALOGE("%s: couldn't set a system property, "
               "ctl.restart.", __FUNCTION__);
     }
