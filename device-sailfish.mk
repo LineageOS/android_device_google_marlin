@@ -33,7 +33,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.vc_call_vol_steps=7
+    ro.config.vc_call_vol_steps=7 \
+    fmas.hdph_sgain=0
 
 # HWUI cache sizes
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -60,10 +61,6 @@ PRODUCT_COPY_FILES += \
 # Led packages
 PRODUCT_PACKAGES += \
     lights.sailfish
-
-# Thermal packages
-PRODUCT_PACKAGES += \
-    thermal.sailfish
 
 # VR packages
 PRODUCT_PACKAGES += \
