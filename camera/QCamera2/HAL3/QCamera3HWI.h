@@ -431,6 +431,7 @@ private:
         bool focusStateSent = false;
         bool focusStateValid = false;
         uint8_t focusState = ANDROID_CONTROL_AF_STATE_INACTIVE;
+        bool partialResultDropped; // Whether partial metadata is dropped.
     } PendingRequestInfo;
     typedef struct {
         uint32_t frame_number;
