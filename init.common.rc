@@ -84,7 +84,7 @@ on init
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
-    write /dev/stune/rt/schedtune.boost 20
+    write /dev/stune/rt/schedtune.boost 30
     write /dev/stune/rt/schedtune.prefer_idle 1
 
     # Create UDS structure for base VR services.
