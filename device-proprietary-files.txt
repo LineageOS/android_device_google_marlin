@@ -119,6 +119,7 @@ bin/ssr_setup
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 -vendor/lib64/libtime_genoff.so
+-app/TimeService/TimeService.apk
 
 # USB
 bin/port-bridge
