@@ -3089,9 +3089,10 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                  i->frame_number, urgent_frame_number);
 
             if ((!i->input_buffer) && (i->frame_number < urgent_frame_number) &&
-                (i->partial_result_cnt == 0)) {
+                    (i->partial_result_cnt == 0)) {
                 LOGE("Error: HAL missed urgent metadata for frame number %d",
                          i->frame_number);
+                i->partialResultDropped = true;
                 i->partial_result_cnt++;
             }
 
@@ -3181,23 +3182,15 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
         /* we could hit this case when we either
          * 1. have a pending reprocess request or
          * 2. miss a metadata buffer callback */
+        bool errorResult = false;
         if (i->frame_number < frame_number) {
             if (i->input_buffer) {
                 /* this will be handled in handleInputBufferWithLock */
                 i++;
                 continue;
             } else {
-
-                CameraMetadata dummyMetadata;
-                dummyMetadata.update(ANDROID_REQUEST_ID, &(i->request_id), 1);
-                result.result = dummyMetadata.release();
-
-                notifyError(i->frame_number, CAMERA3_MSG_ERROR_RESULT);
-
-                // partial_result should be PARTIAL_RESULT_CNT in case of
-                // ERROR_RESULT.
-                i->partial_result_cnt = PARTIAL_RESULT_COUNT;
-                result.partial_result = PARTIAL_RESULT_COUNT;
+                mPendingLiveRequest--;
+                errorResult = true;
             }
         } else {
             mPendingLiveRequest--;
@@ -3210,6 +3203,8 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
             notify_msg.message.shutter.frame_number = i->frame_number;
             notify_msg.message.shutter.timestamp = (uint64_t)capture_time;
             mCallbackOps->notify(mCallbackOps, &notify_msg);
+
+            errorResult = i->partialResultDropped;
 
             i->timestamp = capture_time;
 
@@ -3267,7 +3262,11 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 }
             }
         }
-        if (!result.result) {
+        if (errorResult) {
+            notifyError(i->frame_number, CAMERA3_MSG_ERROR_RESULT);
+        }
+
+        if (!errorResult && !result.result) {
             LOGE("metadata is NULL");
         }
         result.frame_number = i->frame_number;
@@ -3277,7 +3276,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
         for (List<RequestedBufferInfo>::iterator j = i->buffers.begin();
                     j != i->buffers.end(); j++) {
             if (j->buffer) {
-                result.num_output_buffers++;
+               result.num_output_buffers++;
             }
         }
 
@@ -3315,18 +3314,19 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 mCallbackOps->process_capture_result(mCallbackOps, &result);
                 LOGD("meta frame_number = %u, capture_time = %lld",
                         result.frame_number, i->timestamp);
-                free_camera_metadata((camera_metadata_t *)result.result);
                 delete[] result_buffers;
             }else {
                 LOGE("Fatal error: out of memory");
             }
-        } else {
+        } else if (!errorResult) {
             mCallbackOps->process_capture_result(mCallbackOps, &result);
             LOGD("meta frame_number = %u, capture_time = %lld",
                     result.frame_number, i->timestamp);
-            free_camera_metadata((camera_metadata_t *)result.result);
         }
 
+        if (result.result) {
+            free_camera_metadata((camera_metadata_t *)result.result);
+        }
         i = erasePendingRequest(i);
 
         if (!mPendingReprocessResultList.empty()) {
@@ -4218,7 +4218,7 @@ no_error:
         mLastCustIntentFrmNum = frameNumber;
     }
     /* Update pending request list and pending buffers map */
-    PendingRequestInfo pendingRequest;
+    PendingRequestInfo pendingRequest = {};
     pendingRequestIterator latestRequest;
     pendingRequest.frame_number = frameNumber;
     pendingRequest.num_buffers = request->num_output_buffers;
