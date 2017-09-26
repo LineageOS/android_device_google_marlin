@@ -23,6 +23,7 @@ unix_socket_connect(radio, rild, rild)
 userdebug_or_eng(`
   allow radio diag_device:chr_file rw_file_perms;
 ')
+dontaudit radio diag_device:chr_file rw_file_perms;
 
 # access to /dev/avtimer
 allow radio avtimer_device:chr_file rw_file_perms;
