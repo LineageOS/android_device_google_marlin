@@ -27,6 +27,9 @@ allowxperm rild self:socket ioctl msm_sock_ipc_ioctls;
 userdebug_or_eng(`
   allow rild diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit rild diag_device:chr_file rw_file_perms;
+')
 
 # rild needs 'lock' for /vendor/qcril.db
 allow rild vendor_file:file { lock };

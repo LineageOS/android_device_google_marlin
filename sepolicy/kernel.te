@@ -7,3 +7,6 @@ allow kernel debugfs_ipc:dir search;
 userdebug_or_eng(`
   allow kernel self:socket create;
 ')
+userbuild(`
+  dontaudit kernel self:socket create;
+')
