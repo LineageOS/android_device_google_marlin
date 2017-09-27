@@ -1,6 +1,9 @@
 userdebug_or_eng(`
   allow hal_graphics_composer_default diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit hal_graphics_composer_default diag_device:chr_file rw_file_perms;
+')
 
 # misc
 allow hal_graphics_composer_default display_data_file:dir create_dir_perms;

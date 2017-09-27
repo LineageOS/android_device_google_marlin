@@ -33,6 +33,9 @@ allowxperm ims self:socket ioctl msm_sock_ipc_ioctls;
 userdebug_or_eng(`
   allow ims diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit ims diag_device:chr_file rw_file_perms;
+')
 
 # Runs /system/bin/sh for executing ndc commands via popen
 allow ims shell_exec:file rx_file_perms;
