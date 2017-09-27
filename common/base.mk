@@ -851,13 +851,3 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
   SettingsGoogle \
   NexusLauncherPrebuilt \
   GoogleCamera \
-
-PRODUCT_LOADED_BY_PRIVILEGED_MODULES += \
-  qti-vzw-ims-internal \
-  qcrilhook \
-  ims \
-  Stk \
-  embmslibrary \
-  datastatusnotification \
-  VZWAPNLib \
-  UserDictionaryProvider
