@@ -17,3 +17,6 @@ userdebug_or_eng(`
   allow cnss_diag cnss_vendor_data_file:dir create_dir_perms;
   allow cnss_diag cnss_vendor_data_file:file create_file_perms;
 ')
+userbuild(`
+  dontaudit cnss_diag diag_device:chr_file rw_file_perms;
+')
