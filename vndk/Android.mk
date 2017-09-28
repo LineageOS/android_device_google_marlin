@@ -1,18 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
 VNDK_SP_LIBRARIES := \
-    android.hardware.renderscript@1.0\
-    android.hardware.graphics.allocator@2.0\
-    android.hardware.graphics.mapper@2.0\
-    android.hardware.graphics.common@1.0\
-    libhwbinder\
-    libbase\
-    libcutils\
-    libhardware\
-    libhidlbase\
-    libhidltransport\
-    libutils\
-    libc++\
     libRS_internal\
     libRSDriver\
     libRSCpuRef\
@@ -21,10 +9,27 @@ VNDK_SP_LIBRARIES := \
     libft2\
     libpng\
     libcompiler_rt\
+
+ifndef BOARD_VNDK_VERSION
+VNDK_SP_LIBRARIES += \
+    android.hardware.renderscript@1.0\
+    android.hardware.graphics.allocator@2.0\
+    android.hardware.graphics.mapper@2.0\
+    android.hardware.graphics.common@1.0\
+    libhwbinder\
+    libbase\
+    libcutils\
+    libhardware\
+    libutils\
+    libc++\
     libbacktrace\
     libunwind\
     libunwindstack\
     liblzma\
+    libhidlbase\
+    libhidltransport\
+
+endif
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)
