@@ -30,6 +30,9 @@ r_dir_file(cnd, sysfs_type)
 userdebug_or_eng(`
   allow cnd diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit cnd diag_device:chr_file rw_file_perms;
+')
 
 # use for mobile hostspot
 allow cnd shell_exec:file rx_file_perms;
