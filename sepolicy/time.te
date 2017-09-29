@@ -27,3 +27,6 @@ set_prop(time, sys_time_prop)
 userdebug_or_eng(`
   allow time  diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit time diag_device:chr_file rw_file_perms;
+')

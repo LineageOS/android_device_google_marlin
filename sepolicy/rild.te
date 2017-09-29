@@ -27,6 +27,9 @@ allowxperm rild self:socket ioctl msm_sock_ipc_ioctls;
 userdebug_or_eng(`
   allow rild diag_device:chr_file rw_file_perms;
 ')
+userbuild(`
+  dontaudit rild diag_device:chr_file rw_file_perms;
+')
 
 # rild needs 'lock' for /vendor/qcril.db
 allow rild vendor_file:file { lock };
@@ -34,6 +37,9 @@ allow rild vendor_file:file { lock };
 # allow rild to access radio data file
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
+
+# In order to be able to use system()
+allow rild vendor_shell_exec:file rx_file_perms;
 
 # TODO(b/36613472): Remove this once system_server,  mediaserver, bluetooth, and radio no longer
 # communicate with rild over sockets.
