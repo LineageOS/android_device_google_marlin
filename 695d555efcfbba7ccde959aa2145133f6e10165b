@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98ce312d_a2fd427e",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-10-05T10:19:03Z",
+      "side": 1,
+      "message": "should alphabetize and put it above bin/time_daemon",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "695d555efcfbba7ccde959aa2145133f6e10165b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
