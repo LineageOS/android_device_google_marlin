@@ -2,5 +2,5 @@
 allowxperm { appdomain -isolated_app } gpu_device:chr_file
   ioctl { gpu_ioctls unpriv_tty_ioctls };
 
-allow appdomain sysfs_soc:dir search;
-allow appdomain sysfs_soc:file r_file_perms;
+allow { appdomain -isolated_app } sysfs_soc:dir search;
+allow { appdomain -isolated_app } sysfs_soc:file r_file_perms;
