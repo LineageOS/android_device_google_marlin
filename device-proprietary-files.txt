@@ -4,6 +4,10 @@ lib64/libaptXHD_encoder.so
 lib/libaptX_encoder.so
 lib/libaptXHD_encoder.so
 
+# Camera
+etc/permissions/com.google.android.camera.experimental2016.xml
+-framework/com.google.android.camera.experimental2016.jar
+
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml
