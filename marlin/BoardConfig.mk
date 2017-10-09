@@ -200,7 +200,7 @@ BOARD_USES_SYSTEM_OTHER_ODEX := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
-NXP_CHIP_TYPE := PN551
+NXP_CHIP_TYPE := 3
 
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
