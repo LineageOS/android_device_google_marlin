@@ -434,7 +434,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8996 \
     libgptutils \
-    libz
+    libz \
+    libcutils
 PRODUCT_PACKAGES += \
     update_engine_sideload
 
