@@ -25,7 +25,6 @@ genfscon sysfs /devices/soc/70000.qcom,msm-core       u:object_r:sysfs_msm_core:
 genfscon sysfs /module/msm_thermal                    u:object_r:sysfs_thermal:s0
 genfscon sysfs /class/thermal                         u:object_r:sysfs_thermal:s0
 genfscon sysfs /module/msm_performance                u:object_r:sysfs_perf:s0
-genfscon sysfs /devices/virtual/net                   u:object_r:sysfs_net:s0
 genfscon sysfs /module/subsystem_restart              u:object_r:sysfs_msm_subsys_restart:s0
 genfscon sysfs /bus/msm_subsys                        u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/soc/ce0000.qcom,venus         u:object_r:sysfs_msm_subsys:s0
