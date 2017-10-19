@@ -172,7 +172,6 @@
 /data/smlog_dump(/.*)?           u:object_r:smlog_dump_file:s0
 /data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
-/data/ramdump(/.*)?              u:object_r:ramdump_data_file:s0
 /data/misc/location(/.*)?        u:object_r:location_data_file:s0
 /data/misc/display(/.*)?         u:object_r:display_data_file:s0
 
