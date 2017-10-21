@@ -26,7 +26,6 @@ allow hal_bootctl self:capability sys_admin;
 
 # Read the sysfs to lookup what /dev/sgN device
 # corresponds to the XBL partitions.
-allow hal_bootctl sysfs:file r_file_perms;
 allow hal_bootctl sysfs:dir r_dir_perms;
 
 # Write to the XBL devices.
