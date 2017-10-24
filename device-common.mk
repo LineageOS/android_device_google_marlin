@@ -70,6 +70,10 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
 
+# b/68017541
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
+
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.gradient_cache_size=1 \

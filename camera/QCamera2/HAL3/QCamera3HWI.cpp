@@ -1528,7 +1528,7 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     /* Check whether we have video stream */
     m_bIs4KVideo = false;
     m_bIsVideo = false;
-    m_bEisSupportedSize = true;
+    m_bEisSupportedSize = false;
     m_bTnrEnabled = false;
     bool isZsl = false;
     bool isPreview = false;
@@ -1598,8 +1598,7 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     eis_prop_set = (uint8_t)atoi(eis_prop);
 
     m_bEisEnable = eis_prop_set && (!oisSupported && eisSupported) &&
-            (mOpMode != CAMERA3_STREAM_CONFIGURATION_CONSTRAINED_HIGH_SPEED_MODE) &&
-            (gCamCapability[mCameraId]->position != CAM_POSITION_FRONT);
+            (mOpMode != CAMERA3_STREAM_CONFIGURATION_CONSTRAINED_HIGH_SPEED_MODE);
 
     /* stream configurations */
     for (size_t i = 0; i < streamList->num_streams; i++) {
@@ -1632,18 +1631,17 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         }
 
         if ((HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED == newStream->format) &&
-                (IS_USAGE_PREVIEW(newStream->usage) || IS_USAGE_VIDEO(newStream->usage))) {
-            if (IS_USAGE_VIDEO(newStream->usage)) {
-                videoWidth = newStream->width;
-                videoHeight = newStream->height;
-                m_bIsVideo = true;
-                if ((VIDEO_4K_WIDTH <= newStream->width) &&
-                        (VIDEO_4K_HEIGHT <= newStream->height)) {
-                    m_bIs4KVideo = true;
-                }
+                (newStream->usage & private_handle_t::PRIV_FLAGS_VIDEO_ENCODER)) {
+            m_bIsVideo = true;
+            videoWidth = newStream->width;
+            videoHeight = newStream->height;
+            if ((VIDEO_4K_WIDTH <= newStream->width) &&
+                    (VIDEO_4K_HEIGHT <= newStream->height)) {
+                m_bIs4KVideo = true;
             }
-            m_bEisSupportedSize &= (newStream->width <= maxEisWidth) &&
+            m_bEisSupportedSize = (newStream->width <= maxEisWidth) &&
                                   (newStream->height <= maxEisHeight);
+
         }
         if (newStream->stream_type == CAMERA3_STREAM_BIDIRECTIONAL ||
                 newStream->stream_type == CAMERA3_STREAM_OUTPUT) {
@@ -1711,6 +1709,11 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
             }
 
         }
+    }
+
+    if (gCamCapability[mCameraId]->position == CAM_POSITION_FRONT ||
+        !m_bIsVideo) {
+        m_bEisEnable = false;
     }
 
     if (validateUsageFlagsForEis(streamList) != NO_ERROR) {
@@ -3713,13 +3716,8 @@ int QCamera3HardwareInterface::processCaptureRequest(
             ADD_SET_PARAM_ENTRY_TO_BATCH(mParameters, CAM_INTF_META_CAPTURE_INTENT, captureIntent);
         }
 
-        uint8_t fwkVideoStabMode=0;
-        if (meta.exists(ANDROID_CONTROL_VIDEO_STABILIZATION_MODE)) {
-            fwkVideoStabMode = meta.find(ANDROID_CONTROL_VIDEO_STABILIZATION_MODE).data.u8[0];
-        }
         //If EIS is enabled, turn it on for video
-        bool setEis = m_bEisEnable && (m_bIsVideo || fwkVideoStabMode) && m_bEisSupportedSize &&
-                !meta.exists(QCAMERA3_USE_AV_TIMER);
+        bool setEis = m_bEisEnable && m_bEisSupportedSize && !meta.exists(QCAMERA3_USE_AV_TIMER);
         int32_t vsMode;
         vsMode = (setEis)? DIS_ENABLE: DIS_DISABLE;
         if (ADD_SET_PARAM_ENTRY_TO_BATCH(mParameters, CAM_INTF_PARM_DIS_ENABLE, vsMode)) {
