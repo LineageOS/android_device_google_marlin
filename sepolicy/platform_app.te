@@ -1,7 +1,10 @@
 allow platform_app vnd_qcril_audio_hwservice:hwservice_manager find;
 binder_call(platform_app, rild);
 
+allow platform_app qchook_service:service_manager find;
+
 userdebug_or_eng(`
    dontaudit platform_app proc_sysrq:file getattr;
    dontaudit platform_app proc_iomem:file getattr;
 ')
+
