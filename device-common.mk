@@ -635,3 +635,7 @@ PRODUCT_PACKAGES += \
     libunwind.vndk-sp\
     libunwindstack.vndk-sp\
     liblzma.vndk-sp\
+
+# Marlin/Sailfish kernel doesn't have HEH filename encryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.volume.filenames_mode=aes-256-cts
