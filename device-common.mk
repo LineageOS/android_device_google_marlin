@@ -607,6 +607,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
+# Privileged permissions whitelist
+PRODUCT_COPY_FILES += \
+    device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.vndk.version=26.1.0 \
 
@@ -635,3 +639,7 @@ PRODUCT_PACKAGES += \
     libunwind.vndk-sp\
     libunwindstack.vndk-sp\
     liblzma.vndk-sp\
+
+# Marlin/Sailfish kernel doesn't have HEH filename encryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.volume.filenames_mode=aes-256-cts
