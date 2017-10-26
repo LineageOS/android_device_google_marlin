@@ -643,3 +643,6 @@ PRODUCT_PACKAGES += \
 # Marlin/Sailfish kernel doesn't have HEH filename encryption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.init.subcontexts_enabled=true
