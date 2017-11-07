@@ -15,6 +15,4 @@ userdebug_or_eng(`
   allow hal_camera_default camera_vendor_data_file:dir create_dir_perms;
   allow hal_camera_default camera_vendor_data_file:file create_file_perms;
 ')
-userbuild(`
-  dontaudit hal_camera_default camera_vendor_data_file:dir search;
-')
+dontaudit hal_camera_default camera_vendor_data_file:dir search;
