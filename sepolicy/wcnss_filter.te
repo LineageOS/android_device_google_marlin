@@ -22,9 +22,7 @@ userdebug_or_eng(`
   r_dir_file(wcnss_filter, debugfs_ipc)
   set_prop(wcnss_filter, ssr_prop)
 ')
-userbuild(`
-  dontaudit wcnss_filter diag_device:chr_file rw_file_perms;
-')
+dontaudit wcnss_filter diag_device:chr_file rw_file_perms;
 
 # Allow reading Bluetooth-related system properties
 get_prop(wcnss_filter, bluetooth_prop)
