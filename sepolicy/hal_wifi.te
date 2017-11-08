@@ -15,7 +15,4 @@ userdebug_or_eng(`
 # Allow wifi hal to access wlan debugfs files and directories
 allow hal_wifi debugfs_wlan:dir r_dir_perms;
 ')
-
-userbuild(`
-  dontaudit hal_wifi debugfs_wlan:dir r_dir_perms;
-')
+dontaudit hal_wifi debugfs_wlan:dir r_dir_perms;
