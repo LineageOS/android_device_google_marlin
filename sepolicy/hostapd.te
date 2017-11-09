@@ -1,2 +1,1 @@
-allowxperm hostapd self:udp_socket ioctl priv_sock_ioctls;
-r_dir_file(hostapd, sysfs_type)
+allow hostapd sysfs_pcie:dir search;
