@@ -169,7 +169,6 @@ static int process_boost(int boost_handle, int duration)
 static int process_video_encode_hint(void *metadata)
 {
     char governor[80];
-    struct video_encode_metadata_t video_encode_metadata;
     static int boost_handle = -1;
 
     if (get_scaling_governor(governor, sizeof(governor)) == -1) {
@@ -178,25 +177,10 @@ static int process_video_encode_hint(void *metadata)
         return HINT_NONE;
     }
 
-    /* Initialize encode metadata struct fields */
-    memset(&video_encode_metadata, 0, sizeof(struct video_encode_metadata_t));
-    video_encode_metadata.state = -1;
-    video_encode_metadata.hint_id = DEFAULT_VIDEO_ENCODE_HINT_ID;
-
     if (metadata) {
-        if (parse_video_encode_metadata((char *)metadata, &video_encode_metadata) ==
-            -1) {
-            ALOGE("Error occurred while parsing metadata.");
-            return HINT_NONE;
-        }
-    } else {
-        return HINT_NONE;
-    }
-
-    if (video_encode_metadata.state == 1) {
         int duration = 2000; // boosts 2s for starting encoding
         boost_handle = process_boost(boost_handle, duration);
-        ALOGV("LAUNCH ENCODER-ON: %d MS", duration);
+        ALOGD("LAUNCH ENCODER-ON: %d MS", duration);
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             /* 1. cpufreq params
@@ -221,9 +205,9 @@ static int process_video_encode_hint(void *metadata)
                 0x41810000, 0x9C4, 0x41814000, 0x32, 0x4180C000, 0x0, 0x41820000, 0xA,
                 0x41438100, 0x1,  0x41438000, 0x1 };
 
-            perform_hint_action(video_encode_metadata.hint_id,
+            perform_hint_action(DEFAULT_VIDEO_ENCODE_HINT_ID,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-            ALOGV("Video Encode hint start");
+            ALOGD("Video Encode hint start");
             return HINT_HANDLED;
         } else if ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(SCHED_GOVERNOR))) {
@@ -238,19 +222,19 @@ static int process_video_encode_hint(void *metadata)
             int resource_values[] = {0x41810000, 0x9C4, 0x41814000, 0x32,
                                      0x4180C000, 0x0,   0x41820000, 0xA};
 
-            perform_hint_action(video_encode_metadata.hint_id,
+            perform_hint_action(DEFAULT_VIDEO_ENCODE_HINT_ID,
                     resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-            ALOGV("Video Encode hint start");
+            ALOGD("Video Encode hint start");
             return HINT_HANDLED;
         }
-    } else if (video_encode_metadata.state == 0) {
+    } else {
         // boost handle is intentionally not released, release_request(boost_handle);
         if (((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) ||
             ((strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(SCHED_GOVERNOR)))) {
-            undo_hint_action(video_encode_metadata.hint_id);
-            ALOGV("Video Encode hint stop");
+            undo_hint_action(DEFAULT_VIDEO_ENCODE_HINT_ID);
+            ALOGD("Video Encode hint stop");
             return HINT_HANDLED;
         }
     }
@@ -267,12 +251,12 @@ static int process_activity_launch_hint(void *data)
         return HINT_HANDLED;
     }
 
-    ALOGV("LAUNCH HINT: %s", data ? "ON" : "OFF");
+    ALOGD("LAUNCH HINT: %s", data ? "ON" : "OFF");
     if (data && launch_mode == 0) {
         launch_handle = process_boost(launch_handle, duration);
         if (launch_handle > 0) {
             launch_mode = 1;
-            ALOGV("Activity launch hint handled");
+            ALOGD("Activity launch hint handled");
             ATRACE_INT("launch_lock", 1);
             ATRACE_END();
             return HINT_HANDLED;

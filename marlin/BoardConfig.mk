@@ -100,13 +100,14 @@ endif
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=marlin user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7
 
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
+BOARD_ROOT_EXTRA_FOLDERS := firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
 ifneq ($(filter marlin marlinf, $(TARGET_PRODUCT)),)
 BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/marlin/sepolicy/private
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
 
@@ -199,7 +200,7 @@ BOARD_USES_SYSTEM_OTHER_ODEX := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 #NFC
-NXP_CHIP_TYPE := PN551
+NXP_CHIP_TYPE := 3
 
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh

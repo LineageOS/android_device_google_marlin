@@ -16,7 +16,12 @@ allow thermal-engine thermal_device:chr_file rw_file_perms;
 # files in /sys/
 r_dir_file(thermal-engine, sysfs_type)
 allow thermal-engine sysfs_msm_subsys:file write;
-allow thermal-engine sysfs_thermal:file write;
+allow thermal-engine sysfs_thermal:file rw_file_perms;
+allow thermal-engine sysfs_thermal:lnk_file read;
+allow thermal-engine sysfs_thermal:dir search;
+
+# /proc/stat
+allow thermal-engine proc_stat:file { getattr open read };
 
 allow thermal-engine uio_device:chr_file rw_file_perms;
 
@@ -27,3 +32,6 @@ userdebug_or_eng(`
 
 # reboot/shutdown for thermal limits exceeded
 set_prop(thermal-engine, powerctl_prop)
+
+# IThermal Thermal HAL
+hal_server_domain(thermal-engine, hal_thermal)

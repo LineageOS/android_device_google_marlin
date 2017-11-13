@@ -788,6 +788,7 @@ private:
     /*FrameID to stop frameskip. If this is not set,
     all frames are skipped till we set this*/
     uint32_t mFrameSkipEnd;
+    bool m_bOptimizeCacheOps;
 };
 
 }; // namespace qcamera
