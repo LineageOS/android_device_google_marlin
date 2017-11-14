@@ -99,10 +99,10 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
-BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
-ifneq ($(filter sailfish sailfishf, $(TARGET_PRODUCT)),)
-BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
-endif
+#BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
+#ifneq ($(filter sailfish sailfishf, $(TARGET_PRODUCT)),)
+#BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
+#endif
 
 BOARD_EGL_CFG := device/google/marlin/egl.cfg
 
