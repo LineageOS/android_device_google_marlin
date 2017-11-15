@@ -20,6 +20,7 @@ etc/permissions/privapp-permissions-google.xml
 etc/permissions/privapp-permissions-marlin.xml
 
 # RIL
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 lib64/vendor.qti.atcmdfwd@1.0.so
 lib64/vendor.qti.qcril.am@1.0.so
 
