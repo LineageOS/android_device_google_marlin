@@ -11,6 +11,9 @@ allow init_radio firmware_file:dir r_dir_perms;
 allow init_radio firmware_file:file r_file_perms;
 allow init_radio self:capability chown;
 
+# TODO(b/68015003): Remove data_between_core_and_vendor_violators once
+# init_radio no longer directly accesses /data owned by the radio app.
+typeattribute init_radio data_between_core_and_vendor_violators;
 allow init_radio radio_data_file:dir create_dir_perms;
 allow init_radio radio_data_file:file create_file_perms;
 allow init_radio radio_data_file:file w_file_perms;
