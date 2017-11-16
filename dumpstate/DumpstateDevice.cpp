@@ -160,6 +160,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
     RunCommandToFd(fd, "cpu2-3 cpuidle", {"/vendor/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu2/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done"});
     DumpFileToFd(fd, "MDP xlogs", "/d/mdp/xlog/dump");
     DumpFileToFd(fd, "TCPM logs", "/d/tcpm/9-0022");
+    DumpFileToFd(fd, "WLAN FW Log Symbol Table", "/vendor/firmware/Data.msc");
     DumpFileToFd(fd, "FUSB302 logs", "/d/ipc_logging/fusb302/log");
 
     /* Check if qsee_logger tool exists */
