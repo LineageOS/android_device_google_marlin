@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/lib64/libbcc.so:system/lib64/libbcc.so:qcom \
     vendor/qcom/sailfish/proprietary/libion.so:system/lib/libion.so:qcom \
     vendor/qcom/sailfish/proprietary/libiperf.so:system/lib/libiperf.so:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libLLVM.so:system/lib64/libLLVM.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/libLLVM_android.so:system/lib64/libLLVM_android.so:qcom \
     vendor/qcom/sailfish/proprietary/libminui.so:system/lib/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/iperf3:system/xbin/iperf3:qcom \
     vendor/qcom/sailfish/proprietary/sanitizer-status:system/xbin/sanitizer-status:qcom \
