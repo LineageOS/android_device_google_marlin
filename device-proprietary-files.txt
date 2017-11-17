@@ -28,6 +28,22 @@ lib64/vendor.qti.qcril.am@1.0.so
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/SprintHM/SprintHM.apk
 
+# Vendor APKs
+-priv-app/atfwd/atfwd.apk
+-priv-app/colorservice/colorservice.apk
+-priv-app/datastatusnotification/datastatusnotification.apk
+-priv-app/embms/embms.apk
+-priv-app/fastdormancy/fastdormancy.apk
+-priv-app/ims/ims.apk
+-priv-app/imssettings/imssettings.apk
+-priv-app/QtiTelephonyService/QtiTelephonyService.apk
+-priv-app/radioconfig/radioconfig.apk
+-priv-app/RCSBootstraputil/RCSBootstraputil.apk
+-priv-app/SecureExtAuthService/SecureExtAuthService.apk
+-priv-app/shutdownlistener/shutdownlistener.apk
+-priv-app/SSRestartDetector/SSRestartDetector.apk
+-priv-app/TimeService/TimeService.apk
+
 # VZW
 -app/VZWAPNLib/VZWAPNLib.apk:app/VZWAPNLib/VZWAPNLib.apk:PRESIGNED
 etc/permissions/com.android.vzwomatrigger.xml
