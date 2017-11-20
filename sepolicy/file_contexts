@@ -81,7 +81,6 @@
 /system/bin/preloads_copy\.sh      u:object_r:preloads_copy_exec:s0
 
 # files in /vendor
-/vendor/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
 /vendor/bin/qsee_logger            u:object_r:qsee_logger_exec:s0
 /vendor/bin/smlog_dump             u:object_r:smlog_dump_exec:s0
 /vendor/bin/irsc_util              u:object_r:irsc_util_exec:s0
