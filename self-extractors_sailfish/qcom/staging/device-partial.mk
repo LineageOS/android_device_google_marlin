@@ -20,6 +20,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
+    vendor/qcom/sailfish/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptX_encoder.so:system/lib64/libaptX_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptXHD_encoder.so:system/lib64/libaptXHD_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
