@@ -20,6 +20,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
     vendor/qcom/marlin/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
     vendor/qcom/marlin/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
+    vendor/qcom/marlin/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
     vendor/qcom/marlin/proprietary/lib64/libaptX_encoder.so:system/lib64/libaptX_encoder.so:qcom \
     vendor/qcom/marlin/proprietary/lib64/libaptXHD_encoder.so:system/lib64/libaptXHD_encoder.so:qcom \
     vendor/qcom/marlin/proprietary/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
