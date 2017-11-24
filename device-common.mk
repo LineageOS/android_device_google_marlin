@@ -28,8 +28,8 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
+#PRODUCT_ENFORCE_RRO_TARGETS := \
+#    framework-res
 
 # Input device files
 PRODUCT_COPY_FILES += \
