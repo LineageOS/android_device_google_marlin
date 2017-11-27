@@ -1,0 +1,4 @@
+# symlink /sdcard to backing block
+
+allow vendor_init debugfs_sps:dir search;
+allow vendor_init debugfs_sps:file w_file_perms;
