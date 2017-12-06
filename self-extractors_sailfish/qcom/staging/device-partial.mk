@@ -19,8 +19,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
-    vendor/qcom/sailfish/proprietary/com.android.vzwomatrigger.xml:system/etc/permissions/com.android.vzwomatrigger.xml:qcom \
-    vendor/qcom/sailfish/proprietary/vzw_mvs_permissions.xml:system/etc/permissions/vzw_mvs_permissions.xml:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptX_encoder.so:system/lib64/libaptX_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libaptXHD_encoder.so:system/lib64/libaptXHD_encoder.so:qcom \

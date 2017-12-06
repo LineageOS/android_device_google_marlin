@@ -96,6 +96,8 @@ QCamera3Channel::QCamera3Channel(uint32_t cam_handle,
     mNumBuffers = numBuffers;
     mPerFrameMapUnmapEnable = true;
     mDumpFrmCnt = 0;
+
+    mYUVDump = property_get_int32("persist.camera.dumpimg", 0);
 }
 
 /*===========================================================================
@@ -500,9 +502,6 @@ void QCamera3Channel::dumpYUV(mm_camera_buf_def_t *frame, cam_dimension_t dim,
     char buf[FILENAME_MAX];
     memset(buf, 0, sizeof(buf));
     static int counter = 0;
-    char prop[PROPERTY_VALUE_MAX];
-    property_get("persist.camera.dumpimg", prop, "0");
-    mYUVDump = (uint32_t)atoi(prop);
     if (mYUVDump & dump_type) {
         mFrmNum = ((mYUVDump & 0xffff0000) >> 16);
         if (mFrmNum == 0) {
@@ -569,6 +568,7 @@ void QCamera3Channel::dumpYUV(mm_camera_buf_def_t *frame, cam_dimension_t dim,
                     }
                     LOGH("written number of bytes %ld\n", written_len);
                     mDumpFrmCnt++;
+                    frame->cache_flags |= CPU_HAS_READ;
                     close(file_fd);
                 } else {
                     LOGE("failed to open file to dump image");
@@ -2194,10 +2194,10 @@ void QCamera3RawChannel::streamCbRoutine(
             convertMipiToRaw16(super_frame->bufs[0]);
         else
             convertLegacyToRaw16(super_frame->bufs[0]);
-    }
 
-    //Make sure cache coherence because extra processing is done
-    mMemory.cleanInvalidateCache(super_frame->bufs[0]->buf_idx);
+        //Make sure cache coherence because extra processing is done
+        mMemory.cleanCache(super_frame->bufs[0]->buf_idx);
+    }
 
     QCamera3RegularChannel::streamCbRoutine(super_frame, stream);
     return;
@@ -2223,6 +2223,7 @@ void QCamera3RawChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
        if (file_fd >= 0) {
           ssize_t written_len = write(file_fd, frame->buffer, frame->frame_len);
           LOGD("written number of bytes %zd", written_len);
+          frame->cache_flags |= CPU_HAS_READ;
           close(file_fd);
        } else {
           LOGE("failed to open file to dump image");
@@ -2296,6 +2297,8 @@ void QCamera3RawChannel::convertMipiToRaw16(mm_camera_buf_def_t *frame)
 
         uint32_t raw16_stride = ((uint32_t)dim.width + 15U) & ~15U;
         uint16_t* raw16_buffer = (uint16_t *)frame->buffer;
+        uint8_t first_quintuple[5];
+        memcpy(first_quintuple, raw16_buffer, sizeof(first_quintuple));
 
         // In-place format conversion.
         // Raw16 format always occupy more memory than opaque raw10.
@@ -2311,13 +2314,19 @@ void QCamera3RawChannel::convertMipiToRaw16(mm_camera_buf_def_t *frame)
             for (int32_t xs = dim.width - 1; xs >= 0; xs--) {
                 uint32_t x = (uint32_t)xs;
                 uint8_t upper_8bit = row_start[5*(x/4)+x%4];
-                uint8_t lower_2bit = ((row_start[5*(x/4)+4] >> (x%4)) & 0x3);
+                uint8_t lower_2bit = ((row_start[5*(x/4)+4] >> ((x%4) << 1)) & 0x3);
                 uint16_t raw16_pixel =
                         (uint16_t)(((uint16_t)upper_8bit)<<2 |
                         (uint16_t)lower_2bit);
                 raw16_buffer[y*raw16_stride+x] = raw16_pixel;
             }
         }
+
+        // Re-convert the first 2 pixels of the buffer because the loop above messes
+        // them up by reading the first quintuple while modifying it.
+        raw16_buffer[0] = ((uint16_t)first_quintuple[0]<<2) | (first_quintuple[4] & 0x3);
+        raw16_buffer[1] = ((uint16_t)first_quintuple[1]<<2) | ((first_quintuple[4] >> 2) & 0x3);
+
     } else {
         LOGE("Could not find stream");
     }
@@ -2437,6 +2446,7 @@ void QCamera3RawDumpChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
                 ssize_t written_len =
                         write(file_fd, frame->buffer, offset.frame_len);
                 LOGD("written number of bytes %zd", written_len);
+                frame->cache_flags |= CPU_HAS_READ;
                 close(file_fd);
             } else {
                 LOGE("failed to open file to dump image");
@@ -4330,6 +4340,7 @@ QCamera3Stream * QCamera3ReprocessChannel::getSrcStreamBySrcHandle(uint32_t srcH
 int32_t QCamera3ReprocessChannel::unmapOfflineBuffers(bool all)
 {
     int rc = NO_ERROR;
+    Mutex::Autolock l(mOfflineBuffersLock);
     if (!mOfflineBuffers.empty()) {
         QCamera3Stream *stream = NULL;
         List<OfflineBuffer>::iterator it = mOfflineBuffers.begin();
@@ -4732,12 +4743,19 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
        mOfflineBuffersIndex = -1;
     }
     uint32_t buf_idx = (uint32_t)(mOfflineBuffersIndex + 1);
+
+    //Do cache ops before sending for reprocess
+    if (mMemory != NULL) {
+        mMemory->cleanInvalidateCache(buf_idx);
+    }
+
     rc = pStream->mapBuf(
             CAM_MAPPING_BUF_TYPE_OFFLINE_INPUT_BUF,
             buf_idx, -1,
             frame->input_buffer.fd, frame->input_buffer.buffer,
             frame->input_buffer.frame_len);
     if (NO_ERROR == rc) {
+        Mutex::Autolock l(mOfflineBuffersLock);
         mappedBuffer.index = buf_idx;
         mappedBuffer.stream = pStream;
         mappedBuffer.type = CAM_MAPPING_BUF_TYPE_OFFLINE_INPUT_BUF;
@@ -4758,6 +4776,7 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
             frame->metadata_buffer.fd, frame->metadata_buffer.buffer,
             frame->metadata_buffer.frame_len);
     if (NO_ERROR == rc) {
+        Mutex::Autolock l(mOfflineBuffersLock);
         mappedBuffer.index = meta_buf_idx;
         mappedBuffer.stream = pStream;
         mappedBuffer.type = CAM_MAPPING_BUF_TYPE_OFFLINE_META_BUF;
@@ -4851,6 +4870,11 @@ int32_t QCamera3ReprocessChannel::doReprocess(int buf_fd, void *buffer, size_t b
         rc = mStreams[i]->mapBuf(CAM_MAPPING_BUF_TYPE_OFFLINE_INPUT_BUF,
                                  buf_idx, -1,
                                  buf_fd, buffer, buf_length);
+
+        //Do cache ops before sending for reprocess
+        if (mMemory != NULL) {
+            mMemory->cleanInvalidateCache(buf_idx);
+        }
 
         if (rc == NO_ERROR) {
             cam_stream_parm_buffer_t param;

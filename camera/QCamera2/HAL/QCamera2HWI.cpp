@@ -412,7 +412,7 @@ void QCamera2HardwareInterface::stop_preview(struct camera_device *device)
              hw->getCameraId());
 
     // Disable power Hint for preview
-    hw->m_perfLock.powerHint(POWER_HINT_VIDEO_ENCODE, false);
+    hw->m_perfLock.powerHint(PowerHint::VIDEO_ENCODE, false);
 
     hw->m_perfLock.lock_acq();
     hw->lockAPI();
@@ -1968,6 +1968,10 @@ int QCamera2HardwareInterface::openCamera()
         pthread_mutex_unlock(&gCamLock);
     }
 
+    memset(value, 0, sizeof(value));
+    property_get("persist.camera.cache.optimize", value, "1");
+    m_bOptimizeCacheOps = atoi(value);
+
     return NO_ERROR;
 
 error_exit3:
@@ -3016,6 +3020,12 @@ QCameraHeapMemory *QCamera2HardwareInterface::allocateStreamInfoBuf(
     streamInfo->num_bufs = getBufNumRequired(stream_type);
     streamInfo->streaming_mode = CAM_STREAMING_MODE_CONTINUOUS;
     streamInfo->is_secure = NON_SECURE;
+    // Initialize cache ops
+    if (!m_bOptimizeCacheOps) {
+        streamInfo->cache_ops = CAM_STREAM_CACHE_OPS_DISABLED;
+    } else {
+        streamInfo->cache_ops = CAM_STREAM_CACHE_OPS_HONOUR_FLAGS;
+    }
 
     switch (stream_type) {
     case CAM_STREAM_TYPE_SNAPSHOT:
@@ -3087,6 +3097,9 @@ QCameraHeapMemory *QCamera2HardwareInterface::allocateStreamInfoBuf(
         break;
     case CAM_STREAM_TYPE_ANALYSIS:
         streamInfo->noFrameExpected = 1;
+        break;
+    case CAM_STREAM_TYPE_METADATA:
+        streamInfo->cache_ops = CAM_STREAM_CACHE_OPS_CLEAR_FLAGS;
         break;
     default:
         break;
@@ -3506,7 +3519,7 @@ int QCamera2HardwareInterface::startPreview()
     if (rc == NO_ERROR) {
         if (!mParameters.isSeeMoreEnabled()) {
             // Set power Hint for preview
-            m_perfLock.powerHint(POWER_HINT_VIDEO_ENCODE, true);
+            m_perfLock.powerHint(PowerHint::VIDEO_ENCODE, true);
         }
     }
 
@@ -3540,7 +3553,7 @@ int QCamera2HardwareInterface::stopPreview()
     mActiveAF = false;
 
     // Disable power Hint for preview
-    m_perfLock.powerHint(POWER_HINT_VIDEO_ENCODE, false);
+    m_perfLock.powerHint(PowerHint::VIDEO_ENCODE, false);
 
     m_perfLock.lock_acq();
 
@@ -3710,7 +3723,7 @@ int QCamera2HardwareInterface::startRecording()
     if (rc == NO_ERROR) {
         if (!mParameters.isSeeMoreEnabled()) {
             // Set power Hint for video encoding
-            m_perfLock.powerHint(POWER_HINT_VIDEO_ENCODE, true);
+            m_perfLock.powerHint(PowerHint::VIDEO_ENCODE, true);
         }
     }
 
@@ -3741,7 +3754,7 @@ int QCamera2HardwareInterface::stopRecording()
 
     m_cbNotifier.flushVideoNotifications();
     // Disable power hint for video encoding
-    m_perfLock.powerHint(POWER_HINT_VIDEO_ENCODE, false);
+    m_perfLock.powerHint(PowerHint::VIDEO_ENCODE, false);
     mVideoMem = NULL;
     LOGI("X rc = %d", rc);
     return rc;
@@ -5738,6 +5751,8 @@ int QCamera2HardwareInterface::registerFaceImage(void *img_ptr,
         return NO_MEMORY;
     }
     memcpy(pBufPtr, img_ptr, config->input_buf_planes.plane_info.frame_len);
+    //Do cache ops before sending for reprocess
+    imgBuf->cacheOps(0, ION_IOC_CLEAN_INV_CACHES);
 
     cam_pp_feature_config_t pp_feature;
     memset(&pp_feature, 0, sizeof(cam_pp_feature_config_t));
