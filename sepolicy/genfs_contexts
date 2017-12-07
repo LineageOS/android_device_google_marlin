@@ -49,8 +49,12 @@ genfscon sysfs /devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.
 genfscon sysfs /devices/soc/0.qcom,rmtfs_sharedmem    u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /devices/soc/84000000.qcom,rmtfs_rtel_sharedmem u:object_r:sysfs_rmtfs:s0
 genfscon sysfs /module/lpm_levels/parameters          u:object_r:sysfs_power_management:s0
-genfscon sysfs /devices/soc/qpnp-fg-17/power_supply/bms/capacity             u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/6a00000.ssusb/power_supply                u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/75b5000.i2c/i2c-7/7-001d/power_supply     u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/msm-bcl-14/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                 u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-fg-17/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply           u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/system_temp_level u:object_r:sysfs_msm_subsys:s0
