@@ -277,8 +277,6 @@ endif
 PRODUCT_COPY_FILES += \
     device/google/marlin/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/system
-
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
@@ -407,11 +405,6 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
-
-# TODO:
-# setup dm-verity configs.
-# PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7464900.sdhci/by-name/system
-# $(call inherit-product, build/target/product/verity.mk)
 
 #Property of the BDA module path for loading BDA
 PRODUCT_PROPERTY_OVERRIDES += \
