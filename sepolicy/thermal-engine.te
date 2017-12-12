@@ -20,6 +20,9 @@ allow thermal-engine sysfs_thermal:file rw_file_perms;
 allow thermal-engine sysfs_thermal:lnk_file read;
 allow thermal-engine sysfs_thermal:dir search;
 
+r_dir_file(thermal-engine, sysfs_batteryinfo)
+allow thermal-engine sysfs_batteryinfo:file w_file_perms;
+
 # /proc/stat
 allow thermal-engine proc_stat:file { getattr open read };
 
