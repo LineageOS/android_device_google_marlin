@@ -76,3 +76,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 # Remove init.recovery.*.rc file in root directory (only needed in recovery root).
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.marlin.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.sailfish.rc)
+
+# Remove /system/lib[64]/vndk-sp/android.hardware.graphics.allocator@2.0.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/android.hardware.graphics.allocator@2.0.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardware.graphics.allocator@2.0.so)
