@@ -134,3 +134,18 @@ on property:sys.logger.bluetooth=true
 on property:sys.logger.bluetooth=false
    setprop persist.service.bdroid.snooplog false
    setprop persist.service.bdroid.fwsnoop false
+
+# b/70518189 vDSO experiments
+on property:sys.vdso=*
+   write /sys/module/vdso/parameters/enable_32 1
+   write /sys/module/vdso/parameters/enable_64 1
+
+on property:sys.vdso=false
+   write /sys/module/vdso/parameters/enable_32 0
+   write /sys/module/vdso/parameters/enable_64 0
+
+on property:sys.vdso=64
+   write /sys/module/vdso/parameters/enable_32 0
+
+on property:sys.vdso=32
+   write /sys/module/vdso/parameters/enable_64 0
