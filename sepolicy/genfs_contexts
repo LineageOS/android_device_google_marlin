@@ -42,6 +42,7 @@ genfscon sysfs /devices/soc/6a00000.ssusb/6a00000.dwc3/gadget/lun0/ u:object_r:s
 genfscon sysfs /devices/soc/8c0000.qcom,msm-cam       u:object_r:sysfs_camera:s0
 genfscon sysfs /devices/soc/aa4000.qcom,fd            u:object_r:sysfs_video:s0
 genfscon sysfs /devices/soc/soc:fp_fpc1020            u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/soc/qpnp-rtc-8/rtc            u:object_r:sysfs_rtc:s0
 genfscon sysfs /devices/soc0                          u:object_r:sysfs_soc:s0
 genfscon sysfs /devices/virtual/htc_laser             u:object_r:sysfs_camera:s0
 genfscon sysfs /devices/virtual/htc_laser/laser/enable_ps_sensor u:object_r:sysfs_enable_ps_sensor:s0
