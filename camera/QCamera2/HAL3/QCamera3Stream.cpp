@@ -1478,6 +1478,10 @@ int32_t QCamera3Stream::putBatchBufs(mm_camera_map_unmap_ops_tbl_t *ops_tbl)
         delete mStreamBatchBufs;
         mStreamBatchBufs = NULL;
     }
+    // Flush any free batch buffers in the queue. The dummy batch stream doesn't
+    // get started, stop will not be able to trigger the flush call making it possible
+    // to free the buffer definitions twice.
+    flushFreeBatchBufQ();
     // mm-camera-interface frees bufDefs even though bufDefs are allocated by
     // QCamera3Stream. Don't free here
     mBatchBufDefs = NULL;
