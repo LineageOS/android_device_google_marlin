@@ -622,8 +622,6 @@ PRODUCT_PACKAGES += \
     libRSCpuRef.vndk-sp\
     libbcinfo.vndk-sp\
     libblas.vndk-sp\
-    libft2.vndk-sp\
-    libpng.vndk-sp\
     libcompiler_rt.vndk-sp\
     libbacktrace.vndk-sp\
     libunwind.vndk-sp\
