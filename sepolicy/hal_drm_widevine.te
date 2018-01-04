@@ -21,3 +21,9 @@ allow hal_drm_widevine media_data_file:dir create_dir_perms;
 allow hal_drm_widevine media_data_file:file create_file_perms;
 
 allow hal_drm_widevine hal_allocator_server:fd use;
+
+# TODO(b/71584763): Remove perfd use once QC implements a better method
+allow hal_drm_widevine perfd:unix_stream_socket connectto;
+allow hal_drm_widevine perfd_data_file:dir search;
+allow hal_drm_widevine perfd_data_file:sock_file write;
+
