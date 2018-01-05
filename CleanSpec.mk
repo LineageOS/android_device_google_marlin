@@ -80,3 +80,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.sailfish.rc)
 # Remove /system/lib[64]/vndk-sp/android.hardware.graphics.allocator@2.0.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/android.hardware.graphics.allocator@2.0.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardware.graphics.allocator@2.0.so)
+
+# Remove /vendor/lib[64]/hw/android.hardware.contexthub@1.0-impl.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.contexthub@1.0-impl.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.contexthub@1.0-impl.so)
