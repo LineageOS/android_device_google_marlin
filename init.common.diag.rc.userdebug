@@ -4,6 +4,8 @@ on post-fs-data
     # Modem logging collection
     mkdir /data/vendor/radio 0775 radio radio
     mkdir /data/vendor/radio/diag_logs 0777 system system
+    chmod 777 /data/vendor/radio/diag_logs/cfg
+    chmod 777 /data/vendor/radio/diag_logs/custom_cfg
     # WLAN logging collection
     mkdir /data/vendor/wifi 0777 system system
     mkdir /data/vendor/wifi/cnss_diag 0777 system system
@@ -134,3 +136,18 @@ on property:sys.logger.bluetooth=true
 on property:sys.logger.bluetooth=false
    setprop persist.service.bdroid.snooplog false
    setprop persist.service.bdroid.fwsnoop false
+
+# b/70518189 vDSO experiments
+on property:sys.vdso=*
+   write /sys/module/vdso/parameters/enable_32 1
+   write /sys/module/vdso/parameters/enable_64 1
+
+on property:sys.vdso=false
+   write /sys/module/vdso/parameters/enable_32 0
+   write /sys/module/vdso/parameters/enable_64 0
+
+on property:sys.vdso=64
+   write /sys/module/vdso/parameters/enable_32 0
+
+on property:sys.vdso=32
+   write /sys/module/vdso/parameters/enable_64 0

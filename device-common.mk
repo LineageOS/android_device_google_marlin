@@ -260,9 +260,8 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 
 PRODUCT_PACKAGES += \
-    context_hub.default \
     android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl \
+    android.hardware.contexthub@1.0-impl.nanohub \
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
