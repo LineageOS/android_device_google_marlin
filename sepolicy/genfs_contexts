@@ -37,6 +37,7 @@ genfscon sysfs /devices/soc/1c00000.qcom,ssc          u:object_r:sysfs_msm_subsy
 genfscon sysfs /devices/soc/2080000.qcom,mss          u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_adsp/boot                 u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_slpi/boot                 u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /kernel/memory_state_time              u:object_r:sysfs_power:s0
 genfscon sysfs /devices/soc/600000.qcom,pcie          u:object_r:sysfs_pcie:s0
 genfscon sysfs /devices/soc/6a00000.ssusb/6a00000.dwc3/gadget/lun0/ u:object_r:sysfs_android_usb:s0
 genfscon sysfs /devices/soc/8c0000.qcom,msm-cam       u:object_r:sysfs_camera:s0
