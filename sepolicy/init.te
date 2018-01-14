@@ -11,6 +11,8 @@ allow init firmware_file:dir mounton;
 allow init persist_file:dir mounton;
 allow init userdata_block_device:blk_file { write };
 
+allow init persist_block_device:lnk_file relabelto;
+
 # b/70518189 vDSO experiments
 userdebug_or_eng(`
 allow init sysfs_vdso:file w_file_perms;
