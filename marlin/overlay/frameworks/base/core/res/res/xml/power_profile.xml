@@ -179,6 +179,15 @@
         <value>2</value>    <!-- 4097-/hr -->
     </array>
 
+    <!-- Idle Receive current for wifi radio in mA.-->
+    <item name="wifi.controller.idle">1</item>
+    <!-- Rx current for wifi radio in mA.-->
+    <item name="wifi.controller.rx">100</item>
+    <!-- Tx current for wifi radio in mA-->
+    <item name="wifi.controller.tx">250</item>
+    <!-- Operating volatage for wifi radio in mV.-->
+    <item name="wifi.controller.voltage">3800</item>
+
     <!-- Additional power used when cellular radio is transmitting/receiving -->
     <item name="radio.active">300</item>
     <!-- The current consumed by the radio when it is scanning for a signal -->
@@ -188,5 +197,18 @@
         <value>2.2</value>
         <value>1.6</value>
     </array>
+
+    <!-- Cellular modem related values.-->
+    <item name="modem.controller.sleep">1</item>
+    <item name="modem.controller.idle">25</item>
+    <item name="modem.controller.rx">50</item>
+    <array name="modem.controller.tx"> <!-- Strength 0 to 4 -->
+        <value>1</value>
+        <value>50</value>
+        <value>100</value>
+        <value>150</value>
+        <value>200</value>
+    </array>
+    <item name="modem.controller.voltage">3700</item>
 
 </device>
