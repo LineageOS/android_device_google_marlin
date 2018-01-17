@@ -4,3 +4,4 @@ init_mid toolbox_exec getattr 68771183
 init_foreground toolbox_exec getattr 68771183
 init_power toolbox_exec getattr 68771183
 vendor_init radio_data_file dir 71872768
+radio sysfs dir 72066170
