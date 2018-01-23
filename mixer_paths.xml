@@ -371,6 +371,10 @@
     <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="0" />
     <!-- Incall Recording End -->
 
+    <!-- Incall Music -->
+    <ctl name="Incall_Music Audio Mixer MultiMedia9" value="0" />
+    <!-- Incall Music End -->
+
     <!-- VoWLAN start -->
     <ctl name="SLIM_0_RX_Voice Mixer VoWLAN" value="0" />
     <ctl name="VoWLAN_Tx Mixer SLIM_0_TX_VoWLAN" value="0" />
@@ -1723,6 +1727,38 @@
 
     <path name="incall-rec-uplink-and-downlink usb-headset-mic">
         <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-music-uplink">
+        <ctl name="Incall_Music Audio Mixer MultiMedia9" value="1" />
+    </path>
+
+    <path name="incall-music-uplink speaker">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-headphones">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink bt-sco">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink bt-sco-wb">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink afe-proxy">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-bt-sco">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-bt-sco-wb">
+        <path name="incall-music-uplink" />
     </path>
 
 </mixer>

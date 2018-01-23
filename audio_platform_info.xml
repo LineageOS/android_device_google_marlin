@@ -88,6 +88,7 @@
        <usecase name="USECASE_AUDIO_PLAYBACK_ULL" type="out" id="19" />
        <usecase name="USECASE_AUDIO_RECORD_MMAP" type="in" id="18" />
        <usecase name="USECASE_AUDIO_PLAYBACK_MMAP" type="out" id="18" />
+       <usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="32" />
      </pcm_ids>
 </audio_platform_info>
 
