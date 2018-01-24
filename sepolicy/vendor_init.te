@@ -8,11 +8,17 @@ allow vendor_init debugfs_sps:file w_file_perms;
 allow vendor_init {
   adb_keys_file
   dhcp_data_file
+  display_data_file
+  location_data_file
   media_rw_data_file
+  netmgr_data_file
+  perfd_data_file
   preloads_data_file
   preloads_media_file
   radio_data_file
+  smlog_dump_file
   system_data_file
+  time_data_file
   tombstone_data_file
   unencrypted_data_file
   wifi_data_file
