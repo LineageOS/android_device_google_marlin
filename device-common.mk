@@ -626,3 +626,4 @@ PRODUCT_PACKAGES += \
     libunwind.vndk-sp\
     libunwindstack.vndk-sp\
     liblzma.vndk-sp\
+    libutilscallstack.vndk-sp\
