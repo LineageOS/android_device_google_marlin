@@ -16,6 +16,7 @@ r_dir_file(time, sysfs_msm_subsys)
 allow time sysfs_soc:dir search;
 allow time sysfs_soc:file r_file_perms;
 
+typeattribute time data_between_core_and_vendor_violators;
 allow time time_data_file:file create_file_perms;
 allow time time_data_file:dir rw_dir_perms;
 

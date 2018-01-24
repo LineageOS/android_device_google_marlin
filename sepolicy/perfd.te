@@ -8,6 +8,7 @@ allow perfd cgroup:file r_file_perms;
 allow perfd cameraserver:process signull;
 
 # files in /data/misc/perfd and /data/system/perfd
+typeattribute perfd data_between_core_and_vendor_violators;
 allow perfd perfd_data_file:dir create_dir_perms;
 allow perfd perfd_data_file:{ file sock_file } create_file_perms;
 
