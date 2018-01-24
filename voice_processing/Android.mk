@@ -21,8 +21,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
 	voice_processing_descriptors.c
 
-LOCAL_C_INCLUDES += \
-	$(call include-path-for, audio-effects)
+LOCAL_HEADER_LIBRARIES := android.hardware.audio.effect.legacy@2.0
 
 LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
 
