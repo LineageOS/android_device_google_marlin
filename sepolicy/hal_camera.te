@@ -1,4 +1,5 @@
 # communicate with perfd
+typeattribute hal_camera_default data_between_core_and_vendor_violators;
 allow hal_camera perfd_data_file:dir search;
 allow hal_camera perfd:unix_stream_socket connectto;
 allow hal_camera perfd_data_file:sock_file write;
