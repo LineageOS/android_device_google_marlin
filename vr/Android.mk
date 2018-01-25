@@ -19,6 +19,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := vr.c
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_HEADER_LIBRARIES := libhardware_headers
 LOCAL_CFLAGS += -Wno-unused-parameter
 LOCAL_MODULE := vr.$(TARGET_DEVICE)
 LOCAL_MODULE_TAGS := optional
