@@ -1,5 +1,7 @@
 typeattribute vendor_init data_between_core_and_vendor_violators;
 
+allow vendor_init proc_uid_cpupower:file write;
+
 # symlink /sdcard to backing block
 
 allow vendor_init debugfs_sps:dir search;

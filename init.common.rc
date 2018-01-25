@@ -562,6 +562,12 @@ on property:ro.build.type=userdebug
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
 
+on property:proc.uidcpupower=*
+   write /proc/uid_cpupower/enable 1
+
+on property:proc.uidcpupower=0
+   write /proc/uid_cpupower/enable 0
+
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
     # Disable subsystem restart
