@@ -632,6 +632,7 @@ PRODUCT_PACKAGES += \
     libunwindstack.vndk-sp\
     liblzma.vndk-sp\
     libutilscallstack.vndk-sp\
+    libdexfile.vndk-sp\
 
 # Marlin/Sailfish kernel doesn't have HEH filename encryption
 PRODUCT_PROPERTY_OVERRIDES += \
