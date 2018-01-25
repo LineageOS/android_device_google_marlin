@@ -32,11 +32,13 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <dlfcn.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <utils/Log.h>
