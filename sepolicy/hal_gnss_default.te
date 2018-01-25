@@ -3,7 +3,7 @@ binder_call(hal_gnss_default, per_mgr);
 allow hal_gnss_default per_mgr_service:service_manager find;
 
 allow hal_gnss_default location_data_file:dir { search write };
-allow hal_gnss_default location_data_file:fifo_file { open read setattr write };
+allow hal_gnss_default location_data_file:fifo_file create_file_perms;
 allow hal_gnss_default location:unix_stream_socket connectto;
 allow hal_gnss_default location_data_file:dir rw_dir_perms;
 allow hal_gnss_default location_data_file:sock_file write;
