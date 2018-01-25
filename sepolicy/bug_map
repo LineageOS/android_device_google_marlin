@@ -1,4 +1,3 @@
-hal_gnss_default location_data_file fifo_file 68014035
 vendor_init radio_data_file dir 71872768
 radio sysfs dir 72066170
 netutils_wrapper proc_net file 72099135
