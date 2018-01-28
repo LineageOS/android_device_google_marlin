@@ -1,5 +1,7 @@
 typeattribute vendor_init data_between_core_and_vendor_violators;
 
+allow vendor_init proc_uid_cpupower:file write;
+
 # symlink /sdcard to backing block
 
 allow vendor_init debugfs_sps:dir search;
@@ -26,6 +28,12 @@ allow vendor_init {
 
 allow vendor_init {
   adb_keys_file
+  location_data_file
+  perfd_data_file
   radio_data_file
   unencrypted_data_file
 }:file { create getattr open read write setattr relabelfrom unlink };
+
+allow vendor_init {
+  location_data_file
+}:sock_file setattr;
