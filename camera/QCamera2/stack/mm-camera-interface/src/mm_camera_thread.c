@@ -36,6 +36,7 @@
 #include <sys/prctl.h>
 #include <fcntl.h>
 #include <poll.h>
+#include <unistd.h> // for write, read, usleep, pipe, ...
 #include <cam_semaphore.h>
 
 #include "mm_camera_dbg.h"
