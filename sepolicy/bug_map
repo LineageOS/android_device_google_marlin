@@ -2,4 +2,3 @@ vendor_init radio_data_file dir 71872768
 radio sysfs dir 72066170
 netutils_wrapper proc_net file 72099135
 netutils_wrapper sysfs_net file 72157903
-thermal-engine thermal-engine capability 72458250
