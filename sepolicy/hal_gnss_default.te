@@ -2,6 +2,7 @@ vndbinder_use(hal_gnss_default)
 binder_call(hal_gnss_default, per_mgr);
 allow hal_gnss_default per_mgr_service:service_manager find;
 
+typeattribute hal_gnss_default data_between_core_and_vendor_violators;
 allow hal_gnss_default location_data_file:dir { search write };
 allow hal_gnss_default location_data_file:fifo_file create_file_perms;
 allow hal_gnss_default location:unix_stream_socket connectto;

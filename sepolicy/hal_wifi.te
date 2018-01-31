@@ -3,6 +3,7 @@ allow hal_wifi location:unix_stream_socket connectto;
 allow hal_wifi location_data_file:sock_file write;
 
 # write to files owned by location daemon
+typeattribute hal_wifi_default data_between_core_and_vendor_violators;
 allow hal_wifi location_data_file:dir create_dir_perms;
 allow hal_wifi location_data_file:{ file fifo_file } create_file_perms;
 
