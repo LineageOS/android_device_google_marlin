@@ -850,7 +850,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
   SystemUIGoogle \
   SettingsGoogle \
   NexusLauncherPrebuilt \
-  GoogleCamera \
 
 PRODUCT_LOADED_BY_PRIVILEGED_MODULES += \
   qti-vzw-ims-internal \
