@@ -37,3 +37,5 @@ allow vendor_init {
 allow vendor_init {
   location_data_file
 }:sock_file setattr;
+
+set_prop(vendor_init, thermal_prop)

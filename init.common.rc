@@ -860,3 +860,8 @@ service vendor.mid_sh /vendor/bin/init.mid.sh
     group root system
     disabled
     oneshot
+
+# reset thermal-engine when framework dies in VR mode
+on property:init.svc.zygote=restarting && property:sys.qcom.thermalcfg=/vendor/etc/thermal-engine-vr.conf
+   setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine.conf"
+   restart vendor.thermal-engine
