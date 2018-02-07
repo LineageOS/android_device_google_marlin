@@ -10,13 +10,9 @@
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
             system/framework/qcrilhook.jar \
-            system/lib64/libaptX_encoder.so \
-            system/lib64/libaptXHD_encoder.so \
             system/lib/libclcore_neon.bc \
             system/lib64/libiperf.so \
             system/lib64/libminui.so \
-            system/lib/libaptX_encoder.so \
-            system/lib/libaptXHD_encoder.so \
             system/lib64/libbcc.so \
             system/lib/libion.so \
             system/lib/libiperf.so \

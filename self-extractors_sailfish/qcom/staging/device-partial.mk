@@ -21,13 +21,9 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.xml:system/etc/permissions/com.android.ims.rcsmanager.xml:qcom \
     vendor/qcom/sailfish/proprietary/com.android.ims.rcsmanager.jar:system/framework/com.android.ims.rcsmanager.jar:qcom \
     vendor/qcom/sailfish/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libaptX_encoder.so:system/lib64/libaptX_encoder.so:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libaptXHD_encoder.so:system/lib64/libaptXHD_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libiperf.so:system/lib64/libiperf.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
-    vendor/qcom/sailfish/proprietary/libaptX_encoder.so:system/lib/libaptX_encoder.so:qcom \
-    vendor/qcom/sailfish/proprietary/libaptXHD_encoder.so:system/lib/libaptXHD_encoder.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libbcc.so:system/lib64/libbcc.so:qcom \
     vendor/qcom/sailfish/proprietary/libion.so:system/lib/libion.so:qcom \
     vendor/qcom/sailfish/proprietary/libiperf.so:system/lib/libiperf.so:qcom \
