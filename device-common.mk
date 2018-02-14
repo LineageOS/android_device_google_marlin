@@ -614,3 +614,7 @@ PRODUCT_PACKAGES += \
 # Marlin/Sailfish kernel doesn't have HEH filename encryption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
+
+# Enable Perfetto traced
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.traced.enable=1
