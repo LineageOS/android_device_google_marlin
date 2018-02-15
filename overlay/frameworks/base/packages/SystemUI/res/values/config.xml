@@ -37,8 +37,9 @@
     <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
     <bool name="doze_pickup_performs_proximity_check">true</bool>
 
-    <!-- The default tiles to display in QuickSettings -->
+    <!-- Install the YadaYada disclaimer QS tile. -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,night
+        wifi,bt,dnd,flashlight,rotation,battery,cell,custom(com.android.yadayada/.DisclaimerTile),airplane,night
     </string>
+
 </resources>
