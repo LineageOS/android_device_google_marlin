@@ -602,3 +602,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     vndk-sp
+
+# Enable Perfetto traced
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.traced.enable=1
