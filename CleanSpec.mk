@@ -84,3 +84,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardwa
 # Remove /vendor/lib[64]/hw/android.hardware.contexthub@1.0-impl.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.contexthub@1.0-impl.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.contexthub@1.0-impl.so)
+
+# Remove /system/lib[64]/vndk-sp/libz.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
