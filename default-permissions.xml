@@ -67,6 +67,17 @@
     </exception>
 
     <exception
+            package="com.google.android.apps.restore"
+            sha256-cert-digest="56:BE:13:2B:78:06:56:FE:24:44:CD:34:32:6E:B5:D7:AA:C9:1D:20:96:AB:F0:FE:67:3A:99:27:06:22:EC:87">
+        <!-- External storage -->
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="false"/>
+        <!-- Contacts -->
+        <permission name="android.permission.READ_CONTACTS" fixed="false"/>
+        <permission name="android.permission.WRITE_CONTACTS" fixed="false"/>
+    </exception>
+
+    <exception
         package="com.google.vr.apps.ornament"
         sha256-cert-digest="4A:9E:3F:3B:C8:D6:0C:E4:D3:CB:E5:A9:C6:6E:EC:11:EF:D0:1C:5F:E9:C7:8D:8C:92:3B:9D:42:48:23:00:13">
         <!-- Camera -->
