@@ -1,3 +1,2 @@
 netutils_wrapper proc_net file 72099135
 netutils_wrapper sysfs_net file 72157903
-radio sysfs dir 72066170
