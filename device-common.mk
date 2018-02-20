@@ -290,9 +290,11 @@ PRODUCT_PACKAGES += \
 
 # sensor utilities (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     nanotool \
     sensortest
+endif
 endif
 
 PRODUCT_COPY_FILES += \
@@ -365,10 +367,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable SM log mechanism by default
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.smlog_switch=1 \
     ro.radio.log_prefix="modem_log_" \
     ro.radio.log_loc="/data/smlog_dump"
+endif
 endif
 
 # Disable snapshot feature
@@ -406,6 +410,7 @@ INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
 
@@ -415,6 +420,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 else
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
+endif
 endif
 
 # Subsystem silent restart
@@ -529,10 +535,12 @@ PRODUCT_PACKAGES += \
 
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
 # For VTS profiling.
 PRODUCT_PACKAGES += \
      libvts_profiling \
      libvts_multidevice_proto
+endif
 endif
 
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
@@ -614,7 +622,9 @@ PRODUCT_PACKAGES += \
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
 PRODUCT_PROPERTY_OVERRIDES += ro.logd.size=1M
+endif
 endif
 
 # b/32109329
