@@ -143,11 +143,11 @@ PRODUCT_PACKAGES += \
 
 # Light HAL
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl:64
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-impl:64 \
     android.hardware.keymaster@3.0-service
 
 # Usb HAL
@@ -165,12 +165,12 @@ PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.soundtrigger@2.1-impl
+    android.hardware.audio@2.0-impl:32 \
+    android.hardware.audio.effect@2.0-impl:32 \
+    android.hardware.soundtrigger@2.1-impl:32
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
+    android.hardware.drm@1.0-impl:32
 
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
@@ -249,7 +249,7 @@ PRODUCT_COPY_FILES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
 # Common sensor packages
@@ -260,8 +260,8 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl.nanohub \
+    android.hardware.sensors@1.0-impl:64 \
+    android.hardware.contexthub@1.0-impl.nanohub:64 \
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
@@ -459,18 +459,18 @@ AB_OTA_PARTITIONS += \
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl:64
 
 # NFC packages
 PRODUCT_PACKAGES += \
     nfc_nci.msm8996 \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.0-impl
+    android.hardware.nfc@1.0-impl:64
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl:64
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -478,22 +478,22 @@ PRODUCT_PACKAGES += \
 
 # VR
 PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl
+    android.hardware.vr@1.0-impl:64
 
 # Gralloc
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl
 
 # HW Composer
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-impl:64 \
     android.hardware.graphics.composer@2.1-service
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-impl:64 \
     android.hardware.boot@1.0-service
 
 # Library used for VTS tests  (only for userdebug and eng builds)
