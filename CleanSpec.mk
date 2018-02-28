@@ -88,3 +88,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.co
 # Remove /system/lib[64]/vndk-sp/libz.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
+
+# Remove all HALs (actual bitness now being specified)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/*)
