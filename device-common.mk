@@ -154,6 +154,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1-service.marlin
 
+# DRM HAL
+PRODUCT_PACKAGES += \
+    move_widevine_data.sh
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
