@@ -124,7 +124,6 @@ PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
-    android.hardware.bluetooth@1.0-service \
     android.hardware.contexthub@1.0-service \
     android.hardware.gnss@1.0-service \
     android.hardware.drm@1.0-service \
@@ -463,7 +462,9 @@ AB_OTA_PARTITIONS += \
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     libbt-vendor \
-    android.hardware.bluetooth@1.0-impl:64
+    android.hardware.bluetooth@1.0-impl:64 \
+    android.hardware.bluetooth@1.0-service \
+    wcnss_filter
 
 # NFC packages
 PRODUCT_PACKAGES += \
