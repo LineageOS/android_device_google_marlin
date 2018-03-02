@@ -62,6 +62,11 @@ genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/system_temp_level u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:0    u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:1    u:object_r:sysfs_scsi_devices_other:s0
+genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:2    u:object_r:sysfs_scsi_devices_other:s0
+genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:3    u:object_r:sysfs_scsi_devices_other:s0
+genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:4    u:object_r:sysfs_scsi_devices_other:s0
+genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:5    u:object_r:sysfs_scsi_devices_other:s0
 genfscon sysfs /devices/soc/624000.ufshc/health                       u:object_r:sysfs_scsi_devices_0000:s0
 genfscon sysfs /module/diagchar                       u:object_r:sysfs_diag:s0
 
