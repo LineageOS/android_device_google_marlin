@@ -461,10 +461,9 @@ AB_OTA_PARTITIONS += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    libbt-vendor \
-    android.hardware.bluetooth@1.0-impl:64 \
-    android.hardware.bluetooth@1.0-service \
-    wcnss_filter
+    android.hardware.bluetooth@1.0-impl-qti:64 \
+    android.hardware.bluetooth@1.0-service-qti \
+    android.hardware.bluetooth@1.0-service-qti.rc
 
 # NFC packages
 PRODUCT_PACKAGES += \
