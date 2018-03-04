@@ -24,4 +24,7 @@
     <signer signature="@GOOGLE" >
       <seinfo value="google" />
     </signer>
+    <signer signature="@WFCACTIVATION" >
+      <seinfo value="wfcactivation" />
+    </signer>
 </policy>
