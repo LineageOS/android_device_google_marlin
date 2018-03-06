@@ -205,5 +205,3 @@
 
 # hidraw dynamic sensor
 /dev/hidraw[0-9]+            u:object_r:sensors_device:s0
-
-/sys/devices/virtual/block/.*/stat u:object_r:sysfs_devices_block_stat:s0
