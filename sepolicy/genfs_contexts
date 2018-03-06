@@ -69,6 +69,7 @@ genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:4    u:object_r
 genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:5    u:object_r:sysfs_scsi_devices_other:s0
 genfscon sysfs /devices/soc/624000.ufshc/health                       u:object_r:sysfs_scsi_devices_0000:s0
 genfscon sysfs /module/diagchar                       u:object_r:sysfs_diag:s0
+genfscon sysfs /devices/virtual/block                                 u:object_r:sysfs_devices_block:s0
 
 # debugfs
 genfscon debugfs /kgsl/proc                u:object_r:debugfs_kgsl:s0
