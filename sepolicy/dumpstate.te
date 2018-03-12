@@ -6,6 +6,6 @@ userdebug_or_eng(`
 # For collecting bugreports.
 allow dumpstate sysfs_scsi_devices_0000:file r_file_perms;
 allow dumpstate sysfs_scsi_devices_other:file r_file_perms;
-allow dumpstate sysfs_devices_block_stat:file r_file_perms;
+allow dumpstate sysfs_devices_block:file r_file_perms;
 allow dumpstate persist_file:dir getattr;
 dontaudit dumpstate kernel:system module_request;
