@@ -10,3 +10,6 @@ typeattribute hal_nfc_default data_between_core_and_vendor_violators;
 # Data file accesses.
 allow hal_nfc_default nfc_data_file:dir create_dir_perms;
 allow hal_nfc_default nfc_data_file:{ file lnk_file fifo_file } create_file_perms;
+
+dontaudit hal_nfc_default nxpese_hwservice:hwservice_manager find;
+dontaudit hal_nfc_default nxpnfc_hwservice:hwservice_manager add;
