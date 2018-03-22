@@ -92,3 +92,11 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 # Remove all HALs (actual bitness now being specified)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/*)
+
+# Remove Clearkey HAL 1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.clearkey.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.clearkey)
+
+# Remove Widevine HAL 1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.widevine)
