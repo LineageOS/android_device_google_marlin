@@ -520,8 +520,12 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
-    # Allow system to write to cycle_count_id to iterate and get stats
-    chown system system /sys/class/power_supply/bms/cycle_count_id
+    # QCOM FG SRAM dump for dumpstate
+    chown system system /d/fg_memif/data
+    chown system system /d/fg_memif/count
+    chown system system /d/fg_memif/address
+
+    # com.google.android.hardwareinfo needs to be able to read cycle counts
     chmod 0666 /sys/class/power_supply/bms/cycle_count_id
 
 on property:wc_transport.start_hci=true
