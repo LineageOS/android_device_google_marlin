@@ -17,10 +17,7 @@
 */
 -->
 <device name="Android">
-    <!-- All values are in mAh except as noted -->
-
-    <!-- Nothing -->
-    <item name="none">0</item>
+    <!-- All values are in mA except as noted -->
 
     <!-- This is the battery capacity in mAh -->
     <item name="battery.capacity">2770</item>
@@ -165,59 +162,51 @@
          minute. -->
     <item name="camera.avg">987.217</item>
 
-    <!-- Additional power used when audio decoding/encoding via DSP -->
-    <item name="dsp.audio">25.000</item>
+    <!-- Additional power used when video is playing -->
+    <item name="video">50.93</item>
+    <!-- Additional power used when audio is playing -->
+    <item name="audio">75.60</item>
 
-    <!-- Additional power used when GPS is acquiring a signal -->
-    <item name="gps.on">10.23</item>
-
-    <!-- Additional power used when Wi-Fi is turned on but not receiving,
-         transmitting, or scanning -->
-    <item name="wifi.on">2</item>
-    <!-- Additional power used when transmitting or receiving over Wi-Fi -->
-    <item name="wifi.active">160</item>
-    <!-- Additional power used when Wi-Fi is scanning for access points -->
-    <item name="wifi.scan">25</item>
-
-    <!-- mA. Current figures based on .0801 s/c and 75.48mA while scanning -->
-    <array name="wifi.batchedscan">
-        <value>0.0002</value> <!-- 1-8/hr -->
-        <value>0.002</value>  <!-- 9-64/hr -->
-        <value>0.02</value>   <!-- 65-512/hr -->
-        <value>0.2</value>    <!-- 513-4,096/hr -->
-        <value>2</value>    <!-- 4097-/hr -->
-    </array>
-
-    <!-- Idle Receive current for wifi radio in mA.-->
+    <!-- Idle current for wifi radio in mA.-->
     <item name="wifi.controller.idle">1</item>
     <!-- Rx current for wifi radio in mA.-->
-    <item name="wifi.controller.rx">101</item>
+    <item name="wifi.controller.rx">125</item>
     <!-- Tx current for wifi radio in mA-->
-    <item name="wifi.controller.tx">250</item>
-    <!-- Operating volatage for wifi radio in mV.-->
-    <item name="wifi.controller.voltage">3800</item>
-
-    <!-- Additional power used when cellular radio is transmitting/receiving -->
-    <item name="radio.active">300</item>
-    <!-- The current consumed by the radio when it is scanning for a signal -->
-    <item name="radio.scanning">82.2</item>
-    <!-- Current consumed by the radio at different signal strengths, when paging -->
-    <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-        <value>2.2</value>
-        <value>1.6</value>
-    </array>
+    <item name="wifi.controller.tx">350</item>
+    <!-- Operating voltage for wifi radio in mV.-->
+    <item name="wifi.controller.voltage">3700</item>
 
     <!-- Cellular modem related values.-->
-    <item name="modem.controller.sleep">1</item>
-    <item name="modem.controller.idle">25</item>
-    <item name="modem.controller.rx">50</item>
+    <item name="modem.controller.sleep">0</item>
+    <!-- Idle current for modem in mA.-->
+    <item name="modem.controller.idle">105</item>
+    <!-- Rx current for modem in mA.-->
+    <item name="modem.controller.rx">175</item>
+    <!-- Tx current for modem in mA.-->
     <array name="modem.controller.tx"> <!-- Strength 0 to 4 -->
         <value>1</value>
-        <value>51</value>
+        <value>5</value>
+        <value>26</value>
         <value>100</value>
-        <value>150</value>
-        <value>200</value>
+        <value>249</value>
     </array>
+    <!-- Operating voltage for modem in mV.-->
     <item name="modem.controller.voltage">3700</item>
+
+    <!-- GPS related values.-->
+    <array name="gps.signalqualitybased"> <!-- Strength 0 to 1 -->
+        <value>35</value>
+        <value>7</value>
+    </array>
+    <item name="gps.voltage">3700</item>
+
+    <!-- Idle current for bluetooth in mA.-->
+    <item name="bluetooth.controller.idle">0.01</item>
+    <!-- Rx current for bluetooth in mA.-->
+    <item name="bluetooth.controller.rx">8</item>
+    <!-- Tx current for bluetooth in mA-->
+    <item name="bluetooth.controller.tx">7</item>
+    <!-- Operating voltage for bluetooth in mV.-->
+    <item name="bluetooth.controller.voltage">3300</item>
 
 </device>

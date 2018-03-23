@@ -86,6 +86,7 @@ genfscon debugfs /tzdbg/qsee_log           u:object_r:debugfs_qsee_log:s0
 genfscon debugfs /ion                      u:object_r:debugfs_ion:s0
 genfscon debugfs /tcpm/9-0022              u:object_r:debugfs_usb:s0
 genfscon debugfs /ipc_logging/fusb302/log  u:object_r:debugfs_usb:s0
-genfscon debugfs /cnss_runtime_pm                     u:object_r:debugfs_runtime_pm:s0
-genfscon debugfs /cnss-prealloc/status                u:object_r:debugfs_cnss:s0
-genfscon debugfs /ufshcd0                             u:object_r:debugfs_ufs:s0
+genfscon debugfs /cnss_runtime_pm          u:object_r:debugfs_runtime_pm:s0
+genfscon debugfs /cnss-prealloc/status     u:object_r:debugfs_cnss:s0
+genfscon debugfs /ufshcd0                  u:object_r:debugfs_ufs:s0
+genfscon debugfs /fg_memif                 u:object_r:debugfs_fg_sram:s0
