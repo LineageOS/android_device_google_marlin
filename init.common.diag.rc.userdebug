@@ -122,10 +122,10 @@ service vendor.cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/vendor/wifi/cn
     disabled
     oneshot
 
-on property:persist.sys.crash_rcu=true
+on property:persist.vendor.sys.crash_rcu=true
     write /proc/sys/kernel/panic_on_rcu_stall 1
 
-on property:persist.sys.crash_rcu=false
+on property:persist.vendor.sys.crash_rcu=false
     write /proc/sys/kernel/panic_on_rcu_stall 0
 
 
