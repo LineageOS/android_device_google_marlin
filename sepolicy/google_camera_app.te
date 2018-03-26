@@ -37,4 +37,5 @@ allow google_camera_app system_app_data_file:file { read write getattr };
 # Read / execute vendor code from /vendor/lib[64]/dsp for HVX for Pixel Camera
 # TODO: b/37258244, This MUST be a specific exception instead of opening up
 # /vendor for the application. The policy build MUST also catch the violations
+typeattribute google_camera_app system_executes_vendor_violators;
 r_dir_file(google_camera_app, vendor_file)
