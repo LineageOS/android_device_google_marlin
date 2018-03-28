@@ -57,8 +57,8 @@ type debugfs_cnss, debugfs_type, fs_type;
 type debugfs_ufs, debugfs_type, fs_type;
 
 # /proc
-type proc_kernel_sched, fs_type;
-type proc_wifi_dbg, fs_type;
+type proc_kernel_sched, fs_type, proc_type;
+type proc_wifi_dbg, fs_type, proc_type;
 
 # /dev/socket needs to be file_type so init can create
 type cnd_socket, file_type;
@@ -73,7 +73,7 @@ type persist_data_file, file_type;
 type persist_display_file, file_type;
 
 # msm_irqbalance
-type proc_irq, fs_type;
+type proc_irq, fs_type, proc_type;
 type irqbalance_socket, file_type;
 
 # /vendor
