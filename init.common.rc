@@ -114,6 +114,9 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
+    # for android.hardware.health@2.0-service.marlin cycle count backup
+    mkdir /persist/battery 0700 system system
+
     # Start HW service manager early
     start hwservicemanager
 
@@ -369,6 +372,11 @@ on early-boot
     # wait for devices
     wait_for_prop sys.qcom.devup 1
 
+    # vendor.health-hal needs to be able to RW
+    chown system system /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+    # HardwareInfo needs to be able to read CC bins
+    chmod 644 /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+
 on boot
     # from init.power.sh
     # disable thermal hotplug to switch governor
@@ -524,9 +532,6 @@ on boot
     chown system system /d/fg_memif/data
     chown system system /d/fg_memif/count
     chown system system /d/fg_memif/address
-
-    # com.google.android.hardwareinfo needs to be able to read cycle counts
-    chmod 0666 /sys/class/power_supply/bms/cycle_count_id
 
 on property:wc_transport.start_hci=true
     start vendor.start_hci_filter
@@ -808,7 +813,7 @@ on property:sys.boot_completed=1
 
     # UFS health
     chmod 755 /sys/kernel/debug/ufshcd0
-    chown 644 /sys/kernel/debug/ufshcd0/err_state
+    chmod 644 /sys/kernel/debug/ufshcd0/err_state
     chmod 644 /sys/kernel/debug/ufshcd0/power_mode
     chmod 644 /sys/kernel/debug/ufshcd0/host_regs
     chmod 644 /sys/kernel/debug/ufshcd0/show_hba

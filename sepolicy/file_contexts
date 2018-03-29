@@ -131,6 +131,8 @@
 /vendor/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 /vendor/bin/init\.foreground\.sh   u:object_r:init_foreground_exec:s0
 
+/vendor/bin/hw/android\.hardware\.health@2\.0-service\.marlin          u:object_r:hal_health_default_exec:s0
+
 ###############################################
 # same-process HAL files and their dependencies
 #
@@ -202,6 +204,7 @@
 /persist(/.*)?          u:object_r:persist_file:s0
 /persist/data(/.*)?     u:object_r:persist_data_file:s0
 /persist/display(/.*)?  u:object_r:persist_display_file:s0
+/persist/battery(/.*)?  u:object_r:persist_battery_file:s0
 /persist/sensorcal\.json  u:object_r:sensors_cal_file:s0
 
 # hidraw dynamic sensor
