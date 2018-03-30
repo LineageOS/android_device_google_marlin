@@ -70,6 +70,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 
+# b/73640835
+PRODUCT_PROPERTY_OVERRIDES += \
+    sdm.debug.rotator_downscale=1
+
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.gradient_cache_size=1 \

@@ -200,12 +200,12 @@ TARGET_USES_MKE2FS := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
-BOARD_KERNEL_CMDLINE += mem=1152M
 MALLOC_SVELTE := true
 endif
 
 DEVICE_MANIFEST_FILE := device/google/marlin/manifest.xml
 DEVICE_MATRIX_FILE   := device/google/marlin/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/marlin/device_framework_matrix.xml
 
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
