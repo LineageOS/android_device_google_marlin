@@ -56,7 +56,7 @@ genfscon sysfs /devices/soc/6a00000.ssusb/power_supply                u:object_r
 genfscon sysfs /devices/soc/75b5000.i2c/i2c-7/7-001d/power_supply     u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/msm-bcl-14/power_supply                   u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                 u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/soc/qpnp-fg-17/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-fg-17                                u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply           u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
