@@ -626,3 +626,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable Perfetto traced
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.traced.enable=1
+
+# health HAL
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service.marlin

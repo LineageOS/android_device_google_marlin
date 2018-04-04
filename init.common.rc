@@ -114,6 +114,9 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
+    # for android.hardware.health@2.0-service.marlin cycle count backup
+    mkdir /persist/battery 0700 system system
+
     # Start HW service manager early
     start hwservicemanager
 
@@ -369,6 +372,11 @@ on early-boot
     # wait for devices
     wait_for_prop sys.qcom.devup 1
 
+    # vendor.health-hal needs to be able to RW
+    chown system system /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+    # HardwareInfo needs to be able to read CC bins
+    chmod 644 /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+
 on boot
     # from init.power.sh
     # disable thermal hotplug to switch governor
@@ -524,9 +532,6 @@ on boot
     chown system system /d/fg_memif/data
     chown system system /d/fg_memif/count
     chown system system /d/fg_memif/address
-
-    # com.google.android.hardwareinfo needs to be able to read cycle counts
-    chmod 0666 /sys/class/power_supply/bms/cycle_count_id
 
 on property:wc_transport.start_hci=true
     start vendor.start_hci_filter
@@ -808,7 +813,7 @@ on property:sys.boot_completed=1
 
     # UFS health
     chmod 755 /sys/kernel/debug/ufshcd0
-    chown 644 /sys/kernel/debug/ufshcd0/err_state
+    chmod 644 /sys/kernel/debug/ufshcd0/err_state
     chmod 644 /sys/kernel/debug/ufshcd0/power_mode
     chmod 644 /sys/kernel/debug/ufshcd0/host_regs
     chmod 644 /sys/kernel/debug/ufshcd0/show_hba
@@ -831,13 +836,22 @@ on sys-boot-completed-set && property:persist.sys.zram_enabled=1
 on property:sys.boot_completed=1 && property:ro.build.type=user
     write /proc/sys/kernel/modules_disabled 1
 
-# battery driver settings for the retail demo environment where
-# the device will be perpertually plugged in to a power source
+## charger driver exposes now finer grain control, map demo mode to those properties
+# demo mode can only be exit wipping data which will also reset the persist properties
 on property:sys.retaildemo.enabled=1
-    write /sys/class/power_supply/battery/full_level_dis_batt_chg 35
+    setprop persist.vendor.charge.stop.level 35
+    setprop persist.vendor.charge.start.level 30
 
+# system will not set the sys.retaildemo.enabled to 0 but this is used to set back to default charging
 on property:sys.retaildemo.enabled=0
-    write /sys/class/power_supply/battery/full_level_dis_batt_chg 100
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
+
+on property:persist.vendor.charge.stop.level=*
+    write /sys/module/htc_battery/parameters/charge_stop_level ${persist.vendor.charge.stop.level}
+
+on property:persist.vendor.charge.start.level=*
+    write /sys/module/htc_battery/parameters/charge_start_level ${persist.vendor.charge.start.level}
 
 service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
