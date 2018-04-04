@@ -134,6 +134,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
         dumpModem(fd, fdModem);
     }
 
+    RunCommandToFd(fd, "VENDOR PROPERTIES", {"/vendor/bin/getprop"});
     DumpFileToFd(fd, "CPU present", "/sys/devices/system/cpu/present");
     DumpFileToFd(fd, "CPU online", "/sys/devices/system/cpu/online");
     DumpFileToFd(fd, "INTERRUPTS", "/proc/interrupts");
