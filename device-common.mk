@@ -130,7 +130,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
-    android.hardware.nfc@1.0-service \
     android.hardware.power@1.1-service.marlin \
     android.hardware.sensors@1.0-service \
     android.hardware.vr@1.0-service \
@@ -463,10 +462,13 @@ PRODUCT_PACKAGES += \
 
 # NFC packages
 PRODUCT_PACKAGES += \
-    nfc_nci.msm8996 \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.0-impl
+    android.hardware.nfc@1.1-service \
+
+#Secure Element Service
+PRODUCT_PACKAGES += \
+    SecureElement \
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
