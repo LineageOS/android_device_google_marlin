@@ -102,6 +102,8 @@ on init
     write /proc/sys/vm/page-cluster 0
 
 on fs
+    # Start HW service manager early
+    start hwservicemanager
     mount_all /vendor/etc/fstab.${ro.hardware} --early
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -116,9 +118,6 @@ on fs
 
     # for android.hardware.health@2.0-service.marlin cycle count backup
     mkdir /persist/battery 0700 system system
-
-    # Start HW service manager early
-    start hwservicemanager
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
@@ -136,6 +135,10 @@ on late-fs
     start vendor.configstore-hal-1-0
     start vendor.gralloc-2-0
 
+    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
+    # In such case, init won't responce the property_set from hwservicemanager and then
+    # cause services for bootanim not running.
+    wait_for_prop hwservicemanager.ready true
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.${ro.hardware} --late
 
