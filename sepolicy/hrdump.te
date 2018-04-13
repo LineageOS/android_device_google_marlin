@@ -16,4 +16,7 @@ allow htc_ramdump ramdump_vendor_data_file:file { create_file_perms };
 allow htc_ramdump ramdump_vendor_data_file:dir { create_dir_perms };
 allow htc_ramdump block_device:dir { search };
 allow htc_ramdump ramdump_block_device:blk_file { open read };
+
+allow htc_ramdump proc_cmdline:file r_file_perms;
+r_dir_file(htc_ramdump, sysfs_dt_firmware_android)
 ')
