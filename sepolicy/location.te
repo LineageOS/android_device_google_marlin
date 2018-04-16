@@ -66,3 +66,5 @@ allow location netd:unix_stream_socket connectto;
 allow location port:tcp_socket name_connect;
 allow location self:tcp_socket { connect create read setopt write };
 allow location self:udp_socket { create ioctl read write };
+
+get_prop(location, wifi_prop)
