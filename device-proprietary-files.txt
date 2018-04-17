@@ -37,6 +37,9 @@ etc/permissions/com.android.sdm.plugins.sprintdm.xml
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/SprintHM/SprintHM.apk
 
+# Sysconfig
+etc/sysconfig/nexus.xml
+
 # VZW
 -app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
 etc/permissions/com.android.vzwomatrigger.xml
