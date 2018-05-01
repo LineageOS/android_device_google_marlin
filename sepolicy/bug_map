@@ -5,4 +5,3 @@ netd sysfs_pcie dir 77870037
 netutils_wrapper proc_net file 72099135
 netutils_wrapper sysfs_net file 72157903
 perfd perfd capability 77924406
-vendor_init unlabeled dir 77635294
