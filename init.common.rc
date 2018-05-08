@@ -380,6 +380,11 @@ on early-boot
     # HardwareInfo needs to be able to read CC bins
     chmod 644 /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
 
+    # dumpstate needs to read, vendor.health-hal needs to be able to RW
+    chown system system /sys/devices/soc/qpnp-fg-17/power_supply/bms/charge_full
+    # HardwareInfo needs to be able to read charge_full
+    chmod 644 /sys/devices/soc/qpnp-fg-17/power_supply/bms/charge_full
+
 on boot
     # from init.power.sh
     # disable thermal hotplug to switch governor
