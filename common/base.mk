@@ -128,7 +128,6 @@ AUDIO_POLICY += audio_policy.thorium
 #tinyalsa test apps
 TINY_ALSA_TEST_APPS := tinyplay
 TINY_ALSA_TEST_APPS += tinycap
-TINY_ALSA_TEST_APPS += tinymix
 TINY_ALSA_TEST_APPS += tinypcminfo
 TINY_ALSA_TEST_APPS += cplay
 
