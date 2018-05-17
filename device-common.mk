@@ -48,8 +48,15 @@ PRODUCT_COPY_FILES += \
 # copy customized media_profiles and media_codecs xmls for msm8996
 PRODUCT_COPY_FILES += \
     device/google/marlin/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
-    device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
+
+ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES += \
+    device/google/marlin/media_codecs_performance_svelte.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+else
+PRODUCT_COPY_FILES += \
     device/google/marlin/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+endif
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
