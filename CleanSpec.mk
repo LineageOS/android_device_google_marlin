@@ -107,3 +107,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.he
 
 # Remove android.hardware.audio*@2.0 implementation
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.audio*@2.0-impl.so)
+
+# Migrate to versioned VNDK directory layout
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
