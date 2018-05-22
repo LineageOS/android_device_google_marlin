@@ -80,3 +80,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardwa
 # Remove /system/lib[64]/vndk-sp/libz.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
+
+# Migrate to versioned VNDK directory layout
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
