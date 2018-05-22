@@ -334,10 +334,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.tnr.preview=1 \
     persist.camera.tnr.video=1
 
-# Set bluetooth soc to rome
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
     persist.radio.data_ltd_sys_ind=1 \
@@ -420,10 +416,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
-#Property of the BDA module path for loading BDA
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
-
 # Needed for encryption
 PRODUCT_PACKAGES += \
     keystore.msm8996 \
@@ -471,6 +463,19 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl-qti:64 \
     android.hardware.bluetooth@1.0-service-qti \
     android.hardware.bluetooth@1.0-service-qti.rc
+
+# Bluetooth SoC
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.qcom.bluetooth.soc=rome
+
+# Property for loading BDA from bdaddress module in kernel
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
+
+# Bluetooth WiPower
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.bluetooth.emb_wp_mode=true \
+    ro.vendor.bluetooth.wipower=true
 
 # NFC packages
 PRODUCT_PACKAGES += \

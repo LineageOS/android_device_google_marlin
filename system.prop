@@ -92,19 +92,6 @@ telephony.lteOnCdmaDevice=1
 #
 persist.fuse_sdcard=true
 
-#system prop for Bluetooth SOC type
-qcom.bluetooth.soc=rome
-
-#system prop for wipower support
-ro.bluetooth.wipower=true
-
-#Set this true as ROME which is programmed
-#as embedded wipower mode by deafult
-ro.bluetooth.emb_wp_mode=true
-
-#Property for loading BDA from bdaddress module in kernel
-ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
-
 #
 #snapdragon value add features
 #
