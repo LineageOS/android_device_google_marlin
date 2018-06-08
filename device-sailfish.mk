@@ -44,7 +44,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sailfish \
-    device/google/marlin/init.recovery.common.rc:root/init.recovery.sailfish.rc
+    device/google/marlin/audio_platform_info_tasha_sailfish.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
+    device/google/marlin/init.recovery.common.rc:recovery/root/init.recovery.sailfish.rc
 
 # Sensor packages
 PRODUCT_PACKAGES += \
@@ -65,3 +66,12 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprint.sailfish
+
+$(call add-product-sanitizer-module-config,wpa_supplicant,never)
+$(call add-product-sanitizer-module-config,toybox_vendor,never)
+$(call add-product-sanitizer-module-config,thermal-engine,never)
+$(call add-product-sanitizer-module-config,netmgrd,never)
+$(call add-product-sanitizer-module-config,mm-camera,never)
+$(call add-product-sanitizer-module-config,myftm,never)
+$(call add-product-sanitizer-module-config,libqcril,never)
+$(call add-product-sanitizer-module-config,hostapd,never)

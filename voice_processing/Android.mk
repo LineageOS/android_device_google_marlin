@@ -26,6 +26,8 @@ LOCAL_C_INCLUDES += \
 
 LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
 
+LOCAL_HEADER_LIBRARIES := libhardware_headers
+
 LOCAL_MODULE := libqcomvoiceprocessingdescriptors
 
 LOCAL_MODULE_RELATIVE_PATH := soundfx

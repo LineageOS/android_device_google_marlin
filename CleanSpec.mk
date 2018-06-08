@@ -73,13 +73,40 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib64/vndk-sp/libz.s
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 
+# Remove init.recovery.*.rc file in root directory (only needed in recovery root).
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.marlin.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.sailfish.rc)
+
 # Remove /system/lib[64]/vndk-sp/android.hardware.graphics.allocator@2.0.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/android.hardware.graphics.allocator@2.0.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardware.graphics.allocator@2.0.so)
 
+# Remove /vendor/lib[64]/hw/android.hardware.contexthub@1.0-impl.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.contexthub@1.0-impl.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.contexthub@1.0-impl.so)
+
 # Remove /system/lib[64]/vndk-sp/libz.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
+
+# Remove all HALs (actual bitness now being specified)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/*)
+
+# Remove Clearkey HAL 1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.clearkey.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.clearkey)
+
+# Remove Widevine HAL 1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.widevine)
+
+# Health HAL 2.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.health@2.0-service)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.health@2.0-service.rc)
+
+# Remove android.hardware.audio*@2.0 implementation
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.audio*@2.0-impl.so)
 
 # Migrate to versioned VNDK directory layout
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)

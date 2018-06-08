@@ -39,6 +39,8 @@ ifneq ($(TARGET_USES_AOSP),true)
     LOCAL_CFLAGS += -DEXTRA_POWERHAL_HINTS
 endif
 
+LOCAL_HEADER_LIBRARIES := libhardware_headers
+
 LOCAL_SHARED_LIBRARIES := \
     libbase \
     libcutils \

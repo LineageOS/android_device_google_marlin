@@ -55,7 +55,7 @@ genfscon sysfs /devices/soc/6a00000.ssusb/power_supply                u:object_r
 genfscon sysfs /devices/soc/75b5000.i2c/i2c-7/7-001d/power_supply     u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/msm-bcl-14/power_supply                   u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                 u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/soc/qpnp-fg-17/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-fg-17                                u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply           u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/virtual/timed_output/vibrator/voltage_level   u:object_r:sysfs_vibrator:s0
 genfscon sysfs /module/diagchar/parameters/timestamp_switch           u:object_r:sysfs_timestamp_switch:s0
@@ -85,6 +85,7 @@ genfscon debugfs /tzdbg/qsee_log           u:object_r:debugfs_qsee_log:s0
 genfscon debugfs /ion                      u:object_r:debugfs_ion:s0
 genfscon debugfs /tcpm/9-0022              u:object_r:debugfs_usb:s0
 genfscon debugfs /ipc_logging/fusb302/log  u:object_r:debugfs_usb:s0
-genfscon debugfs /cnss_runtime_pm                     u:object_r:debugfs_runtime_pm:s0
-genfscon debugfs /cnss-prealloc/status                u:object_r:debugfs_cnss:s0
-genfscon debugfs /ufshcd0                             u:object_r:debugfs_ufs:s0
+genfscon debugfs /cnss_runtime_pm          u:object_r:debugfs_runtime_pm:s0
+genfscon debugfs /cnss-prealloc/status     u:object_r:debugfs_cnss:s0
+genfscon debugfs /ufshcd0                  u:object_r:debugfs_ufs:s0
+genfscon debugfs /fg_memif                 u:object_r:debugfs_fg_sram:s0

@@ -4,6 +4,8 @@ on post-fs-data
     # Modem logging collection
     mkdir /data/vendor/radio 0775 radio radio
     mkdir /data/vendor/radio/diag_logs 0777 system system
+    chmod 777 /data/vendor/radio/diag_logs/cfg
+    chmod 777 /data/vendor/radio/diag_logs/custom_cfg
     # WLAN logging collection
     mkdir /data/vendor/wifi 0777 system system
     mkdir /data/vendor/wifi/cnss_diag 0777 system system
@@ -96,40 +98,47 @@ on property:sys.usb.config=diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,ad
     setprop sys.usb.state ${sys.usb.config}
 
 on property:persist.sys.cnss.diag_qxdm=true
-    start cnss_diag
+    start vendor.cnss_diag
 
 on property:persist.sys.cnss.diag_qxdm=false
-    stop cnss_diag
+    stop vendor.cnss_diag
 
 on property:persist.sys.cnss.diag_txt=true
-    start cnss_diag_txt
+    start vendor.cnss_diag_txt
 
 on property:persist.sys.cnss.diag_txt=false
-    stop cnss_diag_txt
+    stop vendor.cnss_diag_txt
 
-service cnss_diag /vendor/bin/cnss_diag -q -u
+service vendor.cnss_diag /vendor/bin/cnss_diag -q -u
     class late_start
     user system
     group system
     oneshot
 
-service cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/vendor/wifi/cnss_diag/cnss_diag.conf
+service vendor.cnss_diag_txt /vendor/bin/cnss_diag -s -f -m /data/vendor/wifi/cnss_diag/cnss_diag.conf
     class late_start
     user system
     group system
     disabled
     oneshot
 
-on property:persist.sys.crash_rcu=true
+on property:persist.vendor.sys.crash_rcu=true
     write /proc/sys/kernel/panic_on_rcu_stall 1
 
-on property:persist.sys.crash_rcu=false
+on property:persist.vendor.sys.crash_rcu=false
     write /proc/sys/kernel/panic_on_rcu_stall 0
 
+
 on property:sys.logger.bluetooth=true
-   setprop persist.service.bdroid.snooplog true
-   setprop persist.service.bdroid.fwsnoop true
+   setprop persist.vendor.service.bdroid.snooplog true
+   setprop persist.vendor.service.bdroid.fwsnoop true
 
 on property:sys.logger.bluetooth=false
-   setprop persist.service.bdroid.snooplog false
-   setprop persist.service.bdroid.fwsnoop false
+   setprop persist.vendor.service.bdroid.snooplog false
+   setprop persist.vendor.service.bdroid.fwsnoop false
+
+on property:persist.bluetooth.btsnoopenable=true
+   setprop persist.vendor.service.bdroid.soclog true
+
+on property:persist.bluetooth.btsnoopenable=false
+   setprop persist.vendor.service.bdroid.soclog false

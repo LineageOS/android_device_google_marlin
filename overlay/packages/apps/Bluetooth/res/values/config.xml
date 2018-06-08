@@ -32,6 +32,5 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <bool name="profile_supported_avrcp_controller">false</bool>
     <bool name="profile_supported_a2dp_sink">false</bool>
     <bool name="profile_supported_sap">true</bool>
-    <bool name="profile_supported_hearing_aid">true</bool>
 </resources>
 

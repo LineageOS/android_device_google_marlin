@@ -27,7 +27,8 @@ endif
 PRODUCT_SHIPPING_API_LEVEL := 25
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernel \
+    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 
@@ -47,8 +48,15 @@ PRODUCT_COPY_FILES += \
 # copy customized media_profiles and media_codecs xmls for msm8996
 PRODUCT_COPY_FILES += \
     device/google/marlin/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
-    device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/google/marlin/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
+
+ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES += \
+    device/google/marlin/media_codecs_performance_svelte.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+else
+PRODUCT_COPY_FILES += \
     device/google/marlin/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+endif
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -62,13 +70,13 @@ $(call inherit-product, device/google/marlin/common/common64.mk)
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += TelephonyMonitor
-endif
-
 # graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
+
+# b/73640835
+PRODUCT_PROPERTY_OVERRIDES += \
+    sdm.debug.rotator_downscale=1
 
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -96,17 +104,17 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
     device/google/marlin/sound_trigger_mixer_paths_tasha_t50.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths_tasha_t50.xml \
     device/google/marlin/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
-    device/google/marlin/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     device/google/marlin/audio_platform_info_tasha_t50.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha_t50.xml \
     device/google/marlin/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     device/google/marlin/audio_policy_volumes_drc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_drc.xml \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
 
 # Enable AAudio MMAP/NOIRQ data path.
 # 2 is AAUDIO_POLICY_AUTO so it will try MMAP then fallback to Legacy path.
@@ -124,7 +132,6 @@ PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
-    android.hardware.bluetooth@1.0-service \
     android.hardware.contexthub@1.0-service \
     android.hardware.gnss@1.0-service \
     android.hardware.drm@1.0-service \
@@ -142,11 +149,11 @@ PRODUCT_PACKAGES += \
 
 # Light HAL
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl:64
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-impl:64 \
     android.hardware.keymaster@3.0-service
 
 # Usb HAL
@@ -168,12 +175,12 @@ PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.soundtrigger@2.0-impl
+    android.hardware.audio@4.0-impl:32 \
+    android.hardware.audio.effect@4.0-impl:32 \
+    android.hardware.soundtrigger@2.1-impl:32
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
+    android.hardware.drm@1.0-impl:32
 
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
@@ -252,7 +259,7 @@ PRODUCT_COPY_FILES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
 # Common sensor packages
@@ -263,9 +270,8 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 
 PRODUCT_PACKAGES += \
-    context_hub.default \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl \
+    android.hardware.sensors@1.0-impl:64 \
+    android.hardware.contexthub@1.0-impl.nanohub:64 \
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
@@ -317,15 +323,16 @@ else
 $(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
 endif  #TARGET_PRODUCT
 
+# By default, enable zram; experiment can toggle the flag,
+# which takes effect on boot
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.zram_enabled=1
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.gyro.android=4 \
     persist.camera.tof.direct=1 \
     persist.camera.tnr.preview=1 \
     persist.camera.tnr.video=1
-
-# Set bluetooth soc to rome
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
@@ -409,10 +416,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
-#Property of the BDA module path for loading BDA
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
-
 # Needed for encryption
 PRODUCT_PACKAGES += \
     keystore.msm8996 \
@@ -457,8 +460,22 @@ AB_OTA_PARTITIONS += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl-qti:64 \
+    android.hardware.bluetooth@1.0-service-qti \
+    android.hardware.bluetooth@1.0-service-qti.rc
+
+# Bluetooth SoC
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.qcom.bluetooth.soc=rome
+
+# Property for loading BDA from bdaddress module in kernel
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
+
+# Bluetooth WiPower
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.bluetooth.emb_wp_mode=true \
+    ro.vendor.bluetooth.wipower=true
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -472,7 +489,7 @@ PRODUCT_PACKAGES += \
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl:64
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -480,22 +497,22 @@ PRODUCT_PACKAGES += \
 
 # VR
 PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl
+    android.hardware.vr@1.0-impl:64
 
 # Gralloc
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl
 
 # HW Composer
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-impl:64 \
     android.hardware.graphics.composer@2.1-service
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-impl:64 \
     android.hardware.boot@1.0-service
 
 # Library used for VTS tests  (only for userdebug and eng builds)
@@ -606,9 +623,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
+# Privileged permissions whitelist
+PRODUCT_COPY_FILES += \
+    device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
+
 PRODUCT_PACKAGES += \
     vndk-sp
+
+# Marlin/Sailfish kernel doesn't have HEH filename encryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Enable Perfetto traced
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.traced.enable=1
+
+# health HAL
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service.marlin
