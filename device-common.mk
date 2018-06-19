@@ -26,6 +26,9 @@ endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
 
+# Setting vendor SPL
+VENDOR_SECURITY_PATCH := "2019-02-05"
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
