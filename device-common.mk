@@ -29,6 +29,9 @@ endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
 
+# Setting vendor SPL
+VENDOR_SECURITY_PATCH := "2019-09-05"
+
 PRODUCT_SOONG_NAMESPACES += \
     device/google/marlin \
     vendor/google/camera \
