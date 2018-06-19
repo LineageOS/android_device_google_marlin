@@ -55,6 +55,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        # Fix typo in qcrilmsgtunnel whitelist
+        product/etc/sysconfig/nexus.xml)
+        sed -i 's/qulacomm/qualcomm/' "${2}"
+            ;;
         # Patch blobs to load versioned libprotobuf from SDK 29, as SDK 30 removed some symbols
         vendor/bin/cnd)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
