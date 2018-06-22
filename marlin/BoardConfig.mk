@@ -3,6 +3,9 @@
 # Product-specific compile-time definitions
 #
 
+# BUILD_BROKEN_*
+BUILD_BROKEN_DUP_RULES := true
+
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOOTLOADER_BOARD_NAME := marlin
 TARGET_BOARD_INFO_FILE := device/google/marlin/marlin/board-info.txt
