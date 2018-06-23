@@ -10,11 +10,5 @@
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
             system/framework/qcrilhook.jar \
-            system/lib/libclcore_neon.bc \
-            system/lib64/libminui.so \
-            system/lib64/libbcc.so \
-            system/lib/libion.so \
-            system/lib64/libLLVM_android.so \
-            system/lib/libminui.so \
             "
     ;;
