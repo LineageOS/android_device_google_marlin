@@ -26,7 +26,7 @@ PRODUCT_NAME := aosp_marlin_svelte
 PRODUCT_DEVICE := marlin
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP svelte on msm8996
-PRODUCT_MANUFACTURER := google
+PRODUCT_MANUFACTURER := Google
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
 TARGET_PREBUILT_KERNEL := device/google/marlin-kernel/Image.gz-dtb.svelte
