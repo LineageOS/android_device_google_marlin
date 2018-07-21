@@ -20,13 +20,9 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
     vendor/qcom/sailfish/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
     vendor/qcom/sailfish/proprietary/libclcore_neon.bc:system/lib/libclcore_neon.bc:qcom \
-    vendor/qcom/sailfish/proprietary/lib64/libiperf.so:system/lib64/libiperf.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libminui.so:system/lib64/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libbcc.so:system/lib64/libbcc.so:qcom \
     vendor/qcom/sailfish/proprietary/libion.so:system/lib/libion.so:qcom \
-    vendor/qcom/sailfish/proprietary/libiperf.so:system/lib/libiperf.so:qcom \
     vendor/qcom/sailfish/proprietary/lib64/libLLVM_android.so:system/lib64/libLLVM_android.so:qcom \
     vendor/qcom/sailfish/proprietary/libminui.so:system/lib/libminui.so:qcom \
-    vendor/qcom/sailfish/proprietary/iperf3:system/xbin/iperf3:qcom \
-    vendor/qcom/sailfish/proprietary/sanitizer-status:system/xbin/sanitizer-status:qcom \
 
