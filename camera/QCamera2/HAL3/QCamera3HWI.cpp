@@ -2472,6 +2472,8 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     // Update state
     mState = CONFIGURED;
 
+    memset(&mLastEISCropInfo, 0, sizeof(mLastEISCropInfo));
+
     if (streamList->session_parameters != nullptr) {
         CameraMetadata meta;
         meta = streamList->session_parameters;
@@ -3475,6 +3477,56 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                     internalPproc = true;
                     QCamera3ProcessingChannel *channel =
                             (QCamera3ProcessingChannel *)iter->stream->priv;
+
+                    if (iter->need_crop) {
+                        QCamera3Stream *stream = channel->getStreamByIndex(0);
+
+                        // Map the EIS crop to respective stream crop and append it.
+                        IF_META_AVAILABLE(cam_crop_data_t, crop_data, CAM_INTF_META_CROP_DATA,
+                                metadata) {
+                            for (int j = 0; j < crop_data->num_of_streams; j++) {
+                                if ((stream != nullptr) &&
+                                        (stream->getMyServerID() ==
+                                         crop_data->crop_info[j].stream_id)) {
+
+                                    cam_dimension_t streamDim;
+                                    if (stream->getFrameDimension(streamDim) != NO_ERROR) {
+                                        LOGE("%s: Failed obtaining stream dimensions!", __func__);
+                                        continue;
+                                    }
+
+                                    mStreamCropMapper.update(
+                                            gCamCapability[mCameraId]->active_array_size.width,
+                                            gCamCapability[mCameraId]->active_array_size.height,
+                                            streamDim.width, streamDim.height);
+
+                                    cam_eis_crop_info_t eisCrop = iter->crop_info;
+                                    mStreamCropMapper.toSensor(eisCrop.delta_x, eisCrop.delta_y,
+                                            eisCrop.delta_width, eisCrop.delta_height);
+
+                                    int32_t crop[4] = {
+                                        crop_data->crop_info[j].crop.left   + eisCrop.delta_x,
+                                        crop_data->crop_info[j].crop.top    + eisCrop.delta_y,
+                                        crop_data->crop_info[j].crop.width  - eisCrop.delta_width,
+                                        crop_data->crop_info[j].crop.height - eisCrop.delta_height
+                                    };
+
+                                    if (isCropValid(crop[0], crop[1], crop[2], crop[3],
+                                                streamDim.width, streamDim.height)) {
+                                        crop_data->crop_info[j].crop.left   = crop[0];
+                                        crop_data->crop_info[j].crop.top    = crop[1];
+                                        crop_data->crop_info[j].crop.width  = crop[2];
+                                        crop_data->crop_info[j].crop.height = crop[3];
+                                    } else {
+                                        LOGE("Invalid EIS compensated crop region");
+                                    }
+
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
                     channel->queueReprocMetadata(metadata_buf);
                     break;
                 }
@@ -4373,6 +4425,12 @@ no_error:
                 }
 
                 pendingBufferIter->need_metadata = true;
+
+                if (isEISCropInSnapshotNeeded(meta)) {
+                    pendingBufferIter->need_crop = true;
+                    pendingBufferIter->crop_info = mLastEISCropInfo;
+                }
+
                 streams_need_metadata++;
             }
         } else if (output.stream->format == HAL_PIXEL_FORMAT_YCbCr_420_888) {
@@ -5494,6 +5552,14 @@ QCamera3HardwareInterface::translateFromHalMetadata(
     // Fixed whitelevel is used by ISP/Sensor
     camMetadata.update(ANDROID_SENSOR_DYNAMIC_WHITE_LEVEL,
             &gCamCapability[mCameraId]->white_level, 1);
+
+    IF_META_AVAILABLE(cam_eis_crop_info_t, eisCropInfo,
+            CAM_INTF_META_EIS_CROP_INFO, metadata) {
+        mLastEISCropInfo = *eisCropInfo;
+
+        mCropRegionMapper.toActiveArray(mLastEISCropInfo.delta_x, mLastEISCropInfo.delta_y,
+                mLastEISCropInfo.delta_width, mLastEISCropInfo.delta_height);
+    }
 
     IF_META_AVAILABLE(cam_crop_region_t, hScalerCropRegion,
             CAM_INTF_META_SCALER_CROP_REGION, metadata) {
@@ -9168,6 +9234,68 @@ int32_t QCamera3HardwareInterface::setReprocParameters(
     }
 
     return rc;
+}
+
+/*===========================================================================
+ * FUNCTION   : isEISCropInSnapshotNeeded
+ *
+ * DESCRIPTION: In case EIS is active, check whether additional crop is needed
+ *              to avoid FOV jumps in snapshot streams.
+ *
+ * PARAMETERS : @metadata: Current request settings.
+ *
+ * RETURN     : True in case EIS crop is needed, False otherwise.
+ *==========================================================================*/
+bool QCamera3HardwareInterface::isEISCropInSnapshotNeeded(const CameraMetadata &metadata) const
+{
+    if (metadata.exists(ANDROID_CONTROL_VIDEO_STABILIZATION_MODE)) {
+        uint8_t vstabMode =
+            metadata.find(ANDROID_CONTROL_VIDEO_STABILIZATION_MODE).data.u8[0];
+        if (vstabMode == ANDROID_CONTROL_VIDEO_STABILIZATION_MODE_ON) {
+            if ((mLastEISCropInfo.delta_x != 0) || (mLastEISCropInfo.delta_y != 0) ||
+                    (mLastEISCropInfo.delta_width != 0) || (mLastEISCropInfo.delta_height != 0)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+/*===========================================================================
+ * FUNCTION   : isCropValid
+ *
+ * DESCRIPTION: Crop sanity checks.
+ *
+ * PARAMETERS : @startX: Horizontal crop offset.
+ *              @startY: Vertical crop offset.
+ *              @width: Crop width.
+ *              @height: Crop height.
+ *              @maxWidth: Horizontal maximum size.
+ *              @maxHeight: Vertical maximum size.
+ *
+ * RETURN     : True in case crop is valid, False otherwise.
+ *==========================================================================*/
+bool QCamera3HardwareInterface::isCropValid(int32_t startX, int32_t startY, int32_t width,
+        int32_t height, int32_t maxWidth, int32_t maxHeight) const
+{
+    if ((startX < 0) || (startY < 0) || (startX >= maxWidth) || (startY >= maxHeight)) {
+        LOGE("Crop offset is invalid: %dx%d", startX, startY);
+        return false;
+    }
+
+    if ((width < 0) || (height < 0) || (width >= maxWidth) || (height >= maxHeight)) {
+        LOGE("Crop dimensions are invalid: %dx%d", width, height);
+        return false;
+    }
+
+    if (((startX + width) > maxWidth)  || ((startY + height) > maxHeight)) {
+        LOGE("Crop is out of bounds: %dx%d max %dx%d", startX + width, startY + height, maxWidth,
+                maxHeight);
+        return false;
+    }
+
+    return true;
 }
 
 /*===========================================================================
