@@ -55,5 +55,8 @@ etc/permissions/com.verizon.services.xml
 etc/permissions/features-verizon.xml
 etc/permissions/vzw_mvs_permissions.xml
 -framework/VerizonUnifiedSettings.jar;PRESIGNED
+priv-app/MyVerizonServices/lib/arm64/libmotricity.so
+-priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
 -priv-app/VerizonAuthDialog/VerizonAuthDialog.apk;PRESIGNED
 -priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
+-priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
