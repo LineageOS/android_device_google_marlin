@@ -34,6 +34,6 @@ $(call inherit-product, device/google/marlin/device-sailfish.mk)
 $(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor-sailfish.mk)
 
 PRODUCT_PACKAGES += \
-    Launcher3 \
+    Launcher3QuickStep \
     WallpaperPicker
 

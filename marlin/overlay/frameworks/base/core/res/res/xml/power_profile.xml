@@ -17,10 +17,7 @@
 */
 -->
 <device name="Android">
-    <!-- All values are in mAh except as noted -->
-
-    <!-- Nothing -->
-    <item name="none">0</item>
+    <!-- All values are in mA except as noted -->
 
     <!-- This is the battery capacity in mAh -->
     <item name="battery.capacity">3450</item>
@@ -32,13 +29,24 @@
     </array>
 
     <!-- Power consumption when CPU is suspended -->
-    <item name="cpu.idle">5.734</item>
+    <item name="cpu.suspend">5.734</item>
     <!-- Additional power consumption when CPU is in a kernel idle loop -->
-    <item name="cpu.awake">1.389</item>
+    <item name="cpu.idle">1.389</item>
+
+    <!-- Additional power consumption by CPU excluding cluster and core when
+         running -->
+    <item name="cpu.active">18.760</item>
+
+    <!-- Additional power consumption by CPU cluster0 itself when running
+         excluding cores in it -->
+    <item name="cpu.cluster_power.cluster0">14.748</item>
+    <!-- Additional power consumption by CPU cluster1 itself when running
+         excluding cores in it -->
+    <item name="cpu.cluster_power.cluster1">21.155</item>
 
     <!-- Different CPU speeds as reported in
          /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies -->
-    <array name="cpu.speeds.cluster0">
+    <array name="cpu.core_speeds.cluster0">
         <value>307200</value> <!-- 307 MHz CPU speed -->
         <value>384000</value> <!-- 384 MHz CPU speed -->
         <value>460800</value> <!-- 460 MHz CPU speed -->
@@ -57,11 +65,10 @@
         <value>1440000</value> <!-- 1440 MHz CPU speed -->
         <value>1516800</value> <!-- 1516 MHz CPU speed -->
         <value>1593600</value> <!-- 1593 MHz CPU speed -->
-        <value>2188800</value> <!-- 2188 MHz CPU speed -->
     </array>
     <!-- Different CPU speeds as reported in
          /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies -->
-    <array name="cpu.speeds.cluster1">
+    <array name="cpu.core_speeds.cluster1">
         <value>307200</value> <!-- 307 MHz CPU speed -->
         <value>384000</value> <!-- 384 MHz CPU speed -->
         <value>460800</value> <!-- 460 MHz CPU speed -->
@@ -87,59 +94,57 @@
         <value>1977600</value> <!-- 1977 MHz CPU speed -->
         <value>2054400</value> <!-- 2054 MHz CPU speed -->
         <value>2150400</value> <!-- 2150 MHz CPU speed -->
-        <value>2246400</value> <!-- 2246 MHz CPU speed -->
-        <value>2342400</value> <!-- 2342 MHz CPU speed -->
     </array>
-    <!-- Additional power used by a CPU from cluster 0 when running at different
-         speeds. Currently this measurement also includes cluster cost. -->
-    <array name="cpu.active.cluster0">
-        <value>84.302</value> <!-- 307 MHz CPU speed -->
-        <value>87.947</value> <!-- 384 MHz CPU speed -->
-        <value>93.165</value> <!-- 460 MHz CPU speed -->
-        <value>96.653</value> <!-- 537 MHz CPU speed -->
-        <value>101.082</value> <!-- 614 MHz CPU speed -->
-        <value>107.458</value> <!-- 691 MHz CPU speed -->
-        <value>110.659</value> <!-- 768 MHz CPU speed -->
-        <value>115.662</value> <!-- 844 MHz CPU speed -->
-        <value>117.418</value> <!-- 902 MHz CPU speed -->
-        <value>133.042</value> <!-- 979 MHz CPU speed -->
-        <value>140.037</value> <!-- 1056 MHz CPU speed -->
-        <value>153.133</value> <!-- 1132 MHz CPU speed -->
-        <value>163.144</value> <!-- 1209 MHz CPU speed -->
-        <value>178.151</value> <!-- 1286 MHz CPU speed -->
-        <value>192.194</value> <!-- 1363 MHz CPU speed -->
-        <value>199.216</value> <!-- 1440 MHz CPU speed -->
-        <value>218.015</value> <!-- 1516 MHz CPU speed -->
-        <value>238.418</value> <!-- 1593 MHz CPU speed -->
+    <!-- Additional power used by a CPU core from cluster 0 when running at
+         different speeds, excluding cluster and active cost -->
+    <array name="cpu.core_power.cluster0">
+        <value>11.272</value> <!-- 307 MHz CPU speed -->
+        <value>14.842</value> <!-- 384 MHz CPU speed -->
+        <value>18.497</value> <!-- 460 MHz CPU speed -->
+        <value>22.518</value> <!-- 537 MHz CPU speed -->
+        <value>25.967</value> <!-- 614 MHz CPU speed -->
+        <value>31.694</value> <!-- 691 MHz CPU speed -->
+        <value>37.673</value> <!-- 768 MHz CPU speed -->
+        <value>42.859</value> <!-- 844 MHz CPU speed -->
+        <value>46.872</value> <!-- 902 MHz CPU speed -->
+        <value>57.920</value> <!-- 979 MHz CPU speed -->
+        <value>67.561</value> <!-- 1056 MHz CPU speed -->
+        <value>76.303</value> <!-- 1132 MHz CPU speed -->
+        <value>87.613</value> <!-- 1209 MHz CPU speed -->
+        <value>97.045</value> <!-- 1286 MHz CPU speed -->
+        <value>109.544</value> <!-- 1363 MHz CPU speed -->
+        <value>122.054</value> <!-- 1440 MHz CPU speed -->
+        <value>136.345</value> <!-- 1516 MHz CPU speed -->
+        <value>154.435</value> <!-- 1593 MHz CPU speed -->
     </array>
-    <!-- Additional power used by a CPU from cluster 1 when running at different
-         speeds. Currently this measurement also includes cluster cost. -->
-    <array name="cpu.active.cluster1">
-        <value>86.913</value> <!-- 307 MHz CPU speed -->
-        <value>90.690</value> <!-- 384 MHz CPU speed -->
-        <value>94.997</value> <!-- 460 MHz CPU speed -->
-        <value>99.419</value> <!-- 537 MHz CPU speed -->
-        <value>103.335</value> <!-- 614 MHz CPU speed -->
-        <value>109.651</value> <!-- 691 MHz CPU speed -->
-        <value>113.080</value> <!-- 748 MHz CPU speed -->
-        <value>119.471</value> <!-- 825 MHz CPU speed -->
-        <value>123.945</value> <!-- 902 MHz CPU speed -->
-        <value>135.673</value> <!-- 979 MHz CPU speed -->
-        <value>145.747</value> <!-- 1056 MHz CPU speed -->
-        <value>158.779</value> <!-- 1132 MHz CPU speed -->
-        <value>164.459</value> <!-- 1209 MHz CPU speed -->
-        <value>177.707</value> <!-- 1286 MHz CPU speed -->
-        <value>187.637</value> <!-- 1363 MHz CPU speed -->
-        <value>203.735</value> <!-- 1440 MHz CPU speed -->
-        <value>222.029</value> <!-- 1516 MHz CPU speed -->
-        <value>233.814</value> <!-- 1593 MHz CPU speed -->
-        <value>253.472</value> <!-- 1670 MHz CPU speed -->
-        <value>268.039</value> <!-- 1747 MHz CPU speed -->
-        <value>291.519</value> <!-- 1824 MHz CPU speed -->
-        <value>304.670</value> <!-- 1900 MHz CPU speed -->
-        <value>330.694</value> <!-- 1977 MHz CPU speed -->
-        <value>357.964</value> <!-- 2054 MHz CPU speed -->
-        <value>381.248</value> <!-- 2150 MHz CPU speed -->
+    <!-- Additional power used by a CPU core from cluster 1 when running at
+         different speeds, excluding cluster and active cost -->
+    <array name="cpu.core_power.cluster1">
+        <value>7.055</value> <!-- 307 MHz CPU speed -->
+        <value>11.483</value> <!-- 384 MHz CPU speed -->
+        <value>14.979</value> <!-- 460 MHz CPU speed -->
+        <value>19.642</value> <!-- 537 MHz CPU speed -->
+        <value>23.167</value> <!-- 614 MHz CPU speed -->
+        <value>27.479</value> <!-- 691 MHz CPU speed -->
+        <value>31.632</value> <!-- 748 MHz CPU speed -->
+        <value>39.192</value> <!-- 825 MHz CPU speed -->
+        <value>47.817</value> <!-- 902 MHz CPU speed -->
+        <value>55.659</value> <!-- 979 MHz CPU speed -->
+        <value>64.908</value> <!-- 1056 MHz CPU speed -->
+        <value>73.824</value> <!-- 1132 MHz CPU speed -->
+        <value>85.299</value> <!-- 1209 MHz CPU speed -->
+        <value>96.036</value> <!-- 1286 MHz CPU speed -->
+        <value>109.233</value> <!-- 1363 MHz CPU speed -->
+        <value>118.560</value> <!-- 1440 MHz CPU speed -->
+        <value>132.959</value> <!-- 1516 MHz CPU speed -->
+        <value>143.692</value> <!-- 1593 MHz CPU speed -->
+        <value>161.378</value> <!-- 1670 MHz CPU speed -->
+        <value>180.616</value> <!-- 1747 MHz CPU speed -->
+        <value>193.897</value> <!-- 1824 MHz CPU speed -->
+        <value>214.361</value> <!-- 1900 MHz CPU speed -->
+        <value>238.338</value> <!-- 1977 MHz CPU speed -->
+        <value>265.759</value> <!-- 2054 MHz CPU speed -->
+        <value>297.918</value> <!-- 2150 MHz CPU speed -->
     </array>
 
     <!-- Additional power used when screen is turned on at minimum brightness -->
@@ -156,37 +161,51 @@
          minute. -->
     <item name="camera.avg">1152.292</item>
 
-    <!-- Additional power used when audio decoding/encoding via DSP -->
-    <item name="dsp.audio">25.00</item>
+    <!-- Additional power used when video is playing -->
+    <item name="video">50.93</item>
+    <!-- Additional power used when audio is playing -->
+    <item name="audio">75.60</item>
 
-    <!-- Additional power used when GPS is acquiring a signal -->
-    <item name="gps.on">10.23</item>
+    <!-- Idle current for wifi radio in mA.-->
+    <item name="wifi.controller.idle">2</item>
+    <!-- Rx current for wifi radio in mA.-->
+    <item name="wifi.controller.rx">107</item>
+    <!-- Tx current for wifi radio in mA-->
+    <item name="wifi.controller.tx">371</item>
+    <!-- Operating voltage for wifi radio in mV.-->
+    <item name="wifi.controller.voltage">3700</item>
 
-    <!-- Additional power used when Wi-Fi is turned on but not receiving,
-         transmitting, or scanning -->
-    <item name="wifi.on">2</item>
-    <!-- Additional power used when transmitting or receiving over Wi-Fi -->
-    <item name="wifi.active">160</item>
-    <!-- Additional power used when Wi-Fi is scanning for access points -->
-    <item name="wifi.scan">25</item>
-
-    <!-- mA. Current figures based on .0801 s/c and 75.48mA while scanning -->
-    <array name="wifi.batchedscan">
-        <value>0.0002</value> <!-- 1-8/hr -->
-        <value>0.002</value>  <!-- 9-64/hr -->
-        <value>0.02</value>   <!-- 65-512/hr -->
-        <value>0.2</value>    <!-- 513-4,096/hr -->
-        <value>2</value>    <!-- 4097-/hr -->
+    <!-- Cellular modem related values.-->
+    <item name="modem.controller.sleep">0</item>
+    <!-- Idle current for modem in mA.-->
+    <item name="modem.controller.idle">105</item>
+    <!-- Rx current for modem in mA.-->
+    <item name="modem.controller.rx">175</item>
+    <!-- Tx current for modem in mA.-->
+    <array name="modem.controller.tx"> <!-- Strength 0 to 4 -->
+        <value>176</value>
+        <value>216</value>
+        <value>300</value>
+        <value>427</value>
+        <value>604</value>
     </array>
+    <!-- Operating voltage for modem in mV.-->
+    <item name="modem.controller.voltage">3700</item>
 
-    <!-- Additional power used when cellular radio is transmitting/receiving -->
-    <item name="radio.active">300</item>
-    <!-- The current consumed by the radio when it is scanning for a signal -->
-    <item name="radio.scanning">82.2</item>
-    <!-- Current consumed by the radio at different signal strengths, when paging -->
-    <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-        <value>2.2</value>
-        <value>1.6</value>
+    <!-- GPS related values.-->
+    <array name="gps.signalqualitybased"> <!-- Strength 0 to 1 -->
+        <value>49</value>
+        <value>11</value>
     </array>
+    <item name="gps.voltage">3700</item>
+
+    <!-- Idle current for bluetooth in mA.-->
+    <item name="bluetooth.controller.idle">0.01</item>
+    <!-- Rx current for bluetooth in mA.-->
+    <item name="bluetooth.controller.rx">8</item>
+    <!-- Tx current for bluetooth in mA-->
+    <item name="bluetooth.controller.tx">7</item>
+    <!-- Operating voltage for bluetooth in mV.-->
+    <item name="bluetooth.controller.voltage">3300</item>
 
 </device>

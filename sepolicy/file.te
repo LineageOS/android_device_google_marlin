@@ -38,6 +38,8 @@ type sysfs_diag, fs_type, sysfs_type;
 type sysfs_scsi_devices_0000, sysfs_type, fs_type;
 type sysfs_scsi_devices_other, sysfs_type, fs_type;
 type sysfs_devices_block, sysfs_type, fs_type;
+# b/70518189 vDSO experiments
+type sysfs_vdso, fs_type, sysfs_type;
 
 # debugfs
 type debugfs_msm_core, debugfs_type, fs_type;
@@ -55,6 +57,7 @@ type debugfs_usb, debugfs_type, fs_type;
 type debugfs_runtime_pm, debugfs_type, fs_type;
 type debugfs_cnss, debugfs_type, fs_type;
 type debugfs_ufs, debugfs_type, fs_type;
+type debugfs_fg_sram, debugfs_type, fs_type;
 
 # /proc
 type proc_kernel_sched, fs_type, proc_type;
@@ -71,6 +74,7 @@ type bt_firmware_file, file_type;
 type persist_file, file_type;
 type persist_data_file, file_type;
 type persist_display_file, file_type;
+type persist_battery_file, file_type;
 
 # msm_irqbalance
 type proc_irq, fs_type, proc_type;

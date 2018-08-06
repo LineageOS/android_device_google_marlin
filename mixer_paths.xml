@@ -83,6 +83,9 @@
     <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_4_TX" value="0" />
     <ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="0" />
+    <ctl name="MultiMedia10 Mixer SLIM_0_TX" value="0" />
+    <ctl name="MultiMedia10 Mixer AUX_PCM_UL_TX" value="0" />
+    <ctl name="MultiMedia10 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia1" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia2" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="0" />
@@ -113,6 +116,7 @@
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia8" value="0" />
+    <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia10" value="0" />
     <ctl name="MultiMedia6 Mixer SLIM_0_TX" value="0" />
     <ctl name="IIR0 INP0 MUX" value="ZERO" />
     <ctl name="IIR0 INP1 MUX" value="ZERO" />
@@ -363,6 +367,17 @@
     <ctl name="RT_PROXY_1_RX SetCalMode" value="CAL_MODE_NONE" />
     <ctl name="RT_PROXY_1_TX SetCalMode" value="CAL_MODE_NONE" />
     <!-- RT Proxy Cal end -->
+
+    <!-- Incall Recording -->
+    <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="0" />
+    <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="0" />
+    <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="0" />
+    <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="0" />
+    <!-- Incall Recording End -->
+
+    <!-- Incall Music -->
+    <ctl name="Incall_Music Audio Mixer MultiMedia9" value="0" />
+    <!-- Incall Music End -->
 
     <!-- VoWLAN start -->
     <ctl name="SLIM_0_RX_Voice Mixer VoWLAN" value="0" />
@@ -1667,6 +1682,87 @@
     </path>
 
     <path name="voice-tx">
+    </path>
+
+    <path name="incall-rec-uplink">
+        <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
+    </path>
+
+    <path name="incall-rec-uplink bt-sco">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink bt-sco-wb">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-uplink usb-headset-mic">
+        <path name="incall-rec-uplink" />
+    </path>
+
+    <path name="incall-rec-downlink">
+        <ctl name="MultiMedia1 Mixer VOC_REC_DL"  value="1" />
+    </path>
+
+    <path name="incall-rec-downlink bt-sco">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink bt-sco-wb">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-downlink usb-headset-mic">
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink">
+        <path name="incall-rec-uplink" />
+        <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink bt-sco">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink bt-sco-wb">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink usb-headset-mic">
+        <path name="incall-rec-uplink-and-downlink" />
+    </path>
+
+    <path name="incall-music-uplink">
+        <ctl name="Incall_Music Audio Mixer MultiMedia9" value="1" />
+    </path>
+
+    <path name="incall-music-uplink speaker">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-headphones">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink bt-sco">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink bt-sco-wb">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink afe-proxy">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-bt-sco">
+        <path name="incall-music-uplink" />
+    </path>
+
+    <path name="incall-music-uplink speaker-and-bt-sco-wb">
+        <path name="incall-music-uplink" />
     </path>
 
 </mixer>

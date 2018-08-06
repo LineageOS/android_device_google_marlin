@@ -40,3 +40,5 @@ allow radio vendor_file:file rx_file_perms;
 
 # read access to sys/module/diagchar/parameters/timestamp_switch
 allow radio sysfs_timestamp_switch:file r_file_perms;
+
+add_service(radio, qchook_service)

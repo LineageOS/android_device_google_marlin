@@ -9,7 +9,7 @@ on charger
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
-service charger /charger
+service vendor.charger /charger
     class charger
     seclabel u:r:charger:s0
 
@@ -31,7 +31,7 @@ on init
     # We have vendor/ as early mount so we can start qseecomd earlier
     # early mount partions e.g. vendor/ will be mounted in init first stage
     # see b/27805372
-    start qseecomd
+    start vendor.qseecomd
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -102,6 +102,8 @@ on init
     write /proc/sys/vm/page-cluster 0
 
 on fs
+    # Start HW service manager early
+    start hwservicemanager
     mount_all /vendor/etc/fstab.${ro.hardware} --early
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -114,8 +116,8 @@ on fs
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
-    # Start HW service manager early
-    start hwservicemanager
+    # for android.hardware.health@2.0-service.marlin cycle count backup
+    mkdir /persist/battery 0700 system system
 
 on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
@@ -124,15 +126,19 @@ on post-fs
 
 on late-fs
     # Start devices by sysfs trigger
-    start devstart_sh
+    start vendor.devstart_sh
 
     # Start services for bootanim
     start surfaceflinger
     start bootanim
-    start hwcomposer-2-1
-    start configstore-hal-1-0
-    start gralloc-2-0
+    start vendor.hwcomposer-2-1
+    start vendor.configstore-hal
+    start vendor.gralloc-2-0
 
+    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
+    # In such case, init won't responce the property_set from hwservicemanager and then
+    # cause services for bootanim not running.
+    wait_for_prop hwservicemanager.ready true
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.${ro.hardware} --late
 
@@ -146,13 +152,13 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
     # Start time daemon early so that the system time can be set early
-    start time_daemon
+    start vendor.time_daemon
 
 on post-fs-data
     # We can start netd here before in is launched in common init.rc on zygote-start
     start netd
     # Set sku property
-    start mid_sh
+    start vendor.mid_sh
     # Wait until the system time is set
     wait_for_prop sys.time.set true
 
@@ -195,8 +201,10 @@ on zygote-start
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/vendor/wifi 0771 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
@@ -367,6 +375,16 @@ on early-boot
     # wait for devices
     wait_for_prop sys.qcom.devup 1
 
+    # vendor.health-hal needs to be able to RW
+    chown system system /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+    # HardwareInfo needs to be able to read CC bins
+    chmod 644 /sys/devices/soc/qpnp-fg-17/cycle_counts_bins
+
+    # dumpstate needs to read, vendor.health-hal needs to be able to RW
+    chown system system /sys/devices/soc/qpnp-fg-17/power_supply/bms/charge_full
+    # HardwareInfo needs to be able to read charge_full
+    chmod 644 /sys/devices/soc/qpnp-fg-17/power_supply/bms/charge_full
+
 on boot
     # from init.power.sh
     # disable thermal hotplug to switch governor
@@ -400,7 +418,7 @@ on boot
     write /proc/sys/kernel/sched_init_task_load 100
 
     # Exec init.foreground.sh in background
-    start foreground_sh
+    start vendor.foreground_sh
     # add a cpuset for the camera daemon
     # we want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -518,37 +536,42 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+    # QCOM FG SRAM dump for dumpstate
+    chown system system /d/fg_memif/data
+    chown system system /d/fg_memif/count
+    chown system system /d/fg_memif/address
+
 on property:wc_transport.start_hci=true
-    start start_hci_filter
+    start vendor.start_hci_filter
 
 on property:wc_transport.start_hci=false
-    stop start_hci_filter
+    stop vendor.start_hci_filter
 
-service start_hci_filter /vendor/bin/wcnss_filter
+service vendor.start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag
     disabled
 
 on property:wc_transport.start_root=true
-    start hci_filter_root
+    start vendor.hci_filter_root
 
 on property:wc_transport.start_root=false
-    stop hci_filter_root
+    stop vendor.hci_filter_root
 
-service hci_filter_root /vendor/bin/wcnss_filter
+service vendor.hci_filter_root /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag system
     disabled
 
-service per_mgr /vendor/bin/pm-service
+service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system
     ioprio rt 4
 
-service per_proxy /vendor/bin/pm-proxy
+service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -557,8 +580,8 @@ service per_proxy /vendor/bin/pm-proxy
 on property:ro.build.type=userdebug
    write /sys/class/uio/uio1/device/rtel/rtel 1
 
-on property:init.svc.per_mgr=running
-    start per_proxy
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
 
 on property:sys.uidcpupower=*
    write /proc/uid_cpupower/enable 1
@@ -567,40 +590,40 @@ on property:sys.uidcpupower=0
    write /proc/uid_cpupower/enable 0
 
 on property:sys.shutdown.requested=*
-    stop per_proxy
+    stop vendor.per_proxy
     # Disable subsystem restart
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x9889deed
 
-service qseecomd /vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
 
-service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
-   class main
+service vendor.thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
+   class hal
    user root
    group root system diag
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
 
-service time_daemon /vendor/bin/time_daemon
+service vendor.time_daemon /vendor/bin/time_daemon
    class core
    user root
    group root
 
-service adsprpcd /vendor/bin/adsprpcd
+service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
    user media
    group media
 
-service imsqmidaemon /vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
-service imsdatadaemon /vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -608,9 +631,9 @@ service imsdatadaemon /vendor/bin/imsdatadaemon
     disabled
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemon
+    start vendor.imsdatadaemon
 
-service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    socket ims_rtpd stream 0660 system radio
@@ -619,15 +642,15 @@ service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
 
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
-   start ims_rtp_daemon
+   start vendor.ims_rtp_daemon
 
-service ssr_setup /vendor/bin/ssr_setup
+service vendor.ssr_setup /vendor/bin/ssr_setup
     class main
     user root
     group root system
     oneshot
 
-service ss_ramdump /vendor/bin/subsystem_ramdump
+service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
     class main
     user root
     group root system
@@ -637,7 +660,7 @@ on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     mkdir /data/vendor/ramdump 761 root system
     mkdir /data/vendor/ssrdump 771 root system
-    start ss_ramdump
+    start vendor.ss_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
@@ -648,107 +671,105 @@ service iop /system/bin/iop
     group root
     disabled
 
-service cnd /vendor/bin/cnd
+service vendor.cnd /vendor/bin/cnd
     user root
     group root inet wakelock
     class late_start
     socket cnd stream 660 root inet
 
-service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
+service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
 
-service rmt_storage /vendor/bin/rmt_storage
+service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group root system wakelock
     ioprio rt 0
     shutdown critical
 
-service port-bridge /vendor/bin/port-bridge
+service vendor.port-bridge /vendor/bin/port-bridge
     class main
     user radio
     group radio system inet
     oneshot
 
-service qmiproxy /vendor/bin/qmiproxy
+service vendor.qmiproxy /vendor/bin/qmiproxy
     class main
     user radio
     group radio diag
     disabled
 
-service netmgrd /vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
-    -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
 #   user wifi
 #   group wifi inet keystore
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
-service cnss-daemon /vendor/bin/cnss-daemon -n -l
+service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet wifi
 
-service loc_launcher /vendor/bin/loc_launcher
+service vendor.loc_launcher /vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet diag wifi
 
-service init-radio-sh /vendor/bin/init.radio.sh
+service vendor.init-radio-sh /vendor/bin/init.radio.sh
     class late_start
     user radio
     group root radio
     oneshot
 
-service msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
+service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     socket msm_irqbalance seqpacket 660 root system
     class core
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service atfwd /vendor/bin/ATFWD-daemon
+service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
     disabled
 
-service ssr_diag /vendor/bin/ssr_diag
+service vendor.ssr_diag /vendor/bin/ssr_diag
     class late_start
     user system
     group system
     disabled
 
-service diag_mdlog_start /vendor/bin/diag_mdlog
+service vendor.diag_mdlog_start /vendor/bin/diag_mdlog
     class late_start
     user shell
     group system diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
-service diag_mdlog_stop /vendor/bin/diag_mdlog -k
+service vendor.diag_mdlog_stop /vendor/bin/diag_mdlog -k
     class late_start
     user shell
     group system diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
-service perfd /vendor/bin/perfd
+service vendor.perfd /vendor/bin/perfd
    class main
    user root
    group root system
@@ -764,10 +785,10 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     keycodes 114 115 116
 
 on property:sys.post_boot.parsed=1
-    start perfd
+    start vendor.perfd
 
 on property:sys.boot_completed=1
-    start power_sh
+    start vendor.power_sh
 
     # Enable UFS powersaving
     write /sys/devices/soc/624000.ufshc/clkscale_enable 1
@@ -775,14 +796,12 @@ on property:sys.boot_completed=1
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
-    # Enable ZRAM on boot_complete
-    swapon_all /vendor/etc/fstab.${ro.hardware}
-
     # update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/restricted/cpus 0-1
 
     # Update DVR cpusets to runtime values.
     write /dev/cpuset/kernel/cpus 0,1
@@ -802,7 +821,7 @@ on property:sys.boot_completed=1
 
     # UFS health
     chmod 755 /sys/kernel/debug/ufshcd0
-    chown 644 /sys/kernel/debug/ufshcd0/err_state
+    chmod 644 /sys/kernel/debug/ufshcd0/err_state
     chmod 644 /sys/kernel/debug/ufshcd0/power_mode
     chmod 644 /sys/kernel/debug/ufshcd0/host_regs
     chmod 644 /sys/kernel/debug/ufshcd0/show_hba
@@ -812,41 +831,80 @@ on property:sys.boot_completed=1
     chmod 644 /sys/kernel/debug/ufshcd0/stats/query_stats
     chmod 644 /sys/kernel/debug/ufshcd0/stats/err_stats
 
+    # Used immediately below
+    trigger sys-boot-completed-set
+
+# We want one opportunity per boot to enable zram, so we
+# use a trigger we fire from the above stanza. If
+# persist.sys.zram_enabled becomes true after boot,
+# we don't want to run swapon_all at that time.
+on sys-boot-completed-set && property:persist.sys.zram_enabled=1
+    swapon_all /vendor/etc/fstab.${ro.hardware}
+
 on property:sys.boot_completed=1 && property:ro.build.type=user
     write /proc/sys/kernel/modules_disabled 1
 
-# battery driver settings for the retail demo environment where
-# the device will be perpertually plugged in to a power source
+## charger driver exposes now finer grain control, map demo mode to those properties
+# demo mode can only be exit wipping data which will also reset the persist properties
 on property:sys.retaildemo.enabled=1
-    write /sys/class/power_supply/battery/full_level_dis_batt_chg 35
+    setprop persist.vendor.charge.stop.level 35
+    setprop persist.vendor.charge.start.level 30
 
+# system will not set the sys.retaildemo.enabled to 0 but this is used to set back to default charging
 on property:sys.retaildemo.enabled=0
-    write /sys/class/power_supply/battery/full_level_dis_batt_chg 100
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
 
-service devstart_sh /vendor/bin/init.qcom.devstart.sh
+on property:persist.vendor.charge.stop.level=*
+    write /sys/module/htc_battery/parameters/charge_stop_level ${persist.vendor.charge.stop.level}
+
+on property:persist.vendor.charge.start.level=*
+    write /sys/module/htc_battery/parameters/charge_start_level ${persist.vendor.charge.start.level}
+
+service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
     user root
     group root system
     disabled
     oneshot
 
-service foreground_sh /vendor/bin/init.foreground.sh
+service vendor.foreground_sh /vendor/bin/init.foreground.sh
     class main
     user root
     group root system readproc
     disabled
     oneshot
 
-service power_sh /vendor/bin/init.power.sh
+service vendor.power_sh /vendor/bin/init.power.sh
     class main
     user root
     group root system
     disabled
     oneshot
 
-service mid_sh /vendor/bin/init.mid.sh
+service vendor.mid_sh /vendor/bin/init.mid.sh
     class main
     user root
     group root system
     disabled
     oneshot
+
+# reset thermal-engine when framework dies in VR mode
+on property:init.svc.zygote=restarting && property:sys.qcom.thermalcfg=/vendor/etc/thermal-engine-vr.conf
+   setprop sys.qcom.thermalcfg "/vendor/etc/thermal-engine.conf"
+   restart vendor.thermal-engine
+
+# b/70518189 vDSO experiments
+on property:sys.vdso=*
+   write /sys/module/vdso/parameters/enable_32 1
+   write /sys/module/vdso/parameters/enable_64 1
+
+on property:sys.vdso=false
+   write /sys/module/vdso/parameters/enable_32 0
+   write /sys/module/vdso/parameters/enable_64 0
+
+on property:sys.vdso=64
+   write /sys/module/vdso/parameters/enable_32 0
+
+on property:sys.vdso=32
+   write /sys/module/vdso/parameters/enable_64 0

@@ -5,9 +5,6 @@
 # label.
 get_prop(system_app, hw_sku_prop);
 
-# Needed by Settings app's TelephonyMonitorPreferenceController, available only on a subset of
-# userdebug and eng devices
-userdebug_or_eng(`set_prop(system_app, radio_prop)')
-
 # Needed by Settings app's CameraLaserSensorPreferenceController
 set_prop(system_app, camera_prop)
+

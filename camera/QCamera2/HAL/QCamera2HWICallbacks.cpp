@@ -729,7 +729,9 @@ void QCamera2HardwareInterface::synchronous_stream_cb_routine(
 
     frameTime = nsecs_t(frame->ts.tv_sec) * 1000000000LL + frame->ts.tv_nsec;
     // Calculate the future presentation time stamp for displaying frames at regular interval
+#if 0 // Temporary removing the dependency on libgui
     mPreviewTimestamp = pme->mCameraDisplay.computePresentationTimeStamp(frameTime);
+#endif
     stream->mStreamTimestamp = frameTime;
     memory = (QCameraGrallocMemory *)super_frame->bufs[0]->mem_info;
 
