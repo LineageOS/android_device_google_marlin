@@ -307,6 +307,13 @@ private:
     void extractJpegMetadata(CameraMetadata& jpegMetadata,
             const camera3_capture_request_t *request);
 
+    // Check whether additional EIS crop is needed.
+    bool isEISCropInSnapshotNeeded(const CameraMetadata &metadata) const;
+
+    // Various crop sanity checks.
+    bool isCropValid(int32_t startX, int32_t startY, int32_t width,
+            int32_t height, int32_t maxWidth, int32_t maxHeight) const;
+
     bool isSupportChannelNeeded(camera3_stream_configuration_t *streamList,
             cam_stream_size_info_t stream_config_info);
     int32_t setMobicat();
@@ -406,6 +413,9 @@ private:
         // metadata needs to be consumed by the corresponding stream
         // in order to generate the buffer.
         bool need_metadata;
+        // Do we need additional crop due to EIS.
+        bool need_crop;
+        cam_eis_crop_info_t crop_info;
     } RequestedBufferInfo;
     typedef struct {
         uint32_t frame_number;
@@ -566,6 +576,12 @@ private:
     bool m60HzZone;
 
     cam_trigger_t mAfTrigger;
+
+    // Last cached EIS crop information.
+    cam_eis_crop_info_t mLastEISCropInfo;
+
+    // Maps between active region and specific stream crop.
+    QCamera3CropRegionMapper mStreamCropMapper;
 };
 
 }; // namespace qcamera
