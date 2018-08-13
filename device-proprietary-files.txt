@@ -19,22 +19,29 @@ etc/cne/Nexus/VZW/VZW_profiles.xml
 -priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IMS/HD Voice
+-app/ims/ims.apk
 -priv-app/CNEService/CNEService.apk
 lib64/lib-imsvideocodec.so
 lib64/lib-imsvtextutils.so
 lib64/lib-imsvt.so
 lib64/lib-imsvtutils.so
+lib64/libimscamera_jni.so
+lib64/libimsmedia_jni.so
+lib64/librcc.so
 lib/lib-imsvideocodec.so
 lib/lib-imsvtextutils.so
 lib/lib-imsvt.so
 lib/lib-imsvtutils.so
+lib/librcc.so
 
 # Permissions
 etc/permissions/privapp-permissions-google.xml
-etc/permissions/privapp-permissions-marlin.xml
 
 # RIL
+-framework/qcrilhook.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+lib64/vendor.qti.atcmdfwd@1.0.so
+lib64/vendor.qti.qcril.am@1.0.so
 
 # Sprint
 etc/permissions/com.android.sdm.plugins.sprintdm.xml
@@ -43,6 +50,7 @@ etc/permissions/com.android.sdm.plugins.sprintdm.xml
 
 # Sysconfig
 etc/sysconfig/nexus.xml
+etc/sysconfig/pixel_2016_exclusive.xml
 
 # VZW
 -app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
