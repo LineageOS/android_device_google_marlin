@@ -1,0 +1,22 @@
+soong_namespace {
+}
+
+java_library_static {
+
+    aidl: {
+        local_include_dirs: ["src/org"],
+    },
+    srcs: [
+        "src/org/**/*.java",
+        "src/org/**/I*.aidl",
+        "src/org/**/*.logtags",
+    ],
+
+    /* AOSP does not provides this, remove the dependency
+    libs: ["ims-common"],
+    */
+
+    name: "ims-ext-common",
+    owner: "qct",
+
+}

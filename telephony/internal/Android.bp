@@ -1,0 +1,15 @@
+soong_namespace {
+}
+
+java_library {
+    aidl: {
+        local_include_dirs: ["src/org"],
+    },
+    srcs: [
+        "src/org/**/*.java",
+        "src/org/**/I*.aidl",
+        "src/org/**/*.logtags",
+    ],
+    name: "telephony-ext",
+    owner: "qti",
+}
