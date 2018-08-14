@@ -17,7 +17,7 @@ user=system seinfo=platform name=com.qualcomm.telephony domain=qtelephony type=s
 user=system seinfo=platform name=com.qualcomm.timeservice domain=qtimeservice type=system_app_data_file
 
 #Domain for connectivity monitor
-user=radio seinfo=platform name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all
+user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all
 
 # Domain for WfcActivation app
 user=_app seinfo=wfcactivation name=com.google.android.wfcactivation domain=wfc_activation_app levelFrom=all
