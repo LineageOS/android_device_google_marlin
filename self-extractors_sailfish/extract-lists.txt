@@ -10,5 +10,7 @@
             system/etc/cne/Nexus/ROW/ROW_profiles.xml \
             system/etc/cne/Nexus/VZW/VZW_profiles.xml \
             system/framework/qcrilhook.jar \
+            system/lib64/vendor.qti.atcmdfwd@1.0.so \
+            system/lib64/vendor.qti.qcril.am@1.0.so \
             "
     ;;
