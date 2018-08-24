@@ -851,7 +851,7 @@ $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_DEXPREOPT_SPEED_APPS += \
   SystemUIGoogle \
   SettingsGoogle \
-  NexusLauncherPrebuilt \
+  NexusLauncher \
 
 PRODUCT_LOADED_BY_PRIVILEGED_MODULES += \
   qti-vzw-ims-internal \
