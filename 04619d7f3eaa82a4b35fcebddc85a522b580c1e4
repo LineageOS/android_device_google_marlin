@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88d59aa1_0df3732d",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2018-09-03T22:35:26Z",
+      "side": 1,
+      "message": "shouldn\u0027t this sort of thing be part of the gapps package?",
+      "revId": "04619d7f3eaa82a4b35fcebddc85a522b580c1e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
