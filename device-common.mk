@@ -632,6 +632,9 @@ PRODUCT_PACKAGES_DEBUG += a_sns_test
 PRODUCT_PACKAGES += \
     misc_writer
 
+# Google Assistant
+PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
+
 # IMS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
