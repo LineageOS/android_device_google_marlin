@@ -11282,7 +11282,12 @@ int32_t QCamera3HardwareInterface::notifyErrorForPendingRequests()
 
             // Go through the pending requests info and send error request to framework
             LOGE("Sending ERROR REQUEST for all pending requests");
+            // Some frame might be missing in mPendingRequestsList.
+            bool foundMatchingPendingReq = false;
             pendingRequestIterator i = mPendingRequestsList.begin(); //make sure i is at the beginning
+            if (i != mPendingRequestsList.end() && i->frame_number == req->frame_number) {
+                foundMatchingPendingReq = true;
+            }
 
             LOGE("Sending ERROR REQUEST for frame %d", req->frame_number);
 
@@ -11304,7 +11309,7 @@ int32_t QCamera3HardwareInterface::notifyErrorForPendingRequests()
 
             result.result = NULL;
             result.frame_number = req->frame_number;
-            result.input_buffer = i->input_buffer;
+            result.input_buffer = foundMatchingPendingReq ? i->input_buffer : nullptr;
             result.num_output_buffers = req->mPendingBufferList.size();
             result.output_buffers = pStream_Buf;
 
@@ -11328,7 +11333,9 @@ int32_t QCamera3HardwareInterface::notifyErrorForPendingRequests()
 
             mCallbackOps->process_capture_result(mCallbackOps, &result);
             delete [] pStream_Buf;
-            i = erasePendingRequest(i);
+            if (foundMatchingPendingReq) {
+                i = erasePendingRequest(i);
+            }
         }
     }
 
