@@ -7,7 +7,6 @@ type sdsprpc_device, dev_type;
 type sg_device, dev_type;
 type ssr_device, dev_type;
 type thermal_device, dev_type;
-type pta_device, dev_type;
 
 type custom_ab_block_device, dev_type;
 type xbl_block_device, dev_type;
