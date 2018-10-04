@@ -10,7 +10,6 @@ type perfd_data_file, file_type, data_file_type, core_data_file_type;
 type time_data_file, file_type, data_file_type, core_data_file_type;
 type display_data_file, file_type, data_file_type, core_data_file_type;
 type netmgr_data_file, file_type, data_file_type, core_data_file_type;
-type nanohub_lock_file, file_type, data_file_type;
 type sensors_cal_file, file_type;
 type nfc_vendor_data_file, file_type, data_file_type;
 type radio_vendor_data_file, file_type, data_file_type, mlstrustedobject;
