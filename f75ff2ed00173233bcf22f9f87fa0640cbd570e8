@@ -46,6 +46,30 @@
       "revId": "f75ff2ed00173233bcf22f9f87fa0640cbd570e8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a4758d_54d0ebd1",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-06T04:46:15Z",
+      "side": 1,
+      "message": "I think it\u0027s fine as is, but up to you. It\u0027s similar to what\u0027s used on line 324 so uniformity is a plus.",
+      "parentUuid": "6c8e1f3f_1ed6edf3",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 68
+      },
+      "revId": "f75ff2ed00173233bcf22f9f87fa0640cbd570e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
