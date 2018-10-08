@@ -124,7 +124,6 @@
 /vendor/bin/perfd           u:object_r:perfd_exec:s0
 /vendor/bin/thermal-engine  u:object_r:thermal-engine_exec:s0
 /vendor/bin/qseecomd        u:object_r:tee_exec:s0
-/vendor/bin/wcnss_filter    u:object_r:wcnss_filter_exec:s0
 /vendor/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
 /vendor/bin/init\.mid\.sh          u:object_r:init_mid_exec:s0
 /vendor/bin/init\.power\.sh        u:object_r:init_power_exec:s0
