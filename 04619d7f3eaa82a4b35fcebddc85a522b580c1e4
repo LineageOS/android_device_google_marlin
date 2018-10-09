@@ -16,6 +16,24 @@
       "revId": "04619d7f3eaa82a4b35fcebddc85a522b580c1e4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4619cc8c_23b45f37",
+        "filename": "device-proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-09T03:56:19Z",
+      "side": 1,
+      "message": "yeah, but it\u0027s device specific. so we usually add that sort of stuff in the rom.",
+      "parentUuid": "88d59aa1_0df3732d",
+      "revId": "04619d7f3eaa82a4b35fcebddc85a522b580c1e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
