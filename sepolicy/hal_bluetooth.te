@@ -1,6 +1,3 @@
-# connect to the UART
-allow hal_bluetooth wcnss_filter:unix_stream_socket connectto;
-
 # wc_transport.start_hci and friends
 set_prop(hal_bluetooth, wc_prop)
 

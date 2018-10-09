@@ -547,23 +547,11 @@ on property:wc_transport.start_hci=true
 on property:wc_transport.start_hci=false
     stop vendor.start_hci_filter
 
-service vendor.start_hci_filter /vendor/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth diag
-    disabled
-
 on property:wc_transport.start_root=true
     start vendor.hci_filter_root
 
 on property:wc_transport.start_root=false
     stop vendor.hci_filter_root
-
-service vendor.hci_filter_root /vendor/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth diag system
-    disabled
 
 service vendor.per_mgr /vendor/bin/pm-service
     class core
