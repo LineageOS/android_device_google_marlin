@@ -18,3 +18,5 @@ allow qtimeservice system_app_data_file:{ file lnk_file } create_file_perms;
 allow qtimeservice vendor_file_type:dir { search getattr };
 allow qtimeservice vendor_file_type:file { execute read open getattr };
 allow qtimeservice vendor_file_type:lnk_file { getattr read };
+
+allow qtimeservice cgroup:file w_file_perms;

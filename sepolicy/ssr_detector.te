@@ -17,3 +17,5 @@ allow ssr_detector system_app_data_file:{ file lnk_file } create_file_perms;
 
 # Read sysfs info
 r_dir_file(ssr_detector, sysfs_msm_subsys)
+
+allow ssr_detector cgroup:file w_file_perms;
