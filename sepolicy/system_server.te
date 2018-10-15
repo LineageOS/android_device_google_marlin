@@ -18,11 +18,6 @@ set_prop(system_server, thermal_prop)
 # rpm
 r_dir_file(system_server, debugfs_rpm)
 
-# /vendor/usr/keylayout
-r_dir_file(system_server, idc_file)
-# /vendor/usr/idc
-r_dir_file(system_server, keylayout_file)
-
 # kgsl
 allow system_server debugfs_kgsl:file { open read getattr };
 
