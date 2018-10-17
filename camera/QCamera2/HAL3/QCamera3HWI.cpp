@@ -6215,6 +6215,11 @@ QCamera3HardwareInterface::translateFromHalMetadata(
     IF_META_AVAILABLE(uint8_t, afSceneChange, CAM_INTF_META_AF_SCENE_CHANGE, metadata) {
         camMetadata.update(NEXUS_EXPERIMENTAL_2016_AF_SCENE_CHANGE, afSceneChange, 1);
         camMetadata.update(ANDROID_CONTROL_AF_SCENE_CHANGE, afSceneChange, 1);
+    } else {
+        uint8_t noSceneChange = 0;
+        camMetadata.update(NEXUS_EXPERIMENTAL_2016_AF_SCENE_CHANGE, &noSceneChange, 1);
+        camMetadata.update(ANDROID_CONTROL_AF_SCENE_CHANGE, &noSceneChange, 1);
+        LOGE("Missing AF_SCENE_CHANGE metadata!");
     }
 
     resultMetadata = camMetadata.release();
