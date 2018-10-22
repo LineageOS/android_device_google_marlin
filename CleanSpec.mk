@@ -110,3 +110,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.audi
 
 # Migrate to versioned VNDK directory layout
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
+
+# Move libnfc-nci.conf to /vendor
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
