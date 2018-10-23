@@ -450,7 +450,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Script that copies preloads directory from system_other to data partition
 PRODUCT_COPY_FILES += \
-    device/google/marlin/preloads_copy.sh:system/bin/preloads_copy.sh
+    system/extras/cppreopts/preloads_copy.sh:system/bin/preloads_copy.sh
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
