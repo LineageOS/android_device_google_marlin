@@ -41,6 +41,9 @@ LOCAL_SRC_FILES += \
 
 LOCAL_CFLAGS := -Wall -Wextra -Werror
 
+# Suppress warnings until they are fixed in QCamera2HWI.cpp.
+LOCAL_CFLAGS += -Wno-implicit-fallthrough
+
 # System header file path prefix
 LOCAL_CFLAGS += -DSYSTEM_HEADER_PREFIX=sys
 
