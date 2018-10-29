@@ -1704,7 +1704,7 @@ static int get_buf_from_cam(camera_hardware_t *camHal)
             case EIO:
             /* Could ignore EIO, see spec. */
 
-            /* fall through */
+            [[fallthrough]];
 
             default:
             ALOGE("%s: VIDIOC_DQBUF error", __func__);
