@@ -151,6 +151,8 @@ public:
     camera_metadata_t* translateCapabilityToMetadata(int type);
 
     static int getCamInfo(uint32_t cameraId, struct camera_info *info);
+    static int isStreamCombinationSupported(uint32_t cameraId,
+            const camera_stream_combination_t *streams);
     static int initCapabilities(uint32_t cameraId);
     static int initStaticMetadata(uint32_t cameraId);
     static void makeTable(cam_dimension_t *dimTable, size_t size,

@@ -8663,6 +8663,55 @@ int32_t QCamera3HardwareInterface::getSensorSensitivity(int32_t iso_mode)
 }
 
 /*===========================================================================
+ * FUNCTION   : isStreamCombinationSupported
+ *
+ * DESCRIPTION: query camera support for specific stream combination
+ *
+ * PARAMETERS :
+ *   @cameraId  : camera Id
+ *   @comb      : stream combination
+ *
+ * RETURN     : int type of status
+ *              NO_ERROR  -- in case combination is supported
+ *              none-zero failure code
+ *==========================================================================*/
+int QCamera3HardwareInterface::isStreamCombinationSupported(uint32_t cameraId,
+        const camera_stream_combination_t *comb)
+{
+    int rc = BAD_VALUE;
+    pthread_mutex_lock(&gCamLock);
+
+    if (NULL == gCamCapability[cameraId]) {
+        rc = initCapabilities(cameraId);
+        if (rc < 0) {
+            pthread_mutex_unlock(&gCamLock);
+            return rc;
+        }
+    }
+
+    camera3_stream_configuration_t streamList = {comb->num_streams, /*streams*/ nullptr,
+            comb->operation_mode, /*session_parameters*/ nullptr};
+    streamList.streams = new camera3_stream_t * [comb->num_streams];
+    camera3_stream_t *streamBuffer = new camera3_stream_t[comb->num_streams];
+    for (size_t i = 0; i < comb->num_streams; i++) {
+        streamBuffer[i] = {comb->streams[i].stream_type, comb->streams[i].width,
+            comb->streams[i].height, comb->streams[i].format, comb->streams[i].usage,
+            /*max_buffers*/ 0, /*priv*/ nullptr, comb->streams[i].data_space,
+            comb->streams[i].rotation, comb->streams[i].physical_camera_id, /*reserved*/ {nullptr}};
+        streamList.streams[i] = &streamBuffer[i];
+    }
+
+    StreamValidateStatus validateStatus;
+    rc = validateStreamCombination(cameraId, &streamList, &validateStatus);
+
+    delete [] streamBuffer;
+    delete [] streamList.streams;
+    pthread_mutex_unlock(&gCamLock);
+
+    return rc;
+}
+
+/*===========================================================================
  * FUNCTION   : getCamInfo
  *
  * DESCRIPTION: query camera capabilities
