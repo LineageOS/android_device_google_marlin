@@ -66,12 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
 
-# Don't include the Android Runtime APEX module, as it won't fit on
-# the system partition on marlin and sailfish.
-# TODO(b/113373927): Include the APEX module when the Android Runtime
-# build artifacts are no longer directly installed in /system.
-DONT_INCLUDE_RUNTIME_APEX := true
-
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
