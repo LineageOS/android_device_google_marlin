@@ -66,6 +66,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
 
+# Don't include the Android Runtime APEX module, as it won't fit on
+# the system partition on marlin and sailfish.
+# TODO(b/113373927): Include the APEX module when the Android Runtime
+# build artifacts are no longer directly installed in /system.
+DONT_INCLUDE_RUNTIME_APEX := true
+
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
@@ -447,10 +453,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cp_system_other_odex=1
-
-# Script that copies preloads directory from system_other to data partition
-PRODUCT_COPY_FILES += \
-    system/extras/cppreopts/preloads_copy.sh:system/bin/preloads_copy.sh
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
