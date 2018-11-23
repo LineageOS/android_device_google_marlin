@@ -372,7 +372,7 @@
 
    <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <string translatable="false" name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
     <!-- If true, the doze component is not started until after the screen has been turned off
          and the screen off animation has been performed. -->
@@ -385,7 +385,7 @@
     <string name="config_dozeDoubleTapSensorType" translatable="false">com.google.sensor.double_touch</string>
 
     <!-- ImsService package name to bind to by default, if config_dynamic_bind_ims is true -->
-    <string name="config_ims_package">org.codeaurora.ims</string>
+    <string name="config_ims_package" translatable="false">org.codeaurora.ims</string>
 
     <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
     <bool name="config_dynamic_bind_ims">true</bool>
