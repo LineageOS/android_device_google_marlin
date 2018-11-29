@@ -599,7 +599,7 @@ WPA += wpa_supplicant_wcn.conf
 WPA += wpa_supplicant_ath6kl.conf
 WPA += wpa_supplicant
 WPA += hs20-osu-client
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 WPA += wpa_cli
 endif
 
@@ -785,8 +785,8 @@ PRODUCT_PACKAGES += tcmiface
 # healthd libaray expanded for mode charger
 PRODUCT_PACKAGES += libhealthd.msm
 
-#intialise PRODUCT_PACKAGES_DEBUG list for debug modules
-PRODUCT_PACKAGES_DEBUG := init.qcom.testscripts.sh
+#intialise PRODUCT_PACKAGES_ENG list for debug modules
+PRODUCT_PACKAGES_ENG := init.qcom.testscripts.sh
 
 
 #NANOPB_LIBRARY_NAME := libnanopb-c-2.8.0
