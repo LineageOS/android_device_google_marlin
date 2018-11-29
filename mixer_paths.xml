@@ -1765,4 +1765,7 @@
         <path name="incall-music-uplink" />
     </path>
 
+    <path name ="voice-music-tx">
+    </path>
+
 </mixer>
