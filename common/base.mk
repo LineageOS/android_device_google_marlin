@@ -853,6 +853,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
   SettingsGoogle \
   NexusLauncherPrebuilt \
 
+# Save space by disabling dexpreopt of GMS modules.
+DEXPREOPT.$(TARGET_PRODUCT).PrebuiltGmsCorePi_extract.CONFIG=disable
+
 PRODUCT_LOADED_BY_PRIVILEGED_MODULES += \
   qti-vzw-ims-internal \
   qcrilhook \
