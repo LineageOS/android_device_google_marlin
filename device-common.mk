@@ -66,12 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
 
-# Don't include the Android Runtime APEX module, as it won't fit on
-# the system partition on marlin and sailfish.
-# TODO(b/113373927): Include the APEX module when the Android Runtime
-# build artifacts are no longer directly installed in /system.
-DONT_INCLUDE_RUNTIME_APEX := true
-
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
@@ -651,3 +645,9 @@ PRODUCT_PACKAGES += \
 # default atrace HAL
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
+
+# Don't install perfprofd on marlin-eng and sailfish-eng (install
+# dummy binary no-perfprofd instead).
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += no-perfprofd
+endif
