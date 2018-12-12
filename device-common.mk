@@ -645,9 +645,3 @@ PRODUCT_PACKAGES += \
 # default atrace HAL
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
-
-# Don't install perfprofd on marlin-eng and sailfish-eng (install
-# dummy binary no-perfprofd instead).
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += no-perfprofd
-endif
