@@ -26,6 +26,10 @@ endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
 
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/marlin \
+    hardware/google/pixel
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
@@ -494,6 +498,16 @@ PRODUCT_PACKAGES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.marlin \
+
+# Thermal HAL
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.pixel
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.thermal.config=thermal_info_config.json
 
 # VR
 PRODUCT_PACKAGES += \
