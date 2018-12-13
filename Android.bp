@@ -1,4 +1,11 @@
+soong_namespace {
+    imports: [
+        "hardware/google/pixel",
+    ],
+}
+
 subdirs = [
     "vibrator",
     "usb",
 ]
+

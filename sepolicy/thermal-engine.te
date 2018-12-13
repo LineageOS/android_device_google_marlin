@@ -35,6 +35,3 @@ userdebug_or_eng(`
 
 # reboot/shutdown for thermal limits exceeded
 set_prop(thermal-engine, powerctl_prop)
-
-# IThermal Thermal HAL
-hal_server_domain(thermal-engine, hal_thermal)
