@@ -25,11 +25,7 @@ TARGET_2ND_CPU_VARIANT := kryo
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := true
-ifneq ($(findstring aosp_marlin_svelte, $(TARGET_PRODUCT)),)
-TARGET_RECOVERY_FSTAB := device/google/marlin/fstab.aosp_svelte
-else
 TARGET_RECOVERY_FSTAB := device/google/marlin/fstab.common
-endif
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
@@ -84,11 +80,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
-ifneq ($(findstring aosp_marlin_svelte, $(TARGET_PRODUCT)),)
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
-BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
-BOARD_SYSTEMIMAGE_SQUASHFS_COMPRESSOR := lz4
-endif
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -199,10 +190,6 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/sailin-setup.sh
 TARGET_USES_MKE2FS := true
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-ifneq ($(findstring marlin_svelte, $(TARGET_PRODUCT)),)
-MALLOC_SVELTE := true
-endif
 
 DEVICE_MANIFEST_FILE := device/google/marlin/manifest.xml
 DEVICE_MATRIX_FILE   := device/google/marlin/compatibility_matrix.xml
