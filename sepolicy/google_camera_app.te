@@ -20,6 +20,9 @@ allow google_camera_app hidl_token_hwservice:hwservice_manager find;
 # Execute libraries from RenderScript cache
 allow google_camera_app app_data_file:file { rx_file_perms };
 
+# Execute system binaries from RenderScript
+allow google_camera_app rs_exec:file rx_file_perms;
+
 # Read memory info
 allow google_camera_app proc_meminfo:file r_file_perms;
 
