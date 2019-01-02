@@ -16,6 +16,24 @@
       "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b95fa9a_e7cbc237",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-01-02T10:03:23Z",
+      "side": 1,
+      "message": "But if one were to build vendor, then it would be missing that init file.\nThat\u0027s why i suggested moving the prop override to it\u0027s own conditional.",
+      "parentUuid": "ce0cef1e_e1f1897c",
+      "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
