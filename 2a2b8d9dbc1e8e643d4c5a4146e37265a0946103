@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f3c3bd71_b7749164",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-01-02T10:24:01Z",
+      "side": 1,
+      "message": "also, the pixel 2 \u0026 3 have it separate, so it seems like the better way to go.\nhttps://android.googlesource.com/device/google/wahoo/+/android-9.0.0_r22/device.mk#580",
+      "parentUuid": "5b95fa9a_e7cbc237",
+      "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1dc6126_47c97503",
         "filename": "device-common.mk",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2019-01-02T10:19:49Z",
       "side": 1,
       "message": "Then this file would be copied to vendor instead. What\u0027s wrong?",
+      "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9e7152_e372f7d7",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-01-02T10:24:01Z",
+      "side": 1,
+      "message": "That\u0027s only for user builds. Missing a lot of stuff.",
+      "parentUuid": "a1dc6126_47c97503",
       "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
