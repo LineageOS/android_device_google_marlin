@@ -34,6 +34,23 @@
       "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1dc6126_47c97503",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-02T10:19:49Z",
+      "side": 1,
+      "message": "Then this file would be copied to vendor instead. What\u0027s wrong?",
+      "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
