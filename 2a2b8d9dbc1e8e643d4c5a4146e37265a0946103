@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce0cef1e_e1f1897c",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-02T09:59:01Z",
+      "side": 1,
+      "message": "It would be preferable to remove userdebug from here.",
+      "revId": "2a2b8d9dbc1e8e643d4c5a4146e37265a0946103",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
