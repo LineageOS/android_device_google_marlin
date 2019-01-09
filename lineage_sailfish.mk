@@ -19,8 +19,8 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sailfish \
-    PRIVATE_BUILD_DESC="sailfish-user 9 PQ1A.181205.002.A1 5129870 release-keys"
+    PRIVATE_BUILD_DESC="sailfish-user 9 PQ1A.190105.004 5148680 release-keys"
 
-BUILD_FINGERPRINT := google/sailfish/sailfish:9/PQ1A.181205.002.A1/5129870:user/release-keys
+BUILD_FINGERPRINT := google/sailfish/sailfish:9/PQ1A.190105.004/5148680:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
