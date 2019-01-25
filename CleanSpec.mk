@@ -118,3 +118,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.cas@1.0-service)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.cas@1.0-service.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/vintf/manifest/android.hardware.cas@1.0-service.xml)
+
+# Don't upgrade to Widevine HIDL 1.2 after all.  Stay with 1.1.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.2-service.widevine)
