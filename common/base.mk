@@ -848,9 +848,7 @@ PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/platform/soc/624000.ufshc/by-name/sys
 $(call inherit-product, build/target/product/verity.mk)
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-  SystemUIGoogle \
-  SettingsGoogle \
-  NexusLauncherPrebuilt \
+  SystemUIGoogle
 
 # Save space by disabling dexpreopt of GMS modules.
 DEXPREOPT.$(TARGET_PRODUCT).PrebuiltGmsCorePi_extract.CONFIG=disable
