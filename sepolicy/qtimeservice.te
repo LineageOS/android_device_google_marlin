@@ -1,5 +1,6 @@
 # Qualcomm TimeService app
 type qtimeservice, domain;
+type qtimeservice_tmpfs, file_type;
 
 app_domain(qtimeservice)
 
