@@ -275,6 +275,7 @@ NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.contexthub@1.0-impl.nanohub:64 \
+    libsensorndkbridge
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
