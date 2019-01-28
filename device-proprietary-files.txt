@@ -1,70 +1,70 @@
 # Bluetooth
-lib64/libaptX_encoder.so
-lib64/libaptXHD_encoder.so
-lib/libaptX_encoder.so
-lib/libaptXHD_encoder.so
+system/lib64/libaptX_encoder.so:lib64/libaptX_encoder.so
+system/lib64/libaptXHD_encoder.so:lib64/libaptXHD_encoder.so
+system/lib/libaptX_encoder.so:lib/libaptX_encoder.so
+system/lib/libaptXHD_encoder.so:lib/libaptXHD_encoder.so
 
 # Camera
-etc/permissions/com.google.android.camera.experimental2016.xml
--framework/com.google.android.camera.experimental2016.jar;PRESIGNED
+system/etc/permissions/com.google.android.camera.experimental2016.xml:etc/permissions/com.google.android.camera.experimental2016.xml
+-system/framework/com.google.android.camera.experimental2016.jar:framework/com.google.android.camera.experimental2016.jar;PRESIGNED
 
 # CNE
-etc/cne/Nexus/ATT/ATT_profiles.xml
-etc/cne/Nexus/ROW/ROW_profiles.xml
-etc/cne/Nexus/VZW/VZW_profiles.xml
+system/etc/cne/Nexus/ATT/ATT_profiles.xml:etc/cne/Nexus/ATT/ATT_profiles.xml
+system/etc/cne/Nexus/ROW/ROW_profiles.xml:etc/cne/Nexus/ROW/ROW_profiles.xml
+system/etc/cne/Nexus/VZW/VZW_profiles.xml:etc/cne/Nexus/VZW/VZW_profiles.xml
 
 # Hotword Enrollment
--priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
--priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
--priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
+-system/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk:priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
+-system/priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk:priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
+-system/priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk:priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IMS/HD Voice
--app/ims/ims.apk
--priv-app/CNEService/CNEService.apk
-lib64/lib-imsvideocodec.so
-lib64/lib-imsvtextutils.so
-lib64/lib-imsvt.so
-lib64/lib-imsvtutils.so
-lib64/libimscamera_jni.so
-lib64/libimsmedia_jni.so
-lib64/librcc.so
-lib/lib-imsvideocodec.so
-lib/lib-imsvtextutils.so
-lib/lib-imsvt.so
-lib/lib-imsvtutils.so
-lib/librcc.so
+-system/app/ims/ims.apk:app/ims/ims.apk
+-system/priv-app/CNEService/CNEService.apk:priv-app/CNEService/CNEService.apk
+system/lib64/lib-imsvideocodec.so:lib64/lib-imsvideocodec.so
+system/lib64/lib-imsvtextutils.so:lib64/lib-imsvtextutils.so
+system/lib64/lib-imsvt.so:lib64/lib-imsvt.so
+system/lib64/lib-imsvtutils.so:lib64/lib-imsvtutils.so
+system/lib64/libimscamera_jni.so:lib64/libimscamera_jni.so
+system/lib64/libimsmedia_jni.so:lib64/libimsmedia_jni.so
+system/lib64/librcc.so:lib64/librcc.so
+system/lib/lib-imsvideocodec.so:lib/lib-imsvideocodec.so
+system/lib/lib-imsvtextutils.so:lib/lib-imsvtextutils.so
+system/lib/lib-imsvt.so:lib/lib-imsvt.so
+system/lib/lib-imsvtutils.so:lib/lib-imsvtutils.so
+system/lib/librcc.so:lib/librcc.so
 
 # Permissions
-etc/permissions/privapp-permissions-google.xml
+system/etc/permissions/privapp-permissions-google.xml:etc/permissions/privapp-permissions-google.xml
 
 # RIL
--framework/qcrilhook.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-lib64/vendor.qti.atcmdfwd@1.0.so
-lib64/vendor.qti.qcril.am@1.0.so
+-system/framework/qcrilhook.jar:framework/qcrilhook.jar
+-system/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+system/lib64/vendor.qti.atcmdfwd@1.0.so:lib64/vendor.qti.atcmdfwd@1.0.so
+system/lib64/vendor.qti.qcril.am@1.0.so:lib64/vendor.qti.qcril.am@1.0.so
 
 # Sprint
-etc/permissions/com.android.sdm.plugins.sprintdm.xml
--priv-app/SprintDM/SprintDM.apk
--priv-app/SprintHM/SprintHM.apk
+system/etc/permissions/com.android.sdm.plugins.sprintdm.xml:etc/permissions/com.android.sdm.plugins.sprintdm.xml
+-system/priv-app/SprintDM/SprintDM.apk:priv-app/SprintDM/SprintDM.apk
+-system/priv-app/SprintHM/SprintHM.apk:priv-app/SprintHM/SprintHM.apk
 
 # Sysconfig
-etc/sysconfig/nexus.xml
-etc/sysconfig/pixel_2016_exclusive.xml
+system/etc/sysconfig/nexus.xml:etc/sysconfig/nexus.xml
+system/etc/sysconfig/pixel_2016_exclusive.xml:etc/sysconfig/pixel_2016_exclusive.xml
 
 # VZW
--app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
-etc/permissions/com.android.vzwomatrigger.xml
-etc/permissions/com.verizon.apn.xml
-etc/permissions/com.verizon.embms.xml
-etc/permissions/com.verizon.llkagent.xml
-etc/permissions/com.verizon.provider.xml
-etc/permissions/com.verizon.services.xml
-etc/permissions/features-verizon.xml
-etc/permissions/vzw_mvs_permissions.xml
--framework/VerizonUnifiedSettings.jar;PRESIGNED
-priv-app/MyVerizonServices/lib/arm64/libmotricity.so
--priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
--priv-app/VerizonAuthDialog/VerizonAuthDialog.apk;PRESIGNED
--priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
--priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
+-system/app/VZWAPNLib/VZWAPNLib.apk:app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
+system/etc/permissions/com.android.vzwomatrigger.xml:etc/permissions/com.android.vzwomatrigger.xml
+system/etc/permissions/com.verizon.apn.xml:etc/permissions/com.verizon.apn.xml
+system/etc/permissions/com.verizon.embms.xml:etc/permissions/com.verizon.embms.xml
+system/etc/permissions/com.verizon.llkagent.xml:etc/permissions/com.verizon.llkagent.xml
+system/etc/permissions/com.verizon.provider.xml:etc/permissions/com.verizon.provider.xml
+system/etc/permissions/com.verizon.services.xml:etc/permissions/com.verizon.services.xml
+system/etc/permissions/features-verizon.xml:etc/permissions/features-verizon.xml
+system/etc/permissions/vzw_mvs_permissions.xml:etc/permissions/vzw_mvs_permissions.xml
+-system/framework/VerizonUnifiedSettings.jar:framework/VerizonUnifiedSettings.jar;PRESIGNED
+system/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:priv-app/MyVerizonServices/lib/arm64/libmotricity.so
+-system/priv-app/MyVerizonServices/MyVerizonServices.apk:priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
+-system/priv-app/VerizonAuthDialog/VerizonAuthDialog.apk:priv-app/VerizonAuthDialog/VerizonAuthDialog.apk;PRESIGNED
+-system/priv-app/VzwOmaTrigger/VzwOmaTrigger.apk:priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
+-system/priv-app/WfcActivation/WfcActivation.apk:priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
