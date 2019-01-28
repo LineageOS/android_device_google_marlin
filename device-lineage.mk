@@ -26,10 +26,6 @@ DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 PRODUCT_PACKAGES += \
     libsensorndkbridge
 
-# Theme
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.vendor.overlay.theme=org.lineageos.overlay.dark
-
 # Tool
 PRODUCT_PACKAGES += \
     libtinyxml
