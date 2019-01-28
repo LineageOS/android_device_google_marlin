@@ -52,6 +52,7 @@ fi
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
 extract "$MY_DIR"/device-proprietary-files.txt "$SRC"
+extract "$MY_DIR"/device-proprietary-files-vendor.txt "$SRC"
 
 # Don't disable MyVerizonServices app
 sed -i 's|<disabled-until-used-preinstalled-carrier-app package="com.verizon.mips.services" />|<!--disabled-until-used-preinstalled-carrier-app package="com.verizon.mips.services" /-->|g'\
