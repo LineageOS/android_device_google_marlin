@@ -9,7 +9,3 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
-
-# Theme
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.vendor.overlay.theme=org.lineageos.overlay.dark
