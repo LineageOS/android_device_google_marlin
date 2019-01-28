@@ -1,3 +1,15 @@
+# Camera
+PRODUCT_PACKAGES += \
+    libmm-qcamera
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.1-service.clearkey
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true \
+    media.mediadrmservice.enable=true
+
 # Google Assistant
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.opa.eligible_device=true
 
@@ -10,6 +22,14 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
 # Theme
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.vendor.overlay.theme=org.lineageos.overlay.dark
+
+# Tool
+PRODUCT_PACKAGES += \
+    libtinyxml
