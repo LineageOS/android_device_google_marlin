@@ -59,6 +59,7 @@ write_marlin_headers
 
 # The standard blobs
 write_makefiles "$MY_DIR"/device-proprietary-files.txt
+write_makefiles "$MY_DIR"/device-proprietary-files-vendor.txt true
 
 cat << EOF >> "$ANDROIDMK"
 
