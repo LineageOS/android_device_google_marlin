@@ -23,4 +23,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := google/sailfish/sailfish:10/QP1A.190711.020/5800535:user/release-keys
 
-$(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/sailfish/sailfish-vendor.mk)
