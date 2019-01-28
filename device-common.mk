@@ -138,6 +138,7 @@ PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-service \
     android.hardware.gnss@1.0-service \
     android.hardware.drm@1.0-service \
+    android.hardware.drm@1.1-service.clearkey \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.power@1.1-service.marlin \
@@ -166,6 +167,10 @@ PRODUCT_PACKAGES += \
 # DRM HAL
 PRODUCT_PACKAGES += \
     move_widevine_data.sh
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true \
+    media.mediadrmservice.enable=true
 
 # Audio effects
 PRODUCT_PACKAGES += \
@@ -275,6 +280,7 @@ NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.contexthub@1.0-impl.nanohub:64 \
+    libsensorndkbridge
 
 PRODUCT_PACKAGES += \
     nanoapp_cmd
@@ -338,6 +344,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.tof.direct=1 \
     persist.camera.tnr.preview=1 \
     persist.camera.tnr.video=1
+
+PRODUCT_PACKAGES += \
+    libmm-qcamera
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
@@ -649,3 +658,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.marlin
+
+# Tool
+PRODUCT_PACKAGES += \
+    libtinyxml
