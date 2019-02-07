@@ -1,6 +1,5 @@
 # CNEService app
 type qcneservice, domain, coredomain;
-type qcneservice_tmpfs, file_type;
 
 app_domain(qcneservice)
 net_domain(qcneservice)
