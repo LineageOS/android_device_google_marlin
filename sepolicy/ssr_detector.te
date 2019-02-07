@@ -1,6 +1,5 @@
 # SSRestartDetector app
 type ssr_detector, domain;
-type ssr_detector_tmpfs, file_type;
 
 app_domain(ssr_detector)
 
