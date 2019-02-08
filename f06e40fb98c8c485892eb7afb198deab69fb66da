@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd419090_c5d7615d",
+        "filename": "device-proprietary-files-vendor.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-02-08T00:18:40Z",
+      "side": 1,
+      "message": "This doesn\u0027t work on sailfish. lol. It needs the one from sailfish factory image",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 77
+      },
+      "revId": "f06e40fb98c8c485892eb7afb198deab69fb66da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1e82ecf_00515826",
+        "filename": "device-proprietary-files-vendor.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-02-08T00:18:40Z",
+      "side": 1,
+      "message": "Same here. This doesn\u0027t work on sailfish. It needs the one from sailfish factory image",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 37
+      },
+      "revId": "f06e40fb98c8c485892eb7afb198deab69fb66da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
