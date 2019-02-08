@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "a47314c5_b9ba6d24",
+        "filename": "device-proprietary-files-vendor.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-02-08T10:05:15Z",
+      "side": 1,
+      "message": "Sailfish factory image doesn\u0027t have this.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 34
+      },
+      "revId": "f06e40fb98c8c485892eb7afb198deab69fb66da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1e82ecf_00515826",
         "filename": "device-proprietary-files-vendor.txt",
         "patchSetId": 4
