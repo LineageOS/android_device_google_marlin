@@ -34,4 +34,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/libminui.so:system/lib/libminui.so:qcom \
     vendor/qcom/marlin/proprietary/iperf3:system/xbin/iperf3:qcom \
     vendor/qcom/marlin/proprietary/sanitizer-status:system/xbin/sanitizer-status:qcom \
+    vendor/qcom/marlin/proprietary/lib64/vendor.qti.atcmdfwd@1.0.so:system/lib64/vendor.qti.atcmdfwd@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/vendor.qti.qcril.am@1.0.so:system/lib64/vendor.qti.qcril.am@1.0.so:qcom \
 

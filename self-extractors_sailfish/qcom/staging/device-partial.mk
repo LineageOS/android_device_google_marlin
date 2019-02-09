@@ -34,4 +34,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/sailfish/proprietary/libminui.so:system/lib/libminui.so:qcom \
     vendor/qcom/sailfish/proprietary/iperf3:system/xbin/iperf3:qcom \
     vendor/qcom/sailfish/proprietary/sanitizer-status:system/xbin/sanitizer-status:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/vendor.qti.atcmdfwd@1.0.so:system/lib64/vendor.qti.atcmdfwd@1.0.so:qcom \
+    vendor/qcom/sailfish/proprietary/lib64/vendor.qti.qcril.am@1.0.so:system/lib64/vendor.qti.qcril.am@1.0.so:qcom \
 
