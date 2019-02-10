@@ -1509,8 +1509,7 @@ status_t CameraContext::createPreviewSurface(int width, int height, int32_t pixF
 {
     int ret = NO_ERROR;
     DisplayInfo dinfo;
-    sp<IBinder> display(SurfaceComposerClient::getBuiltInDisplay(
-                        ISurfaceComposer::eDisplayIdMain));
+    sp<IBinder> display = SurfaceComposerClient::getInternalDisplayToken();
     SurfaceComposerClient::getDisplayInfo(display, &dinfo);
     uint32_t previewWidth, previewHeight;
 
