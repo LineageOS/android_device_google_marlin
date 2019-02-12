@@ -19,4 +19,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/marlin/proprietary/ROW_profiles.xml:system/etc/cne/Nexus/ROW/ROW_profiles.xml:qcom \
     vendor/qcom/marlin/proprietary/VZW_profiles.xml:system/etc/cne/Nexus/VZW/VZW_profiles.xml:qcom \
     vendor/qcom/marlin/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
+    vendor/qcom/marlin/proprietary/lib64/vendor.qti.atcmdfwd@1.0.so:system/lib64/vendor.qti.atcmdfwd@1.0.so:qcom \
+    vendor/qcom/marlin/proprietary/lib64/vendor.qti.qcril.am@1.0.so:system/lib64/vendor.qti.qcril.am@1.0.so:qcom \
 
