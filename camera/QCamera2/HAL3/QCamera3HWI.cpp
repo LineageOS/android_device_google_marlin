@@ -8690,8 +8690,7 @@ int QCamera3HardwareInterface::isStreamCombinationSupported(uint32_t cameraId,
     }
 
     camera3_stream_configuration_t streamList = {comb->num_streams, /*streams*/ nullptr,
-            comb->operation_mode, /*session_parameters*/ nullptr,
-            /*stream_configuration_counter*/0};
+            comb->operation_mode, /*session_parameters*/ nullptr};
     streamList.streams = new camera3_stream_t * [comb->num_streams];
     camera3_stream_t *streamBuffer = new camera3_stream_t[comb->num_streams];
     for (size_t i = 0; i < comb->num_streams; i++) {
