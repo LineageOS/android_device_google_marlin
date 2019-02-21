@@ -334,6 +334,8 @@ LIBCAMERA += libqomx_core
 LIBCAMERA += mm-qcamera-app
 LIBCAMERA += camera_test
 LIBCAMERA += org.codeaurora.camera
+LIBCAMERA += libgooglecamerahal
+LIBCAMERA += libgoogle_camera_hal_tests
 
 # Shared by passthrough/binderized camera HAL
 LIBCAMERA += camera.device@3.2-impl
