@@ -167,7 +167,7 @@
     <item name="audio">75.60</item>
 
     <!-- Idle current for wifi radio in mA.-->
-    <item name="wifi.controller.idle">2</item>
+    <item name="wifi.controller.idle">79</item>
     <!-- Rx current for wifi radio in mA.-->
     <item name="wifi.controller.rx">107</item>
     <!-- Tx current for wifi radio in mA-->
