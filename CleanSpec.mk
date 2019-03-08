@@ -114,6 +114,10 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
 # Move libnfc-nci.conf to /vendor
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
 
+# Remove android.hardware.graphics.mapper@2.0-impl
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so)
+
 # Use android.hardware.cas@1.0-service-lazy for marlin_svelte build
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.cas@1.0-service)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.cas@1.0-service.rc)
