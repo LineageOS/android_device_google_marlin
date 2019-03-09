@@ -29,3 +29,8 @@ PRODUCT_PACKAGES += \
 # Tool
 PRODUCT_PACKAGES += \
     libtinyxml
+
+# VR Services
+PRODUCT_PACKAGES += \
+    bufferhubd \
+    virtual_touchpad
