@@ -27,6 +27,26 @@
         <boolean name="use_rcs_presence_bool" value="true" />
         <string name="wfc_emergency_address_carrier_app_string">com.google.android.wfcactivation/.VzwEmergencyAddressActivity</string>
         <int name="wfc_spn_format_idx_int" value="1" />
+        <string-array name="enable_apps_string_array" num="18">
+            <item value="com.customermobile.preload.vzw" />
+            <item value="com.qualcomm.ltebc_vzw" />
+            <item value="com.verizon.llkagent" />
+            <item value="com.verizon.mips.services" />
+            <item value="com.verizon.obdm" />
+            <item value="com.verizon.obdm_permissions" />
+            <item value="com.verizon.services" />
+            <item value="com.vzw.apnlib" />
+            <item value="qualcomm.com.vzw_msdc_api" />
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.connmo" />
+            <item value="com.android.sdm.plugins.dcmo" />
+            <item value="com.android.sdm.plugins.diagmon" />
+            <item value="com.android.vzwomatrigger" />
+            <item value="com.htc.omadm.trigger" />
+            <item value="com.google.omadm.trigger" />
+            <item value="com.google.android.carrier.authdialog" />
+            <item value="com.google.android.ims" />
+        </string-array>
     </carrier_config>
     <carrier_config mcc="222" mnc="10">
         <boolean name="carrier_volte_available_bool" value="false" />
@@ -36,6 +56,14 @@
     </carrier_config>
     <carrier_config mcc="234" mnc="20">
         <boolean name="prefer_2g_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="234" mnc="20" gid1="0306">
+        <string-array name="enable_apps_string_array" num="4">
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.sprintdm" />
+            <item value="com.google.android.hiddenmenu" />
+            <item value="com.google.android.ims" />
+        </string-array>
     </carrier_config>
     <carrier_config mcc="234" mnc="30">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -112,6 +140,34 @@
         <boolean name="use_rcs_presence_bool" value="true" />
         <string name="wfc_emergency_address_carrier_app_string">com.google.android.wfcactivation/.VzwEmergencyAddressActivity</string>
         <int name="wfc_spn_format_idx_int" value="1" />
+        <string-array name="enable_apps_string_array" num="18">
+            <item value="com.customermobile.preload.vzw" />
+            <item value="com.qualcomm.ltebc_vzw" />
+            <item value="com.verizon.llkagent" />
+            <item value="com.verizon.mips.services" />
+            <item value="com.verizon.obdm" />
+            <item value="com.verizon.obdm_permissions" />
+            <item value="com.verizon.services" />
+            <item value="com.vzw.apnlib" />
+            <item value="qualcomm.com.vzw_msdc_api" />
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.connmo" />
+            <item value="com.android.sdm.plugins.dcmo" />
+            <item value="com.android.sdm.plugins.diagmon" />
+            <item value="com.android.vzwomatrigger" />
+            <item value="com.htc.omadm.trigger" />
+            <item value="com.google.omadm.trigger" />
+            <item value="com.google.android.carrier.authdialog" />
+            <item value="com.google.android.ims" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="310" mnc="120">
+        <string-array name="enable_apps_string_array" num="4">
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.sprintdm" />
+            <item value="com.google.android.hiddenmenu" />
+            <item value="com.google.android.ims" />
+        </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="260">
         <boolean name="carrier_vt_available_bool" value="false" />
@@ -121,6 +177,19 @@
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="ddff">
         <boolean name="require_entitlement_checks_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="310" mnc="260" imsi="^31026097.*">
+        <string-array name="enable_apps_string_array" num="4">
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.sprintdm" />
+            <item value="com.google.android.hiddenmenu" />
+            <item value="com.google.android.ims" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="310" mnc="410">
+        <string-array name="enable_apps_string_array" num="1">
+            <item value="com.verizon.mips.services" />
+        </string-array>
     </carrier_config>
     <carrier_config mcc="311" mnc="480">
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
@@ -146,6 +215,34 @@
         <boolean name="use_rcs_presence_bool" value="true" />
         <string name="wfc_emergency_address_carrier_app_string">com.google.android.wfcactivation/.VzwEmergencyAddressActivity</string>
         <int name="wfc_spn_format_idx_int" value="1" />
+        <string-array name="enable_apps_string_array" num="18">
+            <item value="com.customermobile.preload.vzw" />
+            <item value="com.qualcomm.ltebc_vzw" />
+            <item value="com.verizon.llkagent" />
+            <item value="com.verizon.mips.services" />
+            <item value="com.verizon.obdm" />
+            <item value="com.verizon.obdm_permissions" />
+            <item value="com.verizon.services" />
+            <item value="com.vzw.apnlib" />
+            <item value="qualcomm.com.vzw_msdc_api" />
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.connmo" />
+            <item value="com.android.sdm.plugins.dcmo" />
+            <item value="com.android.sdm.plugins.diagmon" />
+            <item value="com.android.vzwomatrigger" />
+            <item value="com.htc.omadm.trigger" />
+            <item value="com.google.omadm.trigger" />
+            <item value="com.google.android.carrier.authdialog" />
+            <item value="com.google.android.ims" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="311" mnc="580" imsi="^3115801.*">
+        <string-array name="enable_apps_string_array" num="4">
+            <item value="com.android.omadm.service" />
+            <item value="com.android.sdm.plugins.sprintdm" />
+            <item value="com.google.android.hiddenmenu" />
+            <item value="com.google.android.ims" />
+        </string-array>
     </carrier_config>
     <carrier_config mcc="405" mnc="840">
         <boolean name="carrier_volte_available_bool" value="true" />
