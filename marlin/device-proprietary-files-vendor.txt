@@ -99,6 +99,10 @@ vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/modem_stat.conf
 vendor/etc/perf-profile0.conf
+vendor/etc/permissions/LowPowerMonitorDeviceInterface.xml
+vendor/etc/permissions/LowPowerMonitorDeviceStub.xml
+vendor/etc/permissions/PowerAnomalyDataModemInterface.xml
+vendor/etc/permissions/PowerAnomalyStub.xml
 vendor/etc/permissions/embms.xml
 vendor/etc/permissions/qcrilhook.xml
 vendor/etc/permissions/qti_permissions.xml
