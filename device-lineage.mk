@@ -2,6 +2,10 @@
 PRODUCT_PACKAGES += \
     libmm-qcamera
 
+# Carrier apps
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/carrier_apps.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/carrier_apps.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.1-service.clearkey
