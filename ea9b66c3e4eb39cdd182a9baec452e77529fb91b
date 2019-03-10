@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28927508_a27982ee",
+        "filename": "overlay/packages/apps/CarrierConfig/res/xml/vendor.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-03-10T05:11:16Z",
+      "side": 1,
+      "message": "temporarily added for testing",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 21
+      },
+      "revId": "ea9b66c3e4eb39cdd182a9baec452e77529fb91b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
