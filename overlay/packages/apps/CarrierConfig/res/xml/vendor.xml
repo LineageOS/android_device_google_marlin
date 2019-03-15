@@ -16,6 +16,7 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <int name="network_notification_delay_int" value="3000" />
         <boolean name="notify_international_call_on_wfc_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true" />
         <boolean name="editable_wfc_roaming_mode_bool" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="enhanced_4g_lte_title_variant_bool" value="true" />
@@ -101,6 +102,7 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <int name="network_notification_delay_int" value="3000" />
         <boolean name="notify_international_call_on_wfc_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true" />
         <boolean name="editable_wfc_roaming_mode_bool" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="enhanced_4g_lte_title_variant_bool" value="true" />
@@ -134,6 +136,7 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <int name="network_notification_delay_int" value="3000" />
         <boolean name="notify_international_call_on_wfc_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true" />
         <boolean name="editable_wfc_roaming_mode_bool" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="enhanced_4g_lte_title_variant_bool" value="true" />
