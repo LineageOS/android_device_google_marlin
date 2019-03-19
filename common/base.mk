@@ -600,7 +600,6 @@ WPA += hs20-osu-client
 
 #ZLIB
 ZLIB := gzip
-ZLIB += minigzip
 ZLIB += libunz
 
 #Charger
