@@ -605,7 +605,6 @@ endif
 
 #ZLIB
 ZLIB := gzip
-ZLIB += minigzip
 ZLIB += libunz
 
 #Charger
