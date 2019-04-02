@@ -652,3 +652,7 @@ PRODUCT_PACKAGES += \
 # default atrace HAL
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
+
+# a_sns_test for sensor testing
+PRODUCT_PACKAGES_DEBUG += a_sns_test
+
