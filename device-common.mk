@@ -633,10 +633,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
-# Enable Perfetto traced and heapprofd
+# Enable Perfetto traced
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.traced.enable=1 \
-    persist.heapprofd.enable=1
+    persist.traced.enable=1
 
 # health HAL
 PRODUCT_PACKAGES += \
