@@ -5,3 +5,5 @@ hal_bluetooth_default ramdump_vendor_data_file dir 129298416
 hal_health_default persist_file file 127303305
 netd sysfs_pcie dir 77870037
 perfd perfd capability 77924406
+platform_app storage_stub_file dir 130218670
+
