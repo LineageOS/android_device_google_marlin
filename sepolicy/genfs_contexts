@@ -14,7 +14,6 @@ genfscon proc /debugdriver/driverdump                 u:object_r:proc_wifi_dbg:s
 
 # sysfs
 genfscon sysfs /devices/virtual/nanohub/nanohub       u:object_r:sysfs_nanoapp_cmd:s0
-genfscon sysfs /devices/virtual/net                   u:object_r:sysfs_net:s0
 genfscon sysfs /devices/virtual/thermal               u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/bt_qca6174/extldo             u:object_r:sysfs_bluetooth_writable:s0
 genfscon sysfs /devices/bt_qca6174/rfkill/rfkill0/state u:object_r:sysfs_bluetooth_writable:s0
