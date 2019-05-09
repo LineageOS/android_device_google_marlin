@@ -424,8 +424,6 @@ PRODUCT_PACKAGES += \
     keystore.msm8996 \
     gatekeeper.msm8996
 
-# Use the A/B updater.
-AB_OTA_UPDATER := true
 PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
@@ -449,13 +447,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
-
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    system
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
@@ -557,10 +548,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
-
-# Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := \
-    device/google/marlin/recovery.wipe.common
 
 # GPS configuration file
 PRODUCT_COPY_FILES += \
