@@ -46,3 +46,6 @@ allow google_camera_app system_app_data_file:file { read write getattr };
 # /vendor for the application. The policy build MUST also catch the violations
 typeattribute google_camera_app system_executes_vendor_violators;
 r_dir_file(google_camera_app, vendor_file)
+
+# Allow notifying Perfetto traced daemon that a notable event has occurred.
+unix_socket_connect(google_camera_app, traced_producer, traced)
