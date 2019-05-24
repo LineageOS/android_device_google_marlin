@@ -9,8 +9,8 @@ allow move-widevine-data-sh toolbox_exec:file rx_file_perms;
 
 allow move-widevine-data-sh file_contexts_file:file { read getattr open };
 
-allow move-widevine-data-sh media_data_file:file { getattr setattr relabelfrom };
-allow move-widevine-data-sh media_data_file:dir  { reparent rename rmdir setattr rw_dir_perms relabelfrom };
+allow move-widevine-data-sh media_data_file:file { getattr setattr relabelfrom rename };
+allow move-widevine-data-sh media_data_file:dir  { create reparent rename rmdir setattr rw_dir_perms relabelfrom };
 
 allow move-widevine-data-sh mediadrm_vendor_data_file:dir { create_dir_perms relabelto };
 
