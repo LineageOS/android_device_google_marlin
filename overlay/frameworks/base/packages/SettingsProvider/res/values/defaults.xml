@@ -30,5 +30,5 @@
     <bool name="def_notification_pulse">false</bool>
 
     <!-- Default for Settings.Global.APPLY_RAMPING_RINGER -->
-    <bool name="def_apply_ramping_ringer">true</bool>
+    <bool name="def_apply_ramping_ringer">false</bool>
 </resources>
