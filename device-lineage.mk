@@ -34,6 +34,8 @@ PRODUCT_PACKAGES += \
 # VR Services
 PRODUCT_PACKAGES += \
     bufferhubd \
+    com.google.vr.platform \
+    com.google.vr.platform.xml \
     performanced \
     virtual_touchpad \
     vr_hwc
