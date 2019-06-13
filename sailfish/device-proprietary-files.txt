@@ -81,6 +81,7 @@ etc/permissions/vzw_mvs_permissions.xml
 -priv-app/CarrierSetup/CarrierSetup.apk
 -priv-app/ConnMO/ConnMO.apk
 -priv-app/DCMO/DCMO.apk
+priv-app/MyVerizonServices/lib/arm64/libakuaf.so
 priv-app/MyVerizonServices/lib/arm64/libmotricity.so
 -priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
 -priv-app/OBDM_Permissions/OBDM_Permissions.apk
