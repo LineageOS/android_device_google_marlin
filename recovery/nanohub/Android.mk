@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_RECOVERY_UI_LIB),librecovery_ui_nanohub)
+ifneq (,$(filter librecovery_ui_nanohub,$(TARGET_RECOVERY_UI_LIB)))
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -24,7 +24,9 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := nanohub_recovery_ui.cpp
 
-LOCAL_SHARED_LIBRARIES := librecovery_ui
+LOCAL_SHARED_LIBRARIES := libbase librecovery_ui
+
+LOCAL_STATIC_LIBRARIES := libbootloader_message
 
 include $(BUILD_STATIC_LIBRARY)
 endif

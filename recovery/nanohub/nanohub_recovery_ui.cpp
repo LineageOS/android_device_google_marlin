@@ -20,38 +20,54 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include "recovery_ui/device.h"
-#include "recovery_ui/screen_ui.h"
+#include <string>
 
-class Nanohub_Device : public Device
-{
-public:
+#include <android-base/logging.h>
+#include <bootloader_message/bootloader_message.h>
+#include <recovery_ui/device.h>
+#include <recovery_ui/screen_ui.h>
+
+// Wipes the dark theme flag as part of data wipe.
+static bool WipeDarkThemeFlag() {
+    // Must be consistent with the one in init.hardware.rc (10-byte `theme-dark`). The magic is at
+    // 10814 in vendor space, or (2048 + 10814) since the start of /misc.
+    const std::string wipe_str(10, '\x00');
+    constexpr size_t kDarkThemeFlagOffsetInVendorSpace = 10814;
+    if (std::string err; !WriteMiscPartitionVendorSpace(
+            wipe_str.data(), wipe_str.size(), kDarkThemeFlagOffsetInVendorSpace, &err)) {
+        LOG(ERROR) << "Failed to write wipe string: " << err;
+        return false;
+    }
+    LOG(INFO) << "Dark theme flag wiped successfully";
+    return true;
+}
+
+class Nanohub_Device : public Device {
+  public:
     Nanohub_Device(ScreenRecoveryUI* ui) : Device(ui) {}
     bool PostWipeData();
 };
 
-bool Nanohub_Device::PostWipeData()
-{
-    int fd;
-
-    fd = open("/sys/class/nanohub/nanohub/erase_shared", O_WRONLY);
+bool Nanohub_Device::PostWipeData() {
+    int fd = open("/sys/class/nanohub/nanohub/erase_shared", O_WRONLY);
     if (fd < 0) {
-        printf("error: open erase_shared failed: %s\n", strerror(errno));
+        PLOG(ERROR) << "open erase_shared failed";
     } else {
         if (write(fd, "1\n", 2) != 2) {
-            printf("error: write to erase_shared failed: %s\n", strerror(errno));
+            PLOG(ERROR) << "write to erase_shared failed";
         } else {
-            printf("Successfully erased nanoapps.\n");
+            LOG(INFO) << "Successfully erased nanoapps";
         }
         close(fd);
     }
+
+    WipeDarkThemeFlag();
 
     // open/write failure caused by permissions issues would persist across
     // reboots, so always return true to prevent a factory reset failure loop.
     return true;
 }
 
-Device *make_device()
-{
+Device* make_device() {
     return new Nanohub_Device(new ScreenRecoveryUI);
 }
