@@ -2231,6 +2231,8 @@ typedef enum {
     CAM_INTF_META_ISP_POST_STATS_SENSITIVITY,
     /* Early AF state due to trigger */
     CAM_INTF_META_EARLY_AF_STATE,
+    /* EIS crop information */
+    CAM_INTF_META_EIS_CROP_INFO,
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
 
@@ -2814,5 +2816,13 @@ typedef enum {
     CAM_STREAM_CACHE_OPS_HONOUR_FLAGS,
     CAM_STREAM_CACHE_OPS_DISABLED
 } cam_stream_cache_ops_t;
+
+// Used with CAM_META_EIS_CROP_INFO
+typedef struct {
+    int32_t delta_x;
+    int32_t delta_y;
+    int32_t delta_width;
+    int32_t delta_height;
+} cam_eis_crop_info_t;
 
 #endif /* __QCAMERA_TYPES_H__ */

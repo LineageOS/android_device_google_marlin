@@ -151,6 +151,8 @@ public:
     camera_metadata_t* translateCapabilityToMetadata(int type);
 
     static int getCamInfo(uint32_t cameraId, struct camera_info *info);
+    static int isStreamCombinationSupported(uint32_t cameraId,
+            const camera_stream_combination_t *streams);
     static int initCapabilities(uint32_t cameraId);
     static int initStaticMetadata(uint32_t cameraId);
     static void makeTable(cam_dimension_t *dimTable, size_t size,
@@ -280,11 +282,32 @@ private:
             int32_t scalar_format, const cam_dimension_t &dim,
             int32_t config_type);
 
+    struct StreamValidateStatus {
+        bool bIsVideo, bIs4KVideo, bEisSupportedSize, depthPresent, bUseCommonFeatureMask;
+        bool isZsl, bSmallJpegSize, bYuv888OverrideJpeg, bEisSupported, bY80OnEncoder;
+        camera3_stream *inputStream;
+        cam_feature_mask_t commonFeatureMask;
+        size_t numStreamsOnEncoder;
+        uint32_t videoWidth, videoHeight;
+        cam_dimension_t maxViewfinderSize, largeYuv888Size;
+        StreamValidateStatus() :
+                bIsVideo(false), bIs4KVideo(false), bEisSupportedSize(true), depthPresent(false),
+                bUseCommonFeatureMask(false), isZsl(false), bSmallJpegSize(false),
+                bYuv888OverrideJpeg(false), bEisSupported(false), bY80OnEncoder(false),
+                inputStream(nullptr), commonFeatureMask(0), numStreamsOnEncoder(0),
+                videoWidth(0U), videoHeight(0U) {};
+    };
+    static int32_t validateStreamCombination(uint32_t cameraId,
+            camera3_stream_configuration_t *streamList /*in*/,
+            StreamValidateStatus *status /*out*/);
+
     int validateCaptureRequest(camera3_capture_request_t *request);
-    int validateStreamDimensions(camera3_stream_configuration_t *streamList);
-    int validateStreamRotations(camera3_stream_configuration_t *streamList);
-    int validateUsageFlags(const camera3_stream_configuration_t *streamList);
-    int validateUsageFlagsForEis(const camera3_stream_configuration_t *streamList);
+    static int validateStreamDimensions(uint32_t cameraId,
+            camera3_stream_configuration_t *streamList);
+    static int validateStreamRotations(camera3_stream_configuration_t *streamList);
+    static int validateUsageFlags(const camera3_stream_configuration_t *streamList);
+    static int validateUsageFlagsForEis(bool bEisEnable, bool bEisSupportedSize,
+            const camera3_stream_configuration_t *streamList);
     void deriveMinFrameDuration();
     void handleBuffersDuringFlushLock(camera3_stream_buffer_t *buffer);
     int32_t handlePendingReprocResults(uint32_t frame_number);
@@ -306,6 +329,13 @@ private:
     void cleanAndSortStreamInfo();
     void extractJpegMetadata(CameraMetadata& jpegMetadata,
             const camera3_capture_request_t *request);
+
+    // Check whether additional EIS crop is needed.
+    bool isEISCropInSnapshotNeeded(const CameraMetadata &metadata) const;
+
+    // Various crop sanity checks.
+    bool isCropValid(int32_t startX, int32_t startY, int32_t width,
+            int32_t height, int32_t maxWidth, int32_t maxHeight) const;
 
     bool isSupportChannelNeeded(camera3_stream_configuration_t *streamList,
             cam_stream_size_info_t stream_config_info);
@@ -334,7 +364,7 @@ private:
     int32_t getReprocessibleOutputStreamId(uint32_t &id);
     int32_t handleCameraDeviceError();
 
-    bool isOnEncoder(const cam_dimension_t max_viewfinder_size,
+    static bool isOnEncoder(const cam_dimension_t max_viewfinder_size,
             uint32_t width, uint32_t height);
     void hdrPlusPerfLock(mm_camera_super_buf_t *metadata_buf);
 
@@ -406,6 +436,9 @@ private:
         // metadata needs to be consumed by the corresponding stream
         // in order to generate the buffer.
         bool need_metadata;
+        // Do we need additional crop due to EIS.
+        bool need_crop;
+        cam_eis_crop_info_t crop_info;
     } RequestedBufferInfo;
     typedef struct {
         uint32_t frame_number;
@@ -566,6 +599,12 @@ private:
     bool m60HzZone;
 
     cam_trigger_t mAfTrigger;
+
+    // Last cached EIS crop information.
+    cam_eis_crop_info_t mLastEISCropInfo;
+
+    // Maps between active region and specific stream crop.
+    QCamera3CropRegionMapper mStreamCropMapper;
 };
 
 }; // namespace qcamera

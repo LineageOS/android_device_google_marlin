@@ -93,13 +93,13 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/*)
 
-# Remove Clearkey HAL 1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.clearkey.rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.clearkey)
+# Remove Clearkey HAL 1.1
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.1-service.clearkey.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.1-service.clearkey)
 
-# Remove Widevine HAL 1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.0-service.widevine)
+# Remove Widevine HAL 1.1
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.1-service.widevine)
 
 # Health HAL 2.0
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.health@2.0-service)
@@ -114,10 +114,18 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
 # Move libnfc-nci.conf to /vendor
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
 
+# Remove android.hardware.graphics.mapper@2.0-impl
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so)
+
 # Use android.hardware.cas@1.0-service-lazy for marlin_svelte build
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.cas@1.0-service)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.cas@1.0-service.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/vintf/manifest/android.hardware.cas@1.0-service.xml)
+
+# Don't upgrade to Widevine HIDL 1.2 after all.  Stay with 1.1.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.drm@1.2-service.widevine)
 
 # Remove obsolete android.hardware.boot@1.0-impl-wrapper.recovery.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/system/lib64/hw/android.hardware.boot@1.0-impl-wrapper.recovery.so)

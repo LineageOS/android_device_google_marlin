@@ -1439,7 +1439,11 @@ int32_t QCamera3PostProcessor::encodeData(qcamera_hal3_jpeg_data_t *jpeg_job_dat
         // create jpeg encoding session
         mm_jpeg_encode_params_t encodeParam;
         memset(&encodeParam, 0, sizeof(mm_jpeg_encode_params_t));
-        getJpegEncodeConfig(encodeParam, main_stream, jpeg_settings);
+        ret = getJpegEncodeConfig(encodeParam, main_stream, jpeg_settings);
+        if (ret != NO_ERROR) {
+            LOGE("Error generating jpeg configuration: %d", ret);
+            return ret;
+        }
         LOGH("#src bufs:%d # tmb bufs:%d #dst_bufs:%d",
                      encodeParam.num_src_bufs,encodeParam.num_tmb_bufs,encodeParam.num_dst_bufs);
         if (!needJpegExifRotation &&
@@ -1741,6 +1745,7 @@ void *QCamera3PostProcessor::dataProcessRoutine(void *data)
             pme->m_inputPPQ.init();
             pme->m_inputFWKPPQ.init();
             pme->m_inputMetaQ.init();
+            pme->m_jpegSettingsQ.init();
             cam_sem_post(&cmdThread->sync_sem);
 
             break;
@@ -1782,6 +1787,8 @@ void *QCamera3PostProcessor::dataProcessRoutine(void *data)
                 pme->m_inputFWKPPQ.flush();
 
                 pme->m_inputMetaQ.flush();
+
+                pme->m_jpegSettingsQ.flush();
 
                 // signal cmd is completed
                 cam_sem_post(&cmdThread->sync_sem);

@@ -1013,6 +1013,7 @@ typedef struct {
     /* DevCamDebug metadata end */
     INCLUDE(CAM_INTF_META_ISP_POST_STATS_SENSITIVITY,   float,                       1);
     INCLUDE(CAM_INTF_META_EARLY_AF_STATE,               uint32_t,                    1);
+    INCLUDE(CAM_INTF_META_EIS_CROP_INFO,                cam_eis_crop_info_t,         1);
 
 } metadata_data_t;
 

@@ -53,7 +53,7 @@ r_dir_file(hal_dumpstate_impl, sysfs_thermal)
 # CPU stat
 r_dir_file(hal_dumpstate_impl, sysfs_devices_system_cpu)
 # usb logs
-userdebug_or_eng(`allow hal_dumpstate_impl debugfs_usb:file r_file_perms;')
+allow hal_dumpstate_impl debugfs_usb:file r_file_perms;
 
 # Access to UFS info
 allow hal_dumpstate_impl sysfs_scsi_devices_0000:dir r_dir_perms;
