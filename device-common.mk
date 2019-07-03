@@ -658,3 +658,6 @@ PRODUCT_PACKAGES += \
 # a_sns_test for sensor testing
 PRODUCT_PACKAGES_DEBUG += a_sns_test
 
+# Write flags to the vendor space in /misc partition.
+PRODUCT_PACKAGES += \
+    misc_writer
