@@ -27,7 +27,7 @@ endif
 PRODUCT_SHIPPING_API_LEVEL := 25
 
 # Setting vendor SPL
-VENDOR_SECURITY_PATCH := "2019-06-05"
+VENDOR_SECURITY_PATCH := "2019-07-05"
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
