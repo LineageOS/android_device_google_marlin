@@ -133,9 +133,6 @@ TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
-#Let charger mode enter suspend
-BOARD_CHARGER_ENABLE_SUSPEND := true
-
 #Enable Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
 
