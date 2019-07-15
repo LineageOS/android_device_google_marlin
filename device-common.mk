@@ -658,6 +658,10 @@ AB_OTA_PARTITIONS += vendor
 PRODUCT_PACKAGES += \
     libmm-qcamera
 
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
 # Component overrides
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
