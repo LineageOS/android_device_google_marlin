@@ -1,8 +1,6 @@
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(radio)
 
-allow radio uce_service:service_manager { add find };
-
 # read access to sys/bus/esoc/devices/ directory.
 allow radio sysfs:dir r_dir_perms;
 
