@@ -195,6 +195,71 @@ int QCamera2Factory::get_camera_info(int camera_id, struct camera_info *info)
 }
 
 /*===========================================================================
+ * FUNCTION   : get_physical_camera_info
+ *
+ * DESCRIPTION: static function to query physical camera information
+ *
+ * PARAMETERS :
+ *   @physical_camera_id : physical camera ID
+ *   @static_metadata    : camera information
+ *
+ * RETURN     : int32_t type of status
+ *              NO_ERROR  -- success
+ *              none-zero failure code
+ *==========================================================================*/
+int QCamera2Factory::get_physical_camera_info(int /*physical_camera_id*/,
+        camera_metadata_t ** /*static_metadata*/)
+{
+    return BAD_VALUE;
+}
+
+/*===========================================================================
+ * FUNCTION   : is_camera_combination_supported
+ *
+ * DESCRIPTION: static function to query camera combination support
+ *
+ * PARAMETERS :
+ *   @camera_id : camera ID
+ *   @streams   : stream combination
+ *
+ * RETURN     : int32_t type of status
+ *              NO_ERROR  -- in case combination is supported
+ *              none-zero failure code
+ *==========================================================================*/
+int QCamera2Factory::is_stream_combination_supported(int camera_id,
+        const camera_stream_combination_t *streams)
+{
+    return gQCamera2Factory->isStreamCombinationSupported(camera_id, streams);
+}
+
+/*===========================================================================
+ * FUNCTION   : isStreamCombinationSupported
+ *
+ * DESCRIPTION: method to query camera combination support
+ *
+ * PARAMETERS :
+ *   @camera_id : camera ID
+ *   @streams   : stream combination
+ *
+ * RETURN     : int32_t type of status
+ *              NO_ERROR  -- in case combination is supported
+ *              none-zero failure code
+ *==========================================================================*/
+int QCamera2Factory::isStreamCombinationSupported(int camera_id,
+        const camera_stream_combination_t *streams)
+{
+    if (!mNumOfCameras || camera_id >= mNumOfCameras || !streams ||
+        (camera_id < 0)) {
+        LOGE("Error during stream combination query!! mNumOfCameras = %d,"
+                "camera_id = %d, info = %p",
+                 mNumOfCameras, camera_id, streams);
+        return BAD_VALUE;
+    }
+
+    return QCamera3HardwareInterface::isStreamCombinationSupported(camera_id, streams);
+}
+
+/*===========================================================================
  * FUNCTION   : set_callbacks
  *
  * DESCRIPTION: static function to set callbacks function to camera module

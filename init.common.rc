@@ -4,7 +4,6 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     wait /dev/block/platform/soc/624000.ufshc
     # Enable UFS powersaving
-    write /sys/devices/soc/624000.ufshc/clkscale_enable 1
     write /sys/devices/soc/624000.ufshc/clkgate_enable 1
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
@@ -19,7 +18,6 @@ on early-init
 
 on init
     # Disable UFS powersaving
-    write /sys/devices/soc/624000.ufshc/clkscale_enable 0
     write /sys/devices/soc/624000.ufshc/clkgate_enable 0
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 0
     write /sys/module/lpm_levels/parameters/sleep_disabled Y
@@ -777,7 +775,6 @@ on property:sys.boot_completed=1
     start vendor.power_sh
 
     # Enable UFS powersaving
-    write /sys/devices/soc/624000.ufshc/clkscale_enable 1
     write /sys/devices/soc/624000.ufshc/clkgate_enable 1
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
@@ -889,3 +886,27 @@ on property:sys.vdso=64
 
 on property:sys.vdso=32
    write /sys/module/vdso/parameters/enable_64 0
+
+# Write the dark theme magic (`theme-dark`, or 0x7468656d652d6461726b in hex string) to /misc
+# partition. Offset 10814 in vendor space is effectively offset 12862 in /misc partition.
+service vendor.darkboot /vendor/bin/misc_writer --vendor-space-offset 10814 --hex-string 0x7468656d652d6461726b
+    disabled
+    oneshot
+
+# Clear the 10-byte dark theme magic in /misc partition. Offset 10814 in vendor space is effectively
+# offset 12862 in /misc partition.
+service vendor.darkboot_clear /vendor/bin/misc_writer --vendor-space-offset 10814 --hex-string 0x00000000000000000000
+    disabled
+    oneshot
+
+# Set the dark boot flag on dark mode (UiModeManager.MODE_NIGHT_YES == 2).
+on property:persist.sys.theme=2
+    start vendor.darkboot
+
+# Clear the dark theme flag on light mode (UiModeManager.MODE_NIGHT_NO == 1) or auto mode
+# (UiModeManager.MODE_NIGHT_AUTO == 0).
+on property:persist.sys.theme=1
+    start vendor.darkboot_clear
+
+on property:persist.sys.theme=0
+    start vendor.darkboot_clear

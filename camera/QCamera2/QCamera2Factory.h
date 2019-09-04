@@ -52,11 +52,17 @@ public:
     static int open_legacy(const struct hw_module_t* module,
             const char* id, uint32_t halVersion, struct hw_device_t** device);
     static int set_torch_mode(const char* camera_id, bool on);
+    static int get_physical_camera_info(int physical_camera_id,
+            camera_metadata_t **static_metadata);
+    static int is_stream_combination_supported(int camera_id,
+            const camera_stream_combination_t *streams);
     bool isDualCamAvailable(int hal3Enabled);
 
 private:
     int getNumberOfCameras();
     int getCameraInfo(int camera_id, struct camera_info *info);
+    int isStreamCombinationSupported(int camera_id,
+            const camera_stream_combination_t *streams);
     int setCallbacks(const camera_module_callbacks_t *callbacks);
     int cameraDeviceOpen(int camera_id, struct hw_device_t **hw_device);
     static int camera_device_open(const struct hw_module_t *module, const char *id,

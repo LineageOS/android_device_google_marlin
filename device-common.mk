@@ -18,6 +18,9 @@
 #
 # Everything in this directory will become public
 
+# Installs gsi keys into ramdisk, to boot a GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.lz4-dtb
 else
@@ -25,6 +28,11 @@ LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_SHIPPING_API_LEVEL := 25
+
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/marlin \
+    vendor/google/camera \
+    hardware/google/pixel
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
@@ -178,9 +186,9 @@ PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl:32 \
-    android.hardware.audio.effect@4.0-impl:32 \
-    android.hardware.soundtrigger@2.1-impl:32
+    android.hardware.audio@5.0-impl:32 \
+    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.soundtrigger@2.2-impl:32
 
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:32
@@ -232,7 +240,6 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     wificond \
-    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -478,6 +485,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.marlin \
 
+# Thermal HAL
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.pixel
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.thermal.config=thermal_info_config.json
+
 # VR
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl:64
@@ -486,7 +503,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl
+    android.hardware.graphics.mapper@2.0-impl-2.1
 
 # HW Composer
 PRODUCT_PACKAGES += \
@@ -579,13 +596,6 @@ endif
 PRODUCT_PACKAGES += \
     toybox_static
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter aosp_marlin aosp_sailfish, $(TARGET_PRODUCT)))
-PRODUCT_PACKAGES += \
-    NexusLogger
-endif # filter it out for aosp build
-endif
-
 # b/30349163
 # Set Marlin/Sailfish default log size on userdebug/eng build to 1M
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -623,3 +633,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.marlin
+
+# default atrace HAL
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service
+
+# a_sns_test for sensor testing
+PRODUCT_PACKAGES_DEBUG += a_sns_test
+
+# Write flags to the vendor space in /misc partition.
+PRODUCT_PACKAGES += \
+    misc_writer
