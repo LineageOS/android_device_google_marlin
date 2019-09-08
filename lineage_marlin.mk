@@ -19,8 +19,8 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=marlin \
-    PRIVATE_BUILD_DESC="marlin-user 8.1.0 OPM1.171019.016 4503492 release-keys"
+    PRIVATE_BUILD_DESC="marlin-user 10 QP1A.190711.020 5800535 release-keys"
 
-BUILD_FINGERPRINT := google/marlin/marlin:8.1.0/OPM1.171019.016/4503492:user/release-keys
+BUILD_FINGERPRINT := google/marlin/marlin:10/QP1A.190711.020/5800535:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
