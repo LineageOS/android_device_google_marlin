@@ -18,9 +18,6 @@
 #
 # Everything in this directory will become public
 
-# Installs gsi keys into ramdisk, to boot a GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.lz4-dtb
 else
