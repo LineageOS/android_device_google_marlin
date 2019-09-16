@@ -99,10 +99,6 @@ vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/modem_stat.conf
 vendor/etc/perf-profile0.conf
-vendor/etc/permissions/LowPowerMonitorDeviceInterface.xml
-vendor/etc/permissions/LowPowerMonitorDeviceStub.xml
-vendor/etc/permissions/PowerAnomalyDataModemInterface.xml
-vendor/etc/permissions/PowerAnomalyStub.xml
 vendor/etc/permissions/embms.xml
 vendor/etc/permissions/qcrilhook.xml
 vendor/etc/permissions/qti_permissions.xml
@@ -299,6 +295,9 @@ vendor/lib64/libfastcvopt.so
 vendor/lib64/libflp.so
 vendor/lib64/lib_fpc_tac_shared.so
 vendor/lib64/libgeofence.so
+vendor/lib64/libgooglecamerahal.so
+vendor/lib64/libgoogle_camera_hal_tests.so
+vendor/lib64/libgooglecamerahalutils.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libgps.utils.so
@@ -327,8 +326,10 @@ vendor/lib64/libmdmimgload.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libmmcamera_dbg.so
 vendor/lib64/libmm-disp-apis.so
+vendor/lib64/libmm-dspp-utils.so
 vendor/lib64/libmm-hdcpmgr.so
 vendor/lib64/libmm-qdcm.so
+vendor/lib64/libmm-qdcm-diag.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libpvr.so
@@ -392,6 +393,7 @@ vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/libwms.so
+vendor/lib64/libwvhidl.so
 vendor/lib64/libxml.so
 vendor/lib/dsp/EtsiEaacPlusEncAndCmnModule.so.1
 vendor/lib/dsp/fastrpc_shell_0
@@ -483,6 +485,9 @@ vendor/lib/libflp.so
 vendor/lib/libgcam_ae.so
 vendor/lib/libgeofence.so
 vendor/lib/libgoog_eis_armeabi-v7a.so
+vendor/lib/libgooglecamerahal.so
+vendor/lib/libgoogle_camera_hal_tests.so
+vendor/lib/libgooglecamerahalutils.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libgps.utils.so
@@ -586,9 +591,11 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmm-disp-apis.so
+vendor/lib/libmm-dspp-utils.so
 vendor/lib/libmm-hdcpmgr.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmm-qdcm.so
+vendor/lib/libmm-qdcm-diag.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libnetmgr.so
@@ -674,4 +681,8 @@ vendor/qcril_database/upgrade/2_db_upgrade.sql
 vendor/qcril_database/upgrade/3_remove_ecc_999_from_us_and_canada.sql
 vendor/qcril_database/upgrade/4_db_upgrade.sql
 vendor/qcril_database/upgrade/5_update_india_ecc.sql
+vendor/qcril_database/upgrade/6_recheck_ecc_setting.sql
+vendor/qcril_database/upgrade/7_singapore_ecc_995.sql
+vendor/qcril_database/upgrade/8_germany_ecc_110.sql
+vendor/qcril_database/upgrade/9_remove_germany_ecc_110.sql
 vendor/qcril.db
