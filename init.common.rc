@@ -10,6 +10,7 @@ on charger
 
 service vendor.charger /system/bin/charger
     class charger
+    capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
 on early-init
