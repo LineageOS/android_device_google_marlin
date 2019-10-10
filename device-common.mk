@@ -658,6 +658,10 @@ AB_OTA_PARTITIONS += vendor
 PRODUCT_PACKAGES += \
     libmm-qcamera
 
+# Component overrides
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.2-service.clearkey
