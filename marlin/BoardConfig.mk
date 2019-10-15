@@ -218,3 +218,6 @@ AB_OTA_PARTITIONS += \
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/marlin/recovery.wipe.common
+
+# TODO(b/131162102): remove this after cleaning up accesses of sysprop
+BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true
