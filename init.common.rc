@@ -875,15 +875,14 @@ on property:sys.vdso=64
 on property:sys.vdso=32
    write /sys/module/vdso/parameters/enable_64 0
 
-# Write the dark theme magic (`theme-dark`, or 0x7468656d652d6461726b in hex string) to /misc
-# partition. Offset 10814 in vendor space is effectively offset 12862 in /misc partition.
-service vendor.darkboot /vendor/bin/misc_writer --vendor-space-offset 10814 --hex-string 0x7468656d652d6461726b
+# Write the dark theme magic to /misc partition. Offset 12360 (0x3048) in vendor space is
+# effectively offset 14408 (0x3848) in /misc partition.
+service vendor.darkboot /vendor/bin/misc_writer --set-dark-theme --override-vendor-space-offset 10814
     disabled
     oneshot
 
-# Clear the 10-byte dark theme magic in /misc partition. Offset 10814 in vendor space is effectively
-# offset 12862 in /misc partition.
-service vendor.darkboot_clear /vendor/bin/misc_writer --vendor-space-offset 10814 --hex-string 0x00000000000000000000
+# Clear the dark theme magic in /misc partition.
+service vendor.darkboot_clear --clear-dark-theme --override-vendor-space-offset 10814
     disabled
     oneshot
 
