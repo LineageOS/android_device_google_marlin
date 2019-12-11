@@ -1,0 +1,20 @@
+cc_library_headers {
+    name: "librmnetctl_headers",
+    export_include_dirs: ["inc"],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "librmnetctl",
+    vendor: true,
+    header_libs: [
+        "librmnetctl_headers",
+        "qti_kernel_headers",
+        "device_kernel_headers",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    srcs: ["src/librmnetctl.c"],
+}
