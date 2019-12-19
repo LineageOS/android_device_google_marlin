@@ -607,7 +607,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.marlin
+    android.hardware.health@2.1-impl-m1s1 \
+    android.hardware.health@2.1-service
 
 # HIDL
 PRODUCT_PACKAGES += \
