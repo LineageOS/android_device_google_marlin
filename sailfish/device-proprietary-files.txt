@@ -22,6 +22,7 @@ bin/move_widevine_data.sh
 
 # IMS/HD Voice
 -app/ims/ims.apk
+-product/priv-app/CarrierServices/CarrierServices.apk;PRESIGNED
 -product/priv-app/CarrierSettings/CarrierSettings.apk
 -priv-app/CNEService/CNEService.apk
 lib64/lib-imsvideocodec.so
