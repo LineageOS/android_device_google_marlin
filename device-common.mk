@@ -475,14 +475,13 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.marlin \
 
 # Thermal HAL
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.pixel
-
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.thermal.config=thermal_info_config.json
+
+include hardware/google/pixel/thermal/device.mk
 
 # VR
 PRODUCT_PACKAGES += \
