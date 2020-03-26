@@ -5,7 +5,6 @@ type hw_sku_prop, property_type;
 type mid_prop, property_type;
 type vendor_ssr_prop, property_type;
 type cnss_diag_prop, property_type;
-type thermal_prop, property_type;
 type vendor_ramdump_prop, property_type;
 type sys_time_prop, property_type;
 type post_boot_prop, property_type;
