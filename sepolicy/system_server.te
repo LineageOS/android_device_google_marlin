@@ -13,7 +13,7 @@ binder_call(system_server, hal_camera_default)
 binder_call(system_server, location)
 
 # interact with thermal_config
-set_prop(system_server, thermal_prop)
+set_prop(system_server, vendor_thermal_prop)
 
 # rpm
 r_dir_file(system_server, debugfs_rpm)
