@@ -686,3 +686,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Tool
 PRODUCT_PACKAGES += \
     libtinyxml
+
+# Wi-Fi Overlay
+PRODUCT_PACKAGES += \
+    WifiOverlay
