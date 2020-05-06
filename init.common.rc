@@ -899,14 +899,18 @@ service vendor.darkboot_clear /vendor/bin/misc_writer --vendor-space-offset 1081
     disabled
     oneshot
 
-# Set the dark boot flag on dark mode (UiModeManager.MODE_NIGHT_YES == 2).
-on property:persist.sys.theme=2
+# Set the dark splash on init
+on init
     start vendor.darkboot
+
+# Set the dark boot flag on dark mode (UiModeManager.MODE_NIGHT_YES == 2).
+#on property:persist.sys.theme=2
+#    start vendor.darkboot
 
 # Clear the dark theme flag on light mode (UiModeManager.MODE_NIGHT_NO == 1) or auto mode
 # (UiModeManager.MODE_NIGHT_AUTO == 0).
-on property:persist.sys.theme=1
-    start vendor.darkboot_clear
+#on property:persist.sys.theme=1
+#    start vendor.darkboot_clear
 
-on property:persist.sys.theme=0
-    start vendor.darkboot_clear
+#on property:persist.sys.theme=0
+#    start vendor.darkboot_clear
