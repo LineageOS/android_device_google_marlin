@@ -101,8 +101,8 @@ BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
 ifneq ($(filter sailfish sailfishf, $(TARGET_PRODUCT)),)
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/google/marlin/sepolicy/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/marlin/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS := device/google/marlin/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS := device/google/marlin/sepolicy/private
 
 TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
 
