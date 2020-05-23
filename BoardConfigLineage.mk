@@ -11,3 +11,5 @@ TARGET_KERNEL_CONFIG := lineageos_marlin_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/marlin
 
 BUILD_BROKEN_DUP_RULES := true
+
+TARGET_USE_AOSP_SURFACEFLINGER := true
