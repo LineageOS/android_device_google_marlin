@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 PRODUCT_NAME := aosp_sailfish
 PRODUCT_DEVICE := sailfish
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on msm8996
+PRODUCT_MODEL := Pixel
 PRODUCT_MANUFACTURER := Google
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
@@ -36,4 +36,3 @@ $(call inherit-product-if-exists, vendor/google_devices/marlin/device-vendor-sai
 PRODUCT_PACKAGES += \
     Launcher3QuickStep \
     WallpaperPicker
-
