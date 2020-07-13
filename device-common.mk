@@ -597,9 +597,6 @@ PRODUCT_PACKAGES_ENG += a_sns_test
 PRODUCT_PACKAGES += \
     misc_writer
 
-# Build vendor img
-AB_OTA_PARTITIONS += vendor
-
 # Camera
 PRODUCT_PACKAGES += \
     libmm-qcamera \
