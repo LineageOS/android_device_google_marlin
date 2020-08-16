@@ -16,6 +16,6 @@
 */
 -->
 <resources>
-    <dimen name="status_bar_padding_start">12dp</dimen>
-    <dimen name="status_bar_padding_end">12dp</dimen>
+    <dimen name="status_bar_padding_start">4dp</dimen>
+    <dimen name="status_bar_padding_end">4dp</dimen>
 </resources>
