@@ -1,13 +1,14 @@
-type camera_prop, property_type;
-type sensors_prop, property_type;
-type wc_prop, property_type;
-type hw_sku_prop, property_type;
-type mid_prop, property_type;
-type vendor_ssr_prop, property_type;
-type cnss_diag_prop, property_type;
-type vendor_ramdump_prop, property_type;
-type sys_time_prop, property_type;
-type post_boot_prop, property_type;
-type bluetooth_log_prop, property_type;
-type vendor_charge_prop, property_type;
-type vendor_timekeep_prop, vendor_property_type, property_type;
+vendor_internal_prop(cnss_diag_prop)
+vendor_internal_prop(sensors_prop)
+vendor_internal_prop(vendor_charge_prop)
+vendor_internal_prop(vendor_ramdump_prop)
+vendor_internal_prop(vendor_ssr_prop)
+vendor_internal_prop(vendor_timekeep_prop)
+
+vendor_public_prop(bluetooth_log_prop)
+vendor_public_prop(camera_prop)
+vendor_public_prop(hw_sku_prop)
+vendor_public_prop(mid_prop)
+vendor_public_prop(post_boot_prop)
+vendor_public_prop(sys_time_prop)
+vendor_public_prop(wc_prop)
