@@ -8,3 +8,4 @@ get_prop(system_app, hw_sku_prop);
 # Needed by Settings app's CameraLaserSensorPreferenceController
 set_prop(system_app, camera_prop)
 
+allow system_app proc_pagetypeinfo:file r_file_perms;
