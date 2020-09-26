@@ -4,3 +4,6 @@ debug.renderengine.backend=threaded
 # SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8996
+
+# Radio
+persist.vendor.radio.mt_sms_ack=30
