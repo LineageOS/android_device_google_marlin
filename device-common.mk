@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
 
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
