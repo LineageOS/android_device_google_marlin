@@ -18,3 +18,4 @@ sys.time.set                        u:object_r:sys_time_prop:s0
 sys.post_boot.parsed                u:object_r:post_boot_prop:s0
 sys.logger.bluetooth                u:object_r:bluetooth_log_prop:s0
 persist.vendor.charge.              u:object_r:vendor_charge_prop:s0
+vendor.wlan.firmware.version        u:object_r:wifi_prop:s0
