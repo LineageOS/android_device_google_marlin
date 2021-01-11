@@ -609,6 +609,7 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
 
 PRODUCT_PACKAGES += \
+    com.android.vndk.current \
     vndk-sp
 
 PRODUCT_COPY_FILES += \
