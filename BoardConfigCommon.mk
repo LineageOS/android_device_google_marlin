@@ -52,7 +52,6 @@ TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
 # Graphics
 BOARD_EGL_CFG := $(PLATFORM_PATH)/configs/graphics/egl.cfg
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
