@@ -224,4 +224,7 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CONFIG := m1s1_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/marlin
 
+# Wi-Fi
+WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
+
 -include vendor/google/marlin/BoardConfigVendor.mk
