@@ -149,7 +149,9 @@
         <interface>
             <name>IComposer</name>
             <instance>default</instance>
+            <instance>vr</instance>
         </interface>
+        <fqname>@2.3::IComposer/vr</fqname>
       </hal>
     <hal format="hidl">
         <name>android.hardware.health</name>
