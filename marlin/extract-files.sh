@@ -56,7 +56,9 @@ fi
 function blob_fixup() {
     case "${1}" in
         system/lib/lib-imsvt.so | system/lib64/lib-imsvt.so | system/lib64/libimsmedia_jni.so)
-        "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
+        for LIBGUI_SHIM in $(grep -L "libgui_shim.so" "${2}"); do
+            "${PATCHELF}" --add-needed "libgui_shim.so" "${LIBGUI_SHIM}"
+        done
             ;;
         # Fix typo in qcrilmsgtunnel whitelist
         product/etc/sysconfig/nexus.xml)
@@ -91,8 +93,9 @@ function blob_fixup() {
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
         vendor/lib64/libril-qc-qmi-1.so)
-        "${PATCHELF}" --add-needed "libnanopb393.so" "${2}"
-            ;;
+        for LIBRIL_SHIM in $(grep -L "libnanopb393.so" "${2}"); do
+            "${PATCHELF}" --add-needed "libnanopb393.so" "${LIBRIL_SHIM}"
+        done
     esac
 }
 
