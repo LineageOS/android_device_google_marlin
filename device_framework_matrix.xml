@@ -1,4 +1,22 @@
 <compatibility-matrix version="1.0" type="framework">
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>vr</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.3</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>vr</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.lineage.trust</name>
         <version>1.0</version>
