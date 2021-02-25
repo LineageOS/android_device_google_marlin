@@ -523,11 +523,9 @@ PRODUCT_COPY_FILES += \
 
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
     bootctrl.msm8996 \
     bootctrl.msm8996.recovery
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
