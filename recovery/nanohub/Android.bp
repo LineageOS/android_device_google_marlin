@@ -23,6 +23,7 @@ cc_library_static {
     ],
     whole_static_libs: [
         "libbootloader_message",
+        "libmisc_writer",
     ],
     shared_libs: [
         "libbase",

@@ -165,7 +165,7 @@ PROTOBUF_SUPPORTED := false
 #Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES := true
 
-TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libbootloader_message libfstab
+TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libfstab
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
