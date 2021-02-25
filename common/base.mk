@@ -774,7 +774,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += qcril.db
 
 # GPT utils library
-PRODUCT_PACKAGES += libgptutils
+PRODUCT_PACKAGES += libgptutils.marlin
+PRODUCT_PACKAGES += libgptutils.marlin.recovery
 
 # vcard jar
 PRODUCT_PACKAGES += vcard
