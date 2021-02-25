@@ -505,6 +505,9 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery:64 \
     android.hardware.boot@1.0-service
 
+PRODUCT_PACKAGES_ENG += \
+    bootctl
+
 # Library used for VTS tests  (only for eng builds)
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 # For VTS profiling.
@@ -523,11 +526,9 @@ PRODUCT_COPY_FILES += \
 
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
     bootctrl.msm8996 \
     bootctrl.msm8996.recovery
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
