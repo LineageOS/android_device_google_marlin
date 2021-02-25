@@ -24,8 +24,11 @@
 
 #include <android-base/logging.h>
 #include <bootloader_message/bootloader_message.h>
+#include <misc_writer/misc_writer.h>
 #include <recovery_ui/device.h>
 #include <recovery_ui/screen_ui.h>
+
+using android::hardware::google::pixel::MiscWriter;
 
 // Wipes the dark theme flag as part of data wipe.
 static bool WipeDarkThemeFlag() {
@@ -33,7 +36,7 @@ static bool WipeDarkThemeFlag() {
     // 10814 in vendor space, or (2048 + 10814) since the start of /misc.
     const std::string wipe_str(10, '\x00');
     constexpr size_t kDarkThemeFlagOffsetInVendorSpace = 10814;
-    if (std::string err; !WriteMiscPartitionVendorSpace(
+    if (std::string err; !android::hardware::google::pixel::MiscWriter::WriteMiscPartitionVendorSpace(
             wipe_str.data(), wipe_str.size(), kDarkThemeFlagOffsetInVendorSpace, &err)) {
         LOG(ERROR) << "Failed to write wipe string: " << err;
         return false;
