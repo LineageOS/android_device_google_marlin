@@ -5,6 +5,7 @@ wc_transport.                       u:object_r:wc_prop:s0
 net.r_rmnet                         u:object_r:net_radio_prop:s0
 radio.                              u:object_r:radio_prop:s0
 rcs.publish.status                  u:object_r:radio_prop:s0
+boot.hardware.sku                   u:object_r:hw_sku_prop:s0
 ro.boot.hardware.sku                u:object_r:hw_sku_prop:s0
 ro.boot.mid                         u:object_r:mid_prop:s0
 vendor.debug.ssrdump                u:object_r:vendor_ssr_prop:s0

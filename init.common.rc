@@ -20,6 +20,9 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    # Set sku property
+    start vendor.mid_sh
+
     # Disable UFS powersaving
     write /sys/devices/soc/624000.ufshc/clkgate_enable 0
     write /sys/devices/soc/624000.ufshc/624000.ufshc:ufs_variant/pm_qos_enable 0
@@ -154,10 +157,10 @@ on late-fs
     start vendor.time_daemon
 
 on post-fs-data
+    setprop ro.boot.hardware.sku ${boot.hardware.sku}
+
     # We can start netd here before in is launched in common init.rc on zygote-start
     start netd
-    # Set sku property
-    start vendor.mid_sh
     # Wait until the system time is set
     wait_for_prop sys.time.set true
 
