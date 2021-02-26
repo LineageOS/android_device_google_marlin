@@ -6,4 +6,4 @@ SKU=`getprop ro.boot.mid`
 if [ -z "$SKU" ]; then
     SKU=unknown
 fi
-setprop ro.boot.hardware.sku ${SKU//-/}
+setprop boot.hardware.sku ${SKU//-/}
