@@ -5,3 +5,4 @@ allow hal_thermal_default proc_stat:file r_file_perms;
 
 # read thermal_config
 get_prop(hal_thermal_default, thermal_prop)
+binder_call(hal_thermal_default, servicemanager)
