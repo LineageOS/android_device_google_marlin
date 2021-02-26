@@ -691,7 +691,7 @@ service vendor.qmiproxy /vendor/bin/qmiproxy
 service vendor.netmgrd /vendor/bin/netmgrd
     class main
     user root
-    group root system wifi wakelock radio inet
+    group root system wifi wakelock radio inet diag
 
 service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
