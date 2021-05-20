@@ -4,6 +4,8 @@ dontaudit mediacodec perfd:unix_stream_socket connectto;
 dontaudit mediacodec perfd_data_file:dir search;
 dontaudit mediacodec perfd_data_file:sock_file write;
 
+dontaudit mediacodec sysfs_msm_subsys:dir search;
+
 allow mediacodec system_file:dir r_dir_perms;
 
 allow mediacodec sysfs_soc:dir search;
