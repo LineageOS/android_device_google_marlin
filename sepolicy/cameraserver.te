@@ -1,0 +1,2 @@
+dontaudit cameraserver sysfs_msm_subsys:dir search;
+get_prop(cameraserver, vendor_default_prop)
