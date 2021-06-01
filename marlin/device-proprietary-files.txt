@@ -1,42 +1,42 @@
 # Bluetooth
 product/lib64/libaptX_encoder.so
 product/lib64/libaptXHD_encoder.so
-lib/libaptX_encoder.so
-lib/libaptXHD_encoder.so
+system/lib/libaptX_encoder.so
+system/lib/libaptXHD_encoder.so
 
 # Camera
-etc/permissions/com.google.android.camera.experimental2016.xml
--framework/com.google.android.camera.experimental2016.jar;PRESIGNED
+system/etc/permissions/com.google.android.camera.experimental2016.xml
+-system/framework/com.google.android.camera.experimental2016.jar;PRESIGNED
 
 # CNE
-etc/cne/Nexus/ATT/ATT_profiles.xml
-etc/cne/Nexus/ROW/ROW_profiles.xml
-etc/cne/Nexus/VZW/VZW_profiles.xml
+system/etc/cne/Nexus/ATT/ATT_profiles.xml
+system/etc/cne/Nexus/ROW/ROW_profiles.xml
+system/etc/cne/Nexus/VZW/VZW_profiles.xml
 
 # DRM
-bin/move_widevine_data.sh
+system/bin/move_widevine_data.sh
 
 # Hotword Enrollment
 -product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
 -product/priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IMS/HD Voice
--app/ims/ims.apk
+-system/app/ims/ims.apk
 -product/priv-app/CarrierServices/CarrierServices.apk;PRESIGNED
 -product/priv-app/CarrierSettings/CarrierSettings.apk
 -priv-app/CNEService/CNEService.apk|a4d3c0b54c44ce7334ec9c3b60f1e4a4a57b2307
-lib64/lib-imsvideocodec.so
-lib64/lib-imsvtextutils.so
-lib64/lib-imsvt.so
-lib64/lib-imsvtutils.so
-lib64/libimscamera_jni.so
-lib64/libimsmedia_jni.so
-lib64/librcc.so
-lib/lib-imsvideocodec.so
-lib/lib-imsvtextutils.so
-lib/lib-imsvt.so
-lib/lib-imsvtutils.so
-lib/librcc.so
+system/lib64/lib-imsvideocodec.so
+system/lib64/lib-imsvtextutils.so
+system/lib64/lib-imsvt.so
+system/lib64/lib-imsvtutils.so
+system/lib64/libimscamera_jni.so
+system/lib64/libimsmedia_jni.so
+system/lib64/librcc.so
+system/lib/lib-imsvideocodec.so
+system/lib/lib-imsvtextutils.so
+system/lib/lib-imsvt.so
+system/lib/lib-imsvtutils.so
+system/lib/librcc.so
 product/etc/CarrierSettings/airtel_in.pb
 product/etc/CarrierSettings/att5g_us.pb
 product/etc/CarrierSettings/att_us.pb
@@ -106,10 +106,10 @@ product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions
 product/etc/permissions/privapp-permissions-google-ps.xml
 
 # RIL
--framework/qcrilhook.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-lib64/vendor.qti.atcmdfwd@1.0.so
-lib64/vendor.qti.qcril.am@1.0.so
+-system/framework/qcrilhook.jar
+-system/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+system/lib64/vendor.qti.atcmdfwd@1.0.so
+system/lib64/vendor.qti.qcril.am@1.0.so
 
 # Sprint
 product/etc/permissions/com.android.omadm.service.xml
@@ -124,17 +124,17 @@ product/lib/libdmjavaplugin.so
 -product/priv-app/SprintHM/SprintHM.apk
 
 # Sysconfig
-etc/sysconfig/pixel_2016_exclusive.xml
+system/etc/sysconfig/pixel_2016_exclusive.xml
 product/etc/sysconfig/nexus.xml
 
 # VZW
 -product/app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
 product/etc/permissions/com.android.sdm.plugins.connmo.xml
 product/etc/permissions/com.android.sdm.plugins.dcmo.xml
-etc/permissions/com.android.vzwomatrigger.xml
+system/etc/permissions/com.android.vzwomatrigger.xml
 product/etc/permissions/com.verizon.apn.xml
-etc/permissions/com.verizon.embms.xml
-etc/permissions/com.verizon.services.xml
+system/etc/permissions/com.verizon.embms.xml
+system/etc/permissions/com.verizon.services.xml
 product/etc/permissions/features-verizon.xml
 product/etc/permissions/obdm_permissions.xml
 product/etc/permissions/vzw_mvs_permissions.xml
@@ -146,7 +146,7 @@ product/priv-app/MyVerizonServices/lib/arm64/libakuaf.so
 product/priv-app/MyVerizonServices/lib/arm64/libmotricity.so
 -product/priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
 -product/priv-app/OBDM_Permissions/OBDM_Permissions.apk
--priv-app/OemDmTrigger/OemDmTrigger.apk
--priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
+-system/priv-app/OemDmTrigger/OemDmTrigger.apk
+-system/priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
 -product/priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
 -product/priv-app/obdm_stub/obdm_stub.apk;PRESIGNED
