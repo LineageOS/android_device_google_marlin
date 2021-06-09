@@ -102,7 +102,7 @@ product/etc/CarrierSettings/vodafone_nl.pb
 product/etc/CarrierSettings/xfinity_us.pb
 
 # Permissions
-product/etc/permissions/privapp-permissions-google-p.xml
+product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions/privapp-permissions-google-p-lineage.xml
 product/etc/permissions/privapp-permissions-google-ps.xml
 
 # RIL
