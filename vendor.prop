@@ -1,3 +1,6 @@
+# Graphics
+debug.renderengine.backend=threaded
+
 # SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8996
