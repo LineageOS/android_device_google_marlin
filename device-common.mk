@@ -708,3 +708,7 @@ PRODUCT_PACKAGES += \
 # Disable APEX compression
 # Keep this after including updatable_apex.mk
 PRODUCT_COMPRESSED_APEX := false
+
+# Shims
+PRODUCT_PACKAGES += \
+    libgui_shim
