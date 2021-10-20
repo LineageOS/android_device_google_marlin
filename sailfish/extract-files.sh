@@ -55,6 +55,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system/lib/lib-imsvt.so | system/lib64/lib-imsvt.so | system/lib64/libimsmedia_jni.so)
+        "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
+            ;;
         # Fix typo in qcrilmsgtunnel whitelist
         product/etc/sysconfig/nexus.xml)
         sed -i 's/qulacomm/qualcomm/' "${2}"
