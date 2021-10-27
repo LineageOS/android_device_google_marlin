@@ -7,7 +7,6 @@
 -vendor/app/SecureExtAuthService/SecureExtAuthService.apk
 vendor/app/atfwd/atfwd.apk
 vendor/app/colorservice/colorservice.apk
-vendor/app/datastatusnotification/datastatusnotification.apk
 vendor/app/embms/embms.apk
 vendor/app/embms/oem/config_params.xml
 vendor/app/embms/oem/provisioning_params.xml
