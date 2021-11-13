@@ -9,9 +9,6 @@ init_daemon_domain(cnd)
 net_domain(cnd)
 wakelock_use(cnd)
 
-# TODO(b/36576126): Remove this one cnd stops accessing /dev/binder
-typeattribute cnd binder_in_vendor_violators;
-
 # do not grant net_raw, net_admin, or dac_override
 allow cnd self:capability { chown fsetid setgid setuid net_bind_service};
 
