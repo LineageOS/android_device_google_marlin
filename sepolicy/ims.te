@@ -8,9 +8,6 @@ allow ims self:capability net_bind_service;
 init_daemon_domain(ims)
 net_domain(ims)
 
-# TODO(b/36657020): Removed this once ims no longer needs access to /dev/binder
-typeattribute ims binder_in_vendor_violators;
-
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(ims)
 
