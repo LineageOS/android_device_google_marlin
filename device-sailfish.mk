@@ -49,8 +49,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensor packages
 PRODUCT_PACKAGES += \
-    sensors.sailfish \
-    activity_recognition.sailfish
+    sensors.sailfish
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nxp.sailfish.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf

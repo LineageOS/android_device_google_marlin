@@ -49,8 +49,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensor packages
 PRODUCT_PACKAGES += \
-    sensors.marlin \
-    activity_recognition.marlin
+    sensors.marlin
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nxp.marlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
