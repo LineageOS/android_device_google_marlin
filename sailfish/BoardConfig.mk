@@ -103,8 +103,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS := device/google/marlin/sepolicy/public
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS := device/google/marlin/sepolicy/private
 
 TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
 
