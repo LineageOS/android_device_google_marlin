@@ -15,3 +15,5 @@ allow init persist_block_device:lnk_file relabelto;
 
 # b/70518189 vDSO experiments
 allow init sysfs_vdso:file w_file_perms;
+
+allow init hwservicemanager:binder { call transfer };
