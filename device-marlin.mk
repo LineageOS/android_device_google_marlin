@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.path_cache_size=32
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
+    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
     device/google/marlin/audio/audio_platform_info_tasha_marlin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
     device/google/marlin/recovery/init.recovery.common.rc:recovery/root/init.recovery.marlin.rc
 

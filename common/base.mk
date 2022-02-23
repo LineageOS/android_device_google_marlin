@@ -234,20 +234,16 @@ INIT += init.qcom.rc
 INIT += init.qcom.factory.rc
 INIT += init.qcom.sdio.sh
 INIT += init.qcom.wifi.sh
-INIT += vold.fstab
 INIT += init.qcom.ril.path.sh
 INIT += init.qcom.usb.rc
 INIT += init.qcom.efs.sync.sh
-INIT += ueventd.qcom.rc
 INIT += init.ath3k.bt.sh
 INIT += qca6234-service.sh
 INIT += init.qcom.audio.sh
 INIT += ssr_setup
 INIT += enable_swap.sh
 INIT += init.qcom.uicc.sh
-INIT += fstab.common
 INIT += init.qcom.debug.sh
-INIT += charger.fstab.qcom
 
 #IPROUTE2
 IPROUTE2 := ip

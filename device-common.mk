@@ -304,15 +304,15 @@ PRODUCT_COPY_FILES += \
 
 # init scripts
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.rc \
-    device/google/marlin/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.usb.rc \
-    device/google/marlin/init.common.nanohub.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.nanohub.rc \
-    device/google/marlin/ueventd.common.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
-    device/google/marlin/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
-    device/google/marlin/init.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.power.sh \
-    device/google/marlin/init.mid.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mid.sh \
-    device/google/marlin/init.foreground.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.foreground.sh \
-    device/google/marlin/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
+    device/google/marlin/init-files/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.rc \
+    device/google/marlin/init-files/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.usb.rc \
+    device/google/marlin/init-files/init.common.nanohub.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.nanohub.rc \
+    device/google/marlin/init-files/ueventd.common.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    device/google/marlin/init-files/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
+    device/google/marlin/init-files/init.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.power.sh \
+    device/google/marlin/init-files/init.mid.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mid.sh \
+    device/google/marlin/init-files/init.foreground.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.foreground.sh \
+    device/google/marlin/init-files/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -394,14 +394,14 @@ INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 # Modem debugger
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
+    device/google/marlin/init-files/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
 
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.enable_ramdumps=1
 else
 PRODUCT_COPY_FILES += \
-    device/google/marlin/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
+    device/google/marlin/init-files/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
 endif
 
 # Subsystem silent restart
