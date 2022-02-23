@@ -210,7 +210,7 @@ AB_OTA_PARTITIONS += \
     system
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/google/marlin/recovery.wipe.common
+TARGET_RECOVERY_WIPE := device/google/marlin/recovery/recovery.wipe.common
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
