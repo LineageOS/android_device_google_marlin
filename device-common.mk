@@ -272,7 +272,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/google/marlin/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    device/google/marlin/configs/permissions/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
 PRODUCT_COPY_FILES += \
@@ -524,7 +524,7 @@ PRODUCT_COPY_FILES += \
 
 # Default permission grant exceptions
 PRODUCT_COPY_FILES += \
-    device/google/marlin/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml
+    device/google/marlin/configs/permissions/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml
 
 # A/B OTA dexopt package
 PRODUCT_PACKAGES += otapreopt_script
@@ -564,11 +564,11 @@ PRODUCT_COPY_FILES += \
 
 # whitelisted app
 PRODUCT_COPY_FILES += \
-    device/google/marlin/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+    device/google/marlin/configs/permissions/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # Privileged permissions whitelist
 PRODUCT_COPY_FILES += \
-    device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
+    device/google/marlin/configs/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
