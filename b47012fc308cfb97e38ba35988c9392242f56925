@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b18519e_e876f36b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2022-02-23T02:12:08Z",
+      "side": 1,
+      "message": "these configs are for android 12.  they don\u0027t exist in 11.\nhttps://github.com/LineageOS/android_frameworks_base/commit/a304c66593af588c0590fcc1d605cd195964566d",
+      "revId": "b47012fc308cfb97e38ba35988c9392242f56925",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
