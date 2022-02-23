@@ -104,7 +104,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 
-TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
+TARGET_FS_CONFIG_GEN := device/google/marlin/permissions/config.fs
 
 BOARD_EGL_CFG := device/google/marlin/graphics/egl.cfg
 
