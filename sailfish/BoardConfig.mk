@@ -107,7 +107,7 @@ PRODUCT_PRIVATE_SEPOLICY_DIRS += device/google/marlin/sepolicy/private
 
 TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
 
-BOARD_EGL_CFG := device/google/marlin/egl.cfg
+BOARD_EGL_CFG := device/google/marlin/configs/graphics/egl.cfg
 
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_PAGESIZE    := 4096
