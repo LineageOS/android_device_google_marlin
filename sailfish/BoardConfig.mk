@@ -190,9 +190,9 @@ TARGET_USES_MKE2FS := true
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
-DEVICE_MANIFEST_FILE := device/google/marlin/manifest.xml
-DEVICE_MATRIX_FILE   := device/google/marlin/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/marlin/device_framework_matrix.xml
+DEVICE_MANIFEST_FILE := device/google/marlin/manifests/manifest.xml
+DEVICE_MATRIX_FILE   := device/google/marlin/manifests/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/marlin/manifests/device_framework_matrix.xml
 
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
