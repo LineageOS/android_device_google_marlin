@@ -552,7 +552,7 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # GPS configuration file
 PRODUCT_COPY_FILES += \
-    device/google/marlin/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
+    device/google/marlin/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
 # Default permission grant exceptions
 PRODUCT_COPY_FILES += \
