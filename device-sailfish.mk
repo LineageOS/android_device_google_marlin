@@ -44,7 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sailfish \
-    device/google/marlin/audio_platform_info_tasha_sailfish.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
+    device/google/marlin/audio/audio_platform_info_tasha_sailfish.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
     device/google/marlin/init.recovery.common.rc:recovery/root/init.recovery.sailfish.rc
 
 # Sensor packages
