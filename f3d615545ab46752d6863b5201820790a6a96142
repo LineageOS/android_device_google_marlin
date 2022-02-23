@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6859aa63_312ea99b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-02-23T11:29:21Z",
+      "side": 1,
+      "message": "Does this work? The array is defined here https://github.com/LineageOS/android_frameworks_base/blob/lineage-18.1/packages/SettingsLib/res/values/arrays.xml#L577 .",
+      "revId": "f3d615545ab46752d6863b5201820790a6a96142",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
