@@ -89,7 +89,6 @@ AUDIO_HARDWARE += audio.primary.msm7630_fusion
 AUDIO_HARDWARE += audio.bluetooth.default
 AUDIO_HARDWARE += audio.usb.default
 AUDIO_HARDWARE += audio.r_submix.default
-AUDIO_HARDWARE += audio.hearing_aid.default
 AUDIO_HARDWARE += audio.primary.mpq8092
 AUDIO_HARDWARE += audio.primary.msm8916
 AUDIO_HARDWARE += audio.primary.msm8909
