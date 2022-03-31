@@ -1,7 +1,7 @@
--vendor/app/atfwd/atfwd.apk
--vendor/app/colorservice/colorservice.apk
--vendor/app/datastatusnotification/datastatusnotification.apk
--vendor/app/embms/embms.apk
+vendor/app/atfwd/atfwd.apk
+vendor/app/colorservice/colorservice.apk
+vendor/app/datastatusnotification/datastatusnotification.apk
+vendor/app/embms/embms.apk
 vendor/app/embms/oem/config_params.xml
 vendor/app/embms/oem/provisioning_params.xml
 vendor/app/embms/oem/verizon_config_params.txt
@@ -13,7 +13,6 @@ vendor/app/embms/oem/verizon_config_params.txt
 -vendor/app/RCSBootstraputil/RCSBootstraputil.apk
 -vendor/app/SecureExtAuthService/SecureExtAuthService.apk
 -vendor/app/shutdownlistener/shutdownlistener.apk
--vendor/app/TimeService/TimeService.apk
 -vendor/app/vzw_msdc_api/vzw_msdc_api.apk
 vendor/bin/adsprpcd
 vendor/bin/ATFWD-daemon
@@ -244,10 +243,10 @@ vendor/firmware/widevine.b04
 vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.mdt
--vendor/framework/embmslibrary.jar
--vendor/framework/QtiTelephonyServicelibrary.jar
--vendor/framework/qti-vzw-ims-internal.jar
--vendor/framework/rcsservice.jar
+vendor/framework/embmslibrary.jar
+vendor/framework/QtiTelephonyServicelibrary.jar
+vendor/framework/qti-vzw-ims-internal.jar
+vendor/framework/rcsservice.jar
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
