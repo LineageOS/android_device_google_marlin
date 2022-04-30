@@ -110,10 +110,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Light HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl:64
