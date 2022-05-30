@@ -141,7 +141,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.contexthub@1.0-service \
     android.hardware.gnss@1.0-service \
-    android.hardware.drm@1.0-service \
     android.hardware.light@2.0-service \
     android.hardware.memtrack@1.0-service \
     android.hardware.power@1.1-service.marlin \
@@ -184,9 +183,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl:32 \
     android.hardware.audio.effect@5.0-impl:32
-
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl:32
 
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
