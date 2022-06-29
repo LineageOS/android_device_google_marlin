@@ -44,6 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
+    device/google/marlin/fstab.common:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.marlin \
     device/google/marlin/audio_platform_info_tasha_marlin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
     device/google/marlin/init.recovery.common.rc:recovery/root/init.recovery.marlin.rc
 
