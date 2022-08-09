@@ -185,9 +185,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 #NFC
 NXP_CHIP_TYPE := 3
 
-# Use mke2fs to create ext4 images
-TARGET_USES_MKE2FS := true
-
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 DEVICE_MANIFEST_FILE := device/google/marlin/manifests/manifest.xml
