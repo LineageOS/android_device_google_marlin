@@ -18,7 +18,7 @@ bluetooth.profile.pbap.server.enabled?=true
 bluetooth.profile.sap.server.enabled?=true
 
 # Graphics
-debug.renderengine.backend=threaded
+debug.renderengine.backend=skiaglthreaded
 
 # SoC
 ro.soc.manufacturer=Qualcomm
