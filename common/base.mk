@@ -60,7 +60,6 @@ BRTCL += libbridge
 
 #BT
 BT += libbt-vendor
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/marlin/bluetooth
 
 #C2DColorConvert
 C2DCC := libc2dcolorconvert
