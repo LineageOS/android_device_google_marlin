@@ -206,3 +206,7 @@
 
 # b/70518189 vDSO experiments
 /sys/module/vdso/parameters  u:object_r:sysfs_vdso:s0
+
+# Bluetooth
+/sys/devices/vendor/vendor:bt_qca6174/rfkill/rfkill0/state                      u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/vendor/vendor:bt_qca6174/extldo                                    u:object_r:sysfs_bluetooth_writable:s0
