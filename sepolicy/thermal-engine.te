@@ -16,6 +16,7 @@ allow thermal-engine thermal_device:chr_file rw_file_perms;
 # files in /sys/
 r_dir_file(thermal-engine, sysfs_type)
 allow thermal-engine sysfs_msm_subsys:file write;
+allow thermal-engine sysfs_batteryinfo:file w_file_perms;
 allow thermal-engine sysfs_thermal:file rw_file_perms;
 allow thermal-engine sysfs_thermal:lnk_file read;
 allow thermal-engine sysfs_thermal:dir search;
