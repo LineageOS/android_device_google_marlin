@@ -230,4 +230,7 @@ TARGET_VENDOR_PROP += device/google/marlin/vendor.prop
 # Wi-Fi
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 
+# Verified Boot
+BOARD_AVB_ENABLE := false
+
 -include vendor/google/marlin/BoardConfigVendor.mk
