@@ -3,6 +3,7 @@ vendor_internal_prop(sensors_prop)
 vendor_internal_prop(vendor_charge_prop)
 vendor_internal_prop(vendor_ramdump_prop)
 vendor_internal_prop(vendor_ssr_prop)
+vendor_internal_prop(vendor_timekeep_prop)
 
 vendor_public_prop(bluetooth_log_prop)
 vendor_public_prop(camera_prop)
