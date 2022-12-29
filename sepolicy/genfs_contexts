@@ -71,6 +71,7 @@ genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:3    u:object_r
 genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:4    u:object_r:sysfs_scsi_devices_other:s0
 genfscon sysfs /devices/soc/624000.ufshc/host0/target0:0:0/0:0:0:5    u:object_r:sysfs_scsi_devices_other:s0
 genfscon sysfs /devices/soc/624000.ufshc/health                       u:object_r:sysfs_scsi_devices_0000:s0
+genfscon sysfs /devices/soc/400f000.qcom,spmi/spmi-0/spmi0-00/400f000.qcom,spmi:qcom,pm8994@0:qcom,pm8994_rtc/rtc/rtc0           u:object_r:sysfs_rtc:s0
 genfscon sysfs /module/diagchar                       u:object_r:sysfs_diag:s0
 
 # debugfs

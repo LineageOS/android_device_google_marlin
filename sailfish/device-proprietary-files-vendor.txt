@@ -71,7 +71,6 @@ vendor/bin/test_bet_8996
 vendor/bin/test_diag
 vendor/bin/test_module_pproc
 vendor/bin/thermal-engine
-vendor/bin/time_daemon
 vendor/bin/wdsdaemon
 vendor/bin/WifiLogger_app
 vendor/bin/xtra-daemon
@@ -388,7 +387,6 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 vendor/lib64/libtime_genoff.so
-vendor/lib64/libTimeService.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/libwms.so
 vendor/lib64/libwvhidl.so
@@ -655,7 +653,6 @@ vendor/lib/libStDrvInt.so
 vendor/lib/libsystem_health_mon.so
 vendor/lib/libthermalclient.so
 vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
 vendor/lib/libtm_interface.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib/libwms.so

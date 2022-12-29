@@ -88,7 +88,6 @@
 /vendor/bin/pm-service             u:object_r:per_mgr_exec:s0
 /vendor/bin/pm-proxy               u:object_r:per_proxy_exec:s0
 /vendor/bin/rmt_storage            u:object_r:rmt_exec:s0
-/vendor/bin/time_daemon            u:object_r:time_exec:s0
 /vendor/bin/netmgrd                u:object_r:netmgrd_exec:s0
 /vendor/bin/port-bridge            u:object_r:port-bridge_exec:s0
 /vendor/bin/loc_launcher           u:object_r:location_exec:s0
@@ -186,7 +185,7 @@
 
 /data/vendor/audio(/.*)?         u:object_r:audio_vendor_data_file:s0
 /data/vendor/mediadrm(/.*)?      u:object_r:mediadrm_vendor_data_file:s0
-
+/data/vendor/time(/.*)?          u:object_r:vendor_time_data_file:s0
 # /
 
 /bt_firmware(/.*)?      u:object_r:bt_firmware_file:s0
@@ -209,3 +208,12 @@
 # Bluetooth
 /sys/devices/vendor/vendor:bt_qca6174/rfkill/rfkill0/state                      u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/vendor/vendor:bt_qca6174/extldo                                    u:object_r:sysfs_bluetooth_writable:s0
+<<<<<<< HEAD   (d8ff09 m1s1: sepolicy: Attach vendor_property_type to properties)
+=======
+
+# Audio
+/(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.service\.m1s1          u:object_r:hal_audio_default_exec:s0
+
+# TimeKeep
+/(system/vendor|vendor)/bin/timekeep                                            u:object_r:timekeep_exec:s0
+>>>>>>> CHANGE (e56cc4 m1s1: Switch from time_daemon to TimeKeep)
