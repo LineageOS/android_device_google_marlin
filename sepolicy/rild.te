@@ -17,7 +17,6 @@ unix_socket_connect(rild, netmgrd, netmgrd)
 
 r_dir_file(rild, sysfs_type)
 
-allow rild time:unix_stream_socket connectto;
 # smlog_dump
 allow rild smlog_dump_exec:file rx_file_perms;
 
