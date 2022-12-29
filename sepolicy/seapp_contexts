@@ -21,3 +21,6 @@ user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymon
 
 # Domain for WfcActivation app
 user=_app seinfo=wfcactivation name=com.google.android.wfcactivation domain=wfc_activation_app levelFrom=all
+
+# TimeKeep
+user=system seinfo=platform name=com.sony.timekeep domain=timekeep_app type=app_data_file

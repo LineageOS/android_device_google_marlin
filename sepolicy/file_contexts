@@ -212,3 +212,6 @@
 
 # Audio
 /(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.service\.m1s1          u:object_r:hal_audio_default_exec:s0
+
+# TimeKeep
+/(system/vendor|vendor)/bin/timekeep                                            u:object_r:timekeep_exec:s0
