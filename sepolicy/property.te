@@ -10,3 +10,4 @@ type sys_time_prop, property_type;
 type post_boot_prop, property_type;
 type bluetooth_log_prop, property_type;
 type vendor_charge_prop, property_type;
+type vendor_timekeep_prop, vendor_property_type, property_type;

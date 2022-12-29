@@ -22,3 +22,6 @@ sys.logger.bluetooth                u:object_r:bluetooth_log_prop:s0
 persist.vendor.charge.              u:object_r:vendor_charge_prop:s0
 vendor.wlan.driver.version          u:object_r:wifi_prop:s0
 vendor.wlan.firmware.version        u:object_r:wifi_prop:s0
+
+# vendor_timekep_prop
+persist.vendor.timeadjust           u:object_r:vendor_timekeep_prop:s0
