@@ -1,9 +1,3 @@
-# Bluetooth
-product/lib64/libaptX_encoder.so
-product/lib64/libaptXHD_encoder.so
-system/lib/libaptX_encoder.so
-system/lib/libaptXHD_encoder.so
-
 # Camera
 system/etc/permissions/com.google.android.camera.experimental2016.xml
 system/framework/com.google.android.camera.experimental2016.jar;PRESIGNED
