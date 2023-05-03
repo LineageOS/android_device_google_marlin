@@ -79,10 +79,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.rotator_downscale=1
 
-# Disable buffer age (b/74534157)
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.use_buffer_age=false
-
 # HWUI common settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.gradient_cache_size=1 \
