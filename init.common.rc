@@ -718,6 +718,9 @@ service vendor.loc_launcher /vendor/bin/loc_launcher
     class late_start
     group gps inet diag wifi
 
+on property:persist.sys.xtra-daemon.enabled=*
+    restart vendor.loc_launcher
+
 service vendor.init-radio-sh /vendor/bin/init.radio.sh
     class late_start
     user radio
