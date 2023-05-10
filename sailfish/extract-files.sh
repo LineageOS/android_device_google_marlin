@@ -87,6 +87,9 @@ function blob_fixup() {
         vendor/lib64/libwvhidl.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
+        vendor/lib64/libril-qc-qmi-1.so)
+        "${PATCHELF}" --add-needed "libnanopb393.so" "${2}"
+            ;;
     esac
 }
 

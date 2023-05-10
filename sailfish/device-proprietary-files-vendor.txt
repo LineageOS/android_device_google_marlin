@@ -597,6 +597,9 @@ vendor/lib/libmm-qdcm.so
 vendor/lib/libmm-qdcm-diag.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
+# Hand built from `89af1fe4638933a27acf9ad2f67f53bea672875e` with `pb_`
+# changed to `pr_` for compatibillity with our libril-qc-qmi-1.so.
+vendor/lib64/libnanopb393.so|ad12036d2aa646f663bdb6929784bb19affca2e5
 vendor/lib/libnetmgr.so
 vendor/lib/liboemcrypto.so
 vendor/lib/libperipheral_client.so
