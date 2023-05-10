@@ -373,6 +373,7 @@ on early-boot
 
     # Permission for vibrator amplitude
     chown system system /sys/class/timed_output/vibrator/voltage_level
+    chown system system /sys/class/leds/vibrator/vmax_mv
 
     # wait for devices
     wait_for_prop sys.qcom.devup 1
