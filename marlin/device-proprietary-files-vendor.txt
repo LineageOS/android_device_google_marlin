@@ -330,6 +330,9 @@ vendor/lib64/libmm-dspp-utils.so
 vendor/lib64/libmm-hdcpmgr.so
 vendor/lib64/libmm-qdcm.so
 vendor/lib64/libmm-qdcm-diag.so
+# Hand built from `89af1fe4638933a27acf9ad2f67f53bea672875e` with `pb_`
+# changed to `pr_` for compatibillity with our libril-qc-qmi-1.so.
+vendor/lib64/libnanopb393.so|ad12036d2aa646f663bdb6929784bb19affca2e5
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libpvr.so
