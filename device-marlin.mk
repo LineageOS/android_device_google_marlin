@@ -62,10 +62,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vr.marlin
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprint.marlin
-
 $(call add-product-sanitizer-module-config,wpa_supplicant,never)
 $(call add-product-sanitizer-module-config,toybox_vendor,never)
 $(call add-product-sanitizer-module-config,thermal-engine,never)

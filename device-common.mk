@@ -67,10 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
 
-#Android EGL implementation
-PRODUCT_PACKAGES += libGLES_android
-PRODUCT_PACKAGES += SSRestartDetector
-
 # graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
@@ -166,19 +162,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1-service.marlin
 
-# DRM HAL
-PRODUCT_PACKAGES += \
-    move_widevine_data.sh
-
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libqcomvoiceprocessingdescriptors \
     libqcompostprocbundle
-
-PRODUCT_PACKAGES += \
-    sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl:32 \
@@ -236,9 +225,6 @@ PRODUCT_PACKAGES += \
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
-    AntHalService \
-    libantradio \
-    antradio_app \
     libvolumelistener
 
 # Sensor features
@@ -408,11 +394,6 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
-# Needed for encryption
-PRODUCT_PACKAGES += \
-    keystore.msm8996 \
-    gatekeeper.msm8996
-
 PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
@@ -429,12 +410,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES_ENG += \
     update_engine_client
-
-# Bluetooth HAL
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl-qti:64 \
-    android.hardware.bluetooth@1.0-service-qti \
-    android.hardware.bluetooth@1.0-service-qti.rc
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -493,7 +468,6 @@ PRODUCT_PACKAGES += \
 
 # HW Composer
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl:64 \
     android.hardware.graphics.composer@2.1-service
 
 # Boot control
@@ -577,11 +551,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SUPPORTS_VERITY_FEC := false
 endif
 
-# b/35633646
-# Statically linked toybox for modprobe in recovery mode
-PRODUCT_PACKAGES += \
-    toybox_static
-
 # b/30349163
 # Set Marlin/Sailfish default log size on eng build to 1M
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
@@ -633,9 +602,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport \
-    libhidltransport.vendor \
-    libhwbinder \
-    libhwbinder.vendor
+    libhwbinder
 
 # default atrace HAL
 PRODUCT_PACKAGES += \
