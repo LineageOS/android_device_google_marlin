@@ -678,6 +678,10 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
 
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.0 \
+    android.hardware.radio.deprecated@1.0
+
 # Sensors
 PRODUCT_PACKAGES += \
     libsensorndkbridge
