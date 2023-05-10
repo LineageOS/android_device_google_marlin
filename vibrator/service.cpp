@@ -29,8 +29,9 @@ using android::hardware::vibrator::V1_0::IVibrator;
 using android::hardware::vibrator::V1_0::implementation::Vibrator;
 using namespace android;
 
-static const char *ENABLE_PATH = "/sys/class/timed_output/vibrator/enable";
-static const char *AMPLITUDE_PATH = "/sys/class/timed_output/vibrator/voltage_level";
+static const char *ENABLE_PATH = "/sys/class/leds/vibrator/activate";
+static const char *AMPLITUDE_PATH = "/sys/class/leds/vibrator/vmax_mv";
+static const char *DURATION_PATH = "/sys/class/leds/vibrator/duration";
 
 status_t registerVibratorService() {
     std::ofstream enable{ENABLE_PATH};
@@ -47,7 +48,14 @@ status_t registerVibratorService() {
         return -error;
     }
 
-    sp<IVibrator> vibrator = new Vibrator(std::move(enable), std::move(amplitude));
+    std::ofstream duration{DURATION_PATH};
+    if (!duration) {
+        int error = errno;
+        ALOGE("Failed to open %s (%d): %s", DURATION_PATH, error, strerror(error));
+        return -error;
+    }
+
+    sp<IVibrator> vibrator = new Vibrator(std::move(enable), std::move(amplitude), std::move(duration));
     (void) vibrator->registerAsService(); // suppress unused-result warning
     return OK;
 }

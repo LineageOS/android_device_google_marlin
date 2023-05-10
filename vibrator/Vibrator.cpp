@@ -40,13 +40,15 @@ static constexpr int MIN_VOLTAGE = 116;
 
 static constexpr uint32_t CLICK_TIMING_MS = 20;
 
-Vibrator::Vibrator(std::ofstream&& enable, std::ofstream&& amplitude) :
+Vibrator::Vibrator(std::ofstream&& enable, std::ofstream&& amplitude, std::ofstream&& duration) :
         mEnable(std::move(enable)),
-        mAmplitude(std::move(amplitude)) {}
+        mAmplitude(std::move(amplitude)),
+        mDuration(std::move(duration)) {}
 
 // Methods from ::android::hardware::vibrator::V1_0::IVibrator follow.
 Return<Status> Vibrator::on(uint32_t timeout_ms) {
-    mEnable << timeout_ms << std::endl;
+    mDuration << timeout_ms << std::endl;
+    mEnable << 1 << std::endl;
     if (!mEnable) {
         ALOGE("Failed to turn vibrator on (%d): %s", errno, strerror(errno));
         return Status::UNKNOWN_ERROR;
