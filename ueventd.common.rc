@@ -254,3 +254,6 @@
 
 # hid sensor device
 /dev/hidraw*              0660   root       system
+
+# socinfo
+/sys/devices/soc0         serial_number            0000    root    root
