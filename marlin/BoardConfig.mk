@@ -221,6 +221,7 @@ TARGET_KERNEL_CONFIG := m1s1_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/marlin
 
 # Properties
+TARGET_SYSTEM_PROP += device/google/marlin/system.prop
 TARGET_VENDOR_PROP += device/google/marlin/vendor.prop
 
 # Wi-Fi
