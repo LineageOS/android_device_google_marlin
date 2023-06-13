@@ -26,3 +26,7 @@ ro.soc.model=MSM8996
 
 # Radio
 persist.vendor.radio.mt_sms_ack=30
+
+# Treble
+ro.vndk.version=33
+ro.treble.enabled=false
