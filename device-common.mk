@@ -181,8 +181,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl:32 \
-    android.hardware.audio.effect@5.0-impl:32 \
-    android.hardware.soundtrigger@2.2-impl:32
+    android.hardware.audio.effect@5.0-impl:32
 
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:32
