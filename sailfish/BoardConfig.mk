@@ -100,6 +100,9 @@ BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_ROOT_EXTRA_FOLDERS := firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
+# SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
+
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 
