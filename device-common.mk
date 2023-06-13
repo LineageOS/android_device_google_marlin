@@ -690,6 +690,10 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     libtinyxml
 
+# sgdisk
+PRODUCT_PACKAGES += \
+    sgdisk.recovery
+
 # Wi-Fi Overlay
 PRODUCT_PACKAGES += \
     WifiOverlay
