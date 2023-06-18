@@ -351,7 +351,7 @@ vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/lib-rcsjni.so
-vendor/lib64/libril-qc-qmi-1.so
+vendor/lib64/libril-qc-qmi-1.so|e68381f23c32fe0cd430b0afdbe712e1b56e005d
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
