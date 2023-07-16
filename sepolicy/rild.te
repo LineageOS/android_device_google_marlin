@@ -38,6 +38,8 @@ typeattribute rild data_between_core_and_vendor_violators;
 # allow rild to access radio data file
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
+allow rild radio_core_data_file:dir rw_dir_perms;
+allow rild radio_core_data_file:file create_file_perms;
 
 # In order to be able to use system()
 typeattribute rild vendor_executes_system_violators;
