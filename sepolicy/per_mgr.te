@@ -25,3 +25,6 @@ r_dir_file(per_mgr, sysfs_msm_subsys)
 userdebug_or_eng(`
   allow rild ssr_device:chr_file { open read };
 ')
+
+allow per_mgr property_socket:sock_file write;
+allow per_mgr init:unix_stream_socket connectto;

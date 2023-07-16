@@ -8,3 +8,5 @@ allow surfaceflinger persist_file:dir search;
 # persist/display
 allow surfaceflinger persist_display_file:dir r_dir_perms;
 allow surfaceflinger persist_display_file:file create_file_perms;
+
+get_prop(surfaceflinger, vendor_default_prop)

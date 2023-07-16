@@ -13,6 +13,7 @@ allow hal_gnss_default location_data_file:sock_file write;
 allow hal_gnss_default netmgrd:unix_stream_socket connectto;
 allow hal_gnss_default netmgrd_socket:dir search;
 allow hal_gnss_default netmgrd_socket:sock_file write;
+allow hal_gnss_default self:netlink_generic_socket { bind create };
 allow hal_gnss_default self:netlink_route_socket { bind create nlmsg_read read write };
 
 # Most HALs are not allowed to use network sockets. Qcom library
@@ -27,3 +28,7 @@ allow hal_gnss_default self:netlink_route_socket { bind create nlmsg_read read w
 # libqdi and have all its clients use netlink route
 # sockets.
 dontaudit hal_gnss_default self:udp_socket create;
+
+get_prop(hal_gnss_default, default_prop)
+get_prop(hal_gnss_default, system_prop)
+

@@ -8,3 +8,5 @@ dontaudit bootanim system_data_file:dir read;
 dontaudit bootanim kernel:system module_request;
 
 get_prop(bootanim, userspace_reboot_exported_prop);
+get_prop(bootanim, vendor_default_prop)
+

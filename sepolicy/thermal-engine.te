@@ -35,3 +35,5 @@ userdebug_or_eng(`
 
 # reboot/shutdown for thermal limits exceeded
 set_prop(thermal-engine, powerctl_prop)
+
+get_prop(thermal-engine, default_prop)
