@@ -15,3 +15,5 @@ allow qtelephony system_app_data_file:{ file lnk_file } create_file_perms;
 set_prop(qtelephony, ctl_default_prop)
 
 allow qtelephony cgroup:file w_file_perms;
+
+allow qtelephony user_profile_root_file:dir search;
