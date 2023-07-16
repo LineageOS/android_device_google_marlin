@@ -1,3 +1,5 @@
+r_dir_file(hal_memtrack_default, hal_atrace_default)
+r_dir_file(hal_memtrack_default, hal_configstore_default)
 r_dir_file(hal_memtrack_default, hwservicemanager)
 r_dir_file(hal_memtrack_default, servicemanager)
 r_dir_file(hal_memtrack_default, vndservicemanager)
