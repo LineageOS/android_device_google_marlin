@@ -41,3 +41,8 @@ set_prop(vendor_init, vendor_charge_prop)
 
 dontaudit vendor_init unlabeled:dir getattr;
 dontaudit vendor_init unlabeled:file getattr;
+
+get_prop(vendor_init, post_boot_prop)
+get_prop(vendor_init, wc_prop)
+
+allow vendor_init proc_security:file write;
