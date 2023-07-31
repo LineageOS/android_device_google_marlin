@@ -16,6 +16,24 @@
       "message": "Remove this, time_daemon is responsible for setting this prop and without it boot will hang indefinitely.",
       "revId": "d6e183ad92bc6b7e6435688824fc2008c92c8c8a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22bbd3e3_8894f28a",
+        "filename": "init.common.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-07-31T15:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b27a38_fd2783ea",
+      "revId": "d6e183ad92bc6b7e6435688824fc2008c92c8c8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
