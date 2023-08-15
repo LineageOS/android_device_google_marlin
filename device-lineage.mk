@@ -1,8 +1,3 @@
-# GMS
-ifeq ($(WITH_GMS),true)
-GMS_MAKEFILE=gms_minimal.mk
-endif
-
 # Lineage Health
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
