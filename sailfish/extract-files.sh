@@ -66,6 +66,9 @@ function blob_fixup() {
         vendor/bin/cnd)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
+        vendor/bin/pm-service)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+            ;;
         vendor/lib/libcne.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
@@ -77,6 +80,9 @@ function blob_fixup() {
             ;;
         vendor/lib/libwvhidl.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
+            ;;
+        vendor/lib/libperipheral_client.so)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
             ;;
         vendor/lib64/libcne.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
@@ -90,8 +96,11 @@ function blob_fixup() {
         vendor/lib64/libwvhidl.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
+        vendor/lib64/libperipheral_client.so)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+            ;;
         vendor/lib64/libril-qc-qmi-1.so)
-        grep -q "libnanopb393.so" "${2}" || "${PATCHELF}" --add-needed "libnanopb393.so" "${LIBRIL_SHIM}"
+        grep -q "libnanopb393.so" "${2}" || "${PATCHELF}" --add-needed "libnanopb393.so" "${2}"
             ;;
     esac
 }
