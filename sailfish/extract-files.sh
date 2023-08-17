@@ -90,8 +90,19 @@ function blob_fixup() {
         vendor/lib64/libwvhidl.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
+        # Patch legacy blobs to use binder instead of vndbinder
+        vendor/bin/pm-service)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+            ;;
+        vendor/lib/libperipheral_client.so)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+            ;;
+        vendor/lib64/libperipheral_client.so)
+        sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+            ;;
+        # Patch QC RIL to load custom libnano
         vendor/lib64/libril-qc-qmi-1.so)
-        grep -q "libnanopb393.so" "${2}" || "${PATCHELF}" --add-needed "libnanopb393.so" "${LIBRIL_SHIM}"
+        grep -q "libnanopb393.so" "${2}" || "${PATCHELF}" --add-needed "libnanopb393.so" "${2}"
             ;;
     esac
 }
