@@ -52,40 +52,13 @@ $(call add-clean-step, rm -f $(OUT_DIR)/target/product/sailfish/system/lib/hw/an
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/metadata)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/metadata)
 
-# Move vndk-sp libs from /vendor to /system
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/vndk-sp)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/vndk-sp)
-
-# Move /system/lib/vndk-sp to /system/lib/vndk-sp-26.1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp)
-
-# Revert: Move /system/lib/vndk-sp to /system/lib/vndk-sp-26.1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp-*)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp-*)
-
-# Remove /system/lib[64]/vndk-sp/libz.so
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libz.vndk-sp_*)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib/vndk-sp/libz.so)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib64/vndk-sp/libz.so)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
-
 # Remove init.recovery.*.rc file in root directory (only needed in recovery root).
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.marlin.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.sailfish.rc)
 
-# Remove /system/lib[64]/vndk-sp/android.hardware.graphics.allocator@2.0.so
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/android.hardware.graphics.allocator@2.0.so)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/android.hardware.graphics.allocator@2.0.so)
-
 # Remove /vendor/lib[64]/hw/android.hardware.contexthub@1.0-impl.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.contexthub@1.0-impl.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.contexthub@1.0-impl.so)
-
-# Remove /system/lib[64]/vndk-sp/libz.so
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 
 # Remove all HALs (actual bitness now being specified)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
@@ -105,9 +78,6 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.he
 
 # Remove android.hardware.audio*@2.0 implementation
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.audio*@2.0-impl.so)
-
-# Migrate to versioned VNDK directory layout
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
 
 # Move libnfc-nci.conf to /vendor
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
