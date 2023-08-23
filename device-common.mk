@@ -131,7 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=2
 # A low number, like 48, might increase power consumption or stress the system.
 PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
 
-PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.bluetooth.audio@2.0-impl \
@@ -574,18 +573,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
 
-PRODUCT_PACKAGES += \
-    com.android.vndk.current \
-    vndk-sp
-
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v29.so
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vndk-dex/libdexfile_support-v30-arm.so:$(TARGET_COPY_OUT_SYSTEM)/apex/com.android.vndk.current/lib/libdexfile_support.so \
-    $(LOCAL_PATH)/vndk-dex/libdexfile_support-v30-arm64.so:$(TARGET_COPY_OUT_SYSTEM)/apex/com.android.vndk.current/lib64/libdexfile_support.so \
-    $(LOCAL_PATH)/vndk-dex/vndksp.libraries.30.txt:$(TARGET_COPY_OUT_SYSTEM)/apex/com.android.vndk.current/etc/vndksp.libraries.30.txt
 
 # Marlin/Sailfish kernel doesn't have HEH filename encryption
 PRODUCT_PROPERTY_OVERRIDES += \
