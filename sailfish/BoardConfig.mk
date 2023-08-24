@@ -201,8 +201,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/marlin/device_framew
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
 
-TARGET_FLATTEN_APEX := true
-
 # Board uses A/B OTA.
 AB_OTA_UPDATER := true
 
