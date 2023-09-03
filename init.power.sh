@@ -36,7 +36,7 @@ for memlat in /sys/class/devfreq/*qcom,memlat-cpu* ; do
     write $memlat/polling_interval 10
 done
 
-setprop sys.post_boot.parsed 1
+setprop vendor.post_boot.parsed 1
 
 # On debuggable builds, enable console_suspend if uart is enabled to save power
 # Otherwise, disable console_suspend to get better logging for kernel crashes
