@@ -1,0 +1,10 @@
+allow vendor_msm_irqbalanced self:capability { setgid setuid };
+
+allow vendor_msm_irqbalanced sysfs_devices_system_cpu:file rw_file_perms;
+allow vendor_msm_irqbalanced proc_irq:dir r_dir_perms;
+allow vendor_msm_irqbalanced proc_irq:file rw_file_perms;
+
+allow vendor_msm_irqbalanced proc_stat:file r_file_perms;
+allow vendor_msm_irqbalanced proc_interrupts:file r_file_perms;
+
+r_dir_file(vendor_msm_irqbalanced, proc)

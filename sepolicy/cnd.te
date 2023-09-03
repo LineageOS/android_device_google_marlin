@@ -1,13 +1,6 @@
-type cnd, domain, vendor_executes_system_violators;
-type cnd_exec, exec_type, vendor_file_type, file_type;
-
 # cnd creates /dev/socket/nims
 file_type_auto_trans(cnd, socket_device, cnd_socket);
 allow cnd socket_device:dir remove_name;
-
-init_daemon_domain(cnd)
-net_domain(cnd)
-wakelock_use(cnd)
 
 # do not grant net_raw, net_admin, or dac_override
 allow cnd self:capability { chown fsetid setgid setuid net_bind_service};

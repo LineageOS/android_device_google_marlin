@@ -1,13 +1,7 @@
-# loc_launcher service
-type location, domain;
-type location_exec, exec_type, vendor_file_type, file_type;
-
 # STOPSHIP b/28340421
 # Temporarily grant this permission and log its use.
 allow location self:capability { net_admin net_raw };
 auditallow location self:capability { net_admin net_raw };
-
-init_daemon_domain(location)
 
 allow location self:capability { setgid setuid };
 
@@ -62,7 +56,7 @@ typeattribute location socket_between_core_and_vendor_violators;
 # audit2allow after a test that downloaded XTRA on boot
 net_domain(location)
 
-get_prop(location, wifi_prop)
+get_prop(location, vendor_wifi_version)
 
 # xtra-daemon control
 get_prop(location, xtra_control_prop)

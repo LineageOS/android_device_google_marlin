@@ -9,8 +9,6 @@ genfscon proc /sys/kernel/sched_small_task            u:object_r:proc_kernel_sch
 genfscon proc /sys/kernel/sched_spill_nr_run          u:object_r:proc_kernel_sched:s0
 genfscon proc /sys/kernel/sched_upmigrate             u:object_r:proc_kernel_sched:s0
 genfscon proc /irq                                    u:object_r:proc_irq:s0
-genfscon proc /debug/fwdump                           u:object_r:proc_wifi_dbg:s0
-genfscon proc /debugdriver/driverdump                 u:object_r:proc_wifi_dbg:s0
 
 # sysfs
 genfscon sysfs /devices/virtual/nanohub/nanohub       u:object_r:sysfs_nanoapp_cmd:s0
@@ -41,7 +39,6 @@ genfscon sysfs /devices/soc/8c0000.qcom,msm-cam       u:object_r:sysfs_camera:s0
 genfscon sysfs /devices/soc/aa4000.qcom,fd            u:object_r:sysfs_video:s0
 genfscon sysfs /devices/soc/soc:fp_fpc1020            u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/soc/qpnp-rtc-8/rtc            u:object_r:sysfs_rtc:s0
-genfscon sysfs /devices/soc0                          u:object_r:sysfs_soc:s0
 genfscon sysfs /devices/virtual/htc_laser             u:object_r:sysfs_camera:s0
 genfscon sysfs /devices/virtual/htc_laser/laser/enable_ps_sensor u:object_r:sysfs_enable_ps_sensor:s0
 genfscon sysfs /devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0 u:object_r:sysfs_net:s0
@@ -75,7 +72,6 @@ genfscon sysfs /devices/soc/400f000.qcom,spmi/spmi-0/spmi0-00/400f000.qcom,spmi:
 genfscon sysfs /module/diagchar                       u:object_r:sysfs_diag:s0
 
 # debugfs
-genfscon debugfs /kgsl/proc                u:object_r:debugfs_kgsl:s0
 genfscon debugfs /wlan_wcnss               u:object_r:debugfs_wlan:s0
 genfscon debugfs /msm_core                 u:object_r:debugfs_msm_core:s0
 genfscon debugfs /rmt_storage              u:object_r:debugfs_rmt_storage:s0
@@ -93,3 +89,6 @@ genfscon debugfs /cnss_runtime_pm          u:object_r:debugfs_runtime_pm:s0
 genfscon debugfs /cnss-prealloc/status     u:object_r:debugfs_cnss:s0
 genfscon debugfs /ufshcd0                  u:object_r:debugfs_ufs:s0
 genfscon debugfs /fg_memif                 u:object_r:debugfs_fg_sram:s0
+
+genfscon sysfs /class/thermal                                                  u:object_r:sysfs_thermal:s0
+genfscon debugfs /gs101-thermal                                                u:object_r:debugfs_thermal:s0
