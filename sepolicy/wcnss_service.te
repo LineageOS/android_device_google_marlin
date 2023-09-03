@@ -1,0 +1,1 @@
+allow wcnss_service sysfs_msm_subsys:dir search;
