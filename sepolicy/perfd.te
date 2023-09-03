@@ -23,6 +23,10 @@ r_dir_file(perfd, sysfs_type)
 # allow perfd to write to "sysfs" to ensure it can optimally
 # tune the power/cpu settings.
 allow perfd sysfs:file write;
+allow perfd sysfs_devfreq:file write;
+allow perfd sysfs_lib:file write;
+allow perfd sysfs_msm_perf:file write;
+allow perfd sysfs_msm_power:file write;
 allow perfd sysfs_perf:file write;
 allow perfd sysfs_msm_subsys:file write;
 allow perfd sysfs_devices_system_cpu:file write;
