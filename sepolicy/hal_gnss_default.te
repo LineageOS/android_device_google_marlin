@@ -1,6 +1,6 @@
 vndbinder_use(hal_gnss_default)
-binder_call(hal_gnss_default, per_mgr);
-allow hal_gnss_default per_mgr_service:service_manager find;
+binder_call(hal_gnss_default, vendor_per_mgr);
+allow hal_gnss_default vendor_per_mgr_service:service_manager find;
 
 typeattribute hal_gnss_default data_between_core_and_vendor_violators;
 allow hal_gnss_default location_data_file:dir { search write };

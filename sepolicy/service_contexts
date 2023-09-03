@@ -1,3 +1,1 @@
-cneservice                                     u:object_r:cne_service:s0
-qti.ims.connectionmanagerservice               u:object_r:imscm_service:s0
 qchook                                         u:object_r:qchook_service:s0

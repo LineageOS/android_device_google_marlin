@@ -1,0 +1,22 @@
+# Policy for /vendor/bin/pm-service
+allow vendor_per_mgr self:capability net_bind_service;
+
+add_service(vendor_per_mgr, vendor_per_mgr_service)
+
+vndbinder_use(vendor_per_mgr)
+binder_call(vendor_per_mgr, rild)
+binder_call(vendor_per_mgr, vendor_per_proxy)
+
+allow vendor_per_mgr firmware_file:dir search;
+allow vendor_per_mgr firmware_file:file r_file_perms;
+allow vendor_per_mgr self:socket create_socket_perms;
+allowxperm vendor_per_mgr self:socket ioctl msm_sock_ipc_ioctls;
+allow vendor_per_mgr ssr_device:chr_file { open read };
+
+allow vendor_per_mgr sysfs:dir r_dir_perms;
+
+r_dir_file(vendor_per_mgr, sysfs_msm_subsys)
+
+userdebug_or_eng(`
+  allow rild ssr_device:chr_file { open read };
+')

@@ -14,7 +14,7 @@ allow hal_sensors sensor_vendor_data_file:dir create_dir_perms;
 allow hal_sensors sensor_vendor_data_file:file create_file_perms;
 
 # Allow access to sensor properties
-set_prop(hal_sensors, sensors_prop)
+set_prop(hal_sensors, vendor_sensors_prop)
 
 # Allow access to gralloc shared memory (ion), for sensor direct report
 allow hal_sensors ion_device:chr_file { open read ioctl };
