@@ -2,7 +2,7 @@ qcom.bluetooth.soc                  u:object_r:vendor_bluetooth_prop:s0
 ro.bluetooth.emb_wp_mode            u:object_r:vendor_bluetooth_prop:s0
 persist.camera.                     u:object_r:camera_prop:s0
 htc.camera.                         u:object_r:camera_prop:s0
-sensors.                            u:object_r:sensors_prop:s0
+sensors.                            u:object_r:vendor_sensors_prop:s0
 wc_transport.                       u:object_r:wc_prop:s0
 net.r_rmnet                         u:object_r:net_radio_prop:s0
 radio.                              u:object_r:radio_prop:s0
@@ -17,11 +17,9 @@ persist.vendor.sys.crash_rcu        u:object_r:vendor_ramdump_prop:s0
 sys.qcom.thermalcfg                 u:object_r:vendor_thermal_prop:s0
 ctl.vendor.thermal-engine           u:object_r:vendor_thermal_prop:s0
 sys.time.set                        u:object_r:sys_time_prop:s0
-sys.post_boot.parsed                u:object_r:post_boot_prop:s0
 sys.logger.bluetooth                u:object_r:bluetooth_log_prop:s0
 persist.vendor.charge.              u:object_r:vendor_charge_prop:s0
-vendor.wlan.driver.version          u:object_r:wifi_prop:s0
-vendor.wlan.firmware.version        u:object_r:wifi_prop:s0
+vendor.thermal.                     u:object_r:vendor_thermal_prop:s0
 
 # vendor_timekep_prop
 persist.vendor.timeadjust           u:object_r:vendor_timekeep_prop:s0

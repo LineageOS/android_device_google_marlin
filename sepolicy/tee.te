@@ -6,7 +6,7 @@ allow tee sg_device:chr_file { ioctl open read setattr write };
 
 # access to ssd partition for HW FDE
 allow tee block_device:dir r_dir_perms;
-allow tee ssd_block_device:blk_file { open read write };
+allow tee ssd_device:blk_file { open read write };
 
 # Set the sys.listeners.registered property
 set_prop(tee, system_prop)

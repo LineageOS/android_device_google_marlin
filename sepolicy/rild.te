@@ -1,13 +1,13 @@
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets
 qmux_socket(rild)
 
-allow rild per_mgr_service:service_manager find;
+allow rild vendor_per_mgr_service:service_manager find;
 
 hwbinder_use(rild)
-add_hwservice(rild, vnd_qcril_audio_hwservice)
+add_hwservice(rild, hal_audio_hwservice)
 
 vndbinder_use(rild)
-binder_call(rild, per_mgr)
+binder_call(rild, vendor_per_mgr)
 
 # callback into telephony app
 binder_call(rild, platform_app);
