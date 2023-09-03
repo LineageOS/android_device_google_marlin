@@ -1,0 +1,2 @@
+allow vendor_misc_writer sysfs_dt_firmware_android:file r_file_perms;
+allow vendor_misc_writer sysfs_dt_firmware_android:dir r_dir_perms;

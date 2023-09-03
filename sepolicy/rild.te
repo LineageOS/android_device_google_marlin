@@ -49,3 +49,5 @@ typeattribute rild socket_between_core_and_vendor_violators;
 
 # Allow vendor native process to read the proc file of xy_qtaguid
 allow rild proc_qtaguid_stat:file r_file_perms;
+
+allow rild radio_core_data_file:file rw_file_perms;
