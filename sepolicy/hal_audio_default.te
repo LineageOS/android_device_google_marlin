@@ -3,7 +3,7 @@ allow hal_audio_default perfd:unix_stream_socket connectto;
 allow hal_audio_default perfd_data_file:dir search;
 allow hal_audio_default perfd_data_file:sock_file write;
 
-allow hal_audio_default audio_cal_device:chr_file rw_file_perms;
+allow hal_audio_default audio_device:chr_file rw_file_perms;
 r_dir_file(hal_audio_default, sysfs_soc)
 
 userdebug_or_eng(`

@@ -10,12 +10,6 @@ user=system seinfo=platform name=com.google.SSRestartDetector domain=ssr_detecto
 user=_app seinfo=platform name=com.android.pixellogger domain=logger_app type=app_data_file levelFrom=all
 user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_data_file levelFrom=all
 
-# AtFwd and FastDormancy apps
-user=system seinfo=platform name=com.qualcomm.telephony domain=qtelephony type=system_app_data_file
-
-# TimeService app
-user=system seinfo=platform name=com.qualcomm.timeservice domain=qtimeservice type=system_app_data_file
-
 #Domain for connectivity monitor
 user=_app isPrivApp=true seinfo=platform name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all
 
