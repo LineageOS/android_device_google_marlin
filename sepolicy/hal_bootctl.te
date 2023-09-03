@@ -10,7 +10,7 @@ allow hal_bootctl {
   custom_ab_block_device
   xbl_block_device
   boot_block_device
-  ssd_block_device
+  ssd_device
   modem_block_device
   system_block_device
 }:blk_file { getattr };
