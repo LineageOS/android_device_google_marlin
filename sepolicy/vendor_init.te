@@ -49,6 +49,7 @@ dontaudit vendor_init unlabeled:file getattr;
 allow vendor_init thermal_link_device:dir r_dir_perms;
 allow vendor_init thermal_link_device:lnk_file r_file_perms;
 set_prop(vendor_init, bootloader_prop)
+set_prop(vendor_init, default_prop)
 get_prop(vendor_init, hw_sku_prop)
 set_prop(vendor_init, vendor_thermal_prop)
 get_prop(vendor_init, wc_prop)

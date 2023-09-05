@@ -13,3 +13,5 @@ allow mediacodec sysfs_soc:file r_file_perms;
 # Only allow gpu ioctl commands that have been demonstrated to be necessary.
 allowxperm mediacodec gpu_device:chr_file
   ioctl { gpu_ioctls unpriv_tty_ioctls };
+
+get_prop(mediacodec, default_prop)

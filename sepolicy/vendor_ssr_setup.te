@@ -2,3 +2,8 @@
 allow vendor_ssr_setup sysfs_msm_subsys:dir r_dir_perms;
 allow vendor_ssr_setup sysfs_msm_subsys:file rw_file_perms;
 allow vendor_ssr_setup sysfs_msm_subsys:lnk_file read;
+
+allow vendor_ssr_setup vendor_file:dir read;
+
+get_prop(vendor_ssr_setup, default_prop)
+get_prop(vendor_ssr_setup, system_prop)

@@ -27,5 +27,9 @@ userdebug_or_eng(`
   allow thermal-engine diag_device:chr_file rw_file_perms;
 ')
 
+allow thermal-engine vendor_file:dir read;
+
 # reboot/shutdown for thermal limits exceeded
 set_prop(thermal-engine, powerctl_prop)
+
+get_prop(thermal-engine, default_prop)
