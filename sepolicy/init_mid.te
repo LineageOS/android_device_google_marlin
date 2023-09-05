@@ -6,5 +6,7 @@ init_daemon_domain(init_mid)
 allow init_mid vendor_shell_exec:file rx_file_perms;
 allow init_mid vendor_toolbox_exec:file rx_file_perms;
 
+allow init_mid vendor_file:dir read;
+
 set_prop(init_mid, hw_sku_prop);
 get_prop(init_mid, mid_prop);
