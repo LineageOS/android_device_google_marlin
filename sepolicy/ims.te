@@ -34,3 +34,7 @@ allow ims ion_device:chr_file r_file_perms;
 
 # use fds passed from radio app
 allow ims radio:fd use;
+
+allow ims vendor_file:dir read;
+
+get_prop(ims, default_prop)
