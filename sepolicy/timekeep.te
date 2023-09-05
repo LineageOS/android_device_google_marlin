@@ -24,3 +24,5 @@ allow timekeep sysfs_rtc:{ file lnk_file } r_file_perms;
 # The open() call in timekeep.c will traverse parent folders
 # of the target path as well to resolve the symlink.
 allow timekeep sysfs_msm_subsys:dir search;
+
+allow timekeep vendor_file:dir read;
