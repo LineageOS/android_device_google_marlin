@@ -7,3 +7,5 @@ init_daemon_domain(nanohub_slpi)
 allow nanohub_slpi dsp_device:chr_file rw_file_perms;
 allow nanohub_slpi ion_device:chr_file r_file_perms;
 allow nanohub_slpi system_file:dir r_dir_perms;
+
+allow nanohub_slpi vendor_file:dir read;

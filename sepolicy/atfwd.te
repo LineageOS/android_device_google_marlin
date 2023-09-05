@@ -1,3 +1,5 @@
 r_dir_file(atfwd, sysfs_type)
 
 set_prop(atfwd, radio_prop)
+
+allow atfwd vendor_file:dir read;

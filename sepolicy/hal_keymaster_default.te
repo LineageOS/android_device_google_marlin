@@ -1,0 +1,2 @@
+get_prop(hal_keymaster_default, default_prop)
+get_prop(hal_keymaster_default, system_prop)

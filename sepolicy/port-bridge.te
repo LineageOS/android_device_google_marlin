@@ -5,3 +5,7 @@ allow port-bridge at_device:chr_file rw_file_perms;
 allow port-bridge sysfs:dir r_dir_perms;
 r_dir_file(port-bridge, sysfs_msm_subsys)
 r_dir_file(port-bridge, sysfs_soc)
+
+allow port-bridge vendor_file:dir read;
+
+get_prop(port-bridge, default_prop)

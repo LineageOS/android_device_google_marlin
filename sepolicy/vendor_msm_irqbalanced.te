@@ -8,3 +8,7 @@ allow vendor_msm_irqbalanced proc_stat:file r_file_perms;
 allow vendor_msm_irqbalanced proc_interrupts:file r_file_perms;
 
 r_dir_file(vendor_msm_irqbalanced, proc)
+
+allow vendor_msm_irqbalanced vendor_file:dir read;
+
+get_prop(vendor_msm_irqbalanced, default_prop)
