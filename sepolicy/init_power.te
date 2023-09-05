@@ -24,3 +24,5 @@ allow init_power proc_kernel_sched:file w_file_perms;
 
 # set sys.post_boot.parsed to 1
 set_prop(init_power, vendor_mpctl_prop)
+
+allow init_power vendor_file:dir read;

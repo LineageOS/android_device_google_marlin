@@ -39,3 +39,7 @@ allow perfd gpu_device:chr_file rw_file_perms;
 # Determining if a process exists does not require the kill capability
 # since a permission denied indicates the process exists.
 dontaudit perfd self:capability kill;
+
+allow perfd vendor_file:dir read;
+
+get_prop(perfd, default_prop)

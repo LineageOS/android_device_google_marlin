@@ -52,3 +52,5 @@ allow rild proc_qtaguid_stat:file r_file_perms;
 
 allow rild radio_core_data_file:file rw_file_perms;
 allow rild radio_core_data_file:dir r_dir_perms;
+
+get_prop(rild, default_prop)

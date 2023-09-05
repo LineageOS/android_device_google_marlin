@@ -20,3 +20,5 @@ r_dir_file(vendor_per_mgr, sysfs_msm_subsys)
 userdebug_or_eng(`
   allow rild ssr_device:chr_file { open read };
 ')
+
+allow vendor_per_mgr vendor_file:dir read;

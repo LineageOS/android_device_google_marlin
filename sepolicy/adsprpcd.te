@@ -2,3 +2,4 @@ allow adsprpcd ion_device:chr_file rw_file_perms;
 allow adsprpcd system_file:dir r_dir_perms;
 allow adsprpcd qdsp_device:chr_file rw_file_perms;
 
+allow adsprpcd vendor_file:dir read;
