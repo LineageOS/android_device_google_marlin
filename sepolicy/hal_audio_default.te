@@ -16,3 +16,4 @@ allow hal_audio_default audio_vendor_data_file:file create_file_perms;
 dontaudit hal_audio_default hal_power_hwservice:hwservice_manager find;
 
 get_prop(hal_audio_default, audio_prop)
+get_prop(hal_audio_default, default_prop)

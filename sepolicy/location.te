@@ -61,4 +61,7 @@ get_prop(location, vendor_wifi_version)
 # xtra-daemon control
 get_prop(location, xtra_control_prop)
 
+get_prop(location, default_prop)
+get_prop(location, system_prop)
+
 dontaudit location self:capability { net_admin net_raw };
