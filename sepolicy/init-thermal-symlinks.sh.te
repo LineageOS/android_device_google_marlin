@@ -10,3 +10,5 @@ allow init-thermal-symlinks-sh sysfs_thermal:dir r_dir_perms;
 allow init-thermal-symlinks-sh sysfs_thermal:file r_file_perms;
 allow init-thermal-symlinks-sh sysfs_thermal:lnk_file r_file_perms;
 set_prop(init-thermal-symlinks-sh, vendor_thermal_prop)
+
+allow init-thermal-symlinks-sh vendor_file:dir read;

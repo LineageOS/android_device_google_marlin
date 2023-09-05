@@ -3,3 +3,5 @@ allow init-qcom-devstart-sh sysfs_boot_adsp:dir r_dir_perms;
 
 allow init-qcom-devstart-sh sysfs_slpi:file rw_file_perms;
 allow init-qcom-devstart-sh sysfs_slpi:dir r_dir_perms;
+
+allow init-qcom-devstart-sh vendor_file:dir read;

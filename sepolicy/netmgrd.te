@@ -52,3 +52,5 @@ userdebug_or_eng(`
 domain_trans(netmgrd, netutils_wrapper_exec, netutils_wrapper)
 allow netmgrd netutils_wrapper_exec:file { open read getattr execute };
 allow netmgrd netutils_wrapper:process sigkill;
+
+get_prop(netmgrd, default_prop)

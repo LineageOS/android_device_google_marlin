@@ -1,0 +1,2 @@
+get_prop(hal_gatekeeper_default, default_prop)
+
