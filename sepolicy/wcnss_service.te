@@ -1,1 +1,3 @@
 allow wcnss_service sysfs_msm_subsys:dir search;
+
+get_prop(wcnss_service, default_prop)

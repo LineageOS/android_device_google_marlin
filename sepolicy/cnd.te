@@ -19,3 +19,7 @@ allow cnd system_file:file rx_file_perms;
 # TODO(b/36613996): Remove this once qcneservice no longer communicates over sockets with cnd
 # or once qcneservice becomes a vendor service
 typeattribute cnd socket_between_core_and_vendor_violators;
+
+allow cnd vendor_file:dir read;
+
+get_prop(cnd, default_prop)

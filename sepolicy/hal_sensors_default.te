@@ -1,1 +1,2 @@
-r_dir_file(hal_sensors_default, vendor_sensor_data_file)
+allow hal_sensors_default vendor_sensor_data_file:file create_file_perms;
+allow hal_sensors_default vendor_sensor_data_file:dir create_dir_perms;
