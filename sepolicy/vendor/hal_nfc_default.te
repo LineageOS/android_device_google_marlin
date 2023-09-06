@@ -13,3 +13,5 @@ allow hal_nfc_default nfc_data_file:{ file lnk_file fifo_file } create_file_perm
 
 dontaudit hal_nfc_default hal_nfc_hwservice:hwservice_manager { find add };
 dontaudit hal_nfc_default hal_nfc_ese_hwservice:hwservice_manager find;
+
+allow hal_nfc_default default_android_hwservice:hwservice_manager find;
