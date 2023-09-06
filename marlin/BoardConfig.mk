@@ -104,8 +104,8 @@ BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/vendor/verizon
 
 TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
 
