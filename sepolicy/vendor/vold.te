@@ -7,3 +7,4 @@ allow vold sysfs_devices_block:file w_file_perms;
 allow vold persist_file:dir r_dir_perms;
 
 allow vold hal_bootctl_default:binder call;
+allow vold hal_bootctl_hwservice:hwservice_manager find;
