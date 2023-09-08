@@ -1,6 +1,7 @@
 vndbinder_use(hal_gnss_default)
 binder_call(hal_gnss_default, vendor_per_mgr);
-allow hal_gnss_default vendor_per_mgr_service:service_manager find;
+allow hal_gnss_default default_android_service:service_manager { add find };
+allow hal_gnss_default vendor_per_mgr_service:service_manager { add find} ;
 
 typeattribute hal_gnss_default data_between_core_and_vendor_violators;
 allow hal_gnss_default location_data_file:dir { search write };
