@@ -16,6 +16,7 @@ allow system_app sysfs_zram:file r_file_perms;
 unix_socket_connect(system_app, cnd, cnd)
 
 allow system_app { app_api_service radio_service }:service_manager find;
+allow system_app vendor_hal_atfwd_hwservice:hwservice_manager { add find };
 
 # Read and write /data/data subdirectory.
 allow system_app system_app_data_file:dir create_dir_perms;
