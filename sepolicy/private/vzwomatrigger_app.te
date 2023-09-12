@@ -1,1 +1,5 @@
 allow vzwomatrigger_app activity_service:service_manager find;
+allow vzwomatrigger_app content_capture_service:service_manager find;
+allow vzwomatrigger_app game_service:service_manager find;
+allow vzwomatrigger_app netstats_service:service_manager find;
+allow vzwomatrigger_app radio_service:service_manager find;
