@@ -4,6 +4,8 @@ r_dir_file(hal_memtrack_default, hal_gatekeeper_default)
 r_dir_file(hal_memtrack_default, hal_health_default)
 r_dir_file(hal_memtrack_default, hal_light_default)
 r_dir_file(hal_memtrack_default, hal_power_default)
+r_dir_file(hal_memtrack_default, hal_usb_default)
+r_dir_file(hal_memtrack_default, hal_vibrator_default)
 
 r_dir_file(hal_memtrack_default, hwservicemanager)
 r_dir_file(hal_memtrack_default, servicemanager)
