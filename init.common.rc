@@ -761,7 +761,7 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     disabled
     oneshot
 
-on property:sys.post_boot.parsed=1
+on property:vendor.post_boot.parsed=1
     start vendor.perfd
 
 on property:sys.boot_completed=1
