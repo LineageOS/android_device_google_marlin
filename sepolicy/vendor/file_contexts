@@ -6,6 +6,7 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/apdp_[ab]         u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/bootlocker_[ab]   u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/hosd_[ab]         u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/624000\.ufshc/by-name/keystore_[ab]     u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/624000\.ufshc/by-name/msadp_[ab]        u:object_r:custom_ab_block_device:s0
 
 # Other, non-A/B partitions.
