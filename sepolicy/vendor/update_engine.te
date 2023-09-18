@@ -1,2 +1,2 @@
 dontaudit update_engine device:file rw_file_perms;
-allow update_engine firmware_file:filesystem r_file_perms;
+allow update_engine firmware_file:filesystem getattr;
