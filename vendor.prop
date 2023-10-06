@@ -1,5 +1,5 @@
 # Graphics
-debug.renderengine.backend=skiaglthreaded
+debug.renderengine.backend=threaded
 
 # SoC
 ro.soc.manufacturer=Qualcomm
