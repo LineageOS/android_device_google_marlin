@@ -30,6 +30,10 @@
 #ifndef __MM_QCAMERA_SOCKET_H__
 #define __MM_QCAMERA_SOCKET_H__
 
+#ifndef in_addr_t
+typedef uint32_t in_addr_t;
+#endif
+
 // System dependencies
 #include <arpa/inet.h>
 
