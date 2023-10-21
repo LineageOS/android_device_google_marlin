@@ -260,6 +260,7 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
 
 PRODUCT_PACKAGES += \
+    android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.contexthub@1.0-impl.nanohub:64 \
 
