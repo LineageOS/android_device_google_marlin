@@ -416,9 +416,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES_ENG += \
     update_engine_client
 
-# Bluetooth SoC
+# Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=rome
+
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0.vendor
 
 # Property for loading BDA from bdaddress module in kernel
 PRODUCT_PROPERTY_OVERRIDES += \
