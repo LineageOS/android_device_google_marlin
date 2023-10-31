@@ -534,11 +534,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
 
-# Setup dm-verity configs
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/system
-PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/624000.ufshc/by-name/vendor
-$(call inherit-product, build/target/product/verity.mk)
-
 # GPS configuration file
 PRODUCT_COPY_FILES += \
     device/google/marlin/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
