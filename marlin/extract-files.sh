@@ -93,6 +93,7 @@ function blob_fixup() {
         # Patch legacy blobs to use binder instead of vndbinder
         vendor/bin/pm-service)
         sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
+        grep -q libutils-v33.so "${2}" || "${PATCHELF}" --add-needed "libutils-v33.so" "${2}"
             ;;
         vendor/lib/libperipheral_client.so)
         sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
