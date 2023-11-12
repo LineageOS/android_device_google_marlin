@@ -38,10 +38,6 @@ PRODUCT_PACKAGES_ENG += \
 PRODUCT_AAPT_CONFIG := normal xlarge large
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
-# atrace
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service.m1s1 \
