@@ -1,5 +1,4 @@
 -vendor/app/QAS_DVC_MSP/QAS_DVC_MSP.apk
--vendor/app/QtiTelephonyService/QtiTelephonyService.apk
 -vendor/app/RCSBootstraputil/RCSBootstraputil.apk
 -vendor/app/SecureExtAuthService/SecureExtAuthService.apk
 vendor/app/atfwd/atfwd.apk
@@ -102,7 +101,6 @@ vendor/etc/permissions/qcrilhook.xml
 vendor/etc/permissions/qti-vzw-ims-internal.xml
 vendor/etc/permissions/qti_permissions.xml
 vendor/etc/permissions/rcsservice.xml
-vendor/etc/permissions/telephonyservice.xml
 vendor/etc/public.libraries.txt
 vendor/etc/qdcm_calib_data_S1_FHD_SAMSUNG_EA8064TG_5.0_command_mode_panel.xml
 vendor/etc/qfipsverify/bootimg.hmac
