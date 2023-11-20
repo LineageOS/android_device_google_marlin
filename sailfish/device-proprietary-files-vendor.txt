@@ -102,7 +102,6 @@ vendor/etc/permissions/qcrilhook.xml
 vendor/etc/permissions/qti-vzw-ims-internal.xml
 vendor/etc/permissions/qti_permissions.xml
 vendor/etc/permissions/rcsservice.xml
-vendor/etc/permissions/telephonyservice.xml
 vendor/etc/public.libraries.txt
 vendor/etc/qdcm_calib_data_S1_FHD_SAMSUNG_EA8064TG_5.0_command_mode_panel.xml
 vendor/etc/qfipsverify/bootimg.hmac
@@ -242,7 +241,6 @@ vendor/firmware/widevine.b04
 vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.mdt
-vendor/framework/QtiTelephonyServicelibrary.jar
 vendor/framework/embmslibrary.jar
 vendor/framework/qti-vzw-ims-internal.jar
 vendor/framework/rcsservice.jar
