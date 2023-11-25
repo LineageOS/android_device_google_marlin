@@ -632,7 +632,8 @@ AB_OTA_PARTITIONS += vendor
 
 # Camera
 PRODUCT_PACKAGES += \
-    libmm-qcamera
+    libmm-qcamera \
+    libminijail_32
 
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
