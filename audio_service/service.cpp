@@ -48,9 +48,10 @@ static bool registerPassthroughServiceImplementations(Iter first, Iter last) {
 int main(int /* argc */, char* /* argv */ []) {
     signal(SIGPIPE, SIG_IGN);
 
-    ::android::ProcessState::initWithDriver("/dev/vndbinder");
-    // start a threadpool for vndbinder interactions
-    ::android::ProcessState::self()->startThreadPool();
+    if (::android::ProcessState::isVndservicemanagerEnabled()) {
+        ::android::ProcessState::initWithDriver("/dev/vndbinder");
+        ::android::ProcessState::self()->startThreadPool();
+    }
 
     const int32_t defaultValue = -1;
     int32_t value =
