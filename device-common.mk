@@ -329,7 +329,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.VT_HYBRID_ENABLE=1 \
     persist.radio.data_con_rprt=true \
     persist.rcs.supported=1 \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.soe
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent
@@ -654,7 +654,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
-    android.hardware.radio.deprecated@1.0
+    android.hardware.radio.deprecated@1.0 \
+    android.hardware.radio.config@1.0-service
 
 # Sensors
 PRODUCT_PACKAGES += \
