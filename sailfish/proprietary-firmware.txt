@@ -1,0 +1,16 @@
+# Firmware - from google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys - (factory image).
+
+aboot.img;AB
+apdp.img;AB
+bootlocker.img;AB
+cmnlib32.img;AB
+cmnlib64.img;AB
+devcfg.img;AB
+hosd.img;AB
+hyp.img;AB
+keymaster.img;AB
+modem.img;AB
+pmic.img;AB
+rpm.img;AB
+tz.img;AB
+xbl.img;AB
