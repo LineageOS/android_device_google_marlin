@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2017-2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -32,6 +32,8 @@ write_headers
 
 write_makefiles "${MY_DIR}/device-proprietary-files.txt" true
 write_makefiles "${MY_DIR}/device-proprietary-files-vendor.txt" true
+
+append_firmware_calls_to_makefiles "${MY_DIR}/proprietary-firmware.txt"
 
 # Finish
 write_footers
