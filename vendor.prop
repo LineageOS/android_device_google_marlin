@@ -20,6 +20,7 @@ bluetooth.profile.sap.server.enabled?=true
 
 # Graphics
 debug.renderengine.backend=skiaglthreaded
+ro.hardware.egl=adreno
 
 # SoC
 ro.soc.manufacturer=Qualcomm
