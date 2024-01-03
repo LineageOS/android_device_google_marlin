@@ -1,3 +1,6 @@
+## All proprietary files from this list, unless pinned and noted otherwise,
+## are from google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys.
+
 # Camera
 system/etc/permissions/com.google.android.camera.experimental2016.xml
 system/framework/com.google.android.camera.experimental2016.jar;PRESIGNED
