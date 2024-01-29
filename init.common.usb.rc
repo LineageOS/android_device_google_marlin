@@ -101,8 +101,8 @@ on boot
     mount functionfs diag_mdm2 /dev/ffs-diag-2 uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
     setprop sys.usb.mtp.device_type 3
     setprop vendor.usb.controller ${sys.usb.controller}
-    write /config/usb_gadget/g1/strings/0x409/product ${vendor.usb.product_string}
-    write /config/usb_gadget/g2/strings/0x409/product ${vendor.usb.product_string}
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
+    write /config/usb_gadget/g2/strings/0x409/product ${ro.product.model}
     setprop sys.usb.config ${persist.vendor.usb.config}
     setprop sys.usb.configfs 1
 
