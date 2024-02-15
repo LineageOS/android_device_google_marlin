@@ -40,7 +40,6 @@ allow vendor_init {
 
 allow vendor_init proc_kernel_sched:file w_file_perms;
 
-set_prop(vendor_init, vendor_thermal_prop)
 set_prop(vendor_init, vendor_charge_prop)
 
 dontaudit vendor_init unlabeled:dir getattr;

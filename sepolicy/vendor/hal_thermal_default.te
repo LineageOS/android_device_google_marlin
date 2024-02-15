@@ -11,4 +11,8 @@ hal_client_domain(hal_thermal_default, hal_power);
 # read thermal_config
 get_prop(hal_thermal_default, vendor_thermal_prop)
 
+# Needed for reporting thermal stats event
+allow hal_thermal_default fwk_stats_service:service_manager find;
+binder_call(hal_thermal_default, servicemanager)
+
 get_prop(hal_thermal_default, boot_status_prop)

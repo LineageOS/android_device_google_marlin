@@ -470,7 +470,7 @@ SOONG_CONFIG_thermal_hal_feature += \
 SOONG_CONFIG_thermal_hal_feature_pid ?= apply_1_0
 
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.pixel
+    android.hardware.thermal-service.pixel
 
 # Thermal utils
 PRODUCT_PACKAGES += \
