@@ -686,3 +686,9 @@ vendor/qcril_database/upgrade/9_remove_germany_ecc_110.sql
 # Hand built from `89af1fe4638933a27acf9ad2f67f53bea672875e` with `pb_`
 # changed to `pr_` for compatibillity with our libril-qc-qmi-1.so.
 vendor/lib64/libnanopb393.so|ad12036d2aa646f663bdb6929784bb19affca2e5
+
+# Hand built from LineageOS source for system, and copied to vendor
+# due to build system treble requirements.
+vendor/lib/libexif.so|008c56618cc66db7e93a14eef474a73768357992
+vendor/lib/libminijail.so|f95d9f8ade969a3393858fb5336bb07c72882a32
+vendor/lib/libyuv.so|cad527507151e1e19a6d2e3b86f2ab6f6a101735
