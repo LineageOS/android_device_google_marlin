@@ -599,10 +599,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
-# Enable Perfetto traced
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.traced.enable=1
-
 # health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.marlin
