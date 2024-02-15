@@ -31,6 +31,8 @@ dontaudit rild diag_device:chr_file rw_file_perms;
 # rild needs 'lock' and 'ioctl' for /vendor/qcril.db
 allow rild vendor_file:file { lock ioctl };
 
+allow rild system_data_file:dir { getattr setattr };
+
 # TODO(b/36644492): Remove data_between_core_and_vendor_violators once
 # rild no longer directly accesses the radio app's data type.
 typeattribute rild data_between_core_and_vendor_violators;
