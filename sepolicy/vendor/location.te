@@ -39,12 +39,16 @@ typeattribute location data_between_core_and_vendor_violators;
 allow location location_data_file:dir create_dir_perms;
 allow location location_data_file:{ file sock_file } create_file_perms;
 
+allow location fwk_sensor_service:service_manager find;
+
 # allow location permission_service:service_manager find;
 # allow location sensorservice_service:service_manager find;
 
 userdebug_or_eng(`
   allow location diag_device:chr_file rw_file_perms;
 ')
+
+allow location system_data_file:dir r_dir_perms;
 
 # netd is a vendor daemon that is on /system; its functionality is related to
 # cellular data; since we allow telephony and telephony-data violations on

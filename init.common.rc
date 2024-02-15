@@ -206,9 +206,6 @@ on zygote-start
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
-    mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
-
     mkdir /data/misc/ipa 0700 net_admin net_admin
 
     # Create the directories used by the Wireless subsystem

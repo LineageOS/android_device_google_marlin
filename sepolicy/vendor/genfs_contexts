@@ -92,3 +92,9 @@ genfscon debugfs /fg_memif                 u:object_r:debugfs_fg_sram:s0
 
 genfscon sysfs /class/thermal                                                  u:object_r:sysfs_thermal:s0
 genfscon debugfs /gs101-thermal                                                u:object_r:debugfs_thermal:s0
+
+genfscon sysfs /devices/soc/75b7000.i2c/i2c-9/9-0022/extcon/extcon0/cable.1/name u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/soc/75b7000.i2c/i2c-9/9-0022/extcon/extcon0/cable.0/name u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/soc/400f000.qcom,spmi/spmi-0/spmi0-02/400f000.qcom,spmi:qcom,pmi8994@2:qcom,qpnp-smbcharger/extcon/extcon1/cable.0/name u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/soc/400f000.qcom,spmi/spmi-0/spmi0-02/400f000.qcom,spmi:qcom,pmi8994@2:qcom,qpnp-smbcharger/extcon/extcon1/cable.1/name u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/soc/400f000.qcom,spmi/spmi-0/spmi0-02/400f000.qcom,spmi:qcom,pmi8994@2:qcom,qpnp-smbcharger/extcon/extcon1/cable.2/name u:object_r:sysfs_extcon:s0
