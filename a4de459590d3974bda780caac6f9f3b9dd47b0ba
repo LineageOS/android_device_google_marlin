@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b21bcfa1_e83e2f01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2644
+      },
+      "writtenOn": "2024-02-15T03:43:57Z",
+      "side": 1,
+      "message": "Fixes the build on marlin. Haven\u0027t flashed to test function. Much better than just commenting out the thermal HAL.",
+      "revId": "a4de459590d3974bda780caac6f9f3b9dd47b0ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
