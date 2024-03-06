@@ -66,6 +66,13 @@ function blob_fixup() {
         product/etc/sysconfig/nexus.xml)
         sed -i 's/qulacomm/qualcomm/' "${2}"
             ;;
+        # Move /data/misc/location to /data/vendor/vndloc for selinux
+        vendor/bin/loc_launcher|vendor/bin/lowi-server|vendor/bin/xtra-daemon|vendor/lib/hw/gps.default.so|\
+        vendor/lib/libizat_core.so|vendor/lib/libloc_eng.so|vendor/lib/liblowi_client.so|vendor/lib/libquipc_os_api.so|\
+        vendor/lib64/hw/gps.default.so|vendor/lib64/libizat_core.so|vendor/lib64/libloc_eng.so|\
+        vendor/lib64/liblowi_client.so|vendor/lib64/libquipc_os_api.so)
+        sed -i 's#/data/misc/location#/data/vendor/vndloc#g' "${2}"
+            ;;
         # Patch blobs to load versioned libprotobuf from SDK 29, as SDK 30 removed some symbols
         vendor/bin/cnd)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
