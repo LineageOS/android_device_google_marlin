@@ -18,9 +18,6 @@
 #
 # Everything in this directory will become public
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/google/marlin-kernel/Image.lz4-dtb
 else
