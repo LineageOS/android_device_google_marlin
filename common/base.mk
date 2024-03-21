@@ -152,7 +152,7 @@ MM_VIDEO += libOmxVenc
 MM_VIDEO += libstagefrighthw
 
 #PPP
-PPP := ip-up-vpn
+#PPP := ip-up-vpn
 
 #STK
 STK := Stk
@@ -272,7 +272,6 @@ PRODUCT_PACKAGES += $(IMS_EXT)
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-        LiveWallpapersPicker \
         librs_jni
 
 # GPT utils library
