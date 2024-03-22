@@ -48,6 +48,8 @@
 #include "mm_camera_interface.h"
 #include "mm_camera.h"
 
+int32_t (*mm_camera_shim_module_init)(mm_camera_shim_ops_t *shim_ops);
+
 static pthread_mutex_t g_intf_lock = PTHREAD_MUTEX_INITIALIZER;
 
 static mm_camera_ctrl_t g_cam_ctrl;

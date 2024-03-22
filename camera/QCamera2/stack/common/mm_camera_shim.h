@@ -94,6 +94,6 @@ typedef struct {
     int32_t (*mm_camera_shim_send_cmd)(cam_shim_packet_t *event);
 } mm_camera_shim_ops_t;
 
-int32_t (*mm_camera_shim_module_init)(mm_camera_shim_ops_t *shim_ops);
+extern int32_t (*mm_camera_shim_module_init)(mm_camera_shim_ops_t *shim_ops);
 
 #endif  /*__MM_CAMERA_SHIMLAYER_H_*/
