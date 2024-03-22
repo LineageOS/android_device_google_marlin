@@ -1604,7 +1604,7 @@ void QCameraPostProcessor::releaseNotifyData(void *user_data,
 
             String8 unlinkPath((const char *) app_cb->release_data.data->data,
                                 app_cb->release_data.data->size);
-            int rc = unlink(unlinkPath.string());
+            int rc = unlink(unlinkPath.c_str());
             LOGH("Unlinking stored file rc = %d",
                   rc);
         }
