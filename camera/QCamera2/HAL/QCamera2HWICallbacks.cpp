@@ -2667,7 +2667,7 @@ void QCamera2HardwareInterface::dumpMetadataToFile(QCameraStream *stream,
             String8 filePath(timeBuf);
             snprintf(buf, sizeof(buf), "%um_%s_%d.bin", dumpFrmCnt, type, frame->frame_idx);
             filePath.append(buf);
-            int file_fd = open(filePath.string(), O_RDWR | O_CREAT, 0777);
+            int file_fd = open(filePath.c_str(), O_RDWR | O_CREAT, 0777);
             if (file_fd >= 0) {
                 ssize_t written_len = 0;
                 metadata->tuning_params.tuning_data_version = TUNING_DATA_VERSION;
@@ -2858,7 +2858,7 @@ void QCamera2HardwareInterface::dumpFrameToFile(QCameraStream *stream,
                     }
 
                     filePath.append(buf);
-                    int file_fd = open(filePath.string(), O_RDWR | O_CREAT, 0777);
+                    int file_fd = open(filePath.c_str(), O_RDWR | O_CREAT, 0777);
                     ssize_t written_len = 0;
                     if (file_fd >= 0) {
                         void *data = NULL;
@@ -2893,7 +2893,7 @@ void QCamera2HardwareInterface::dumpFrameToFile(QCameraStream *stream,
                         LOGE("fail to open file for image dumping");
                     }
                     if (true == m_bIntRawEvtPending) {
-                        strlcpy(m_BackendFileName, filePath.string(), QCAMERA_MAX_FILEPATH_LENGTH);
+                        strlcpy(m_BackendFileName, filePath.c_str(), QCAMERA_MAX_FILEPATH_LENGTH);
                         mBackendFileSize = (size_t)written_len;
                     } else {
                         dumpFrmCnt++;

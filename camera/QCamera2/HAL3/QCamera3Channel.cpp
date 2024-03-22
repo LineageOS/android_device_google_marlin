@@ -3219,7 +3219,7 @@ void QCamera3PicChannel::jpegEvtHandle(jpeg_job_status_t status,
                         snprintf(buf, sizeof(buf), "_%d.jpg",
                                 obj->mMemory.getFrameNumber(bufIdx));
                         filePath.append(buf);
-                        int file_fd = open(filePath.string(), O_RDWR | O_CREAT, 0777);
+                        int file_fd = open(filePath.c_str(), O_RDWR | O_CREAT, 0777);
                         ssize_t written_len = 0;
                         if (file_fd >= 0) {
                             fchmod(file_fd, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
