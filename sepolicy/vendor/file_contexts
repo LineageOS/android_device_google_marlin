@@ -72,9 +72,6 @@
 /persist/battery(/.*)?  u:object_r:persist_battery_file:s0
 /persist/sensorcal\.json  u:object_r:sensors_cal_file:s0
 
-# hidraw dynamic sensor
-/dev/hidraw[0-9]+            u:object_r:sensors_device:s0
-
 # b/70518189 vDSO experiments
 /sys/module/vdso/parameters  u:object_r:sysfs_vdso:s0
 
