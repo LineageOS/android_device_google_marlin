@@ -39,8 +39,6 @@ typeattribute location data_between_core_and_vendor_violators;
 allow location location_data_file:dir create_dir_perms;
 allow location location_data_file:{ file sock_file } create_file_perms;
 
-allow location fwk_sensor_service:service_manager find;
-
 # allow location permission_service:service_manager find;
 # allow location sensorservice_service:service_manager find;
 
