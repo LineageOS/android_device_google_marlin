@@ -42,6 +42,8 @@ allow vendor_init proc_kernel_sched:file w_file_perms;
 
 set_prop(vendor_init, vendor_charge_prop)
 
+allow vendor_init system_data_file:{file sock_file} setattr;
+
 dontaudit vendor_init unlabeled:dir getattr;
 dontaudit vendor_init unlabeled:file getattr;
 
