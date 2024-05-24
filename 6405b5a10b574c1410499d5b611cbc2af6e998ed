@@ -16,6 +16,24 @@
       "message": "Patchset 2 fixes the compile error: \nERROR: files are incompatible: The following instances are in the device manifest but not specified in framework compatibility matrix: \n    android.hardware.radio@1.4::ISap/slot1",
       "revId": "6405b5a10b574c1410499d5b611cbc2af6e998ed",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51216eed_b20b3824",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-05-24T00:04:19Z",
+      "side": 1,
+      "message": "nice. Let me know if this + wrapper + sepolicy works.",
+      "parentUuid": "c01ac1ef_f4f1b084",
+      "revId": "6405b5a10b574c1410499d5b611cbc2af6e998ed",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
