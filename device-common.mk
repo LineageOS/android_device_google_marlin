@@ -253,7 +253,8 @@ PRODUCT_COPY_FILES += \
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
-    android.hardware.gatekeeper@1.0-service
+    android.hardware.gatekeeper@1.0-service \
+    libion.vendor
 
 # Common sensor packages
 TARGET_USES_NANOHUB_SENSORHAL := true
@@ -598,6 +599,7 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidlmemory.vendor \
     libhidltransport \
     libhwbinder
 
@@ -645,7 +647,10 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.radio.config@1.0-service \
-    android.hardware.radio@1.4-service.legacy
+    android.hardware.radio@1.4-service.legacy \
+    libnetutils.vendor \
+    libsqlite.vendor \
+    libsysutils.vendor
 
 # Sensors
 PRODUCT_PACKAGES += \
