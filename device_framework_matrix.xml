@@ -1,5 +1,30 @@
 <compatibility-matrix version="2.0" type="framework">
     <hal format="hidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IBluetoothAudioProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.cas</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>clearkey</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
         <transport>hwbinder</transport>
         <version>2.1</version>
@@ -52,6 +77,57 @@
         <interface>
             <name>ISap</name>
             <instance>slot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ILight</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.power</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IPower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.vibrator</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVibrator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>ISupplicant</name>
+            <instance>default</instance>
         </interface>
     </hal>
 </compatibility-matrix>
