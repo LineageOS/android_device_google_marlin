@@ -692,3 +692,4 @@ vendor/lib64/libnanopb393.so|ad12036d2aa646f663bdb6929784bb19affca2e5
 vendor/lib/libexif.so|008c56618cc66db7e93a14eef474a73768357992
 vendor/lib/libminijail.so|f95d9f8ade969a3393858fb5336bb07c72882a32
 vendor/lib/libyuv.so|cad527507151e1e19a6d2e3b86f2ab6f6a101735
+vendor/lib64/libcld80211.so|8a4c2c19a1cc5f1b54432ed500fe93fdecb4dc32
