@@ -93,8 +93,8 @@ system/lib64/lib-imsvideocodec.so
 system/lib64/lib-imsvt.so
 system/lib64/lib-imsvtextutils.so
 system/lib64/lib-imsvtutils.so
-system/lib64/libimscamera_jni.so
-system/lib64/libimsmedia_jni.so
+system/lib64/libimscamera_jni.so;SYMLINK=system/app/ims/lib/arm64/libimscamera_jni.so
+system/lib64/libimsmedia_jni.so;SYMLINK=system/app/ims/lib/arm64/libimsmedia_jni.so
 system/lib64/librcc.so
 system/priv-app/CNEService/CNEService.apk|a4d3c0b54c44ce7334ec9c3b60f1e4a4a57b2307
 
