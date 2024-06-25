@@ -655,6 +655,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
+    libpower.vendor \
     libsensorndkbridge
 
 # Soong Namespaces
