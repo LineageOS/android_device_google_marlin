@@ -316,6 +316,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.gyro.android=4 \
+    persist.camera.gyro.disable=1 \
     persist.camera.tof.direct=1 \
     persist.camera.tnr.preview=1 \
     persist.camera.tnr.video=1
