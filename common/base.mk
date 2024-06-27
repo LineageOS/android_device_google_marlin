@@ -139,9 +139,6 @@ LIBQDMETADATA := libqdMetaData
 #use qcom LLVM
 $(call inherit-product-if-exists, external/llvm/llvm-select.mk)
 
-#MM_AUDIO
-MM_AUDIO += libstagefright_soft_flacdec
-
 #MM_CORE
 MM_CORE := libmm-omxcore
 MM_CORE += libOmxCore
