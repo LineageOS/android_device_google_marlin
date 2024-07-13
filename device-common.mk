@@ -303,9 +303,7 @@ PRODUCT_COPY_FILES += \
 
 # Memtrack
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.msm8996
+    vendor.qti.hardware.memtrack-service
 
 # NFC
 PRODUCT_PACKAGES += \
