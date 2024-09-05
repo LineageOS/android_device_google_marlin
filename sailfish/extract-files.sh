@@ -129,8 +129,8 @@ function blob_fixup() {
         sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
             ;;
         # Patch QC RIL to load custom libnano
-        [ "$2" = "" ] && return 0
         vendor/lib64/libril-qc-qmi-1.so)
+        [ "$2" = "" ] && return 0
         grep -q "libnanopb393.so" "${2}" || "${PATCHELF}" --add-needed "libnanopb393.so" "${2}"
             ;;
     *)
