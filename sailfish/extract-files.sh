@@ -97,6 +97,7 @@ function blob_fixup() {
         vendor/lib/libwvhidl.so)
         [ "$2" = "" ] && return 0
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
+         grep -q libcrypto_shim.so "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
             ;;
         vendor/lib64/libcne.so)
         [ "$2" = "" ] && return 0
