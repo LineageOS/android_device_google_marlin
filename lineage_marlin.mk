@@ -18,9 +18,8 @@ TARGET_MANUFACTURER := HTC
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=marlin \
-    PRIVATE_BUILD_DESC="marlin-user 10 QP1A.191005.007.A3 5972272 release-keys"
-
-BUILD_FINGERPRINT := google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys
+    BuildDesc="marlin-user 10 QP1A.191005.007.A3 5972272 release-keys" \
+    BuildFingerprint=google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys \
+    DeviceName=marlin
 
 $(call inherit-product, vendor/google/marlin/marlin-vendor.mk)
