@@ -18,9 +18,8 @@ TARGET_MANUFACTURER := HTC
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=sailfish \
-    PRIVATE_BUILD_DESC="sailfish-user 10 QP1A.191005.007.A3 5972272 release-keys"
-
-BUILD_FINGERPRINT := google/sailfish/sailfish:10/QP1A.191005.007.A3/5972272:user/release-keys
+    BuildDesc="sailfish-user 10 QP1A.191005.007.A3 5972272 release-keys" \
+    BuildFingerprint=google/sailfish/sailfish:10/QP1A.191005.007.A3/5972272:user/release-keys \
+    DeviceName=sailfish
 
 $(call inherit-product, vendor/google/sailfish/sailfish-vendor.mk)
