@@ -1,0 +1,33 @@
+cc_binary {
+    name: "datatop",
+    vendor: true,
+
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-pedantic",
+        "-std=c99",
+        "-DVERSION=\"1.0.4\"",
+        "-DHAVE_STRL_FUNCTIONS",
+        "-D_BSD_SOURCE",
+    ],
+
+    srcs: [
+        "datatop.c",
+        "datatop_cpu_stats_poll.c",
+        "datatop_dev_poll.c",
+        "datatop_dual_line_poll.c",
+        "datatop_fileops.c",
+        "datatop_gen_poll.c",
+        "datatop_helpers.c",
+        "datatop_linked_list.c",
+        "datatop_meminfo_file_poll.c",
+        "datatop_opt.c",
+        "datatop_single_line_poll.c",
+        "datatop_stat_poll.c",
+        "datatop_str.c",
+        "datatop_sys_snap.c",
+        "datatop_value_only_poll.c",
+    ],
+}
