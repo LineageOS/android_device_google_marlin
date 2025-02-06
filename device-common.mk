@@ -479,6 +479,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+$(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
+
 # Library used for VTS tests  (only for eng builds)
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 # For VTS profiling.
