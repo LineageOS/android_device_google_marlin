@@ -35,7 +35,8 @@ VENDOR_SECURITY_PATCH := 2019-10-06
 PRODUCT_SOONG_NAMESPACES += \
     device/google/marlin \
     vendor/google/camera \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/qcom-caf/bootctrl
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
@@ -475,9 +476,8 @@ PRODUCT_PACKAGES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl:64 \
-    android.hardware.boot@1.0-impl.recovery:64 \
-    android.hardware.boot@1.0-service
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery
 
 # Library used for VTS tests  (only for eng builds)
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
@@ -496,10 +496,6 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libpn551_fw.so:$(TARGET_COPY_OUT_VENDOR)/lib/libpn551_fw.so
 
 # Bootloader HAL used for A/B updates.
-PRODUCT_PACKAGES += \
-    bootctrl.msm8996 \
-    bootctrl.msm8996.recovery
-
 PRODUCT_PACKAGES_ENG += \
     bootctl
 
