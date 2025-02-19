@@ -271,10 +271,6 @@ PRODUCT_PACKAGES += $(IMS_EXT)
 PRODUCT_PACKAGES += \
         librs_jni
 
-# GPT utils library
-PRODUCT_PACKAGES += libgptutils.marlin
-PRODUCT_PACKAGES += libgptutils.marlin.recovery
-
 # healthd libaray expanded for mode charger
 PRODUCT_PACKAGES += libhealthd.msm
 
