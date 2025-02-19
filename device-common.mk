@@ -91,14 +91,9 @@ PRODUCT_COPY_FILES += \
 
 # Boot Control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl:64 \
-    android.hardware.boot@1.0-impl.recovery:64 \
-    android.hardware.boot@1.0-service \
-    bootctl \
-    bootctrl.msm8996 \
-    bootctrl.msm8996.recovery \
-    libgptutils.marlin \
-    libgptutils.marlin.recovery
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery \
+    bootctl
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
@@ -418,7 +413,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/qcom/media/msm8996 \
-    hardware/qcom/display/msm8996
+    hardware/qcom/display/msm8996 \
+    hardware/qcom-caf/bootctrl
 
 # Splash Screen
 PRODUCT_PACKAGES += \
