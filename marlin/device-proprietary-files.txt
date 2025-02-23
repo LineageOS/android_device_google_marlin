@@ -113,8 +113,8 @@ product/etc/permissions/com.android.omadm.service.xml
 product/etc/permissions/com.android.sdm.plugins.diagmon.xml
 product/etc/permissions/com.android.sdm.plugins.sprintdm.xml
 product/etc/sysconfig/whitelist_com.android.omadm.service.xml
-product/lib/libdmengine.so
-product/lib/libdmjavaplugin.so
+product/lib/libdmengine.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmengine.so
+product/lib/libdmjavaplugin.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmjavaplugin.so
 product/priv-app/DMService/DMService.apk
 product/priv-app/DiagMon/DiagMon.apk
 product/priv-app/SprintDM/SprintDM.apk
