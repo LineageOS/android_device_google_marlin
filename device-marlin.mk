@@ -59,10 +59,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.marlin
 
-# VR packages
-PRODUCT_PACKAGES += \
-    vr.marlin
-
 $(call add-product-sanitizer-module-config,wpa_supplicant,never)
 $(call add-product-sanitizer-module-config,toybox_vendor,never)
 $(call add-product-sanitizer-module-config,thermal-engine,never)
