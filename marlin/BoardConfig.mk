@@ -28,7 +28,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
 
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := true
 TARGET_RECOVERY_FSTAB := device/google/marlin/init-files/fstab.common
 BOARD_USES_RECOVERY_AS_BOOT := true
