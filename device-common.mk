@@ -34,7 +34,9 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
+# Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -420,6 +422,10 @@ PRODUCT_PACKAGES += \
     libnetutils.vendor \
     libsqlite.vendor \
     libsysutils.vendor
+
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
 
 # Sensors
 PRODUCT_PACKAGES += \
