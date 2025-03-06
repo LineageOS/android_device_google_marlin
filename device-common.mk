@@ -269,10 +269,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     update_engine_sideload
 
-# Tell the system to enable copying odexes from other partition.
-PRODUCT_PACKAGES += \
-	cppreopts.sh
-
 PRODUCT_PACKAGES_ENG += \
     update_engine_client
 
