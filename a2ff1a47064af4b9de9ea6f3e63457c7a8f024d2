@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af99a7e_492598bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-03-06T22:55:20Z",
+      "side": 1,
+      "message": "copy paste from board config change I talked with several people about this - I am WELL AWARE of the history implications of this, but this device was carry so much legacy cruft and it became impossible to track.\n\nThis and wahoo are overdue for either:\n\nFresh tree that migrates to QOCM HALs\nRedo in place to do the same.\nI opted for the latter.",
+      "revId": "a2ff1a47064af4b9de9ea6f3e63457c7a8f024d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
