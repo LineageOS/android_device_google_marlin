@@ -159,7 +159,7 @@ if [ -z "${ONLY_FIRMWARE}" ]; then
 fi
 
 if [ -z "${SECTION}" ]; then
-    extract_firmware "${MY_DIR}/${DEVICE}/proprietary-firmware.txt" "${SRC}"
+    extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
 fi
 
 "${MY_DIR}/setup-makefiles.sh"
