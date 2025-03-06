@@ -18,41 +18,13 @@
 #
 # Everything in this directory will become public
 
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := 560dpi
-PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
+PRODUCT_HARDWARE := marlin
+include device/google/marlin/device-common.mk
 
--include device/google/marlin/device-common.mk
+# AAPT
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+PRODUCT_AAPT_PREBUILT_DPI += xxxhdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
-
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/marlin/overlay
-
-PRODUCT_COPY_FILES += \
-    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
-    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.marlin \
-    device/google/marlin/audio/audio_platform_info_tasha_marlin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
-    device/google/marlin/recovery/init.recovery.common.rc:recovery/root/init.recovery.marlin.rc
-
-# Sensor packages
-PRODUCT_PACKAGES += \
-    sensors.marlin
-
-PRODUCT_COPY_FILES += \
-    device/google/marlin/nfc/libnfc-nxp.marlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
-
-# Led packages
-PRODUCT_PACKAGES += \
-    lights.marlin
-
-$(call add-product-sanitizer-module-config,wpa_supplicant,never)
-$(call add-product-sanitizer-module-config,toybox_vendor,never)
-$(call add-product-sanitizer-module-config,thermal-engine,never)
-$(call add-product-sanitizer-module-config,netmgrd,never)
-$(call add-product-sanitizer-module-config,mm-camera,never)
-$(call add-product-sanitizer-module-config,myftm,never)
-$(call add-product-sanitizer-module-config,libqcril,never)
-$(call add-product-sanitizer-module-config,hostapd,never)
