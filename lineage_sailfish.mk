@@ -1,14 +1,9 @@
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
-
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/google/marlin/aosp_sailfish.mk)
-
--include device/google/marlin/device-lineage.mk
+# Inherit AOSP configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_sailfish
