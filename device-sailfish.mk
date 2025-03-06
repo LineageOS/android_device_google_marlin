@@ -18,45 +18,12 @@
 #
 # Everything in this directory will become public
 
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
+PRODUCT_HARDWARE := sailfish
+include device/google/marlin/device-common.mk
 
--include device/google/marlin/device-common.mk
+# AAPT
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
-
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/sailfish/overlay
-
-PRODUCT_COPY_FILES += \
-    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sailfish \
-    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.sailfish \
-    device/google/marlin/audio/audio_platform_info_tasha_sailfish.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
-    device/google/marlin/recovery/init.recovery.common.rc:recovery/root/init.recovery.sailfish.rc
-
-# Sensor packages
-PRODUCT_PACKAGES += \
-    sensors.sailfish
-
-PRODUCT_COPY_FILES += \
-    device/google/marlin/nfc/libnfc-nxp.sailfish.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
-
-# Led packages
-PRODUCT_PACKAGES += \
-    lights.sailfish
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprint.sailfish
-
-$(call add-product-sanitizer-module-config,wpa_supplicant,never)
-$(call add-product-sanitizer-module-config,toybox_vendor,never)
-$(call add-product-sanitizer-module-config,thermal-engine,never)
-$(call add-product-sanitizer-module-config,netmgrd,never)
-$(call add-product-sanitizer-module-config,mm-camera,never)
-$(call add-product-sanitizer-module-config,myftm,never)
-$(call add-product-sanitizer-module-config,libqcril,never)
-$(call add-product-sanitizer-module-config,hostapd,never)
