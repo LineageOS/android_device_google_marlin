@@ -103,8 +103,6 @@ CAMERA_DAEMON_NOT_PRESENT := true
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libfstab
 
-TARGET_BOARD_KERNEL_HEADERS := device/google/marlin/kernel-headers
-
 # Install odex files into the other system image
 BOARD_USES_SYSTEM_OTHER_ODEX := true
 
