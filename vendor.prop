@@ -47,9 +47,6 @@ persist.camera.tnr.video=1
 persist.camera.tof.direct=1
 ro.camera.notify_nfc=1
 
-# Charger
-ro.charger.enable_suspend=true
-
 # Data
 persist.cne.feature=1
 persist.data.mode=concurrent
