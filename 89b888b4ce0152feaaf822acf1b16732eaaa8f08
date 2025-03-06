@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94463745_f1a90ca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-03-06T19:26:52Z",
+      "side": 1,
+      "message": "I talked with several people about this - I am WELL AWARE of the history implications of this, but this device was carry so much legacy cruft and it became impossible to track.\n\nThis and wahoo are overdue for either:\n- Fresh tree that migrates to QOCM HALs\n- Redo in place to do the same.\n\nI opted for the latter.",
+      "revId": "89b888b4ce0152feaaf822acf1b16732eaaa8f08",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
