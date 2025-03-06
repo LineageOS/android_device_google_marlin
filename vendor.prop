@@ -54,9 +54,6 @@ ro.charger.enable_suspend=true
 persist.cne.feature=1
 persist.data.mode=concurrent
 
-# Dex Pre-Opt
-ro.cp_system_other_odex=1
-
 # DRM
 drm.service.enabled=true
 media.mediadrmservice.enable=true
