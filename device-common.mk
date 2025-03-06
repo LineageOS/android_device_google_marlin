@@ -38,6 +38,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/$(PRODUCT_DEVICE)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -79,6 +80,7 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
     device/google/marlin/audio/sound_trigger_mixer_paths_tasha_t50.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths_tasha_t50.xml \
     device/google/marlin/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
+    device/google/marlin/audio/audio_platform_info_tasha_$(PRODUCT_DEVICE).xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha.xml \
     device/google/marlin/audio/audio_platform_info_tasha_t50.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tasha_t50.xml \
     device/google/marlin/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     device/google/marlin/audio/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
@@ -240,6 +242,11 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init-files/init.foreground.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.foreground.sh \
     device/google/marlin/init-files/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
 
+PRODUCT_COPY_FILES += \
+    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_DEVICE) \
+    device/google/marlin/init-files/fstab.common:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.$(PRODUCT_DEVICE) \
+    device/google/marlin/recovery/init.recovery.common.rc:recovery/root/init.recovery.$(PRODUCT_DEVICE).rc
+
 PRODUCT_AAPT_CONFIG += xlarge large
 PRODUCT_CHARACTERISTICS := nosdcard
 
@@ -285,6 +292,9 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     android.hardware.nfc@1.1-service \
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/nfc/libnfc-nxp.$(PRODUCT_DEVICE).conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # cgroups
 PRODUCT_COPY_FILES += \
@@ -396,6 +406,25 @@ PRODUCT_PACKAGES_ENG += a_sns_test
 PRODUCT_PACKAGES += \
     misc_writer
 
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
+ifeq ($(PRODUCT_DEVICE),marlin)
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+PRODUCT_AAPT_PREBUILT_DPI += xxxhdpi
+else ifeq ($(PRODUCT_DEVICE),sailfish)
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+endif
+
+# Boot animation
+ifeq ($(PRODUCT_DEVICE),marlin)
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
+else ifeq ($(PRODUCT_DEVICE),sailfish)
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+endif
+
 # Camera
 PRODUCT_PACKAGES += \
     libmm-qcamera \
@@ -405,6 +434,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
     libcrypto_shim.vendor
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    fingerprint.$(PRODUCT_DEVICE)
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -420,6 +453,10 @@ PRODUCT_PACKAGES += \
     libnetutils.vendor \
     libsqlite.vendor \
     libsysutils.vendor
+
+# Led packages
+PRODUCT_PACKAGES += \
+    lights.$(PRODUCT_DEVICE)
 
 # Lineage Health
 PRODUCT_PACKAGES += \
@@ -446,6 +483,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     WifiOverlay
 
+# Sensor packages
+PRODUCT_PACKAGES += \
+    sensors.$(PRODUCT_DEVICE)
+
 # Shims
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -456,3 +497,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     TimeKeep \
     timekeep
+
+# Sanitizer Modules
+$(call add-product-sanitizer-module-config,wpa_supplicant,never)
+$(call add-product-sanitizer-module-config,toybox_vendor,never)
+$(call add-product-sanitizer-module-config,thermal-engine,never)
+$(call add-product-sanitizer-module-config,netmgrd,never)
+$(call add-product-sanitizer-module-config,mm-camera,never)
+$(call add-product-sanitizer-module-config,myftm,never)
+$(call add-product-sanitizer-module-config,libqcril,never)
+$(call add-product-sanitizer-module-config,hostapd,never)
