@@ -418,10 +418,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
     libcrypto_shim.vendor
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprint.$(PRODUCT_HARDWARE)
-
 # IMS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
