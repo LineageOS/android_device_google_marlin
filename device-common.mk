@@ -258,13 +258,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     nanoapp_cmd
 
-# sensor utilities (only for eng builds)
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += \
-    nanotool \
-    sensortest
-endif
-
 PRODUCT_COPY_FILES += \
     device/google/marlin/configs/permissions/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
@@ -325,14 +318,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent
 
-# Enable SM log mechanism by default
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.smlog_switch=1 \
-    ro.radio.log_prefix="modem_log_" \
-    ro.radio.log_loc="/data/smlog_dump"
-endif
-
 # Disable snapshot feature
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.snapshot_enabled=0 \
@@ -366,18 +351,8 @@ PRODUCT_COPY_FILES += \
 
 INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 
-# Modem debugger
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_COPY_FILES += \
-    device/google/marlin/init-files/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
-
-# Subsystem ramdump
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.enable_ramdumps=1
-else
 PRODUCT_COPY_FILES += \
     device/google/marlin/init-files/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
-endif
 
 # Subsystem silent restart
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -475,14 +450,6 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
-# Library used for VTS tests  (only for eng builds)
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-# For VTS profiling.
-PRODUCT_PACKAGES += \
-     libvts_profiling \
-     libvts_multidevice_proto
-endif
-
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.notify_nfc=1
@@ -533,19 +500,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
 #Reduce cost of scrypt for FBE CE decryption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.scrypt_params=13:3:1
-
-# Set if a device image has the VTS coverage instrumentation.
-ifeq ($(NATIVE_COVERAGE),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vts.coverage=1
-PRODUCT_SUPPORTS_VERITY_FEC := false
-endif
-
-# b/30349163
-# Set Marlin/Sailfish default log size on eng build to 1M
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PROPERTY_OVERRIDES += ro.logd.size=1M
-endif
 
 # b/32109329
 # Workaround for audio glitches
