@@ -1,18 +1,18 @@
-# config.mk
-#
-# Product-specific compile-time definitions
-#
+PLATFORM_PATH := $(PLATFORM_PATH)
 
 # BUILD_BROKEN_*
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 
-TARGET_BOARD_PLATFORM := msm8996
+# A/B
+AB_OTA_PARTITIONS += \
+    boot \
+    system \
+    vendor
+AB_OTA_UPDATER := true
 
-TARGET_USES_INTERACTION_BOOST := true
-
-TARGET_USES_AOSP := true
+# Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -25,123 +25,115 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
 
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
-TARGET_NO_RECOVERY := true
-TARGET_RECOVERY_FSTAB := device/google/marlin/init-files/fstab.common
-BOARD_USES_RECOVERY_AS_BOOT := true
+# Audio
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+AUDIO_FEATURE_ENABLED_SND_MONITOR := true
+BOARD_USES_ALSA_AUDIO := true
+TARGET_USES_QCOM_MM_AUDIO := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BOARD_HAS_QCA_BT_ROME := true
+BOARD_USES_WIPOWER := true
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+# Camera
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+CAMERA_DAEMON_NOT_PRESENT := true
+
+# Display
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 
-BOARD_USES_ALSA_AUDIO := true
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-AUDIO_FEATURE_ENABLED_SND_MONITOR := true
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
-TARGET_USES_QCOM_MM_AUDIO := true
+# Graphics
+BOARD_EGL_CFG := $(PLATFORM_PATH)/configs/graphics/egl.cfg
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# Some framework code requires this to enable BT
-BOARD_USES_WIPOWER := true
-BOARD_HAVE_BLUETOOTH_QCOM := true
-BOARD_HAS_QCA_BT_ROME := true
+# HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+    $(PLATFORM_PATH)/manifests/device_framework_matrix.xml \
+    vendor/lineage/config/device_framework_matrix.xml
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifests/manifest.xml
+DEVICE_MATRIX_FILE   := $(PLATFORM_PATH)/manifests/compatibility_matrix.xml
 
-BOARD_HAS_QCOM_WLAN := true
-BOARD_WLAN_DEVICE := qcwcn
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_STA := "sta"
-WIFI_DRIVER_FW_PATH_AP  := "ap"
-WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+# Kernel
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7 androidboot.boot_devices=soc/624000.ufshc
+BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
+BOARD_KERNEL_OFFSET := 0x80000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x02500000
+BOARD_RAMDISK_USE_XZ := true
+BOARD_RAMDISK_OFFSET := 0x02700000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_CONFIG := m1s1_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/marlin
+TARGET_NO_KERNEL := false
 
-OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+# Media
+TARGET_USES_ION := true
 
-TARGET_USERIMAGES_USE_EXT4 := true
+# Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3811790848
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3811790848
 BOARD_VENDORIMAGE_PARTITION_SIZE := 448790528
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_USES_SYSTEM_OTHER_ODEX := true
+TARGET_COPY_OUT_VENDOR := vendor
+TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_USES_ION := true
+# Platform
+TARGET_BOARD_PLATFORM := msm8996
+TARGET_USES_AOSP := true
 
-BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7 androidboot.boot_devices=soc/624000.ufshc
+# Power
+TARGET_USES_INTERACTION_BOOST := true
 
+# Properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+TARGET_PRODUCT_PROP += $(PLATFORM_PATH)/product.prop
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
+TARGET_VENDOR_PROP += $(PLATFORM_PATH)/vendor.prop
+
+# Recovery
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/init-files/fstab.common
+TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libfstab
+TARGET_RECOVERY_WIPE := $(PLATFORM_PATH)/recovery/recovery.wipe.common
+
+# Root
 BOARD_ROOT_EXTRA_FOLDERS := firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/vendor
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/vendor/verizon
-PRODUCT_PRIVATE_SEPOLICY_DIRS += device/google/marlin/sepolicy/private
-
-TARGET_FS_CONFIG_GEN := device/google/marlin/config.fs
-
-BOARD_EGL_CFG := device/google/marlin/configs/graphics/egl.cfg
-
-BOARD_KERNEL_BASE        := 0x80000000
-BOARD_KERNEL_PAGESIZE    := 4096
-BOARD_KERNEL_OFFSET      := 0x80000
-BOARD_KERNEL_TAGS_OFFSET := 0x02500000
-BOARD_RAMDISK_OFFSET     := 0x02700000
-BOARD_MKBOOTIMG_ARGS     := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-
-BOARD_RAMDISK_USE_XZ := true
-
-BOARD_QTI_CAMERA_32BIT_ONLY := true
-
-#Enable/Disable Camera daemon
-CAMERA_DAEMON_NOT_PRESENT := true
-
-TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libfstab
-
-# Install odex files into the other system image
-BOARD_USES_SYSTEM_OTHER_ODEX := true
-
-# Build a separate vendor.img
-TARGET_COPY_OUT_VENDOR := vendor
-
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-DEVICE_MANIFEST_FILE := device/google/marlin/manifests/manifest.xml
-DEVICE_MATRIX_FILE   := device/google/marlin/manifests/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    device/google/marlin/manifests/device_framework_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
-
-# Board uses A/B OTA.
-AB_OTA_UPDATER := true
-
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    system \
-    vendor
-
-# Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/google/marlin/recovery/recovery.wipe.common
-
-# Kernel
-BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_CONFIG := m1s1_defconfig
-TARGET_KERNEL_SOURCE := kernel/google/marlin
-
-# Properties
-TARGET_PRODUCT_PROP += device/google/marlin/product.prop
-TARGET_SYSTEM_PROP += device/google/marlin/system.prop
-TARGET_VENDOR_PROP += device/google/marlin/vendor.prop
-
-# Wi-Fi
-WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
+BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor/verizon
+PRODUCT_PRIVATE_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/private
 
 # Verified Boot
 BOARD_AVB_ENABLE := false
+
+# Wi-Fi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
+WIFI_DRIVER_FW_PATH_AP  := "ap"
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
