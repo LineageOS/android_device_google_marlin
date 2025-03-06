@@ -57,30 +57,10 @@ PRODUCT_COPY_FILES += \
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m \
-    ro.telephony.default_cdma_sub=0
+    dalvik.vm.heapgrowthlimit=256m
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
-
-# graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610
-
-# b/73640835
-PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.debug.rotator_downscale=1
-
-# HWUI common settings
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.gradient_cache_size=1 \
-    ro.hwui.drop_shadow_cache_size=6 \
-    ro.hwui.r_buffer_cache_size=8 \
-    ro.hwui.texture_cache_flushrate=0.4 \
-    ro.hwui.text_small_cache_width=1024 \
-    ro.hwui.text_small_cache_height=1024 \
-    ro.hwui.text_large_cache_width=2048 \
-    ro.hwui.text_large_cache_height=1024
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
@@ -113,19 +93,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
-# Enable AAudio MMAP/NOIRQ data path.
-# 2 is AAUDIO_POLICY_AUTO so it will try MMAP then fallback to Legacy path.
-PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
-# Allow EXCLUSIVE then fall back to SHARED.
-PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=2
-
-# Increase the apparent size of a hardware burst from 1 msec to 2 msec.
-# A "burst" is the number of frames processed at one time.
-# That is an increase from 48 to 96 frames at 48000 Hz.
-# The DSP will still be bursting at 48 frames but AAudio will think the burst is 96 frames.
-# A low number, like 48, might increase power consumption or stress the system.
-PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
-
 PRODUCT_PACKAGES += \
     android.hardware.audio.service.m1s1 \
     android.hardware.bluetooth.audio@2.1-impl \
@@ -135,8 +102,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.power@1.1-service.marlin \
     android.hardware.sensors@1.0-service
-
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
 
 # Configstore
 PRODUCT_PACKAGES += \
@@ -173,14 +138,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
-
-# set audio fluence, ns, aec property
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluencepro \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.speaker=true \
-    persist.audio.fluence.voicecomm=true \
-    persist.audio.fluence.voicerec=false
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
@@ -281,66 +238,8 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init-files/init.foreground.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.foreground.sh \
     device/google/marlin/init-files/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
 
-# Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1
-
-# Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192
-
-# By default, enable zram; experiment can toggle the flag,
-# which takes effect on boot
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.zram_enabled=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.gyro.android=4 \
-    persist.camera.gyro.disable=1 \
-    persist.camera.tof.direct=1 \
-    persist.camera.tnr.preview=1 \
-    persist.camera.tnr.video=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1 \
-    persist.radio.data_ltd_sys_ind=1 \
-    persist.radio.is_wps_enabled=true \
-    persist.radio.RATE_ADAPT_ENABLE=1 \
-    persist.radio.ROTATION_ENABLE=1 \
-    persist.radio.sw_mbn_update=1 \
-    persist.radio.videopause.mode=1 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.radio.data_con_rprt=true \
-    persist.rcs.supported=1 \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.mode=concurrent
-
-# Disable snapshot feature
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.snapshot_enabled=0 \
-    persist.radio.snapshot_timer=0
-
-# IMS over WiFi
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.iwlan.enable=true
-
-# LTE, CDMA, GSM/WCDMA
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=10 \
-    telephony.lteOnCdmaDevice=1
-
 PRODUCT_AAPT_CONFIG += xlarge large
 PRODUCT_CHARACTERISTICS := nosdcard
-
-# Enable camera EIS
-# eis.enable: enables electronic image stabilization
-# is_type: sets image stabilization type
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.eis.enable=1 \
-    persist.camera.is_type=4
 
 # Fingerprint HIDL implementation
 PRODUCT_PACKAGES += \
@@ -353,10 +252,6 @@ INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/init-files/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
-
-# Subsystem silent restart
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.restart_level=venus,AR6320,slpi,modem,adsp
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal/thermal-engine-marlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
@@ -376,27 +271,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	cppreopts.sh
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cp_system_other_odex=1
-
 PRODUCT_PACKAGES_ENG += \
     update_engine_client
 
 # Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.qcom.bluetooth.soc=rome
-
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
-
-# Property for loading BDA from bdaddress module in kernel
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
-
-# Bluetooth WiPower
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.bluetooth.emb_wp_mode=true \
-    ro.vendor.bluetooth.wipower=true
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -425,9 +305,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.thermal.config=thermal_info_config.json
-
 # Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
@@ -450,10 +327,6 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
-# NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.camera.notify_nfc=1
-
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf \
     device/google/marlin/nfc/libpn551_fw.so:$(TARGET_COPY_OUT_VENDOR)/lib/libpn551_fw.so
@@ -461,23 +334,6 @@ PRODUCT_COPY_FILES += \
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES_ENG += \
     bootctl
-
-# Storage: for factory reset protection feature
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.debug.disable_rotator_split=1 \
-    qdcm.only_pcc_for_trans=1 \
-    qdcm.diagonal_matrix_mode=1
-
-# Enable low power video mode for 4K encode
-PRODUCT_PROPERTY_OVERRIDES += \
-    vidc.debug.perf.mode=2
-
-# OEM Unlock reporting
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.oem_unlock_supported=1
 
 # GPS configuration file
 PRODUCT_COPY_FILES += \
@@ -497,15 +353,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-#Reduce cost of scrypt for FBE CE decryption
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.scrypt_params=13:3:1
-
-# b/32109329
-# Workaround for audio glitches
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio.adm.buffering.ms=3
-
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     device/google/marlin/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
@@ -524,10 +371,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libutils-v33
-
-# Marlin/Sailfish kernel doesn't have HEH filename encryption
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.volume.filenames_mode=aes-256-cts
 
 # health HAL
 PRODUCT_PACKAGES += \
@@ -556,21 +399,10 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     libminijail_32
 
-# Charger
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.charger.enable_suspend=true
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
     libcrypto_shim.vendor
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    drm.service.enabled=true \
-    media.mediadrmservice.enable=true
-
-# Google Assistant
-PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
 # IMS
 PRODUCT_PACKAGES += \

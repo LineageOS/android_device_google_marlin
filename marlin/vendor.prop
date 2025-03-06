@@ -1,0 +1,7 @@
+# Display
+ro.sf.lcd_density=560
+
+# HWUI
+ro.hwui.layer_cache_size=48
+ro.hwui.path_cache_size=32
+ro.hwui.texture_cache_size=72

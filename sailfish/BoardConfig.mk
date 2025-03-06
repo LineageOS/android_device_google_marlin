@@ -143,6 +143,7 @@ TARGET_KERNEL_SOURCE := kernel/google/marlin
 TARGET_PRODUCT_PROP += device/google/marlin/product.prop
 TARGET_SYSTEM_PROP += device/google/marlin/system.prop
 TARGET_VENDOR_PROP += device/google/marlin/vendor.prop
+TARGET_VENDOR_PROP += device/google/marlin/sailfish/vendor.prop
 
 # Wi-Fi
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
