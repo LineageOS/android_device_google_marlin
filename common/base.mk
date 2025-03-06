@@ -158,9 +158,6 @@ STK := Stk
 WPA := wpa_supplicant.conf
 WPA += wpa_supplicant
 WPA += hs20-osu-client
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-WPA += wpa_cli
-endif
 
 #Charger
 CHARGER := charger
