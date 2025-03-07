@@ -28,11 +28,9 @@ PRODUCT_PACKAGES += \
     cppreopts.sh \
     otapreopt_script \
     update_engine \
+    update_engine_client \
     update_engine_sideload \
     update_verifier
-
-PRODUCT_PACKAGES_ENG += \
-    update_engine_client
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal xlarge large
@@ -94,9 +92,7 @@ PRODUCT_COPY_FILES += \
 # Boot Control
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
-    android.hardware.boot-service.qti.recovery
-
-PRODUCT_PACKAGES_ENG += \
+    android.hardware.boot-service.qti.recovery \
     bootctl
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
@@ -412,8 +408,6 @@ PRODUCT_PACKAGES += \
     libpower.vendor \
     libsensorndkbridge \
     nanoapp_cmd
-
-PRODUCT_PACKAGES_ENG += a_sns_test
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
