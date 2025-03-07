@@ -387,16 +387,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sgdisk.recovery
 
-# Sanitizer Modules
-$(call add-product-sanitizer-module-config,hostapd,never)
-$(call add-product-sanitizer-module-config,libqcril,never)
-$(call add-product-sanitizer-module-config,mm-camera,never)
-$(call add-product-sanitizer-module-config,myftm,never)
-$(call add-product-sanitizer-module-config,netmgrd,never)
-$(call add-product-sanitizer-module-config,thermal-engine,never)
-$(call add-product-sanitizer-module-config,toybox_vendor,never)
-$(call add-product-sanitizer-module-config,wpa_supplicant,never)
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
