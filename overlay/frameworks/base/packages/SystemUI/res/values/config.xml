@@ -31,22 +31,11 @@
     <!-- Doze: does this device support STATE_DOZE and STATE_DOZE_SUSPEND?  -->
     <bool name="doze_display_state_supported">true</bool>
 
-    <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
-    <bool name="doze_pickup_performs_proximity_check">true</bool>
-
-    <!-- The default tiles to display in QuickSettings -->
-    <string name="quick_settings_tiles_default" translatable="false">
-        wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,night
-    </string>
-
     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
     <!-- Whether to show a warning notification when device's skin temperature is high. -->
     <integer name="config_showTemperatureWarning">1</integer>
-
-    <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
-    <bool name="config_mobileIconIgnoresIWlan">true</bool>
 
 </resources>
