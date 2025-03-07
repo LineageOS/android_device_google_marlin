@@ -28,11 +28,9 @@ PRODUCT_PACKAGES += \
     cppreopts.sh \
     otapreopt_script \
     update_engine \
+    update_engine_client \
     update_engine_sideload \
     update_verifier
-
-PRODUCT_PACKAGES_ENG += \
-    update_engine_client
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal xlarge large
@@ -96,13 +94,11 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl:64 \
     android.hardware.boot@1.0-impl.recovery:64 \
     android.hardware.boot@1.0-service \
+    bootctl \
     bootctrl.msm8996 \
     bootctrl.msm8996.recovery \
     libgptutils.marlin \
     libgptutils.marlin.recovery
-
-PRODUCT_PACKAGES_ENG += \
-    bootctl
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -411,8 +407,6 @@ PRODUCT_PACKAGES += \
     libpower.vendor \
     libsensorndkbridge \
     nanoapp_cmd
-
-PRODUCT_PACKAGES_ENG += a_sns_test
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
