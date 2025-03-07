@@ -101,17 +101,21 @@ ro.oem_unlock_supported=1
 
 # Power
 ro.hardware.power=marlin
+ro.vendor.extension_library=libqti-perfd-client.so 
 
 # SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8996
 
 # Radio
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.custom_ecc=1
 persist.radio.data_con_rprt=true  
 persist.radio.data_ltd_sys_ind=1
 persist.radio.is_wps_enabled=true
 persist.radio.RATE_ADAPT_ENABLE=1
 persist.radio.ROTATION_ENABLE=1
+persist.radio.sib16_support=1
 persist.radio.snapshot_enabled=0
 persist.radio.snapshot_timer=0
 persist.radio.sw_mbn_update=1
