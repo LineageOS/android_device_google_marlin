@@ -1,0 +1,12 @@
+//
+// @file vendor/qcom/opensource/time_services/Android.mk
+// @brief Makefile for installing  time services header on Android.
+//
+
+cc_library_headers {
+
+    name: "time-services",
+
+    export_include_dirs: ["."],
+
+}
