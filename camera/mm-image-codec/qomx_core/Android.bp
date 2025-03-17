@@ -1,0 +1,39 @@
+cc_library_headers {
+    name: "qomx_core_headers",
+    vendor: true,
+    export_include_dirs: [
+        ".",
+    ],
+}
+
+cc_library_shared {
+    name: "libqomx_core",
+    vendor: true,
+    compile_multilib: "32",
+    srcs: [
+        "qomx_core.c",
+    ],
+    cflags: [
+        "-Werror",
+        "-g",
+        "-O0",
+    ],
+    local_include_dirs: [
+        ".",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    include_dirs: [
+        "frameworks/native/include/media/openmax",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+    ],
+    header_libs: [
+        "OmxCore_headers",
+        "qexif_headers",
+    ],
+}
