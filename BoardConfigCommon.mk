@@ -39,10 +39,6 @@ BOARD_USES_WIPOWER := true
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
-# Camera
-BOARD_QTI_CAMERA_32BIT_ONLY := true
-CAMERA_DAEMON_NOT_PRESENT := true
-
 # Display
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
