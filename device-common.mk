@@ -280,10 +280,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl:64 \
-    android.hardware.light@2.0-service \
-    lights.msm8996 \
-    lights.$(PRODUCT_HARDWARE)
+    android.hardware.light-service.lineage
 
 # Lineage Health
 PRODUCT_PACKAGES += \
