@@ -3,6 +3,7 @@ soong_namespace {
         "hardware/google/interfaces",
         "hardware/google/pixel",
         "hardware/qcom/bootctrl",
+        "hardware/qcom/media/msm8996",
     ],
 }
 
