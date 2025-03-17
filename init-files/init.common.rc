@@ -366,15 +366,6 @@ on early-boot
     # Permission for laser sensor driver
     chown camera camera /sys/class/htc_laser/laser/enable_ps_sensor
 
-    # Permission for LED driver
-    chown system system /sys/class/leds/red/on_off_ms
-    chown system system /sys/class/leds/green/on_off_ms
-    chown system system /sys/class/leds/blue/on_off_ms
-    chown system system /sys/class/leds/red/rgb_start
-    chown system system /sys/class/leds/green/rgb_start
-    chown system system /sys/class/leds/blue/rgb_start
-    chown system system /sys/class/leds/lcd-backlight/low_persistence
-
     # Permission for vibrator amplitude
     chown system system /sys/class/timed_output/vibrator/voltage_level
     chown system system /sys/class/leds/vibrator/vmax_mv
