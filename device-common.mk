@@ -107,13 +107,11 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     camera.msm8996 \
     libminijail_32 \
-    libmm-qcamera \
     libmmcamera_interface \
     libmmjpeg_interface \
     libqomx_core \
     libtinyxml \
-    libxml2 \
-    mm-qcamera-app
+    libxml2
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
