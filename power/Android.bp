@@ -1,0 +1,28 @@
+cc_binary {
+    name: "android.hardware.power@1.1-service.marlin",
+    init_rc: ["android.hardware.power@1.1-service.marlin.rc"],
+    relative_install_path: "hw",
+    vendor: true,
+    srcs: [
+        "service.cpp",
+        "Power.cpp",
+        "power-helper.c",
+        "metadata-parser.c",
+        "utils.c",
+        "list.c",
+        "hint-data.c",
+        "power-8996.c",
+    ],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "android.hardware.power@1.1",
+    ],
+    cflags: [
+        "-DINTERACTION_BOOST",
+    ],
+}
