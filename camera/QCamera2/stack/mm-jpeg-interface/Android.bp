@@ -1,0 +1,45 @@
+cc_library_shared {
+    name: "libmmjpeg_interface",
+    vendor: true,
+    compile_multilib: "32",
+    srcs: [
+        "src/mm_jpeg_queue.c",
+        "src/mm_jpeg_exif.c",
+        "src/mm_jpeg.c",
+        "src/mm_jpeg_interface.c",
+        "src/mm_jpeg_ionbuf.c",
+        "src/mm_jpegdec_interface.c",
+        "src/mm_jpegdec.c",
+        "src/mm_jpeg_mpo_composer.c",
+    ],
+    cflags: [
+        "-D_ANDROID_",
+        "-DQCAMERA_REDEFINE_LOG",
+        "-Wall",
+        "-Werror",
+        "-Wextra",
+        "-Wno-unused-parameter",
+        "-DUSE_ION",
+        "-DMM_JPEG_CONCURRENT_SESSIONS_COUNT=1",
+        "-DMM_JPEG_USE_PIPELINE",
+        "-DSYSTEM_HEADER_PREFIX=sys",
+    ],
+    local_include_dirs: [
+        "inc",
+    ],
+    include_dirs: [
+        "frameworks/native/include/media/openmax",
+    ],
+    shared_libs: [
+        "libdl",
+        "libcutils",
+        "liblog",
+        "libqomx_core",
+        "libmmcamera_interface",
+    ],
+    header_libs: [
+        "generated_kernel_headers",
+        "stack_common_headers",
+        "qexif_headers",
+    ],
+}
