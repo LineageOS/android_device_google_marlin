@@ -420,7 +420,8 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 PRODUCT_SOONG_NAMESPACES += \
     device/google/marlin \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/qcom/media/msm8996
 
 # Splash Screen
 PRODUCT_PACKAGES += \
