@@ -130,6 +130,9 @@ persist.rcs.supported=1
 # RIL
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
+# Sensors
+ro.hardware.sensors=nanohub
+
 # SSR
 persist.sys.ssr.restart_level=venus,AR6320,slpi,modem,adsp
 
