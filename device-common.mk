@@ -380,13 +380,18 @@ PRODUCT_PACKAGES += \
     sgdisk.recovery
 
 # Sensors
+$(call soong_config_set,nanohub_sensorhal,sensorlist_library,//device/google/marlin:libnanohub_sensorlist)
+$(call soong_config_set,nanohub_sensorhal,direct_report_enabled,true)
+$(call soong_config_set,nanohub_sensorhal,dynamic_sensor_ext_enabled,true)
+$(call soong_config_set,nanohub_sensorhal,lid_state_enabled,true)
+
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.contexthub@1.0-impl.nanohub:64 \
     android.hardware.contexthub@1.0-service \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
-    sensors.$(PRODUCT_HARDWARE) \
+    sensors.nanohub \
     libpower.vendor \
     libsensorndkbridge \
     nanoapp_cmd
@@ -401,12 +406,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
-
-NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
-NANOHUB_SENSORHAL_DYNAMIC_SENSOR_EXT_ENABLED := true
-NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
-NANOHUB_SENSORHAL_SENSORLIST := $(LOCAL_PATH)/sensorhal/sensorlist.cpp
-TARGET_USES_NANOHUB_SENSORHAL := true
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 25

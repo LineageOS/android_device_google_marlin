@@ -1,0 +1,15 @@
+cc_library_static {
+    name: "libnanohub_sensorlist",
+    vendor: true,
+    cflags: select(soong_config_variable("nanohub_sensorhal", "direct_report_enabled"), {
+        "true": [ "-DDIRECT_REPORT_ENABLED" ],
+        default: [],
+    }),
+    srcs: [
+        "sensorlist.cpp",
+    ],
+    include_dirs: [
+        "device/google/contexthub/sensorhal"
+    ],
+    header_libs: ["libhardware_headers"],
+}
