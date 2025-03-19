@@ -124,6 +124,10 @@ function blob_fixup() {
         sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
         grep -q libutils-v33.so "${2}" || "${PATCHELF}" --add-needed "libutils-v33.so" "${2}"
             ;;
+        vendor/lib/libmmcamera_tuning.so)
+        [ "$2" = "" ] && return 0
+        "${PATCHELF}" --remove-needed "libmm-qcamera.so" "${2}"
+            ;;
         vendor/lib/libperipheral_client.so)
         [ "$2" = "" ] && return 0
         sed -i "s/vndbinder/binder\x00\x00\x00/" "${2}"
