@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal xlarge large
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service.m1s1 \
@@ -414,6 +418,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/qcom/media/msm8996 \
     hardware/qcom/display/msm8996 \
+    hardware/qcom/wlan/legacy \
     hardware/qcom-caf/bootctrl
 
 # Splash Screen
