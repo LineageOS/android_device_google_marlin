@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal xlarge large
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service.m1s1 \
@@ -357,11 +361,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service.marlin
 
-# Protobuf
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v29.so
-
 # Radio
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
@@ -414,6 +413,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/qcom/media/msm8996 \
     hardware/qcom/display/msm8996 \
+    hardware/qcom/wlan/legacy \
     hardware/qcom-caf/bootctrl
 
 # Splash Screen
