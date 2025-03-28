@@ -9,5 +9,5 @@ set -e
 MY_DIR="$(cd "$(dirname "${0}")"; pwd -P)"
 
 pushd "${MY_DIR}/marlin"
-./extract-files.py $@
+./setup-makefiles.py
 popd

@@ -1,0 +1,2 @@
+libadsprpc.so
+libprotobuf-cpp-lite.so
