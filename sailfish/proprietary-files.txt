@@ -1,20 +1,180 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys.
+## are from google/sailfish/sailfish:10/QP1A.191005.007.A3/5972272:user/release-keys
 
--vendor/app/QAS_DVC_MSP/QAS_DVC_MSP.apk
--vendor/app/QtiTelephonyService/QtiTelephonyService.apk
--vendor/app/RCSBootstraputil/RCSBootstraputil.apk
--vendor/app/SecureExtAuthService/SecureExtAuthService.apk
+# Current blobs with ELF checks disabled:
+# audio.primary.msm8996.so is part of a prebuilt stack, with unresolvable dependencies on GNU makefile targets
+# imsdatadaemon, libcne.so, low-server depend on libwpa_client which is a GNU makefile target
+# libGLESv1_CM_adreno.so, libq3dtools_adreno.so, libq3dtools_esx.so, libCB.so, libgsl.so are unable to resolve the following symbol: __aeabi_uldivmod (32-bit)
+# libscaler.so, libsdmextension.so, libsdm-color.so, libsdm-diag.so, libsdm-disp-apis.so, lib-sec-disp.so depend on libsdmutils_vendor which is a GNU makefile target
+# lib-imsvideocodec.so is unable to resolve the following symbol: ANativeWindow_setBuffersTransform
+# vulkan.msm8996.so is unable to resolve the following symbol: AHardwareBuffer_describe@LIBNATIVEWINDOW
+# libmmcamera_faceproc.so, libmmcamera_faceproc2.so are unable to resolve the following symbols: __aeabi_memcpy@LIBC_PRIVATE, __aeabi_memset@LIBC_PRIVATE, __gnu_Unwind_Find_exidx@LIBC_PRIVATE
+
+# Camera
+system/etc/permissions/com.google.android.camera.experimental2016.xml
+system/framework/com.google.android.camera.experimental2016.jar;PRESIGNED
+
+# CNE
+system/etc/cne/Nexus/ATT/ATT_profiles.xml
+system/etc/cne/Nexus/ROW/ROW_profiles.xml
+system/etc/cne/Nexus/VZW/VZW_profiles.xml
+
+# DRM
+system/bin/move_widevine_data.sh
+
+# Hotword Enrollment
+product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
+product/priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
+
+# IMS/HD Voice
+product/etc/CarrierSettings/airtel_in.pb
+product/etc/CarrierSettings/att5g_us.pb
+product/etc/CarrierSettings/att_us.pb
+product/etc/CarrierSettings/bell_ca.pb
+product/etc/CarrierSettings/bouygues_fr.pb
+product/etc/CarrierSettings/carrier_list.pb
+product/etc/CarrierSettings/cellcom_us.pb
+product/etc/CarrierSettings/cht_tw.pb
+product/etc/CarrierSettings/cricket5g_us.pb
+product/etc/CarrierSettings/cricket_us.pb
+product/etc/CarrierSettings/cspire_us.pb
+product/etc/CarrierSettings/default.pb
+product/etc/CarrierSettings/docomo_jp.pb
+product/etc/CarrierSettings/ee_gb.pb
+product/etc/CarrierSettings/fet_tw.pb
+product/etc/CarrierSettings/fi_us.pb
+product/etc/CarrierSettings/fido_ca.pb
+product/etc/CarrierSettings/firstnet_us.pb
+product/etc/CarrierSettings/firstnetpacific_us.pb
+product/etc/CarrierSettings/fizz_ca.pb
+product/etc/CarrierSettings/freedommobile_ca.pb
+product/etc/CarrierSettings/h3_gb.pb
+product/etc/CarrierSettings/idea_in.pb
+product/etc/CarrierSettings/idmobile_gb.pb
+product/etc/CarrierSettings/kddi_jp.pb
+product/etc/CarrierSettings/koodo_ca.pb
+product/etc/CarrierSettings/luckymobile_ca.pb
+product/etc/CarrierSettings/o2_de.pb
+product/etc/CarrierSettings/o2postpaid_gb.pb
+product/etc/CarrierSettings/o2prepaid_gb.pb
+product/etc/CarrierSettings/optus_au.pb
+product/etc/CarrierSettings/orange_es.pb
+product/etc/CarrierSettings/orange_fr.pb
+product/etc/CarrierSettings/others.pb
+product/etc/CarrierSettings/pcmobilebell_ca.pb
+product/etc/CarrierSettings/rakuten_jp.pb
+product/etc/CarrierSettings/rjio_in.pb
+product/etc/CarrierSettings/rogers_ca.pb
+product/etc/CarrierSettings/sfr_fr.pb
+product/etc/CarrierSettings/singtel_sg.pb
+product/etc/CarrierSettings/softbank_jp.pb
+product/etc/CarrierSettings/solomobile_ca.pb
+product/etc/CarrierSettings/sprint_us.pb
+product/etc/CarrierSettings/sprintwholesale_us.pb
+product/etc/CarrierSettings/starhub_sg.pb
+product/etc/CarrierSettings/telekom_de.pb
+product/etc/CarrierSettings/telstra_au.pb
+product/etc/CarrierSettings/telus_ca.pb
+product/etc/CarrierSettings/tmobile_us.pb
+product/etc/CarrierSettings/twm_tw.pb
+product/etc/CarrierSettings/uscc_us.pb
+product/etc/CarrierSettings/verizon_us.pb
+product/etc/CarrierSettings/videotron_ca.pb
+product/etc/CarrierSettings/virgin_ca.pb
+product/etc/CarrierSettings/visible_us.pb
+product/etc/CarrierSettings/vodafone_au.pb
+product/etc/CarrierSettings/vodafone_de.pb
+product/etc/CarrierSettings/vodafone_es.pb
+product/etc/CarrierSettings/vodafone_gb.pb
+product/etc/CarrierSettings/vodafone_in.pb
+product/etc/CarrierSettings/vodafone_it.pb
+product/etc/CarrierSettings/vodafone_nl.pb
+product/etc/CarrierSettings/xfinity_us.pb
+product/priv-app/CarrierServices/CarrierServices.apk;PRESIGNED
+product/priv-app/CarrierSettings/CarrierSettings.apk
+system/app/ims/ims.apk
+system/lib/lib-imsvideocodec.so;DISABLE_CHECKELF
+system/lib/lib-imsvt.so
+system/lib/lib-imsvtextutils.so
+system/lib/lib-imsvtutils.so
+system/lib/librcc.so
+system/lib64/lib-imsvideocodec.so;DISABLE_CHECKELF
+system/lib64/lib-imsvt.so
+system/lib64/lib-imsvtextutils.so
+system/lib64/lib-imsvtutils.so
+system/lib64/libimscamera_jni.so;SYMLINK=app/ims/lib/arm64/libimscamera_jni.so
+system/lib64/libimsmedia_jni.so;SYMLINK=app/ims/lib/arm64/libimsmedia_jni.so
+system/lib64/librcc.so
+system/priv-app/CNEService/CNEService.apk|a4d3c0b54c44ce7334ec9c3b60f1e4a4a57b2307
+vendor/lib/libdiag.so:system/lib/libdiag_system.so
+vendor/lib64/libdiag.so:system/lib64/libdiag_system.so
+
+# Permissions
+product/etc/permissions/privapp-permissions-google-p.xml:product/etc/permissions/privapp-permissions-google-p-lineage.xml
+product/etc/permissions/privapp-permissions-google-ps.xml
+
+# RIL
+system/framework/qcrilhook.jar
+system/lib64/vendor.qti.atcmdfwd@1.0.so
+system/lib64/vendor.qti.qcril.am@1.0.so
+system/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+system/lib64/vendor.qti.qcril.am@1.0.so:vendor/lib64/vendor.qti.qcril.am@1.0_vendor.so
+
+# Sprint
+product/etc/permissions/com.android.omadm.service.xml
+product/etc/permissions/com.android.sdm.plugins.diagmon.xml
+product/etc/permissions/com.android.sdm.plugins.sprintdm.xml
+product/etc/sysconfig/whitelist_com.android.omadm.service.xml
+product/lib/libdmengine.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmengine.so
+product/lib/libdmjavaplugin.so;SYMLINK=product/priv-app/DMService/lib/arm/libdmjavaplugin.so
+product/priv-app/DMService/DMService.apk
+product/priv-app/DiagMon/DiagMon.apk
+product/priv-app/SprintDM/SprintDM.apk
+product/priv-app/SprintHM/SprintHM.apk
+
+# Sysconfig
+product/etc/sysconfig/nexus.xml
+system/etc/sysconfig/pixel_2016_exclusive.xml
+
+# VZW
+product/app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
+product/etc/permissions/com.android.sdm.plugins.connmo.xml
+product/etc/permissions/com.android.sdm.plugins.dcmo.xml
+product/etc/permissions/com.verizon.apn.xml
+product/etc/permissions/features-verizon.xml
+product/etc/permissions/obdm_permissions.xml
+product/etc/permissions/vzw_mvs_permissions.xml
+product/etc/sysconfig/vzw_mvs_sysconfig.xml
+product/priv-app/CarrierSetup/CarrierSetup.apk
+product/priv-app/ConnMO/ConnMO.apk
+product/priv-app/DCMO/DCMO.apk
+product/priv-app/MyVerizonServices/MyVerizonServices.apk;PRESIGNED
+product/priv-app/MyVerizonServices/lib/arm64/libakuaf.so:product/lib64/libakuaf.so;SYMLINK=product/priv-app/MyVerizonServices/lib/arm64/libakuaf.so
+product/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:product/lib64/libmotricity.so;SYMLINK=product/priv-app/MyVerizonServices/lib/arm64/libmotricity.so
+product/priv-app/OBDM_Permissions/OBDM_Permissions.apk
+product/priv-app/WfcActivation/WfcActivation.apk;PRESIGNED
+product/priv-app/obdm_stub/obdm_stub.apk;PRESIGNED
+system/etc/permissions/com.android.vzwomatrigger.xml
+system/etc/permissions/com.verizon.embms.xml
+system/etc/permissions/com.verizon.services.xml
+system/priv-app/OemDmTrigger/OemDmTrigger.apk
+system/priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
+
+# vendor
+vendor/app/QAS_DVC_MSP/QAS_DVC_MSP.apk
+vendor/app/QtiTelephonyService/QtiTelephonyService.apk
+vendor/app/RCSBootstraputil/RCSBootstraputil.apk
+vendor/app/SecureExtAuthService/SecureExtAuthService.apk
 vendor/app/colorservice/colorservice.apk
 vendor/app/embms/embms.apk
 vendor/app/embms/oem/config_params.xml
 vendor/app/embms/oem/provisioning_params.xml
 vendor/app/embms/oem/verizon_config_params.txt
--vendor/app/fastdormancy/fastdormancy.apk
--vendor/app/imssettings/imssettings.apk
--vendor/app/radioconfig/radioconfig.apk
--vendor/app/shutdownlistener/shutdownlistener.apk
--vendor/app/vzw_msdc_api/vzw_msdc_api.apk
+vendor/app/fastdormancy/fastdormancy.apk
+vendor/app/imssettings/imssettings.apk
+vendor/app/radioconfig/radioconfig.apk
+vendor/app/shutdownlistener/shutdownlistener.apk
+vendor/app/vzw_msdc_api/vzw_msdc_api.apk
 vendor/bin/PktRspTest
 vendor/bin/StoreKeybox
 vendor/bin/WifiLogger_app
@@ -34,27 +194,23 @@ vendor/bin/hdcp1prov
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/bin/ims_rtp_daemon
-vendor/bin/imsdatadaemon
+vendor/bin/imsdatadaemon;DISABLE_CHECKELF
 vendor/bin/imsqmidaemon
 vendor/bin/irsc_util
 vendor/bin/loc_launcher
-vendor/bin/lowi-server
+vendor/bin/lowi-server;DISABLE_CHECKELF
 vendor/bin/mct-unit-test-app
 vendor/bin/mdm_helper
 vendor/bin/mdm_helper_proxy
 vendor/bin/mm-qcamera-daemon
 vendor/bin/mm-qjpeg-dec-test
 vendor/bin/mm-qjpeg-enc-test
-vendor/bin/mm-qomx-idec-test
-vendor/bin/mm-qomx-ienc-test
 vendor/bin/msm_irqbalance
 vendor/bin/myftm
 vendor/bin/nanohub_slpi
 vendor/bin/netmgrd
 vendor/bin/nl_listener
 vendor/bin/perfd
-vendor/bin/pm-proxy
-vendor/bin/pm-service
 vendor/bin/port-bridge
 vendor/bin/qfipsverify
 vendor/bin/qjpeg-dma-test
@@ -103,7 +259,7 @@ vendor/etc/permissions/qti-vzw-ims-internal.xml
 vendor/etc/permissions/qti_permissions.xml
 vendor/etc/permissions/rcsservice.xml
 vendor/etc/public.libraries.txt
-vendor/etc/qdcm_calib_data_M1_WQHD_SAMSUNG_S6E3HA3_5.5_command_mode_panel.xml
+vendor/etc/qdcm_calib_data_S1_FHD_SAMSUNG_EA8064TG_5.0_command_mode_panel.xml
 vendor/etc/qfipsverify/bootimg.hmac
 vendor/etc/qfipsverify/qfipsverify.hmac
 vendor/etc/sap.conf
@@ -223,7 +379,6 @@ vendor/firmware/slpi.b14
 vendor/firmware/slpi.mdt
 vendor/firmware/slpiver.cfg
 vendor/firmware/synaptics_bl71.img
-vendor/firmware/synaptics_bl77.img
 vendor/firmware/tfa98xx.cnt
 vendor/firmware/utf30.bin
 vendor/firmware/venus.b00
@@ -256,29 +411,27 @@ vendor/lib/dsp/map_avs_shared_libs.txt
 vendor/lib/dsp/mmecns_module.so.1
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
+vendor/lib/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
 vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libq3dtools_esx.so
-vendor/lib/hw/audio.primary.msm8996.so
+vendor/lib/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
+vendor/lib/egl/libq3dtools_esx.so;DISABLE_CHECKELF
+vendor/lib/hw/audio.primary.msm8996.so:vendor/lib/hw/audio.primary.msm8996-m1s1.so;DISABLE_CHECKELF
 vendor/lib/hw/flp.default.so
 vendor/lib/hw/gatekeeper.msm8996.so
 vendor/lib/hw/gps.default.so
 vendor/lib/hw/keystore.msm8996.so
 vendor/lib/hw/sensors.vl530l0.tof.so
 vendor/lib/hw/sound_trigger.primary.msm8996.so
-vendor/lib/hw/vulkan.msm8996.so
+vendor/lib/hw/vulkan.msm8996.so;DISABLE_CHECKELF
 vendor/lib/lib-dplmedia.so
 vendor/lib/lib-imsdpl.so
-vendor/lib/lib-imsrcs.so
-vendor/lib/lib-rcsjni.so
 vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpdaemoninterface.so
 vendor/lib/lib-rtpsl.so
-vendor/lib/lib-sec-disp.so
+vendor/lib/lib-sec-disp.so;DISABLE_CHECKELF
 vendor/lib/libC2D2.so
-vendor/lib/libCB.so
+vendor/lib/libCB.so;DISABLE_CHECKELF
 vendor/lib/libGPTEE.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
@@ -336,7 +489,7 @@ vendor/lib/libchromatix_imx378_video_hfr_60_isp.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_3a.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_cpp.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_isp.so
-vendor/lib/libcne.so
+vendor/lib/libcne.so;DISABLE_CHECKELF
 vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/libcppf.so
@@ -358,7 +511,7 @@ vendor/lib/libgoogle_camera_hal_tests.so
 vendor/lib/libgooglecamerahal.so
 vendor/lib/libgooglecamerahalutils.so
 vendor/lib/libgps.utils.so
-vendor/lib/libgsl.so
+vendor/lib/libgsl.so;DISABLE_CHECKELF
 vendor/lib/libhdcp1prov.so
 vendor/lib/libidl.so
 vendor/lib/libizat_core.so
@@ -379,7 +532,7 @@ vendor/lib/libmdsprpc.so
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-dspp-utils.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libmm-qdcm-diag.so
+vendor/lib/libmm-qdcm-diag.so;DISABLE_CHECKELF
 vendor/lib/libmm-qdcm.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
@@ -401,8 +554,8 @@ vendor/lib/libmmcamera_dbg.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
 vendor/lib/libmmcamera_facedetection_lib.so
-vendor/lib/libmmcamera_faceproc.so
-vendor/lib/libmmcamera_faceproc2.so
+vendor/lib/libmmcamera_faceproc.so;DISABLE_CHECKELF
+vendor/lib/libmmcamera_faceproc2.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imx179_htc.so
 vendor/lib/libmmcamera_imx378_htc.so
@@ -464,7 +617,6 @@ vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libnetmgr.so
 vendor/lib/liboemcrypto.so
-vendor/lib/libperipheral_client.so
 vendor/lib/libpvr.so
 vendor/lib/libqcci_legacy.so
 vendor/lib/libqcmaputils.so
@@ -489,7 +641,7 @@ vendor/lib/librmp.so
 vendor/lib/librpmb.so
 vendor/lib/libscale.so
 vendor/lib/libsd_sdk_display.so
-vendor/lib/libsdm-disp-apis.so
+vendor/lib/libsdm-disp-apis.so;DISABLE_CHECKELF
 vendor/lib/libsdsprpc.so
 vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
@@ -522,31 +674,30 @@ vendor/lib/test_suite_pproc.so
 vendor/lib/test_suite_vfe.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
 vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
+vendor/lib64/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
+vendor/lib64/egl/libq3dtools_esx.so;DISABLE_CHECKELF
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/hw/fingerprint.marlin.so
+vendor/lib64/hw/fingerprint.sailfish.so
 vendor/lib64/hw/flp.default.so
 vendor/lib64/hw/gatekeeper.msm8996.so
 vendor/lib64/hw/gps.default.so
 vendor/lib64/hw/keystore.msm8996.so
-vendor/lib64/hw/vulkan.msm8996.so
+vendor/lib64/hw/vulkan.msm8996.so;DISABLE_CHECKELF
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/lib-imsSDP.so
 vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
 vendor/lib64/lib-imsrcs.so
 vendor/lib64/lib-imsxml.so
-vendor/lib64/lib-rcsjni.so
 vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpdaemoninterface.so
 vendor/lib64/lib-rtpsl.so
-vendor/lib64/lib-sec-disp.so
+vendor/lib64/lib-sec-disp.so;DISABLE_CHECKELF
 vendor/lib64/libC2D2.so
-vendor/lib64/libCB.so
+vendor/lib64/libCB.so;DISABLE_CHECKELF
 vendor/lib64/libGPTEE.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
@@ -574,7 +725,7 @@ vendor/lib64/libc2d30-a3xx.so
 vendor/lib64/libc2d30-a4xx.so
 vendor/lib64/libc2d30-a5xx.so
 vendor/lib64/libc2d30_bltlib.so
-vendor/lib64/libcne.so
+vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdiag.so
@@ -591,7 +742,7 @@ vendor/lib64/libgoogle_camera_hal_tests.so
 vendor/lib64/libgooglecamerahal.so
 vendor/lib64/libgooglecamerahalutils.so
 vendor/lib64/libgps.utils.so
-vendor/lib64/libgsl.so
+vendor/lib64/libgsl.so;DISABLE_CHECKELF
 vendor/lib64/libhdcp1prov.so
 vendor/lib64/libidl.so
 vendor/lib64/libizat_core.so
@@ -611,11 +762,10 @@ vendor/lib64/libmdsprpc.so
 vendor/lib64/libmm-disp-apis.so
 vendor/lib64/libmm-dspp-utils.so
 vendor/lib64/libmm-hdcpmgr.so
-vendor/lib64/libmm-qdcm-diag.so
+vendor/lib64/libmm-qdcm-diag.so;DISABLE_CHECKELF
 vendor/lib64/libmm-qdcm.so
 vendor/lib64/libmmcamera_dbg.so
 vendor/lib64/libnetmgr.so
-vendor/lib64/libperipheral_client.so
 vendor/lib64/libpvr.so
 vendor/lib64/libqcci_legacy.so
 vendor/lib64/libqcmaputils.so
@@ -634,19 +784,19 @@ vendor/lib64/libqmiservices_ext.so
 vendor/lib64/libqmiservices_htc.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libquipc_os_api.so
-vendor/lib64/libril-qc-qmi-1.so|ef4980ada7a3f60b1548b3ad79d9aa13093a2485
+vendor/lib64/libril-qc-qmi-1.so|e68381f23c32fe0cd430b0afdbe712e1b56e005d|e0b919d86f7063d3089c900434d0c49ee3c887bf
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/librmp.so
 vendor/lib64/librpmb.so
-vendor/lib64/libscalar.so
+vendor/lib64/libscalar.so;DISABLE_CHECKELF
 vendor/lib64/libscale.so
 vendor/lib64/libsd_sdk_display.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-apis.so
-vendor/lib64/libsdmextension.so
+vendor/lib64/libsdm-color.so;DISABLE_CHECKELF
+vendor/lib64/libsdm-diag.so;DISABLE_CHECKELF
+vendor/lib64/libsdm-disp-apis.so;DISABLE_CHECKELF
+vendor/lib64/libsdmextension.so;DISABLE_CHECKELF
 vendor/lib64/libsdsprpc.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
@@ -681,7 +831,13 @@ vendor/lib64/libnanopb393.so|ad12036d2aa646f663bdb6929784bb19affca2e5
 
 # Hand built from LineageOS source for system, and copied to vendor
 # due to build system treble requirements.
-vendor/lib/libexif.so|008c56618cc66db7e93a14eef474a73768357992
-vendor/lib/libminijail.so|f95d9f8ade969a3393858fb5336bb07c72882a32
-vendor/lib/libyuv.so|cad527507151e1e19a6d2e3b86f2ab6f6a101735
-vendor/lib64/libcld80211.so|8a4c2c19a1cc5f1b54432ed500fe93fdecb4dc32
+#vendor/lib/libexif.so|008c56618cc66db7e93a14eef474a73768357992
+#vendor/lib/libminijail.so|f95d9f8ade969a3393858fb5336bb07c72882a32
+#vendor/lib/libyuv.so|cad527507151e1e19a6d2e3b86f2ab6f6a101735
+#vendor/lib64/libcld80211.so|8a4c2c19a1cc5f1b54432ed500fe93fdecb4dc32
+
+# Peripheral manager - from jasmine - V11.0.15.0.QDIMIXM
+vendor/bin/pm-proxy|bc4e972e3fe595b973197efe5114da8ff4339a59
+vendor/bin/pm-service|b0f77edfe04a3cc6284738196c0044e676d5eeb3|776dccd4cd5521f95eec24d5a3f56e277db5ad2e
+vendor/lib/libperipheral_client.so|836411f7b88afe296b3f3090aab70fc5700ba434|215b6b16bbb3369b4b842fe28de2cc91ff1e6375
+vendor/lib64/libperipheral_client.so|a0dd574c8af3135adae10ef49065fa765906db7a

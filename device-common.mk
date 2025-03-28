@@ -414,6 +414,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/qcom/media/msm8996 \
     hardware/qcom/display/msm8996 \
+    hardware/qcom/wlan/legacy \
     hardware/qcom-caf/bootctrl
 
 # Splash Screen
