@@ -11,6 +11,7 @@ persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicecomm=true  
 persist.audio.fluence.voicerec=false
 ro.config.vc_call_vol_steps=7
+ro.hardware.audio.primary=msm8996-m1s1
 ro.qc.sdk.audio.fluencetype=fluencepro
 
 # Bluetooth
