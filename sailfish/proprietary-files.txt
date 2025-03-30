@@ -194,11 +194,11 @@ vendor/bin/hdcp1prov
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/bin/ims_rtp_daemon
-vendor/bin/imsdatadaemon
+vendor/bin/imsdatadaemon;DISABLE_CHECKELF
 vendor/bin/imsqmidaemon
 vendor/bin/irsc_util
 vendor/bin/loc_launcher
-vendor/bin/lowi-server
+vendor/bin/lowi-server;DISABLE_CHECKELF
 vendor/bin/mct-unit-test-app
 vendor/bin/mdm_helper
 vendor/bin/mdm_helper_proxy
@@ -490,7 +490,7 @@ vendor/lib/libchromatix_imx378_video_hfr_60_isp.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_3a.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_cpp.so
 vendor/lib/libchromatix_imx378_zsl_snapshot_isp.so
-vendor/lib/libcne.so
+vendor/lib/libcne.so;DISABLE_CHECKELF
 vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/libcppf.so

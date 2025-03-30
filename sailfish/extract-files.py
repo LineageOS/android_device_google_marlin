@@ -50,6 +50,7 @@ lib_fixups: lib_fixups_user_type = {
         'test'
     ): lib_fixup_vendor_suffix,
     (
+        'libwpa_client',
         'libsdmutils',
         'libsdmutils_vendor',
     ): lib_fixup_remove,
