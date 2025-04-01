@@ -110,9 +110,7 @@ PRODUCT_PACKAGES += \
     libminijail_32 \
     libmmcamera_interface \
     libmmjpeg_interface \
-    libqomx_core \
-    libtinyxml \
-    libxml2
+    libqomx_core
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -149,13 +147,11 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Data
 PRODUCT_PACKAGES += \
-    librmnetctl \
     rmnetcli
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey \
-    libcrypto_shim.vendor
+    android.hardware.drm-service.clearkey
 
 # Dumpstate
 PRODUCT_PACKAGES += \
@@ -176,8 +172,7 @@ PRODUCT_COPY_FILES += \
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
-    android.hardware.gatekeeper@1.0-service \
-    libion.vendor
+    android.hardware.gatekeeper@1.0-service
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -198,9 +193,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     gralloc.default \
     gralloc.msm8996 \
-    hwcomposer.msm8996 \
-    libqdMetaData \
-    libqdutils
+    hwcomposer.msm8996
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
@@ -220,17 +213,13 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
-    libhidlmemory.vendor \
-    libhidltransport \
-    libhwbinder
+    android.hidl.manager@1.0
 
 # IMS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
     ims-ext-common \
     imssettings \
-    libgui_shim \
     PresencePolling \
     RcsService
 
@@ -364,10 +353,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.radio.config@1.0-service \
-    android.hardware.radio@1.4-service.legacy \
-    libnetutils.vendor \
-    libsqlite.vendor \
-    libsysutils.vendor
+    android.hardware.radio@1.4-service.legacy
 
 # Repartition Tool
 PRODUCT_PACKAGES += \
@@ -386,8 +372,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
     sensors.nanohub \
-    libpower.vendor \
-    libsensorndkbridge \
     nanoapp_cmd
 
 PRODUCT_COPY_FILES += \
@@ -467,7 +451,6 @@ PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
-    libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf \
     WifiOverlay
