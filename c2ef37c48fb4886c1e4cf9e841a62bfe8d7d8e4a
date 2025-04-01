@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78841847_ad643f40",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-04-01T21:31:55Z",
+      "side": 1,
+      "message": "There are references, but no hits in actual deps.\n\nnolenjohnson@ODS-PROD:~/lineage-22/vendor/google/sailfish$ grep -r android.hidl\nAndroid.bp:                \"android.hidl.memory@1.0\",\nAndroid.bp:                \"android.hidl.memory@1.0\",\nAndroid.bp:                \"android.hidl.allocator@1.0\",\nAndroid.bp:                \"android.hidl.allocator@1.0\",\ngrep: proprietary/system/lib64/vendor.qti.atcmdfwd@1.0.so: binary file matches\ngrep: proprietary/system/lib64/vendor.qti.qcril.am@1.0.so: binary file matches\ngrep: proprietary/vendor/app/QtiTelephonyService/QtiTelephonyService.apk: binary file matches\ngrep: proprietary/vendor/lib64/vendor.qti.qcril.am@1.0_vendor.so: binary file matches\ngrep: proprietary/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so: binary file matches\ngrep: proprietary/vendor/lib64/libril-qc-qmi-1.so: binary file matches\ngrep: proprietary/vendor/lib64/libwvhidl.so: binary file matches\ngrep: proprietary/vendor/lib/libmmcamera2_mct.so: binary file matches\ngrep: proprietary/vendor/lib/libwvhidl.so: binary file matches\ngrep: proprietary/vendor/lib/libmmcamera2_imglib_modules.so: binary file matches",
+      "parentUuid": "775b127c_5ec7bc33",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 28
+      },
+      "revId": "c2ef37c48fb4886c1e4cf9e841a62bfe8d7d8e4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c01e20c3_f5772b05",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-04-01T21:23:03Z",
       "side": 1,
       "message": "Pretty sure this can go too.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 43
+      },
+      "revId": "c2ef37c48fb4886c1e4cf9e841a62bfe8d7d8e4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16524a54_5ba99200",
+        "filename": "device-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-04-01T21:31:55Z",
+      "side": 1,
+      "message": "nolenjohnson@ODS-PROD:~/lineage-22/vendor/google/sailfish$ grep -r android.hardware.radio\nnolenjohnson@ODS-PROD:~/lineage-22/vendor/google/sailfish$",
+      "parentUuid": "c01e20c3_f5772b05",
       "range": {
         "startLine": 353,
         "startChar": 0,
