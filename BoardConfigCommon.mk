@@ -1,5 +1,8 @@
 PLATFORM_PATH := device/google/marlin
 
+# BUILD_BROKEN_*
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
