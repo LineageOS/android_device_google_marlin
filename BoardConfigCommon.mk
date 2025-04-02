@@ -1,6 +1,7 @@
 PLATFORM_PATH := device/google/marlin
 
 # BUILD_BROKEN_*
+# Needed for /vendor/lib/dsp libraries
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
