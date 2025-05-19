@@ -79,9 +79,6 @@
 /sys/devices/vendor/vendor:bt_qca6174/rfkill/rfkill0/state                      u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/vendor/vendor:bt_qca6174/extldo                                    u:object_r:sysfs_bluetooth_writable:s0
 
-# TimeKeep
-/(system/vendor|vendor)/bin/timekeep                                            u:object_r:timekeep_exec:s0
-
 # Pixel Thermal
 /vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.pixel                   u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/hw/android\.hardware\.thermal-service\.pixel                        u:object_r:hal_thermal_default_exec:s0
