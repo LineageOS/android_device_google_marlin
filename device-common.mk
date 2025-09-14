@@ -57,6 +57,10 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libvolumelistener
 
+$(call soong_config_set,qtiaudio,feature_hwdep_cal,true)
+$(call soong_config_set,qtiaudio,feature_multi_voice_sessions,true)
+$(call soong_config_set,qtiaudio,feature_snd_monitor,true)
+
 PRODUCT_COPY_FILES += \
     device/google/marlin/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
     device/google/marlin/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
