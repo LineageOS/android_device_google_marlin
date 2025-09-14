@@ -398,6 +398,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/qcom/audio \
+    hardware/qcom/bt/msm8996/libbt-vendor \
     hardware/qcom/display/msm8996 \
     hardware/qcom/media/msm8996 \
     hardware/qcom/wlan/legacy \
